@@ -11,7 +11,7 @@ using namespace io;
 using namespace gui;
 
 /**
- * ƒƒOo—Í—p
+ * ãƒ­ã‚°å‡ºåŠ›ç”¨
  */
 void
 message_log(const char* format, ...)
@@ -25,7 +25,7 @@ message_log(const char* format, ...)
 }
 
 /**
- * ƒGƒ‰[ƒƒOo—Í—p
+ * ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°å‡ºåŠ›ç”¨
  */
 void
 error_log(const char* format, ...)
@@ -39,29 +39,29 @@ error_log(const char* format, ...)
 }
 
 // ----------------------------------------------------------------
-// À‘ÌŒ^‚Ì“o˜^
-// ”’lƒpƒ‰ƒ[ƒ^Œn‚Í”z—ñ‚©«‘‚ğg‚¦‚é‚æ‚¤‚È“ÁêƒRƒ“ƒo[ƒ^‚ğ\’z
+// å®Ÿä½“å‹ã®ç™»éŒ²
+// æ•°å€¤ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ç³»ã¯é…åˆ—ã‹è¾æ›¸ã‚’ä½¿ãˆã‚‹ã‚ˆã†ãªç‰¹æ®Šã‚³ãƒ³ãƒãƒ¼ã‚¿ã‚’æ§‹ç¯‰
 // ----------------------------------------------------------------
 
-// —¼•û©‘OƒRƒ“ƒo[ƒ^
-#define NCB_SET_CONVERTOR_BOTH(type, convertor)\
-NCB_TYPECONV_SRCMAP_SET(type, convertor<type>, true);\
+// ä¸¡æ–¹è‡ªå‰ã‚³ãƒ³ãƒãƒ¼ã‚¿
+#define NCB_SET_CONVERTOR_BOTH(type, convertor)Â¥
+NCB_TYPECONV_SRCMAP_SET(type, convertor<type>, true);Â¥
 NCB_TYPECONV_DSTMAP_SET(type, convertor<type>, true)
 
-// SRC‚¾‚¯©‘OƒRƒ“ƒo[ƒ^
-#define NCB_SET_CONVERTOR_SRC(type, convertor)\
-NCB_TYPECONV_SRCMAP_SET(type, convertor<type>, true);\
+// SRCã ã‘è‡ªå‰ã‚³ãƒ³ãƒãƒ¼ã‚¿
+#define NCB_SET_CONVERTOR_SRC(type, convertor)Â¥
+NCB_TYPECONV_SRCMAP_SET(type, convertor<type>, true);Â¥
 NCB_TYPECONV_DSTMAP_SET(type, ncbNativeObjectBoxing::Unboxing, true)
 
-// DST‚¾‚¯©‘OƒRƒ“ƒo[ƒ^
-#define NCB_SET_CONVERTOR_DST(type, convertor)\
-NCB_TYPECONV_SRCMAP_SET(type, ncbNativeObjectBoxing::Boxing,   true); \
+// DSTã ã‘è‡ªå‰ã‚³ãƒ³ãƒãƒ¼ã‚¿
+#define NCB_SET_CONVERTOR_DST(type, convertor)Â¥
+NCB_TYPECONV_SRCMAP_SET(type, ncbNativeObjectBoxing::Boxing,   true); Â¥
 NCB_TYPECONV_DSTMAP_SET(type, convertor<type>, true)
 
 /**
- * ”z—ñ‚©‚Ç‚¤‚©‚Ì”»’è
+ * é…åˆ—ã‹ã©ã†ã‹ã®åˆ¤å®š
  * @param var VARIANT
- * @return ”z—ñ‚È‚ç true
+ * @return é…åˆ—ãªã‚‰ true
  */
 static bool IsArray(const tTJSVariant &var)
 {
@@ -73,7 +73,7 @@ static bool IsArray(const tTJSVariant &var)
 }
 
 template <class T>
-struct ColorConvertor { // F—pƒRƒ“ƒo[ƒ^
+struct ColorConvertor { // è‰²ç”¨ã‚³ãƒ³ãƒãƒ¼ã‚¿
 	typedef ncbInstanceAdaptor<T> AdaptorT;
 	template <typename ANYT>
 	void operator ()(ANYT &adst, const tTJSVariant &src) {
@@ -83,12 +83,12 @@ struct ColorConvertor { // F—pƒRƒ“ƒo[ƒ^
 				dst = *obj;
 			} else {
 				ncbPropAccessor info(src);
-				if (IsArray(src)) { // ”z—ñ‚©‚ç•ÏŠ·
+				if (IsArray(src)) { // é…åˆ—ã‹ã‚‰å¤‰æ›
 					dst.setRed((u32)info.getIntValue(0, 0));
 					dst.setGreen((u32)info.getIntValue(1, 0));
 					dst.setBlue((u32)info.getIntValue(2, 0));
 					dst.setAlpha((u32)info.getIntValue(3, 255));
-				} else { // «‘‚©‚ç•ÏŠ·
+				} else { // è¾æ›¸ã‹ã‚‰å¤‰æ›
 					dst.setRed((u32)info.getIntValue(L"r", 0));
 					dst.setGreen((u32)info.getIntValue(L"g", 0));
 					dst.setBlue((u32)info.getIntValue(L"b", 0));
@@ -100,7 +100,7 @@ struct ColorConvertor { // F—pƒRƒ“ƒo[ƒ^
 		}
 		adst = ncbTypeConvertor::ToTarget<ANYT>::Get(&dst);
 	}
-// XXX ©‘O“o˜^ƒTƒ“ƒvƒ‹
+// XXX è‡ªå‰ç™»éŒ²ã‚µãƒ³ãƒ—ãƒ«
 //	template <typename ANYT>
 //	void operator ()(const tTJSVariant &dst, const ANYT &asrc) {
 //		iTJSDispatch2 *dict = TJSCreateDictionaryObject();
@@ -115,10 +115,10 @@ struct ColorConvertor { // F—pƒRƒ“ƒo[ƒ^
 private:
 	T dst;
 };
-#define NCB_MEMBER_PROPERTY(name, type, membername) \
-	struct AutoProp_ ## name { \
-		static void ProxySet(Class *inst, type value) { inst->membername = value; } \
-		static type ProxyGet(Class *inst) {      return inst->membername; } }; \
+#define NCB_MEMBER_PROPERTY(name, type, membername) Â¥
+	struct AutoProp_ ## name { Â¥
+		static void ProxySet(Class *inst, type value) { inst->membername = value; } Â¥
+		static type ProxyGet(Class *inst) {      return inst->membername; } }; Â¥
 	NCB_PROPERTY_PROXY(name,AutoProp_ ## name::ProxyGet, AutoProp_ ## name::ProxySet)
 
 #define NCB_PROPERTY2(name, getter, setter) NCB_PROPERTY(name,getter,setter);NCB_METHOD(getter);NCB_METHOD(setter)
@@ -140,7 +140,7 @@ NCB_REGISTER_SUBCLASS_DELAY(SColor) {
 };
 
 template <class T>
-struct ColorfConvertor { // F—pƒRƒ“ƒo[ƒ^
+struct ColorfConvertor { // è‰²ç”¨ã‚³ãƒ³ãƒãƒ¼ã‚¿
 	typedef ncbInstanceAdaptor<T> AdaptorT;
 	template <typename ANYT>
 	void operator ()(ANYT &adst, const tTJSVariant &src) {
@@ -150,12 +150,12 @@ struct ColorfConvertor { // F—pƒRƒ“ƒo[ƒ^
 				dst = *obj;
 			} else {
 				ncbPropAccessor info(src);
-				if (IsArray(src)) { // ”z—ñ‚©‚ç•ÏŠ·
+				if (IsArray(src)) { // é…åˆ—ã‹ã‚‰å¤‰æ›
 					dst.r = (f32)info.getRealValue(0, 0);
 					dst.g = (f32)info.getRealValue(1, 0);
 					dst.b = (f32)info.getRealValue(2, 0);
 					dst.a = (f32)info.getRealValue(3, 1.0);
-				} else { // «‘‚©‚ç•ÏŠ·
+				} else { // è¾æ›¸ã‹ã‚‰å¤‰æ›
 					dst.r = (f32)info.getRealValue(L"r", 0);
 					dst.g = (f32)info.getRealValue(L"g", 0);
 					dst.b = (f32)info.getRealValue(L"b", 0);
@@ -185,7 +185,7 @@ NCB_REGISTER_SUBCLASS_DELAY(SColorf) {
 };
 
 template <class T>
-struct DimensionConvertor { // ƒRƒ“ƒo[ƒ^
+struct DimensionConvertor { // ã‚³ãƒ³ãƒãƒ¼ã‚¿
 	typedef ncbInstanceAdaptor<T> AdaptorT;
 	template <typename ANYT>
 	void operator ()(ANYT &adst, const tTJSVariant &src) {
@@ -195,10 +195,10 @@ struct DimensionConvertor { // ƒRƒ“ƒo[ƒ^
 				dst = *obj;
 			} else {
 				ncbPropAccessor info(src);
-				if (IsArray(src)) { // ”z—ñ‚©‚ç•ÏŠ·
+				if (IsArray(src)) { // é…åˆ—ã‹ã‚‰å¤‰æ›
 					dst.Width  = (s32)info.getIntValue(0);
 					dst.Height = (s32)info.getIntValue(1);
-				} else { // «‘‚©‚ç•ÏŠ·
+				} else { // è¾æ›¸ã‹ã‚‰å¤‰æ›
 					dst.Width  = (s32)info.getIntValue(L"width");
 					dst.Height = (s32)info.getIntValue(L"height");
 				}
@@ -228,7 +228,7 @@ NCB_REGISTER_SUBCLASS_DELAY(dimension2di) {
 }
 
 template <class T>
-struct DimensionConvertor2 { // ƒRƒ“ƒo[ƒ^
+struct DimensionConvertor2 { // ã‚³ãƒ³ãƒãƒ¼ã‚¿
 	typedef ncbInstanceAdaptor<T> AdaptorT;
 	template <typename ANYT>
 	void operator ()(ANYT &adst, const tTJSVariant &src) {
@@ -238,10 +238,10 @@ struct DimensionConvertor2 { // ƒRƒ“ƒo[ƒ^
 				dst = *obj;
 			} else {
 				ncbPropAccessor info(src);
-				if (IsArray(src)) { // ”z—ñ‚©‚ç•ÏŠ·
+				if (IsArray(src)) { // é…åˆ—ã‹ã‚‰å¤‰æ›
 					dst.Width  = (u32)info.getIntValue(0);
 					dst.Height = (u32)info.getIntValue(1);
-				} else { // «‘‚©‚ç•ÏŠ·
+				} else { // è¾æ›¸ã‹ã‚‰å¤‰æ›
 					dst.Width  = (u32)info.getIntValue(L"width");
 					dst.Height = (u32)info.getIntValue(L"height");
 				}
@@ -263,7 +263,7 @@ NCB_REGISTER_SUBCLASS_DELAY(dimension2d<u32>) {
 }
 
 template <class T>
-struct DimensionfConvertor { // ƒRƒ“ƒo[ƒ^
+struct DimensionfConvertor { // ã‚³ãƒ³ãƒãƒ¼ã‚¿
 	typedef ncbInstanceAdaptor<T> AdaptorT;
 	template <typename ANYT>
 	void operator ()(ANYT &adst, const tTJSVariant &src) {
@@ -273,10 +273,10 @@ struct DimensionfConvertor { // ƒRƒ“ƒo[ƒ^
 				dst = *obj;
 			} else {
 				ncbPropAccessor info(src);
-				if (IsArray(src)) { // ”z—ñ‚©‚ç•ÏŠ·
+				if (IsArray(src)) { // é…åˆ—ã‹ã‚‰å¤‰æ›
 					dst.Width  = (f32)info.getRealValue(0);
 					dst.Height = (f32)info.getRealValue(1);
-				} else { // «‘‚©‚ç•ÏŠ·
+				} else { // è¾æ›¸ã‹ã‚‰å¤‰æ›
 					dst.Width  = (f32)info.getRealValue(L"width");
 					dst.Height = (f32)info.getRealValue(L"height");
 				}
@@ -611,12 +611,12 @@ NCB_REGISTER_SUBCLASS(SViewFrustum) {
 
 
 // --------------------------------------------------------------------
-// Irrlicht ‚ÌQÆƒIƒuƒWƒFƒNƒg‚ÌŒ^‚Ì“o˜^
-// Irrlicht ‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX‚ğ‚»‚Ì‚Ü‚Ü•Û‚Å‚«‚é‚æ‚¤‚ÉH•v
+// Irrlicht ã®å‚ç…§ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å‹ã®ç™»éŒ²
+// Irrlicht ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚’ãã®ã¾ã¾ä¿æŒã§ãã‚‹ã‚ˆã†ã«å·¥å¤«
 // --------------------------------------------------------------------
 
 /**
- * Irrlicht‚ÌQÆƒIƒuƒWƒFƒNƒg‚Ìƒ‰ƒbƒsƒ“ƒO—pƒeƒ“ƒvƒŒ[ƒgƒNƒ‰ƒX
+ * Irrlichtã®å‚ç…§ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ©ãƒƒãƒ”ãƒ³ã‚°ç”¨ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚¯ãƒ©ã‚¹
  */
 template <class T>
 class IrrWrapper {
@@ -636,7 +636,7 @@ public:
 			obj->grab();
 		}
 	}
-	~IrrWrapper() {
+	â€¾IrrWrapper() {
 		if (obj) {
 			obj->drop();
 			obj=NULL;
@@ -660,7 +660,7 @@ public:
 };
 
 /**
- * Irrlicht‚ÌQÆƒIƒuƒWƒFƒNƒg‚ğƒ‰ƒbƒsƒ“ƒO‚µ‚½ƒNƒ‰ƒX—p‚ÌƒRƒ“ƒo[ƒ^i”Ä—pj
+ * Irrlichtã®å‚ç…§ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ãƒ©ãƒƒãƒ”ãƒ³ã‚°ã—ãŸã‚¯ãƒ©ã‚¹ç”¨ã®ã‚³ãƒ³ãƒãƒ¼ã‚¿ï¼ˆæ±ç”¨ï¼‰
  */
 template <class T>
 struct IrrTypeConvertor {
@@ -695,21 +695,21 @@ struct IrrTypeConvertor {
 	}
 };
 
-// IrrlichtQÆƒIƒuƒWƒFƒNƒg—p‚ÌƒRƒ“ƒo[ƒ^‚Ì“o˜^ƒ}ƒNƒ
-#define NCB_IRR_CONVERTOR(type) \
-NCB_SET_CONVERTOR(type*, IrrTypeConvertor<type>);\
+// Irrlichtå‚ç…§ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”¨ã®ã‚³ãƒ³ãƒãƒ¼ã‚¿ã®ç™»éŒ²ãƒã‚¯ãƒ­
+#define NCB_IRR_CONVERTOR(type) Â¥
+NCB_SET_CONVERTOR(type*, IrrTypeConvertor<type>);Â¥
 NCB_SET_CONVERTOR(const type*, IrrTypeConvertor<const type>)
 
-// ƒ‰ƒbƒsƒ“ƒOˆ——p
+// ãƒ©ãƒƒãƒ”ãƒ³ã‚°å‡¦ç†ç”¨
 #define NCB_REGISTER_IRR_SUBCLASS(Class) NCB_IRR_CONVERTOR(Class);NCB_REGISTER_SUBCLASS(IrrWrapper<Class>) { typedef Class IrrClass;
 #define NCB_IRR_METHOD(name)  Method(TJS_W(# name), &IrrClass::name, Bridge<IrrWrapper<IrrClass>::BridgeFunctor>())
 #define NCB_IRR_MCAST(ret, method, args) static_cast<ret (IrrClass::*) args>(&IrrClass::method)
 #define NCB_IRR_METHOD2(name, ret, method, args) Method(TJS_W(# name), NCB_IRR_MCAST(ret, method, args), Bridge<IrrWrapper<IrrClass>::BridgeFunctor>())
 #define NCB_IRR_PROPERTY(name,get,set)  Property(TJS_W(# name), &IrrClass::get, &IrrClass::set, Bridge<IrrWrapper<IrrClass>::BridgeFunctor>())
-#define NCB_IRR_MEMBER_PROPERTY(name, type, membername) \
-	struct AutoProp_ ## name { \
-		static void ProxySet(IrrClass *inst, type value) { inst->membername = value; } \
-		static type ProxyGet(IrrClass *inst) {      return inst->membername; } }; \
+#define NCB_IRR_MEMBER_PROPERTY(name, type, membername) Â¥
+	struct AutoProp_ ## name { Â¥
+		static void ProxySet(IrrClass *inst, type value) { inst->membername = value; } Â¥
+		static type ProxyGet(IrrClass *inst) {      return inst->membername; } }; Â¥
 	Property(TJS_W(#name), AutoProp_ ## name::ProxyGet, AutoProp_ ## name::ProxySet, Bridge<IrrWrapper<IrrClass>::BridgeFunctor>())
 
 #define NCB_IRR_PROPERTY2(name,get,set)  NCB_IRR_PROPERTY(name,get,set);NCB_IRR_METHOD(get);NCB_IRR_METHOD(set)
@@ -718,25 +718,25 @@ NCB_REGISTER_IRR_SUBCLASS(IAttributes)
 	NCB_CONSTRUCTOR(());
 };
 
-// CreateŒn‚ÌAQÆ‚ª‚P‚Â—]•ª‚É‚Í‚¢‚Á‚½‹A‚è’l‚Ìˆ—
-// tTJSVariant ‚É’uŠ·Œã drop() ‚·‚é‚±‚Æ‚ÅQÆ‚Ì’l‚ğ’²®‚·‚é
-// @param name ‹g—¢‹g—¢‚É“o˜^‚·‚é–¼‘O
-// @param type ‹A‚è’l‚ÌŒ^
-// @param func ŒÄ‚Ño‚·ƒƒ\ƒbƒh–¼
-// @param arg “o˜^‚·‚éˆø”ƒŠƒXƒgBŒ^‚à•K—vB‘æˆêˆø”‚É•K‚¸ IrrWrapper<IrrClass> *obj ‚ª•K—v
-// @param argto ˆ—ŒÄ‚Ño‚µ—p‚Ìˆø”ƒŠƒXƒgB–¼‘OƒŠƒXƒg‚Ì‚İ
+// Createç³»ã®ã€å‚ç…§ãŒï¼‘ã¤ä½™åˆ†ã«ã¯ã„ã£ãŸå¸°ã‚Šå€¤ã®å‡¦ç†
+// tTJSVariant ã«ç½®æ›å¾Œ drop() ã™ã‚‹ã“ã¨ã§å‚ç…§ã®å€¤ã‚’èª¿æ•´ã™ã‚‹
+// @param name å‰é‡Œå‰é‡Œã«ç™»éŒ²ã™ã‚‹åå‰
+// @param type å¸°ã‚Šå€¤ã®å‹
+// @param func å‘¼ã³å‡ºã™ãƒ¡ã‚½ãƒƒãƒ‰å
+// @param arg ç™»éŒ²ã™ã‚‹å¼•æ•°ãƒªã‚¹ãƒˆã€‚å‹ã‚‚å¿…è¦ã€‚ç¬¬ä¸€å¼•æ•°ã«å¿…ãš IrrWrapper<IrrClass> *obj ãŒå¿…è¦
+// @param argto å‡¦ç†å‘¼ã³å‡ºã—ç”¨ã®å¼•æ•°ãƒªã‚¹ãƒˆã€‚åå‰ãƒªã‚¹ãƒˆã®ã¿
 //
-#define NCB_IRR_CREATE_NAME(name, type, func, arg, argto)\
-struct AutoCreate_ ## name {\
-	static tTJSVariant Func arg {\
-		type *ret = obj->getIrrObject()->func argto;\
-		tTJSVariant var;\
-		IrrTypeConvertor<type> conv;\
-		conv(var, ret);\
-		ret->drop();\
-		return var;\
-	}\
-};\
+#define NCB_IRR_CREATE_NAME(name, type, func, arg, argto)Â¥
+struct AutoCreate_ ## name {Â¥
+	static tTJSVariant Func arg {Â¥
+		type *ret = obj->getIrrObject()->func argto;Â¥
+		tTJSVariant var;Â¥
+		IrrTypeConvertor<type> conv;Â¥
+		conv(var, ret);Â¥
+		ret->drop();Â¥
+		return var;Â¥
+	}Â¥
+};Â¥
 NCB_METHOD_PROXY(name, AutoCreate_ ## name::Func)
 #define NCB_IRR_CREATE(name, type, arg, argto) NCB_IRR_CREATE_NAME(name, type, name, arg, argto)
 
@@ -758,7 +758,7 @@ NCB_IRR_METHOD(isFalling);
 };
 
 /**
- * IMesh ê—pƒRƒ“ƒo[ƒ^
+ * IMesh å°‚ç”¨ã‚³ãƒ³ãƒãƒ¼ã‚¿
  */
 template <class T>
 struct IMeshTypeConvertor {
@@ -800,11 +800,11 @@ NCB_SET_CONVERTOR(const IMesh*, IMeshTypeConvertor<const IMesh>);
 NCB_REGISTER_SUBCLASS(IrrWrapper<IMesh>) {
 NCB_CONSTRUCTOR(());
 	typedef IMesh IrrClass;
-#define IMESH_METHOD \
-NCB_IRR_PROPERTY2(boundingBox, getBoundingBox, setBoundingBox);\
-NCB_IRR_METHOD2(getMeshBuffer, IMeshBuffer*, getMeshBuffer, (u32) const);\
-NCB_IRR_METHOD2(getMeshBuffer2, IMeshBuffer*, getMeshBuffer, (const SMaterial &) const);\
-NCB_IRR_METHOD(getMeshBufferCount);\
+#define IMESH_METHOD Â¥
+NCB_IRR_PROPERTY2(boundingBox, getBoundingBox, setBoundingBox);Â¥
+NCB_IRR_METHOD2(getMeshBuffer, IMeshBuffer*, getMeshBuffer, (u32) const);Â¥
+NCB_IRR_METHOD2(getMeshBuffer2, IMeshBuffer*, getMeshBuffer, (const SMaterial &) const);Â¥
+NCB_IRR_METHOD(getMeshBufferCount);Â¥
 NCB_IRR_METHOD(setMaterialFlag)
 IMESH_METHOD;
 };
@@ -815,11 +815,11 @@ NCB_IRR_PROPERTY2(boundingBox, getBoundingBox, setBoundingBox);
 NCB_IRR_METHOD2(append, void, append, (const IMeshBuffer * const));
 //NCB_IRR_METHOD2(append2)
 NCB_IRR_METHOD(getIndexCount);
-//NCB_IRR_METHOD(getIndices) XXX ”z—ñ
+//NCB_IRR_METHOD(getIndices) XXX é…åˆ—
 NCB_IRR_METHOD2(getMaterial, SMaterial&, getMaterial, (void));
 NCB_IRR_METHOD(getVertexCount);
 NCB_IRR_METHOD(getVertexType);
-//NCB_IRR_METHOD(getvertices) XXX ”z—ñ
+//NCB_IRR_METHOD(getvertices) XXX é…åˆ—
 };
 
 NCB_REGISTER_IRR_SUBCLASS(IWriteFile)
@@ -910,7 +910,7 @@ NCB_TYPECONV_CAST_INTEGER(ELOG_LEVEL);
 NCB_TYPECONV_CAST_INTEGER(E_ANIMATED_MESH_TYPE);
 
 /**
- * ISceneNode ê—pƒRƒ“ƒo[ƒ^
+ * ISceneNode å°‚ç”¨ã‚³ãƒ³ãƒãƒ¼ã‚¿
  */
 template <class T>
 struct ISceneNodeTypeConvertor {
@@ -976,42 +976,42 @@ NCB_SET_CONVERTOR(const ISceneNode*, ISceneNodeTypeConvertor<const ISceneNode>);
 NCB_REGISTER_SUBCLASS(IrrWrapper<ISceneNode>) {
 	NCB_CONSTRUCTOR(());
 	typedef ISceneNode IrrClass;
-#define ISCENENODE_METHOD \
-	NCB_IRR_PROPERTY2(automaticCulling, getAutomaticCulling, setAutomaticCulling);\
-	NCB_IRR_PROPERTY2(id, getID, setID);\
-	NCB_IRR_PROPERTY2(name, getName, setName);\
-	NCB_IRR_PROPERTY2(parent, getParent, setParent);\
-	NCB_IRR_PROPERTY2(position, getPosition, setPosition);\
-	NCB_IRR_PROPERTY2(rotation, getRotation, setRotation);\
-	NCB_IRR_PROPERTY2(scale, getScale, setScale);\
-	NCB_IRR_PROPERTY2(triangleSelector, getTriangleSelector, setTriangleSelector);\
-	NCB_IRR_PROPERTY2(debugDataVisible, isDebugDataVisible, setDebugDataVisible);\
-	NCB_IRR_PROPERTY2(visible, isVisible, setVisible);\
-	NCB_IRR_METHOD(addAnimator);\
-	NCB_IRR_METHOD(addChild);\
-	NCB_IRR_METHOD(clone);\
-	NCB_IRR_METHOD(deserializeAttributes);\
-	NCB_IRR_METHOD(getAbsolutePosition);\
-	NCB_IRR_METHOD(getAbsoluteTransformation);\
-	/**NCB_IRR_METHOD(getAnimators); XXX ƒŠƒXƒg‚ğ•Ô‚µ‚Ä‚é*/\
-	NCB_IRR_METHOD(getBoundingBox);\
-	/**NCB_IRR_METHOD(getChildren); XXX ƒŠƒXƒg‚ğ•Ô‚µ‚Ä‚é*/\
-	NCB_IRR_METHOD(getMaterial);\
-	NCB_IRR_METHOD(getMaterialCount);\
-	NCB_IRR_METHOD(getRelativeTransformation);\
-	NCB_IRR_METHOD(getTransformedBoundingBox);\
-	NCB_IRR_METHOD(getType);\
-	NCB_IRR_METHOD(isDebugObject);\
-	NCB_IRR_METHOD(remove);\
-	NCB_IRR_METHOD(removeAll);\
-	NCB_IRR_METHOD(removeAnimator);\
-	NCB_IRR_METHOD(removeAnimators);\
-	NCB_IRR_METHOD(removeChild);\
-	NCB_IRR_METHOD(render);\
-	NCB_IRR_METHOD(serializeAttributes);\
-	NCB_IRR_METHOD(setMaterialFlag);\
-	NCB_IRR_METHOD(setMaterialTexture);\
-	NCB_IRR_METHOD(setMaterialType);\
+#define ISCENENODE_METHOD Â¥
+	NCB_IRR_PROPERTY2(automaticCulling, getAutomaticCulling, setAutomaticCulling);Â¥
+	NCB_IRR_PROPERTY2(id, getID, setID);Â¥
+	NCB_IRR_PROPERTY2(name, getName, setName);Â¥
+	NCB_IRR_PROPERTY2(parent, getParent, setParent);Â¥
+	NCB_IRR_PROPERTY2(position, getPosition, setPosition);Â¥
+	NCB_IRR_PROPERTY2(rotation, getRotation, setRotation);Â¥
+	NCB_IRR_PROPERTY2(scale, getScale, setScale);Â¥
+	NCB_IRR_PROPERTY2(triangleSelector, getTriangleSelector, setTriangleSelector);Â¥
+	NCB_IRR_PROPERTY2(debugDataVisible, isDebugDataVisible, setDebugDataVisible);Â¥
+	NCB_IRR_PROPERTY2(visible, isVisible, setVisible);Â¥
+	NCB_IRR_METHOD(addAnimator);Â¥
+	NCB_IRR_METHOD(addChild);Â¥
+	NCB_IRR_METHOD(clone);Â¥
+	NCB_IRR_METHOD(deserializeAttributes);Â¥
+	NCB_IRR_METHOD(getAbsolutePosition);Â¥
+	NCB_IRR_METHOD(getAbsoluteTransformation);Â¥
+	/**NCB_IRR_METHOD(getAnimators); XXX ãƒªã‚¹ãƒˆã‚’è¿”ã—ã¦ã‚‹*/Â¥
+	NCB_IRR_METHOD(getBoundingBox);Â¥
+	/**NCB_IRR_METHOD(getChildren); XXX ãƒªã‚¹ãƒˆã‚’è¿”ã—ã¦ã‚‹*/Â¥
+	NCB_IRR_METHOD(getMaterial);Â¥
+	NCB_IRR_METHOD(getMaterialCount);Â¥
+	NCB_IRR_METHOD(getRelativeTransformation);Â¥
+	NCB_IRR_METHOD(getTransformedBoundingBox);Â¥
+	NCB_IRR_METHOD(getType);Â¥
+	NCB_IRR_METHOD(isDebugObject);Â¥
+	NCB_IRR_METHOD(remove);Â¥
+	NCB_IRR_METHOD(removeAll);Â¥
+	NCB_IRR_METHOD(removeAnimator);Â¥
+	NCB_IRR_METHOD(removeAnimators);Â¥
+	NCB_IRR_METHOD(removeChild);Â¥
+	NCB_IRR_METHOD(render);Â¥
+	NCB_IRR_METHOD(serializeAttributes);Â¥
+	NCB_IRR_METHOD(setMaterialFlag);Â¥
+	NCB_IRR_METHOD(setMaterialTexture);Â¥
+	NCB_IRR_METHOD(setMaterialType);Â¥
 	NCB_IRR_METHOD(updateAbsolutePosition)
 	ISCENENODE_METHOD;
 };
@@ -1157,27 +1157,27 @@ NCB_IRR_METHOD2(draw2DImage2,  void, draw2DImage, (const ITexture*texture,
 												  bool useAlphaChannelOfTexture));
 //NCB_IRR_METHOD2(draw2DImage,  void, draw2DImage, (const ITexture* texture, const core::position2d<s32>&,
 //												  const core::array<core::rect<s32> >&, const core::array<s32>&, s32,
-//												  const core::rect<s32>*, SColor,  bool)); XXX ”z—ñ
+//												  const core::rect<s32>*, SColor,  bool)); XXX é…åˆ—
 //NCB_IRR_METHOD2(draw2DImage,  void, draw2DImage, (const ITexture*, const rect<s32>& destRect,
 //												  const rect<s32>& sourceRect,
 //												  const rect<s32>* clipRect,
-//												  SColor *color, bool);  XXX ”z—ñ
+//												  SColor *color, bool);  XXX é…åˆ—
 NCB_IRR_METHOD(draw2DLine);
 NCB_IRR_METHOD(draw2DPolygon);
-//NCB_IRR_METHOD2(draw2DRectangle,  method_cast<void, Class, >(&IrrClass::draw2DRectangle)); XXX ”z—ñ
-//NCB_IRR_METHOD2(draw2DRectangle2, method_cast<void, Class, >(&IrrClass::draw2DRectangle)); XXX ”z—ñ
+//NCB_IRR_METHOD2(draw2DRectangle,  method_cast<void, Class, >(&IrrClass::draw2DRectangle)); XXX é…åˆ—
+//NCB_IRR_METHOD2(draw2DRectangle2, method_cast<void, Class, >(&IrrClass::draw2DRectangle)); XXX é…åˆ—
 NCB_IRR_METHOD(draw3DBox);
 NCB_IRR_METHOD(draw3DLine);
 NCB_IRR_METHOD(draw3DTriangle);
-//NCB_IRR_METHOD(drawIndexedTriangleFan); XXX ”z—ñ
-//NCB_IRR_METHOD(drawIndexedTriangleFan2); XXX ”z—ñ
-//NCB_IRR_METHOD(drawIndexedTriangleList); XXX ”z—ñ
-//NCB_IRR_METHOD(drawIndexedTriangleList2); XXX ”z—ñ
-//NCB_IRR_METHOD(drawIndexedTriangleList3); XXX ”z—ñ
+//NCB_IRR_METHOD(drawIndexedTriangleFan); XXX é…åˆ—
+//NCB_IRR_METHOD(drawIndexedTriangleFan2); XXX é…åˆ—
+//NCB_IRR_METHOD(drawIndexedTriangleList); XXX é…åˆ—
+//NCB_IRR_METHOD(drawIndexedTriangleList2); XXX é…åˆ—
+//NCB_IRR_METHOD(drawIndexedTriangleList3); XXX é…åˆ—
 NCB_IRR_METHOD(drawMeshBuffer);
 NCB_IRR_METHOD(drawStencilShadow);
 NCB_IRR_METHOD(drawStencilShadowVolume);
-//NCB_IRR_METHOD(drawVertexPrimitiveList); XXX”z—ñ
+//NCB_IRR_METHOD(drawVertexPrimitiveList); XXXé…åˆ—
 NCB_IRR_METHOD(enableClipPlane);
 //NCB_IRR_METHOD(endScene);
 NCB_IRR_METHOD(fillMaterialStructureFromAttributes);
@@ -1212,7 +1212,7 @@ NCB_IRR_METHOD(setTextureCreationFlag);
 NCB_IRR_METHOD(setTransform);
 NCB_IRR_METHOD(writeImageToFile);
 
-//g‚í‚È‚¢
+//ä½¿ã‚ãªã„
 //NCB_IRR_METHOD2(createImageFromData);
 //NCB_IRR_METHOD(addExternalImageLoader);
 //NCB_IRR_METHOD(addExternalImageWriter);
@@ -1254,7 +1254,7 @@ NCB_IRR_METHOD(addArrowMesh);
 NCB_IRR_METHOD(addBillboardSceneNode);
 NCB_IRR_METHOD(addBillboardTextSceneNode);
 NCB_IRR_METHOD(addCameraSceneNode);
-//NCB_IRR_METHOD(addCameraSceneNodeFPS); XXX SKeyMap ‚Ì”z—ñ‚ª“n‚³‚ê‚Ä‚é
+//NCB_IRR_METHOD(addCameraSceneNodeFPS); XXX SKeyMap ã®é…åˆ—ãŒæ¸¡ã•ã‚Œã¦ã‚‹
 NCB_IRR_METHOD(addCameraSceneNodeMaya);
 NCB_IRR_METHOD(addCubeSceneNode);
 NCB_IRR_METHOD(addDummyTransformationSceneNode);
@@ -1284,14 +1284,14 @@ NCB_IRR_CREATE(createDeleteAnimator, ISceneNodeAnimator, (IrrWrapper<IrrClass> *
 NCB_IRR_CREATE(createFlyCircleAnimator, ISceneNodeAnimator, (IrrWrapper<IrrClass> *obj, const core::vector3df &center, f32 radius, f32 speed, const core::vector3df &direction), (center, radius, speed, direction));
 NCB_IRR_CREATE(createFlyStraightAnimator, ISceneNodeAnimator,
 			   (IrrWrapper<IrrClass> *obj, const core::vector3df &startPoint, const core::vector3df &endPoint, u32 timeForWay, bool loop), (startPoint, endPoint, timeForWay, loop));
-//NCB_IRR_CREATE(createFollowSplineAnimator); XXX ”z—ñ‚ª“n‚³‚ê‚Ä‚é
+//NCB_IRR_CREATE(createFollowSplineAnimator); XXX é…åˆ—ãŒæ¸¡ã•ã‚Œã¦ã‚‹
 NCB_IRR_CREATE(createMeshWriter, IMeshWriter, (IrrWrapper<IrrClass> *obj, EMESH_WRITER_TYPE type), (type));
 //virtual IMetaTriangleSelector *  createMetaTriangleSelector ()=0 
 NCB_IRR_CREATE(createNewSceneManager, ISceneManager, (IrrWrapper<IrrClass> *obj, bool cloneContent), (cloneContent));
 NCB_IRR_CREATE(createOctTreeTriangleSelector, ITriangleSelector, (IrrWrapper<IrrClass> *obj, IMesh *mesh, ISceneNode *node, s32 minimalPolysPerNode=32), (mesh, node, minimalPolysPerNode));
 NCB_IRR_CREATE(createRotationAnimator, ISceneNodeAnimator, (IrrWrapper<IrrClass> *obj, const core::vector3df &rotationPerSecond), (rotationPerSecond));
 NCB_IRR_CREATE(createTerrainTriangleSelector, ITriangleSelector, (IrrWrapper<IrrClass> *obj, ITerrainSceneNode *node, s32 LOD), (node, LOD));
-//NCB_IRR_CREATE(createTextureAnimator); XXX ”z—ñ‚ª“n‚³‚ê‚Ä‚é
+//NCB_IRR_CREATE(createTextureAnimator); XXX é…åˆ—ãŒæ¸¡ã•ã‚Œã¦ã‚‹
 NCB_IRR_CREATE(createTriangleSelector, ITriangleSelector, (IrrWrapper<IrrClass> *obj, IMesh *mesh, ISceneNode *node), (mesh, node));
 NCB_IRR_CREATE(createTriangleSelectorFromBoundingBox, ITriangleSelector, (IrrWrapper<IrrClass> *obj, ISceneNode *node), (node));
 NCB_IRR_METHOD(drawAll);
@@ -1317,7 +1317,7 @@ NCB_METHOD_PROXY(saveScene, ISceneManagerLoadScene);
 NCB_METHOD_PROXY(loadSceneFile, ISceneManagerLoadSceneFile);
 NCB_METHOD_PROXY(saveSceneFile, ISceneManagerSaveSceneFile);
 
-//g‚í‚È‚¢
+//ä½¿ã‚ãªã„
 //NCB_IRR_METHOD(addExternalMeshLoader);
 //NCB_METHOD(registerSceneAnimatorFactory);
 //NCB_METHOD(registerSceneFactory);
@@ -1364,15 +1364,15 @@ NCB_IRR_METHOD2(logHint, void, log, (const wchar_t*,const wchar_t*hint,ELOG_LEVE
 };
 
 // --------------------------------------------------------------------
-// Irrlicht ‘€ì—p‚ÌŠî–{ƒIƒuƒWƒFƒNƒg‚Ì“o˜^
+// Irrlicht æ“ä½œç”¨ã®åŸºæœ¬ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç™»éŒ²
 // --------------------------------------------------------------------
 
-#define BASE_METHOD \
-	NCB_PROPERTY(eventMask, getEventMask, setEventMask);\
-	NCB_PROPERTY_RO2(videoDriver, getVideoDriver);\
-	NCB_PROPERTY_RO2(sceneManager, getSceneManager);\
-	NCB_PROPERTY_RO2(guiEnvironment, getGUIEnvironment);\
-	NCB_PROPERTY_RO2(logger, getLogger);\
+#define BASE_METHOD Â¥
+	NCB_PROPERTY(eventMask, getEventMask, setEventMask);Â¥
+	NCB_PROPERTY_RO2(videoDriver, getVideoDriver);Â¥
+	NCB_PROPERTY_RO2(sceneManager, getSceneManager);Â¥
+	NCB_PROPERTY_RO2(guiEnvironment, getGUIEnvironment);Â¥
+	NCB_PROPERTY_RO2(logger, getLogger);Â¥
 	NCB_PROPERTY_RO2(fileSystem, getFileSystem)
 
 NCB_REGISTER_SUBCLASS(IrrlichtDrawDevice) {
@@ -1414,7 +1414,7 @@ NCB_REGISTER_SUBCLASS(IrrlichtSimpleDevice) {
 
 
 /**
- * –¼‘O‹óŠÔ—pƒ_ƒ~[
+ * åå‰ç©ºé–“ç”¨ãƒ€ãƒŸãƒ¼
  */
 struct Irrlicht {
 };
@@ -1437,7 +1437,7 @@ NCB_REGISTER_CLASS(Irrlicht) {
 	
 	//static
 
-	// Irrlicht ƒf[ƒ^Œ^ƒNƒ‰ƒX
+	// Irrlicht ãƒ‡ãƒ¼ã‚¿å‹ã‚¯ãƒ©ã‚¹
 	NCB_SUBCLASS_NAME(SColor);
 	NCB_SUBCLASS_NAME(SColorf);
 	NCB_SUBCLASS_NAME(position2di);
@@ -1458,7 +1458,7 @@ NCB_REGISTER_CLASS(Irrlicht) {
 	NCB_SUBCLASS_NAME(SEvent);
 	NCB_SUBCLASS_NAME(SViewFrustum);
 
-	// Irrlicht QÆ—pƒNƒ‰ƒX
+	// Irrlicht å‚ç…§ç”¨ã‚¯ãƒ©ã‚¹
 	NCB_IRR_SUBCLASS(IFileSystem);
 	NCB_IRR_SUBCLASS(IReadFile);
 	NCB_IRR_SUBCLASS(IWriteFile);
@@ -1494,18 +1494,18 @@ NCB_REGISTER_CLASS(Irrlicht) {
 	NCB_IRR_SUBCLASS(IImage);
 	NCB_IRR_SUBCLASS(ITexture);
 
-	// Irrlicht ‘€ì—pƒNƒ‰ƒX
+	// Irrlicht æ“ä½œç”¨ã‚¯ãƒ©ã‚¹
 	NCB_IRR_SUBCLASS(IVideoDriver);
 	NCB_IRR_SUBCLASS(ISceneManager);
 	NCB_IRR_SUBCLASS(IGUIEnvironment);
 	NCB_IRR_SUBCLASS(ILogger);
 
-	// Irrlicht ƒx[ƒXƒNƒ‰ƒX
+	// Irrlicht ãƒ™ãƒ¼ã‚¹ã‚¯ãƒ©ã‚¹
 	NCB_SUBCLASS(SimpleDevice, IrrlichtSimpleDevice);
 	NCB_SUBCLASS(DrawDevice, IrrlichtDrawDevice);
 	NCB_SUBCLASS(Window, IrrlichtWindow);
 
-	// ƒCƒxƒ“ƒgƒ}ƒXƒN—p
+	// ã‚¤ãƒ™ãƒ³ãƒˆãƒã‚¹ã‚¯ç”¨
 
 #define EMASK(n)	Variant(#n, (int)IrrlichtBase::n)
 
@@ -1519,7 +1519,7 @@ NCB_REGISTER_CLASS(Irrlicht) {
 }
 
 /**
- * ƒŒƒCƒ„‚É IImage ‚©‚ç‚Ì‹z‚¢o‚µˆ—‚ğŠg’£
+ * ãƒ¬ã‚¤ãƒ¤ã« IImage ã‹ã‚‰ã®å¸ã„å‡ºã—å‡¦ç†ã‚’æ‹¡å¼µ
  */
 static tjs_error TJS_INTF_METHOD
 copyIImage(tTJSVariant *result, tjs_int numparams, tTJSVariant **param, iTJSDispatch2 *objthis)
@@ -1540,7 +1540,7 @@ copyIImage(tTJSVariant *result, tjs_int numparams, tTJSVariant **param, iTJSDisp
 	int width  = size.Width;
 	int height = size.Height;
 
-	// ƒŒƒCƒ„‚ÌƒTƒCƒY‚ğ’²®
+	// ãƒ¬ã‚¤ãƒ¤ã®ã‚µã‚¤ã‚ºã‚’èª¿æ•´
 	ncbPropAccessor layer(objthis);
 	layer.SetValue(L"width",  width);
 	layer.SetValue(L"height", height);
@@ -1552,7 +1552,7 @@ copyIImage(tTJSVariant *result, tjs_int numparams, tTJSVariant **param, iTJSDisp
 	unsigned char *buffer = (unsigned char*)layer.GetValue(L"mainImageBufferForWrite", ncbTypedefs::Tag<tjs_int>());
 	int pitch = layer.GetValue(L"mainImageBufferPitch", ncbTypedefs::Tag<tjs_int>());
 	
-	// ‰æ‘œƒf[ƒ^‚ÌƒRƒs[
+	// ç”»åƒãƒ‡ãƒ¼ã‚¿ã®ã‚³ãƒ”ãƒ¼
 	if (image->getColorFormat() == ECF_A8R8G8B8) {
 		unsigned char *src = (unsigned char*)image->lock();
 		int slen   = width * 4;
@@ -1573,15 +1573,15 @@ copyIImage(tTJSVariant *result, tjs_int numparams, tTJSVariant **param, iTJSDisp
 		}
 	}
 
-	// ƒŒƒCƒ„‚ğXV
+	// ãƒ¬ã‚¤ãƒ¤ã‚’æ›´æ–°
 	objthis->FuncCall(0, L"update", NULL, NULL, 0, NULL, objthis);
 
 	return TJS_S_OK;
 }
 
 /**
- * ƒŒƒCƒ„‚É ITexture ‚©‚ç‚Ì‹z‚¢o‚µˆ—‚ğŠg’£
- * @param ‚½‚¾‚µ ARGB ‚ÉŒÀ‚é
+ * ãƒ¬ã‚¤ãƒ¤ã« ITexture ã‹ã‚‰ã®å¸ã„å‡ºã—å‡¦ç†ã‚’æ‹¡å¼µ
+ * @param ãŸã ã— ARGB ã«é™ã‚‹
  */
 static tjs_error TJS_INTF_METHOD
 copyITexture(tTJSVariant *result, tjs_int numparams, tTJSVariant **param, iTJSDispatch2 *objthis)
@@ -1602,7 +1602,7 @@ copyITexture(tTJSVariant *result, tjs_int numparams, tTJSVariant **param, iTJSDi
 	int width  = size.Width;
 	int height = size.Height;
 	
-	// ƒŒƒCƒ„‚ÌƒTƒCƒY‚ğ’²®
+	// ãƒ¬ã‚¤ãƒ¤ã®ã‚µã‚¤ã‚ºã‚’èª¿æ•´
 	ncbPropAccessor layer(objthis);
 	layer.SetValue(L"width",  width);
 	layer.SetValue(L"height", height);
@@ -1614,7 +1614,7 @@ copyITexture(tTJSVariant *result, tjs_int numparams, tTJSVariant **param, iTJSDi
 	unsigned char *buffer = (unsigned char*)layer.GetValue(L"mainImageBufferForWrite", ncbTypedefs::Tag<tjs_int>());
 	int pitch = layer.GetValue(L"mainImageBufferPitch", ncbTypedefs::Tag<tjs_int>());
 	
-	// ‰æ‘œƒf[ƒ^‚ÌƒRƒs[
+	// ç”»åƒãƒ‡ãƒ¼ã‚¿ã®ã‚³ãƒ”ãƒ¼
 	if (texture->getColorFormat() == ECF_A8R8G8B8) {
 		unsigned char *src = (unsigned char*)texture->lock();
 		int slen   = width * 4;
@@ -1626,7 +1626,7 @@ copyITexture(tTJSVariant *result, tjs_int numparams, tTJSVariant **param, iTJSDi
 		}
 		texture->unlock();
 
-		// ƒŒƒCƒ„‚ğXV
+		// ãƒ¬ã‚¤ãƒ¤ã‚’æ›´æ–°
 		objthis->FuncCall(0, L"update", NULL, NULL, 0, NULL, objthis);
 
 	} else {
@@ -1640,7 +1640,7 @@ NCB_ATTACH_FUNCTION(copyIImage, Layer, copyIImage);
 NCB_ATTACH_FUNCTION(copyITexture, Layer, copyIImage);
 
 /**
- * “o˜^ˆ—‘O
+ * ç™»éŒ²å‡¦ç†å‰
  */
 void PreRegistCallback()
 {
@@ -1648,7 +1648,7 @@ void PreRegistCallback()
 }
 
 /**
- * ŠJ•úˆ—Œã
+ * é–‹æ”¾å‡¦ç†å¾Œ
  */
 void PostUnregistCallback()
 {

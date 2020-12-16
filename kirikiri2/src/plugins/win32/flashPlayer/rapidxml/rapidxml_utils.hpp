@@ -4,7 +4,7 @@
 // Copyright (C) 2006, 2009 Marcin Kalicinski
 // Version 1.13
 // Revision $DateTime: 2009/05/13 01:46:17 $
-//! \file rapidxml_utils.hpp This file contains high-level rapidxml utilities that can be useful
+//! ¥file rapidxml_utils.hpp This file contains high-level rapidxml utilities that can be useful
 //! in certain simple scenarios. They should probably not be used if maximizing performance is the main objective.
 
 #include "rapidxml.hpp"
@@ -24,7 +24,7 @@ namespace rapidxml
     public:
         
         //! Loads file into the memory. Data will be automatically destroyed by the destructor.
-        //! \param filename Filename to load.
+        //! ¥param filename Filename to load.
         file(const char *filename)
         {
             using namespace std;
@@ -47,7 +47,7 @@ namespace rapidxml
         }
 
         //! Loads file into the memory. Data will be automatically destroyed by the destructor
-        //! \param stream Stream to load from
+        //! ¥param stream Stream to load from
         file(std::basic_istream<Ch> &stream)
         {
             using namespace std;
@@ -61,21 +61,21 @@ namespace rapidxml
         }
         
         //! Gets file data.
-        //! \return Pointer to data of file.
+        //! ¥return Pointer to data of file.
         Ch *data()
         {
             return &m_data.front();
         }
 
         //! Gets file data.
-        //! \return Pointer to data of file.
+        //! ¥return Pointer to data of file.
         const Ch *data() const
         {
             return &m_data.front();
         }
 
         //! Gets file data size.
-        //! \return Size of file data, in characters.
+        //! ¥return Size of file data, in characters.
         std::size_t size() const
         {
             return m_data.size();
@@ -88,7 +88,7 @@ namespace rapidxml
     };
 
     //! Counts children of node. Time complexity is O(n).
-    //! \return Number of children of node
+    //! ¥return Number of children of node
     template<class Ch>
     inline std::size_t count_children(xml_node<Ch> *node)
     {
@@ -103,7 +103,7 @@ namespace rapidxml
     }
 
     //! Counts attributes of node. Time complexity is O(n).
-    //! \return Number of attributes of node
+    //! ¥return Number of attributes of node
     template<class Ch>
     inline std::size_t count_attributes(xml_node<Ch> *node)
     {

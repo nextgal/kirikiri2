@@ -4,12 +4,12 @@
 dm("initializing InfiniteScrollPlugin ...");
 class InfiniteScrollPlugin extends KAGPlugin
 {
-	var target; // ‘ÎÛ‚ÌƒŒƒCƒ„
-	var speedX; // ƒXƒs[ƒh ( pixel/s )
-	var speedY; // ƒXƒs[ƒh ( pixel/s )
-	var originX; // ‰ŠúˆÊ’u
-	var originY; // ‰ŠúˆÊ’u
-	var moving = false; // “®‚¢‚Ä‚¢‚é‚©‚Ç‚¤‚©
+	var target; // å¯¾è±¡ã®ãƒ¬ã‚¤ãƒ¤
+	var speedX; // ã‚¹ãƒ”ãƒ¼ãƒ‰ ( pixel/s )
+	var speedY; // ã‚¹ãƒ”ãƒ¼ãƒ‰ ( pixel/s )
+	var originX; // åˆæœŸä½ç½®
+	var originY; // åˆæœŸä½ç½®
+	var moving = false; // å‹•ã„ã¦ã„ã‚‹ã‹ã©ã†ã‹
 	var lastTick;
 	var x;
 	var y;
@@ -52,8 +52,8 @@ class InfiniteScrollPlugin extends KAGPlugin
 	{
 		var curtime;
 		var difftime = (curtime = System.getTickCount()) - lastTick;
-		x = originX + speedX * difftime \ 1000;
-		y = originY + speedY * difftime \ 1000;
+		x = originX + speedX * difftime Â¥ 1000;
+		y = originY + speedY * difftime Â¥ 1000;
 		var dispw = target.width;
 		var disph = target.height;
 		x %= dispw;
@@ -90,8 +90,8 @@ kag.addPlugin(infiniteScrollPluginObject);
 @endmacro
 ;
 ;
-; ˆÈ‰ºAƒeƒXƒg
-@image storage=d:\temp\24_big.bmp layer=0 page=fore mode=rect visible=true clipleft=100 cliptop=110 clipwidth=640 clipheight=480
+; ä»¥ä¸‹ã€ãƒ†ã‚¹ãƒˆ
+@image storage=d:Â¥tempÂ¥24_big.bmp layer=0 page=fore mode=rect visible=true clipleft=100 cliptop=110 clipwidth=640 clipheight=480
 @backlay
 @infscrstart layer=0 page=fore speedx=-100 speedy=100 orgx=640 orgy=0
 @l

@@ -126,7 +126,7 @@ tTJSDateParser::tTJSDateParser(const tjs_char *in)
 	Time = (tjs_int64)tmv * 1000;
 }
 //---------------------------------------------------------------------------
-tTJSDateParser::~tTJSDateParser()
+tTJSDateParser::‾tTJSDateParser()
 {
 }
 //---------------------------------------------------------------------------

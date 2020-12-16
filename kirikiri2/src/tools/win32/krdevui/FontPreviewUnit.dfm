@@ -3,12 +3,12 @@ object FontPreviewForm: TFontPreviewForm
   Top = 114
   Width = 599
   Height = 390
-  Caption = 'ƒtƒHƒ“ƒgƒTƒ“ƒvƒ‹'
+  Caption = 'ãƒ•ã‚©ãƒ³ãƒˆã‚µãƒ³ãƒ—ãƒ«'
   Color = clBtnFace
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   Position = poDefaultPosOnly
@@ -37,22 +37,22 @@ object FontPreviewForm: TFontPreviewForm
       TabOrder = 0
       OnChange = ZoomComboBoxChange
       Items.Strings = (
-        'Šg‘å—¦ “™”{'
-        'Šg‘å—¦ 2”{'
-        'Šg‘å—¦ 3”{'
-        'Šg‘å—¦ 4”{'
-        'Šg‘å—¦ 5”{'
-        'Šg‘å—¦ 6”{'
-        'Šg‘å—¦ 7”{'
-        'Šg‘å—¦ 8”{'
-        'Šg‘å—¦ 9”{'
-        'Šg‘å—¦ 10”{'
-        'Šg‘å—¦ 11”{'
-        'Šg‘å—¦ 12”{'
-        'Šg‘å—¦ 13”{'
-        'Šg‘å—¦ 14”{'
-        'Šg‘å—¦ 15”{'
-        'Šg‘å—¦ 16”{')
+        'æ‹¡å¤§ç‡ ç­‰å€'
+        'æ‹¡å¤§ç‡ 2å€'
+        'æ‹¡å¤§ç‡ 3å€'
+        'æ‹¡å¤§ç‡ 4å€'
+        'æ‹¡å¤§ç‡ 5å€'
+        'æ‹¡å¤§ç‡ 6å€'
+        'æ‹¡å¤§ç‡ 7å€'
+        'æ‹¡å¤§ç‡ 8å€'
+        'æ‹¡å¤§ç‡ 9å€'
+        'æ‹¡å¤§ç‡ 10å€'
+        'æ‹¡å¤§ç‡ 11å€'
+        'æ‹¡å¤§ç‡ 12å€'
+        'æ‹¡å¤§ç‡ 13å€'
+        'æ‹¡å¤§ç‡ 14å€'
+        'æ‹¡å¤§ç‡ 15å€'
+        'æ‹¡å¤§ç‡ 16å€')
     end
     object CloseButton: TButton
       Left = 176
@@ -60,7 +60,7 @@ object FontPreviewForm: TFontPreviewForm
       Width = 75
       Height = 20
       Cancel = True
-      Caption = '•Â‚¶‚é(&C)'
+      Caption = 'é–‰ã˜ã‚‹(&C)'
       TabOrder = 1
       OnClick = CloseButtonClick
     end

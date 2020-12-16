@@ -33,7 +33,7 @@ public:
 		Stream = TVPCreateStream(name, mode);
 	}
 
-	~tTVPStreamHolder()
+	‾tTVPStreamHolder()
 	{
 		if(Stream) delete Stream;
 	}
@@ -83,7 +83,7 @@ class tTVPLocalTempStorageHolder
 	ttstr LocalFolder;
 public:
 	tTVPLocalTempStorageHolder(const ttstr & name);
-	~tTVPLocalTempStorageHolder();
+	‾tTVPLocalTempStorageHolder();
 
 	bool IsTemporaryFile() const { return FileMustBeDeleted; }
 
@@ -115,7 +115,7 @@ protected:
 public:
 	tTVPMemoryStream();
 	tTVPMemoryStream(const void * block, tjs_uint size);
-	~tTVPMemoryStream();
+	‾tTVPMemoryStream();
 
 	tjs_uint64 TJS_INTF_METHOD Seek(tjs_int64 offset, tjs_int whence);
 
@@ -162,7 +162,7 @@ private:
 
 public:
 	tTVPPartialStream(tTJSBinaryStream *stream, tjs_uint64 start, tjs_uint64 size);
-	~tTVPPartialStream();
+	‾tTVPPartialStream();
 
 	tjs_uint64 TJS_INTF_METHOD Seek(tjs_int64 offset, tjs_int whence);
 	tjs_uint TJS_INTF_METHOD Read(void *buffer, tjs_uint read_size);

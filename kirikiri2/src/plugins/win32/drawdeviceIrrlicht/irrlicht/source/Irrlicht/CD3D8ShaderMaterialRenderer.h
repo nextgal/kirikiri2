@@ -35,7 +35,7 @@ public:
 		IShaderConstantSetCallBack* callback, IMaterialRenderer* baseMaterial, s32 userData);
 
 	//! Destructor
-	~CD3D8ShaderMaterialRenderer();
+	‾CD3D8ShaderMaterialRenderer();
 
 	virtual void OnSetMaterial(const video::SMaterial& material, const video::SMaterial& lastMaterial,
 		bool resetAllRenderstates, video::IMaterialRendererServices* services);

@@ -229,8 +229,8 @@ static bool TVPGetXP3ArchiveOffset(tTJSBinaryStream *st, const ttstr name,
 	st->SetPosition(0);
 	tjs_uint8 mark[11+1];
 	static tjs_uint8 XP3Mark1[] =
-		{ 0x58/*'X'*/, 0x50/*'P'*/, 0x33/*'3'*/, 0x0d/*'\r'*/,
-		  0x0a/*'\n'*/, 0x20/*' '*/, 0x0a/*'\n'*/, 0x1a/*EOF*/,
+		{ 0x58/*'X'*/, 0x50/*'P'*/, 0x33/*'3'*/, 0x0d/*'¥r'*/,
+		  0x0a/*'¥n'*/, 0x20/*' '*/, 0x0a/*'¥n'*/, 0x1a/*EOF*/,
 		  0xff /* sentinel */ };
 	static tjs_uint8 XP3Mark2[] =
 		{ 0x8b, 0x67, 0x01, 0xff/* sentinel */ };
@@ -537,7 +537,7 @@ tTVPXP3Archive::tTVPXP3Archive(const ttstr & name) : tTVPArchive(name)
 		TJS_W(" file(s), ") + ttstr(segmentcount) + TJS_W(" segment(s))"));
 }
 //---------------------------------------------------------------------------
-tTVPXP3Archive::~tTVPXP3Archive()
+tTVPXP3Archive::‾tTVPXP3Archive()
 {
 	TVPFreeArchiveHandlePoolByPointer(this);
 }
@@ -659,7 +659,7 @@ class tTVPSegmentData
 
 public:
 	tTVPSegmentData() { RefCount = 1; Size = 0; Data = NULL; }
-	~tTVPSegmentData() { if(Data) delete [] Data; }
+	‾tTVPSegmentData() { if(Data) delete [] Data; }
 
 	void SetData(unsigned long outsize, tTJSBinaryStream *instream,
 		unsigned long insize)
@@ -824,7 +824,7 @@ tTVPXP3ArchiveStream::tTVPXP3ArchiveStream(tTVPXP3Archive *owner,
 	OrgSize = orgsize;
 }
 //---------------------------------------------------------------------------
-tTVPXP3ArchiveStream::~tTVPXP3ArchiveStream()
+tTVPXP3ArchiveStream::‾tTVPXP3ArchiveStream()
 {
 	TVPReleaseCachedArchiveHandle(Owner, Stream);
 	Owner->Release(); // unhook
@@ -1055,7 +1055,7 @@ void TVPExtractArchive(const ttstr & name, const ttstr & _destdir, bool allowext
 
 		ttstr destdir(_destdir);
 		tjs_char last = _destdir.GetLastChar();
-		if(_destdir.GetLen() >= 1 && (last != TJS_W('/') && last != TJS_W('\\')))
+		if(_destdir.GetLen() >= 1 && (last != TJS_W('/') && last != TJS_W('¥¥')))
 			destdir += TJS_W('/');
 
 		tTVPArchive *arc = TVPOpenArchive(name);

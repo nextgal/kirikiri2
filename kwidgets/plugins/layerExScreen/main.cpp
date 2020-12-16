@@ -8,10 +8,10 @@
 #define LOG(log) {}
 #endif
 
-//	�v���p�e�B�̎擾
+//	プロパティの取得
 BOOL getValue(iTJSDispatch2* elm, tjs_char* key, tTJSVariant& value);
 
-//	iTJSDispatch2����l�����o��
+//	iTJSDispatch2から値を取り出す
 BOOL	getValue(iTJSDispatch2* elm, tjs_char* key, tTJSVariant& value)
 {
 	if(elm==NULL)
@@ -21,8 +21,8 @@ BOOL	getValue(iTJSDispatch2* elm, tjs_char* key, tTJSVariant& value)
 	}
 	tjs_error	isvalid	= elm->IsValid(0, key, NULL, elm);
 	LOG(L"elm->IsValid = "+ttstr(isvalid));
-	if(isvalid==TJS_S_FALSE)	// isvalid != TJS_S_TRUE �Ƃ���ƁA�������Ă����s���Ă��܂�
-								// (Window.HWND ����낤�Ƃ���ƁATJS_E_NOTIMPL(-1002) ���Ԃ��Ă���)
+	if(isvalid==TJS_S_FALSE)	// isvalid != TJS_S_TRUE とすると、正しくても失敗してしまう
+								// (Window.HWND を取ろうとすると、TJS_E_NOTIMPL(-1002) が返ってくる)
 	{
 		LOG(L"getValue faild. (elm is invalid)");
 		return false;
@@ -39,7 +39,7 @@ BOOL	getValue(iTJSDispatch2* elm, tjs_char* key, tTJSVariant& value)
 class LayerExScreen
 {
 private:
-	//	primaryLayer ��̍��W�����߂�
+	//	primaryLayer 上の座標を求める
 	static tjs_int getLayerAbsolutePos(iTJSDispatch2 * obj, tjs_char * prop)
 	{
 		tTJSVariant	value;
@@ -55,7 +55,7 @@ private:
 		return tmp;
 	}
 
-	//	���C���[�̃E�B���h�E�̃E�B���h�E�n���h�������߂�
+	//	レイヤーのウィンドウのウィンドウハンドルを求める
 	static HWND	getLayerWindowHWND(iTJSDispatch2 * obj)
 	{
 		tTJSVariant	value;
@@ -65,7 +65,7 @@ private:
 		return (HWND)value.AsInteger();
 	}
 
-	//	���C���[�̊g��{�����擾
+	//	レイヤーの拡大倍率を取得
 	static tjs_real getWindowZoom(iTJSDispatch2 * obj)
 	{
 		tTJSVariant	value;
@@ -81,7 +81,7 @@ private:
 public:
 	LayerExScreen(){}
 
-	//	�X�N���[�����X���W���擾
+	//	スクリーン上のX座標を取得
 	static tjs_error TJS_INTF_METHOD screenLeft(
 		tTJSVariant	*result,
 		tjs_int numparams,
@@ -91,17 +91,17 @@ public:
 		if(result == NULL)
 			return TJS_S_OK;
 
-		tjs_int	left = getLayerAbsolutePos(objthis, L"left");	//	primaryLayer ��ł̍��W�����߂�
-		HWND hWnd = getLayerWindowHWND(objthis);	//	�E�B���h�E�n���h�����擾
+		tjs_int	left = getLayerAbsolutePos(objthis, L"left");	//	primaryLayer 上での座標を求める
+		HWND hWnd = getLayerWindowHWND(objthis);	//	ウィンドウハンドルを取得
 
-		//	���l�̎w�肪����΁A���̕�������
+		//	数値の指定があれば、その分加える
 		if(numparams >= 1 && param[0]->Type() == tvtInteger)
 			left	+= (tjs_int)param[0]->AsInteger();
 
-		//	���C���[�g��{�����ύX����Ă���΁A���̕����W��ύX����
+		//	レイヤー拡大倍率が変更されていれば、その分座標を変更する
 		left	= (tjs_int)(left * getWindowZoom(objthis));
 
-		//	�X�N���[����̍��W�֕ϊ����ĕԂ�
+		//	スクリーン上の座標へ変換して返す
 		POINT	pt;
 		pt.x	= left;
 		pt.y	= 0;
@@ -111,7 +111,7 @@ public:
 		return TJS_S_OK;
 	}
 
-	//	�X�N���[�����Y���W���擾
+	//	スクリーン上のY座標を取得
 	static tjs_error TJS_INTF_METHOD screenTop(
 		tTJSVariant	*result,
 		tjs_int numparams,
@@ -121,17 +121,17 @@ public:
 		if(result == NULL)
 			return TJS_S_OK;
 
-		tjs_int	top = getLayerAbsolutePos(objthis, L"top");	//	primaryLayer ��ł̍��W�����߂�
-		HWND hWnd = getLayerWindowHWND(objthis);	//	�E�B���h�E�n���h�����擾
+		tjs_int	top = getLayerAbsolutePos(objthis, L"top");	//	primaryLayer 上での座標を求める
+		HWND hWnd = getLayerWindowHWND(objthis);	//	ウィンドウハンドルを取得
 
-		//	���l�̎w�肪����΁A���̕�������
+		//	数値の指定があれば、その分加える
 		if(numparams >= 1 && param[0]->Type() == tvtInteger)
 			top	+= (tjs_int)param[0]->AsInteger();
 
-		//	���C���[�g��{�����ύX����Ă���΁A���̕����W��ύX����
+		//	レイヤー拡大倍率が変更されていれば、その分座標を変更する
 		top		= (tjs_int)(top * getWindowZoom(objthis));
 
-		//	�X�N���[����̍��W�֕ϊ����ĕԂ�
+		//	スクリーン上の座標へ変換して返す
 		POINT	pt;
 		pt.x	= 0;
 		pt.y	= top;
@@ -145,7 +145,7 @@ public:
 
 NCB_ATTACH_CLASS(LayerExScreen, Layer)
 {
-	//	�����I�ɂ̓v���p�e�B�ɂ�����
+	//	将来的にはプロパティにしたい
 	RawCallback("getScreenLeft", &Class::screenLeft, 0);
 	RawCallback("getScreenTop", &Class::screenTop, 0);
 };

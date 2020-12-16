@@ -3,7 +3,7 @@
 //
 
 /*----------------------------------------------------------------------
- * XYƒZƒŒƒNƒ^
+ * XYã‚»ãƒ¬ã‚¯ã‚¿
  ----------------------------------------------------------------------*/
 class KColorPickerXYSelecter extends KValueWidget
 {
@@ -95,7 +95,7 @@ class KColorPickerXYSelecter extends KValueWidget
 }
 
 /*----------------------------------------------------------------------
- * ZƒZƒŒƒNƒ^
+ * Zã‚»ãƒ¬ã‚¯ã‚¿
  ----------------------------------------------------------------------*/
 class KColorPickerZSelecter extends KValueWidget
 {
@@ -179,7 +179,7 @@ class KColorPickerZSelecter extends KValueWidget
 }
 
 /*----------------------------------------------------------------------
- * ƒ¿ƒZƒŒƒNƒ^
+ * Î±ã‚»ãƒ¬ã‚¯ã‚¿
  ----------------------------------------------------------------------*/
 class KColorPickerAlphaSelecter extends KValueWidget
 {
@@ -255,7 +255,7 @@ class KColorPickerAlphaSelecter extends KValueWidget
 }
 
 /*----------------------------------------------------------------------
- * ƒJƒ‰[ƒ{ƒbƒNƒX
+ * ã‚«ãƒ©ãƒ¼ãƒœãƒƒã‚¯ã‚¹
  ----------------------------------------------------------------------*/
 class KColorPickerColorBox extends KColorBox
 {
@@ -270,7 +270,7 @@ class KColorPickerColorBox extends KColorBox
 }
 
 /**----------------------------------------------------------------------
- * ƒJƒ‰[ƒsƒbƒJ[
+ * ã‚«ãƒ©ãƒ¼ãƒ”ãƒƒã‚«ãƒ¼
  ----------------------------------------------------------------------*/
 class KColorPickerDialog extends KWindow
 {
@@ -282,16 +282,16 @@ class KColorPickerDialog extends KWindow
   var alpha;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param color ƒJƒ‰[
-   * @param hasAlpha ƒAƒ‹ƒtƒ@‚ğ‚Á‚Ä‚¢‚é‚©H
-   * @param dict ƒJƒ‰[ƒsƒbƒJ[‚ÌˆÊ’u‚ğ•Û‘¶‚·‚é«‘
+   * @param color ã‚«ãƒ©ãƒ¼
+   * @param hasAlpha ã‚¢ãƒ«ãƒ•ã‚¡ã‚’æŒã£ã¦ã„ã‚‹ã‹ï¼Ÿ
+   * @param dict ã‚«ãƒ©ãƒ¼ãƒ”ãƒƒã‚«ãƒ¼ã®ä½ç½®ã‚’ä¿å­˜ã™ã‚‹è¾æ›¸
    ------------------------------*/
   function KColorPickerDialog(color, hasAlpha = false, dict = void, name = "colorPicker") {
     super.KWindow(name);
 
-    caption = "ƒJƒ‰[ƒsƒbƒJ[";
+    caption = "ã‚«ãƒ©ãƒ¼ãƒ”ãƒƒã‚«ãƒ¼";
     borderStyle = bsDialog;
 
     defaultFocusable = true;
@@ -320,13 +320,13 @@ class KColorPickerDialog extends KWindow
     defaultAlignVertical = ALIGN_CENTER;
     paramGrid.add(0, 0, new KRadioButton(this, "H:", "hSelect"));
     paramGrid.add(1, 0, new KTextInput(this, 30, 20, TEXT_DIGIT, "hInput"));
-    paramGrid.add(2, 0, new KTextLabel(this, "‹"));
+    paramGrid.add(2, 0, new KTextLabel(this, "Â°"));
     paramGrid.add(0, 1, new KRadioButton(this, "S:", "sSelect"));
     paramGrid.add(1, 1, new KTextInput(this, 30, 20, TEXT_DIGIT, "sInput"));
-    paramGrid.add(2, 1, new KTextLabel(this, "“"));
+    paramGrid.add(2, 1, new KTextLabel(this, "ï¼…"));
     paramGrid.add(0, 2, new KRadioButton(this, "V:", "vSelect"));
     paramGrid.add(1, 2, new KTextInput(this, 30, 20, TEXT_DIGIT, "vInput"));
-    paramGrid.add(2, 2, new KTextLabel(this, "“"));
+    paramGrid.add(2, 2, new KTextLabel(this, "ï¼…"));
 
     paramGrid.add(0, 4, new KRadioButton(this, "R:", "rSelect"));
     paramGrid.add(1, 4, new KTextInput(this, 30, 20, TEXT_DIGIT, "rInput"));
@@ -368,7 +368,7 @@ class KColorPickerDialog extends KWindow
     rootGrid.add(0, 2, new KGridLayout(this, "buttonGrid"), 2, 1);
     buttonGrid.alignHorizontal = ALIGN_RIGHT;
     buttonGrid.add(0, 0, new KTextButton(this, "OK", "okButton"));
-    buttonGrid.add(1, 0, new KTextButton(this, "ƒLƒƒƒ“ƒZƒ‹", "cancelButton"));
+    buttonGrid.add(1, 0, new KTextButton(this, "ã‚­ãƒ£ãƒ³ã‚»ãƒ«", "cancelButton"));
 
     rootGrid.margin = 10;
     rootGrid.space = 10;
@@ -664,18 +664,18 @@ class KColorPickerDialog extends KWindow
 }
 
 /**------------------------------
- * ƒJƒ‰[ƒsƒbƒJ[‚ğŒÄ‚Ño‚·ŠÖ”
+ * ã‚«ãƒ©ãƒ¼ãƒ”ãƒƒã‚«ãƒ¼ã‚’å‘¼ã³å‡ºã™é–¢æ•°
  *
- * ƒJƒ‰[ƒsƒbƒJ[ƒ_ƒCƒAƒƒO‚ğ•\¦‚µ‚ÄAƒJƒ‰[‚ğ•ÒW‚µ‚Ü‚·B
- * hasAlpha=false‚Ì‚Í0xRRGGBBŒ`®‚ÌƒJƒ‰[’l‚ğA
- * hasAlpha=true‚Ì‚Í0xAARRGGBBŒ`®‚ÌƒJƒ‰[’l‚ğæ‚èˆµ‚¢‚Ü‚·B
- * ƒ_ƒCƒAƒƒO‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½‚ÍA•Ô‚è’l‚ÉƒJƒ‰[‚Ì‘Ö‚í‚è‚Évoid‚ğ•Ô‚µ‚Ü‚·B
+ * ã‚«ãƒ©ãƒ¼ãƒ”ãƒƒã‚«ãƒ¼ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤ºã—ã¦ã€ã‚«ãƒ©ãƒ¼ã‚’ç·¨é›†ã—ã¾ã™ã€‚
+ * hasAlpha=falseã®æ™‚ã¯0xRRGGBBå½¢å¼ã®ã‚«ãƒ©ãƒ¼å€¤ã‚’ã€
+ * hasAlpha=trueã®æ™‚ã¯0xAARRGGBBå½¢å¼ã®ã‚«ãƒ©ãƒ¼å€¤ã‚’å–ã‚Šæ‰±ã„ã¾ã™ã€‚
+ * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸæ™‚ã¯ã€è¿”ã‚Šå€¤ã«ã‚«ãƒ©ãƒ¼ã®æ›¿ã‚ã‚Šã«voidã‚’è¿”ã—ã¾ã™ã€‚
  *
- * @param color ƒJƒ‰[
- * @param hasAlpha ƒAƒ‹ƒtƒ@‚ğ‚Á‚Ä‚¢‚é‚©H
- * @param dict ƒJƒ‰[ƒsƒbƒJ[‚ÌˆÊ’u‚ğ•Û‘¶‚·‚é«‘
- * @param name ƒJƒ‰[ƒsƒbƒJ[‚Ì–¼‘O
- * @return •ÏX‚³‚ê‚½ƒJƒ‰[
+ * @param color ã‚«ãƒ©ãƒ¼
+ * @param hasAlpha ã‚¢ãƒ«ãƒ•ã‚¡ã‚’æŒã£ã¦ã„ã‚‹ã‹ï¼Ÿ
+ * @param dict ã‚«ãƒ©ãƒ¼ãƒ”ãƒƒã‚«ãƒ¼ã®ä½ç½®ã‚’ä¿å­˜ã™ã‚‹è¾æ›¸
+ * @param name ã‚«ãƒ©ãƒ¼ãƒ”ãƒƒã‚«ãƒ¼ã®åå‰
+ * @return å¤‰æ›´ã•ã‚ŒãŸã‚«ãƒ©ãƒ¼
  ------------------------------*/
 function queryColorPicker(color, hasAlpha = false, dict = void, name = "colorPicker")
 {

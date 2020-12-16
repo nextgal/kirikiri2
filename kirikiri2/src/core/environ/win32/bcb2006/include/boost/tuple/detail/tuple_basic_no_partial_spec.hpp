@@ -1,6 +1,6 @@
 // - tuple_basic_no_partial_spec.hpp -----------------------------------------
 
-// Copyright (C) 1999, 2000 Jaakko J‰rvi (jaakko.jarvi@cs.utu.fi)
+// Copyright (C) 1999, 2000 Jaakko JËàêvi (jaakko.jarvi@cs.utu.fi)
 // Copyright (C) 2001 Doug Gregor (gregod@rpi.edu)
 // Copyright (C) 2001 Gary Powell (gary.powell@sierra.com)
 //

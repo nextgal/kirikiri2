@@ -4,7 +4,7 @@
 
 
 /**----------------------------------------------------------------------
- * ƒeƒLƒXƒgƒ‰ƒxƒ‹
+ * ãƒ†ã‚­ã‚¹ãƒˆãƒ©ãƒ™ãƒ«
  ----------------------------------------------------------------------*/
 class KTextLabel extends KWidget
 {
@@ -13,26 +13,26 @@ class KTextLabel extends KWidget
   var _maxLabelWidth = 0;
 
   /*------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param label ƒ‰ƒxƒ‹‚Ì’l
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param label ãƒ©ãƒ™ãƒ«ã®å€¤
+   * @param name åå‰
    ------------------------------*/
   function KTextLabel(win, label = "", name = "") {
-    // eƒNƒ‰ƒXŒÄ‚Ño‚µ
+    // è¦ªã‚¯ãƒ©ã‚¹å‘¼ã³å‡ºã—
     super.KWidget(win, name);
-    // ƒ}ƒEƒX‚Ì•Ó‚è”»’è‚Í“§‰ß
+    // ãƒã‚¦ã‚¹ã®è¾ºã‚Šåˆ¤å®šã¯é€é
     hitThreshold = 0;
-    // ’l‚ğİ’è
+    // å€¤ã‚’è¨­å®š
     this.label = label;
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹‚Ì’l
+   * ãƒ©ãƒ™ãƒ«ã®å€¤
    *
-   * @return ƒ‰ƒxƒ‹‚Ì’l
-   * @param v V‹K‚Ìƒ‰ƒxƒ‹‚Ì’l
+   * @return ãƒ©ãƒ™ãƒ«ã®å€¤
+   * @param v æ–°è¦ã®ãƒ©ãƒ™ãƒ«ã®å€¤
    ------------------------------*/
   property label {
     getter {
@@ -40,24 +40,24 @@ class KTextLabel extends KWidget
     }
 
     setter(v) {
-      // •K‚¸•¶š—ñ‚É‚·‚é
+      // å¿…ãšæ–‡å­—åˆ—ã«ã™ã‚‹
       v = string(v);
-      // “à—e‚ªXV‚³‚ê‚Ä‚¢‚é‚¾‚¯ˆ—
+      // å†…å®¹ãŒæ›´æ–°ã•ã‚Œã¦ã„ã‚‹æ™‚ã ã‘å‡¦ç†
       if (_label == v)
         return;
-      // ’l‚ğXV
+      // å€¤ã‚’æ›´æ–°
       _label = v;
-      // Ä•`‰æ
+      // å†æç”»
       drawContent();
     }
   }
 
-  // ƒ‰ƒxƒ‹‚Ì“à—e‚ğ•`‰æBƒTƒCƒY‚ğÄİ’è
+  // ãƒ©ãƒ™ãƒ«ã®å†…å®¹ã‚’æç”»ã€‚ã‚µã‚¤ã‚ºã‚’å†è¨­å®š
   function drawContent {
-    // ‰üs‚Å•ªŠ„
-    var lines = _label.split(/\r\n|\r|\n/);
+    // æ”¹è¡Œã§åˆ†å‰²
+    var lines = _label.split(/Â¥rÂ¥n|Â¥r|Â¥n/);
 
-    // ƒTƒCƒY‚ğŒvZ‚µ‚ÄÄİ’è
+    // ã‚µã‚¤ã‚ºã‚’è¨ˆç®—ã—ã¦å†è¨­å®š
     var tw, th;
     for(var i=0; i<lines.count; i++) {
       var fw = font.getTextWidth(lines[i]);
@@ -67,10 +67,10 @@ class KTextLabel extends KWidget
     th -= lineSpacing;
     setFixedSize(_maxLabelWidth ? Math.min(_maxLabelWidth, tw) : tw, th);
 
-    // “§–¾‚É“h‚è‚Â‚Ô‚µ
+    // é€æ˜ã«å¡—ã‚Šã¤ã¶ã—
     fillRect(0, 0, width, height, 0);
 
-    // •‚ÅƒeƒLƒXƒg•`‰æ
+    // é»’ã§ãƒ†ã‚­ã‚¹ãƒˆæç”»
     var t = 0;
     for(var i=0; i<lines.count; i++) {
       drawText(0, t, lines[i], fontColor, 255);
@@ -78,7 +78,7 @@ class KTextLabel extends KWidget
     }
   }
 
-  // Å‘åƒ‰ƒxƒ‹•‚ª•ÏX‚³‚ê‚½‚çÄ•`‰æ
+  // æœ€å¤§ãƒ©ãƒ™ãƒ«å¹…ãŒå¤‰æ›´ã•ã‚ŒãŸã‚‰å†æç”»
   property maxLabelWidth {
     getter { 
       return _maxLabelWidth;
@@ -91,27 +91,27 @@ class KTextLabel extends KWidget
     }
   }
 
-  // ƒtƒHƒ“ƒgƒJƒ‰[‚ª•ÏX‚³‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ³ãƒˆã‚«ãƒ©ãƒ¼ãŒå¤‰æ›´ã•ã‚ŒãŸã‚‰å†æç”»
   function onFontColorModified {
     drawContent();
   }
 
-  // ƒtƒHƒ“ƒgƒtƒFƒCƒX‚ª•ÏX‚³‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚§ã‚¤ã‚¹ãŒå¤‰æ›´ã•ã‚ŒãŸã‚‰å†æç”»
   function onFontFaceModified {
     drawContent();
   }
 
-  // ƒtƒHƒ“ƒgƒwƒCƒg‚ª•ÏX‚³‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ³ãƒˆãƒ˜ã‚¤ãƒˆãŒå¤‰æ›´ã•ã‚ŒãŸã‚‰å†æç”»
   function onFontHeightModified {
     drawContent();
   }
 
-  // enabled==true‚È‚ç‚»‚Ì‚Ü‚Ü•\¦
+  // enabled==trueãªã‚‰ãã®ã¾ã¾è¡¨ç¤º
   function onNodeEnabled {
     opacity = 255;
   }
 
-  // enabled=false‚È‚ç”¼“§–¾‚Å•\¦
+  // enabled=falseãªã‚‰åŠé€æ˜ã§è¡¨ç¤º
   function onNodeDisabled {
     opacity = 64;
   }

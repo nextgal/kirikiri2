@@ -28,7 +28,7 @@ namespace scene
 			video::SColor color=video::SColor(100,0,0,0));
 
 		//! destructor
-		virtual ~CTextSceneNode();
+		virtual ‾CTextSceneNode();
 
 		virtual void OnRegisterSceneNode();
 
@@ -66,7 +66,7 @@ namespace scene
 			video::SColor shade_top, video::SColor shade_bottom);
 
 		//! destructor
-		virtual ~CBillboardTextSceneNode();
+		virtual ‾CBillboardTextSceneNode();
 
 		virtual void OnRegisterSceneNode();
 

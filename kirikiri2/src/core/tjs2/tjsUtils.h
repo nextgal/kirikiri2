@@ -26,7 +26,7 @@ class tTJSCriticalSection
 	CRITICAL_SECTION CS;
 public:
 	tTJSCriticalSection() { InitializeCriticalSection(&CS); }
-	~tTJSCriticalSection() { DeleteCriticalSection(&CS); }
+	‾tTJSCriticalSection() { DeleteCriticalSection(&CS); }
 
 	void Enter() { EnterCriticalSection(&CS); }
 	void Leave() { LeaveCriticalSection(&CS); }
@@ -36,7 +36,7 @@ class tTJSCriticalSection
 {
 public:
 	tTJSCriticalSection() { ; }
-	~tTJSCriticalSection() { ; }
+	‾tTJSCriticalSection() { ; }
 
 	void Enter() { ; }
 	void Leave() { ; }
@@ -75,7 +75,7 @@ public:
 		Section->Enter();
 	}
 
-	~tTJSCriticalSectionHolder()
+	‾tTJSCriticalSectionHolder()
 	{
 		Section->Leave();
 	}
@@ -92,7 +92,7 @@ class tTJSAtExit
 	void (*Function)();
 public:
 	tTJSAtExit(void (*func)()) { Function = func; };
-	~tTJSAtExit() { Function(); }
+	‾tTJSAtExit() { Function(); }
 };
 //---------------------------------------------------------------------------
 class tTJSAtStart
@@ -104,7 +104,7 @@ public:
 class iTJSDispatch2;
 extern iTJSDispatch2 * TJSObjectTraceTarget;
 
-#define TJS_DEBUG_REFERENCE_BREAK \
+#define TJS_DEBUG_REFERENCE_BREAK ¥
 	if(TJSObjectTraceTarget == (iTJSDispatch2*)this) TJSNativeDebuggerBreak()
 #define TJS_SET_REFERENCE_BREAK(x) TJSObjectTraceTarget=(x)
 //---------------------------------------------------------------------------
@@ -113,7 +113,7 @@ TJS_EXP_FUNC_DEF(const tjs_char *, TJSVariantTypeToTypeString, (tTJSVariantType 
 
 TJS_EXP_FUNC_DEF(tTJSString, TJSVariantToReadableString, (const tTJSVariant &val, tjs_int maxlen = 512));
 	// convert given variant to human-readable string
-	// ( eg. "(string)\"this is a\\nstring\"" )
+	// ( eg. "(string)¥"this is a¥¥nstring¥"" )
 TJS_EXP_FUNC_DEF(tTJSString, TJSVariantToExpressionString, (const tTJSVariant &val));
 	// convert given variant to string which can be interpret as an expression.
 	// this function does not convert objects ( returns empty string )
@@ -138,7 +138,7 @@ public:
 		Object = ref.Object;
 		Object->AddRef();
 	}
-	~tTJSRefHolder() { Object->Release(); }
+	‾tTJSRefHolder() { Object->Release(); }
 
 	T* GetObject() { Object->AddRef(); return Object; }
 	T* GetObjectNoAddRef() { return Object; }

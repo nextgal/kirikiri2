@@ -30,7 +30,7 @@ bool tjsEnableDicFuncQuickHack = tjsEnableDicFuncQuickHack_mark[3] != '0';
 	//----- dicfunc quick-hack
 
 //---------------------------------------------------------------------------
-const tjs_char TJS_SKIP_CODE = (tjs_char)~((tjs_char)0);
+const tjs_char TJS_SKIP_CODE = (tjs_char)‾((tjs_char)0);
 //---------------------------------------------------------------------------
 
 
@@ -140,7 +140,7 @@ tjs_int TJSBinNum(tjs_char ch) throw()
 //---------------------------------------------------------------------------
 tjs_int TJSUnescapeBackSlash(tjs_char ch) throw()
 {
-	// convert "\?"
+	// convert "¥?"
 	// ch must indicate "?"
 	switch(ch)
 	{
@@ -167,7 +167,7 @@ static tTJSSkipCommentResult TJSSkipComment(const tjs_char **ptr)
 	if((*ptr)[1] == TJS_W('/'))
 	{
 		// line comment; skip to newline
-		while(*(*ptr)!=TJS_W('\n')) if(!TJSNext(&(*ptr))) break;
+		while(*(*ptr)!=TJS_W('¥n')) if(!TJSNext(&(*ptr))) break;
 		if(*(*ptr) ==0) return scrEnded;
 		(*ptr)++;
 		TJSSkipSpace(&(*ptr));
@@ -249,8 +249,8 @@ static tTJSInternalParseStringResult
 	TJSInternalParseString(tTJSVariant &val, const tjs_char **ptr,
 		tjs_char delim, bool embexpmode)
 {
-	// delim1 must be '\'' or '"'
-	// delim2 must be '&' or '\0'
+	// delim1 must be '¥'' or '"'
+	// delim2 must be '&' or '¥0'
 
 	ttstr str;
 
@@ -258,16 +258,16 @@ static tTJSInternalParseStringResult
 
 	for(;*(*ptr);)
 	{
-		if(*(*ptr)==TJS_W('\\'))
+		if(*(*ptr)==TJS_W('¥¥'))
 		{
 			// escape
 			if(!TJSNext(ptr)) break;
 			if(*(*ptr)==TJS_W('x') || *(*ptr)==TJS_W('X'))
 			{
 				// hex
-				// starts with a "\x", be parsed while characters are
+				// starts with a "¥x", be parsed while characters are
 				// recognized as hex-characters, but limited of size of tjs_char.
-				// on Windows, \xXXXXX will be parsed to UNICODE 16bit characters.
+				// on Windows, ¥xXXXXX will be parsed to UNICODE 16bit characters.
 				if(!TJSNext(ptr)) break;
 				tjs_int num;
 				tjs_int code = 0;
@@ -374,7 +374,7 @@ static tTJSInternalParseStringResult
 //---------------------------------------------------------------------------
 bool TJSParseString(tTJSVariant &val, const tjs_char **ptr)
 {
-	// parse a string starts with '\'' or '"'
+	// parse a string starts with '¥'' or '"'
 
 	tjs_char delimiter=*(*ptr);
 
@@ -862,8 +862,8 @@ static bool TJSParseRegExp(tTJSVariant &pat, const tjs_char **ptr)
 {
 	// parse a regular expression pointed by 'ptr'.
 	// this is essencially the same as string parsing, except for
-	// not to decode escaped characters by '\\'.
-	// the regexp must be terminated by the delimiter '/', not succeeded by '\\'.
+	// not to decode escaped characters by '¥¥'.
+	// the regexp must be terminated by the delimiter '/', not succeeded by '¥¥'.
 
 	// this returns an internal representation: '//flag/pattern' that can be parsed by
 	// RegExp._compile
@@ -876,7 +876,7 @@ static bool TJSParseRegExp(tTJSVariant &pat, const tjs_char **ptr)
 
 	for(;*(*ptr);)
 	{
-		if(*(*ptr)==TJS_W('\\'))
+		if(*(*ptr)==TJS_W('¥¥'))
 		{
 			str+=*(*ptr);
 			if(lastbackslash)
@@ -1089,7 +1089,7 @@ tTJSLexicalAnalyzer::tTJSLexicalAnalyzer(tTJSScriptBlock *block,
 	PutValue(tTJSVariant());
 }
 //---------------------------------------------------------------------------
-tTJSLexicalAnalyzer::~tTJSLexicalAnalyzer()
+tTJSLexicalAnalyzer::‾tTJSLexicalAnalyzer()
 {
 	Free();
 }
@@ -1291,15 +1291,15 @@ tTJSSkipCommentResult tTJSLexicalAnalyzer::ProcessPPStatement()
 	return scrNotComment;
 }
 //---------------------------------------------------------------------------
-#define TJS_MATCH_W(word, code) \
+#define TJS_MATCH_W(word, code) ¥
 	if(TJSStringMatch(&Current, TJS_W(word), true)) return (code)
-#define TJS_MATCH_S(word, code) \
+#define TJS_MATCH_S(word, code) ¥
 	if(TJSStringMatch(&Current, TJS_W(word), false)) return (code)
-#define TJS_MATCH_W_V(word, code, val) \
+#define TJS_MATCH_W_V(word, code, val) ¥
 	if(TJSStringMatch(&Current, TJS_W(word), true)) { n=PutValue(val); return (code); }
-#define TJS_MATCH_S_V(word, code, val) \
+#define TJS_MATCH_S_V(word, code, val) ¥
 	if(TJSStringMatch(&Current, TJS_W(word), false)) { n=PutValue(val); return (code); }
-#define TJS_1CHAR(code) \
+#define TJS_1CHAR(code) ¥
 	TJSNext(&Current); return (code)
 tjs_int tTJSLexicalAnalyzer::GetToken(tjs_int &n)
 {
@@ -1421,8 +1421,8 @@ re_match:
 		TJS_MATCH_S("/=", T_SLASHEQUAL);
 		TJS_1CHAR(T_SLASH);
 
-	case TJS_W('\\'):
-		TJS_MATCH_S("\\=", T_BACKSLASHEQUAL);
+	case TJS_W('¥¥'):
+		TJS_MATCH_S("¥¥=", T_BACKSLASHEQUAL);
 		TJS_1CHAR(T_BACKSLASH);
 
 	case TJS_W('%'):
@@ -1449,7 +1449,7 @@ re_match:
 		NestLevel--;
 		TJS_1CHAR(T_RPARENTHESIS);
 
-	case TJS_W('~'):
+	case TJS_W('‾'):
 		TJS_1CHAR(T_TILDE);
 
 	case TJS_W('?'):
@@ -1478,8 +1478,8 @@ re_match:
 	case TJS_W('$'):
 		TJS_1CHAR(T_DOLLAR);
 
-	case TJS_W('\''):
-	case TJS_W('\"'):
+	case TJS_W('¥''):
+	case TJS_W('¥"'):
 		// literal string
 	  {
 		tTJSVariant v;
@@ -1494,7 +1494,7 @@ re_match:
 		const tjs_char *org = Current;
 		if(!TJSNext(&Current)) return 0;
 		if(!TJSSkipSpace(&Current)) return 0;
-		if(*Current == TJS_W('\'') || *Current == TJS_W('\"'))
+		if(*Current == TJS_W('¥'') || *Current == TJS_W('¥"'))
 		{
 			tEmbeddableExpressionData data;
 			data.State = evsStart;
@@ -1678,16 +1678,16 @@ void tTJSLexicalAnalyzer::PreProcess(void)
 
 
 	/* unify new line codes */
-	TJS_D((TJS_W("unifying new line codes ...\n")))
+	TJS_D((TJS_W("unifying new line codes ...¥n")))
 
 	tjs_char *p;
 	p=Script;
 	while(*p)
 	{
-		if(*p==TJS_W('\r') && *(p+1)==TJS_W('\n'))
+		if(*p==TJS_W('¥r') && *(p+1)==TJS_W('¥n'))
 			*p=TJS_SKIP_CODE;
-		else if(*p==TJS_W('\r'))
-			*p=TJS_W('\n');
+		else if(*p==TJS_W('¥r'))
+			*p=TJS_W('¥n');
 		p++;
 	}
 }
@@ -1729,7 +1729,7 @@ tjs_int tTJSLexicalAnalyzer::GetNext(tjs_int &value)
 
 	if(First)
 	{
-		TJS_D((TJS_W("pre-processing ...\n")))
+		TJS_D((TJS_W("pre-processing ...¥n")))
 
 
 		First = false;

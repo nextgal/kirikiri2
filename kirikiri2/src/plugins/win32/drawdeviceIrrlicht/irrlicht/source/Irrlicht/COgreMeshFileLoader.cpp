@@ -58,7 +58,7 @@ COgreMeshFileLoader::COgreMeshFileLoader(io::IFileSystem* fs, video::IVideoDrive
 
 
 //! destructor
-COgreMeshFileLoader::~COgreMeshFileLoader()
+COgreMeshFileLoader::‾COgreMeshFileLoader()
 {
 	clearMeshes();
 
@@ -82,7 +82,7 @@ bool COgreMeshFileLoader::isALoadableFileExtension(const c8* filename) const
 
 
 //! creates/loads an animated mesh from the file.
-//! \return Pointer to the created mesh. Returns 0 if loading failed.
+//! ¥return Pointer to the created mesh. Returns 0 if loading failed.
 //! If you no longer need the mesh, you should call IAnimatedMesh::drop().
 //! See IReferenceCounted::drop() for more information.
 IAnimatedMesh* COgreMeshFileLoader::createMesh(io::IReadFile* file)
@@ -376,7 +376,7 @@ void COgreMeshFileLoader::composeMeshBufferMaterial(scene::IMeshBuffer* mb, cons
 				{
 					// retry with relative path
 					core::stringc relative = Materials[k].Techniques[0].Passes[0].Texture.Filename;
-					s32 idx = relative.findLast('\\');
+					s32 idx = relative.findLast('¥¥');
 					if (idx != -1)
 						relative = relative.subString(idx+1, relative.size()-idx-1);
 					idx = relative.findLast('/');
@@ -582,7 +582,7 @@ core::stringc COgreMeshFileLoader::getTextureFileName(const core::stringc& textu
 	idx = model.findLast('/');
 
 	if (idx == -1)
-		idx = model.findLast('\\');
+		idx = model.findLast('¥¥');
 
 	if (idx == -1)
 		return core::stringc();
@@ -601,7 +601,7 @@ void COgreMeshFileLoader::getMaterialToken(io::IReadFile* file, core::stringc& t
 	file->read(&c, sizeof(c8));
 	while ( core::isspace(c) && (file->getPos() < file->getSize()))
 	{
-		if (noNewLine && c=='\n')
+		if (noNewLine && c=='¥n')
 		{
 			file->seek(-1, true);
 			return;
@@ -615,7 +615,7 @@ void COgreMeshFileLoader::getMaterialToken(io::IReadFile* file, core::stringc& t
 			file->read(&c, sizeof(c8));
 			if (c=='/')
 			{ // skip comments
-				while(c!='\n')
+				while(c!='¥n')
 					file->read(&c, sizeof(c8));
 			}
 			else
@@ -629,7 +629,7 @@ void COgreMeshFileLoader::getMaterialToken(io::IReadFile* file, core::stringc& t
 		file->read(&c, sizeof(c8));
 	}
 	while ((!core::isspace(c)) && (file->getPos() < file->getSize()));
-	if (c == '\n' && noNewLine)
+	if (c == '¥n' && noNewLine)
 		file->seek(-1, true);
 }
 
@@ -924,10 +924,10 @@ void COgreMeshFileLoader::readString(io::IReadFile* file, ChunkData& data, core:
 	c8 c = 0;
 	out = "";
 
-	while (c!='\n')
+	while (c!='¥n')
 	{
 		file->read(&c, sizeof(c8));
-		if (c!='\n')
+		if (c!='¥n')
 			out.append(c);
 
 	}
@@ -1005,7 +1005,7 @@ void COgreMeshFileLoader::setCurrentlyLoadingPath(io::IReadFile* file)
 	}
 	else
 	{
-		idx = CurrentlyLoadingFromPath.findLast('\\');
+		idx = CurrentlyLoadingFromPath.findLast('¥¥');
 
 		if (idx != -1)
 			CurrentlyLoadingFromPath = CurrentlyLoadingFromPath.subString(0, idx);

@@ -143,53 +143,53 @@ usage (void)
 {
   fprintf(stderr, "usage: %s [switches] ", progname);
 #ifdef TWO_FILE_COMMANDLINE
-  fprintf(stderr, "inputfile outputfile\n");
+  fprintf(stderr, "inputfile outputfile¥n");
 #else
-  fprintf(stderr, "[inputfile]\n");
+  fprintf(stderr, "[inputfile]¥n");
 #endif
 
-  fprintf(stderr, "Switches (names may be abbreviated):\n");
-  fprintf(stderr, "  -quality N     Compression quality (0..100; 5-95 is useful range)\n");
-  fprintf(stderr, "  -grayscale     Create monochrome JPEG file\n");
+  fprintf(stderr, "Switches (names may be abbreviated):¥n");
+  fprintf(stderr, "  -quality N     Compression quality (0..100; 5-95 is useful range)¥n");
+  fprintf(stderr, "  -grayscale     Create monochrome JPEG file¥n");
 #ifdef ENTROPY_OPT_SUPPORTED
-  fprintf(stderr, "  -optimize      Optimize Huffman table (smaller file, but slow compression)\n");
+  fprintf(stderr, "  -optimize      Optimize Huffman table (smaller file, but slow compression)¥n");
 #endif
 #ifdef C_PROGRESSIVE_SUPPORTED
-  fprintf(stderr, "  -progressive   Create progressive JPEG file\n");
+  fprintf(stderr, "  -progressive   Create progressive JPEG file¥n");
 #endif
 #ifdef TARGA_SUPPORTED
-  fprintf(stderr, "  -targa         Input file is Targa format (usually not needed)\n");
+  fprintf(stderr, "  -targa         Input file is Targa format (usually not needed)¥n");
 #endif
-  fprintf(stderr, "Switches for advanced users:\n");
+  fprintf(stderr, "Switches for advanced users:¥n");
 #ifdef DCT_ISLOW_SUPPORTED
-  fprintf(stderr, "  -dct int       Use integer DCT method%s\n",
+  fprintf(stderr, "  -dct int       Use integer DCT method%s¥n",
 	  (JDCT_DEFAULT == JDCT_ISLOW ? " (default)" : ""));
 #endif
 #ifdef DCT_IFAST_SUPPORTED
-  fprintf(stderr, "  -dct fast      Use fast integer DCT (less accurate)%s\n",
+  fprintf(stderr, "  -dct fast      Use fast integer DCT (less accurate)%s¥n",
 	  (JDCT_DEFAULT == JDCT_IFAST ? " (default)" : ""));
 #endif
 #ifdef DCT_FLOAT_SUPPORTED
-  fprintf(stderr, "  -dct float     Use floating-point DCT method%s\n",
+  fprintf(stderr, "  -dct float     Use floating-point DCT method%s¥n",
 	  (JDCT_DEFAULT == JDCT_FLOAT ? " (default)" : ""));
 #endif
-  fprintf(stderr, "  -restart N     Set restart interval in rows, or in blocks with B\n");
+  fprintf(stderr, "  -restart N     Set restart interval in rows, or in blocks with B¥n");
 #ifdef INPUT_SMOOTHING_SUPPORTED
-  fprintf(stderr, "  -smooth N      Smooth dithered input (N=1..100 is strength)\n");
+  fprintf(stderr, "  -smooth N      Smooth dithered input (N=1..100 is strength)¥n");
 #endif
-  fprintf(stderr, "  -maxmemory N   Maximum memory to use (in kbytes)\n");
-  fprintf(stderr, "  -outfile name  Specify name for output file\n");
-  fprintf(stderr, "  -verbose  or  -debug   Emit debug output\n");
-  fprintf(stderr, "Switches for wizards:\n");
+  fprintf(stderr, "  -maxmemory N   Maximum memory to use (in kbytes)¥n");
+  fprintf(stderr, "  -outfile name  Specify name for output file¥n");
+  fprintf(stderr, "  -verbose  or  -debug   Emit debug output¥n");
+  fprintf(stderr, "Switches for wizards:¥n");
 #ifdef C_ARITH_CODING_SUPPORTED
-  fprintf(stderr, "  -arithmetic    Use arithmetic coding\n");
+  fprintf(stderr, "  -arithmetic    Use arithmetic coding¥n");
 #endif
-  fprintf(stderr, "  -baseline      Force baseline quantization tables\n");
-  fprintf(stderr, "  -qtables file  Use quantization tables given in file\n");
-  fprintf(stderr, "  -qslots N[,...]    Set component quantization tables\n");
-  fprintf(stderr, "  -sample HxV[,...]  Set component sampling factors\n");
+  fprintf(stderr, "  -baseline      Force baseline quantization tables¥n");
+  fprintf(stderr, "  -qtables file  Use quantization tables given in file¥n");
+  fprintf(stderr, "  -qslots N[,...]    Set component quantization tables¥n");
+  fprintf(stderr, "  -sample HxV[,...]  Set component sampling factors¥n");
 #ifdef C_MULTISCAN_FILES_SUPPORTED
-  fprintf(stderr, "  -scans file    Create multi-scan JPEG per script file\n");
+  fprintf(stderr, "  -scans file    Create multi-scan JPEG per script file¥n");
 #endif
   exit(EXIT_FAILURE);
 }
@@ -249,7 +249,7 @@ parse_switches (j_compress_ptr cinfo, int argc, char **argv,
 #ifdef C_ARITH_CODING_SUPPORTED
       cinfo->arith_code = TRUE;
 #else
-      fprintf(stderr, "%s: sorry, arithmetic coding not supported\n",
+      fprintf(stderr, "%s: sorry, arithmetic coding not supported¥n",
 	      progname);
       exit(EXIT_FAILURE);
 #endif
@@ -277,7 +277,7 @@ parse_switches (j_compress_ptr cinfo, int argc, char **argv,
       static boolean printed_version = FALSE;
 
       if (! printed_version) {
-	fprintf(stderr, "Independent JPEG Group's CJPEG, version %s\n%s\n",
+	fprintf(stderr, "Independent JPEG Group's CJPEG, version %s¥n%s¥n",
 		JVERSION, JCOPYRIGHT);
 	printed_version = TRUE;
       }
@@ -305,7 +305,7 @@ parse_switches (j_compress_ptr cinfo, int argc, char **argv,
 #ifdef ENTROPY_OPT_SUPPORTED
       cinfo->optimize_coding = TRUE;
 #else
-      fprintf(stderr, "%s: sorry, entropy optimization was not compiled\n",
+      fprintf(stderr, "%s: sorry, entropy optimization was not compiled¥n",
 	      progname);
       exit(EXIT_FAILURE);
 #endif
@@ -322,7 +322,7 @@ parse_switches (j_compress_ptr cinfo, int argc, char **argv,
       simple_progressive = TRUE;
       /* We must postpone execution until num_components is known. */
 #else
-      fprintf(stderr, "%s: sorry, progressive output was not compiled\n",
+      fprintf(stderr, "%s: sorry, progressive output was not compiled¥n",
 	      progname);
       exit(EXIT_FAILURE);
 #endif
@@ -390,7 +390,7 @@ parse_switches (j_compress_ptr cinfo, int argc, char **argv,
       scansarg = argv[argn];
       /* We must postpone reading the file in case -progressive appears. */
 #else
-      fprintf(stderr, "%s: sorry, multi-scan output was not compiled\n",
+      fprintf(stderr, "%s: sorry, multi-scan output was not compiled¥n",
 	      progname);
       exit(EXIT_FAILURE);
 #endif
@@ -514,14 +514,14 @@ main (int argc, char **argv)
   /* Must have either -outfile switch or explicit output file name */
   if (outfilename == NULL) {
     if (file_index != argc-2) {
-      fprintf(stderr, "%s: must name one input and one output file\n",
+      fprintf(stderr, "%s: must name one input and one output file¥n",
 	      progname);
       usage();
     }
     outfilename = argv[file_index+1];
   } else {
     if (file_index != argc-1) {
-      fprintf(stderr, "%s: must name one input and one output file\n",
+      fprintf(stderr, "%s: must name one input and one output file¥n",
 	      progname);
       usage();
     }
@@ -529,7 +529,7 @@ main (int argc, char **argv)
 #else
   /* Unix style: expect zero or one file name */
   if (file_index < argc-1) {
-    fprintf(stderr, "%s: only one input file\n", progname);
+    fprintf(stderr, "%s: only one input file¥n", progname);
     usage();
   }
 #endif /* TWO_FILE_COMMANDLINE */
@@ -537,7 +537,7 @@ main (int argc, char **argv)
   /* Open the input file. */
   if (file_index < argc) {
     if ((input_file = fopen(argv[file_index], READ_BINARY)) == NULL) {
-      fprintf(stderr, "%s: can't open %s\n", progname, argv[file_index]);
+      fprintf(stderr, "%s: can't open %s¥n", progname, argv[file_index]);
       exit(EXIT_FAILURE);
     }
   } else {
@@ -548,7 +548,7 @@ main (int argc, char **argv)
   /* Open the output file. */
   if (outfilename != NULL) {
     if ((output_file = fopen(outfilename, WRITE_BINARY)) == NULL) {
-      fprintf(stderr, "%s: can't open %s\n", progname, outfilename);
+      fprintf(stderr, "%s: can't open %s¥n", progname, outfilename);
       exit(EXIT_FAILURE);
     }
   } else {

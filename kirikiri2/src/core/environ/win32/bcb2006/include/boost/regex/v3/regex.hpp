@@ -296,8 +296,8 @@ struct re_repeat : public re_jump
 // bytes to insert
 enum re_jump_size_type
 {
-   re_jump_size = (sizeof(re_jump) + padding_mask) & ~(padding_mask),
-   re_repeater_size = (sizeof(re_repeat) + padding_mask) & ~(padding_mask)
+   re_jump_size = (sizeof(re_jump) + padding_mask) & ‾(padding_mask),
+   re_repeater_size = (sizeof(re_repeat) + padding_mask) & ‾(padding_mask)
 };
 
 } // namespace re_detail
@@ -311,16 +311,16 @@ class BOOST_REGEX_DECL regbase
 public:
    enum flag_type_
    {
-      escape_in_lists = 1,                     // '\' special inside [...]
+      escape_in_lists = 1,                     // '¥' special inside [...]
       char_classes = escape_in_lists << 1,     // [[:CLASS:]] allowed
       intervals = char_classes << 1,           // {x,y} allowed
       limited_ops = intervals << 1,            // all of + ? and | are normal characters
-      newline_alt = limited_ops << 1,          // \n is the same as |
-      bk_plus_qm = newline_alt << 1,           // uses \+ and \?
-      bk_braces = bk_plus_qm << 1,             // uses \{ and \}
-      bk_parens = bk_braces << 1,              // uses \( and \)
-      bk_refs = bk_parens << 1,                // \d allowed
-      bk_vbar = bk_refs << 1,                  // uses \|
+      newline_alt = limited_ops << 1,          // ¥n is the same as |
+      bk_plus_qm = newline_alt << 1,           // uses ¥+ and ¥?
+      bk_braces = bk_plus_qm << 1,             // uses ¥{ and ¥}
+      bk_parens = bk_braces << 1,              // uses ¥( and ¥)
+      bk_refs = bk_parens << 1,                // ¥d allowed
+      bk_vbar = bk_refs << 1,                  // uses ¥|
 
       use_except = bk_vbar << 1,               // exception on error
       failbit = use_except << 1,               // error flag
@@ -515,7 +515,7 @@ public:
    reg_expression(const charT* p1, const charT* p2, flag_type f = regbase::normal, const Allocator& a = Allocator());
    reg_expression(const charT* p, size_type len, flag_type f, const Allocator& a = Allocator());
    reg_expression(const reg_expression&);
-   ~reg_expression();
+   ‾reg_expression();
    reg_expression& BOOST_REGEX_CALL operator=(const reg_expression&);
    reg_expression& BOOST_REGEX_CALL operator=(const charT* ptr)
    {
@@ -936,7 +936,7 @@ public:
 
    match_results_base& BOOST_REGEX_CALL operator=(const match_results_base& m);
 
-   ~match_results_base()
+   ‾match_results_base()
    {
       m_free();
    }

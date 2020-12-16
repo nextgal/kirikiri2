@@ -38,7 +38,7 @@ namespace video
 
 
 	//! destructor
-	IBurningShader::~IBurningShader()
+	IBurningShader::‾IBurningShader()
 	{
 		if (RenderTarget)
 			RenderTarget->drop();

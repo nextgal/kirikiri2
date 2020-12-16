@@ -165,8 +165,8 @@ local int stored(struct state *s)
     if (s->incnt + 4 > s->inlen) return 2;      /* not enough input */
     len = s->in[s->incnt++];
     len |= s->in[s->incnt++] << 8;
-    if (s->in[s->incnt++] != (~len & 0xff) ||
-        s->in[s->incnt++] != ((~len >> 8) & 0xff))
+    if (s->in[s->incnt++] != (‾len & 0xff) ||
+        s->in[s->incnt++] != ((‾len >> 8) & 0xff))
         return -2;                              /* didn't match complement! */
 
     /* copy len bytes from in to out */
@@ -504,7 +504,7 @@ local int codes(struct state *s,
  * - The literal/length code is complete, but has two symbols that are invalid
  *   and should result in an error if received.  This cannot be implemented
  *   simply as an incomplete code since those two symbols are in the "middle"
- *   of the code.  They are eight bits long and the longest literal/length\
+ *   of the code.  They are eight bits long and the longest literal/length¥
  *   code is nine bits.  Therefore the code must be constructed with those
  *   symbols, and the invalid symbols must be detected after decoding.
  *
@@ -827,7 +827,7 @@ int puff(unsigned char *dest,           /* pointer to destination pointer */
 /* Return size times approximately the cube root of 2, keeping the result as 1,
    3, or 5 times a power of 2 -- the result is always > size, until the result
    is the maximum value of an unsigned long, where it remains.  This is useful
-   to keep reallocations less than ~33% over the actual data. */
+   to keep reallocations less than ‾33% over the actual data. */
 local size_t bythirds(size_t size)
 {
     int n;
@@ -896,29 +896,29 @@ int main(int argc, char **argv)
             else if (arg[1] >= '0' && arg[1] <= '9')
                 skip = (unsigned)atoi(arg + 1);
             else {
-                fprintf(stderr, "invalid option %s\n", arg);
+                fprintf(stderr, "invalid option %s¥n", arg);
                 return 3;
             }
         }
         else if (name != NULL) {
-            fprintf(stderr, "only one file name allowed\n");
+            fprintf(stderr, "only one file name allowed¥n");
             return 3;
         }
         else
             name = arg;
     source = load(name, &len);
     if (source == NULL) {
-        fprintf(stderr, "memory allocation failure\n");
+        fprintf(stderr, "memory allocation failure¥n");
         return 4;
     }
     if (len == 0) {
-        fprintf(stderr, "could not read %s, or it was empty\n",
+        fprintf(stderr, "could not read %s, or it was empty¥n",
                 name == NULL ? "<stdin>" : name);
         free(source);
         return 3;
     }
     if (skip >= len) {
-        fprintf(stderr, "skip request of %d leaves no input\n", skip);
+        fprintf(stderr, "skip request of %d leaves no input¥n", skip);
         free(source);
         return 3;
     }
@@ -928,10 +928,10 @@ int main(int argc, char **argv)
     sourcelen = (unsigned long)len;
     ret = puff(NIL, &destlen, source + skip, &sourcelen);
     if (ret)
-        fprintf(stderr, "puff() failed with return code %d\n", ret);
+        fprintf(stderr, "puff() failed with return code %d¥n", ret);
     else {
-        fprintf(stderr, "puff() succeeded uncompressing %lu bytes\n", destlen);
-        if (sourcelen < len) fprintf(stderr, "%lu compressed bytes unused\n",
+        fprintf(stderr, "puff() succeeded uncompressing %lu bytes¥n", destlen);
+        if (sourcelen < len) fprintf(stderr, "%lu compressed bytes unused¥n",
                                      len - sourcelen);
     }
 
@@ -939,7 +939,7 @@ int main(int argc, char **argv)
     if (put) {
         dest = malloc(destlen);
         if (dest == NULL) {
-            fprintf(stderr, "memory allocation failure\n");
+            fprintf(stderr, "memory allocation failure¥n");
             free(source);
             return 4;
         }

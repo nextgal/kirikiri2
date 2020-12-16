@@ -26,7 +26,7 @@ namespace scene
 		CAnimatedMeshMD2();
 
 		//! destructor
-		virtual ~CAnimatedMeshMD2();
+		virtual ‾CAnimatedMeshMD2();
 
 		//! loads an md2 file
 		virtual bool loadFile(io::IReadFile* file);
@@ -44,8 +44,8 @@ namespace scene
 		virtual IMeshBuffer* getMeshBuffer(u32 nr) const;
 
 		//! Returns pointer to a mesh buffer which fits a material
- 		/** \param material: material to search for
-		\return Returns the pointer to the mesh buffer or
+ 		/** ¥param material: material to search for
+		¥return Returns the pointer to the mesh buffer or
 		NULL if there is no such mesh buffer. */
 		virtual IMeshBuffer* getMeshBuffer( const video::SMaterial &material) const;
 
@@ -73,7 +73,7 @@ namespace scene
 		virtual s32 getAnimationCount() const;
 
 		//! Returns name of md2 animation.
-		//! \param nr: Zero based index of animation.
+		//! ¥param nr: Zero based index of animation.
 		virtual const c8* getAnimationName(s32 nr) const;
 
 	private:

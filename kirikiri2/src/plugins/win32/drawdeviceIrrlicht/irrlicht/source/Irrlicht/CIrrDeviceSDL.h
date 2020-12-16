@@ -33,7 +33,7 @@ namespace irr
 			void* windowID, const char* version);
 
 		//! destructor
-		virtual ~CIrrDeviceSDL();
+		virtual ‾CIrrDeviceSDL();
 
 		//! runs the device. Returns false if device wants to be deleted
 		virtual bool run();
@@ -56,7 +56,7 @@ namespace irr
 		//! notifies the device that it should close itself
 		virtual void closeDevice();
 
-		//! \return Returns a pointer to a list with all video modes supported
+		//! ¥return Returns a pointer to a list with all video modes supported
 		video::IVideoModeList* getVideoModeList();
 
 		//! Sets if the window should be resizeable in windowed mode.

@@ -39,7 +39,7 @@ public:
     ios_flags_saver( state_type &s, aspect_type const &a )
         : s_save_( s ), a_save_( s.flags(a) )
         {}
-    ~ios_flags_saver()
+    ‾ios_flags_saver()
         { s_save_.flags( a_save_ ); }
 
 private:
@@ -59,7 +59,7 @@ public:
     ios_precision_saver( state_type &s, aspect_type const &a )
         : s_save_( s ), a_save_( s.precision(a) )
         {}
-    ~ios_precision_saver()
+    ‾ios_precision_saver()
         { s_save_.precision( a_save_ ); }
 
 private:
@@ -79,7 +79,7 @@ public:
     ios_width_saver( state_type &s, aspect_type const &a )
         : s_save_( s ), a_save_( s.width(a) )
         {}
-    ~ios_width_saver()
+    ‾ios_width_saver()
         { s_save_.width( a_save_ ); }
 
 private:
@@ -103,7 +103,7 @@ public:
     basic_ios_iostate_saver( state_type &s, aspect_type const &a )
         : s_save_( s ), a_save_( s.rdstate() )
         { s.clear(a); }
-    ~basic_ios_iostate_saver()
+    ‾basic_ios_iostate_saver()
         { s_save_.clear( a_save_ ); }
 
 private:
@@ -124,7 +124,7 @@ public:
     basic_ios_exception_saver( state_type &s, aspect_type const &a )
         : s_save_( s ), a_save_( s.exceptions() )
         { s.exceptions(a); }
-    ~basic_ios_exception_saver()
+    ‾basic_ios_exception_saver()
         { s_save_.exceptions( a_save_ ); }
 
 private:
@@ -145,7 +145,7 @@ public:
     basic_ios_tie_saver( state_type &s, aspect_type const &a )
         : s_save_( s ), a_save_( s.tie(a) )
         {}
-    ~basic_ios_tie_saver()
+    ‾basic_ios_tie_saver()
         { s_save_.tie( a_save_ ); }
 
 private:
@@ -166,7 +166,7 @@ public:
     basic_ios_rdbuf_saver( state_type &s, aspect_type const &a )
         : s_save_( s ), a_save_( s.rdbuf(a) )
         {}
-    ~basic_ios_rdbuf_saver()
+    ‾basic_ios_rdbuf_saver()
         { s_save_.rdbuf( a_save_ ); }
 
 private:
@@ -187,7 +187,7 @@ public:
     basic_ios_fill_saver( state_type &s, aspect_type const &a )
         : s_save_( s ), a_save_( s.fill(a) )
         {}
-    ~basic_ios_fill_saver()
+    ‾basic_ios_fill_saver()
         { s_save_.fill( a_save_ ); }
 
 private:
@@ -208,7 +208,7 @@ public:
     basic_ios_locale_saver( state_type &s, aspect_type const &a )
         : s_save_( s ), a_save_( s.imbue(a) )
         {}
-    ~basic_ios_locale_saver()
+    ‾basic_ios_locale_saver()
         { s_save_.imbue( a_save_ ); }
 
 private:
@@ -232,7 +232,7 @@ public:
     ios_iword_saver( state_type &s, index_type i, aspect_type const &a )
         : s_save_( s ), a_save_( s.iword(i) ), i_save_( i )
         { s.iword(i) = a; }
-    ~ios_iword_saver()
+    ‾ios_iword_saver()
         { s_save_.iword( i_save_ ) = a_save_; }
 
 private:
@@ -254,7 +254,7 @@ public:
     ios_pword_saver( state_type &s, index_type i, aspect_type const &a )
         : s_save_( s ), a_save_( s.pword(i) ), i_save_( i )
         { s.pword(i) = a; }
-    ~ios_pword_saver()
+    ‾ios_pword_saver()
         { s_save_.pword( i_save_ ) = a_save_; }
 
 private:
@@ -276,7 +276,7 @@ public:
         , a3_save_( s.width() )
         {}
 
-    ~ios_base_all_saver()
+    ‾ios_base_all_saver()
     {
         s_save_.width( a3_save_ );
         s_save_.precision( a2_save_ );
@@ -303,7 +303,7 @@ public:
         , a7_save_( s.rdbuf() ), a8_save_( s.fill() ), a9_save_( s.getloc() )
         {}
 
-    ~basic_ios_all_saver()
+    ‾basic_ios_all_saver()
     {
         s_save_.imbue( a9_save_ );
         s_save_.fill( a8_save_ );
@@ -340,7 +340,7 @@ public:
         , a2_save_( s.pword(i) )
         {}
 
-    ~ios_all_word_saver()
+    ‾ios_all_word_saver()
     {
         s_save_.pword( i_save_ ) = a2_save_;
         s_save_.iword( i_save_ ) = a1_save_;

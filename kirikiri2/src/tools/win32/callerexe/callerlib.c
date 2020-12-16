@@ -10,11 +10,11 @@ void callermain()
 
 	module = LoadLibrary("krdevui.dll");
 	if(!module)
-		module = LoadLibrary("tools\\krdevui.dll");
+		module = LoadLibrary("tools¥¥krdevui.dll");
 	if(!module)
 	{
 		MessageBox(NULL,
-			"Could not find krdevui.dll.\r\n"
+			"Could not find krdevui.dll.¥r¥n"
 			"Check that the program is properly placed.",
 			"Error", MB_OK|MB_ICONSTOP);
 		return;
@@ -26,8 +26,8 @@ void callermain()
 	if(!proc)
 	{
 		MessageBox(NULL,
-			"Could not find " MAKE_STRING(PROC_NAME) " in krdevui.dll.\r\n"
-			"This may be version mismatch.\r\n"
+			"Could not find " MAKE_STRING(PROC_NAME) " in krdevui.dll.¥r¥n"
+			"This may be version mismatch.¥r¥n"
 			"Check that the program is placed "
 			"with proper version of krdevui.dll.",
 			"Error", MB_OK|MB_ICONSTOP);

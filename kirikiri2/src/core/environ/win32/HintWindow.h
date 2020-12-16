@@ -34,7 +34,7 @@ END_MESSAGE_MAP(THintWindow)
 public:
 	__fastcall virtual TTVPHintWindow(TComponent *AOwner);
 	__fastcall virtual TTVPHintWindow(HWND ParentWindow);
-	__fastcall virtual ~TTVPHintWindow();
+	__fastcall virtual ‾TTVPHintWindow();
 
 	virtual void __fastcall ActivateHint(const TRect &Rect,const AnsiString
 		AHint);

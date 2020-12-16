@@ -26,7 +26,7 @@ public:
 		s32& outMaterialTypeNr, IMaterialRenderer* baseMaterial);
 
 	//! Destructor
-	~COpenGLParallaxMapRenderer();
+	‾COpenGLParallaxMapRenderer();
 
 	//! Called by the engine when the vertex and/or pixel shader constants for an
 	//! material renderer should be set.

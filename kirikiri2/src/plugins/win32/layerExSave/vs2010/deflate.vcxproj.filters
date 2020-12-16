@@ -6,22 +6,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\zlib\adler32.c">
+    <ClCompile Include="..¥..¥zlib¥adler32.c">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\zlib\compress.c">
+    <ClCompile Include="..¥..¥zlib¥compress.c">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\zlib\crc32.c">
+    <ClCompile Include="..¥..¥zlib¥crc32.c">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\zlib\deflate.c">
+    <ClCompile Include="..¥..¥zlib¥deflate.c">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\zlib\trees.c">
+    <ClCompile Include="..¥..¥zlib¥trees.c">
       <Filter>zlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\zlib\zutil.c">
+    <ClCompile Include="..¥..¥zlib¥zutil.c">
       <Filter>zlib</Filter>
     </ClCompile>
   </ItemGroup>

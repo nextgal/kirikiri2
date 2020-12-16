@@ -49,7 +49,7 @@ static DIDATAFORMAT TVPWheelDIDF =
 // Joystick (pad) related codes are contributed by Mr. Kiyobee @ TYPE-MOON.
 // Say thanks to him.
 
-//	in http://www.mediawars.ne.jp/~freemage/progs/other03.htm
+//	in http://www.mediawars.ne.jp/‾freemage/progs/other03.htm
 const static tjs_uint32 q = 0x80000000;
 static DIOBJECTDATAFORMAT _c_rgodf[ ] = {
 	{ &GUID_XAxis, FIELD_OFFSET(DIJOYSTATE, lX), q | DIDFT_AXIS | DIDFT_ANYINSTANCE, 256, },
@@ -100,16 +100,16 @@ static DIOBJECTDATAFORMAT _c_rgodf[ ] = {
 #define numObjects (sizeof(_c_rgodf) / sizeof(_c_rgodf[0]))
 static DIDATAFORMAT c_dfPad =
 {
-	sizeof(DIDATAFORMAT),		//	structure size   �\���̃T�C�Y
-	sizeof(DIOBJECTDATAFORMAT),	//	size of object data format �I�u�W�F�N�g�f�[�^�`���̃T�C�Y
-	DIDF_ABSAXIS,				//	absolute axis system ��Ύ����W�n
-	sizeof(DIJOYSTATE),			//	size of device data �f�o�C�X�f�[�^�̃T�C�Y
-	numObjects, 				//	count of objects �I�u�W�F�N�g��
-	_c_rgodf,					//	position �ʒu
+	sizeof(DIDATAFORMAT),		//	structure size   構造体サイズ
+	sizeof(DIOBJECTDATAFORMAT),	//	size of object data format オブジェクトデータ形式のサイズ
+	DIDF_ABSAXIS,				//	absolute axis system 絶対軸座標系
+	sizeof(DIJOYSTATE),			//	size of device data デバイスデータのサイズ
+	numObjects, 				//	count of objects オブジェクト数
+	_c_rgodf,					//	position 位置
 };
 static const tjs_int   PadAxisMax = +32767;
 static const tjs_int   PadAxisMin = -32768;
-static const tjs_int   PadAxisThreshold   = 95; // Assumes 95% value can turn input on. 95%�̓��͂�OK
+static const tjs_int   PadAxisThreshold   = 95; // Assumes 95% value can turn input on. 95%の入力でOK
 static const tjs_int   PadAxisUpperThreshold  = PadAxisMax * PadAxisThreshold / 100;
 static const tjs_int   PadAxisLowerThreshold  = PadAxisMin * PadAxisThreshold / 100;
 static bool CALLBACK EnumJoySticksCallback(LPCDIDEVICEINSTANCE lpddi, LPVOID pvRef);
@@ -198,7 +198,7 @@ tTVPKeyRepeatEmulator::tTVPKeyRepeatEmulator() : Pressed(false)
 {
 }
 //---------------------------------------------------------------------------
-tTVPKeyRepeatEmulator::~tTVPKeyRepeatEmulator()
+tTVPKeyRepeatEmulator::‾tTVPKeyRepeatEmulator()
 {
 }
 //---------------------------------------------------------------------------
@@ -316,7 +316,7 @@ tTVPDirectInputDevice::tTVPDirectInputDevice()
 	Device = NULL;
 }
 //---------------------------------------------------------------------------
-tTVPDirectInputDevice::~tTVPDirectInputDevice()
+tTVPDirectInputDevice::‾tTVPDirectInputDevice()
 {
 	if(Device)
 	{
@@ -383,7 +383,7 @@ tTVPWheelDirectInputDevice::tTVPWheelDirectInputDevice(HWND window) :
 	}
 }
 //---------------------------------------------------------------------------
-tTVPWheelDirectInputDevice::~tTVPWheelDirectInputDevice()
+tTVPWheelDirectInputDevice::‾tTVPWheelDirectInputDevice()
 {
 }
 //---------------------------------------------------------------------------
@@ -495,7 +495,7 @@ tTVPPadDirectInputDevice::tTVPPadDirectInputDevice(HWND window) :
 	PadDevices->push_back(this);
 }
 //---------------------------------------------------------------------------
-tTVPPadDirectInputDevice::~tTVPPadDirectInputDevice()
+tTVPPadDirectInputDevice::‾tTVPPadDirectInputDevice()
 {
 	// unregister from PadDevices
 	std::vector<tTVPPadDirectInputDevice*>::iterator i;
@@ -530,8 +530,8 @@ void tTVPPadDirectInputDevice::Update(tjs_uint32 newstate)
 	DownedKeys.clear();
 	RepeatKeys.clear();
 
-	tjs_uint32 downed = newstate & ~LastPadState; // newly pressed buttons
-	tjs_uint32 upped  = ~newstate & LastPadState; // newly released buttons
+	tjs_uint32 downed = newstate & ‾LastPadState; // newly pressed buttons
+	tjs_uint32 upped  = ‾newstate & LastPadState; // newly released buttons
 
 	GlobalPadPushedFlag |= downed;
 
@@ -542,7 +542,7 @@ void tTVPPadDirectInputDevice::Update(tjs_uint32 newstate)
 	// trigger buttons(button0 .. button9).
 	const tjs_uint32 cross_group_mask =
 		((1<<pkfLeft)|(1<<pkfRight)|(1<<pkfUp)|(1<<pkfDown));
-	const tjs_uint32 trigger_group_mask = ~cross_group_mask;
+	const tjs_uint32 trigger_group_mask = ‾cross_group_mask;
 
 	if(!(LastPadState & cross_group_mask) && (newstate & cross_group_mask))
 		CrossKeysRepeater.Down(); // any pressed
@@ -599,7 +599,7 @@ void tTVPPadDirectInputDevice::UpdateWithCurrentState()
 {
 	// called every 50ms intervally
 	tjs_uint32 state = GetState();
-	KeyUpdateMask |= ~state;
+	KeyUpdateMask |= ‾state;
 	Update(state & KeyUpdateMask);
 }
 //---------------------------------------------------------------------------
@@ -657,7 +657,7 @@ tjs_uint32 tTVPPadDirectInputDevice::GetState()
 
 	//	structure DIJOYSTATE => unsigned integer JoyState
 	tjs_uint32	press	= 0;
-#define JOY_CROSSKEY(value, plus, minus)	((value)>=PadAxisUpperThreshold ? \
+#define JOY_CROSSKEY(value, plus, minus)	((value)>=PadAxisUpperThreshold ? ¥
 			(plus) : ((value)<=PadAxisLowerThreshold ? (minus) : 0))
 #define	JOY_BUTTON(value, on)				((value&0x80) ? (on) : 0)
 	press	|= JOY_CROSSKEY(js.lX, (1<<pkfRight), (1<<pkfLeft));
@@ -719,7 +719,7 @@ bool tTVPPadDirectInputDevice::GetAsyncState(tjs_uint keycode, bool getcurrent)
 	else
 	{
 		bool ret = GlobalPadPushedFlag  & bit;
-		GlobalPadPushedFlag &= ~bit;
+		GlobalPadPushedFlag &= ‾bit;
 		return ret;
 	}
 }

@@ -44,7 +44,7 @@ CDMFLoader::CDMFLoader(video::IVideoDriver* driver, ISceneManager* smgr)
 
 
 /** Destructor*/
-CDMFLoader::~CDMFLoader()
+CDMFLoader::‾CDMFLoader()
 {
 	if (Driver)
 		Driver->drop();
@@ -84,7 +84,7 @@ void CDMFLoader::GetFaceNormal(	f32 a[3], //First point
 
 
 /**Creates/loads an animated mesh from the file.
- \return Pointer to the created mesh. Returns 0 if loading failed.
+ ¥return Pointer to the created mesh. Returns 0 if loading failed.
  If you no longer need the mesh, you should call IAnimatedMesh::drop().
  See IReferenceCounted::drop() for more information.*/
 IAnimatedMesh* CDMFLoader::createMesh(io::IReadFile* file)
@@ -205,7 +205,7 @@ IAnimatedMesh* CDMFLoader::createMesh(io::IReadFile* file)
 			if ( !SceneMgr->getParameters()->existsAttribute(DMF_TEXTURE_PATH) )
 			{
 				//get the right path for textures
-				StringList filepath = SubdivideString(String(file->getFileName()),"\\");
+				StringList filepath = SubdivideString(String(file->getFileName()),"¥¥");
 				StringList filepath1 = SubdivideString(String(file->getFileName()),"/");
 				if(filepath1.size()>filepath.size())
 				{
@@ -432,9 +432,9 @@ IAnimatedMesh* CDMFLoader::createMesh(io::IReadFile* file)
 }
 
 
-/** \brief Tell us if this file is able to be loaded by this class
+/** ¥brief Tell us if this file is able to be loaded by this class
  based on the file extension (e.g. ".bsp")
- \return true if file is loadable.*/
+ ¥return true if file is loadable.*/
 bool CDMFLoader::isALoadableFileExtension(const c8* filename) const
 {
 	return strstr(filename, ".dmf") != 0;

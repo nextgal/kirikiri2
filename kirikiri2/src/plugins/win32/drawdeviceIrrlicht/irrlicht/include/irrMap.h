@@ -26,7 +26,7 @@ class map
 			: LeftChild(0), RightChild(0), Parent(0), Key(k),
 				Value(v), IsRed(true) {}
 
-		~RBTree() {}
+		‾RBTree() {}
 
 		void setLeftChild(RBTree* p)
 		{
@@ -529,7 +529,7 @@ class map
 	map() : Root(0), Size(0) {}
 
 	// Destructor
-	~map()
+	‾map()
 	{
 		clear();
 	}
@@ -539,9 +539,9 @@ class map
 	//------------------------------
 
 	//! Inserts a new node into the tree
-	//! \param keyNew: the index for this value
-	//! \param v: the value to insert
-	//! \return Returns true if successful,
+	//! ¥param keyNew: the index for this value
+	//! ¥param v: the value to insert
+	//! ¥return Returns true if successful,
 	//! false if it fails (already exists)
 	bool insert(const KeyType& keyNew, const ValueType& v)
 	{
@@ -624,8 +624,8 @@ class map
 
 	//! Replaces the value if the key already exists,
 	//! otherwise inserts a new element.
-	//! \param k: the index for this value
-	//! \param v: the new value of
+	//! ¥param k: the index for this value
+	//! ¥param v: the new value of
 	void set(const KeyType& k, const ValueType& v)
 	{
 		Node* p = find(k);
@@ -637,8 +637,8 @@ class map
 
 	//! Removes a node from the tree and returns it.
 	//! The returned node must be deleted by the user
-	//! \param k: the key to remove
-	//! \return: A pointer to the node, or 0 if not found
+	//! ¥param k: the key to remove
+	//! ¥return: A pointer to the node, or 0 if not found
 	Node* delink(const KeyType& k)
 	{
 		Node* p = find(k);
@@ -677,7 +677,7 @@ class map
 	}
 
 	//! Removes a node from the tree and deletes it.
-	//! \return True if the node was found and deleted
+	//! ¥return True if the node was found and deleted
 	bool remove(const KeyType& k)
 	{
 		Node* p = find(k);
@@ -736,7 +736,7 @@ class map
 	}
 
 	//! Is the tree empty?
-	//! \return Returns true if empty, false if not
+	//! ¥return Returns true if empty, false if not
 	bool isEmpty() const
 	{
 		_IRR_IMPLEMENT_MANAGED_MARSHALLING_BUGFIX;
@@ -744,8 +744,8 @@ class map
 	}
 
 	//! Search for a node with the specified key.
-	//! \param keyToFind: The key to find
-	//! \return Returns 0 if node couldn't be found.
+	//! ¥param keyToFind: The key to find
+	//! ¥return Returns 0 if node couldn't be found.
 	Node* find(const KeyType& keyToFind) const
 	{
 		Node* pNode = Root;
@@ -766,7 +766,7 @@ class map
 	}
 
 	//! Gets the root element.
-	//! \return Returns a pointer to the root node, or
+	//! ¥return Returns a pointer to the root node, or
 	//! 0 if the tree is empty.
 	Node* getRoot() const
 	{
@@ -834,7 +834,7 @@ class map
 	//! Set node as new root.
 	/** The node will be set to black, otherwise core dumps may arise
 	(patch provided by rogerborg).
-	\param newRoot Node which will be the new root
+	¥param newRoot Node which will be the new root
 	*/
 	void setRoot(Node* newRoot)
 	{
@@ -847,7 +847,7 @@ class map
 	}
 
 	//! Insert a node into the tree without using any fancy balancing logic.
-	/** \return false if that key already exist in the tree. */
+	/** ¥return false if that key already exist in the tree. */
 	bool insert(Node* newNode)
 	{
 		bool result=true; // Assume success

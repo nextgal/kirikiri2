@@ -3,14 +3,14 @@ object ConfSettingsForm: TConfSettingsForm
   Top = 447
   Width = 607
   Height = 406
-  Caption = 'İ’è'
+  Caption = 'è¨­å®š'
   Color = clBtnFace
   Constraints.MinHeight = 389
   Constraints.MinWidth = 607
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   Position = poDefaultPosOnly
@@ -21,7 +21,7 @@ object ConfSettingsForm: TConfSettingsForm
     Top = 328
     Width = 324
     Height = 12
-    Caption = 'w’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚Í‹g—¢‹g—¢Às‰Â”\ƒtƒ@ƒCƒ‹‚Å‚Í‚ ‚è‚Ü‚¹‚ñ'
+    Caption = 'æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã¯å‰é‡Œå‰é‡Œå®Ÿè¡Œå¯èƒ½ãƒ•ã‚¡ã‚¤ãƒ«ã§ã¯ã‚ã‚Šã¾ã›ã‚“'
     Visible = False
   end
   object IconChangeWarnLabel: TLabel
@@ -31,15 +31,15 @@ object ConfSettingsForm: TConfSettingsForm
     Height = 12
     Anchors = [akLeft, akBottom]
     Caption = 
-      '¦ ˆê“xƒAƒCƒRƒ“‚Ì•ÏX‚ğs‚¤‚Æ•Ê‚ÌƒAƒCƒRƒ“‚É•ÏX‚Å‚«‚È‚­‚È‚é‰Â”\' +
-      '«‚ª‚ ‚è‚Ü‚·'
+      'â€» ä¸€åº¦ã‚¢ã‚¤ã‚³ãƒ³ã®å¤‰æ›´ã‚’è¡Œã†ã¨åˆ¥ã®ã‚¢ã‚¤ã‚³ãƒ³ã«å¤‰æ›´ã§ããªããªã‚‹å¯èƒ½' +
+      'æ€§ãŒã‚ã‚Šã¾ã™'
   end
   object FileWroteLabel: TLabel
     Left = 8
     Top = 336
     Width = 98
     Height = 12
-    Caption = 'İ’è‚ğ•Û‘¶‚µ‚Ü‚µ‚½'
+    Caption = 'è¨­å®šã‚’ä¿å­˜ã—ã¾ã—ãŸ'
     Visible = False
   end
   object ProgramMayRunningLabel: TLabel
@@ -47,7 +47,7 @@ object ConfSettingsForm: TConfSettingsForm
     Top = 344
     Width = 322
     Height = 12
-    Caption = 'ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ(ƒvƒƒOƒ‰ƒ€‚ªÀs’†‚Ì‰Â”\«‚ª‚ ‚è‚Ü‚·)'
+    Caption = 'ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“(ãƒ—ãƒ­ã‚°ãƒ©ãƒ ãŒå®Ÿè¡Œä¸­ã®å¯èƒ½æ€§ãŒã‚ã‚Šã¾ã™)'
     Visible = False
   end
   object OKButton: TButton
@@ -68,7 +68,7 @@ object ConfSettingsForm: TConfSettingsForm
     Height = 25
     Anchors = [akRight, akBottom]
     Cancel = True
-    Caption = 'ƒLƒƒƒ“ƒZƒ‹'
+    Caption = 'ã‚­ãƒ£ãƒ³ã‚»ãƒ«'
     ModalResult = 2
     TabOrder = 1
   end
@@ -119,9 +119,9 @@ object ConfSettingsForm: TConfSettingsForm
   end
   object OpenDialog: TOpenDialog
     DefaultExt = 'exe'
-    Filter = 'Às‰Â”\ƒtƒ@ƒCƒ‹(*.exe)|*.exe|‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹(*.*)|*.*'
+    Filter = 'å®Ÿè¡Œå¯èƒ½ãƒ•ã‚¡ã‚¤ãƒ«(*.exe)|*.exe|ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«(*.*)|*.*'
     Options = [ofHideReadOnly, ofPathMustExist, ofFileMustExist, ofNoReadOnlyReturn, ofEnableSizing]
-    Title = '‹g—¢‹g—¢ Às‰Â”\ƒtƒ@ƒCƒ‹‚Ì‘I‘ğ'
+    Title = 'å‰é‡Œå‰é‡Œ å®Ÿè¡Œå¯èƒ½ãƒ•ã‚¡ã‚¤ãƒ«ã®é¸æŠ'
     Left = 384
     Top = 328
   end

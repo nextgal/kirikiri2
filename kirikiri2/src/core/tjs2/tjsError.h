@@ -30,49 +30,49 @@ extern ttstr TJSNonamedException;
 // macro
 //---------------------------------------------------------------------------
 #ifdef TJS_SUPPORT_VCL
-	#define TJS_CONVERT_TO_TJS_EXCEPTION_ADDITIONAL \
-		catch(const Exception &e) \
-		{ \
-			TJS_eTJSError(e.Message.c_str()); \
+	#define TJS_CONVERT_TO_TJS_EXCEPTION_ADDITIONAL ¥
+		catch(const Exception &e) ¥
+		{ ¥
+			TJS_eTJSError(e.Message.c_str()); ¥
 		}
 #else
 	#define TJS_CONVERT_TO_TJS_EXCEPTION_ADDITIONAL
 #endif
 
 
-#define TJS_CONVERT_TO_TJS_EXCEPTION \
-	catch(const eTJSSilent &e) \
-	{ \
-		throw e; \
-	} \
-	catch(const eTJSScriptException &e) \
-	{ \
-		throw e; \
-	} \
-	catch(const eTJSScriptError &e) \
-	{ \
-		throw e; \
-	} \
-	catch(const eTJSError &e) \
-	{ \
-		throw e; \
-	} \
-	catch(const eTJS &e) \
-	{ \
-		TJS_eTJSError(e.GetMessage()); \
-	} \
-	catch(const std::exception &e) \
-	{ \
-		TJS_eTJSError(e.what()); \
-	} \
-	catch(const wchar_t *text) \
-	{ \
-		TJS_eTJSError(text); \
-	} \
-	catch(const char *text) \
-	{ \
-		TJS_eTJSError(text); \
-	} \
+#define TJS_CONVERT_TO_TJS_EXCEPTION ¥
+	catch(const eTJSSilent &e) ¥
+	{ ¥
+		throw e; ¥
+	} ¥
+	catch(const eTJSScriptException &e) ¥
+	{ ¥
+		throw e; ¥
+	} ¥
+	catch(const eTJSScriptError &e) ¥
+	{ ¥
+		throw e; ¥
+	} ¥
+	catch(const eTJSError &e) ¥
+	{ ¥
+		throw e; ¥
+	} ¥
+	catch(const eTJS &e) ¥
+	{ ¥
+		TJS_eTJSError(e.GetMessage()); ¥
+	} ¥
+	catch(const std::exception &e) ¥
+	{ ¥
+		TJS_eTJSError(e.what()); ¥
+	} ¥
+	catch(const wchar_t *text) ¥
+	{ ¥
+		TJS_eTJSError(text); ¥
+	} ¥
+	catch(const char *text) ¥
+	{ ¥
+		TJS_eTJSError(text); ¥
+	} ¥
 	TJS_CONVERT_TO_TJS_EXCEPTION_ADDITIONAL
 //---------------------------------------------------------------------------
 
@@ -86,80 +86,80 @@ extern void TJSGetExceptionObject(tTJS *tjs, tTJSVariant *res, tTJSVariant &msg,
 //---------------------------------------------------------------------------
 
 #ifdef TJS_SUPPORT_VCL
-	#define TJS_CONVERT_TO_TJS_EXCEPTION_OBJECT_ADDITIONAL(_tjs, _result_condition, _result_addr, _before_catched, _when_catched) \
-	catch(EAccessViolation &e) \
-	{ \
-		_before_catched; \
-		if(_result_condition) \
-		{ \
-			tTJSVariant msg(e.Message.c_str()); \
-			TJSGetExceptionObject((_tjs), (_result_addr), msg, NULL); \
-		} \
-		_when_catched; \
-	} \
-	catch(Exception &e) \
-	{ \
-		_before_catched; \
-		if(_result_condition) \
-		{ \
-			tTJSVariant msg(e.Message.c_str()); \
-			TJSGetExceptionObject((_tjs), (_result_addr), msg, NULL); \
-		} \
-		_when_catched; \
+	#define TJS_CONVERT_TO_TJS_EXCEPTION_OBJECT_ADDITIONAL(_tjs, _result_condition, _result_addr, _before_catched, _when_catched) ¥
+	catch(EAccessViolation &e) ¥
+	{ ¥
+		_before_catched; ¥
+		if(_result_condition) ¥
+		{ ¥
+			tTJSVariant msg(e.Message.c_str()); ¥
+			TJSGetExceptionObject((_tjs), (_result_addr), msg, NULL); ¥
+		} ¥
+		_when_catched; ¥
+	} ¥
+	catch(Exception &e) ¥
+	{ ¥
+		_before_catched; ¥
+		if(_result_condition) ¥
+		{ ¥
+			tTJSVariant msg(e.Message.c_str()); ¥
+			TJSGetExceptionObject((_tjs), (_result_addr), msg, NULL); ¥
+		} ¥
+		_when_catched; ¥
 	}
 #else
 	#define TJS_CONVERT_TO_TJS_EXCEPTION_OBJECT_ADDITIONAL(_tjs, _result_condition, _result_addr, _before_catched, _when_catched)
 #endif
 
 
-#define TJS_CONVERT_TO_TJS_EXCEPTION_OBJECT(tjs, result_condition, result_addr, before_catched, when_catched) \
-	catch(eTJSSilent &e) \
-	{ \
-		throw e; \
-	} \
-	catch(eTJSScriptException &e) \
-	{ \
-		before_catched \
-		if(result_condition) *(result_addr) = e.GetValue(); \
-		when_catched; \
-	} \
-	catch(eTJSScriptError &e) \
-	{ \
-		before_catched \
-		if(result_condition) \
-		{ \
-			tTJSVariant msg(e.GetMessage()); \
-			tTJSVariant trace(e.GetTrace()); \
-			TJSGetExceptionObject((tjs), (result_addr), msg, &trace); \
-		} \
-		when_catched; \
-	} \
-	catch(eTJS &e)  \
-	{  \
-		before_catched \
-		if(result_condition) \
-		{ \
-			tTJSVariant msg(e.GetMessage()); \
-			TJSGetExceptionObject((tjs), (result_addr), msg, NULL); \
-		} \
-		when_catched; \
-	} \
-	catch(exception &e) \
-	{ \
-		before_catched \
-		if(result_condition) \
-		{ \
-			tTJSVariant msg(e.what()); \
-			TJSGetExceptionObject((tjs), (result_addr), msg, NULL); \
-		} \
-		when_catched; \
-	} \
-	TJS_CONVERT_TO_TJS_EXCEPTION_OBJECT_ADDITIONAL(tjs, result_condition, result_addr, before_catched, when_catched) \
-	catch(...) \
-	{ \
-		before_catched \
-		if(result_condition) (result_addr)->Clear(); \
-		when_catched; \
+#define TJS_CONVERT_TO_TJS_EXCEPTION_OBJECT(tjs, result_condition, result_addr, before_catched, when_catched) ¥
+	catch(eTJSSilent &e) ¥
+	{ ¥
+		throw e; ¥
+	} ¥
+	catch(eTJSScriptException &e) ¥
+	{ ¥
+		before_catched ¥
+		if(result_condition) *(result_addr) = e.GetValue(); ¥
+		when_catched; ¥
+	} ¥
+	catch(eTJSScriptError &e) ¥
+	{ ¥
+		before_catched ¥
+		if(result_condition) ¥
+		{ ¥
+			tTJSVariant msg(e.GetMessage()); ¥
+			tTJSVariant trace(e.GetTrace()); ¥
+			TJSGetExceptionObject((tjs), (result_addr), msg, &trace); ¥
+		} ¥
+		when_catched; ¥
+	} ¥
+	catch(eTJS &e)  ¥
+	{  ¥
+		before_catched ¥
+		if(result_condition) ¥
+		{ ¥
+			tTJSVariant msg(e.GetMessage()); ¥
+			TJSGetExceptionObject((tjs), (result_addr), msg, NULL); ¥
+		} ¥
+		when_catched; ¥
+	} ¥
+	catch(exception &e) ¥
+	{ ¥
+		before_catched ¥
+		if(result_condition) ¥
+		{ ¥
+			tTJSVariant msg(e.what()); ¥
+			TJSGetExceptionObject((tjs), (result_addr), msg, NULL); ¥
+		} ¥
+		when_catched; ¥
+	} ¥
+	TJS_CONVERT_TO_TJS_EXCEPTION_OBJECT_ADDITIONAL(tjs, result_condition, result_addr, before_catched, when_catched) ¥
+	catch(...) ¥
+	{ ¥
+		before_catched ¥
+		if(result_condition) (result_addr)->Clear(); ¥
+		when_catched; ¥
 	}
 
 
@@ -179,7 +179,7 @@ public:
 	eTJS() {;}
 	eTJS(const eTJS&) {;}
 	eTJS& operator= (const eTJS& e) { return *this; }
-	virtual ~eTJS() {;}
+	virtual ‾eTJS() {;}
 	virtual const ttstr & GetMessage() const 
 	{ return TJSNonamedException; }
 };
@@ -223,7 +223,7 @@ class eTJSScriptError : public eTJSError
 	{
 	public:
 		tScriptBlockHolder(tTJSScriptBlock *block);
-		~tScriptBlockHolder();
+		‾tScriptBlockHolder();
 		tScriptBlockHolder(const tScriptBlockHolder &holder);
 		tTJSScriptBlock *Block;
 	} Block;
@@ -296,7 +296,7 @@ void TJS_eTJSCompileError(const ttstr & msg, tTJSScriptBlock *block, tjs_int src
 void TJS_eTJSCompileError(const tjs_char * msg, tTJSScriptBlock *block, tjs_int srcpos);
 //---------------------------------------------------------------------------
 void TJSThrowFrom_tjs_error(tjs_error hr, const tjs_char *name = NULL);
-#define TJS_THROW_IF_ERROR(x) { \
+#define TJS_THROW_IF_ERROR(x) { ¥
 	tjs_error ____er; ____er = (x); if(TJS_FAILED(____er)) TJSThrowFrom_tjs_error(____er); }
 //---------------------------------------------------------------------------
 } // namespace TJS
@@ -336,7 +336,7 @@ TJS_MSG_DECL(TJSCannotModifyLHS, TJS_W("This expression cannot be used as a lval
 TJS_MSG_DECL(TJSInsufficientMem, TJS_W("Insufficient memory"))
 TJS_MSG_DECL(TJSCannotGetResult, TJS_W("Cannot get the value of this expression"))
 TJS_MSG_DECL(TJSNullAccess, TJS_W("Accessing to null object"))
-TJS_MSG_DECL(TJSMemberNotFound, TJS_W("Member \"%1\" does not exist"))
+TJS_MSG_DECL(TJSMemberNotFound, TJS_W("Member ¥"%1¥" does not exist"))
 TJS_MSG_DECL(TJSMemberNotFoundNoNameGiven, TJS_W("Member does not exist"))
 TJS_MSG_DECL(TJSNotImplemented, TJS_W("Called method is not implemented"))
 TJS_MSG_DECL(TJSInvalidParam, TJS_W("Invalid argument"))
@@ -346,13 +346,13 @@ TJS_MSG_DECL(TJSSpecifyDicOrArray, TJS_W("Specify a Dictionary object or an Arra
 TJS_MSG_DECL(TJSSpecifyArray, TJS_W("Specify an Array object"));
 TJS_MSG_DECL(TJSStringDeallocError, TJS_W("Cannot free the string memory block"))
 TJS_MSG_DECL(TJSStringAllocError, TJS_W("Cannot allocate the string memory block"))
-TJS_MSG_DECL(TJSMisplacedBreakContinue, TJS_W("Cannot place \"break\" or \"continue\" here"))
-TJS_MSG_DECL(TJSMisplacedCase, TJS_W("Cannot place \"case\" here"))
-TJS_MSG_DECL(TJSMisplacedReturn, TJS_W("Cannot place \"return\" here"))
+TJS_MSG_DECL(TJSMisplacedBreakContinue, TJS_W("Cannot place ¥"break¥" or ¥"continue¥" here"))
+TJS_MSG_DECL(TJSMisplacedCase, TJS_W("Cannot place ¥"case¥" here"))
+TJS_MSG_DECL(TJSMisplacedReturn, TJS_W("Cannot place ¥"return¥" here"))
 TJS_MSG_DECL(TJSStringParseError, TJS_W("Un-terminated string/regexp/octet literal"))
 TJS_MSG_DECL(TJSNumberError, TJS_W("Cannot be parsed as a number"))
 TJS_MSG_DECL(TJSUnclosedComment, TJS_W("Un-terminated comment"))
-TJS_MSG_DECL(TJSInvalidChar, TJS_W("Invalid character \'%1\'"))
+TJS_MSG_DECL(TJSInvalidChar, TJS_W("Invalid character ¥'%1¥'"))
 TJS_MSG_DECL(TJSExpected, TJS_W("Expected %1"))
 TJS_MSG_DECL(TJSSyntaxError, TJS_W("Syntax error (%1)"))
 TJS_MSG_DECL(TJSPPError, TJS_W("Error in conditional compiling expression"))
@@ -362,11 +362,11 @@ TJS_MSG_DECL(TJSRangeError, TJS_W("The value is out of the range"))
 TJS_MSG_DECL(TJSAccessDenyed, TJS_W("Invalid operation for Read-only or Write-only property"))
 TJS_MSG_DECL(TJSNativeClassCrash, TJS_W("Invalid object context"))
 TJS_MSG_DECL(TJSInvalidObject, TJS_W("The object is already invalidated"))
-TJS_MSG_DECL(TJSDuplicatedPropHandler, TJS_W("Duplicated \"setter\" or \"getter\""))
-TJS_MSG_DECL(TJSCannotOmit, TJS_W("\"...\" is used out of functions"))
+TJS_MSG_DECL(TJSDuplicatedPropHandler, TJS_W("Duplicated ¥"setter¥" or ¥"getter¥""))
+TJS_MSG_DECL(TJSCannotOmit, TJS_W("¥"...¥" is used out of functions"))
 TJS_MSG_DECL(TJSCannotParseDate, TJS_W("Invalid date format"))
 TJS_MSG_DECL(TJSInvalidValueForTimestamp, TJS_W("Invalid value for date/time"))
-TJS_MSG_DECL(TJSExceptionNotFound, TJS_W("Cannot convert exception because \"Exception\" does not exist"))
+TJS_MSG_DECL(TJSExceptionNotFound, TJS_W("Cannot convert exception because ¥"Exception¥" does not exist"))
 TJS_MSG_DECL(TJSInvalidFormatString, TJS_W("Invalid format string"))
 TJS_MSG_DECL(TJSDivideByZero, TJS_W("Division by zero"))
 TJS_MSG_DECL(TJSNotReconstructiveRandomizeData, TJS_W("Cannot reconstruct random seeds"))

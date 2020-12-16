@@ -25,6 +25,6 @@ long me_strlen(const char *s)
 
 void me_strcpy(char *d, const char *s)
 {
-	while((*(d++) = *(s++)) != '\0');
+	while((*(d++) = *(s++)) != '¥0');
 }
 

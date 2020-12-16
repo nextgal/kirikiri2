@@ -4,7 +4,7 @@
 
 
 /*----------------------------------------------------------------------
- * ƒTƒCƒYŒÅ’èƒŒƒCƒAƒEƒg
+ * ã‚µã‚¤ã‚ºå›ºå®šãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
  ----------------------------------------------------------------------*/
 class KFixedSizeLayout extends KWidget
 {
@@ -14,15 +14,15 @@ class KFixedSizeLayout extends KWidget
   var redrawn;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * q‚ÌcA‚Ü‚½‚Í‰¡•ûŒü‚ÌuÅ‘åƒTƒCƒYv‚ğí‚ÉuÅ¬ƒTƒCƒYv‚Ì‚Ü‚Ü
-   * ‚É‚È‚é‚æ‚¤‚ÉƒƒbƒN‚·‚é‚½‚ß‚ÌƒŒƒCƒAƒEƒgB
+   * å­ã®ç¸¦ã€ã¾ãŸã¯æ¨ªæ–¹å‘ã®ã€Œæœ€å¤§ã‚µã‚¤ã‚ºã€ã‚’å¸¸ã«ã€Œæœ€å°ã‚µã‚¤ã‚ºã€ã®ã¾ã¾
+   * ã«ãªã‚‹ã‚ˆã†ã«ãƒ­ãƒƒã‚¯ã™ã‚‹ãŸã‚ã®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã€‚
    *
-   * @param window ƒEƒBƒ“ƒhƒE
-   * @param fixHorizontal ‰¡•ûŒüƒƒbƒN
-   * @param fixVertical c•ûŒüƒƒbƒN
-   * @param name –¼‘O
+   * @param window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param fixHorizontal æ¨ªæ–¹å‘ãƒ­ãƒƒã‚¯
+   * @param fixVertical ç¸¦æ–¹å‘ãƒ­ãƒƒã‚¯
+   * @param name åå‰
    ------------------------------*/
   function KFixedSizeLayout(window, fixHorizontal, fixVertical, name = "") {
     super.KWidget(window, name);
@@ -34,9 +34,9 @@ class KFixedSizeLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ”z’u‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’é…ç½®ã™ã‚‹
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function add(child) {
     this.child = child;
@@ -45,10 +45,10 @@ class KFixedSizeLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğíœ‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å‰Šé™¤ã™ã‚‹
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(child, doInvalidate = true) {
     this.child = void;
@@ -59,7 +59,7 @@ class KFixedSizeLayout extends KWidget
   }
 
   /*------------------------------
-   * ŠeíƒtƒbƒNŠÖ”
+   * å„ç¨®ãƒ•ãƒƒã‚¯é–¢æ•°
    ------------------------------*/
   function onChildMinMaxSizeModified {
     invalidateLayout();
@@ -78,7 +78,7 @@ class KFixedSizeLayout extends KWidget
   }
 
   /*------------------------------
-   * ƒŒƒCƒAƒEƒg‚â‚è’¼‚µ
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚„ã‚Šç›´ã—
    ------------------------------*/
   function invalidateLayout {
     if (! child)
@@ -102,7 +102,7 @@ class KFixedSizeLayout extends KWidget
   }
   
   /*------------------------------
-   * ƒŠƒhƒ[
+   * ãƒªãƒ‰ãƒ­ãƒ¼
    ------------------------------*/
   function redraw {
     redrawn = true;

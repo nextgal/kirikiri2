@@ -37,7 +37,7 @@ namespace boost
         {
         }
 
-        ~any()
+        ‾any()
         {
             delete content;
         }
@@ -85,7 +85,7 @@ namespace boost
         {
         public: // structors
     
-            virtual ~placeholder()
+            virtual ‾placeholder()
             {
             }
 

@@ -35,12 +35,12 @@ object_operators<U>::operator!() const
     return !PyObject_IsTrue(x.ptr());
 }
 
-# define BOOST_PYTHON_COMPARE_OP(op, opid)                      \
-template <class L, class R>                                     \
-bool operator op(L const& l, R const& r)                        \
-{                                                               \
-    return PyObject_RichCompareBool(                            \
-        object(l).ptr(), object(r).ptr(), opid);                \
+# define BOOST_PYTHON_COMPARE_OP(op, opid)                      ¥
+template <class L, class R>                                     ¥
+bool operator op(L const& l, R const& r)                        ¥
+{                                                               ¥
+    return PyObject_RichCompareBool(                            ¥
+        object(l).ptr(), object(r).ptr(), opid);                ¥
 }
 BOOST_PYTHON_COMPARE_OP(>, Py_GT)
 BOOST_PYTHON_COMPARE_OP(>=, Py_GE)
@@ -50,12 +50,12 @@ BOOST_PYTHON_COMPARE_OP(==, Py_EQ)
 BOOST_PYTHON_COMPARE_OP(!=, Py_NE)
 # undef BOOST_PYTHON_COMPARE_OP
     
-# define BOOST_PYTHON_BINARY_OPERATOR(op)                               \
-BOOST_PYTHON_DECL object operator op(object const& l, object const& r); \
-template <class L, class R>                                             \
-object operator op(L const& l, R const& r)                              \
-{                                                                       \
-    return object(l) op object(r);                                      \
+# define BOOST_PYTHON_BINARY_OPERATOR(op)                               ¥
+BOOST_PYTHON_DECL object operator op(object const& l, object const& r); ¥
+template <class L, class R>                                             ¥
+object operator op(L const& l, R const& r)                              ¥
+{                                                                       ¥
+    return object(l) op object(r);                                      ¥
 }
 BOOST_PYTHON_BINARY_OPERATOR(+)
 BOOST_PYTHON_BINARY_OPERATOR(-)
@@ -70,12 +70,12 @@ BOOST_PYTHON_BINARY_OPERATOR(|)
 # undef BOOST_PYTHON_BINARY_OPERATOR
 
         
-# define BOOST_PYTHON_INPLACE_OPERATOR(op)                              \
-BOOST_PYTHON_DECL object& operator op(object& l, object const& r);      \
-template <class R>                                                      \
-object& operator op(object& l, R const& r)                              \
-{                                                                       \
-    return l op object(r);                                              \
+# define BOOST_PYTHON_INPLACE_OPERATOR(op)                              ¥
+BOOST_PYTHON_DECL object& operator op(object& l, object const& r);      ¥
+template <class R>                                                      ¥
+object& operator op(object& l, R const& r)                              ¥
+{                                                                       ¥
+    return l op object(r);                                              ¥
 }
 BOOST_PYTHON_INPLACE_OPERATOR(+=)
 BOOST_PYTHON_INPLACE_OPERATOR(-=)

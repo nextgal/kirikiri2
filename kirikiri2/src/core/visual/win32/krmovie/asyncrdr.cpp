@@ -34,7 +34,7 @@ CAsyncOutputPin::CAsyncOutputPin(
 
 }
 
-CAsyncOutputPin::~CAsyncOutputPin()
+CAsyncOutputPin::‾CAsyncOutputPin()
 {
 }
 
@@ -183,7 +183,7 @@ CAsyncOutputPin::Request(
         // on a coarser alignment.
         LONG lAlign;
         m_pIo->Alignment(&lAlign);
-        llTotal = (llTotal + lAlign -1) & ~(lAlign-1);
+        llTotal = (llTotal + lAlign -1) & ‾(lAlign-1);
 
         if (llPos + lLength > llTotal) {
             lLength = (LONG) (llTotal - llPos);
@@ -236,7 +236,7 @@ CAsyncOutputPin::SyncReadAligned(
         // on a coarser alignment.
         LONG lAlign;
         m_pIo->Alignment(&lAlign);
-        llTotal = (llTotal + lAlign -1) & ~(lAlign-1);
+        llTotal = (llTotal + lAlign -1) & ‾(lAlign-1);
 
         if (llPos + lLength > llTotal) {
             lLength = (LONG) (llTotal - llPos);
@@ -370,7 +370,7 @@ CAsyncReader::CAsyncReader(
 
 }
 
-CAsyncReader::~CAsyncReader()
+CAsyncReader::‾CAsyncReader()
 {
 }
 

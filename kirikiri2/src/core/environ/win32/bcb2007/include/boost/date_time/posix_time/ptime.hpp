@@ -13,7 +13,7 @@ namespace boost {
 namespace posix_time {
   
   //! Time type with no timezone or other adjustments
-  /*! \ingroup time_basics
+  /*! ¥ingroup time_basics
    */
   class ptime : public date_time::base_time<ptime, posix_time_system>
   {

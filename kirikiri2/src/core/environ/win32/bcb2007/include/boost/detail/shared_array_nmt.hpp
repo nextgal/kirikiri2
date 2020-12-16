@@ -65,7 +65,7 @@ public:
 #endif
     }
 
-    ~shared_array()
+    ‾shared_array()
     {
         if(--*pn == 0)
         {

@@ -73,7 +73,7 @@ CAnimatedMeshMD3::CAnimatedMeshMD3 ()
 
 
 //! Destructor
-CAnimatedMeshMD3::~CAnimatedMeshMD3()
+CAnimatedMeshMD3::‾CAnimatedMeshMD3()
 {
 	if ( Mesh )
 		Mesh->drop ();

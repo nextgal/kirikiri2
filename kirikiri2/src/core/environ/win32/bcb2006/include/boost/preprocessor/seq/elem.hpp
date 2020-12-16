@@ -17,7 +17,7 @@
 #
 # /* BOOST_PP_SEQ_ELEM */
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
 #    define BOOST_PP_SEQ_ELEM(i, seq) BOOST_PP_SEQ_ELEM_I(i, seq)
 # else
 #    define BOOST_PP_SEQ_ELEM(i, seq) BOOST_PP_SEQ_ELEM_I((i, seq))

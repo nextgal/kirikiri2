@@ -310,7 +310,7 @@ CAnimatedMeshMD2::CAnimatedMeshMD2()
 
 
 //! destructor
-CAnimatedMeshMD2::~CAnimatedMeshMD2()
+CAnimatedMeshMD2::‾CAnimatedMeshMD2()
 {
 	if (FrameList)
 		delete [] FrameList;

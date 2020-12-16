@@ -1,4 +1,4 @@
-// popup ƒeƒXƒg
+// popup ãƒ†ã‚¹ãƒˆ
 
 
 Debug.console.visible = true;
@@ -39,7 +39,7 @@ class PopupWindow extends Window
 
 	function PopupWindow(parent)
 	{
-		// PopupWindow ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		// PopupWindow ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		super.Window();
 
 		this.parent = parent;
@@ -81,26 +81,26 @@ class PopupWindow extends Window
 	}
 }
 
-class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
+class MainWindow extends Window // ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹
 {
 	var layer;
 	var popup;
 
 	function MainWindow()
 	{
-		// MainWindow ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		// MainWindow ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		super.Window();
 
 		borderStyle = bsSingle;
 		setInnerSize(640, 480);
 
-		caption = System.title = "popupƒeƒXƒg";
+		caption = System.title = "popupãƒ†ã‚¹ãƒˆ";
 
-		// ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„‚ğì¬
+		// ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤ã‚’ä½œæˆ
 		add(layer = new Layer(this, null));
 		layer.setSize(innerWidth, innerHeight);
 
-		// •\¦ó‘Ô‚É
+		// è¡¨ç¤ºçŠ¶æ…‹ã«
 		visible = true;
 	}
 

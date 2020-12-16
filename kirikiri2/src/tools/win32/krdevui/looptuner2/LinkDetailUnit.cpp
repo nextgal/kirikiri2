@@ -225,7 +225,7 @@ void __fastcall TLinkDetailForm::WavePaintBoxPaint(TObject *Sender)
 	int xstep = 1<<(-FMagnify);
 	const int sstep = 1;
 
-	int one_height = ((WavePaintBox->Height) / FReader->Channels) & ~1;
+	int one_height = ((WavePaintBox->Height) / FReader->Channels) & ‾1;
 	int one_height_half = one_height >> 1;
 	int one_client_height = one_height - 2; // 2 : padding margin
 
@@ -240,7 +240,7 @@ void __fastcall TLinkDetailForm::WavePaintBoxPaint(TObject *Sender)
 
 
 	// clear the background
-	#define		CONV_Y(v, ch) ((((v) * one_client_height) / -65536) + \
+	#define		CONV_Y(v, ch) ((((v) * one_client_height) / -65536) + ¥
 							one_height_half + (ch) * one_height)
 
 	//- main
@@ -368,7 +368,7 @@ void __fastcall TLinkDetailForm::WavePaintBoxPaint(TObject *Sender)
 	// draw focus frame
 	if(WaveAreaHasFocus)
 	{
-		canvas->Pen->Color = (TColor)((~C_CLIENT)&0xffffff);
+		canvas->Pen->Color = (TColor)((‾C_CLIENT)&0xffffff);
 		canvas->MoveTo(0, 0);
 		canvas->LineTo(WavePaintBox->Width-1, 0);
 		canvas->LineTo(WavePaintBox->Width-1, WavePaintBox->Height-1);

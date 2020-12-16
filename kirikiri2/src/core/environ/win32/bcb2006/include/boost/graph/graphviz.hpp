@@ -73,7 +73,7 @@ namespace boost {
     label_writer(Name _name) : name(_name) {}
     template <class VertexOrEdge>
     void operator()(std::ostream& out, const VertexOrEdge& v) const {
-      out << "[label=\"" << name[v] << "\"]";
+      out << "[label=¥"" << name[v] << "¥"]";
     }
   private:
     Name name;
@@ -104,7 +104,7 @@ namespace boost {
     iend = attr.end();
     
     while ( i != iend ) {
-      out << i->first << "=\"" << i->second << "\"";
+      out << i->first << "=¥"" << i->second << "¥"";
       ++i;
       if ( i != iend ) 
         out << ", ";
@@ -119,9 +119,9 @@ namespace boost {
     typename Attributes::const_iterator i = attributes.begin(),
                                         end = attributes.end();
     if (i != end) {
-      out << name << " [\n";
+      out << name << " [¥n";
       write_attributes(attributes, out);
-      out << "];\n";
+      out << "];¥n";
     }
   }
 

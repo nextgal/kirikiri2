@@ -2,26 +2,26 @@
 @iscript
 
 /*
-	”wŒi/‘OŒi‰æ‘œ‚ÌŠg‘åk¬Œø‰Ê‚É‚æ‚é•\¦‚ğs‚¤ƒvƒ‰ƒOƒCƒ“
+	èƒŒæ™¯/å‰æ™¯ç”»åƒã®æ‹¡å¤§ç¸®å°åŠ¹æœã«ã‚ˆã‚‹è¡¨ç¤ºã‚’è¡Œã†ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
 */
 
 class ZoomPlugin extends KAGPlugin
 {
-	var tempLayer; // ƒeƒ“ƒ|ƒ‰ƒŠƒŒƒCƒ„
-	var overlayLayer; // ƒI[ƒo[ƒŒƒCƒŒƒCƒ„
+	var tempLayer; // ãƒ†ãƒ³ãƒãƒ©ãƒªãƒ¬ã‚¤ãƒ¤
+	var overlayLayer; // ã‚ªãƒ¼ãƒãƒ¼ãƒ¬ã‚¤ãƒ¬ã‚¤ãƒ¤
 
 	var sl, st, sw, sh;
 	var dl, dt, dw, dh;
-	var startTick; // ŠJnƒeƒBƒbƒN
-	var time; // ƒY[ƒ€‚ğs‚Á‚Ä‚¢‚éŠÔ
-	var mode; // ‘OŒiƒŒƒCƒ„ƒ‚[ƒh
-	var accel; // ‰Á‘¬“x“I‚È“®‚«‚ğs‚¤‚© ( •‰ : 0 : ³ )
+	var startTick; // é–‹å§‹ãƒ†ã‚£ãƒƒã‚¯
+	var time; // ã‚ºãƒ¼ãƒ ã‚’è¡Œã£ã¦ã„ã‚‹æ™‚é–“
+	var mode; // å‰æ™¯ãƒ¬ã‚¤ãƒ¤ãƒ¢ãƒ¼ãƒ‰
+	var accel; // åŠ é€Ÿåº¦çš„ãªå‹•ãã‚’è¡Œã†ã‹ ( è²  : 0 : æ­£ )
 	var storage;
 	var moving = false;
 	var nextstop;
-	var moveFunc; // ˆÚ“®ˆÊ’uŒvZ—pŠÖ”
-	var targetLayerName; // ‘ÎÛƒŒƒCƒ„–¼
-	var targetLayer; // ‘ÎÛƒŒƒCƒ„
+	var moveFunc; // ç§»å‹•ä½ç½®è¨ˆç®—ç”¨é–¢æ•°
+	var targetLayerName; // å¯¾è±¡ãƒ¬ã‚¤ãƒ¤å
+	var targetLayer; // å¯¾è±¡ãƒ¬ã‚¤ãƒ¤
 
 	function ZoomPlugin(window)
 	{
@@ -31,8 +31,8 @@ class ZoomPlugin extends KAGPlugin
 
 	function finalize()
 	{
-		// finalize ƒƒ\ƒbƒh
-		// ‚±‚ÌƒNƒ‰ƒX‚ÌŠÇ—‚·‚é‚·‚×‚Ä‚ÌƒIƒuƒWƒFƒNƒg‚ğ–¾¦“I‚É”jŠü
+		// finalize ãƒ¡ã‚½ãƒƒãƒ‰
+		// ã“ã®ã‚¯ãƒ©ã‚¹ã®ç®¡ç†ã™ã‚‹ã™ã¹ã¦ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ˜ç¤ºçš„ã«ç ´æ£„
 		stop();
 
 		invalidate tempLayer if tempLayer !== void;
@@ -43,29 +43,29 @@ class ZoomPlugin extends KAGPlugin
 
 	function startZoom(storage, layer, mode, basestorage, sl, st, sw, sh, dl, dt, dw, dh, time, accel)
 	{
-		// storage : •\¦‰æ‘œ
-		// layer : ‘ÎÛƒŒƒCƒ„
-		// mode : ‘OŒiƒŒƒCƒ„‚Ì“§‰ßƒ‚[ƒh
-		// bgimage : ”wŒi‰æ‘œ
-		// sl st sw sh : ‰ŠúˆÊ’u
-		// dl dt dw dh : ÅIˆÊ’u
-		// time : ƒY[ƒ€‚ğs‚Á‚Ä‚¢‚éŠÔ
-		// accel : ‰Á‘¬‚ğ‚Â‚¯‚é‚©‚Ç‚¤‚©
+		// storage : è¡¨ç¤ºç”»åƒ
+		// layer : å¯¾è±¡ãƒ¬ã‚¤ãƒ¤
+		// mode : å‰æ™¯ãƒ¬ã‚¤ãƒ¤ã®é€éãƒ¢ãƒ¼ãƒ‰
+		// bgimage : èƒŒæ™¯ç”»åƒ
+		// sl st sw sh : åˆæœŸä½ç½®
+		// dl dt dw dh : æœ€çµ‚ä½ç½®
+		// time : ã‚ºãƒ¼ãƒ ã‚’è¡Œã£ã¦ã„ã‚‹æ™‚é–“
+		// accel : åŠ é€Ÿã‚’ã¤ã‘ã‚‹ã‹ã©ã†ã‹
 
-		// Šù‘¶‚Ì“®ì‚ğ’â~
+		// æ—¢å­˜ã®å‹•ä½œã‚’åœæ­¢
 		stop();
 
-		// ‘ÎÛƒŒƒCƒ„‚ğŒˆ’è
+		// å¯¾è±¡ãƒ¬ã‚¤ãƒ¤ã‚’æ±ºå®š
 		if(layer == '' || layer == 'base')
 			targetLayer = window.fore.base;
 		else
 			targetLayer = window.fore.layers[+layer];
 
-		// ”wŒi‰æ‘œ‚Ì“Ç‚İ‚İ
+		// èƒŒæ™¯ç”»åƒã®èª­ã¿è¾¼ã¿
 		if(basestorage !== void)
 			window.tagHandlers.image(%[ storage : basestorage, layer : layer, page : 'fore']);
 
-		// ƒIƒuƒWƒFƒNƒg‚Éƒpƒ‰ƒ[ƒ^‚ğƒRƒs[
+		// ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ã‚³ãƒ”ãƒ¼
 		this.sl = sl; this.st = st; this.sw = sw; this.sh = sh;
 		this.dl = dl; this.dt = dt; this.dw = dw; this.dh = dh;
 		this.time = time;
@@ -74,7 +74,7 @@ class ZoomPlugin extends KAGPlugin
 		this.targetLayerName = layer;
 		this.mode = mode;
 
-		// tempLayer Šm•Û
+		// tempLayer ç¢ºä¿
 		var base = window.fore.base;
 		if(tempLayer === void)
 		{
@@ -82,17 +82,17 @@ class ZoomPlugin extends KAGPlugin
 			tempLayer.loadImages(storage);
 		}
 
-		// overlayLayer Šm•Û
+		// overlayLayer ç¢ºä¿
 		if(overlayLayer === void)
 		{
 			overlayLayer = new Layer(window, base);
-			overlayLayer.absolute = targetLayer.absolute + 1; // ‘ÎÛƒŒƒCƒ„‚Ì‚·‚®è‘O
+			overlayLayer.absolute = targetLayer.absolute + 1; // å¯¾è±¡ãƒ¬ã‚¤ãƒ¤ã®ã™ãæ‰‹å‰
 			overlayLayer.hitType = htMask;
-			overlayLayer.hitThreshold = 256; // ƒ}ƒEƒXƒƒbƒZ[ƒW‚Í‘Sˆæ“§‰ß
+			overlayLayer.hitThreshold = 256; // ãƒã‚¦ã‚¹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯å…¨åŸŸé€é
 			overlayLayer.face = dfBoth;
 			overlayLayer.type = layer == 'base' ? ltCoverRect : (mode == 'rect' ? ltCoverRect : ltTransparent);
-			// overlayLayer ‚Í ‰ŠúƒTƒCƒY‚ ‚é‚¢‚ÍÅIƒTƒCƒY‚Ì‚Ç‚¿‚ç‚©‘å‚«‚¢•û
-			// ‚ÌƒTƒCƒY‚É‚È‚é‚ªA‰æ–ÊƒTƒCƒY‚æ‚è‚Í‘å‚«‚­‚È‚ç‚È‚¢
+			// overlayLayer ã¯ åˆæœŸã‚µã‚¤ã‚ºã‚ã‚‹ã„ã¯æœ€çµ‚ã‚µã‚¤ã‚ºã®ã©ã¡ã‚‰ã‹å¤§ãã„æ–¹
+			// ã®ã‚µã‚¤ã‚ºã«ãªã‚‹ãŒã€ç”»é¢ã‚µã‚¤ã‚ºã‚ˆã‚Šã¯å¤§ãããªã‚‰ãªã„
 			var mw = sw > dw ? sw : dw;
 			var mh = sh > dh ? sh : dh;
 			overlayLayer.setImageSize(
@@ -100,15 +100,15 @@ class ZoomPlugin extends KAGPlugin
 				mh < base.imageHeight ? mh : base.imageHeight);
 		}
 
-		// ˆÚ“®ˆÊ’uŒvZŠÖ”‚Ìİ’è
+		// ç§»å‹•ä½ç½®è¨ˆç®—é–¢æ•°ã®è¨­å®š
 		moveFunc = defaultMover;
 
-		// ‰ŠúˆÊ’u‚É•\¦
+		// åˆæœŸä½ç½®ã«è¡¨ç¤º
 		moveFunc(moveAt, 0);
 		overlayLayer.visible = true;
 		if(layer != 'base') targetLayer.visible = false;
 
-		// ŠJn
+		// é–‹å§‹
 		startTick = System.getTickCount();
 		System.addContinuousHandler(continuousHandler);
 		moving = true;
@@ -117,9 +117,9 @@ class ZoomPlugin extends KAGPlugin
 
 	function moveAt(l, t, w, h)
 	{
-		// l t w h ˆÊ’u‚ÉˆÚ“®
+		// l t w h ä½ç½®ã«ç§»å‹•
 
-		// ƒŒƒCƒ„ˆÚ“®
+		// ãƒ¬ã‚¤ãƒ¤ç§»å‹•
 		var base = window.fore.base;
 		var oll = l < 0 ? 0 : l;
 		var olt = t < 0 ? 0 : t;
@@ -130,10 +130,10 @@ class ZoomPlugin extends KAGPlugin
 			overlayLayer.visible = true;
 			overlayLayer.setPos(oll, olt, olw, olh);
 
-			// Šg‘åk¬“]‘—
+			// æ‹¡å¤§ç¸®å°è»¢é€
 			overlayLayer.stretchCopy(l - oll, t - olt, w, h,
 				tempLayer, 0, 0, tempLayer.imageWidth, tempLayer.imageHeight);
-				// ˆÚ“®æ‚ª‰E‚â‰º‚É‚Í‚İo‚éê‡‚É‚¿‚å‚Á‚Æ–³‘Ê‚È“]‘—‚ª‹N‚±‚é‚©‚à
+				// ç§»å‹•å…ˆãŒå³ã‚„ä¸‹ã«ã¯ã¿å‡ºã‚‹å ´åˆã«ã¡ã‚‡ã£ã¨ç„¡é§„ãªè»¢é€ãŒèµ·ã“ã‚‹ã‹ã‚‚
 		}
 		else
 		{
@@ -143,29 +143,29 @@ class ZoomPlugin extends KAGPlugin
 
 	/*static*/ function defaultMover(func, tm)
 	{
-		// ˆÊ’uŒvZ
-		// tm ‚Í 0.0(ŠJn“_) ` 1.0(I—¹“_) ‚ÌŠÔ‚Å•Ï‰»‚·‚é•Ï”‚È‚Ì‚ÅA
-		// ‚±‚ê‚ğŒ³‚É‚µ‚ÄˆÊ’u‚ğŒvZ‚·‚é
+		// ä½ç½®è¨ˆç®—
+		// tm ã¯ 0.0(é–‹å§‹ç‚¹) ã€œ 1.0(çµ‚äº†ç‚¹) ã®é–“ã§å¤‰åŒ–ã™ã‚‹å¤‰æ•°ãªã®ã§ã€
+		// ã“ã‚Œã‚’å…ƒã«ã—ã¦ä½ç½®ã‚’è¨ˆç®—ã™ã‚‹
 		var l = (int)((dl - sl) * tm + sl);
 		var t = (int)((dt - st) * tm + st);
 		var w = (int)((dw - sw) * tm + sw);
 		var h = (int)((dh - sh) * tm + sh);
 
-		// ˆÚ“®
+		// ç§»å‹•
 		func(l, t, w, h);
 	}
 
 	function continuousHandler(tick)
 	{
-		// ƒnƒ“ƒhƒ‰
+		// ãƒãƒ³ãƒ‰ãƒ©
 		if(nextstop)
 		{
-			// I—¹
+			// çµ‚äº†
 			finish();
 			return;
 		}
 
-		// ŠÔ‚ğ“¾‚é
+		// æ™‚é–“ã‚’å¾—ã‚‹
 		var tm = tick - startTick;
 		tm /= time;
 		if(tm >= 1)
@@ -175,46 +175,46 @@ class ZoomPlugin extends KAGPlugin
 		}
 		else
 		{
-			// ‰Á‘¬ŒvZ
+			// åŠ é€Ÿè¨ˆç®—
 			if(accel < 0)
 			{
-				// ãŒ· ( Å‰‚ª“®‚«‚ª‘‚­A™X‚É’x‚­‚È‚é )
+				// ä¸Šå¼¦ ( æœ€åˆãŒå‹•ããŒæ—©ãã€å¾ã€…ã«é…ããªã‚‹ )
 				tm = 1.0 - tm;
 				tm = Math.pow(tm, -accel);
 				tm = 1.0 - tm;
 			}
 			else if(accel > 0)
 			{
-				// ‰ºŒ· ( Å‰‚Í“®‚«‚ª’x‚­A™X‚É‘‚­‚È‚é )
+				// ä¸‹å¼¦ ( æœ€åˆã¯å‹•ããŒé…ãã€å¾ã€…ã«æ—©ããªã‚‹ )
 				tm = Math.pow(tm, accel);
 			}
 		}
 
-		// ˆÚ“®
+		// ç§»å‹•
 		moveFunc(moveAt, tm);
 	}
 
 	function finish()
 	{
-		// ƒY[ƒ€‚ÌI—¹
+		// ã‚ºãƒ¼ãƒ ã®çµ‚äº†
 		if(targetLayerName == 'base')
 		{
-			// ”wŒiƒŒƒCƒ„‚Ìê‡
+			// èƒŒæ™¯ãƒ¬ã‚¤ãƒ¤ã®å ´åˆ
 			var base = window.fore.base;
 			if(dl == 0 && dt == 0 && dw == base.imageWidth && dh == base.imageHeight &&
 				tempLayer.imageWidth == base.imageWidth && tempLayer.imageHeight == base.imageHeight)
 			{
-				// ÅIˆÊ’u‚ª‰æ–Ê‘S‘Ì‚ğ•¢‚Á‚Ä‚¢‚ÄA‚©‚ÂA
-				// ƒY[ƒ€‚³‚¹‚½‰æ‘œ‚ÌƒTƒCƒY‚ª”wŒi‰æ‘œ‚Æ“¯‚¶ê‡
-				// ‰æ‘œ‚ğ“Ç‚İ‚Ş
+				// æœ€çµ‚ä½ç½®ãŒç”»é¢å…¨ä½“ã‚’è¦†ã£ã¦ã„ã¦ã€ã‹ã¤ã€
+				// ã‚ºãƒ¼ãƒ ã•ã›ãŸç”»åƒã®ã‚µã‚¤ã‚ºãŒèƒŒæ™¯ç”»åƒã¨åŒã˜å ´åˆ
+				// ç”»åƒã‚’èª­ã¿è¾¼ã‚€
 				window.tagHandlers.image(%[ storage : storage, layer : 'base', page : 'fore']);
 			}
 			else
 			{
-				// ÅIˆÊ’u‚ª‰æ–Ê‘S‘Ì‚ğ•¢‚Á‚Ä‚¢‚È‚¢;
-				// ‚±‚Ìê‡‚ÍAÅIˆÊ’u‚ÌƒTƒCƒY‚ª 0 ‚Å‚È‚¢ŒÀ‚è
-				// ‚±‚Ìó‘Ô‚©‚ç‚Ìx‚ÌÄŠJ‚Í•s‰Â”\ ( ”wŒi‰æ‘œ‚ğÄ\¬‚Å‚«‚È‚¢ )
-				// ( ”wŒi‚É‰æ‘œ‚ğ“Ç‚İ‚ñ‚¾‚ ‚Æ‚È‚ç‚Î OK )
+				// æœ€çµ‚ä½ç½®ãŒç”»é¢å…¨ä½“ã‚’è¦†ã£ã¦ã„ãªã„;
+				// ã“ã®å ´åˆã¯ã€æœ€çµ‚ä½ç½®ã®ã‚µã‚¤ã‚ºãŒ 0 ã§ãªã„é™ã‚Š
+				// ã“ã®çŠ¶æ…‹ã‹ã‚‰ã®æ ã®å†é–‹ã¯ä¸å¯èƒ½ ( èƒŒæ™¯ç”»åƒã‚’å†æ§‹æˆã§ããªã„ )
+				// ( èƒŒæ™¯ã«ç”»åƒã‚’èª­ã¿è¾¼ã‚“ã ã‚ã¨ãªã‚‰ã° OK )
 				window.fore.base.face = dfBoth;
 				window.fore.base.stretchCopy(dl, dt, dw, dh, tempLayer, 0, 0,
 					tempLayer.imageWidth, tempLayer.imageHeight);
@@ -222,20 +222,20 @@ class ZoomPlugin extends KAGPlugin
 		}
 		else
 		{
-			// ‘OŒiƒŒƒCƒ„‚Ìê‡
+			// å‰æ™¯ãƒ¬ã‚¤ãƒ¤ã®å ´åˆ
 			if(dw == tempLayer.imageWidth && dh == tempLayer.imageHeight)
 			{
-				// ÅIˆÊ’u‚ÌƒTƒCƒY‚ª‘OŒiƒŒƒCƒ„‚Æ“¯‚¶ê‡
-				// ‰æ‘œ‚ğ“Ç‚İ‚Ş
+				// æœ€çµ‚ä½ç½®ã®ã‚µã‚¤ã‚ºãŒå‰æ™¯ãƒ¬ã‚¤ãƒ¤ã¨åŒã˜å ´åˆ
+				// ç”»åƒã‚’èª­ã¿è¾¼ã‚€
 				window.tagHandlers.image(%[ storage : storage, layer : targetLayerName, page : 'fore',
 					left : dl, top : dt, visible : true, mode : mode]);
 			}
 			else
 			{
-				// ‚»‚¤‚Å‚È‚¢ê‡
-				// ‚±‚Ìê‡‚ÍAÅIˆÊ’u‚ÌƒTƒCƒY‚ª 0 ‚Å–³‚¢ŒÀ‚èA
-				// ‚±‚Ìó‘Ô‚©‚çx‚ÌÄŠJ‚Í•s‰Â”\
-				// (‘ÎÛ‚ÌƒŒƒCƒ„‚É‰æ‘œ‚ğ‚à‚¤ˆê“x“Ç‚İ’¼‚·‚È‚ç‚Î‰Â)
+				// ãã†ã§ãªã„å ´åˆ
+				// ã“ã®å ´åˆã¯ã€æœ€çµ‚ä½ç½®ã®ã‚µã‚¤ã‚ºãŒ 0 ã§ç„¡ã„é™ã‚Šã€
+				// ã“ã®çŠ¶æ…‹ã‹ã‚‰æ ã®å†é–‹ã¯ä¸å¯èƒ½
+				// (å¯¾è±¡ã®ãƒ¬ã‚¤ãƒ¤ã«ç”»åƒã‚’ã‚‚ã†ä¸€åº¦èª­ã¿ç›´ã™ãªã‚‰ã°å¯)
 				if(dw && dh)
 				{
 					targetLayer.setImageSize(dw < 0 ? -dw : dw, dh < 0 ? -dh : dh);
@@ -253,12 +253,12 @@ class ZoomPlugin extends KAGPlugin
 				}
 			}
 		}
-		stop(); // ’â~
+		stop(); // åœæ­¢
 	}
 
 	function stop()
 	{
-		// ’â~
+		// åœæ­¢
 		if(moving)
 		{
 			window.trigger('zoom');
@@ -274,13 +274,13 @@ class ZoomPlugin extends KAGPlugin
 
 	function onStore(f, elm)
 	{
-		// x‚ğ•Û‘¶‚·‚é‚Æ‚«
+		// æ ã‚’ä¿å­˜ã™ã‚‹ã¨ã
 	}
 
 	function onRestore(f, clear, elm)
 	{
-		// x‚ğ“Ç‚İo‚·‚Æ‚«
-		stop(); // “®ì‚ğ’â~
+		// æ ã‚’èª­ã¿å‡ºã™ã¨ã
+		stop(); // å‹•ä½œã‚’åœæ­¢
 	}
 
 	function onStableStateChanged(stable)
@@ -301,11 +301,11 @@ class ZoomPlugin extends KAGPlugin
 }
 
 kag.addPlugin(global.zoom_object = new ZoomPlugin(kag));
-	// ƒvƒ‰ƒOƒCƒ“ƒIƒuƒWƒFƒNƒg‚ğì¬‚µA“o˜^‚·‚é
+	// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã€ç™»éŒ²ã™ã‚‹
 
 @endscript
 @endif
-; ƒ}ƒNƒ“o˜^
+; ãƒã‚¯ãƒ­ç™»éŒ²
 @macro name="bgzoom"
 @eval exp="zoom_object.startZoom(mp.storage, 'base', 'rect', mp.basestorage, +mp.sl, +mp.st, +mp.sw, +mp.sh, +mp.dl, +mp.dt, +mp.dw, +mp.dh, +mp.time, +mp.accel)"
 @endmacro

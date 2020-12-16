@@ -19,17 +19,17 @@
 
 
 #if !defined(TVP_WNF_A) && !defined(TVP_WNF_B)
-	#define TVP_WIDE_NATIVE_FUNC_REG(type, name, args, module) \
+	#define TVP_WIDE_NATIVE_FUNC_REG(type, name, args, module) ¥
 		extern type (*proc##name)args;
 #endif
 
 #if defined(TVP_WNF_A)
-	#define TVP_WIDE_NATIVE_FUNC_REG(type, name, args, module) \
+	#define TVP_WIDE_NATIVE_FUNC_REG(type, name, args, module) ¥
 		type (*proc##name)args = NULL;
 #endif
 
 #if defined(TVP_WNF_B)
-	#define TVP_WIDE_NATIVE_FUNC_REG(type, name, args, module) \
+	#define TVP_WIDE_NATIVE_FUNC_REG(type, name, args, module) ¥
 		{ (void**)&proc##name, #name, module },
 struct tTVPWideNativeFunc
 {

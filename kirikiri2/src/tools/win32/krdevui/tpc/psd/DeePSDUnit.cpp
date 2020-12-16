@@ -525,7 +525,7 @@ static Graphics::TBitmap *ReadPixelData30(TStream *Stream,
 				{
 					for(int y = 0; y < h; y++)
 					{
-						tui8 *scl = (tui8*)bmp->ScanLine[y] + "\x02\x01\x00"[c];
+						tui8 *scl = (tui8*)bmp->ScanLine[y] + "¥x02¥x01¥x00"[c];
 
 						linebuf = new tui8[*ll];
 
@@ -785,7 +785,7 @@ __fastcall TDeePSD::TDeePSD(void)
 	FLayerMode = "";
 }
 //---------------------------------------------------------------------------
-__fastcall TDeePSD::~TDeePSD(void)
+__fastcall TDeePSD::‾TDeePSD(void)
 {
 	// desturctor
 

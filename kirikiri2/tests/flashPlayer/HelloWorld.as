@@ -9,7 +9,7 @@ package {
     [SWF(width=240, height=240, backgroundColor=0xFFFFFF)]
     public class HelloWorld extends Sprite {
 
-		// コンストラクタ
+		// 繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ
 		public function HelloWorld() {
 			var textField:TextField=new TextField();
 			textField.text="Hello World!";
@@ -20,7 +20,7 @@ package {
 			ExternalInterface.call("trace", ExternalInterface.call("tjsFunction", 10, "test"));
         }
 
-		// ファンクション
+		// 繝輔ぃ繝ｳ繧ｯ繧ｷ繝ｧ繝ｳ
 		public function flashFunction(a:Number, b:String):String {
 			return StringUtil.substitute("{0}:{1}", a, b);
 		}

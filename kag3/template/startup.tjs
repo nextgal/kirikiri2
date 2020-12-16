@@ -1,6 +1,6 @@
-// startup.tjs - ƒXƒ^[ƒgƒAƒbƒvƒXƒNƒŠƒvƒg
-// Copyright (C) 2001-2009, W.Dee  ‰ü•ÏE”z•z‚Í©—R‚Å‚·
+// startup.tjs - ã‚¹ã‚¿ãƒ¼ãƒˆã‚¢ãƒƒãƒ—ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+// Copyright (C) 2001-2009, W.Dee  æ”¹å¤‰ãƒ»é…å¸ƒã¯è‡ªç”±ã§ã™
 
 
-// ‚±‚ÌƒXƒNƒŠƒvƒg‚Íˆê”ÔÅ‰‚ÉÀs‚³‚ê‚éƒXƒNƒŠƒvƒg‚Å‚·
-Scripts.execStorage("system/Initialize.tjs"); // system/Initialize.tjs ‚ğÀs
+// ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã¯ä¸€ç•ªæœ€åˆã«å®Ÿè¡Œã•ã‚Œã‚‹ã‚¹ã‚¯ãƒªãƒ—ãƒˆã§ã™
+Scripts.execStorage("system/Initialize.tjs"); // system/Initialize.tjs ã‚’å®Ÿè¡Œ

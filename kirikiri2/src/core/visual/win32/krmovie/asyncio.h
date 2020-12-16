@@ -27,7 +27,7 @@ class CAsyncStream;
 class CAsyncStream
 {
 public:
-    virtual ~CAsyncStream() {};
+    virtual ‾CAsyncStream() {};
     virtual HRESULT SetPointer(LONGLONG llPos) = 0;
     virtual HRESULT Read(PBYTE pbBuffer,
                          DWORD dwBytesToRead,
@@ -106,7 +106,7 @@ public:
 
 typedef CGenericList<CAsyncRequest> CRequestList;
 
-// this class needs a worker thread, but the ones defined in classes\base
+// this class needs a worker thread, but the ones defined in classes¥base
 // are not suitable (they assume you have one message sent or posted per
 // request, whereas here for efficiency we want just to set an event when
 // there is work on the queue).
@@ -191,7 +191,7 @@ class CAsyncIo
 public:
 
     CAsyncIo(CAsyncStream *pStream);
-    ~CAsyncIo();
+    ‾CAsyncIo();
 
     // open the file
     HRESULT Open(LPCTSTR pName);

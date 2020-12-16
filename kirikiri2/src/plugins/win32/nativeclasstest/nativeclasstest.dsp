@@ -1,24 +1,24 @@
 # Microsoft Developer Studio Project File - Name="nativeclasstest" - Package Owner=<4>
 # Microsoft Developer Studio Generated Build File, Format Version 6.00
-# ** •ÒW‚µ‚È‚¢‚Å‚­‚¾‚³‚¢ **
+# ** ç·¨é›†ã—ãªã„ã§ãã ã•ã„ **
 
 # TARGTYPE "Win32 (x86) Dynamic-Link Library" 0x0102
 
 CFG=nativeclasstest - Win32 Debug
-!MESSAGE ‚±‚ê‚Í—LŒø‚ÈÒ²¸Ì§²Ù‚Å‚Í‚ ‚è‚Ü‚¹‚ñB ‚±‚ÌÌßÛ¼Şª¸Ä‚ğËŞÙÄŞ‚·‚é‚½‚ß‚É‚Í NMAKE ‚ğg—p‚µ‚Ä‚­‚¾‚³‚¢B
-!MESSAGE [Ò²¸Ì§²Ù‚Ì´¸½Îß°Ä] ºÏİÄŞ‚ğg—p‚µ‚ÄÀs‚µ‚Ä‚­‚¾‚³‚¢
+!MESSAGE ã“ã‚Œã¯æœ‰åŠ¹ãªï¾’ï½²ï½¸ï¾Œï½§ï½²ï¾™ã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚ ã“ã®ï¾Œï¾Ÿï¾›ï½¼ï¾ï½ªï½¸ï¾„ã‚’ï¾‹ï¾ï¾™ï¾„ï¾ã™ã‚‹ãŸã‚ã«ã¯ NMAKE ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
+!MESSAGE [ï¾’ï½²ï½¸ï¾Œï½§ï½²ï¾™ã®ï½´ï½¸ï½½ï¾ï¾Ÿï½°ï¾„] ï½ºï¾ï¾ï¾„ï¾ã‚’ä½¿ç”¨ã—ã¦å®Ÿè¡Œã—ã¦ãã ã•ã„
 !MESSAGE 
 !MESSAGE NMAKE /f "nativeclasstest.mak".
 !MESSAGE 
-!MESSAGE NMAKE ‚ÌÀs‚É\¬‚ğw’è‚Å‚«‚Ü‚·
-!MESSAGE ºÏİÄŞ ×²İã‚ÅÏ¸Û‚Ìİ’è‚ğ’è‹`‚µ‚Ü‚·B—á:
+!MESSAGE NMAKE ã®å®Ÿè¡Œæ™‚ã«æ§‹æˆã‚’æŒ‡å®šã§ãã¾ã™
+!MESSAGE ï½ºï¾ï¾ï¾„ï¾ ï¾—ï½²ï¾ä¸Šã§ï¾ï½¸ï¾›ã®è¨­å®šã‚’å®šç¾©ã—ã¾ã™ã€‚ä¾‹:
 !MESSAGE 
 !MESSAGE NMAKE /f "nativeclasstest.mak" CFG="nativeclasstest - Win32 Debug"
 !MESSAGE 
-!MESSAGE ‘I‘ğ‰Â”\‚ÈËŞÙÄŞ Ó°ÄŞ:
+!MESSAGE é¸æŠå¯èƒ½ãªï¾‹ï¾ï¾™ï¾„ï¾ ï¾“ï½°ï¾„ï¾:
 !MESSAGE 
-!MESSAGE "nativeclasstest - Win32 Release" ("Win32 (x86) Dynamic-Link Library" —p)
-!MESSAGE "nativeclasstest - Win32 Debug" ("Win32 (x86) Dynamic-Link Library" —p)
+!MESSAGE "nativeclasstest - Win32 Release" ("Win32 (x86) Dynamic-Link Library" ç”¨)
+!MESSAGE "nativeclasstest - Win32 Debug" ("Win32 (x86) Dynamic-Link Library" ç”¨)
 !MESSAGE 
 
 # Begin Project
@@ -38,7 +38,7 @@ RSC=rc.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "..\..\..\..\bin\win32\plugin"
+# PROP Output_Dir "..Â¥..Â¥..Â¥..Â¥binÂ¥win32Â¥plugin"
 # PROP Intermediate_Dir "Release"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
@@ -65,7 +65,7 @@ LINK32=link.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 1
-# PROP Output_Dir "..\..\..\..\bin\win32\plugin"
+# PROP Output_Dir "..Â¥..Â¥..Â¥..Â¥binÂ¥win32Â¥plugin"
 # PROP Intermediate_Dir "Debug"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
@@ -94,15 +94,15 @@ LINK32=link.exe
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=.\nativeclasstest.def
+SOURCE=.Â¥nativeclasstest.def
 # End Source File
 # Begin Source File
 
-SOURCE=.\Main.cpp
+SOURCE=.Â¥Main.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\tp_stub.cpp
+SOURCE=..Â¥tp_stub.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -110,7 +110,7 @@ SOURCE=..\tp_stub.cpp
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=..\tp_stub.h
+SOURCE=..Â¥tp_stub.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"

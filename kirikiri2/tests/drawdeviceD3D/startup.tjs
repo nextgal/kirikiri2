@@ -9,7 +9,7 @@ var WIDTH=800;
 var HEIGHT=450;
 
 /**
- * ƒx[ƒXƒŒƒCƒ„
+ * ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
  */
 class BaseLayer extends Layer
 {
@@ -21,7 +21,7 @@ class BaseLayer extends Layer
 		setSize(width, height);
 		fillRect(0,0,width,height,0);
 		
-		// •\¦ƒŒƒCƒ„
+		// è¡¨ç¤ºãƒ¬ã‚¤ãƒ¤
 		layer = new AffineLayer(window, this);
 		layer.loadImages("test.png");
 		layer.setSizeToImageSize();
@@ -34,11 +34,11 @@ class BaseLayer extends Layer
 
 /*
 	function onMouseDown(x, y, button, shift) {
-		Debug.message("ƒŒƒCƒ„:ƒ}ƒEƒX‰Ÿ‚µ‰º‚°:" + x + "," + y + "," + button + "," + shift);
+		Debug.message("ãƒ¬ã‚¤ãƒ¤:ãƒã‚¦ã‚¹æŠ¼ã—ä¸‹ã’:" + x + "," + y + "," + button + "," + shift);
 	}
 	
 	function onMouseMove(x, y, shift) {
-		Debug.message("ƒŒƒCƒ„:ƒ}ƒEƒXˆÚ“®:" + x + "," + y + "," + shift);
+		Debug.message("ãƒ¬ã‚¤ãƒ¤:ãƒã‚¦ã‚¹ç§»å‹•:" + x + "," + y + "," + shift);
 	}
   */
 }
@@ -55,17 +55,17 @@ class MyWindow extends Window
 		showScrollBars = false;
 		setInnerSize(WIDTH, HEIGHT);
 		
-		// 1–‡–Ú‚Ìƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„
+		// 1æšç›®ã®ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤
 		base = new BaseLayer(this, WIDTH/2, HEIGHT/2);
 		add(base);
 		
-		// 2–‡–Ú‚Ìƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„
+		// 2æšç›®ã®ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤
 		base2 = new BaseLayer(this, WIDTH, HEIGHT);
 		add(base2);
 	}
 
 	function onKeyDown(key, shift) {
-		Debug.message("ƒL[‚ª‚¨‚³‚ê‚½:" + key);
+		Debug.message("ã‚­ãƒ¼ãŒãŠã•ã‚ŒãŸ:" + key);
 		if (key == VK_ESCAPE) {
 			close();
 		} else if(key == VK_TAB) {
@@ -74,11 +74,11 @@ class MyWindow extends Window
 	}
 /*
 	function onMouseDown(x, y, button, shift) {
-		Debug.message("ƒ}ƒEƒX‰Ÿ‚µ‰º‚°:" + x + "," + y + "," + button + "," + shift);
+		Debug.message("ãƒã‚¦ã‚¹æŠ¼ã—ä¸‹ã’:" + x + "," + y + "," + button + "," + shift);
 	}
 	
 	function onMouseMove(x, y, shift) {
-		Debug.message("ƒ}ƒEƒXˆÚ“®:" + x + "," + y + "," + shift);
+		Debug.message("ãƒã‚¦ã‚¹ç§»å‹•:" + x + "," + y + "," + shift);
 	}
   */
 };

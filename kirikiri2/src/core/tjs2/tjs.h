@@ -98,7 +98,7 @@ public:
 	tTJS();
 
 protected:
-	virtual ~tTJS();
+	virtual ‾tTJS();
 
 public:
 	void Cleanup();
@@ -252,7 +252,7 @@ public:
 	//-- should re-implement for higher performance
 	virtual tjs_uint64 TJS_INTF_METHOD GetSize() = 0;
 
-	virtual ~tTJSBinaryStream() {;}
+	virtual ‾tTJSBinaryStream() {;}
 
 	tjs_uint64 GetPosition();
 

@@ -10,14 +10,14 @@ object ConfMainFrame: TConfMainFrame
     Width = 585
     Height = 63
     Align = alBottom
-    Caption = 'ƒAƒCƒRƒ“(&I)'
+    Caption = 'ã‚¢ã‚¤ã‚³ãƒ³(&I)'
     TabOrder = 2
     object ChangeIconCheck: TCheckBox
       Left = 8
       Top = 32
       Width = 121
       Height = 17
-      Caption = 'ƒAƒCƒRƒ“‚ğ•ÏX‚·‚é'
+      Caption = 'ã‚¢ã‚¤ã‚³ãƒ³ã‚’å¤‰æ›´ã™ã‚‹'
       TabOrder = 0
     end
     object RefIconButton: TButton
@@ -25,7 +25,7 @@ object ConfMainFrame: TConfMainFrame
       Top = 29
       Width = 75
       Height = 20
-      Caption = 'QÆ ...'
+      Caption = 'å‚ç…§ ...'
       TabOrder = 1
       OnClick = RefIconButtonClick
     end
@@ -54,7 +54,7 @@ object ConfMainFrame: TConfMainFrame
     Width = 585
     Height = 206
     Align = alClient
-    Caption = 'ƒIƒvƒVƒ‡ƒ“(&O)'
+    Caption = 'ã‚ªãƒ—ã‚·ãƒ§ãƒ³(&O)'
     Enabled = False
     TabOrder = 0
     object Label1: TLabel
@@ -62,7 +62,7 @@ object ConfMainFrame: TConfMainFrame
       Top = 16
       Width = 109
       Height = 12
-      Caption = 'ƒIƒvƒVƒ‡ƒ“‚Ì–¼‘O(&N) :'
+      Caption = 'ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®åå‰(&N) :'
       FocusControl = OptionsTreeView
     end
     object Label2: TLabel
@@ -71,14 +71,14 @@ object ConfMainFrame: TConfMainFrame
       Width = 97
       Height = 12
       Anchors = [akTop, akRight]
-      Caption = 'ƒIƒvƒVƒ‡ƒ“‚Ì’l(&V) :'
+      Caption = 'ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®å€¤(&V) :'
     end
     object OptionsReadFailedLabel: TLabel
       Left = 120
       Top = 16
       Width = 210
       Height = 12
-      Caption = 'ƒIƒvƒVƒ‡ƒ“î•ñ‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚Ü‚µ‚½'
+      Caption = 'ã‚ªãƒ—ã‚·ãƒ§ãƒ³æƒ…å ±ã®èª­ã¿è¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸ'
       Visible = False
     end
     object ReadingOptionsLabel: TLabel
@@ -86,7 +86,7 @@ object ConfMainFrame: TConfMainFrame
       Top = 16
       Width = 155
       Height = 12
-      Caption = 'ƒIƒvƒVƒ‡ƒ“î•ñ‚ğ“Ç‚İ‚İ’† ...'
+      Caption = 'ã‚ªãƒ—ã‚·ãƒ§ãƒ³æƒ…å ±ã‚’èª­ã¿è¾¼ã¿ä¸­ ...'
       Visible = False
     end
     object Label3: TLabel
@@ -95,7 +95,7 @@ object ConfMainFrame: TConfMainFrame
       Width = 93
       Height = 12
       Anchors = [akTop, akRight]
-      Caption = 'ƒIƒvƒVƒ‡ƒ“‚Ìà–¾ :'
+      Caption = 'ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®èª¬æ˜ :'
     end
     object OptionsTreeView: TTreeView
       Left = 8
@@ -141,7 +141,7 @@ object ConfMainFrame: TConfMainFrame
       Width = 118
       Height = 20
       Anchors = [akTop, akRight]
-      Caption = 'ƒfƒtƒHƒ‹ƒg‚É–ß‚·(&D)'
+      Caption = 'ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã«æˆ»ã™(&D)'
       Enabled = False
       TabOrder = 3
       OnClick = RestoreDefaultButtonClick
@@ -152,7 +152,7 @@ object ConfMainFrame: TConfMainFrame
       Width = 65
       Height = 17
       Anchors = [akTop, akRight]
-      Caption = '”ñ•\¦'
+      Caption = 'éè¡¨ç¤º'
       Enabled = False
       TabOrder = 4
       OnClick = InvisibleCheckBoxClick
@@ -174,14 +174,14 @@ object ConfMainFrame: TConfMainFrame
     Width = 585
     Height = 41
     Align = alBottom
-    Caption = 'ƒŠƒŠ[ƒXƒIƒvƒVƒ‡ƒ“(&R)'
+    Caption = 'ãƒªãƒªãƒ¼ã‚¹ã‚ªãƒ—ã‚·ãƒ§ãƒ³(&R)'
     TabOrder = 1
     object DisableMessageMapCheckBox: TCheckBox
       Left = 8
       Top = 16
       Width = 345
       Height = 17
-      Caption = 'ƒƒbƒZ[ƒWƒ}ƒbƒvƒtƒ@ƒCƒ‹(msgmap.tjs)‚ğ“Ç‚İ‚Ü‚È‚¢(&M)'
+      Caption = 'ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«(msgmap.tjs)ã‚’èª­ã¿è¾¼ã¾ãªã„(&M)'
       TabOrder = 0
     end
     object ForceDataXP3CheckBox: TCheckBox
@@ -189,7 +189,7 @@ object ConfMainFrame: TConfMainFrame
       Top = 16
       Width = 201
       Height = 17
-      Caption = 'XP3ƒA[ƒJƒCƒu‚Ì‚İ‚©‚çÀs(&3)'
+      Caption = 'XP3ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã®ã¿ã‹ã‚‰å®Ÿè¡Œ(&3)'
       TabOrder = 1
     end
   end
@@ -212,9 +212,9 @@ object ConfMainFrame: TConfMainFrame
     TabOrder = 4
   end
   object OpenPictureDialog: TOpenPictureDialog
-    Filter = 'ƒAƒCƒRƒ“ (*.ico)|*.ico'
+    Filter = 'ã‚¢ã‚¤ã‚³ãƒ³ (*.ico)|*.ico'
     Options = [ofHideReadOnly, ofPathMustExist, ofFileMustExist, ofEnableSizing]
-    Title = 'ƒAƒCƒRƒ“‚Ìw’è'
+    Title = 'ã‚¢ã‚¤ã‚³ãƒ³ã®æŒ‡å®š'
     Left = 88
     Top = 232
   end

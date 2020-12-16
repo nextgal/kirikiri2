@@ -5,7 +5,7 @@
 struct SQUserData : SQDelegable
 {
 	SQUserData(SQSharedState *ss){ _delegate = 0; _hook = NULL; INIT_CHAIN(); ADD_TO_CHAIN(&_ss(this)->_gc_chain, this); }
-	~SQUserData()
+	‾SQUserData()
 	{
 		REMOVE_FROM_CHAIN(&_ss(this)->_gc_chain, this);
 		SetDelegate(NULL);
@@ -25,7 +25,7 @@ struct SQUserData : SQDelegable
 	void Release() {
 		if (_hook) _hook(_val,_size);
 		SQInteger tsize = _size - 1;
-		this->~SQUserData();
+		this->‾SQUserData();
 		SQ_FREE(this, sizeof(SQUserData) + tsize);
 	}
 		

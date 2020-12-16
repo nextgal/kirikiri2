@@ -22,7 +22,7 @@ namespace scene
 						bool loop, u32 now);
 
 		//! destructor
-		virtual ~CSceneNodeAnimatorFlyStraight();
+		virtual ‾CSceneNodeAnimatorFlyStraight();
 
 		//! animates a scene node
 		virtual void animateNode(ISceneNode* node, u32 timeMs);

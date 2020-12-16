@@ -72,7 +72,7 @@ namespace boost {
         using namespace std;
         memset(m_bits, 0, m_num_blocks * sizeof(Block)); // G.P.S. ask to Jeremy
       }
-      ~dynamic_bitset_base() {
+      ‾dynamic_bitset_base() {
         if (m_bits)
           this->m_alloc.deallocate(m_bits, m_num_blocks);
       }
@@ -86,7 +86,7 @@ namespace boost {
       static size_type word(size_type bit)  { return bit / bits_per_block; } // [gps]
       static size_type offset(size_type bit){ return bit % bits_per_block; } // [gps]
       static Block mask1(size_type bit) { return Block(1) << offset(bit); }
-      static Block mask0(size_type bit) { return ~(Block(1) << offset(bit)); }
+      static Block mask0(size_type bit) { return ‾(Block(1) << offset(bit)); }
       static size_type calc_num_blocks(size_type num_bits)
         { return (num_bits + bits_per_block - 1) / bits_per_block; }
     };

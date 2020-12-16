@@ -18,7 +18,7 @@ CVideoModeList::CVideoModeList()
 
 
 //! destructor
-CVideoModeList::~CVideoModeList()
+CVideoModeList::‾CVideoModeList()
 {
 }
 

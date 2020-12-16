@@ -54,7 +54,7 @@ bool CImageWriterBMP::writeImage(io::IWriteFile* file, IImage* image, u32 param)
 
 	// data size is rounded up to next larger 4 bytes boundary
 	imageHeader.BitmapDataSize = imageHeader.Width * imageHeader.BPP / 8;
-	imageHeader.BitmapDataSize = (imageHeader.BitmapDataSize + 3) & ~3;
+	imageHeader.BitmapDataSize = (imageHeader.BitmapDataSize + 3) & ‾3;
 	imageHeader.BitmapDataSize *= imageHeader.Height;
 
 	// file size is data size plus offset to data
@@ -101,7 +101,7 @@ bool CImageWriterBMP::writeImage(io::IWriteFile* file, IImage* image, u32 param)
 	u32 row_stride = (pixel_size * imageHeader.Width);
 
 	// length of one row in bytes, rounded up to nearest 4-byte boundary
-	s32 row_size = ((3 * imageHeader.Width) + 3) & ~3;
+	s32 row_size = ((3 * imageHeader.Width) + 3) & ‾3;
 
 	// allocate and clear memory for our scan line
 	u8* row_pointer = new u8[row_size];

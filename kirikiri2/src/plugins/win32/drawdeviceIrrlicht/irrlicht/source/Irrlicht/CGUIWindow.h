@@ -24,7 +24,7 @@ namespace gui
 		CGUIWindow(IGUIEnvironment* environment, IGUIElement* parent, s32 id, core::rect<s32> rectangle);
 
 		//! destructor
-		virtual ~CGUIWindow();
+		virtual ‾CGUIWindow();
 
 		//! called if an event happened.
 		virtual bool OnEvent(const SEvent& event);

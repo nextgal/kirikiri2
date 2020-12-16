@@ -5,7 +5,7 @@
 #ifndef krflashmainh
 #define krflashmainh
 
-#include "..\krmovie.h"
+#include "..¥krmovie.h"
 
 //---------------------------------------------------------------------------
 // tTVPFlashOverlay
@@ -26,7 +26,7 @@ class tTVPFlashOverlay : public iTVPVideoOverlay
 
 public:
 	tTVPFlashOverlay(const wchar_t *flashfile, HWND callbackwindow);
-	~tTVPFlashOverlay();
+	‾tTVPFlashOverlay();
 
 	void __stdcall AddRef();
 	void __stdcall Release();

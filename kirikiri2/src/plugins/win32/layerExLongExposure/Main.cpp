@@ -2,7 +2,7 @@
 #include "ncbind.hpp"
 
 struct   LongExposure {
-	/**/~LongExposure() { term(); }
+	/**/‾LongExposure() { term(); }
 	/**/ LongExposure(iTJSDispatch2 *obj) : self(obj), buffer(0), width(0), height(0) {}
 
 	void init() {
@@ -212,7 +212,7 @@ iTJSDispatch2* LongExposure::LayerClass = 0;
 NCB_GET_INSTANCE_HOOK(LongExposure)
 {
 	/**/  NCB_GET_INSTANCE_HOOK_CLASS () {}
-	/**/ ~NCB_GET_INSTANCE_HOOK_CLASS () {}
+	/**/ ‾NCB_GET_INSTANCE_HOOK_CLASS () {}
 	NCB_INSTANCE_GETTER(objthis) {
 		ClassT* obj = GetNativeInstance(objthis);
 		if (!obj) SetNativeInstance(objthis, (obj = new ClassT(objthis)));

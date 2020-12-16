@@ -258,25 +258,25 @@ namespace boost {
   struct optag2 { };
   struct optag3 { };
 
-#define BOOST_DEFINE_BINARY_PREDICATE_ARCHETYPE(OP, NAME) \
-  template <class Base = null_archetype<>, class Tag = optag1 > \
-  class NAME##_first_archetype : public Base { \
-  public: \
-    NAME##_first_archetype(detail::dummy_constructor x) : Base(x) { } \
-  }; \
-  \
-  template <class Base = null_archetype<>, class Tag = optag1 > \
-  class NAME##_second_archetype : public Base { \
-  public: \
-    NAME##_second_archetype(detail::dummy_constructor x) : Base(x) { } \
-  }; \
-  \
-  template <class BaseFirst, class BaseSecond, class Tag> \
-  boolean_archetype \
-  operator OP (const NAME##_first_archetype<BaseFirst, Tag>&, \
-               const NAME##_second_archetype<BaseSecond, Tag>&) \
-  { \
-   return boolean_archetype(static_object<detail::dummy_constructor>::get()); \
+#define BOOST_DEFINE_BINARY_PREDICATE_ARCHETYPE(OP, NAME) ¥
+  template <class Base = null_archetype<>, class Tag = optag1 > ¥
+  class NAME##_first_archetype : public Base { ¥
+  public: ¥
+    NAME##_first_archetype(detail::dummy_constructor x) : Base(x) { } ¥
+  }; ¥
+  ¥
+  template <class Base = null_archetype<>, class Tag = optag1 > ¥
+  class NAME##_second_archetype : public Base { ¥
+  public: ¥
+    NAME##_second_archetype(detail::dummy_constructor x) : Base(x) { } ¥
+  }; ¥
+  ¥
+  template <class BaseFirst, class BaseSecond, class Tag> ¥
+  boolean_archetype ¥
+  operator OP (const NAME##_first_archetype<BaseFirst, Tag>&, ¥
+               const NAME##_second_archetype<BaseSecond, Tag>&) ¥
+  { ¥
+   return boolean_archetype(static_object<detail::dummy_constructor>::get()); ¥
   }
 
   BOOST_DEFINE_BINARY_PREDICATE_ARCHETYPE(==, equal_op)
@@ -286,22 +286,22 @@ namespace boost {
   BOOST_DEFINE_BINARY_PREDICATE_ARCHETYPE(>, greater_than_op)
   BOOST_DEFINE_BINARY_PREDICATE_ARCHETYPE(>=, greater_equal_op)
 
-#define BOOST_DEFINE_OPERATOR_ARCHETYPE(OP, NAME) \
-  template <class Base = null_archetype<> > \
-  class NAME##_archetype : public Base { \
-  public: \
-    NAME##_archetype(detail::dummy_constructor x) : Base(x) { } \
-    NAME##_archetype(const NAME##_archetype&)  \
-      : Base(static_object<detail::dummy_constructor>::get()) { } \
-    NAME##_archetype& operator=(const NAME##_archetype&) { return *this; } \
-  }; \
-  template <class Base> \
-  NAME##_archetype<Base> \
-  operator OP (const NAME##_archetype<Base>&,\
-               const NAME##_archetype<Base>&)  \
-  { \
-    return \
-     NAME##_archetype<Base>(static_object<detail::dummy_constructor>::get()); \
+#define BOOST_DEFINE_OPERATOR_ARCHETYPE(OP, NAME) ¥
+  template <class Base = null_archetype<> > ¥
+  class NAME##_archetype : public Base { ¥
+  public: ¥
+    NAME##_archetype(detail::dummy_constructor x) : Base(x) { } ¥
+    NAME##_archetype(const NAME##_archetype&)  ¥
+      : Base(static_object<detail::dummy_constructor>::get()) { } ¥
+    NAME##_archetype& operator=(const NAME##_archetype&) { return *this; } ¥
+  }; ¥
+  template <class Base> ¥
+  NAME##_archetype<Base> ¥
+  operator OP (const NAME##_archetype<Base>&,¥
+               const NAME##_archetype<Base>&)  ¥
+  { ¥
+    return ¥
+     NAME##_archetype<Base>(static_object<detail::dummy_constructor>::get()); ¥
   }
 
   BOOST_DEFINE_OPERATOR_ARCHETYPE(+, addable)
@@ -312,25 +312,25 @@ namespace boost {
 
   // As is, these are useless because of the return type.
   // Need to invent a better way...
-#define BOOST_DEFINE_BINARY_OPERATOR_ARCHETYPE(OP, NAME) \
-  template <class Return, class Base = null_archetype<> > \
-  class NAME##_first_archetype : public Base { \
-  public: \
-    NAME##_first_archetype(detail::dummy_constructor x) : Base(x) { } \
-  }; \
-  \
-  template <class Return, class Base = null_archetype<> > \
-  class NAME##_second_archetype : public Base { \
-  public: \
-    NAME##_second_archetype(detail::dummy_constructor x) : Base(x) { } \
-  }; \
-  \
-  template <class Return, class BaseFirst, class BaseSecond> \
-  Return \
-  operator OP (const NAME##_first_archetype<Return, BaseFirst>&, \
-               const NAME##_second_archetype<Return, BaseSecond>&) \
-  { \
-    return Return(static_object<detail::dummy_constructor>::get()); \
+#define BOOST_DEFINE_BINARY_OPERATOR_ARCHETYPE(OP, NAME) ¥
+  template <class Return, class Base = null_archetype<> > ¥
+  class NAME##_first_archetype : public Base { ¥
+  public: ¥
+    NAME##_first_archetype(detail::dummy_constructor x) : Base(x) { } ¥
+  }; ¥
+  ¥
+  template <class Return, class Base = null_archetype<> > ¥
+  class NAME##_second_archetype : public Base { ¥
+  public: ¥
+    NAME##_second_archetype(detail::dummy_constructor x) : Base(x) { } ¥
+  }; ¥
+  ¥
+  template <class Return, class BaseFirst, class BaseSecond> ¥
+  Return ¥
+  operator OP (const NAME##_first_archetype<Return, BaseFirst>&, ¥
+               const NAME##_second_archetype<Return, BaseSecond>&) ¥
+  { ¥
+    return Return(static_object<detail::dummy_constructor>::get()); ¥
   }
 
   BOOST_DEFINE_BINARY_OPERATOR_ARCHETYPE(+, plus_op)

@@ -408,7 +408,7 @@ CIrrDeviceWin32::CIrrDeviceWin32(video::E_DRIVER_TYPE driverType,
 
 
 //! destructor
-CIrrDeviceWin32::~CIrrDeviceWin32()
+CIrrDeviceWin32::‾CIrrDeviceWin32()
 {
 	// unregister environment
 
@@ -742,7 +742,7 @@ CIrrDeviceWin32::CCursorControl* CIrrDeviceWin32::getWin32CursorControl()
 }
 
 
-//! \return Returns a pointer to a list with all video modes supported
+//! ¥return Returns a pointer to a list with all video modes supported
 //! by the gfx adapter.
 video::IVideoModeList* CIrrDeviceWin32::getVideoModeList()
 {
@@ -830,7 +830,7 @@ void CIrrDeviceWin32::getWindowsVersion(core::stringc& out)
 			DWORD dwBufLen;
 
 			RegOpenKeyEx( HKEY_LOCAL_MACHINE,
-				"SYSTEM\\CurrentControlSet\\Control\\ProductOptions",
+				"SYSTEM¥¥CurrentControlSet¥¥Control¥¥ProductOptions",
 				0, KEY_QUERY_VALUE, &hKey );
 			RegQueryValueEx( hKey, "ProductType", NULL, NULL,
 				(LPBYTE) szProductType, &dwBufLen);

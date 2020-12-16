@@ -16,7 +16,7 @@ class ITimer : public virtual IReferenceCounted
 public:
 
 	//! destructor
-	virtual ~ITimer() {}
+	virtual ‾ITimer() {}
 
 	//! Returns current real time in milliseconds of the system.
 	/** This value does not start with 0 when the application starts.

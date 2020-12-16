@@ -38,13 +38,13 @@ typedef void (*function_ptr)();
 typedef int (alignment_dummy::*member_ptr);
 typedef int (alignment_dummy::*member_function_ptr)();
 
-#define BOOST_TT_ALIGNMENT_TYPES BOOST_PP_TUPLE_TO_LIST( \
-        11, ( \
-        char, short, int, long, float, double, long double \
+#define BOOST_TT_ALIGNMENT_TYPES BOOST_PP_TUPLE_TO_LIST( ¥
+        11, ( ¥
+        char, short, int, long, float, double, long double ¥
         , void*, function_ptr, member_ptr, member_function_ptr))
 
-#define BOOST_TT_CHOOSE_MIN_ALIGNMENT(R,P,I,T) \
-        typename mpl::if_c< \
+#define BOOST_TT_CHOOSE_MIN_ALIGNMENT(R,P,I,T) ¥
+        typename mpl::if_c< ¥
            alignment_of<T>::value <= target, T, char>::type BOOST_PP_CAT(t,I);
 
 #define BOOST_TT_CHOOSE_T(R,P,I,T) T BOOST_PP_CAT(t,I);

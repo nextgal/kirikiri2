@@ -20,7 +20,7 @@ namespace video
 		CZBuffer(const core::dimension2d<s32>& size);
 
 		//! destructor
-		virtual ~CZBuffer();
+		virtual ‾CZBuffer();
 
 		//! clears the zbuffer
 		virtual void clear();

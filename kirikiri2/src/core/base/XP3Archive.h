@@ -111,7 +111,7 @@ class tTVPXP3Archive : public tTVPArchive
 	std::vector<tArchiveItem> ItemVector;
 public:
 	tTVPXP3Archive(const ttstr & name);
-	~tTVPXP3Archive();
+	‾tTVPXP3Archive();
 
 	tjs_uint GetCount() { return Count; }
 	const ttstr & GetName(tjs_uint idx) const { return ItemVector[idx].Name; }
@@ -168,7 +168,7 @@ public:
 	tTVPXP3ArchiveStream(tTVPXP3Archive *owner, tjs_int storageindex,
 		std::vector<tTVPXP3ArchiveSegment> *segments, tTJSBinaryStream *stream,
 			tjs_uint64 orgsize);
-	~tTVPXP3ArchiveStream();
+	‾tTVPXP3ArchiveStream();
 
 private:
 	void EnsureSegment(); // ensure accessing to current segment

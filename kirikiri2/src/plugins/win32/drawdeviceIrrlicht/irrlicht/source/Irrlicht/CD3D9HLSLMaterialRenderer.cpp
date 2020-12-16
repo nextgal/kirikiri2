@@ -60,7 +60,7 @@ CD3D9HLSLMaterialRenderer::CD3D9HLSLMaterialRenderer(IDirect3DDevice9* d3ddev,
 }
 
 	//! Destructor
-CD3D9HLSLMaterialRenderer::~CD3D9HLSLMaterialRenderer()
+CD3D9HLSLMaterialRenderer::‾CD3D9HLSLMaterialRenderer()
 {
 	if (VSConstantsTable)
 		VSConstantsTable->Release();

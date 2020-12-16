@@ -1,7 +1,7 @@
 #include "layerExCairo.hpp"
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  */
 layerExCairo::layerExCairo(DispatchT obj) : layerExBase(obj)
 {
@@ -14,24 +14,24 @@ layerExCairo::layerExCairo(DispatchT obj) : layerExBase(obj)
 }
 
 /**
- * ƒfƒXƒgƒ‰ƒNƒ^
+ * ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  */
-layerExCairo::~layerExCairo()
+layerExCairo::â€¾layerExCairo()
 {
 	cairo_destroy(cairo);
 	cairo_surface_destroy(surface);
 }
 
 /**
- * ƒŠƒZƒbƒgˆ—
+ * ãƒªã‚»ãƒƒãƒˆå‡¦ç†
  */
 void
 layerExCairo::reset()
 {
-	// Šî–{ˆ—
+	// åŸºæœ¬å‡¦ç†
 	layerExBase::reset();
 
-	// ƒŒƒCƒ„‚Ìî•ñ•ÏX‚ª‚ ‚Á‚½‚©‚Ç‚¤‚©
+	// ãƒ¬ã‚¤ãƒ¤ã®æƒ…å ±å¤‰æ›´ãŒã‚ã£ãŸã‹ã©ã†ã‹
 	reseted = (width  != _width ||
 			   height != _height ||
 			   buffer != _buffer ||
@@ -42,7 +42,7 @@ layerExCairo::reset()
 		height = _height;
 		buffer = _buffer;
 		pitch  = _pitch;
-		// cairo —pƒRƒ“ƒeƒLƒXƒg‚ÌÄ¶¬
+		// cairo ç”¨ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã®å†ç”Ÿæˆ
 		cairo_destroy(cairo);
 		cairo_surface_destroy(surface);
 		surface = cairo_image_surface_create_for_data((BYTE*)_buffer, CAIRO_FORMAT_ARGB32, width, height, pitch);

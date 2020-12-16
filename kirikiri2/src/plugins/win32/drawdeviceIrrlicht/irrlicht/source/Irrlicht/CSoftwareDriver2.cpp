@@ -126,7 +126,7 @@ CSoftwareDriver2::CSoftwareDriver2(const core::dimension2d<s32>& windowSize, boo
 
 
 //! destructor
-CSoftwareDriver2::~CSoftwareDriver2()
+CSoftwareDriver2::‾CSoftwareDriver2()
 {
 	// delete Backbuffer
 	BackBuffer->drop();
@@ -1269,7 +1269,7 @@ void CSoftwareDriver2::drawVertexPrimitiveList(const void* vertices, u32 vertexC
 				os::Printer::print ( buf );
 			}
 
-			sprintf ( buf, "Vout: %d\n", vOut );
+			sprintf ( buf, "Vout: %d¥n", vOut );
 			os::Printer::print ( buf );
 
 			int hold = 1;
@@ -1351,7 +1351,7 @@ void CSoftwareDriver2::drawVertexPrimitiveList(const void* vertices, u32 vertexC
 
 //! Sets the dynamic ambient light color. The default color is
 //! (0,0,0,0) which means it is dark.
-//! \param color: New color of the ambient light.
+//! ¥param color: New color of the ambient light.
 void CSoftwareDriver2::setAmbientLight(const SColorf& color)
 {
 	Global_AmbientLight.setColorf ( color );
@@ -1824,7 +1824,7 @@ void CSoftwareDriver2::draw3DLine(const core::vector3df& start,
 
 
 
-//! \return Returns the name of the video driver. Example: In case of the DirectX8
+//! ¥return Returns the name of the video driver. Example: In case of the DirectX8
 //! driver, it would return "Direct3D8.1".
 const wchar_t* CSoftwareDriver2::getName() const
 {

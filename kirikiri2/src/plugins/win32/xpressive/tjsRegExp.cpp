@@ -62,7 +62,7 @@ static inline bool TJSIsRegExEmpty(tTJSRegEx const &regex)
 
 static inline void TJSCompileRegExp(tTJSRegEx &regex, tjs_char const *exp, tjs_uint32 flags)
 {
-	regex = tTJSRegEx::compile(exp, (tTJSRegEx::flag_type)(flags & ~tjsflagsmask));
+	regex = tTJSRegEx::compile(exp, (tTJSRegEx::flag_type)(flags & ‾tjsflagsmask));
 }
 
 template <typename T>
@@ -105,7 +105,7 @@ static inline tjs_uint32 TJSSetIgnoreCaseRegExpFlag(tjs_uint32 prev)
 
 static inline tjs_uint32 TJSSetCollateRegExpFlag(tjs_uint32 prev)
 {
-	return prev & ~regbase::nocollate;
+	return prev & ‾regbase::nocollate;
 }
 
 static inline bool TJSIsRegExEmpty(tTJSRegEx const &regex)
@@ -115,7 +115,7 @@ static inline bool TJSIsRegExEmpty(tTJSRegEx const &regex)
 
 static inline void TJSCompileRegExp(tTJSRegEx &regex, tjs_char const *expr, tjs_uint32 flags)
 {
-	regex.assign(expr, (wregex::flag_type)(flags& ~tjsflagsmask));
+	regex.assign(expr, (wregex::flag_type)(flags& ‾tjsflagsmask));
 }
 
 template <typename T>
@@ -142,7 +142,7 @@ static tjs_uint32 TJSRegExpFlagToValue(tjs_char ch, tjs_uint32 prev)
 	case 0:
 		// converts flag letter to internal flag value.
 		// this returns modified prev.
-		// when ch is '\0', returns default flag value and prev is ignored.
+		// when ch is '¥0', returns default flag value and prev is ignored.
 		return defaultflags;
 
 	case TJS_W('g'): // global search
@@ -541,7 +541,7 @@ TJS_BEGIN_NATIVE_METHOD_DECL(/*func. name*/exec)
 	/*
 		same as the match except for the internal status' change.
 		var ar;
-		var pat = /:(\d+):(\d+):/g;
+		var pat = /:(¥d+):(¥d+):/g;
 		while((ar = pat.match(target)).count)
 		{
 			// ...

@@ -5,63 +5,63 @@
 Scripts.execStorage("KDropDownList.tjs");
 
 global.COMBO_STYLE_DROPDOWN = 0;
-global.COMBO_STYLE_SIMPLE = 1;			//–¢‘Î‰
+global.COMBO_STYLE_SIMPLE = 1;			//æœªå¯¾å¿œ
 global.COMBO_STYLE_DROPDOWNLIST = 2;
 /**----------------------------------------------------------------------
- * ƒRƒ“ƒ{ƒ{ƒbƒNƒX
+ * ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹
  ----------------------------------------------------------------------*/
 //#################################################################################
 class KComboBox extends KValueWidget
 {
 	var name;
 	var	target;
-	var selLeft;			//	‘I‘ğ•”•ª•\¦ˆÊ’u
+	var selLeft;			//	é¸æŠéƒ¨åˆ†è¡¨ç¤ºä½ç½®
 
-	var _values		= [];	//	’l(‚±‚Á‚¿‚ª–{‘Ì)
-	var _captions	= [];	//	•\¦(‚±‚Á‚¿‚ªƒTƒ|[ƒg)
-	var _selected	= -1;	//	‚Ç‚ê‚ğ‘I‘ğ‚µ‚Ä‚¢‚é‚©H(-1‚Í–¢‘I‘ğ)
-	var _combostyle = -1;	//	ƒRƒ“ƒ{ƒXƒ^ƒCƒ‹
-	var inputvalue = "";	//	ƒhƒƒbƒvƒ_ƒEƒ“ƒRƒ“ƒ{‚Å’¼Ú“ü—Í‚³‚ê‚½•¶š—ñ
-	var lastinputvalue = "";//	ƒhƒƒbƒvƒ_ƒEƒ“ƒRƒ“ƒ{‚Å‘O‰ñ’¼Ú“ü—Í‚³‚ê‚½•¶š—ñ
-	var clickcyclic = true;	//	ƒhƒƒbƒvƒ_ƒEƒ“ƒŠƒXƒg‚ÌƒVƒ‡[ƒgƒNƒŠƒbƒN‚ÅŸ‚ÌŒó•â‚É•ÏX‚·‚é
-	var popupstate = false;	//	ƒhƒƒbƒvƒ_ƒEƒ“ó‘Ô true:•\¦’† / false:”ñ•\¦’†
+	var _values		= [];	//	å€¤(ã“ã£ã¡ãŒæœ¬ä½“)
+	var _captions	= [];	//	è¡¨ç¤º(ã“ã£ã¡ãŒã‚µãƒãƒ¼ãƒˆ)
+	var _selected	= -1;	//	ã©ã‚Œã‚’é¸æŠã—ã¦ã„ã‚‹ã‹ï¼Ÿ(-1ã¯æœªé¸æŠ)
+	var _combostyle = -1;	//	ã‚³ãƒ³ãƒœã‚¹ã‚¿ã‚¤ãƒ«
+	var inputvalue = "";	//	ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ã‚³ãƒ³ãƒœã§ç›´æ¥å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—åˆ—
+	var lastinputvalue = "";//	ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ã‚³ãƒ³ãƒœã§å‰å›ç›´æ¥å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—åˆ—
+	var clickcyclic = true;	//	ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒªã‚¹ãƒˆã®ã‚·ãƒ§ãƒ¼ãƒˆã‚¯ãƒªãƒƒã‚¯ã§æ¬¡ã®å€™è£œã«å¤‰æ›´ã™ã‚‹
+	var popupstate = false;	//	ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³çŠ¶æ…‹ true:è¡¨ç¤ºä¸­ / false:éè¡¨ç¤ºä¸­
 
 	var _selcolor		= 0xFFFFFFFF;
 	var _selframecolor	= 0xFF000080;
 	var _textcolor		= 0x00000000;
 	var _seltextcolor	= 0x00FFFFFF;
-	var _dropdowntime	= 200;		//ƒ|ƒbƒvƒAƒbƒv‚·‚é‚Ü‚Å‚ÌƒNƒŠƒbƒN‘±‘Ò‹@ŠÔ(ms)
-	var _dropclosetime	= 350;		//ƒ|ƒbƒvƒAƒbƒv‚ªI‚í‚Á‚Ä‚©‚çŸ‚Ìƒ|ƒbƒvƒAƒbƒv‚ğ‹–—e‚·‚é‚Ü‚Å‚Ì‘Ò‚¿ŠÔ(ms)
+	var _dropdowntime	= 200;		//ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã™ã‚‹ã¾ã§ã®ã‚¯ãƒªãƒƒã‚¯æŒç¶šå¾…æ©Ÿæ™‚é–“(ms)
+	var _dropclosetime	= 350;		//ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãŒçµ‚ã‚ã£ã¦ã‹ã‚‰æ¬¡ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’è¨±å®¹ã™ã‚‹ã¾ã§ã®å¾…ã¡æ™‚é–“(ms)
 	var aa				= true;
 
-	var FIXED_MARGIN		= 1;	//ƒRƒ“ƒgƒ[ƒ‹˜g‚ÌˆÊ’u”÷’²®
-	var FIXED_XOFFSET		= 2;	//ƒRƒ“ƒgƒ[ƒ‹˜g‚ÌˆÊ’u”÷’²®
-	var FIXED_YOFFSET		= 2;	//ƒRƒ“ƒgƒ[ƒ‹˜g‚ÌˆÊ’u”÷’²®
-	var FIXED_HEIGHTMARGIN	= 8;	//ƒRƒ“ƒgƒ[ƒ‹ƒTƒCƒY‚Ìƒ}[ƒWƒ“(KTextInput‚ÌˆÊ’u‚É‡‚í‚¹‚½’l)
-	var FIXED_LEFTMARGIN	= 5;	//ƒRƒ“ƒgƒ[ƒ‹“à‚ÌƒeƒLƒXƒg‘‚«o‚µˆÊ’u(KTextInput‚ÌˆÊ’u‚É‡‚í‚¹‚½’l)
+	var FIXED_MARGIN		= 1;	//ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«æ ã®ä½ç½®å¾®èª¿æ•´
+	var FIXED_XOFFSET		= 2;	//ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«æ ã®ä½ç½®å¾®èª¿æ•´
+	var FIXED_YOFFSET		= 2;	//ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«æ ã®ä½ç½®å¾®èª¿æ•´
+	var FIXED_HEIGHTMARGIN	= 8;	//ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚µã‚¤ã‚ºã®ãƒãƒ¼ã‚¸ãƒ³(KTextInputã®ä½ç½®ã«åˆã‚ã›ãŸå€¤)
+	var FIXED_LEFTMARGIN	= 5;	//ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«å†…ã®ãƒ†ã‚­ã‚¹ãƒˆæ›¸ãå‡ºã—ä½ç½®(KTextInputã®ä½ç½®ã«åˆã‚ã›ãŸå€¤)
 
 	var _pointed;
 	var lastselected = -1;
 
-	// ƒ|ƒbƒvƒAƒbƒv—pƒ^ƒCƒ}[
+	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ç”¨ã‚¿ã‚¤ãƒãƒ¼
 	var popupTimer;
 	var closeTimer;
 	
-	// ƒIƒuƒWƒFƒNƒg’è‹`
+	// ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå®šç¾©
 	var dropinput;
 	var dropbutton;
 	var dropface = "k_scroll_down.png";
 
-	var dispCount; // ƒhƒƒbƒvƒ_ƒEƒ“ƒƒjƒ…[‚Ì•\¦”
+	var dispCount; // ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®è¡¨ç¤ºæ•°
 
 	/**------------------------------
-	* ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	* ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	*
 	* @param window
 	* @param w			width
 	* @param h			height
 	* @param type		combostyle={ COMBO_STYLE_DROPDOWN, COMBO_STYLE_SIMPLE, COMBO_STYLE_DROPDOWNLIST }
-	* @param name		–¼‘O
+	* @param name		åå‰
 	------------------------------*/
 	function KComboBox(window, w, h, type=COMBO_STYLE_DROPDOWNLIST, name="") {
 		popupTimer	= new Timer(onPopup, "");
@@ -72,7 +72,7 @@ class KComboBox extends KValueWidget
 		
 		_combostyle = type;
 		
-		//ƒRƒ“ƒgƒ[ƒ‹‚ğ\¬‚·‚éŠî–{ƒEƒBƒWƒFƒbƒg‚Ì‰Šú‰»
+		//ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’æ§‹æˆã™ã‚‹åŸºæœ¬ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®åˆæœŸåŒ–
 		switch( combostyle ){
 		case COMBO_STYLE_DROPDOWNLIST:
 			super.KValueWidget(window, name);
@@ -84,8 +84,8 @@ class KComboBox extends KValueWidget
 			break;
 		}
 		
-		// ƒEƒBƒ“ƒhƒE‰Šú‰»
-//071005ƒtƒH[ƒJƒXŒn•s‹ï‡C³
+		// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦åˆæœŸåŒ–
+//071005ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ç³»ä¸å…·åˆä¿®æ­£
 		focusable = defaultFocusable;
 //		focusable = true;
 		hasImage = true;
@@ -100,11 +100,11 @@ class KComboBox extends KValueWidget
 		setSize(w,h);
 		_pointed= false;
 
-		// ƒeƒLƒXƒg“ü—Íƒ{ƒbƒNƒX‚ğ”z’u
+		// ãƒ†ã‚­ã‚¹ãƒˆå…¥åŠ›ãƒœãƒƒã‚¯ã‚¹ã‚’é…ç½®
 		dropinput = new KTextInput(window, w - h + FIXED_XOFFSET + FIXED_MARGIN, h, TEXT_ANY, "_dropinput");
 		with(dropinput)
 		{
-//071005ƒtƒH[ƒJƒXŒn•s‹ï‡C³
+//071005ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ç³»ä¸å…·åˆä¿®æ­£
 			.focusable = defaultFocusable;
 			.parent = this;
 			.onValueModified = this.onInputValueModified;
@@ -125,11 +125,11 @@ class KComboBox extends KValueWidget
 			}
 		}
 
-		//ƒhƒƒbƒvƒ_ƒEƒ“ƒ{ƒ^ƒ“‚ğ”z’u
+		//ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒœã‚¿ãƒ³ã‚’é…ç½®
 		dropbutton = new KImageButton(window, dropface, "_dropbutton");
 		with(dropbutton)
 		{
-//071005ƒtƒH[ƒJƒXŒn•s‹ï‡C³
+//071005ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ç³»ä¸å…·åˆä¿®æ­£
 			.focusable = false;
 			.parent = this;
 			.onValueModified = this.onPopup;
@@ -147,7 +147,7 @@ class KComboBox extends KValueWidget
 				.visible = false;
 				break;
 			}
-			//071030‰EƒNƒŠƒbƒN—}~
+			//071030å³ã‚¯ãƒªãƒƒã‚¯æŠ‘æ­¢
 			.onMouseDown = function(x, y, button, shift){
 				if( button == mbLeft ){
 					buttonDown();
@@ -160,20 +160,20 @@ class KComboBox extends KValueWidget
 			};
 		}
 		
-		//‰Šú•\¦
+		//åˆæœŸè¡¨ç¤º
 		draw();
 	}
 
 	/*------------------------------
-	* ƒtƒ@ƒCƒiƒ‰ƒCƒU
+	* ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
 	------------------------------*/
 	function finalize {
-		// ƒ^ƒCƒ}‚ğÁ‹
+		// ã‚¿ã‚¤ãƒã‚’æ¶ˆå»
 		discard(popupTimer);
 		discard(closeTimer);
-// ”z—ñ‚Í–¾¦“I‚Éinvalidate‚µ‚È‚¢‚Å‚àgc‚Å‰ñû‚³‚ê‚é‚Í‚¸
-// KValuWidget‚Ìfinalize‚Åvalue‚ªQÆ‚Å‚«‚È‚¢‚Æ‚Ü‚¸‚¢‚Ì‚Å
-// _values‚Æ_captions‚Íc‚µ‚Ä‚¨‚­
+// é…åˆ—ã¯æ˜ç¤ºçš„ã«invalidateã—ãªã„ã§ã‚‚gcã§å›åã•ã‚Œã‚‹ã¯ãš
+// KValuWidgetã®finalizeã§valueãŒå‚ç…§ã§ããªã„ã¨ã¾ãšã„ã®ã§
+// _valuesã¨_captionsã¯æ®‹ã—ã¦ãŠã
 //		discard(_values);
 //		discard(_captions);
 		super.finalize(...);
@@ -187,14 +187,14 @@ class KComboBox extends KValueWidget
 
 	}
 
-	// ˜g•`‰æ
+	// æ æç”»
 	function _drawFrame()
 	{
 		//dm("draw frame");
 		
-		//	‚Í‚İo‚µ‚ÄdrawText‚³‚ê‚Ä‚¢‚½ê‡‚ğl—¶‚µA‘Sˆæ‚ğ“h‚è‚Â‚Ô‚µ
+		//	ã¯ã¿å‡ºã—ã¦drawTextã•ã‚Œã¦ã„ãŸå ´åˆã‚’è€ƒæ…®ã—ã€å…¨åŸŸã‚’å¡—ã‚Šã¤ã¶ã—
 		drawFrame( FRAME_FLATTEN, 0, 0, width, height );
-		//	‘I‘ğ•”•ª‚Ì˜g
+		//	é¸æŠéƒ¨åˆ†ã®æ 
 		if(pointed){
 			drawFrame( FRAME_SUNKEN, 0, 0, width - height + FIXED_XOFFSET + FIXED_MARGIN, height - FIXED_YOFFSET, selframecolor);
 		}else{
@@ -202,19 +202,19 @@ class KComboBox extends KValueWidget
 		}
 	}
 
-	// ƒLƒƒƒvƒVƒ‡ƒ“•`‰æ
+	// ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³æç”»
 	function draw()
 	{
 		_drawFrame();
 
-		//	‘I‘ğ‚³‚ê‚Ä‚¢‚é’l
+		//	é¸æŠã•ã‚Œã¦ã„ã‚‹å€¤
 		var c = caption;
 		if(c!="")
 		{
 			//dm("draw value: "+caption);
 			switch( combostyle ){
 			case COMBO_STYLE_DROPDOWNLIST:
-				//ƒ{ƒbƒNƒX“à‚ÉƒeƒLƒXƒg‚ğ•`‰æ
+				//ãƒœãƒƒã‚¯ã‚¹å†…ã«ãƒ†ã‚­ã‚¹ãƒˆã‚’æç”»
 				if(pointed){
 					drawText(FIXED_LEFTMARGIN, FIXED_MARGIN + FIXED_YOFFSET, c, seltextcolor,, aa);
 				}else{
@@ -222,7 +222,7 @@ class KComboBox extends KValueWidget
 				}
 				break;
 			case COMBO_STYLE_DROPDOWN:
-				//ƒCƒ“ƒvƒbƒgƒRƒ“ƒgƒ[ƒ‹‚Ì•¶š—ñ‚ğw’è
+				//ã‚¤ãƒ³ãƒ—ãƒƒãƒˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®æ–‡å­—åˆ—ã‚’æŒ‡å®š
 				dropinput.value = caption;
 				break;
 				
@@ -234,23 +234,23 @@ class KComboBox extends KValueWidget
 
 
 	/*----------------------------------------------------------------------
-	* ˆÈ‰ºAŠeíƒtƒbƒNˆ—
+	* ä»¥ä¸‹ã€å„ç¨®ãƒ•ãƒƒã‚¯å‡¦ç†
 	----------------------------------------------------------------------*/
-	// ƒ}ƒEƒXƒ_ƒEƒ“‚ÅƒtƒH[ƒJƒXAƒ|ƒCƒ“ƒ^ˆÚ“®
+	// ãƒã‚¦ã‚¹ãƒ€ã‚¦ãƒ³ã§ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã€ãƒã‚¤ãƒ³ã‚¿ç§»å‹•
 	function onMouseDown(x, y, button, shift=0)
 	{
-		//071030‰EƒNƒŠƒbƒN—}~
+		//071030å³ã‚¯ãƒªãƒƒã‚¯æŠ‘æ­¢
 		if( button == mbLeft ){
 			focus();
 			switch( combostyle ){
 			case COMBO_STYLE_DROPDOWNLIST:
-				//ƒ{ƒbƒNƒX©g‚ğ’·ŠÔ‰Ÿ‚·‚Æ‘I‘ğƒŒƒCƒ„[‚Ìƒ|ƒbƒvƒAƒbƒvƒ^ƒCƒ}[‚ªŠJn‚·‚é
+				//ãƒœãƒƒã‚¯ã‚¹è‡ªèº«ã‚’é•·æ™‚é–“æŠ¼ã™ã¨é¸æŠãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚¿ã‚¤ãƒãƒ¼ãŒé–‹å§‹ã™ã‚‹
 				popupTimer.interval	= _dropdowntime;
 				popupTimer.enabled	= true;
 				break;
 				
 			case COMBO_STYLE_DROPDOWN:
-				//ƒ{ƒbƒNƒX‚Ìã‚ÉƒCƒ“ƒvƒbƒgƒRƒ“ƒgƒ[ƒ‹‚ª”z’u‚³‚ê‚Ä‚¢‚é‚Ì‚Å‚±‚±‚Å‚Í‰½‚à‚µ‚È‚¢
+				//ãƒœãƒƒã‚¯ã‚¹ã®ä¸Šã«ã‚¤ãƒ³ãƒ—ãƒƒãƒˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãŒé…ç½®ã•ã‚Œã¦ã„ã‚‹ã®ã§ã“ã“ã§ã¯ä½•ã‚‚ã—ãªã„
 				break;
 				
 			case COMBO_STYLE_SIMPLE:
@@ -261,17 +261,17 @@ class KComboBox extends KValueWidget
 
 	function onMouseUp(x, y, button, shift=0)
 	{
-		//071030‰EƒNƒŠƒbƒN—}~
+		//071030å³ã‚¯ãƒªãƒƒã‚¯æŠ‘æ­¢
 		if( button == mbLeft ){
 			switch( combostyle ){
 			case COMBO_STYLE_DROPDOWNLIST:
 				if( clickcyclic && ! popupstate ){
-					// ’ZŠÔ‚ÌƒNƒŠƒbƒN‚Å‚ÍŸ€–Ú‚Ö‚ÌØ‚è‘Ö‚¦“®ì
+					// çŸ­æ™‚é–“ã®ã‚¯ãƒªãƒƒã‚¯ã§ã¯æ¬¡é …ç›®ã¸ã®åˆ‡ã‚Šæ›¿ãˆå‹•ä½œ
 					if(popupTimer.enabled){
 						popupTimer.enabled	= false;
 						popupTimer.interval	= 0;
 						
-						//	Ÿ‚ğ‘I‘ğó‘Ô‚É‚·‚é
+						//	æ¬¡ã‚’é¸æŠçŠ¶æ…‹ã«ã™ã‚‹
 						lastselected = _selected;
 						if(_selected < captions.count - 1){
 							_selected++;
@@ -295,10 +295,10 @@ class KComboBox extends KValueWidget
 		}
 	}
 
-	// ƒ|ƒbƒvƒAƒbƒvƒCƒxƒ“ƒgFƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[‚Åƒhƒƒbƒvƒ_ƒEƒ“
+	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚¤ãƒ™ãƒ³ãƒˆï¼šã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã§ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³
 	function onPopup()
 	{
-		//ƒ|ƒbƒvƒAƒbƒv’†E‚à‚µ‚­‚Í•Â‚¶‚Ä‚·‚®‚ÍŸ‚Ìƒ|ƒbƒvƒAƒbƒv‚ğ‚³‚¹‚È‚¢
+		//ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ä¸­ãƒ»ã‚‚ã—ãã¯é–‰ã˜ã¦ã™ãã¯æ¬¡ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’ã•ã›ãªã„
 		if( popupstate ){
 			popupTimer.enabled	= false;
 			popupTimer.interval	= 0;
@@ -314,11 +314,11 @@ class KComboBox extends KValueWidget
 			for( var idx=0; idx<_values.count; idx++ ){
 				menu.addValueItem(_captions[idx], _values[idx], "", true, this.onSelected);
 			}
-			//ƒRƒ“ƒ{˜g¶‰º‚Éƒ|ƒbƒvƒAƒbƒv•\¦
+			//ã‚³ãƒ³ãƒœæ å·¦ä¸‹ã«ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—è¡¨ç¤º
 			menu.dispCount	= dispCount if typeof menu.dispCount != "undefined" && dispCount != void;
 			menu.show(this, 0, height - FIXED_YOFFSET - FIXED_MARGIN );
 			menu.value	= value if typeof menu.value != "undefined";
-			//buttonUp‚É‚Ä’Ê’m‚³‚ê‚é‚æ‚¤d—l•ÏX‚É‚È‚Á‚½‚½‚ß—]è”­s‚ğ‚µ‚Ä‚Í‚¢‚¯‚È‚¢‚½‚ßíœ
+			//buttonUpã«ã¦é€šçŸ¥ã•ã‚Œã‚‹ã‚ˆã†ä»•æ§˜å¤‰æ›´ã«ãªã£ãŸãŸã‚ä½™å‰°ç™ºè¡Œã‚’ã—ã¦ã¯ã„ã‘ãªã„ãŸã‚å‰Šé™¤
 			//dropbutton.buttonUp();
 			break;
 			
@@ -328,7 +328,7 @@ class KComboBox extends KValueWidget
 		popupstate = true;
 	}
 
-	// ƒ|ƒbƒvƒAƒbƒvI—¹ó‘Ô‚Ì’x‰„ƒŠƒZƒbƒg
+	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—çµ‚äº†çŠ¶æ…‹ã®é…å»¶ãƒªã‚»ãƒƒãƒˆ
 	function onClose()
 	{
 		closeTimer.enabled	= false;
@@ -336,7 +336,7 @@ class KComboBox extends KValueWidget
 		popupstate = false;
 	}
 	
-	// ƒ}ƒEƒXƒ€[ƒu‚Å‘I‘ğ”ÍˆÍ•ÏX
+	// ãƒã‚¦ã‚¹ãƒ ãƒ¼ãƒ–ã§é¸æŠç¯„å›²å¤‰æ›´
 	function onMouseMove(x, y)
 	{
 		//dm("KComboBox onMouseMove["+x+","+y+"]");
@@ -345,7 +345,7 @@ class KComboBox extends KValueWidget
 		draw();
 	}
 
-	// ƒ}ƒEƒXƒ|ƒCƒ“ƒ^‚ÌƒƒXƒg
+	// ãƒã‚¦ã‚¹ãƒã‚¤ãƒ³ã‚¿ã®ãƒ­ã‚¹ãƒˆ
 	function onMouseLeave()
 	{
 		//dm("KComboBox onMouseLeave");
@@ -354,7 +354,7 @@ class KComboBox extends KValueWidget
 		draw();
 	}
 	
-	//	‘I‘ğƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰
+	//	é¸æŠã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©
 	function onSelected(val)
 	{
 		//dm("KComboBox onSelected val=" + val);
@@ -365,19 +365,19 @@ class KComboBox extends KValueWidget
 				switch( combostyle ){
 				case COMBO_STYLE_DROPDOWNLIST:
 					if( _selected != i ){
-						//‘I‘ğ‚³‚ê‚½€–Ú‚Éó‘Ô‚ğ•ÏX
+						//é¸æŠã•ã‚ŒãŸé …ç›®ã«çŠ¶æ…‹ã‚’å¤‰æ›´
 						lastselected = _selected;
 						_selected = i;
 						onChanged();
 					}else{
-						//•Ï‰»‚È‚µ‚Ìê‡‚Í‘O‰ñ’l‚ÌXV‚Ì‚İ
+						//å¤‰åŒ–ãªã—ã®å ´åˆã¯å‰å›å€¤ã®æ›´æ–°ã®ã¿
 						lastselected = _selected;
 					}
 					break;
 						
 				case COMBO_STYLE_DROPDOWN:
 					if( _selected != i ){
-						//‘I‘ğó‘Ô‚ÆƒCƒ“ƒvƒbƒgƒRƒ“ƒgƒ[ƒ‹ó‘Ô‚ğ•ÏX
+						//é¸æŠçŠ¶æ…‹ã¨ã‚¤ãƒ³ãƒ—ãƒƒãƒˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«çŠ¶æ…‹ã‚’å¤‰æ›´
 						lastselected = _selected;
 						_selected = i;
 						lastinputvalue = inputvalue;
@@ -385,7 +385,7 @@ class KComboBox extends KValueWidget
 						dropinput.value = _captions[i];
 						onChanged();
 					}else{
-						//•Ï‰»‚È‚µ‚Ìê‡‚Í‘O‰ñ’l‚ÌXV‚Ì‚İ
+						//å¤‰åŒ–ãªã—ã®å ´åˆã¯å‰å›å€¤ã®æ›´æ–°ã®ã¿
 						lastselected = _selected;
 						lastinputvalue = inputvalue;
 					}
@@ -401,29 +401,29 @@ class KComboBox extends KValueWidget
 		closeTimer.enabled	= true;
 	}
 	
-	//	‘I‘ğI—¹ƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰
+	//	é¸æŠçµ‚äº†ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©
 	function onUnSelected()
 	{
 		closeTimer.interval	= _dropclosetime;
 		closeTimer.enabled	= true;
 	}
 	
-	//	•ÏX‚ª‰Á‚¦‚ç‚ê‚½
+	//	å¤‰æ›´ãŒåŠ ãˆã‚‰ã‚ŒãŸ
 	function onChanged()
 	{
 		//dm("KComboBox onChanged");
 		switch( combostyle ){
 		case COMBO_STYLE_DROPDOWNLIST:
-			//’l‚ÌXV‚ğ’Ê’m
+			//å€¤ã®æ›´æ–°ã‚’é€šçŸ¥
 			onValueModified(value, _values[lastselected]);
 			break;
 			
 		case COMBO_STYLE_DROPDOWN:
 			if( _selected != -1 ){
-				//‘I‘ğó‘ÔXV‚ğ’Ê’m
+				//é¸æŠçŠ¶æ…‹æ›´æ–°ã‚’é€šçŸ¥
 				onValueModified(value, _values[lastselected]);
 			}else{
-				//ƒCƒ“ƒvƒbƒgó‘Ô‚ÌXV‚ğ’Ê’m
+				//ã‚¤ãƒ³ãƒ—ãƒƒãƒˆçŠ¶æ…‹ã®æ›´æ–°ã‚’é€šçŸ¥
 				onValueModified(inputvalue, lastinputvalue);
 			}
 			break;
@@ -434,18 +434,18 @@ class KComboBox extends KValueWidget
 		draw();
 	}
 	
-	//	inputƒp[ƒc‚ÌƒCƒxƒ“ƒg
+	//	inputãƒ‘ãƒ¼ãƒ„ã®ã‚¤ãƒ™ãƒ³ãƒˆ
 	function onInputValueModified()
 	{
 		switch( combostyle ){
 		case COMBO_STYLE_DROPDOWNLIST:
-			//ƒCƒ“ƒvƒbƒgƒRƒ“ƒgƒ[ƒ‹‚Í”ñ•\¦‚È‚Ì‚Å‚±‚±‚É‚Í—ˆ‚È‚¢
+			//ã‚¤ãƒ³ãƒ—ãƒƒãƒˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¯éè¡¨ç¤ºãªã®ã§ã“ã“ã«ã¯æ¥ãªã„
 			break;
 			
 		case COMBO_STYLE_DROPDOWN:
 			var findidx = -1;
 			for(var i=0; i<values.count; i++){
-				//Šù‚ÉƒRƒ“ƒ{‚É‚ ‚é€–Ú‚ª“ü—Í‚³‚ê‚½ê‡‚Í‘I‘ğó‘Ô‚É‚·‚é
+				//æ—¢ã«ã‚³ãƒ³ãƒœã«ã‚ã‚‹é …ç›®ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã¯é¸æŠçŠ¶æ…‹ã«ã™ã‚‹
 				if(_captions[i] === dropinput.value)
 				{
 					findidx = i;
@@ -457,7 +457,7 @@ class KComboBox extends KValueWidget
 				}
 			}
 			if( findidx == -1 ){
-				//ƒRƒ“ƒ{‚É‚È‚¢€–Ú‚ª“ü—Í‚³‚ê‚½ê‡Œ»İ‘I‘ğ‚µ‚Ä‚¢‚éƒCƒ“ƒfƒbƒNƒX‚ğ–³Œø‚Æ‚·‚é
+				//ã‚³ãƒ³ãƒœã«ãªã„é …ç›®ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆç¾åœ¨é¸æŠã—ã¦ã„ã‚‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’ç„¡åŠ¹ã¨ã™ã‚‹
 				lastinputvalue = inputvalue;
 				inputvalue = dropinput.value;
 				lastselected = _selected;
@@ -471,7 +471,7 @@ class KComboBox extends KValueWidget
 		}
 	}
 	
-	//	€–Ú‚Ì‰Šú‰»
+	//	é …ç›®ã®åˆæœŸåŒ–
 	function clear()
 	{
 		discard(_values);
@@ -479,12 +479,12 @@ class KComboBox extends KValueWidget
 		_values	= [];
 		_captions= [];
 		_selected = -1;
-		inputvalue = "";		//ƒNƒŠƒA˜R‚êC³ 2007/11/14
+		inputvalue = "";		//ã‚¯ãƒªã‚¢æ¼ã‚Œä¿®æ­£ 2007/11/14
 		lastselected = -1;
 		dropinput.value = "";
 	}
 
-	//	€–Ú‚Ì’Ç‰Á
+	//	é …ç›®ã®è¿½åŠ 
 	function add(cap, val)
 	{
 		values	= [] if(values == void);
@@ -493,7 +493,7 @@ class KComboBox extends KValueWidget
 		captions[values.count - 1]	= cap;
 	}
 
-	//	€–Ú‚ğæ“ª‚É’Ç‰Á
+	//	é …ç›®ã‚’å…ˆé ­ã«è¿½åŠ 
 	function addhead(cap, val)
 	{
 		var oldvalues = [];
@@ -502,26 +502,26 @@ class KComboBox extends KValueWidget
 		values	= [] if(values == void);
 		captions= [] if(captions == void);
 		
-		//‘Ş”ğ
+		//é€€é¿
 		(Array.assign incontextof oldvalues)(values);
 		(Array.assign incontextof oldcaptions)(captions);
 		
-		//‰Šú‰»
+		//åˆæœŸåŒ–
 		discard(_values);
 		discard(_captions);
 		_values = [];
 		_captions = [];
 		
-		//V‹K’Ç‰Á‚ğæ“ª‚É
+		//æ–°è¦è¿½åŠ ã‚’å…ˆé ­ã«
 		this.add(cap, val);
 		
-		//Šù‘¶‚Ì‚à‚Ì‚ğ”z’u
+		//æ—¢å­˜ã®ã‚‚ã®ã‚’é…ç½®
 		for( var i=0; i<oldvalues.count; i++ ){
 			this.add( oldcaptions[i], oldvalues[i] );
 		}
 	}
 	
-	//	€–Ú‚Ìíœ(indexw’è idx=0...count-1)
+	//	é …ç›®ã®å‰Šé™¤(indexæŒ‡å®š idx=0...count-1)
 	function delAt(idx)
 	{
 		if(idx < 0 || idx > values.count-1){
@@ -531,7 +531,7 @@ class KComboBox extends KValueWidget
 		captions.erase(idx);
 		
 		if( idx == _selected ){
-			//‘I‘ğó‘Ô‚Ì‚à‚Ì‚ªíœ‚³‚ê‚½ê‡Aæ“ªƒŒƒR[ƒh‘I‘ğó‘Ô‚É‚·‚é(šd—lŒŸ“¢—v)
+			//é¸æŠçŠ¶æ…‹ã®ã‚‚ã®ãŒå‰Šé™¤ã•ã‚ŒãŸå ´åˆã€å…ˆé ­ãƒ¬ã‚³ãƒ¼ãƒ‰é¸æŠçŠ¶æ…‹ã«ã™ã‚‹(â˜…ä»•æ§˜æ¤œè¨è¦)
 			lastselected = _selected;
 			_selected = 0;
 			lastinputvalue = inputvalue;
@@ -542,7 +542,7 @@ class KComboBox extends KValueWidget
 		return true;
 	}
 
-	//	€–Ú‚Ìíœ(’l‚ğƒL[‚É‚µ‚ÄƒT[ƒ`)
+	//	é …ç›®ã®å‰Šé™¤(å€¤ã‚’ã‚­ãƒ¼ã«ã—ã¦ã‚µãƒ¼ãƒ)
 	function delByValue(val)
 	{
 		if(values == void){
@@ -554,7 +554,7 @@ class KComboBox extends KValueWidget
 			{
 				values.erase(i);
 				captions.erase(i);
-				//‘I‘ğó‘Ô‚Ì‚à‚Ì‚ªíœ‚³‚ê‚½ê‡Aæ“ªƒŒƒR[ƒh‘I‘ğó‘Ô‚É‚·‚é(šd—lŒŸ“¢—v)
+				//é¸æŠçŠ¶æ…‹ã®ã‚‚ã®ãŒå‰Šé™¤ã•ã‚ŒãŸå ´åˆã€å…ˆé ­ãƒ¬ã‚³ãƒ¼ãƒ‰é¸æŠçŠ¶æ…‹ã«ã™ã‚‹(â˜…ä»•æ§˜æ¤œè¨è¦)
 				if( i == _selected ){
 					lastselected = _selected;
 					_selected = 0;
@@ -569,7 +569,7 @@ class KComboBox extends KValueWidget
 		return false;
 	}
 
-	//	€–Ú‚Ìíœ(•¶š—ñ‚ğƒL[‚É‚µ‚ÄƒT[ƒ`)
+	//	é …ç›®ã®å‰Šé™¤(æ–‡å­—åˆ—ã‚’ã‚­ãƒ¼ã«ã—ã¦ã‚µãƒ¼ãƒ)
 	function delByCaption(cap)
 	{
 		if(captions == void)
@@ -580,7 +580,7 @@ class KComboBox extends KValueWidget
 			{
 				captions.erase(i);
 				values.erase(i);
-				//‘I‘ğó‘Ô‚Ì‚à‚Ì‚ªíœ‚³‚ê‚½ê‡Aæ“ªƒŒƒR[ƒh‘I‘ğó‘Ô‚É‚·‚é(šd—lŒŸ“¢—v)
+				//é¸æŠçŠ¶æ…‹ã®ã‚‚ã®ãŒå‰Šé™¤ã•ã‚ŒãŸå ´åˆã€å…ˆé ­ãƒ¬ã‚³ãƒ¼ãƒ‰é¸æŠçŠ¶æ…‹ã«ã™ã‚‹(â˜…ä»•æ§˜æ¤œè¨è¦)
 				if( i == _selected ){
 					lastselected = _selected;
 					_selected = 0;
@@ -595,7 +595,7 @@ class KComboBox extends KValueWidget
 		return false;
 	}
 	
-	//ƒRƒ“ƒ{ƒXƒ^ƒCƒ‹‚Ì“r’†•ÏX
+	//ã‚³ãƒ³ãƒœã‚¹ã‚¿ã‚¤ãƒ«ã®é€”ä¸­å¤‰æ›´
 	property combostyle
 	{
 		setter(style)
@@ -611,7 +611,7 @@ class KComboBox extends KValueWidget
 				dropinput.visible = false;
 				lastinputvalue = "";
 				inputvalue = "";
-				//ƒCƒ“ƒvƒbƒg“ü—Í‚É‚æ‚è‚Ç‚±‚à‘I‘ğó‘Ô‚Å‚È‚¢ê‡æ“ª‚É‚·‚é(šd—lŒŸ“¢—v)
+				//ã‚¤ãƒ³ãƒ—ãƒƒãƒˆå…¥åŠ›ã«ã‚ˆã‚Šã©ã“ã‚‚é¸æŠçŠ¶æ…‹ã§ãªã„å ´åˆå…ˆé ­ã«ã™ã‚‹(â˜…ä»•æ§˜æ¤œè¨è¦)
 				if( _selected < 0 ){
 					_selected = 0;
 				}
@@ -620,7 +620,7 @@ class KComboBox extends KValueWidget
 				break;
 				
 			case COMBO_STYLE_DROPDOWN:
-				//‰½‚à‘I‚Î‚ê‚Ä‚¢‚È‚¢ó‘Ô‚É‚·‚é
+				//ä½•ã‚‚é¸ã°ã‚Œã¦ã„ãªã„çŠ¶æ…‹ã«ã™ã‚‹
 				dropinput.visible = true;
 				lastinputvalue = "";
 				inputvalue = "";
@@ -630,7 +630,7 @@ class KComboBox extends KValueWidget
 				break;
 				
 			case COMBO_STYLE_SIMPLE:
-				throw new Exception("‚²‚ß‚ñ‚È‚³‚¢‚Ü‚¾‘Î‰‚µ‚Ä‚È‚¢‚Å‚·B m(_ _)m \n");
+				throw new Exception("ã”ã‚ã‚“ãªã•ã„ã¾ã å¯¾å¿œã—ã¦ãªã„ã§ã™ã€‚ m(_ _)m Â¥n");
 				break;
 			}
 		}
@@ -638,7 +638,7 @@ class KComboBox extends KValueWidget
 	}
 
 
-	//	’l€–Ú
+	//	å€¤é …ç›®
 	property value
 	{
 		setter(v)	{
@@ -661,14 +661,14 @@ class KComboBox extends KValueWidget
 		getter	{ return selected >= 0 ? _values[selected] : -1; }
 	}
 
-	//	’l€–Ú(”z—ñ‘S‘Ì)
+	//	å€¤é …ç›®(é…åˆ—å…¨ä½“)
 	property values
 	{
 		setter(v)	{ _values	= v;	}
 		getter		{ return _values;	}
 	}
 
-	//	•¶š—ñ‘I‘ğˆ
+	//	æ–‡å­—åˆ—é¸æŠè‚¢
 	property caption
 	{
 		setter(c)
@@ -679,7 +679,7 @@ class KComboBox extends KValueWidget
 				if(c == _captions[i])
 				{
 					if( selected != i ){
-						//•ÏX‚³‚ê‚½
+						//å¤‰æ›´ã•ã‚ŒãŸ
 						lastselected = _selected;
 						_selected	= i;
 						lastinputvalue = inputvalue;
@@ -697,7 +697,7 @@ class KComboBox extends KValueWidget
 					break;
 				case COMBO_STYLE_DROPDOWN:
 					if( inputvalue != c ){
-						//•ÏX‚³‚ê‚½
+						//å¤‰æ›´ã•ã‚ŒãŸ
 						lastselected = _selected;
 						_selected	= -1;
 						lastinputvalue = inputvalue;
@@ -726,7 +726,7 @@ class KComboBox extends KValueWidget
 				}
 				break;
 			case COMBO_STYLE_DROPDOWN:
-				//•¶š—ñ•ÒW‚P•¶š–ˆ‚ÉƒCƒxƒ“ƒg‚ğó‚¯‚é‚æ‚¤‚É‚È‚Á‚½‚½‚ß•s—v‚¾‚ª”O‚Ì‚½‚ßQÆ‚Ìó‘Ô‚Æ“à•”ó‘Ô‚ğ”äŠr‚µ‚Ä‚¨‚­
+				//æ–‡å­—åˆ—ç·¨é›†ï¼‘æ–‡å­—æ¯ã«ã‚¤ãƒ™ãƒ³ãƒˆã‚’å—ã‘ã‚‹ã‚ˆã†ã«ãªã£ãŸãŸã‚ä¸è¦ã ãŒå¿µã®ãŸã‚å‚ç…§æ™‚ã®çŠ¶æ…‹ã¨å†…éƒ¨çŠ¶æ…‹ã‚’æ¯”è¼ƒã—ã¦ãŠã
 				if( inputvalue != dropinput.value ){
 					onInputValueModified();
 				}
@@ -739,14 +739,14 @@ class KComboBox extends KValueWidget
 		}
 	}
 
-	//	•¶š—ñ‘I‘ğˆ(”z—ñ‘S‘Ì)
+	//	æ–‡å­—åˆ—é¸æŠè‚¢(é…åˆ—å…¨ä½“)
 	property captions
 	{
 		setter(c)	{	_captions	= c;	}
 		getter		{	return _captions;	}
 	}
 
-	//	‘I‘ğ‚³‚ê‚Ä‚¢‚éƒCƒ“ƒfƒbƒNƒX
+	//	é¸æŠã•ã‚Œã¦ã„ã‚‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
 	property selected
 	{
 		setter(s)
@@ -757,14 +757,14 @@ class KComboBox extends KValueWidget
 				lastselected = _selected;
 				
 				if(s<0 || s>=captions.count){
-					//•‰’l‚à‚µ‚­‚ÍƒCƒ“ƒfƒbƒNƒX‚ğ’´‚¦‚½’l‚ªw’è‚³‚ê‚½
+					//è² å€¤ã‚‚ã—ãã¯ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’è¶…ãˆãŸå€¤ãŒæŒ‡å®šã•ã‚ŒãŸ
 					_selected	= -1;
 					
 					switch( combostyle ){
 					case COMBO_STYLE_DROPDOWNLIST:
 						break;
 					case COMBO_STYLE_DROPDOWN:
-						//–¢‘I‘ğó‘Ô‚É‚·‚é
+						//æœªé¸æŠçŠ¶æ…‹ã«ã™ã‚‹
 						lastinputvalue = inputvalue;
 						inputvalue = "";
 						dropinput.value = "";
@@ -775,7 +775,7 @@ class KComboBox extends KValueWidget
 						break;
 					}
 				}else{
-					//—LŒø‚ÈƒCƒ“ƒfƒbƒNƒX‚ªw’è‚³‚ê‚½
+					//æœ‰åŠ¹ãªã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãŒæŒ‡å®šã•ã‚ŒãŸ
 					_selected	= s;
 					
 					switch( combostyle ){
@@ -800,7 +800,7 @@ class KComboBox extends KValueWidget
 		getter	{	return _selected;	}
 	}
 
-	//	ƒtƒH[ƒJƒXó‘Ô
+	//	ãƒ•ã‚©ãƒ¼ã‚«ã‚¹çŠ¶æ…‹
 	property pointed
 	{
 		setter(b)
@@ -814,14 +814,14 @@ class KComboBox extends KValueWidget
 		getter	{	return _pointed;	}
 	}
 	
-	//ƒ|ƒbƒvƒAƒbƒv‚Ü‚Å‚ÌŠÔ(‚±‚ÌŠÔ–¢–‚ÌƒNƒŠƒbƒN‚ÅŸƒƒ“ƒo‚Ö‚ÌØ‚è‘Ö‚¦“®ì)
+	//ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã¾ã§ã®æ™‚é–“(ã“ã®æ™‚é–“æœªæº€ã®ã‚¯ãƒªãƒƒã‚¯ã§æ¬¡ãƒ¡ãƒ³ãƒã¸ã®åˆ‡ã‚Šæ›¿ãˆå‹•ä½œ)
 	property dropdowntime
 	{
 		setter(time){	_dropdowntime = time;	}
 		getter		{	return _dropdowntime;	}
 	}
 	
-	//ƒRƒ“ƒ{˜gFİ’è
+	//ã‚³ãƒ³ãƒœæ è‰²è¨­å®š
 	property selcolor
 	{
 		setter(color){	_selcolor = color;	}
@@ -834,7 +834,7 @@ class KComboBox extends KValueWidget
 		getter		 {	return _selframecolor;	}
 	}
 	
-	//ƒeƒLƒXƒgƒ‰ƒxƒ‹Fİ’è
+	//ãƒ†ã‚­ã‚¹ãƒˆãƒ©ãƒ™ãƒ«è‰²è¨­å®š
 	property textcolor
 	{
 		setter(color){	_textcolor = color;	}
@@ -847,17 +847,17 @@ class KComboBox extends KValueWidget
 		getter		 {	return _seltextcolor;	}
 	}
 	
-	//Ä•\¦
+	//å†è¡¨ç¤º
 	function drawContent {
 		draw();
 	}
 	
-	// ƒTƒCƒY‚ª•Ï‚í‚Á‚½‚çƒŒƒCƒAƒEƒg‚â‚è’¼‚µ
+	// ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã£ãŸã‚‰ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚„ã‚Šç›´ã—
 	function onSizeModified {
 		switch( combostyle ){
 		case COMBO_STYLE_DROPDOWNLIST:
 		case COMBO_STYLE_DROPDOWN:
-			//¦ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åw’è‚µ‚½ƒTƒCƒYŒÅ’è‚Å‚È‚¢‚ÆƒRƒ“ƒ{ƒ{ƒbƒNƒX‚Í•s©‘REEE
+			//â€»ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§æŒ‡å®šã—ãŸã‚µã‚¤ã‚ºå›ºå®šã§ãªã„ã¨ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã¯ä¸è‡ªç„¶ãƒ»ãƒ»ãƒ»
 			//locateLayout();
 			break;
 			
@@ -866,12 +866,12 @@ class KComboBox extends KValueWidget
 		}
 	}
 
-	// ƒtƒHƒ“ƒgXV
+	// ãƒ•ã‚©ãƒ³ãƒˆæ›´æ–°
 	function updateRowFont {
 		switch( combostyle ){
 		case COMBO_STYLE_DROPDOWNLIST:
 		case COMBO_STYLE_DROPDOWN:
-			//¦ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åw’è‚µ‚½ƒTƒCƒYŒÅ’è‚Å‚È‚¢‚ÆƒRƒ“ƒ{ƒ{ƒbƒNƒX‚Í•s©‘REEE
+			//â€»ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§æŒ‡å®šã—ãŸã‚µã‚¤ã‚ºå›ºå®šã§ãªã„ã¨ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã¯ä¸è‡ªç„¶ãƒ»ãƒ»ãƒ»
 			//locateLayout();
 			break;
 			
@@ -880,22 +880,22 @@ class KComboBox extends KValueWidget
 		}
 	}
 	
-	// ƒtƒHƒ“ƒg‚ª•Ï‚í‚Á‚½‚çƒAƒbƒvƒf[ƒg
+	// ãƒ•ã‚©ãƒ³ãƒˆãŒå¤‰ã‚ã£ãŸã‚‰ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
 	function onFontFaceModified {
 		updateRowFont();
 	}
 
-	// ƒtƒHƒ“ƒg‚ª•Ï‚í‚Á‚½‚çƒAƒbƒvƒf[ƒg
+	// ãƒ•ã‚©ãƒ³ãƒˆãŒå¤‰ã‚ã£ãŸã‚‰ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
 	function onFontHeightModified {
 		updateRowFont();
 	}
 
-	// ƒm[ƒh‚ªƒCƒl[ƒuƒ‹‚³‚ê‚½‚ç•s“§–¾‚É
+	// ãƒãƒ¼ãƒ‰ãŒã‚¤ãƒãƒ¼ãƒ–ãƒ«ã•ã‚ŒãŸã‚‰ä¸é€æ˜ã«
 	function onNodeEnabled {
 		opacity = 255;
 	}
 
-	// ƒm[ƒh‚ªƒfƒBƒZ[ƒuƒ‹‚³‚ê‚½‚ç”¼“§–¾‚É
+	// ãƒãƒ¼ãƒ‰ãŒãƒ‡ã‚£ã‚»ãƒ¼ãƒ–ãƒ«ã•ã‚ŒãŸã‚‰åŠé€æ˜ã«
 	function onNodeDisabled {
 		opacity = 64;
 	}

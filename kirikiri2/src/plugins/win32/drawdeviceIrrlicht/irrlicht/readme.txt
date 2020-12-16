@@ -22,25 +22,25 @@ The Irrlicht Engine SDK version 1.4.2
   You will find some directories after uncompressing the archive of the
   SDK. These are:
   
-  \bin         The compiled library Irrlicht.DLL and some compiled demo 
+  ¥bin         The compiled library Irrlicht.DLL and some compiled demo 
                and example applications, just start them to see the 
                Irrlicht Engine in action. Windows only.
-  \doc         Documentation of the Irrlicht Engine.
-  \examples    Examples and tutorials showing how to use the engine with
+  ¥doc         Documentation of the Irrlicht Engine.
+  ¥examples    Examples and tutorials showing how to use the engine with
                C++.
-  \example.net Examples and tutorials showing how to use the engine with
+  ¥example.net Examples and tutorials showing how to use the engine with
                .NET languages.
-  \exporters   Exporters and tools for various 3D modelling packages. There
+  ¥exporters   Exporters and tools for various 3D modelling packages. There
                is a readme file with more details in the directory.
-  \include     Header files to include when programming with the engine.
-  \lib         Libs to link with your programs when using the engine.
-  \media       Graphics and sound resources for the demo applications and
+  ¥include     Header files to include when programming with the engine.
+  ¥lib         Libs to link with your programs when using the engine.
+  ¥media       Graphics and sound resources for the demo applications and
                examples.
-  \source      The source code of the Irrlicht Engine. This code is
+  ¥source      The source code of the Irrlicht Engine. This code is
                not needed to develop applications with the engine,
                but it is included to enable recompilation and
                debugging, if necessary.     
-  \tools       Useful tools (with sourcecode) for the engine.
+  ¥tools       Useful tools (with sourcecode) for the engine.
 
 
 
@@ -48,13 +48,13 @@ The Irrlicht Engine SDK version 1.4.2
 2. How to start
 ==========================================================================
 
-  To see the engine in action in Windows, just go to the \bin\Win32-VisualStudio
+  To see the engine in action in Windows, just go to the ¥bin¥Win32-VisualStudio
   directory, and start some applications. There should also be an
   application named Demo.exe which should show the most
   interesting features of Irrlicht.
   
   To start developing own applications and games with the engine take 
-  a look at the 01.HelloWorld example in the \examples directory.
+  a look at the 01.HelloWorld example in the ¥examples directory.
   There is also a .html file with a tutorial which should be
   easily comprehensible.
 
@@ -183,47 +183,4 @@ The Irrlicht Engine SDK version 1.4.2
   Guy Eric Schalnat, Andreas Dilger, Glenn Randers-Pehrson and others	Created libPng
   Chad Austin, Jacky Chong, Theo Reed, Ben Scott 	Made Audiere
   Mark Jeacocke	Wrote lots of helpful comments and ideas in the forums and per email.	
-  Julio Gorg�	Created the 'Unofficial DirectX 9.0 Driver for the Irrlicht Engine' 
-  Andy Spurgeon	Wrote the Dev-Cpp tutorial.	
-  Andr� Simon	Wrote the Codewarrior tutorial.	
-  KnightToFlight	Created the unoffical terrain renderer addon for the Irrlicht Engine. 	
-  Jon Pry	Wrote the code to load compressed TGA files.	
-  Saigumi	Wrote some tutorials for the Irrlicht Engine and doing admin stuff
-  Matthew Couch	Wrote the tokamak integration tutorial.	
-  Max Winkel	Wrote the splitscreen tutorial.	
-  Gorgon Zola	Wrote the ODE integration tutorial.	
-  Dean P. Macri	Sent in code for curved surfaces and PCX Loading.	
-  Sirshane 	Made several bug fixes, sent in code for making the mouse cursor invisible in Linux.	
-  Matthias Gall	Sent in code for a spline scene node animator and reported lots of bugs.	
-  Mario Gruber	Suggested triangle fan drawing and sent in code for this. 	
-  Ariaci	Spotted out a bug in the ATI driver.	
-  Dr Andros C Bragianos	Improved texture mapping in test scene node.	
-  Philipp Dortmann	Sent in code for stencil buffer support for OpenGL.	
-  Jerome Nichols	Created the Irrlicht/Ruby interface located at irr.rubyforge.org	
-  Vash TheStampede	Sent code for missing Draw2DLine() implementation s	
-  MattyBoy	XBOX support suggestions	
-  Oliver Klems	createImageFromData() method suggestion/implementation	
-  Jox	really, really a lot of bug fixes, and the LMTS file loader 	
-  Zola	Quaternion method additions	
-  Tomasz Nowakowski 	various bug fixes	
-  Nicholas Bray	stencil shadow bug fixes with OpenGL	
-  REAPER	mouswheel events for scrollbar	
-  Calimero	various bug fixes like vector2d operators	
-  Haddock	bugfix in the linked list	
-  G.o.D	XML parser fix	
-  Alvaro F. Celis	Lots of work in the community, for example video tutorials about Irrlicht, forum admin	
-  Erik Zilli	Translated some of the tutorials from my stuttering english into real english. :)	
-  Martin Piskernig	Linux bugfixing and testing	
-  Soconne	Wrote the original terrain renderer were Irrlichts terrain renderer of Irrlicht is based on it.	
-  Spintz	GeoMipMap scene node, terrain renderer of Irrlicht is based on it.	
-  Murphy McCauley	OCT file loader, MIM tools	
-  Saurav Mohapatra	IrrCSM, and lots of addons, suggestions and bug reports	
-  Zhuck Dimitry	My3D Tools	
-  Terry Welsh	Allowed me to use the textures of his 'Parallax Mapping with Offset Limiting' paper for the parallax demo of Irrlicht	
-  rt	Wrote the original .png loader for Irrlicht	
-  Salvatore Russo	Wrote the original .dmf loader for Irrlicht	
-  Vox	Various bug reports and fixes	
-  atomice	Contributed code for a ms3d loader enhancement	
-  William Finlayson	OpenGL RTT, GLSL support and the reflection 2 layer material for OpenGL.	
-  Delight	Various code contributions for Irrlicht.NET (particle system, basic shader support and more)	
-  Michael Zoech	Improved GLSL support
+  Julio Gorg

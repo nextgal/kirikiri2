@@ -103,7 +103,7 @@ CIrrDeviceLinux::CIrrDeviceLinux(video::E_DRIVER_TYPE driverType,
 
 
 //! destructor
-CIrrDeviceLinux::~CIrrDeviceLinux()
+CIrrDeviceLinux::‾CIrrDeviceLinux()
 {
 #ifdef _IRR_COMPILE_WITH_X11_
 	if (StdHints)
@@ -805,7 +805,7 @@ bool CIrrDeviceLinux::run()
 				{
 					SKeyMap mp;
 					//mp.X11Key = XLookupKeysym(&event.xkey, 0);
-					char buf[5]="\0\0\0\0";
+					char buf[5]="¥0¥0¥0¥0";
 					XLookupString(&event.xkey, buf, 4, &mp.X11Key, NULL);
 
 					s32 idx = KeyMap.binary_search(mp);
@@ -1047,7 +1047,7 @@ void CIrrDeviceLinux::setResizeAble(bool resize)
 }
 
 
-//! \return Returns a pointer to a list with all video modes supported
+//! ¥return Returns a pointer to a list with all video modes supported
 //! by the gfx adapter.
 video::IVideoModeList* CIrrDeviceLinux::getVideoModeList()
 {

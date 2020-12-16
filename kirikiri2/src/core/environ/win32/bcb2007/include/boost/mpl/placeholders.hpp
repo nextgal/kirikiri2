@@ -28,7 +28,7 @@
 
 #include "boost/mpl/aux_/config/use_preprocessed.hpp"
 
-#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) \
+#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) ¥
  && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER placeholders.hpp
@@ -55,7 +55,7 @@ using boost::mpl::_;
 
 //: agurt, 17/mar/02: one more placeholder for the last 'apply#' 
 //: specialization
-#define BOOST_PP_ITERATION_PARAMS_1 \
+#define BOOST_PP_ITERATION_PARAMS_1 ¥
     (3,(1, BOOST_MPL_METAFUNCTION_MAX_ARITY + 1, "boost/mpl/placeholders.hpp"))
 #include BOOST_PP_ITERATE()
 

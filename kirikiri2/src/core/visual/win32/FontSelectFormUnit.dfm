@@ -1,4 +1,4 @@
-object TVPFontSelectForm: TTVPFontSelectForm
+ï»¿object TVPFontSelectForm: TTVPFontSelectForm
   Left = 232
   Top = 654
   BorderStyle = bsDialog
@@ -9,7 +9,7 @@ object TVPFontSelectForm: TTVPFontSelectForm
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
@@ -28,7 +28,7 @@ object TVPFontSelectForm: TTVPFontSelectForm
     Top = 24
     Width = 59
     Height = 12
-    Caption = 'ƒtƒHƒ“ƒg(&F) :'
+    Caption = 'ãƒ•ã‚©ãƒ³ãƒˆ(&F) :'
     FocusControl = ListBox
   end
   object Label4: TLabel
@@ -36,7 +36,7 @@ object TVPFontSelectForm: TTVPFontSelectForm
     Top = 224
     Width = 66
     Height = 12
-    Caption = 'ƒTƒ“ƒvƒ‹(&S) :'
+    Caption = 'ã‚µãƒ³ãƒ—ãƒ«(&S) :'
   end
   object ListBox: TListBox
     Left = 8
@@ -74,7 +74,7 @@ object TVPFontSelectForm: TTVPFontSelectForm
     Width = 75
     Height = 25
     Cancel = True
-    Caption = 'ƒLƒƒƒ“ƒZƒ‹'
+    Caption = 'ã‚­ãƒ£ãƒ³ã‚»ãƒ«'
     ModalResult = 2
     TabOrder = 3
   end

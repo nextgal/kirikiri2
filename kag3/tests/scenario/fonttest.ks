@@ -1,10 +1,10 @@
 ;@position vertical=true
-[deffont size=25][resetfont]\
-[font face="‚l‚r ‚o–¾’©" bold=true]‚l‚r ‚o–¾’© bold=true u‚ ‚¢‚¤‚¦‚¨Bv
+[deffont size=25][resetfont]Â¥
+[font face="ï¼­ï¼³ ï¼°æ˜æœ" bold=true]ï¼­ï¼³ ï¼°æ˜æœ bold=true ã€Œã‚ã„ã†ãˆãŠã€‚ã€
 abcdefghijklmnopqrtuvwxyz[resetfont]
-[font face="‚l‚r ‚o–¾’©" bold=false]‚l‚r ‚o–¾’© bold=false u‚ ‚¢‚¤‚¦‚¨Bv
+[font face="ï¼­ï¼³ ï¼°æ˜æœ" bold=false]ï¼­ï¼³ ï¼°æ˜æœ bold=false ã€Œã‚ã„ã†ãˆãŠã€‚ã€
 abcdefghijklmnopqrtuvwxyz[resetfont]
-[font face="‚l‚r ‚oƒSƒVƒbƒN" bold=true]‚l‚r ‚oƒSƒVƒbƒN bold=true u‚ ‚¢‚¤‚¦‚¨Bv
+[font face="ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯" bold=true]ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯ bold=true ã€Œã‚ã„ã†ãˆãŠã€‚ã€
 abcdefghijklmnopqrtuvwxyz[resetfont]
-[font face="‚l‚r ‚oƒSƒVƒbƒN" bold=false]‚l‚r ‚oƒSƒVƒbƒN bold=false u‚ ‚¢‚¤‚¦‚¨Bv
+[font face="ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯" bold=false]ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯ bold=false ã€Œã‚ã„ã†ãˆãŠã€‚ã€
 abcdefghijklmnopqrtuvwxyz[resetfont]

@@ -29,15 +29,15 @@
 // STL
 #include <string>  // for std::string
 
-#define BOOST_TEST_CASE( function ) \
+#define BOOST_TEST_CASE( function ) ¥
 boost::unit_test_framework::create_test_case((function), #function )
-#define BOOST_CLASS_TEST_CASE( function, tc_instance ) \
+#define BOOST_CLASS_TEST_CASE( function, tc_instance ) ¥
 boost::unit_test_framework::create_test_case((function), #function, tc_instance )
-#define BOOST_PARAM_TEST_CASE( function, begin, end ) \
+#define BOOST_PARAM_TEST_CASE( function, begin, end ) ¥
 boost::unit_test_framework::create_test_case((function), #function, (begin), (end) )
-#define BOOST_PARAM_CLASS_TEST_CASE( function, tc_instance, begin, end ) \
+#define BOOST_PARAM_CLASS_TEST_CASE( function, tc_instance, begin, end ) ¥
 boost::unit_test_framework::create_test_case((function), #function, tc_instance, (begin), (end) )
-#define BOOST_TEST_SUITE( testsuite_name ) \
+#define BOOST_TEST_SUITE( testsuite_name ) ¥
 ( new boost::unit_test_framework::test_suite( testsuite_name ) )
 
 namespace boost {
@@ -53,7 +53,7 @@ public:
     typedef detail::unit_test_monitor::error_level error_level_type;
 
     // Destructor
-    virtual             ~test_case()    {}
+    virtual             ‾test_case()    {}
 
     // number of tests in this test case
     virtual unit_test_counter size() const;
@@ -231,7 +231,7 @@ public:
     explicit test_suite( std::string const& name_ = "Master" );
 
     // Destructor
-    virtual             ~test_suite();
+    virtual             ‾test_suite();
 
     // test case list management
     void                add( test_case* tc_, unit_test_counter expected_failures_ = 0, int timeout_ = 0 );

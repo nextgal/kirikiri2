@@ -2,7 +2,7 @@
 @iscript
 
 /*
-	u‰æ–Êvƒƒjƒ…[‚ÉAƒEƒBƒ“ƒhƒEŠg‘åk¬‚Ìƒƒjƒ…[‚ğ’Ç‰Á‚·‚éƒvƒ‰ƒOƒCƒ“
+	ã€Œç”»é¢ã€ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã«ã€ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦æ‹¡å¤§ç¸®å°ã®ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¿½åŠ ã™ã‚‹ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
 */
 
 
@@ -18,19 +18,19 @@ class WindowZoomPlugin extends KAGPlugin
 		super.KAGPlugin();
 		this.window = window;
 
-		// ƒƒjƒ…[‚Ì‰Šú‰»
+		// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®åˆæœŸåŒ–
 		kag.displayMenu.add(new MenuItem(this, "-"));
-		var denom = 8; // •ª•ê
-		var from = 3; // •ªq‚ÌÅ’á’l
-		var to = 18; // •ªq‚ÌÅ‘å’l
+		var denom = 8; // åˆ†æ¯
+		var from = 3; // åˆ†å­ã®æœ€ä½å€¤
+		var to = 18; // åˆ†å­ã®æœ€å¤§å€¤
 		for(var numer = from; numer <= to; numer++)
 		{
 			var caption = "%.0f%%".sprintf(numer/denom*100);
 			if(numer - from < 10) caption += " (&%d)".sprintf(numer - from);
 			if(numer < denom)
-				caption = "k¬ - " + caption;
+				caption = "ç¸®å° - " + caption;
 			else if(numer > denom)
-				caption = "Šg‘å - " + caption;
+				caption = "æ‹¡å¤§ - " + caption;
 			var item = new KAGMenuItem(kag, caption, 2, onZoomMenuItemClick, false);
 			item.numer = numer;
 			item.denom = denom;
@@ -41,7 +41,7 @@ class WindowZoomPlugin extends KAGPlugin
 		}
 		zoom100item.checked = true;
 
-		// KAG “àŠÖ”‚Ì’u‚«Š·‚¦
+		// KAG å†…é–¢æ•°ã®ç½®ãæ›ãˆ
 		onWindowedMenuItemClick_org = kag.onWindowedMenuItemClick;
 		onFullScreenMenuItemClick_org = kag.onFullScreenMenuItemClick;
 		kag.onWindowedMenuItemClick = kag.windowedMenuItem.command =
@@ -50,9 +50,9 @@ class WindowZoomPlugin extends KAGPlugin
 			onFullScreenMenuItemClick_new incontextof kag;
 
 
-		// Šù‚Éƒtƒ‹ƒXƒNƒŠ[ƒ“‚É‚È‚Á‚Ä‚¢‚½‚Æ‚«‚Í”{—¦ŠÖ˜A‚Ìƒƒjƒ…[‚ğg—p•s‰Â”\‚É
+		// æ—¢ã«ãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã«ãªã£ã¦ã„ãŸã¨ãã¯å€ç‡é–¢é€£ã®ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’ä½¿ç”¨ä¸å¯èƒ½ã«
 		if(kag.fullScreen)
-			enableZoomMenuItems(false); // ƒƒjƒ…[€–Ú‚ğg—p•s‰Â”\‚É‚·‚é
+			enableZoomMenuItems(false); // ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®ã‚’ä½¿ç”¨ä¸å¯èƒ½ã«ã™ã‚‹
 	}
 
 	function finalize()
@@ -62,22 +62,22 @@ class WindowZoomPlugin extends KAGPlugin
 
 	function trySetZoom(numer, denom)
 	{
-		// numer/denom ‚É”{—¦‚ğİ’è‚·‚é
-		// İ’è‚É¬Œ÷‚µ‚½ê‡‚Í^A¸”s‚µ‚½ê‡‚Í‹U‚ğ•Ô‚·
+		// numer/denom ã«å€ç‡ã‚’è¨­å®šã™ã‚‹
+		// è¨­å®šã«æˆåŠŸã—ãŸå ´åˆã¯çœŸã€å¤±æ•—ã—ãŸå ´åˆã¯å½ã‚’è¿”ã™
 		var orgw = kag.innerWidth;
 		var orgh = kag.innerHeight;
 		var w = (int)(kag.scWidth * numer / denom);
 		var h = (int)(kag.scHeight * numer / denom);
-		Debug.message(@"ƒEƒBƒ“ƒhƒEƒTƒCƒY‚ğ &w;x&h; ‚Éİ’è...");
+		Debug.message(@"ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºã‚’ &w;x&h; ã«è¨­å®š...");
 		kag.setInnerSize(w, h);
 		if(kag.innerWidth != w || kag.innerHeight != h)
 		{
-			// ƒTƒCƒY‚Ìİ’è‚É¸”s‚µ‚½;
-			// Windows‚ÍƒEƒBƒ“ƒhƒEƒTƒCƒY‚ª‰æ–Ê‚ÌƒTƒCƒY‚ğ’´‚¦‚é‚±‚Æ
-			// ‚ª‚Å‚«‚È‚¢‚Ì‚Å
-			// İ’è‚É¸”s‚·‚é‰Â”\«‚ª‚ ‚é
-			// ƒTƒCƒY‚ğŒ³‚É–ß‚·
-			Debug.message("ƒEƒBƒ“ƒhƒEƒTƒCƒY‚Ìİ’è‚É¸”s");
+			// ã‚µã‚¤ã‚ºã®è¨­å®šã«å¤±æ•—ã—ãŸ;
+			// Windowsã¯ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºãŒç”»é¢ã®ã‚µã‚¤ã‚ºã‚’è¶…ãˆã‚‹ã“ã¨
+			// ãŒã§ããªã„ã®ã§
+			// è¨­å®šã«å¤±æ•—ã™ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹
+			// ã‚µã‚¤ã‚ºã‚’å…ƒã«æˆ»ã™
+			Debug.message("ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºã®è¨­å®šã«å¤±æ•—");
 			kag.setInnerSize(orgw, orgh);
 			return false;
 		}
@@ -88,15 +88,15 @@ class WindowZoomPlugin extends KAGPlugin
 
 	function onZoomMenuItemClick(item)
 	{
-		// ƒƒjƒ…[ƒAƒCƒeƒ€‚ªƒNƒŠƒbƒN‚³‚ê‚½ê‡
+		// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸå ´åˆ
 		if(trySetZoom(item.numer, item.denom))
 			item.checked = true;
 	}
 
 	function setZoomFromMenu()
 	{
-		// Œ»İƒƒjƒ…[€–Ú‚ªƒ`ƒFƒbƒN‚³‚ê‚Ä‚¢‚é”{—¦‚É
-		// İ’è‚·‚é
+		// ç¾åœ¨ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®ãŒãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹å€ç‡ã«
+		// è¨­å®šã™ã‚‹
 		var items = kag.displayMenu.children;
 		for(var i = 0; i < items.count; i++)
 		{
@@ -106,8 +106,8 @@ class WindowZoomPlugin extends KAGPlugin
 				var item = items[i];
 				if(!trySetZoom(item.numer, item.denom))
 				{
-					// ”{—¦‚Ìİ’è‚É¸”s
-					// 100% ‚Éİ’ès
+					// å€ç‡ã®è¨­å®šã«å¤±æ•—
+					// 100% ã«è¨­å®šè©¦è¡Œ
 					item = zoom100item;
 					if(trySetZoom(item.numer, item.denom))
 						item.checked = true;
@@ -119,31 +119,31 @@ class WindowZoomPlugin extends KAGPlugin
 
 	function onWindowedMenuItemClick_new()
 	{
-		// ƒEƒBƒ“ƒhƒEƒ‚[ƒh‚ÉˆÚs‚·‚éÛ‚ÉŒÄ‚Î‚ê‚é
+		// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¢ãƒ¼ãƒ‰ã«ç§»è¡Œã™ã‚‹éš›ã«å‘¼ã°ã‚Œã‚‹
 		if(!kag.fullScreened) return;
 		with(global.windowzoom_object)
 		{
-			.onWindowedMenuItemClick_org(...); // Œ³‚Ìƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·
-			.enableZoomMenuItems(true); // ƒƒjƒ…[€–Ú‚ğg—p‰Â”\‚É‚·‚é
-			.setZoomFromMenu(); // ‚à‚Æ‚Ì”{—¦‚ğ•œŠˆ‚³‚¹‚é
+			.onWindowedMenuItemClick_org(...); // å…ƒã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™
+			.enableZoomMenuItems(true); // ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®ã‚’ä½¿ç”¨å¯èƒ½ã«ã™ã‚‹
+			.setZoomFromMenu(); // ã‚‚ã¨ã®å€ç‡ã‚’å¾©æ´»ã•ã›ã‚‹
 		}
 	}
 
 	function onFullScreenMenuItemClick_new()
 	{
-		// ƒtƒ‹ƒXƒNƒŠ[ƒ“‚ÉˆÚs‚·‚éÛ‚ÉŒÄ‚Î‚ê‚é
+		// ãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã«ç§»è¡Œã™ã‚‹éš›ã«å‘¼ã°ã‚Œã‚‹
 		if(kag.fullScreened) return;
 		with(global.windowzoom_object)
 		{
-			.trySetZoom(1, 1); // 100% ”{—¦‚Éİ’è‚ğ–ß‚·
-			.enableZoomMenuItems(false); // ƒƒjƒ…[€–Ú‚ğg—p•s‰Â”\‚É‚·‚é
-			.onFullScreenMenuItemClick_org(...); // Œ³‚Ìƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·
+			.trySetZoom(1, 1); // 100% å€ç‡ã«è¨­å®šã‚’æˆ»ã™
+			.enableZoomMenuItems(false); // ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®ã‚’ä½¿ç”¨ä¸å¯èƒ½ã«ã™ã‚‹
+			.onFullScreenMenuItemClick_org(...); // å…ƒã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™
 		}
 	}
 
 	function enableZoomMenuItems(b)
 	{
-		// ”{—¦ŠÖ˜A‚Ìƒƒjƒ…[€–Ú‚Ì—LŒø/–³Œø‚ğØ‚è‘Ö‚¦‚é
+		// å€ç‡é–¢é€£ã®ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®ã®æœ‰åŠ¹/ç„¡åŠ¹ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹
 		var items = kag.displayMenu.children;
 		for(var i = 0; i < items.count; i++)
 		{
@@ -156,12 +156,12 @@ class WindowZoomPlugin extends KAGPlugin
 
 	function onStore(f, elm)
 	{
-		// x‚ğ•Û‘¶‚·‚é‚Æ‚«
+		// æ ã‚’ä¿å­˜ã™ã‚‹ã¨ã
 	}
 
 	function onRestore(f, clear, elm)
 	{
-		// x‚ğ“Ç‚İo‚·‚Æ‚«
+		// æ ã‚’èª­ã¿å‡ºã™ã¨ã
 	}
 
 	function onStableStateChanged(stable)
@@ -182,7 +182,7 @@ class WindowZoomPlugin extends KAGPlugin
 }
 
 kag.addPlugin(global.windowzoom_object = new WindowZoomPlugin(kag));
-	// ƒvƒ‰ƒOƒCƒ“ƒIƒuƒWƒFƒNƒg‚ğì¬‚µA“o˜^‚·‚é
+	// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã€ç™»éŒ²ã™ã‚‹
 
 @endscript
 @return

@@ -58,18 +58,18 @@ struct select_result_converter
 
 template <unsigned> struct caller_arity;
 
-#  define BOOST_PYTHON_NEXT(init,name,n)                                                        \
+#  define BOOST_PYTHON_NEXT(init,name,n)                                                        ¥
      typedef BOOST_PP_IF(n,typename BOOST_PP_CAT(name,BOOST_PP_DEC(n)) ::next, init) name##n;
 
-#  define BOOST_PYTHON_ARG_CONVERTER(n)                                         \
-     BOOST_PYTHON_NEXT(typename first::next, arg_iter,n)               \
-     BOOST_PYTHON_NEXT(ConverterGenerators, conv_iter,n)               \
-     typedef typename apply_iter1<conv_iter##n,arg_iter##n>::type c_t##n;       \
-     c_t##n c##n(PyTuple_GET_ITEM(args_, n));                                   \
-     if (!c##n.convertible())                                                   \
+#  define BOOST_PYTHON_ARG_CONVERTER(n)                                         ¥
+     BOOST_PYTHON_NEXT(typename first::next, arg_iter,n)               ¥
+     BOOST_PYTHON_NEXT(ConverterGenerators, conv_iter,n)               ¥
+     typedef typename apply_iter1<conv_iter##n,arg_iter##n>::type c_t##n;       ¥
+     c_t##n c##n(PyTuple_GET_ITEM(args_, n));                                   ¥
+     if (!c##n.convertible())                                                   ¥
           return 0;
 
-#  define BOOST_PP_ITERATION_PARAMS_1                                            \
+#  define BOOST_PP_ITERATION_PARAMS_1                                            ¥
         (3, (0, BOOST_PYTHON_MAX_ARITY + 1, <boost/python/detail/caller.hpp>))
 #  include BOOST_PP_ITERATE()
 

@@ -248,8 +248,8 @@ static psd_status psd_get_layer_fill_opacity(psd_context * context, psd_layer_re
 // Section divider setting (Photoshop 6.0)
 static psd_status psd_get_layer_section_divider(psd_context * context, psd_layer_record * layer, psd_int size)
 {
-	// Type. 4 possible values, 0 = any other type of layer, 1 = open ¡°folder¡±, 2 =
-	// closed ¡°folder¡±, 3 = bounding section divider, hidden in the UI
+	// Type. 4 possible values, 0 = any other type of layer, 1 = open ï½¡ï½°folderï½¡ï½±, 2 =
+	// closed ï½¡ï½°folderï½¡ï½±, 3 = bounding section divider, hidden in the UI
 	layer->divider_type = psd_stream_get_int(context);
 	switch(layer->divider_type)
 	{
@@ -382,7 +382,7 @@ static psd_status psd_get_layer_info(psd_context * context)
 
 		// Channel information. Six bytes per channel, consisting of:
 		// 2 bytes for Channel ID: 0 = red, 1 = green, etc.;
-		// ¨C1 = transparency mask; ¨C2 = user supplied layer mask
+		// ï½¨C1 = transparency mask; ï½¨C2 = user supplied layer mask
 		// 4 bytes for length of corresponding channel data. (**PSB** 8 bytes for
 		// length of corresponding channel data.)
 		for(j = 0; j < layer->number_of_channels; j ++)
@@ -406,7 +406,7 @@ static psd_status psd_get_layer_info(psd_context * context)
 		// Opacity. 0 = transparent ... 255 = opaque
 		layer->opacity = psd_stream_get_char(context);
 
-		// Clipping: 0 = base, 1 = non¨Cbase
+		// Clipping: 0 = base, 1 = nonï½¨Cbase
 		layer->clipping = psd_stream_get_bool(context);
 
 		// Flags
@@ -537,7 +537,7 @@ static psd_status psd_get_layer_info(psd_context * context)
 
 		// Layer name: Pascal string, padded to a multiple of 4 bytes.
 		size = psd_stream_get_char(context);
-		size = ((size + 1 + 3) & ~0x03) - 1;
+		size = ((size + 1 + 3) & â€¾0x03) - 1;
 		psd_stream_get(context, layer->layer_name, size);
 
 		while(context->stream.current_pos - extra_stream_pos < extra_length)
@@ -554,7 +554,7 @@ static psd_status psd_get_layer_info(psd_context * context)
 			// (**PSB**, the following keys have a length count of 8 bytes: LMsk, Lr16,
 			// Layr, Mt16, Mtrn, Alph.
 			size = psd_stream_get_int(context);
-			size = (size + 1) & ~0x01;
+			size = (size + 1) & â€¾0x01;
 			prev_stream_pos = context->stream.current_pos;
 
 			// Adjustment layer
@@ -754,7 +754,7 @@ static psd_status psd_get_mask_info(psd_context * context)
 	// Opacity. 0 = transparent, 100 = opaque.
 	context->global_layer_mask.opacity = psd_stream_get_short(context);
 
-	// Kind. 0 = Color selected¡ªi.e. inverted; 1 = Color protected;128 = use
+	// Kind. 0 = Color selectedï½¡ï½ªi.e. inverted; 1 = Color protected;128 = use
 	// value stored per layer. This value is preferred. The others are for
 	// backward compatibility with beta versions.
 	context->global_layer_mask.kind = psd_stream_get_char(context);

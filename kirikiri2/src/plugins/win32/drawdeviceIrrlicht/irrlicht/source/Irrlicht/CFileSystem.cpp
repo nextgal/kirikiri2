@@ -45,7 +45,7 @@ CFileSystem::CFileSystem()
 
 
 //! destructor
-CFileSystem::~CFileSystem()
+CFileSystem::‾CFileSystem()
 {
 	u32 i;
 
@@ -200,8 +200,8 @@ const c8* CFileSystem::getWorkingDirectory()
 
 //! Changes the current Working Directory to the given string.
 //! The string is operating system dependent. Under Windows it will look
-//! like this: "drive:\directory\sudirectory\"
-//! \return Returns true if successful, otherwise false.
+//! like this: "drive:¥directory¥sudirectory¥"
+//! ¥return Returns true if successful, otherwise false.
 bool CFileSystem::changeWorkingDirectoryTo(const c8* newDirectory)
 {
 	bool success=false;
@@ -239,7 +239,7 @@ core::stringc CFileSystem::getFileDir(const core::stringc& filename) const
 {
 	// find last forward or backslash
 	s32 lastSlash = filename.findLast('/');
-	const s32 lastBackSlash = filename.findLast('\\');
+	const s32 lastBackSlash = filename.findLast('¥¥');
 	lastSlash = lastSlash > lastBackSlash ? lastSlash : lastBackSlash;
 
 	if ((u32)lastSlash < filename.size())

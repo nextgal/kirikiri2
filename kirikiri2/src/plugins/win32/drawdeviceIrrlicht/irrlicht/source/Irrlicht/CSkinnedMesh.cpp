@@ -32,7 +32,7 @@ CSkinnedMesh::CSkinnedMesh()
 
 
 //! destructor
-CSkinnedMesh::~CSkinnedMesh()
+CSkinnedMesh::‾CSkinnedMesh()
 {
 	for (u32 i=0; i<AllJoints.size(); ++i)
 		delete AllJoints[i];

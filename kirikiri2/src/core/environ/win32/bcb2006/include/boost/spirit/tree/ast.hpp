@@ -56,7 +56,7 @@ struct ast_tree_policy :
 
 #if defined(BOOST_SPIRIT_DEBUG) && (BOOST_SPIRIT_DEBUG_FLAGS_NODES & BOOST_SPIRIT_DEBUG_FLAGS_TREES)
         BOOST_SPIRIT_DEBUG_OUT << "concat. a = " << a <<
-            "\n\tb = " << b << std::endl;
+            "¥n¥tb = " << b << std::endl;
 #endif
         typedef typename tree_match<iterator_t, NodeFactoryT>::container_t
             container_t;

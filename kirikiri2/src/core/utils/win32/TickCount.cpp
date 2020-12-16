@@ -59,7 +59,7 @@ class tTVPWatchThread : public tTVPThread
 public:
 
 	tTVPWatchThread();
-	~tTVPWatchThread();
+	‾tTVPWatchThread();
 
 protected:
 	void Execute();
@@ -73,7 +73,7 @@ tTVPWatchThread::tTVPWatchThread() : tTVPThread(true)
 	Resume();
 }
 //---------------------------------------------------------------------------
-tTVPWatchThread::~tTVPWatchThread()
+tTVPWatchThread::‾tTVPWatchThread()
 {
 	Terminate();
 	Resume();

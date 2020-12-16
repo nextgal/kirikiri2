@@ -32,7 +32,7 @@ COBJMeshFileLoader::COBJMeshFileLoader(io::IFileSystem* fs, video::IVideoDriver*
 
 
 //! destructor
-COBJMeshFileLoader::~COBJMeshFileLoader()
+COBJMeshFileLoader::‾COBJMeshFileLoader()
 {
 	if (FileSystem)
 		FileSystem->drop();
@@ -53,7 +53,7 @@ bool COBJMeshFileLoader::isALoadableFileExtension(const c8* filename) const
 
 
 //! creates/loads an animated mesh from the file.
-//! \return Pointer to the created mesh. Returns 0 if loading failed.
+//! ¥return Pointer to the created mesh. Returns 0 if loading failed.
 //! If you no longer need the mesh, you should call IAnimatedMesh::drop().
 //! See IReferenceCounted::drop() for more information.
 IAnimatedMesh* COBJMeshFileLoader::createMesh(io::IReadFile* file)
@@ -86,7 +86,7 @@ IAnimatedMesh* COBJMeshFileLoader::createMesh(io::IReadFile* file)
 	core::stringc obj_relpath = "";
 	s32 pathend = obj_fullname.findLast('/');
 	if (pathend == -1)
-		pathend = obj_fullname.findLast('\\');
+		pathend = obj_fullname.findLast('¥¥');
 	if (pathend != -1)
 		obj_relpath = obj_fullname.subString(0, pathend + 1);
 	// ********************************************************************
@@ -640,7 +640,7 @@ const c8* COBJMeshFileLoader::goNextLine(const c8* buf, const c8* const bufEnd)
 	while(buf != bufEnd)
 	{
 		// found it, so leave
-		if (*buf=='\n' || *buf=='\r')
+		if (*buf=='¥n' || *buf=='¥r')
 			break;
 		++buf;
 	}
@@ -683,7 +683,7 @@ core::stringc COBJMeshFileLoader::copyLine(const c8* inBuf, const c8* bufEnd)
 	const c8* ptr = inBuf;
 	while (ptr<bufEnd)
 	{
-		if (*ptr=='\n' || *ptr=='\r')
+		if (*ptr=='¥n' || *ptr=='¥r')
 			break;
 		++ptr;
 	}
@@ -713,10 +713,10 @@ bool COBJMeshFileLoader::retrieveVertexIndices(c8* vertexData, s32* idx, const c
 			// build up the number
 			word[i++] = *p;
 		}
-		else if ( *p == '/' || *p == ' ' || *p == '\0' )
+		else if ( *p == '/' || *p == ' ' || *p == '¥0' )
 		{
 			// number is completed. Convert and store it
-			word[i] = '\0';
+			word[i] = '¥0';
 			// if no number was found index will become 0 and later on -1 by decrement
 			if (word[0]=='-')
 			{
@@ -739,7 +739,7 @@ bool COBJMeshFileLoader::retrieveVertexIndices(c8* vertexData, s32* idx, const c
 				idx[idxType] = core::strtol10(word,0)-1;
 
 			// reset the word
-			word[0] = '\0';
+			word[0] = '¥0';
 			i = 0;
 
 			// go to the next kind of index type

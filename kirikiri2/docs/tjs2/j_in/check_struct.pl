@@ -13,7 +13,7 @@ sub process
 	my $content = join('', 	@content_all);
 	close FH;
 
-	$content =~ s/Shift_JIS/x-sjis-unicode/;
+	$content =‾ s/Shift_JIS/x-sjis-unicode/;
 
 	my $parser = new XML::DOM::Parser;
 	my $doc = $parser->parse($content);
@@ -32,6 +32,6 @@ else
 
 foreach my $each (@list)
 {
-	print $each, "\n";
+	print $each, "¥n";
 	&process($each);
 }

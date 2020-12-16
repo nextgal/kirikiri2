@@ -82,11 +82,11 @@ void __fastcall TRelDirSearchForm::GetFileList(AnsiString path, int baselen)
 					// a directory
 					if(r.Name != "." && r.Name != ".." &&
 						!(r.Name == "CVS" &&
-							FileExists(path + AnsiString("CVS\\Repository"))))
+							FileExists(path + AnsiString("CVS¥¥Repository"))))
 								// ignoring CVS meta-data directory
 					{
 						GetFileList(path  + r.FindData.cFileName+
-							AnsiString("\\"), baselen);
+							AnsiString("¥¥"), baselen);
 					}
 				}
 			}

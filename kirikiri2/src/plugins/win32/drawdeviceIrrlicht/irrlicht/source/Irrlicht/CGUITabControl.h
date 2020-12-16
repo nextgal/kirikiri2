@@ -74,7 +74,7 @@ namespace gui
 			bool fillbackground=true, bool border=true, s32 id=-1);
 
 		//! destructor
-		virtual ~CGUITabControl();
+		virtual ‾CGUITabControl();
 
 		//! Adds a tab
 		virtual IGUITab* addTab(const wchar_t* caption, s32 id=-1);

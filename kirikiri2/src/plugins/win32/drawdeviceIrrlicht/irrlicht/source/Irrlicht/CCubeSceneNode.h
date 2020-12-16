@@ -23,7 +23,7 @@ namespace scene
 			const core::vector3df& scale = core::vector3df(1.0f, 1.0f, 1.0f));
 
 		//! destructor
-		virtual ~CCubeSceneNode();
+		virtual ‾CCubeSceneNode();
 
 		virtual void OnRegisterSceneNode();
 

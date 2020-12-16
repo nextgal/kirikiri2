@@ -75,10 +75,10 @@ TJS_EXP_FUNC_DEF(void, TJSDoRehash, ());
 	the object by string.
 */
 /*
-#define TJS_SELECT_OBJTHIS(__closure__, __override__) \
+#define TJS_SELECT_OBJTHIS(__closure__, __override__) ¥
 	((__closure__).ObjThis?((__override__)?(__override__):(__closure__).ObjThis):(__override__))
 */
-#define TJS_SELECT_OBJTHIS(__closure__, __override__) \
+#define TJS_SELECT_OBJTHIS(__closure__, __override__) ¥
 	((__closure__).ObjThis?(__closure__).ObjThis:(__override__))
 
 class tTJSDispatch : public iTJSDispatch2
@@ -90,7 +90,7 @@ private:
 	tjs_uint RefCount;
 public:
 	tTJSDispatch();
-	virtual ~tTJSDispatch();
+	virtual ‾tTJSDispatch();
 
 //	bool DestructionTrace;
 
@@ -451,15 +451,15 @@ public:
 		void PostClear()
 		{
 			if(Name) Name->Release(), Name = NULL;
-			((tTJSVariant*)(&Value))->~tTJSVariant();
+			((tTJSVariant*)(&Value))->‾tTJSVariant();
 			memset(&Value, 0, sizeof(Value));
-			SymFlags &= ~TJS_SYMBOL_USING;
+			SymFlags &= ‾TJS_SYMBOL_USING;
 		}
 
 		void Destory()
 		{
 			if(Name) Name->Release();
-			((tTJSVariant*)(&Value))->~tTJSVariant();
+			((tTJSVariant*)(&Value))->‾tTJSVariant();
 		}
 
 		bool NameMatch(const tjs_char * name)
@@ -503,7 +503,7 @@ protected:
 public:
 
 	tTJSCustomObject(tjs_int hashbits = TJS_NAMESPACE_DEFAULT_HASH_BITS);
-	~tTJSCustomObject();
+	‾tTJSCustomObject();
 
 private:
 	void BeforeDestruction(void);

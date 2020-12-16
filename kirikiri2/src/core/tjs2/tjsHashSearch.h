@@ -202,7 +202,7 @@ public:
 		InternalInit();
 	}
 
-	~tTJSHashTable()
+	‾tTJSHashTable()
 	{
 		InternalClear();
 	}
@@ -592,9 +592,9 @@ private:
 
 	static void Destruct(element &elm)
 	{
-		((KeyT*)(&elm.Key)) -> ~KeyT();
-		((ValueT*)(&elm.Value)) -> ~ValueT();
-		elm.Flags &= ~TJS_HS_HASH_USING;
+		((KeyT*)(&elm.Key)) -> ‾KeyT();
+		((ValueT*)(&elm.Value)) -> ‾ValueT();
+		elm.Flags &= ‾TJS_HS_HASH_USING;
 	}
 };
 //---------------------------------------------------------------------------

@@ -8,7 +8,7 @@
  */
 
 
-/*! \file time_defs.hpp 
+/*! ¥file time_defs.hpp 
   This file contains nice definitions for handling the resoluion of various time
   reprsentations.
 */

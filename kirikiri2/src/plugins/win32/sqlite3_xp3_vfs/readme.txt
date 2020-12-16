@@ -1,24 +1,24 @@
 
-SQLite3 �ŁAXP3�A�[�J�C�u���ɓ��ꂽ�f�[�^�x�[�X�t�@�C������ǂݏo�����߂� VFS �ł��B
-SQLite 3.5.4 �œ������Ƃ��m�F���Ă��܂��B
+SQLite3 で、XP3アーカイブ内に入れたデータベースファイルから読み出すための VFS です。
+SQLite 3.5.4 で動くことを確認しています。
 
-�Ȃ��������݂ɂ��Ă͊m�F���Ă��܂���B
-XP3�A�[�J�C�u���Ɋi�[����Ă��鎞�́A�������݂͎��s����Ǝv���܂��B
-���̂��߁A�������݂���������N�G���[�͎g�p���Ȃ��ق����ǂ��ł��B
-
-
-���C�Z���X:
-�g���g���Ɠ����ƌ������ƂŁB
+なお書き込みについては確認していません。
+XP3アーカイブ内に格納されている時は、書き込みは失敗すると思います。
+そのため、書き込みが発生するクエリーは使用しないほうが良いです。
 
 
-�g����:
-�܂��f�[�^�x�[�X�I�[�v���O�Ɉȉ��̂悤�ɂ��āAVFS ��o�^���܂��B
+ライセンス:
+吉里吉里と同じと言うことで。
+
+
+使い方:
+まずデータベースオープン前に以下のようにして、VFS を登録します。
 sqlite3_vfs_register( getXp3Vfs(), 0 )
 
-���ɃI�[�v�����Ɉȉ��̂悤�ɂ��āA�g�p���� VFS ���w�肵�܂��B
+次にオープン時に以下のようにして、使用する VFS を指定します。
 sqlite3_open_v2( "db_file_name", &db, SQLITE_OPEN_READONLY, "xp3" )
 
-�Ȍ�͕��ʂɎg���܂��B
-�����A�f�[�^�x�[�X�� UTF-8 �Ƃ��Ĉ����܂��B
-�K�v�ɉ����ĕ����R�[�h�͕ϊ�����K�v������܂��B
+以後は普通に使えます。
+ただ、データベースは UTF-8 として扱われます。
+必要に応じて文字コードは変換する必要があります。
 

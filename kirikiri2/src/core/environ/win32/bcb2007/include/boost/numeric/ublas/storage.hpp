@@ -118,7 +118,7 @@ namespace boost { namespace numeric { namespace ublas {
             *this = a;
         }
         BOOST_UBLAS_INLINE
-        ~unbounded_array () {
+        ‾unbounded_array () {
             // Assuming std compliant allocator as requested during review.
             // if (! data_)
             //     throw std::bad_alloc ();
@@ -584,7 +584,7 @@ namespace boost { namespace numeric { namespace ublas {
         }
 #endif
         BOOST_UBLAS_INLINE
-        ~array_adaptor () {
+        ‾array_adaptor () {
             if (own_) {
                 // Assuming std compliant allocator as requested during review.
                 // if (! data_)
@@ -851,7 +851,7 @@ namespace boost { namespace numeric { namespace ublas {
             size_ (a.size_), own_ (a.own_), data_ (a.data_) {}
 #endif
         BOOST_UBLAS_INLINE
-        ~array_adaptor () {
+        ‾array_adaptor () {
             // Assuming std compliant allocator as requested during review.
             // if (! data_.get ())
             //     throw std::bad_alloc ();

@@ -55,7 +55,7 @@ extern const char * const z_errmsg[10]; /* indexed by 2-zlib_error */
 
 #define ERR_MSG(err) z_errmsg[Z_NEED_DICT-(err)]
 
-#define ERR_RETURN(strm,err) \
+#define ERR_RETURN(strm,err) ¥
   return (strm->msg = (char*)ERR_MSG(err), (err))
 /* To be used only when the state is known to be valid */
 
@@ -107,7 +107,7 @@ extern const char * const z_errmsg[10]; /* indexed by 2-zlib_error */
 
 #if defined(VAXC) || defined(VMS)
 #  define OS_CODE  0x02
-#  define F_OPEN(name, mode) \
+#  define F_OPEN(name, mode) ¥
      fopen((name), (mode), "mbc=60", "ctx=stm", "rfm=fix", "mrs=512")
 #endif
 
@@ -261,7 +261,7 @@ extern const char * const z_errmsg[10]; /* indexed by 2-zlib_error */
 voidpf zcalloc OF((voidpf opaque, unsigned items, unsigned size));
 void   zcfree  OF((voidpf opaque, voidpf ptr));
 
-#define ZALLOC(strm, items, size) \
+#define ZALLOC(strm, items, size) ¥
            (*((strm)->zalloc))((strm)->opaque, (items), (size))
 #define ZFREE(strm, addr)  (*((strm)->zfree))((strm)->opaque, (voidpf)(addr))
 #define TRY_FREE(s, p) {if (p) ZFREE(s, p);}

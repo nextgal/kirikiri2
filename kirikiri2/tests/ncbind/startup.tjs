@@ -2,6 +2,6 @@ Debug.controller.visible = true;
 Debug.console.visible = true;
 var dm = Debug.message;
 
-//ƒvƒ‰ƒOƒCƒ““Ç‚İ‚İ‚É©“®‚ÅƒeƒXƒg
+//ãƒ—ãƒ©ã‚°ã‚¤ãƒ³èª­ã¿è¾¼ã¿æ™‚ã«è‡ªå‹•ã§ãƒ†ã‚¹ãƒˆ
 Plugins.link("testbind.dll");
 

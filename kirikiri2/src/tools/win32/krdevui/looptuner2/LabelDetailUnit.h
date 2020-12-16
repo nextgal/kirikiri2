@@ -18,7 +18,7 @@
 //---------------------------------------------------------------------------
 class TLabelDetailForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TEditLabelAttribFrame *EditLabelAttribFrame;
 	TButton *OKButton;
 	TButton *CancelButton;
@@ -26,13 +26,13 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall CancelButtonClick(TObject *Sender);
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	int LabelNum; // label number
 	tTVPWaveLabel FLabel; // current editting label
 
 
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TLabelDetailForm(TComponent* Owner);
 
 	void __fastcall SetLabel(const tTVPWaveLabel & label);

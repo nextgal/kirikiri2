@@ -1,20 +1,20 @@
 Title: registory Plugin
 Author: Kiyobee
 
-������͂ȂɁH
+●これはなに？
 
-�w��̒l��QR�R�[�h�����C���[�ɏ������݂܂��B
-QR�R�[�h�ɂ��Ă͓K���ɂ������Ă��������B
+指定の値のQRコードをレイヤーに書き込みます。
+QRコードについては適当にぐぐってください。
 
-���g�p���@
+●使用方法
 
-manual.tjs ���Q�Ƃ̂��ƁB
+manual.tjs を参照のこと。
 
-�����C�Z���X
+●ライセンス
 
-���C�Z���X�͋g���g���{�̂ɏ������܂��B
+ライセンスは吉里吉里本体に準拠します。
 
-���ӎ�
+●謝辞
 
-QR_Encode.c/h �͗L����ЃT�C�e�b�N(http://www.psytec.co.jp/)���܂��z�z����Ă���R�[�h�ł��B
-�L�v�ȃR�[�h��z�z����Ă��邱�Ƃɑ΂��A���ӂ������܂��B
+QR_Encode.c/h は有限会社サイテック(http://www.psytec.co.jp/)さまが配布されているコードです。
+有益なコードを配布されていることに対し、感謝いたします。

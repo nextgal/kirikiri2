@@ -26,10 +26,10 @@ const GUID __KSDATAFORMAT_SUBTYPE_PCM =
 //---------------------------------------------------------------------------
 static void ConvertFloatTo16bits(short int *output, const float *input, int channels, int count)
 {
-	// Œ»“_‚Å‚Í 32bit float ‚Ì‚İ‚ğ•ÏŠ·‚·‚é
+	// ç¾æ™‚ç‚¹ã§ã¯ 32bit float ã®ã¿ã‚’å¤‰æ›ã™ã‚‹
 
-	// float PCM ‚Í +1.0 ` 0 ` -1.0 ‚Ì”ÍˆÍ‚É‚ ‚é
-	// ”ÍˆÍŠO‚Ìƒf[ƒ^‚ÍƒNƒŠƒbƒv‚·‚é
+	// float PCM ã¯ +1.0 ã€œ 0 ã€œ -1.0 ã®ç¯„å›²ã«ã‚ã‚‹
+	// ç¯„å›²å¤–ã®ãƒ‡ãƒ¼ã‚¿ã¯ã‚¯ãƒªãƒƒãƒ—ã™ã‚‹
 	int total = channels * count;
 	while(total--)
 	{
@@ -53,42 +53,42 @@ static void ConvertFloatTo16bits(short int *output, const float *input, int chan
 static void ConvertIntTo16bits(short int *output, const void *input, int bytespersample,
 	int validbits, int channels, int count)
 {
-	// –{“–‚Í int16 ‚È‚Ç‚ÌƒTƒCƒY‚ÌŒˆ‚Ü‚Á‚½Œ^‚ğ‚Â‚©‚¤‚×‚«
+	// æœ¬å½“ã¯ int16 ãªã©ã®ã‚µã‚¤ã‚ºã®æ±ºã¾ã£ãŸå‹ã‚’ã¤ã‹ã†ã¹ã
 
-	// ®”•\Œ»‚Ì PCM ‚ğ 16bit ‚É•ÏŠ·‚·‚é
+	// æ•´æ•°è¡¨ç¾ã® PCM ã‚’ 16bit ã«å¤‰æ›ã™ã‚‹
 	int total = channels * count;
 
 	if(bytespersample == 1)
 	{
-		// “Ç‚İ‚İ‚Ìƒ`ƒFƒbƒN‚Å‚·‚Å‚É 8bit “ü—Í‚Ìƒf[ƒ^‚Í —LŒøƒrƒbƒg”‚ª 8 ƒrƒbƒg
-		// ‚Å‚ ‚é‚±‚Æ‚ª•ÛØ‚³‚ê‚Ä‚¢‚é‚Ì‚Å’P‚É 16bit ‚ÉŠg’£‚·‚é‚¾‚¯‚É‚·‚é
+		// èª­ã¿è¾¼ã¿æ™‚ã®ãƒã‚§ãƒƒã‚¯ã§ã™ã§ã« 8bit å…¥åŠ›ã®ãƒ‡ãƒ¼ã‚¿ã¯ æœ‰åŠ¹ãƒ“ãƒƒãƒˆæ•°ãŒ 8 ãƒ“ãƒƒãƒˆ
+		// ã§ã‚ã‚‹ã“ã¨ãŒä¿è¨¼ã•ã‚Œã¦ã„ã‚‹ã®ã§å˜ã« 16bit ã«æ‹¡å¼µã™ã‚‹ã ã‘ã«ã™ã‚‹
 		const char *p = (const char *)input;
 		while(total--) *(output++) = (short int)( ((int)*(p++)-0x80) * 0x100);
 	}
 	else if(bytespersample == 2)
 	{
-		// —LŒøƒrƒbƒg”ˆÈ‰º‚Ì”’l‚Í ƒ}ƒXƒN‚µ‚Äæ‚è‹‚é
-		short int mask =  ~( (1 << (16 - validbits)) - 1);
+		// æœ‰åŠ¹ãƒ“ãƒƒãƒˆæ•°ä»¥ä¸‹ã®æ•°å€¤ã¯ ãƒã‚¹ã‚¯ã—ã¦å–ã‚Šå»ã‚‹
+		short int mask =  â€¾( (1 << (16 - validbits)) - 1);
 		const short int *p = (const short int *)input;
 		while(total--) *(output++) = (short int)(*(p++) & mask);
 	}
 	else if(bytespersample == 3)
 	{
-		long int mask = ~( (1 << (24 - validbits)) - 1);
+		long int mask = â€¾( (1 << (24 - validbits)) - 1);
 		const unsigned char *p = (const unsigned char *)input;
 		while(total--)
 		{
 			int t = p[0] + (p[1] << 8) + (p[2] << 16);
 			p += 3;
-			t |= -(t&0x800000); // •„†Šg’£
-			t &= mask; // ƒ}ƒXƒN
+			t |= -(t&0x800000); // ç¬¦å·æ‹¡å¼µ
+			t &= mask; // ãƒã‚¹ã‚¯
 			t >>= 8;
 			*(output++) = (short int)t;
 		}
 	}
 	else if(bytespersample == 4)
 	{
-		long int mask = ~( (1 << (32 - validbits)) - 1);
+		long int mask = â€¾( (1 << (32 - validbits)) - 1);
 		const unsigned __int32 *p = (const unsigned __int32 *)input;
 		while(total--)
 		{
@@ -101,10 +101,10 @@ static void ConvertIntTo16bits(short int *output, const void *input, int bytespe
 static void ConvertTo16bits(short int *output, const void *input, int bytespersample,
 	bool isfloat, int validbits, int channels, int count)
 {
-	// w’è‚³‚ê‚½ƒtƒH[ƒ}ƒbƒg‚ğ 16bit ƒtƒH[ƒ}ƒbƒg‚É•ÏŠ·‚·‚é
-	// channels ‚ª -6 ‚Ìê‡‚Í“Á•Ê‚É
-	// FL FC FR BL BR LF ‚Æ•À‚ñ‚Å‚¢‚éƒf[ƒ^ (AC3‚Æ“¯‚¶‡˜) ‚ğ
-	// FL FR FC LF BL BR (WAVEFORMATEXTENSIBLE ‚ÌŠú‘Ò‚·‚é‡˜) ‚É•À‚Ñ‘Ö‚¦‚é
+	// æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ 16bit ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã«å¤‰æ›ã™ã‚‹
+	// channels ãŒ -6 ã®å ´åˆã¯ç‰¹åˆ¥ã«
+	// FL FC FR BL BR LF ã¨ä¸¦ã‚“ã§ã„ã‚‹ãƒ‡ãƒ¼ã‚¿ (AC3ã¨åŒã˜é †åº) ã‚’
+	// FL FR FC LF BL BR (WAVEFORMATEXTENSIBLE ã®æœŸå¾…ã™ã‚‹é †åº) ã«ä¸¦ã³æ›¿ãˆã‚‹
 	int cns = channels;
 	if(cns<0) cns = -cns;
 
@@ -115,7 +115,7 @@ static void ConvertTo16bits(short int *output, const void *input, int bytespersa
 
 	if(channels == -6)
 	{
-		// ƒ`ƒƒƒ“ƒlƒ‹‚Ì“ü‚ê‘Ö‚¦
+		// ãƒãƒ£ãƒ³ãƒãƒ«ã®å…¥ã‚Œæ›¿ãˆ
 		short int *op = output;
 		for(int i = 0; i < count; i++)
 		{
@@ -144,7 +144,7 @@ __fastcall TRIFFWaveContext::TRIFFWaveContext()
 	FInputStream = NULL;
 }
 //---------------------------------------------------------------------------
-__fastcall TRIFFWaveContext::~TRIFFWaveContext()
+__fastcall TRIFFWaveContext::â€¾TRIFFWaveContext()
 {
 	if(FInputStream) delete FInputStream;
 }
@@ -160,13 +160,13 @@ bool __fastcall TRIFFWaveContext::Start(AnsiString filename)
 		return false;
 	}
 
-	// ƒwƒbƒ_‚ğ“Ç‚Ş
+	// ãƒ˜ãƒƒãƒ€ã‚’èª­ã‚€
 	BYTE buf[8];
 	FInputStream->Position=0;
 	FInputStream->ReadBuffer(buf, 8);
-	if(memcmp(buf, "RIFF", 4)) return false; // RIFF ‚ª‚È‚¢
+	if(memcmp(buf, "RIFF", 4)) return false; // RIFF ãŒãªã„
 	FInputStream->ReadBuffer(buf, 8);
-	if(memcmp(buf, "WAVEfmt ", 4)) return false; // WAVE ‚Å‚È‚¢‚© fmt ƒ`ƒƒƒ“ƒN‚ª‚·‚®‚±‚È‚¢
+	if(memcmp(buf, "WAVEfmt ", 4)) return false; // WAVE ã§ãªã„ã‹ fmt ãƒãƒ£ãƒ³ã‚¯ãŒã™ãã“ãªã„
 
 	DWORD fmtlen;
 	FInputStream->ReadBuffer(&fmtlen,4);
@@ -174,7 +174,7 @@ bool __fastcall TRIFFWaveContext::Start(AnsiString filename)
 	FInputStream->ReadBuffer(&Format, sizeof(WAVEFORMATEX));
 	if(Format.Format.wFormatTag != WAVE_FORMAT_EXTENSIBLE &&
 		Format.Format.wFormatTag != WAVE_FORMAT_PCM &&
-		Format.Format.wFormatTag != WAVE_FORMAT_IEEE_FLOAT) return false; // ‘Î‰‚Å‚«‚È‚¢ƒtƒH[ƒ}ƒbƒg
+		Format.Format.wFormatTag != WAVE_FORMAT_IEEE_FLOAT) return false; // å¯¾å¿œã§ããªã„ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 
 	if(Format.Format.wFormatTag == WAVE_FORMAT_EXTENSIBLE)
 	{
@@ -195,35 +195,35 @@ bool __fastcall TRIFFWaveContext::Start(AnsiString filename)
 		Format.dwChannelMask = 0;
 	}
 
-	// Šeíƒ`ƒFƒbƒN
-	if(Format.Format.wBitsPerSample & 0x07) return false; // 8 ‚Ì”{”‚Å‚Í‚È‚¢
-	if(Format.Format.wBitsPerSample > 32) return false; // 32bit ‚æ‚è‘å‚«‚¢ƒTƒCƒY‚Íˆµ‚¦‚È‚¢
+	// å„ç¨®ãƒã‚§ãƒƒã‚¯
+	if(Format.Format.wBitsPerSample & 0x07) return false; // 8 ã®å€æ•°ã§ã¯ãªã„
+	if(Format.Format.wBitsPerSample > 32) return false; // 32bit ã‚ˆã‚Šå¤§ãã„ã‚µã‚¤ã‚ºã¯æ‰±ãˆãªã„
 	if(Format.Format.wFormatTag == WAVE_FORMAT_EXTENSIBLE &&
-		Format.Samples.wValidBitsPerSample < 8) return false; // —LŒøƒrƒbƒg‚ª 8 –¢–‚Íˆµ‚¦‚È‚¢
+		Format.Samples.wValidBitsPerSample < 8) return false; // æœ‰åŠ¹ãƒ“ãƒƒãƒˆãŒ 8 æœªæº€ã¯æ‰±ãˆãªã„
 	if(Format.Format.wBitsPerSample < Format.Samples.wValidBitsPerSample)
-		return false; // —LŒøƒrƒbƒg”‚ªÀÛ‚Ìƒrƒbƒg”‚æ‚è‘å‚«‚¢
+		return false; // æœ‰åŠ¹ãƒ“ãƒƒãƒˆæ•°ãŒå®Ÿéš›ã®ãƒ“ãƒƒãƒˆæ•°ã‚ˆã‚Šå¤§ãã„
 	if(!memcmp(&Format.SubFormat, &__KSDATAFORMAT_SUBTYPE_IEEE_FLOAT, 16))
 		IsFloat = true;
 	else if(!memcmp(&Format.SubFormat, &__KSDATAFORMAT_SUBTYPE_PCM, 16))
 		IsFloat = false;
 	else
-		return false; // –¢’m‚ÌƒTƒuƒtƒH[ƒ}ƒbƒg
+		return false; // æœªçŸ¥ã®ã‚µãƒ–ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 
 	if(IsFloat && Format.Format.wBitsPerSample != Format.Samples.wValidBitsPerSample)
-		return false; // float ‚Ì—LŒøƒrƒbƒg”‚ªŠi”[ƒrƒbƒg”‚Æ“™‚µ‚­‚È‚¢
+		return false; // float ã®æœ‰åŠ¹ãƒ“ãƒƒãƒˆæ•°ãŒæ ¼ç´ãƒ“ãƒƒãƒˆæ•°ã¨ç­‰ã—ããªã„
 	if(IsFloat && Format.Format.wBitsPerSample != 32)
-		return false; // float ‚Ìƒrƒbƒg”‚ª 32 ‚Å‚È‚¢
+		return false; // float ã®ãƒ“ãƒƒãƒˆæ•°ãŒ 32 ã§ãªã„
 
 
 	FGranuleSize = Format.Format.wBitsPerSample / 8 * Format.Format.nChannels;
 
-	// data ƒ`ƒƒƒ“ƒN‚ğ’T‚·
+	// data ãƒãƒ£ãƒ³ã‚¯ã‚’æ¢ã™
 	FInputStream->Position= fmtlen + 0x14;
 
 	while(1)
 	{
 		FInputStream->ReadBuffer(buf,4); // data ?
-		FInputStream->ReadBuffer(&FDataSize,4); // ƒf[ƒ^ƒTƒCƒY
+		FInputStream->ReadBuffer(&FDataSize,4); // ãƒ‡ãƒ¼ã‚¿ã‚µã‚¤ã‚º
 		if(memcmp(buf,"data",4)==0) break;
 		FInputStream->Position=FInputStream->Position+FDataSize;
 

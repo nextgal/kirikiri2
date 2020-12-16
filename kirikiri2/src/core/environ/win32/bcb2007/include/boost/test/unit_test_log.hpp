@@ -99,7 +99,7 @@ class test_case;
 class unit_test_log : private boost::noncopyable { //!! Singleton
 public:
     // Destructor
-    ~unit_test_log();
+    ‾unit_test_log();
 
     // instance access method;
     static unit_test_log& instance();
@@ -143,12 +143,12 @@ private:
 }; // unit_test_log
 
 // helper macros
-#define BOOST_UT_LOG_BEGIN( file_name, line_num, loglevel )                             \
-    boost::unit_test_framework::unit_test_log::instance()                               \
-                                     << boost::unit_test_framework::begin()             \
-                                     << boost::unit_test_framework::level( loglevel )   \
-                                     << boost::unit_test_framework::file( file_name )   \
-                                     << boost::unit_test_framework::line( line_num ) << \
+#define BOOST_UT_LOG_BEGIN( file_name, line_num, loglevel )                             ¥
+    boost::unit_test_framework::unit_test_log::instance()                               ¥
+                                     << boost::unit_test_framework::begin()             ¥
+                                     << boost::unit_test_framework::level( loglevel )   ¥
+                                     << boost::unit_test_framework::file( file_name )   ¥
+                                     << boost::unit_test_framework::line( line_num ) << ¥
 /**/
 #define BOOST_UT_LOG_END             << boost::unit_test_framework::end();
 

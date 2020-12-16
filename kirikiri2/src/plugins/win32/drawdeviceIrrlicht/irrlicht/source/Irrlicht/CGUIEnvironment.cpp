@@ -91,7 +91,7 @@ CGUIEnvironment::CGUIEnvironment(io::IFileSystem* fs, video::IVideoDriver* drive
 
 
 //! destructor
-CGUIEnvironment::~CGUIEnvironment()
+CGUIEnvironment::‾CGUIEnvironment()
 {
 	if (Hovered && Hovered != this)
 	{
@@ -574,7 +574,7 @@ void CGUIEnvironment::setSkin(IGUISkin* skin)
 
 
 //! Creates a new GUI Skin based on a template.
-/** \return Returns a pointer to the created skin.
+/** ¥return Returns a pointer to the created skin.
 If you no longer need the skin, you should call IGUISkin::drop().
 See IReferenceCounted::drop() for more information. */
 IGUISkin* CGUIEnvironment::createSkin(EGUI_SKIN_TYPE type)
@@ -651,7 +651,7 @@ IGUIElement* CGUIEnvironment::addGUIElement(const c8* elementName, IGUIElement* 
 
 
 //! Saves the current gui into a file.
-//! \param filename: Name of the file .
+//! ¥param filename: Name of the file .
 bool CGUIEnvironment::saveGUI(const c8* filename, IGUIElement* start)
 {
 	io::IWriteFile* file = FileSystem->createAndWriteFile(filename);
@@ -693,7 +693,7 @@ bool CGUIEnvironment::saveGUI(io::IWriteFile* file, IGUIElement* start)
 
 
 //! Loads the gui. Note that the current gui is not cleared before.
-//! \param filename: Name of the file.
+//! ¥param filename: Name of the file.
 bool CGUIEnvironment::loadGUI(const c8* filename, IGUIElement* parent)
 {
 	io::IReadFile* read = FileSystem->createAndOpenFile(filename);

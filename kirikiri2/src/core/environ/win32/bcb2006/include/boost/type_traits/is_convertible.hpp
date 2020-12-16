@@ -1,7 +1,7 @@
 
 // Copyright (C) 2000 John Maddock (john_maddock@compuserve.com)
 // Copyright (C) 2000 Jeremy Siek (jsiek@lsc.nd.edu)
-// Copyright (C) 1999, 2000 Jaakko J�rvi (jaakko.jarvi@cs.utu.fi)
+// Copyright (C) 1999, 2000 Jaakko Jвvi (jaakko.jarvi@cs.utu.fi)
 //
 // Permission to copy and use this software is granted, 
 // provided this copyright notice appears in all copies. 
@@ -128,7 +128,7 @@ struct is_convertible_basic_impl
         == sizeof(::boost::type_traits::yes_type);
 };
 
-#elif (defined(BOOST_MSVC) && (BOOST_MSVC > 1310)) \
+#elif (defined(BOOST_MSVC) && (BOOST_MSVC > 1310)) ¥
       || (defined(__EDG_VERSION__) && (__EDG_VERSION__ >= 245) && !defined(__ICL))
 //
 // This is *almost* an ideal world implementation as it doesn't rely
@@ -198,18 +198,18 @@ struct is_convertible_impl
 // implementation above:
 //
 #ifndef BOOST_NO_CV_VOID_SPECIALIZATIONS
-#   define TT_AUX_BOOL_CV_VOID_TRAIT_SPEC2_PART1(trait,spec1,spec2,value) \
-    BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC2(trait,spec1,spec2,value) \
-    BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC2(trait,spec1,spec2 const,value) \
-    BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC2(trait,spec1,spec2 volatile,value) \
-    BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC2(trait,spec1,spec2 const volatile,value) \
+#   define TT_AUX_BOOL_CV_VOID_TRAIT_SPEC2_PART1(trait,spec1,spec2,value) ¥
+    BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC2(trait,spec1,spec2,value) ¥
+    BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC2(trait,spec1,spec2 const,value) ¥
+    BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC2(trait,spec1,spec2 volatile,value) ¥
+    BOOST_TT_AUX_BOOL_TRAIT_IMPL_SPEC2(trait,spec1,spec2 const volatile,value) ¥
     /**/
 
-#   define TT_AUX_BOOL_CV_VOID_TRAIT_SPEC2(trait,spec1,spec2,value) \
-    TT_AUX_BOOL_CV_VOID_TRAIT_SPEC2_PART1(trait,spec1,spec2,value) \
-    TT_AUX_BOOL_CV_VOID_TRAIT_SPEC2_PART1(trait,spec1 const,spec2,value) \
-    TT_AUX_BOOL_CV_VOID_TRAIT_SPEC2_PART1(trait,spec1 volatile,spec2,value) \
-    TT_AUX_BOOL_CV_VOID_TRAIT_SPEC2_PART1(trait,spec1 const volatile,spec2,value) \
+#   define TT_AUX_BOOL_CV_VOID_TRAIT_SPEC2(trait,spec1,spec2,value) ¥
+    TT_AUX_BOOL_CV_VOID_TRAIT_SPEC2_PART1(trait,spec1,spec2,value) ¥
+    TT_AUX_BOOL_CV_VOID_TRAIT_SPEC2_PART1(trait,spec1 const,spec2,value) ¥
+    TT_AUX_BOOL_CV_VOID_TRAIT_SPEC2_PART1(trait,spec1 volatile,spec2,value) ¥
+    TT_AUX_BOOL_CV_VOID_TRAIT_SPEC2_PART1(trait,spec1 const volatile,spec2,value) ¥
     /**/
 
     TT_AUX_BOOL_CV_VOID_TRAIT_SPEC2(is_convertible,void,void,true)
@@ -245,28 +245,28 @@ BOOST_TT_AUX_BOOL_TRAIT_DEF2(is_convertible,From,To,(::boost::detail::is_convert
 // types to all of the integral types. This suppresses some nasty
 // warnings
 
-#   define TT_AUX_IS_CONVERTIBLE_SPEC(T1,T2) \
-    BOOST_TT_AUX_BOOL_TRAIT_SPEC2(is_convertible,T1,T2,true) \
+#   define TT_AUX_IS_CONVERTIBLE_SPEC(T1,T2) ¥
+    BOOST_TT_AUX_BOOL_TRAIT_SPEC2(is_convertible,T1,T2,true) ¥
     /**/
 
-#   define TT_AUX_IS_CONVERTIBLE_SPEC_2(T1,T2) \
-    TT_AUX_IS_CONVERTIBLE_SPEC(T1,signed T2) \
-    TT_AUX_IS_CONVERTIBLE_SPEC(T1,unsigned T2) \
+#   define TT_AUX_IS_CONVERTIBLE_SPEC_2(T1,T2) ¥
+    TT_AUX_IS_CONVERTIBLE_SPEC(T1,signed T2) ¥
+    TT_AUX_IS_CONVERTIBLE_SPEC(T1,unsigned T2) ¥
     /**/
 
-#   define TT_AUX_IS_CONVERTIBLE_FROM_FLOAT_SPEC(F) \
-    TT_AUX_IS_CONVERTIBLE_SPEC(F,char) \
-    TT_AUX_IS_CONVERTIBLE_SPEC_2(F,char) \
-    TT_AUX_IS_CONVERTIBLE_SPEC_2(F,short) \
-    TT_AUX_IS_CONVERTIBLE_SPEC_2(F,int) \
-    TT_AUX_IS_CONVERTIBLE_SPEC_2(F,long) \
-    TT_AUX_IS_CONVERTIBLE_SPEC_2(F,long long) \
+#   define TT_AUX_IS_CONVERTIBLE_FROM_FLOAT_SPEC(F) ¥
+    TT_AUX_IS_CONVERTIBLE_SPEC(F,char) ¥
+    TT_AUX_IS_CONVERTIBLE_SPEC_2(F,char) ¥
+    TT_AUX_IS_CONVERTIBLE_SPEC_2(F,short) ¥
+    TT_AUX_IS_CONVERTIBLE_SPEC_2(F,int) ¥
+    TT_AUX_IS_CONVERTIBLE_SPEC_2(F,long) ¥
+    TT_AUX_IS_CONVERTIBLE_SPEC_2(F,long long) ¥
     /**/
 
-#   define TT_AUX_IS_CONVERTIBLE_FROM_FLOAT_CV_SPEC(F) \
-    TT_AUX_IS_CONVERTIBLE_FROM_FLOAT_SPEC(F const) \
-    TT_AUX_IS_CONVERTIBLE_FROM_FLOAT_SPEC(F volatile) \
-    TT_AUX_IS_CONVERTIBLE_FROM_FLOAT_SPEC(F const volatile) \
+#   define TT_AUX_IS_CONVERTIBLE_FROM_FLOAT_CV_SPEC(F) ¥
+    TT_AUX_IS_CONVERTIBLE_FROM_FLOAT_SPEC(F const) ¥
+    TT_AUX_IS_CONVERTIBLE_FROM_FLOAT_SPEC(F volatile) ¥
+    TT_AUX_IS_CONVERTIBLE_FROM_FLOAT_SPEC(F const volatile) ¥
     /**/
 
 TT_AUX_IS_CONVERTIBLE_FROM_FLOAT_CV_SPEC(float)

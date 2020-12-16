@@ -1,4 +1,4 @@
-object TVPPadForm: TTVPPadForm
+ï»¿object TVPPadForm: TTVPPadForm
   Left = 74
   Top = 278
   Width = 538
@@ -14,7 +14,7 @@ object TVPPadForm: TTVPPadForm
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   Position = poDefaultPosOnly
@@ -58,7 +58,7 @@ object TVPPadForm: TTVPPadForm
     object ExecuteButton: TToolButton
       Left = 0
       Top = 0
-      Hint = 'Às'
+      Hint = 'å®Ÿè¡Œ'
       Caption = 'Execute'
       ImageIndex = 0
       OnClick = ExecuteButtonClick
@@ -74,7 +74,7 @@ object TVPPadForm: TTVPPadForm
     Font.Charset = SHIFTJIS_CHARSET
     Font.Color = clWhite
     Font.Height = -12
-    Font.Name = '‚l‚r –¾’©'
+    Font.Name = 'ï¼­ï¼³ æ˜æœ'
     Font.Style = []
     HideScrollBars = False
     MaxLength = 10000000
@@ -96,28 +96,28 @@ object TVPPadForm: TTVPPadForm
     Left = 24
     Top = 24
     object CutMenuItem: TMenuItem
-      Caption = 'Ø‚èæ‚è(&T)'
-      Hint = 'Ø‚èæ‚è'
+      Caption = 'åˆ‡ã‚Šå–ã‚Š(&T)'
+      Hint = 'åˆ‡ã‚Šå–ã‚Š'
       ImageIndex = 5
       ShortCut = 16472
       OnClick = CutMenuItemClick
     end
     object CopyMenuItem: TMenuItem
-      Caption = 'ƒRƒs[(&C)'
-      Hint = 'ƒRƒs['
+      Caption = 'ã‚³ãƒ”ãƒ¼(&C)'
+      Hint = 'ã‚³ãƒ”ãƒ¼'
       ImageIndex = 6
       ShortCut = 16451
       OnClick = CopyMenuItemClick
     end
     object PasteMenuItem: TMenuItem
-      Caption = '“\‚è•t‚¯(&P)'
-      Hint = '“\‚è•t‚¯'
+      Caption = 'è²¼ã‚Šä»˜ã‘(&P)'
+      Hint = 'è²¼ã‚Šä»˜ã‘'
       ImageIndex = 7
       ShortCut = 16470
       OnClick = PasteMenuItemClick
     end
     object UndoMenuItem: TMenuItem
-      Caption = 'Œ³‚É–ß‚·(&U)'
+      Caption = 'å…ƒã«æˆ»ã™(&U)'
       ImageIndex = 3
       ShortCut = 16474
       OnClick = UndoMenuItemClick
@@ -126,8 +126,8 @@ object TVPPadForm: TTVPPadForm
       Caption = '-'
     end
     object ExecuteMenuItem: TMenuItem
-      Caption = 'Às(&G)'
-      Hint = 'ƒXƒNƒŠƒvƒg‚ÌÀs'
+      Caption = 'å®Ÿè¡Œ(&G)'
+      Hint = 'ã‚¹ã‚¯ãƒªãƒ—ãƒˆã®å®Ÿè¡Œ'
       ImageIndex = 1
       ShortCut = 16397
       OnClick = ExecuteButtonClick
@@ -136,7 +136,7 @@ object TVPPadForm: TTVPPadForm
       Caption = '-'
     end
     object SaveMenuItem: TMenuItem
-      Caption = '•Û‘¶(&S) ...'
+      Caption = 'ä¿å­˜(&S) ...'
       ImageIndex = 9
       ShortCut = 16467
       OnClick = SaveMenuItemClick
@@ -145,28 +145,28 @@ object TVPPadForm: TTVPPadForm
       Caption = '-'
     end
     object ShowControllerMenuItem: TMenuItem
-      Caption = 'ƒRƒ“ƒgƒ[ƒ‰(&Z)'
-      Hint = 'ƒRƒ“ƒgƒ[ƒ‰‚ğ•\¦'
+      Caption = 'ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©(&Z)'
+      Hint = 'ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ã‚’è¡¨ç¤º'
       ImageIndex = 28
       ShortCut = 8304
       OnClick = ShowControllerMenuItemClick
     end
     object ShowScriptEditorMenuItem: TMenuItem
-      Caption = 'ƒXƒNƒŠƒvƒgƒGƒfƒBƒ^(&E)'
+      Caption = 'ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ‡ã‚£ã‚¿(&E)'
       ShortCut = 8305
       Visible = False
       OnClick = ShowScriptEditorMenuItemClick
     end
     object ShowWatchMenuItem: TMenuItem
-      Caption = 'ŠÄ‹®(&W)'
-      Hint = 'ŠÄ‹®‚ğ•\¦'
+      Caption = 'ç›£è¦–å¼(&W)'
+      Hint = 'ç›£è¦–å¼ã‚’è¡¨ç¤º'
       ImageIndex = 14
       ShortCut = 8306
       OnClick = ShowWatchMenuItemClick
     end
     object ShowConsoleMenuItem: TMenuItem
-      Caption = 'ƒRƒ“ƒ\[ƒ‹(&D)'
-      Hint = 'ƒRƒ“ƒ\[ƒ‹‚ğ•\¦'
+      Caption = 'ã‚³ãƒ³ã‚½ãƒ¼ãƒ«(&D)'
+      Hint = 'ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‚’è¡¨ç¤º'
       ImageIndex = 13
       ShortCut = 8307
       OnClick = ShowConsoleMenuItemClick
@@ -175,7 +175,7 @@ object TVPPadForm: TTVPPadForm
       Caption = '-'
     end
     object ShowOnTopMenuItem: TMenuItem
-      Caption = 'í‚Éè‘O‚É•\¦(&F)'
+      Caption = 'å¸¸ã«æ‰‹å‰ã«è¡¨ç¤º(&F)'
       ImageIndex = 10
       OnClick = ShowOnTopMenuItemClick
     end
@@ -194,7 +194,7 @@ object TVPPadForm: TTVPPadForm
   end
   object SaveDialog: TSaveDialog
     DefaultExt = '.tjs'
-    Filter = 'TJS2 ƒXƒNƒŠƒvƒg(*.tjs)|*.tjs|‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹ (*.*)|*.*'
+    Filter = 'TJS2 ã‚¹ã‚¯ãƒªãƒ—ãƒˆ(*.tjs)|*.tjs|ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ« (*.*)|*.*'
     Options = [ofHideReadOnly, ofPathMustExist, ofEnableSizing]
     Left = 56
     Top = 24

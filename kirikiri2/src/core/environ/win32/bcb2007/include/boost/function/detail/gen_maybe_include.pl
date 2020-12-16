@@ -26,12 +26,12 @@ for($on_arg = 0; $on_arg <= $max_args; ++$on_arg) {
     else {
 	print OUT "#elif";
     }
-    print OUT " BOOST_FUNCTION_NUM_ARGS == $on_arg\n";
-    print OUT "#  ifndef BOOST_FUNCTION_$on_arg\n";
-    print OUT "#    define BOOST_FUNCTION_$on_arg\n";
-    print OUT "#    include <boost/function/function_template.hpp>\n";
-    print OUT "#  endif\n";
+    print OUT " BOOST_FUNCTION_NUM_ARGS == $on_arg¥n";
+    print OUT "#  ifndef BOOST_FUNCTION_$on_arg¥n";
+    print OUT "#    define BOOST_FUNCTION_$on_arg¥n";
+    print OUT "#    include <boost/function/function_template.hpp>¥n";
+    print OUT "#  endif¥n";
 }
-print OUT "#else\n";
-print OUT "#  error Cannot handle Boost.Function objects that accept more than $max_args arguments!\n";
-print OUT "#endif\n";
+print OUT "#else¥n";
+print OUT "#  error Cannot handle Boost.Function objects that accept more than $max_args arguments!¥n";
+print OUT "#endif¥n";

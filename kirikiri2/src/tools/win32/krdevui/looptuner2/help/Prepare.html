@@ -1,76 +1,76 @@
 <HTML>
 <HEAD>
 <!--MadeByWZ-->
-<TITLE>Loop Tuner ���t�@�����X - ����</TITLE>
+<TITLE>Loop Tuner リファレンス - 準備</TITLE>
 </HEAD>
 <BODY BGCOLOR="white" TEXT="black" LINK="black" VLINK="#414141" ALINK="#E80005">
 <IMG SRC="hline.png" width=100% height=1><BR>
-<CENTER>�� ���p�\�Ȍ`�� ��</CENTER>
+<CENTER>■ 利用可能な形式 ■</CENTER>
 <IMG SRC="hline.png" width=100% height=1><BR>
 <BR>
-�@���[�v�`���[�i�́A�����_�ňȉ��� PCM �̌`���̃t�@�C�����������Ƃ��ł��܂��B<BR>
+　ループチューナは、現時点で以下の PCM の形式のファイルを扱うことができます。<BR>
 <BR>
-�E�����k Wave ( �g���q�� .wav ) ������ <B>��������������</B><BR>
-�EMS-ADPCM ( �g���q�� .wav )<BR>
-�ETCWF ( �g���q�� .tcw )<BR>
-�EOgg Vorbis ( �g���q�� .ogg )<BR>
-<BR>
-<BR>
-�@���[�v������ 4 �b�����̏����Ȃ��̂ł́A�e���k�`����p������͖����k Wave ���g�����Ƃ������������܂� ( ���k�`���ł͍Đ��ʒu�̕ύX�Ɋ|����I�[�o�[�w�b�h���傫���̂ŁA�p�ɂɍĐ��ʒu�̕ύX����������͍̂D�܂����Ȃ� )�B<BR>
+・無圧縮 Wave ( 拡張子は .wav ) ただし <B>いくつか制限あり</B><BR>
+・MS-ADPCM ( 拡張子は .wav )<BR>
+・TCWF ( 拡張子は .tcw )<BR>
+・Ogg Vorbis ( 拡張子は .ogg )<BR>
 <BR>
 <BR>
-<IMG SRC="hline.png" width=100% height=1><BR>
-<CENTER>�� �ǂݍ��݉\�Ȗ����k Wave �`���ɂ��� ��</CENTER>
-<IMG SRC="hline.png" width=100% height=1><BR>
-<BR>
-�@�ȉ��̌`����ǂݍ��ނ��Ƃ��ł��܂��B<BR>
-<BR>
-�E8bit, 16bit, 24bit, 32bit �� ���ʂ̐������j�A PCM ( wFormatTag = WAVE_FORMAT_PCM �̂��� )<BR>
-�E32bit �̕��������_�� PCM ( wFormatTag = WAVE_FORMAT_IEEE_FLOAT �̂��� )<BR>
-�EwFormatTag = WAVE_FORMAT_EXTENSIBLE �� 8 �` 32bit �������j�A PCM �� 32bit ���������_�� PCM<BR>
-<BR>
-�@��������A���`�����l������ 8 �`�����l���ȉ��̂��̂Ɍ����܂��B�܂��A����Ȍ`���ł͐���ɓǂݍ��߂Ȃ��ꍇ������܂��B<BR>
-<BR>
-�@���[�v�`���[�i�́A16bit ���x�ȊO�̃f�[�^���󂯎�����ꍇ�A���������̊ȗ����̂��߁A�t�@�C���̓ǂݍ��ݎ��ɋ����I�� 16bit �ɕϊ����Ă��܂��܂��̂Œ��ӂ��Ă��������B[�t�@�C�� - �S�̂� wav �o��] �ł� 16bit �������j�A PCM ���o�͂���܂��B<BR>
+　ループ部分が 4 秒未満の小さなものでは、各圧縮形式を用いるよりは無圧縮 Wave を使うことを強く推奨します ( 圧縮形式では再生位置の変更に掛かるオーバーヘッドが大きいので、頻繁に再生位置の変更が発生するのは好ましくない )。<BR>
 <BR>
 <BR>
 <IMG SRC="hline.png" width=100% height=1><BR>
-<CENTER>�� �}���`�`�����l���t�@�C���ɂ��� ��</CENTER>
+<CENTER>■ 読み込み可能な無圧縮 Wave 形式について ■</CENTER>
 <IMG SRC="hline.png" width=100% height=1><BR>
 <BR>
-�@�X�s�[�J�[�ʒu���w��ł��� wFormatTag = WAVE_FORMAT_EXTENSIBLE �̌`���̃t�@�C����ǂݍ��񂾏ꍇ�������A���[�v�`���[�i�� �t�@�C���Ɋi�[����Ă���`�����l�����ɉ����Ĉȉ��̂悤�ɉ��߂��܂� (OggVorbis ���܂�)�B<BR>
+　以下の形式を読み込むことができます。<BR>
 <BR>
-�E1�`�����l���̏ꍇ : ���m����<BR>
-�E2�`�����l���̏ꍇ : �X�e���I<BR>
-�E4�`�����l���̏ꍇ : 4�`�����l���T���E���h (�`�����l���̐擪���珇�� �O���A�O�E�A�㍶�A��E)<BR>
-�E6�`�����l���̏ꍇ : 5.1�`�����l���T���E���h (�`�����l���̐擪���珇�� �O���A�O�����A�O�E�A�㍶�A��E�A����g)<BR>
+・8bit, 16bit, 24bit, 32bit の 普通の整数リニア PCM ( wFormatTag = WAVE_FORMAT_PCM のもの )<BR>
+・32bit の浮動小数点数 PCM ( wFormatTag = WAVE_FORMAT_IEEE_FLOAT のもの )<BR>
+・wFormatTag = WAVE_FORMAT_EXTENSIBLE の 8 〜 32bit 整数リニア PCM と 32bit 浮動小数点数 PCM<BR>
 <BR>
-�@����ȊO�̃`�����l�����̕���ǂݍ��񂾏ꍇ�̓���͕s��ł��B<BR>
+　いずれも、総チャンネル数が 8 チャンネル以下のものに限られます。また、特殊な形式では正常に読み込めない場合もあります。<BR>
 <BR>
-�@Windows 95/98/NT4.0 �ł́A���m������X�e���I�ȊO�̃t�@�C���AWAVE_FORMAT_EXTENSIBLE �`���̃t�@�C���̍Đ��̓T�|�[�g�O�ł��B<BR>
-<BR>
-<IMG SRC="hline.png" width=100% height=1><BR>
-<CENTER>�� �v���O�C�� DLL �ɂ��� ��</CENTER>
-<IMG SRC="hline.png" width=100% height=1><BR>
-<BR>
-�@Loop Tuner �́ALoop Tuner ���s�\�t�@�C�� (krkrlt.exe) �̒u���Ă���t�H���_�̐e�̃t�H���_�̉��ɂ��� plugin �t�H���_ (�܂� Loop Tuner �̒u���Ă���t�H���_���猩��ΌZ��̈ʒu�ɂ��� plugin �t�H���_ ) ����v���O�C����T���܂��B����́A(�z�z���̃t�@�C���\�����̂܂܂Ȃ��) �g���g���p�̃v���O�C�����Q�Ƃ��邱�ƂɂȂ�܂��B���ہALoop Tuner ���p����v���O�C���͋g���g���p��PCM�f�R�[�h�n�v���O�C���ł��B<BR>
-�@Loop Tuner �̒u���Ă���t�H���_���� plugin �Ƃ����f�B���N�g�����쐬���A�����Ƀv���O�C����u���Ă��g�p���邱�Ƃ��ł��܂��B<BR>
+　ループチューナは、16bit 精度以外のデータを受け取った場合、内部処理の簡略化のため、ファイルの読み込み時に強制的に 16bit に変換してしまいますので注意してください。[ファイル - 全体を wav 出力] でも 16bit 整数リニア PCM が出力されます。<BR>
 <BR>
 <BR>
 <IMG SRC="hline.png" width=100% height=1><BR>
-<CENTER>�� �^������ ��</CENTER>
+<CENTER>■ マルチチャンネルファイルについて ■</CENTER>
 <IMG SRC="hline.png" width=100% height=1><BR>
 <BR>
-�@���[�v�`���[�i�ł��̃T�E���h����������A�`���� PCM �Ŗ�����΂Ȃ�܂���B�܂��͖����k Wave �Ƃ��ăT�E���h��ۑ����Ă��������B<BR>
-�@���̂Ƃ��ɍ쐬���� Wave �́A�J��Ԃ��̂ɏ\���Ȏ��ԕ����L�^����Ă���K�v������܂��B�u�Đ�����Ȃ��]���ȕ����v�ƂȂ�ׂ��������������]�T�������č쐬�����ق��������ł��B<BR>
-�@�T�E���h�̓��̖��������̏����A�����̒����Ȃǂ͂��̎��_�ōs���Ă��������B<BR>
+　スピーカー位置を指定できる wFormatTag = WAVE_FORMAT_EXTENSIBLE の形式のファイルを読み込んだ場合を除き、ループチューナは ファイルに格納されているチャンネル数に応じて以下のように解釈します (OggVorbis も含む)。<BR>
 <BR>
-�@���̌�ɁA�������k�`����p����ꍇ�́A�e���k�`���ɃG���R�[�h���Ă��������B�������A���̂Ƃ��ɂ̓G���R�[�h�O�̖����k Wave �͏������Ɏ���Ă������Ƃ������߂��܂� ( �Đ�����Ȃ��]���ȕ�������Ő؂藎�Ƃ������Ȃ邩������Ȃ�����ł� )�B<BR>
+・1チャンネルの場合 : モノラル<BR>
+・2チャンネルの場合 : ステレオ<BR>
+・4チャンネルの場合 : 4チャンネルサラウンド (チャンネルの先頭から順に 前左、前右、後左、後右)<BR>
+・6チャンネルの場合 : 5.1チャンネルサラウンド (チャンネルの先頭から順に 前左、前中央、前右、後左、後右、低周波)<BR>
+<BR>
+　これ以外のチャンネル数の物を読み込んだ場合の動作は不定です。<BR>
+<BR>
+　Windows 95/98/NT4.0 では、モノラルやステレオ以外のファイル、WAVE_FORMAT_EXTENSIBLE 形式のファイルの再生はサポート外です。<BR>
+<BR>
+<IMG SRC="hline.png" width=100% height=1><BR>
+<CENTER>■ プラグイン DLL について ■</CENTER>
+<IMG SRC="hline.png" width=100% height=1><BR>
+<BR>
+　Loop Tuner は、Loop Tuner 実行可能ファイル (krkrlt.exe) の置いてあるフォルダの親のフォルダの下にある plugin フォルダ (つまり Loop Tuner の置いてあるフォルダから見れば兄弟の位置にある plugin フォルダ ) からプラグインを探します。これは、(配布時のファイル構成そのままならば) 吉里吉里用のプラグインを参照することになります。実際、Loop Tuner が用いるプラグインは吉里吉里用のPCMデコード系プラグインです。<BR>
+　Loop Tuner の置いてあるフォルダ下に plugin というディレクトリを作成し、そこにプラグインを置いても使用することができます。<BR>
+<BR>
+<BR>
+<IMG SRC="hline.png" width=100% height=1><BR>
+<CENTER>■ 録音する ■</CENTER>
+<IMG SRC="hline.png" width=100% height=1><BR>
+<BR>
+　ループチューナでそのサウンドを扱う限り、形式は PCM で無ければなりません。まずは無圧縮 Wave としてサウンドを保存してください。<BR>
+　このときに作成する Wave は、繰り返すのに十分な時間分が記録されている必要があります。「再生されない余分な部分」となるべき部分もすこし余裕をもって作成したほうがいいです。<BR>
+　サウンドの頭の無音部分の除去、音質の調整などはこの時点で行ってください。<BR>
+<BR>
+　その後に、もし圧縮形式を用いる場合は、各圧縮形式にエンコードしてください。ただし、このときにはエンコード前の無圧縮 Wave は消さずに取っておくことをお勧めします ( 再生されない余分な部分を後で切り落としたくなるかもしれないからです )。<BR>
 <BR>
 <BR>
 <IMG SRC="hline.png" width=100% height=1><BR>
 <BR>
-<CENTER>�� <A HREF="index.html">�ڎ��ɖ߂�</A> ��</CENTER>
+<CENTER>▲ <A HREF="index.html">目次に戻る</A> ▲</CENTER>
 <BR>
 <IMG SRC="hline.png" width=100% height=1><BR>
 

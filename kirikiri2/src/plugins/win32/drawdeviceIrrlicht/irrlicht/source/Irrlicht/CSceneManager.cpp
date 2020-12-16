@@ -255,7 +255,7 @@ CSceneManager::CSceneManager(video::IVideoDriver* driver, io::IFileSystem* fs,
 
 
 //! destructor
-CSceneManager::~CSceneManager()
+CSceneManager::‾CSceneManager()
 {
 	clearDeletionList();
 
@@ -582,11 +582,11 @@ ISceneNode* CSceneManager::addOctTreeSceneNode(IMesh* mesh, ISceneNode* parent,
 
 
 //! Adds a camera scene node to the tree and sets it as active camera.
-//! \param position: Position of the space relative to its parent where the camera will be placed.
-//! \param lookat: Position where the camera will look at. Also known as target.
-//! \param parent: Parent scene node of the camera. Can be null. If the parent moves,
+//! ¥param position: Position of the space relative to its parent where the camera will be placed.
+//! ¥param lookat: Position where the camera will look at. Also known as target.
+//! ¥param parent: Parent scene node of the camera. Can be null. If the parent moves,
 //! the camera will move too.
-//! \return Returns pointer to interface to camera
+//! ¥return Returns pointer to interface to camera
 ICameraSceneNode* CSceneManager::addCameraSceneNode(ISceneNode* parent,
 	const core::vector3df& position, const core::vector3df& lookat, s32 id)
 {
@@ -976,7 +976,7 @@ IAnimatedMesh* CSceneManager::addSphereMesh(const c8* name,
 //! of all scene nodes. The root scene node is a special scene node which
 //! only exists to manage all scene nodes. It is not rendered and cannot
 //! be removed from the scene.
-//! \return Returns a pointer to the root scene node.
+//! ¥return Returns a pointer to the root scene node.
 ISceneNode* CSceneManager::getRootSceneNode()
 {
 	return this;
@@ -985,7 +985,7 @@ ISceneNode* CSceneManager::getRootSceneNode()
 
 
 //! Returns the current active camera.
-//! \return The active camera is returned. Note that this can be NULL, if there
+//! ¥return The active camera is returned. Note that this can be NULL, if there
 //! was no camera created yet.
 ICameraSceneNode* CSceneManager::getActiveCamera()
 {
@@ -994,7 +994,7 @@ ICameraSceneNode* CSceneManager::getActiveCamera()
 
 
 //! Sets the active camera. The previous active camera will be deactivated.
-//! \param camera: The new camera which should be active.
+//! ¥param camera: The new camera which should be active.
 void CSceneManager::setActiveCamera(ICameraSceneNode* camera)
 {
 	if (ActiveCamera)
@@ -1783,7 +1783,7 @@ ISceneNodeAnimatorFactory* CSceneManager::getSceneNodeAnimatorFactory(u32 index)
 
 
 //! Saves the current scene into a file.
-//! \param filename: Name of the file .
+//! ¥param filename: Name of the file .
 bool CSceneManager::saveScene(const c8* filename, ISceneUserDataSerializer* userDataSerializer)
 {
 	bool ret = false;
@@ -1823,7 +1823,7 @@ bool CSceneManager::saveScene(io::IWriteFile* file, ISceneUserDataSerializer* us
 
 
 //! Loads a scene. Note that the current scene is not cleared before.
-//! \param filename: Name of the file .
+//! ¥param filename: Name of the file .
 bool CSceneManager::loadScene(const c8* filename, ISceneUserDataSerializer* userDataSerializer)
 {
 	bool ret = false;

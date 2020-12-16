@@ -181,14 +181,14 @@ struct static_tree_desc_s {int dummy;}; /* for buggy compilers */
  *    (except for the last MIN_MATCH-1 bytes of the input file).
  */
 #ifdef FASTEST
-#define INSERT_STRING(s, str, match_head) \
-   (UPDATE_HASH(s, s->ins_h, s->window[(str) + (MIN_MATCH-1)]), \
-    match_head = s->head[s->ins_h], \
+#define INSERT_STRING(s, str, match_head) ¥
+   (UPDATE_HASH(s, s->ins_h, s->window[(str) + (MIN_MATCH-1)]), ¥
+    match_head = s->head[s->ins_h], ¥
     s->head[s->ins_h] = (Pos)(str))
 #else
-#define INSERT_STRING(s, str, match_head) \
-   (UPDATE_HASH(s, s->ins_h, s->window[(str) + (MIN_MATCH-1)]), \
-    match_head = s->prev[(str) & s->w_mask] = s->head[s->ins_h], \
+#define INSERT_STRING(s, str, match_head) ¥
+   (UPDATE_HASH(s, s->ins_h, s->window[(str) + (MIN_MATCH-1)]), ¥
+    match_head = s->prev[(str) & s->w_mask] = s->head[s->ins_h], ¥
     s->head[s->ins_h] = (Pos)(str))
 #endif
 
@@ -196,8 +196,8 @@ struct static_tree_desc_s {int dummy;}; /* for buggy compilers */
  * Initialize the hash table (avoiding 64K overflow for 16 bit systems).
  * prev[] will be initialized on the fly.
  */
-#define CLEAR_HASH(s) \
-    s->head[s->hash_size-1] = NIL; \
+#define CLEAR_HASH(s) ¥
+    s->head[s->hash_size-1] = NIL; ¥
     zmemzero((Bytef *)s->head, (unsigned)(s->hash_size-1)*sizeof(*s->head));
 
 /* ========================================================================= */
@@ -1237,7 +1237,7 @@ local void check_match(s, start, match, length)
     /* check that the match is indeed a match */
     if (zmemcmp(s->window + match,
                 s->window + start, length) != EQUAL) {
-        fprintf(stderr, " start %u, match %u, length %d\n",
+        fprintf(stderr, " start %u, match %u, length %d¥n",
                 start, match, length);
         do {
             fprintf(stderr, "%c%c", s->window[match++], s->window[start++]);
@@ -1245,7 +1245,7 @@ local void check_match(s, start, match, length)
         z_error("invalid match");
     }
     if (z_verbose > 1) {
-        fprintf(stderr,"\\[%d,%d]", start-match, length);
+        fprintf(stderr,"¥¥[%d,%d]", start-match, length);
         do { putc(s->window[start++], stderr); } while (--length != 0);
     }
 }
@@ -1361,21 +1361,21 @@ local void fill_window(s)
  * Flush the current block, with given end-of-file flag.
  * IN assertion: strstart is set to the end of the current match.
  */
-#define FLUSH_BLOCK_ONLY(s, eof) { \
-   _tr_flush_block(s, (s->block_start >= 0L ? \
-                   (charf *)&s->window[(unsigned)s->block_start] : \
-                   (charf *)Z_NULL), \
-                (ulg)((long)s->strstart - s->block_start), \
-                (eof)); \
-   s->block_start = s->strstart; \
-   flush_pending(s->strm); \
-   Tracev((stderr,"[FLUSH]")); \
+#define FLUSH_BLOCK_ONLY(s, eof) { ¥
+   _tr_flush_block(s, (s->block_start >= 0L ? ¥
+                   (charf *)&s->window[(unsigned)s->block_start] : ¥
+                   (charf *)Z_NULL), ¥
+                (ulg)((long)s->strstart - s->block_start), ¥
+                (eof)); ¥
+   s->block_start = s->strstart; ¥
+   flush_pending(s->strm); ¥
+   Tracev((stderr,"[FLUSH]")); ¥
 }
 
 /* Same but force premature exit if necessary. */
-#define FLUSH_BLOCK(s, eof) { \
-   FLUSH_BLOCK_ONLY(s, eof); \
-   if (s->strm->avail_out == 0) return (eof) ? finish_started : need_more; \
+#define FLUSH_BLOCK(s, eof) { ¥
+   FLUSH_BLOCK_ONLY(s, eof); ¥
+   if (s->strm->avail_out == 0) return (eof) ? finish_started : need_more; ¥
 }
 
 /* ===========================================================================

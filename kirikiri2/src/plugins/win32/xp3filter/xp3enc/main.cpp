@@ -3,32 +3,32 @@
 //---------------------------------------------------------------------------
 
 /*
-	���̃v���W�F�N�g�́AXP3 �A�[�J�C�u�Ɋi�[�����t�@�C�����Í�������
-	�T���v���ł��B
-	�Í����͕��������Ƀp�t�H�[�}���X��̏�Q�ƂȂ�Ȃ����x�ɒP���ł���
-	�K�v������܂��B
-	�܂��A�d�l��A�����֐� (TVPSetXP3ArchiveExtractionFilter �Ŏw�肷��
-	�֐�) �́A��̃t�@�C���ɑ΂��A�C�ӂ̃I�t�Z�b�g�ƃT�C�Y�𔺂��ČĂ�
-	�o����A�������͈��̌Ăяo�����Ŋ������Ȃ���΂Ȃ�܂���B�܂�A
-	���̋��E���܂�����悤�ȕ������A���Ƃ��΃o�C�g�̏��������ւ�����A
-	�O�̓��̓o�C�g�Ɉˑ����������������͍s�����Ƃ��ł��܂���B
-	����́A�Í����֐��ɂ������܂��B
-	�����I�ɂ́A�o�C�g���Ƃ� XOR �� ���Z�A���Z���x�̂ݎg�p�\�ƍl���Ă���
-	�����B
-	�������A�t�@�C�����ɂ�����I�t�Z�b�g�ƃt�@�C�����ƂɂقڈقȂ�l(�n�b
-	�V���l)���^������̂ŁA�t�@�C�����̃I�t�Z�b�g�ɉ����ċǏ��I�ɈÍ���
-	����������A�t�@�C���̃n�b�V���𗘗p���ăt�@�C�����ƂɈقȂ�Í�����
-	�������肪�\�ł��B
+	このプロジェクトは、XP3 アーカイブに格納されるファイルを暗号化する
+	サンプルです。
+	暗号化は復号化時にパフォーマンス上の障害とならない程度に単純である
+	必要があります。
+	また、仕様上、復号関数 (TVPSetXP3ArchiveExtractionFilter で指定する
+	関数) は、一つのファイルに対し、任意のオフセットとサイズを伴って呼び
+	出され、復号化は一回の呼び出し内で完結しなければなりません。つまり、
+	その境界をまたがるような復号化、たとえばバイトの順序を入れ替えたり、
+	前の入力バイトに依存した復号化処理は行うことができません。
+	これは、暗号化関数にも言えます。
+	現実的には、バイトごとの XOR や 加算、減算程度のみ使用可能と考えてくだ
+	さい。
+	ただし、ファイル中におけるオフセットとファイルごとにほぼ異なる値(ハッ
+	シュ値)が与えられるので、ファイル中のオフセットに応じて局所的に暗号化
+	をかけたり、ファイルのハッシュを利用してファイルごとに異なる暗号化を
+	かけたりが可能です。
 
-	�Í������s���΁A�Ή����镜�����g���g���p�v���O�C����p���Ȃ����
-	XP3 �A�[�J�C�u��ǂݍ��߂Ȃ��Ȃ�܂��B�܂�A�����I�ɋg���g���{�̂�
-	Windows �ȊO�ɈڐA����A���̍�i�����v���b�g�t�H�[���œ����\�����A
-	���Ȃ�ے肷�邱�ƂɂȂ�܂��B
+	暗号化を行えば、対応する復号化吉里吉里用プラグインを用いなければ
+	XP3 アーカイブを読み込めなくなります。つまり、将来的に吉里吉里本体が
+	Windows 以外に移植され、その作品が他プラットフォームで動く可能性を、
+	かなり否定することになります。
 
-	�ی���s���v�����A��i�̌��J���Ɖ���������ꍇ�ɂ��g�p���������B
+	保護を行う要求が、作品の公開性と可搬性を上回る場合にご使用ください。
 
-	���� DLL �̖��O�� xp3enc.dll �ł���K�v������܂��B�܂��AReleaser
-	(krkrrel.exe) �Ɠ����t�H���_�ɔz�u�����K�v������܂��B
+	この DLL の名前は xp3enc.dll である必要があります。また、Releaser
+	(krkrrel.exe) と同じフォルダに配置される必要があります。
 */
 
 
@@ -36,7 +36,7 @@
 //#pragma argsused
 int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void* lpReserved)
 {
-	// DLL �G���g���|�C���g
+	// DLL エントリポイント
 	return 1;
 }
 //---------------------------------------------------------------------------
@@ -45,32 +45,32 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void* lpReserved
 
 //---------------------------------------------------------------------------
 /*
-	�t�@�C�����Í�������֐����`���܂��B�֐�����
-	XP3ArchiveAttractFilter_v �̌�ɂ��̊֐��̗p����C���^�[�t�F�[�X
-	�o�[�W�������w�肵�܂��B
-	���݂̃C���^�[�t�F�[�X�o�[�W������ 2 �ł��B
-	(�o�[�W����1�͋g���g���Q 2.23 beta1 ���g�p�s�ɂȂ�܂���)
-	�Ăяo���K��ɂ͕K�� _stdcall ��p���܂��B
-	�����Ŏw�肵���֐����́A���Ȃ炸 .def �t�@�C������ exports �߂ɏ����A
-	DLL ����G�N�X�|�[�g����K�v������܂��B
+	ファイルを暗号化する関数を定義します。関数名は
+	XP3ArchiveAttractFilter_v の後にこの関数の用いるインターフェース
+	バージョンを指定します。
+	現在のインターフェースバージョンは 2 です。
+	(バージョン1は吉里吉里２ 2.23 beta1 より使用不可になりました)
+	呼び出し規約には必ず _stdcall を用います。
+	ここで指定した関数名は、かならず .def ファイル中の exports 節に書き、
+	DLL からエクスポートする必要があります。
 */
 extern "C" void __stdcall XP3ArchiveAttractFilter_v2(
 	unsigned __int32 hash,
 	unsigned __int64 offset, void * buffer, long bufferlen)
 {
-	// �o�[�W���� 2 �֐��͈ȉ��̈������󂯎��܂��B
-	// hash      : ���̓t�@�C����(�Í�����������)32bit�n�b�V���ł��B
-	// offset    : "buffer" �����������f�[�^���A�t�@�C���̐擪���牽�o�C�g��
-	//             �ł��邩 (�t�@�C�������k�����ꍇ�A�����k�̏�Ԃ̃o�C�g
-	//             �I�t�Z�b�g�ł� )
-	// buffer    : �ΏۂƂȂ�f�[�^�ł��B�t�@�C�������k�����ꍇ�́A���k����
-	//             ��O�̃f�[�^�ł��B
-	//             ( �t�@�C�������k���ꂽ��̃f�[�^�ɂ��̊֐��ŕύX�������邱
-	//             �Ƃ͏o���܂��� )
-	// bufferlen : "buffer" �������\���f�[�^�̒����ł��B
+	// バージョン 2 関数は以下の引数を受け取ります。
+	// hash      : 入力ファイルの(暗号化解除時の)32bitハッシュです。
+	// offset    : "buffer" 引数が示すデータが、ファイルの先頭から何バイト目
+	//             であるか (ファイルが圧縮される場合、無圧縮の状態のバイト
+	//             オフセットです )
+	// buffer    : 対象となるデータです。ファイルが圧縮される場合は、圧縮され
+	//             る前のデータです。
+	//             ( ファイルが圧縮された後のデータにこの関数で変更を加えるこ
+	//             とは出来ません )
+	// bufferlen : "buffer" 引数が表すデータの長さです。
 
-	// �����������ł̓T���v���Ƃ��āAhash �̍ŉ��ʃo�C�g�� XOR ������@��
-	// �����܂��B
+	// しかしここではサンプルとして、hash の最下位バイトを XOR する方法を
+	// 示します。
 
 	int i;
 	for(i = 0; i < bufferlen; i++) ((unsigned char*)buffer)[i] ^= hash;

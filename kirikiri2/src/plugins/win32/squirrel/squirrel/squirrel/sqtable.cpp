@@ -64,7 +64,7 @@ void SQTable::Rehash(bool force)
 			NewSlot(old->key,old->val);
 	}
 	for(SQInteger k=0;k<oldsize;k++) 
-		nold[k].~_HashNode();
+		nold[k].‾_HashNode();
 	SQ_FREE(nold,oldsize*sizeof(_HashNode));
 }
 

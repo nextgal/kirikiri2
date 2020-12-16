@@ -9,35 +9,35 @@
 
 //---------------------------------------------------------------------------
 /*
-	'ƒ‚ƒUƒCƒN' ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
-	‹éŒ`ƒ‚ƒUƒCƒN‚É‚æ‚éƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
-	‚±‚Ìƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚Í“]‘—æ‚ªƒ¿‚ğ‚Á‚Ä‚¢‚é‚Æ(—v‚·‚é‚Éƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğs‚¤
-	ƒŒƒCƒ„‚Ì type ‚ª ltOpaque ˆÈŠO‚Ìê‡)A³í‚É“§‰ßî•ñ‚ğˆ—‚Å‚«‚È‚¢‚Ì‚Å
-	’ˆÓ
+	'ãƒ¢ã‚¶ã‚¤ã‚¯' ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³
+	çŸ©å½¢ãƒ¢ã‚¶ã‚¤ã‚¯ã«ã‚ˆã‚‹ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³
+	ã“ã®ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã¯è»¢é€å…ˆãŒÎ±ã‚’æŒã£ã¦ã„ã‚‹ã¨(è¦ã™ã‚‹ã«ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’è¡Œã†
+	ãƒ¬ã‚¤ãƒ¤ã® type ãŒ ltOpaque ä»¥å¤–ã®å ´åˆ)ã€æ­£å¸¸ã«é€éæƒ…å ±ã‚’å‡¦ç†ã§ããªã„ã®ã§
+	æ³¨æ„
 */
 //---------------------------------------------------------------------------
 class tTVPMosaicTransHandler : public iTVPDivisibleTransHandler
 {
-	//	'ƒ‚ƒUƒCƒN' ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒnƒ“ƒhƒ‰ƒNƒ‰ƒX‚ÌÀ‘•
+	//	'ãƒ¢ã‚¶ã‚¤ã‚¯' ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãƒãƒ³ãƒ‰ãƒ©ã‚¯ãƒ©ã‚¹ã®å®Ÿè£…
 
-	tjs_int RefCount; // QÆƒJƒEƒ“ƒ^
+	tjs_int RefCount; // å‚ç…§ã‚«ã‚¦ãƒ³ã‚¿
 		/*
-			iTVPDivisibleTransHandler ‚Í QÆƒJƒEƒ“ƒ^‚É‚æ‚éŠÇ—‚ğs‚¤
+			iTVPDivisibleTransHandler ã¯ å‚ç…§ã‚«ã‚¦ãƒ³ã‚¿ã«ã‚ˆã‚‹ç®¡ç†ã‚’è¡Œã†
 		*/
 
 protected:
-	tjs_uint64 StartTick; // ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğŠJn‚µ‚½ tick count
-	tjs_uint64 Time; // ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚É—v‚·‚éŠÔ
-	tjs_uint64 HalfTime; // ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚É—v‚·‚éŠÔ / 2
-	tjs_uint64 CurTime; // Œ»İ‚ÌŠÔ
-	tjs_int Width; // ˆ—‚·‚é‰æ‘œ‚Ì•
-	tjs_int Height; // ˆ—‚·‚é‰æ‘œ‚Ì‚‚³
-	tjs_int CurOfsX; // ƒuƒƒbƒNƒIƒtƒZƒbƒg X
-	tjs_int CurOfsY; // ƒuƒƒbƒNƒIƒtƒZƒbƒg Y
-	tjs_int MaxBlockSize; // Å‘å‚ÌƒuƒƒbƒN•
-	tjs_int CurBlockSize; // Œ»İ‚ÌƒuƒƒbƒN•
-	tjs_int BlendRatio; // ƒuƒŒƒ“ƒh”ä
-	bool First; // ˆê”ÔÅ‰‚ÌŒÄ‚Ño‚µ‚©‚Ç‚¤‚©
+	tjs_uint64 StartTick; // ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ãŸ tick count
+	tjs_uint64 Time; // ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«è¦ã™ã‚‹æ™‚é–“
+	tjs_uint64 HalfTime; // ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«è¦ã™ã‚‹æ™‚é–“ / 2
+	tjs_uint64 CurTime; // ç¾åœ¨ã®æ™‚é–“
+	tjs_int Width; // å‡¦ç†ã™ã‚‹ç”»åƒã®å¹…
+	tjs_int Height; // å‡¦ç†ã™ã‚‹ç”»åƒã®é«˜ã•
+	tjs_int CurOfsX; // ãƒ–ãƒ­ãƒƒã‚¯ã‚ªãƒ•ã‚»ãƒƒãƒˆ X
+	tjs_int CurOfsY; // ãƒ–ãƒ­ãƒƒã‚¯ã‚ªãƒ•ã‚»ãƒƒãƒˆ Y
+	tjs_int MaxBlockSize; // æœ€å¤§ã®ãƒ–ãƒ­ãƒƒã‚¯å¹…
+	tjs_int CurBlockSize; // ç¾åœ¨ã®ãƒ–ãƒ­ãƒƒã‚¯å¹…
+	tjs_int BlendRatio; // ãƒ–ãƒ¬ãƒ³ãƒ‰æ¯”
+	bool First; // ä¸€ç•ªæœ€åˆã®å‘¼ã³å‡ºã—ã‹ã©ã†ã‹
 
 public:
 	tTVPMosaicTransHandler(tjs_uint64 time, tjs_int width, tjs_int height,
@@ -54,22 +54,22 @@ public:
 		First = true;
 	}
 
-	virtual ~tTVPMosaicTransHandler()
+	virtual â€¾tTVPMosaicTransHandler()
 	{
 	}
 
 	tjs_error TJS_INTF_METHOD AddRef()
 	{
-		// iTVPBaseTransHandler ‚Ì AddRef
-		// QÆƒJƒEƒ“ƒ^‚ğƒCƒ“ƒNƒŠƒƒ“ƒg
+		// iTVPBaseTransHandler ã® AddRef
+		// å‚ç…§ã‚«ã‚¦ãƒ³ã‚¿ã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
 		RefCount ++;
 		return TJS_S_OK;
 	}
 
 	tjs_error TJS_INTF_METHOD Release()
 	{
-		// iTVPBaseTransHandler ‚Ì Release
-		// QÆƒJƒEƒ“ƒ^‚ğƒfƒNƒŠƒƒ“ƒg‚µA0 ‚É‚È‚é‚È‚ç‚Î delete this
+		// iTVPBaseTransHandler ã® Release
+		// å‚ç…§ã‚«ã‚¦ãƒ³ã‚¿ã‚’ãƒ‡ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã—ã€0 ã«ãªã‚‹ãªã‚‰ã° delete this
 		if(RefCount == 1)
 			delete this;
 		else
@@ -82,8 +82,8 @@ public:
 			/*in*/iTVPSimpleOptionProvider *options // option provider
 		)
 	{
-		// iTVPBaseTransHandler ‚Ì SetOption
-		// ‚Æ‚­‚É‚â‚é‚±‚Æ‚È‚µ
+		// iTVPBaseTransHandler ã® SetOption
+		// ã¨ãã«ã‚„ã‚‹ã“ã¨ãªã—
 		return TJS_S_OK;
 	}
 
@@ -99,27 +99,27 @@ public:
 			iTVPScanLineProvider * src1,
 			iTVPScanLineProvider * src2)
 	{
-		*dest = src2; // í‚ÉÅI‰æ‘œ‚Í src2
+		*dest = src2; // å¸¸ã«æœ€çµ‚ç”»åƒã¯ src2
 		return TJS_S_OK;
 	}
 };
 //---------------------------------------------------------------------------
 tjs_error TJS_INTF_METHOD tTVPMosaicTransHandler::StartProcess(tjs_uint64 tick)
 {
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚Ì‰æ–ÊXVˆê‰ñ‚²‚Æ‚ÉŒÄ‚Î‚ê‚é
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã®ç”»é¢æ›´æ–°ä¸€å›ã”ã¨ã«å‘¼ã°ã‚Œã‚‹
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚Ì‰æ–ÊXVˆê‰ñ‚É‚Â‚«A‚Ü‚¸Å‰‚É StartProcess ‚ªŒÄ‚Î‚ê‚é
-	// ‚»‚Ì‚ ‚Æ Process ‚ª•¡”‰ñŒÄ‚Î‚ê‚é ( —Ìˆæ‚ğ•ªŠ„ˆ—‚µ‚Ä‚¢‚éê‡ )
-	// ÅŒã‚É EndProcess ‚ªŒÄ‚Î‚ê‚é
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã®ç”»é¢æ›´æ–°ä¸€å›ã«ã¤ãã€ã¾ãšæœ€åˆã« StartProcess ãŒå‘¼ã°ã‚Œã‚‹
+	// ãã®ã‚ã¨ Process ãŒè¤‡æ•°å›å‘¼ã°ã‚Œã‚‹ ( é ˜åŸŸã‚’åˆ†å‰²å‡¦ç†ã—ã¦ã„ã‚‹å ´åˆ )
+	// æœ€å¾Œã« EndProcess ãŒå‘¼ã°ã‚Œã‚‹
 
 	if(First)
 	{
-		// Å‰‚ÌÀs
+		// æœ€åˆã®å®Ÿè¡Œ
 		First = false;
 		StartTick = tick;
 	}
 
-	// ‰æ‘œ‰‰Z‚É•K—v‚Èƒpƒ‰ƒ[ƒ^‚ğŒvZ
+	// ç”»åƒæ¼”ç®—ã«å¿…è¦ãªãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¨ˆç®—
 	tjs_int64 t = CurTime = (tick - StartTick);
 	if(CurTime > Time) CurTime = Time;
 	if(t >= HalfTime) t = Time - t;
@@ -130,7 +130,7 @@ tjs_error TJS_INTF_METHOD tTVPMosaicTransHandler::StartProcess(tjs_uint64 tick)
 	BlendRatio = CurTime * 255 / Time;
 	if(BlendRatio > 255) BlendRatio = 255;
 
-	// ’†S‚ÌƒuƒƒbƒN‚ğ–{“–‚É’†S‚É‚Á‚Ä‚±‚ç‚ê‚é‚æ‚¤‚É CurOfsX ‚Æ CurOfsY ‚ğ’²®
+	// ä¸­å¿ƒã®ãƒ–ãƒ­ãƒƒã‚¯ã‚’æœ¬å½“ã«ä¸­å¿ƒã«æŒã£ã¦ã“ã‚‰ã‚Œã‚‹ã‚ˆã†ã« CurOfsX ã¨ CurOfsY ã‚’èª¿æ•´
 	int x = Width / 2;
 	int y = Height / 2;
 	x /= CurBlockSize;
@@ -147,9 +147,9 @@ tjs_error TJS_INTF_METHOD tTVPMosaicTransHandler::StartProcess(tjs_uint64 tick)
 //---------------------------------------------------------------------------
 tjs_error TJS_INTF_METHOD tTVPMosaicTransHandler::EndProcess()
 {
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚Ì‰æ–ÊXVˆê‰ñ•ª‚ªI‚í‚é‚²‚Æ‚ÉŒÄ‚Î‚ê‚é
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã®ç”»é¢æ›´æ–°ä¸€å›åˆ†ãŒçµ‚ã‚ã‚‹ã”ã¨ã«å‘¼ã°ã‚Œã‚‹
 
-	if(BlendRatio == 255) return TJS_S_FALSE; // ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“I—¹
+	if(BlendRatio == 255) return TJS_S_FALSE; // ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³çµ‚äº†
 
 	return TJS_S_TRUE;
 }
@@ -157,20 +157,20 @@ tjs_error TJS_INTF_METHOD tTVPMosaicTransHandler::EndProcess()
 tjs_error TJS_INTF_METHOD tTVPMosaicTransHandler::Process(
 			tTVPDivisibleData *data)
 {
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÌŠe—Ìˆæ‚²‚Æ‚ÉŒÄ‚Î‚ê‚é
-	// ‹g—¢‹g—¢‚Í‰æ–Ê‚ğXV‚·‚é‚Æ‚«‚É‚¢‚­‚Â‚©‚Ì—Ìˆæ‚É•ªŠ„‚µ‚È‚ª‚çˆ—‚ğs‚¤‚Ì‚Å
-	// ‚±‚Ìƒƒ\ƒbƒh‚Í’ÊíA‰æ–ÊXVˆê‰ñ‚É‚Â‚«•¡”‰ñŒÄ‚Î‚ê‚é
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã®å„é ˜åŸŸã”ã¨ã«å‘¼ã°ã‚Œã‚‹
+	// å‰é‡Œå‰é‡Œã¯ç”»é¢ã‚’æ›´æ–°ã™ã‚‹ã¨ãã«ã„ãã¤ã‹ã®é ˜åŸŸã«åˆ†å‰²ã—ãªãŒã‚‰å‡¦ç†ã‚’è¡Œã†ã®ã§
+	// ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯é€šå¸¸ã€ç”»é¢æ›´æ–°ä¸€å›ã«ã¤ãè¤‡æ•°å›å‘¼ã°ã‚Œã‚‹
 
-	// data ‚É‚Í—Ìˆæ‚â‰æ‘œ‚ÉŠÖ‚·‚éî•ñ‚ª“ü‚Á‚Ä‚¢‚é
+	// data ã«ã¯é ˜åŸŸã‚„ç”»åƒã«é–¢ã™ã‚‹æƒ…å ±ãŒå…¥ã£ã¦ã„ã‚‹
 
-	// data->Left, data->Top, data->Width, data->Height ‚Å¦‚³‚ê‚é‹éŒ`‚É
-	// ‚Ì‚İ“]‘—‚·‚é•K—v‚ª‚ ‚éB‚±‚±‚Ås‚¤ˆ—‚ÍˆÈ‰º‚Ì’Ê‚èB
-	// 1: ‚»‚Ì“]‘—‹éŒ`‚ÉŠÜ‚Ü‚ê‚éƒ‚ƒUƒCƒN‚ÌƒuƒƒbƒN‚Ì”ÍˆÍ‚ğ”»’è‚·‚é
-	// 2: ‚Ü‚¸•Ó‹«‚ÌƒuƒƒbƒN‚É‘Î‚µ‚Ä“]‘—‹éŒ`‚Æ‚ÌÏ‹éŒ`‚ğ“¾‚Ä‚»‚±‚ÉF‚ğ“h‚è‚Â‚Ô‚·
-	// 3: c‚è‚ÌƒuƒƒbƒN‚Í‚Í‚İo‚µ‚É‚Â‚¢‚Ä’ˆÓ‚·‚é•K—v‚ª‚È‚¢‚Ì‚ÅS‚¨‚«‚È‚­F‚ğ“h‚è‚Â‚Ô‚·
+	// data->Left, data->Top, data->Width, data->Height ã§ç¤ºã•ã‚Œã‚‹çŸ©å½¢ã«
+	// ã®ã¿è»¢é€ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚ã“ã“ã§è¡Œã†å‡¦ç†ã¯ä»¥ä¸‹ã®é€šã‚Šã€‚
+	// 1: ãã®è»¢é€çŸ©å½¢ã«å«ã¾ã‚Œã‚‹ãƒ¢ã‚¶ã‚¤ã‚¯ã®ãƒ–ãƒ­ãƒƒã‚¯ã®ç¯„å›²ã‚’åˆ¤å®šã™ã‚‹
+	// 2: ã¾ãšè¾ºå¢ƒã®ãƒ–ãƒ­ãƒƒã‚¯ã«å¯¾ã—ã¦è»¢é€çŸ©å½¢ã¨ã®ç©çŸ©å½¢ã‚’å¾—ã¦ãã“ã«è‰²ã‚’å¡—ã‚Šã¤ã¶ã™
+	// 3: æ®‹ã‚Šã®ãƒ–ãƒ­ãƒƒã‚¯ã¯ã¯ã¿å‡ºã—ã«ã¤ã„ã¦æ³¨æ„ã™ã‚‹å¿…è¦ãŒãªã„ã®ã§å¿ƒãŠããªãè‰²ã‚’å¡—ã‚Šã¤ã¶ã™
 
 
-	// •Ï”‚Ì€”õ
+	// å¤‰æ•°ã®æº–å‚™
 	tjs_uint8 *dest;
 	tjs_int destpitch;
 	const tjs_uint8 *src1;
@@ -193,7 +193,7 @@ tjs_error TJS_INTF_METHOD tTVPMosaicTransHandler::Process(
 	tjs_int destxofs = data->DestLeft - data->Left;
 	tjs_int destyofs = data->DestTop - data->Top;
 
-	// 1: ‚»‚Ì“]‘—‹éŒ`‚ÉŠÜ‚Ü‚ê‚éƒ‚ƒUƒCƒN‚ÌƒuƒƒbƒN‚Ì”ÍˆÍ‚ğ”»’è‚·‚é
+	// 1: ãã®è»¢é€çŸ©å½¢ã«å«ã¾ã‚Œã‚‹ãƒ¢ã‚¶ã‚¤ã‚¯ã®ãƒ–ãƒ­ãƒƒã‚¯ã®ç¯„å›²ã‚’åˆ¤å®šã™ã‚‹
 	int startx, starty;
 	int endx, endy;
 	int bs = CurBlockSize;
@@ -203,119 +203,119 @@ tjs_error TJS_INTF_METHOD tTVPMosaicTransHandler::Process(
 	endx = (data->Left + data->Width - 1 - CurOfsX) / bs;
 	endy = (data->Top + data->Height - 1 - CurOfsY) / bs;
 
-	// “h‚è‚Â‚Ô‚µƒ}ƒNƒ
-#define FILL_LINE(dp, xlen, ylen, d) { \
-			tjs_uint8 *__destp = (tjs_uint8*)(dp); \
-			int __count = ylen; \
-			tjs_uint32 color = (d); \
-			switch(xlen)                   \
-			{                              \
-			case 2:                        \
-				do           \
-				{                          \
-					((tjs_uint32*)__destp)[0] =       \
-					((tjs_uint32*)__destp)[1] = color;      \
-					__destp += destpitch;  \
-				} while(--__count);                          \
-				break;                     \
-			case 3:                        \
-				do           \
-				{                          \
-					((tjs_uint32*)__destp)[0] =       \
-					((tjs_uint32*)__destp)[1] =       \
-					((tjs_uint32*)__destp)[2] = color;      \
-					__destp += destpitch;  \
-				} while(--__count);                          \
-				break;                     \
-			case 4:                        \
-				do           \
-				{                          \
-					((tjs_uint32*)__destp)[0] =       \
-					((tjs_uint32*)__destp)[1] =       \
-					((tjs_uint32*)__destp)[2] =       \
-					((tjs_uint32*)__destp)[3] = color;      \
-					__destp += destpitch;  \
-				} while(--__count);                          \
-				break;                     \
-			case 5:                        \
-				do           \
-				{                          \
-					((tjs_uint32*)__destp)[0] =       \
-					((tjs_uint32*)__destp)[1] =       \
-					((tjs_uint32*)__destp)[2] =       \
-					((tjs_uint32*)__destp)[3] =       \
-					((tjs_uint32*)__destp)[4] = color;      \
-					__destp += destpitch;  \
-				} while(--__count);                          \
-				break;                     \
-			case 6:                        \
-				do           \
-				{                          \
-					((tjs_uint32*)__destp)[0] =       \
-					((tjs_uint32*)__destp)[1] =       \
-					((tjs_uint32*)__destp)[2] =       \
-					((tjs_uint32*)__destp)[3] =       \
-					((tjs_uint32*)__destp)[4] =       \
-					((tjs_uint32*)__destp)[5] = color;      \
-					__destp += destpitch;  \
-				} while(--__count);                          \
-				break;                     \
-			case 7:                        \
-				do           \
-				{                          \
-					((tjs_uint32*)__destp)[0] =       \
-					((tjs_uint32*)__destp)[1] =       \
-					((tjs_uint32*)__destp)[2] =       \
-					((tjs_uint32*)__destp)[3] =       \
-					((tjs_uint32*)__destp)[4] =       \
-					((tjs_uint32*)__destp)[5] =       \
-					((tjs_uint32*)__destp)[6] = color;      \
-					__destp += destpitch;  \
-				} while(--__count);                          \
-				break;                     \
-			default:                       \
-				while(__count--) \
-				{ \
-					TVPFillARGB((tjs_uint32*)__destp, (xlen), color); \
-					__destp += destpitch; \
-				} \
-			} \
+	// å¡—ã‚Šã¤ã¶ã—ãƒã‚¯ãƒ­
+#define FILL_LINE(dp, xlen, ylen, d) { Â¥
+			tjs_uint8 *__destp = (tjs_uint8*)(dp); Â¥
+			int __count = ylen; Â¥
+			tjs_uint32 color = (d); Â¥
+			switch(xlen)                   Â¥
+			{                              Â¥
+			case 2:                        Â¥
+				do           Â¥
+				{                          Â¥
+					((tjs_uint32*)__destp)[0] =       Â¥
+					((tjs_uint32*)__destp)[1] = color;      Â¥
+					__destp += destpitch;  Â¥
+				} while(--__count);                          Â¥
+				break;                     Â¥
+			case 3:                        Â¥
+				do           Â¥
+				{                          Â¥
+					((tjs_uint32*)__destp)[0] =       Â¥
+					((tjs_uint32*)__destp)[1] =       Â¥
+					((tjs_uint32*)__destp)[2] = color;      Â¥
+					__destp += destpitch;  Â¥
+				} while(--__count);                          Â¥
+				break;                     Â¥
+			case 4:                        Â¥
+				do           Â¥
+				{                          Â¥
+					((tjs_uint32*)__destp)[0] =       Â¥
+					((tjs_uint32*)__destp)[1] =       Â¥
+					((tjs_uint32*)__destp)[2] =       Â¥
+					((tjs_uint32*)__destp)[3] = color;      Â¥
+					__destp += destpitch;  Â¥
+				} while(--__count);                          Â¥
+				break;                     Â¥
+			case 5:                        Â¥
+				do           Â¥
+				{                          Â¥
+					((tjs_uint32*)__destp)[0] =       Â¥
+					((tjs_uint32*)__destp)[1] =       Â¥
+					((tjs_uint32*)__destp)[2] =       Â¥
+					((tjs_uint32*)__destp)[3] =       Â¥
+					((tjs_uint32*)__destp)[4] = color;      Â¥
+					__destp += destpitch;  Â¥
+				} while(--__count);                          Â¥
+				break;                     Â¥
+			case 6:                        Â¥
+				do           Â¥
+				{                          Â¥
+					((tjs_uint32*)__destp)[0] =       Â¥
+					((tjs_uint32*)__destp)[1] =       Â¥
+					((tjs_uint32*)__destp)[2] =       Â¥
+					((tjs_uint32*)__destp)[3] =       Â¥
+					((tjs_uint32*)__destp)[4] =       Â¥
+					((tjs_uint32*)__destp)[5] = color;      Â¥
+					__destp += destpitch;  Â¥
+				} while(--__count);                          Â¥
+				break;                     Â¥
+			case 7:                        Â¥
+				do           Â¥
+				{                          Â¥
+					((tjs_uint32*)__destp)[0] =       Â¥
+					((tjs_uint32*)__destp)[1] =       Â¥
+					((tjs_uint32*)__destp)[2] =       Â¥
+					((tjs_uint32*)__destp)[3] =       Â¥
+					((tjs_uint32*)__destp)[4] =       Â¥
+					((tjs_uint32*)__destp)[5] =       Â¥
+					((tjs_uint32*)__destp)[6] = color;      Â¥
+					__destp += destpitch;  Â¥
+				} while(--__count);                          Â¥
+				break;                     Â¥
+			default:                       Â¥
+				while(__count--) Â¥
+				{ Â¥
+					TVPFillARGB((tjs_uint32*)__destp, (xlen), color); Â¥
+					__destp += destpitch; Â¥
+				} Â¥
+			} Â¥
 		}
 
 
-	// ’ˆÓ‚µ‚È‚ª‚ç‚Ì“h‚è‚Â‚Ô‚µƒ}ƒNƒ
+	// æ³¨æ„ã—ãªãŒã‚‰ã®å¡—ã‚Šã¤ã¶ã—ãƒã‚¯ãƒ­
 	int bs2 = bs >> 1;
-#define FILL_ONE(x, y) { \
-		tjs_int l = (x) * bs + CurOfsX; \
-		tjs_int t = (y) * bs + CurOfsY; \
-		tjs_int r = l + bs; \
-		tjs_int b = t + bs; \
-		tjs_int mx = l + bs2, my = t + bs2; \
-		if(Clip(l, r, data->Left, data->Left + data->Width) && \
-			Clip(t, b, data->Top, data->Top + data->Height)) \
-		{ \
-			if(mx < 0) mx = 0; \
-			if(my < 0) my = 0; \
-			if(mx >= Width) mx = Width - 1; \
-			if(my >= Height) my = Height - 1; \
-			tjs_uint32 d = Blend( \
-				*((const tjs_uint32 *)(src1 + my*src1pitch) + mx), \
-				*((const tjs_uint32 *)(src2 + my*src2pitch) + mx), \
-				BlendRatio); \
-			tjs_uint8 *destp = (tjs_uint8*) \
-				((tjs_uint32*)(dest + (t + destyofs)*destpitch) + l + destxofs); \
-			tjs_int xlen = r - l; \
-			tjs_int ylen = b - t; \
-			FILL_LINE(destp, xlen, ylen, d); \
-		} \
+#define FILL_ONE(x, y) { Â¥
+		tjs_int l = (x) * bs + CurOfsX; Â¥
+		tjs_int t = (y) * bs + CurOfsY; Â¥
+		tjs_int r = l + bs; Â¥
+		tjs_int b = t + bs; Â¥
+		tjs_int mx = l + bs2, my = t + bs2; Â¥
+		if(Clip(l, r, data->Left, data->Left + data->Width) && Â¥
+			Clip(t, b, data->Top, data->Top + data->Height)) Â¥
+		{ Â¥
+			if(mx < 0) mx = 0; Â¥
+			if(my < 0) my = 0; Â¥
+			if(mx >= Width) mx = Width - 1; Â¥
+			if(my >= Height) my = Height - 1; Â¥
+			tjs_uint32 d = Blend( Â¥
+				*((const tjs_uint32 *)(src1 + my*src1pitch) + mx), Â¥
+				*((const tjs_uint32 *)(src2 + my*src2pitch) + mx), Â¥
+				BlendRatio); Â¥
+			tjs_uint8 *destp = (tjs_uint8*) Â¥
+				((tjs_uint32*)(dest + (t + destyofs)*destpitch) + l + destxofs); Â¥
+			tjs_int xlen = r - l; Â¥
+			tjs_int ylen = b - t; Â¥
+			FILL_LINE(destp, xlen, ylen, d); Â¥
+		} Â¥
 	}
-		/* –{—ˆ‚Í“]‘—Œ³ƒuƒƒbƒN‚Ì”ÍˆÍ“à‚É‚ ‚éƒsƒNƒZƒ‹‚ÌF‚Ì•½‹Ï‚ğæ‚é‚ÆãY—í‚¾‚¯‚Ç
-		   d‚­‚È‚é‚Ì‚Å‚â‚ç‚È‚¢ */
+		/* æœ¬æ¥ã¯è»¢é€å…ƒãƒ–ãƒ­ãƒƒã‚¯ã®ç¯„å›²å†…ã«ã‚ã‚‹ãƒ”ã‚¯ã‚»ãƒ«ã®è‰²ã®å¹³å‡ã‚’å–ã‚‹ã¨ç¶ºéº—ã ã‘ã©
+		   é‡ããªã‚‹ã®ã§ã‚„ã‚‰ãªã„ */
 
-	// 2: ‚Ü‚¸•Ó‹«‚ÌƒuƒƒbƒN‚É‘Î‚µ‚Ä“]‘—‹éŒ`‚Æ‚ÌÏ‹éŒ`‚ğ“¾‚Ä‚»‚±‚ÉF‚ğ“h‚è‚Â‚Ô‚·
-	// 3: c‚è‚ÌƒuƒƒbƒN‚Í‚Í‚İo‚µ‚É‚Â‚¢‚Ä’ˆÓ‚·‚é•K—v‚ª‚È‚¢‚Ì‚ÅS‚¨‚«‚È‚­F‚ğ“h‚è‚Â‚Ô‚·
+	// 2: ã¾ãšè¾ºå¢ƒã®ãƒ–ãƒ­ãƒƒã‚¯ã«å¯¾ã—ã¦è»¢é€çŸ©å½¢ã¨ã®ç©çŸ©å½¢ã‚’å¾—ã¦ãã“ã«è‰²ã‚’å¡—ã‚Šã¤ã¶ã™
+	// 3: æ®‹ã‚Šã®ãƒ–ãƒ­ãƒƒã‚¯ã¯ã¯ã¿å‡ºã—ã«ã¤ã„ã¦æ³¨æ„ã™ã‚‹å¿…è¦ãŒãªã„ã®ã§å¿ƒãŠããªãè‰²ã‚’å¡—ã‚Šã¤ã¶ã™
 
-	// ˆê”Ôã‚Ìs
+	// ä¸€ç•ªä¸Šã®è¡Œ
 	int y = starty;
 	for(int x = startx; x <= endx; x++)
 	{
@@ -323,13 +323,13 @@ tjs_error TJS_INTF_METHOD tTVPMosaicTransHandler::Process(
 	}
 	y++;
 
-	// ‚È‚©‚Ù‚Ç‚Ìs
+	// ãªã‹ã»ã©ã®è¡Œ
 	for(; y < endy; y++)
 	{
-		// ¶’[
+		// å·¦ç«¯
 		FILL_ONE(startx, y);
 
-		// ‚È‚©‚Ù‚Ç
+		// ãªã‹ã»ã©
 		tjs_int x = startx + 1;
 		tjs_int l = x * bs + CurOfsX;
 		tjs_int t = y * bs + CurOfsY;
@@ -342,7 +342,7 @@ tjs_error TJS_INTF_METHOD tTVPMosaicTransHandler::Process(
 
 		for(; x < endx; x++)
 		{
-			// ‚±‚±‚Ì“h‚è‚Â‚Ô‚µ‚Í(‚Í‚İo‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ğ)ƒm[ƒ`ƒFƒbƒN‚Å‚¢‚¯‚é
+			// ã“ã“ã®å¡—ã‚Šã¤ã¶ã—ã¯(ã¯ã¿å‡ºã¦ã„ã‚‹ã‹ã©ã†ã‹ã‚’)ãƒãƒ¼ãƒã‚§ãƒƒã‚¯ã§ã„ã‘ã‚‹
 			tjs_uint32 d = Blend(*src1p, *src2p, BlendRatio);
 			FILL_LINE(destp, bs, bs, d);
 
@@ -351,12 +351,12 @@ tjs_error TJS_INTF_METHOD tTVPMosaicTransHandler::Process(
 			destp += bs;
 		}
 
-		// ‰E’[
+		// å³ç«¯
 		FILL_ONE(endx, y);
 	}
 
 
-	// ˆê”Ô‰º‚Ìs
+	// ä¸€ç•ªä¸‹ã®è¡Œ
 	if(y <= endy)
 	{
 		for(int x = startx; x <= endx; x++)
@@ -377,23 +377,23 @@ tjs_error TJS_INTF_METHOD tTVPMosaicTransHandler::Process(
 //---------------------------------------------------------------------------
 class tTVPMosaicTransHandlerProvider : public iTVPTransHandlerProvider
 {
-	tjs_uint RefCount; // QÆƒJƒEƒ“ƒ^
+	tjs_uint RefCount; // å‚ç…§ã‚«ã‚¦ãƒ³ã‚¿
 public:
 	tTVPMosaicTransHandlerProvider() { RefCount = 1; }
-	~tTVPMosaicTransHandlerProvider() {; }
+	â€¾tTVPMosaicTransHandlerProvider() {; }
 
 	tjs_error TJS_INTF_METHOD AddRef()
 	{
-		// iTVPBaseTransHandler ‚Ì AddRef
-		// QÆƒJƒEƒ“ƒ^‚ğƒCƒ“ƒNƒŠƒƒ“ƒg
+		// iTVPBaseTransHandler ã® AddRef
+		// å‚ç…§ã‚«ã‚¦ãƒ³ã‚¿ã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
 		RefCount ++;
 		return TJS_S_OK;
 	}
 
 	tjs_error TJS_INTF_METHOD Release()
 	{
-		// iTVPBaseTransHandler ‚Ì Release
-		// QÆƒJƒEƒ“ƒ^‚ğƒfƒNƒŠƒƒ“ƒg‚µA0 ‚É‚È‚é‚È‚ç‚Î delete this
+		// iTVPBaseTransHandler ã® Release
+		// å‚ç…§ã‚«ã‚¦ãƒ³ã‚¿ã‚’ãƒ‡ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã—ã€0 ã«ãªã‚‹ãªã‚‰ã° delete this
 		if(RefCount == 1)
 			delete this;
 		else
@@ -404,7 +404,7 @@ public:
 	tjs_error TJS_INTF_METHOD GetName(
 			/*out*/const tjs_char ** name)
 	{
-		// ‚±‚Ìƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚Ì–¼‘O‚ğ•Ô‚·
+		// ã“ã®ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã®åå‰ã‚’è¿”ã™
 		if(name) *name = TJS_W("mosaic");
 		return TJS_S_OK;
 	}
@@ -428,24 +428,24 @@ public:
 		if(!options) return TJS_E_FAIL;
 
 		if(src1w != src2w || src1h != src2h)
-			return TJS_E_FAIL; // src1 ‚Æ src2 ‚ÌƒTƒCƒY‚ªˆê’v‚µ‚Ä‚¢‚È‚¢‚Æ‘Ê–Ú
+			return TJS_E_FAIL; // src1 ã¨ src2 ã®ã‚µã‚¤ã‚ºãŒä¸€è‡´ã—ã¦ã„ãªã„ã¨é§„ç›®
 
 
-		// ƒIƒvƒVƒ‡ƒ“‚ğ“¾‚é
+		// ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’å¾—ã‚‹
 		tTJSVariant tmp;
 		tjs_uint64 time;
 		tjs_int maxblocksize = 30;
 
 		if(TJS_FAILED(options->GetValue(TJS_W("time"), &tmp)))
-			return TJS_E_FAIL; // time ‘®«‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢
+			return TJS_E_FAIL; // time å±æ€§ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„
 		if(tmp.Type() == tvtVoid) return TJS_E_FAIL;
 		time = (tjs_int64)tmp;
-		if(time < 2) time = 2; // ‚ ‚Ü‚è¬‚³‚È”’l‚ğw’è‚·‚é‚Æ–â‘è‚ª‹N‚«‚é‚Ì‚Å
+		if(time < 2) time = 2; // ã‚ã¾ã‚Šå°ã•ãªæ•°å€¤ã‚’æŒ‡å®šã™ã‚‹ã¨å•é¡ŒãŒèµ·ãã‚‹ã®ã§
 
 		if(TJS_SUCCEEDED(options->GetValue(TJS_W("maxsize"), &tmp)))
 			if(tmp.Type() != tvtVoid) maxblocksize = (tjs_int)tmp;
 
-		// ƒIƒuƒWƒFƒNƒg‚ğì¬
+		// ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆ
 		*handler = new tTVPMosaicTransHandler(time, src1w, src1h, maxblocksize);
 
 		return TJS_S_OK;
@@ -455,16 +455,16 @@ public:
 //---------------------------------------------------------------------------
 void RegisterMosaicTransHandlerProvider()
 {
-	// TVPAddTransHandlerProvider ‚ğg‚Á‚Äƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒnƒ“ƒhƒ‰ƒvƒƒoƒCƒ_‚ğ
-	// “o˜^‚·‚é
+	// TVPAddTransHandlerProvider ã‚’ä½¿ã£ã¦ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãƒãƒ³ãƒ‰ãƒ©ãƒ—ãƒ­ãƒã‚¤ãƒ€ã‚’
+	// ç™»éŒ²ã™ã‚‹
 	MosaicTransHandlerProvider = new tTVPMosaicTransHandlerProvider();
 	TVPAddTransHandlerProvider(MosaicTransHandlerProvider);
 }
 //---------------------------------------------------------------------------
 void UnregisterMosaicTransHandlerProvider()
 {
-	// TVPRemoveTransHandlerProvider ‚ğg‚Á‚Äƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒnƒ“ƒhƒ‰ƒvƒƒoƒCƒ_‚ğ
-	// “o˜^–•Á‚·‚é
+	// TVPRemoveTransHandlerProvider ã‚’ä½¿ã£ã¦ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãƒãƒ³ãƒ‰ãƒ©ãƒ—ãƒ­ãƒã‚¤ãƒ€ã‚’
+	// ç™»éŒ²æŠ¹æ¶ˆã™ã‚‹
 	TVPRemoveTransHandlerProvider(MosaicTransHandlerProvider);
 	MosaicTransHandlerProvider->Release();
 }

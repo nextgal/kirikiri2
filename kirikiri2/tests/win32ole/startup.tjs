@@ -4,33 +4,33 @@ var win = new Window();
 win.setInnerSize(420, 440);
 win.visible = true;
 
-// IE ‚Í‚è‚Â‚¯
+// IE ã¯ã‚Šã¤ã‘
 var ie = new ActiveX("Shell.Explorer.2", win);
 
-// êŠ‚ÆƒTƒCƒY‚ğw’è‚µ‚Ä•\¦
+// å ´æ‰€ã¨ã‚µã‚¤ã‚ºã‚’æŒ‡å®šã—ã¦è¡¨ç¤º
 ie.setPos(10,10);
 ie.setSize(400,200);
 ie.visible = true;
 
-// IEƒRƒ“ƒ|[ƒlƒ“ƒg‚ÍAAsynchronous Pluggable Protocols ‚É‘Î‰‚µ‚Ä‚¢‚é‚Ì‚Å
-// krkr: ƒvƒƒgƒRƒ‹w’è‚ÅA
-// ƒA[ƒJƒCƒu’†‚Ìƒtƒ@ƒCƒ‹‚àŠJ‚­‚±‚Æ‚ª‚Å‚«‚é
+// IEã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã¯ã€Asynchronous Pluggable Protocols ã«å¯¾å¿œã—ã¦ã„ã‚‹ã®ã§
+// krkr: ãƒ—ãƒ­ãƒˆã‚³ãƒ«æŒ‡å®šã§ã€
+// ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ä¸­ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚‚é–‹ãã“ã¨ãŒã§ãã‚‹
 ie.Navigate2("krkr:test.html");
 
-// ŠO•”UIƒnƒ“ƒhƒ‰“o˜^B‹ó‚Åw’è‚·‚é‚ÆƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[‚ªÁ‚¦‚é
+// å¤–éƒ¨UIãƒãƒ³ãƒ‰ãƒ©ç™»éŒ²ã€‚ç©ºã§æŒ‡å®šã™ã‚‹ã¨ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ãŒæ¶ˆãˆã‚‹
 //ie.setExternalUI();
 
-// ƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰—p‚ÌƒNƒ‰ƒX
+// ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚¯ãƒ©ã‚¹
 class WebEventHandler {
-    // ƒCƒxƒ“ƒg–¼‚É‡’v‚·‚éƒtƒ@ƒ“ƒNƒVƒ‡ƒ“‚ªŒÄ‚Ño‚³‚ê‚é
+    // ã‚¤ãƒ™ãƒ³ãƒˆåã«åˆè‡´ã™ã‚‹ãƒ•ã‚¡ãƒ³ã‚¯ã‚·ãƒ§ãƒ³ãŒå‘¼ã³å‡ºã•ã‚Œã‚‹
     function DocumentComplete(disp,url) {
         Debug.message("document complete!!");
     }
 };
-// ‘æˆêˆø”‚ªƒCƒxƒ“ƒg‚Ìí•Ê‚Ì–¼‘OBƒ^ƒCƒvƒ‰ƒCƒuƒ‰ƒŠ‚É“o˜^‚³‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚éB
+// ç¬¬ä¸€å¼•æ•°ãŒã‚¤ãƒ™ãƒ³ãƒˆã®ç¨®åˆ¥ã®åå‰ã€‚ã‚¿ã‚¤ãƒ—ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã«ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
 ie.addEvent("DWebBrowserEvents2", new WebEventHandler());
 
-// MediaPlayer‚Í‚è‚Â‚¯
+// MediaPlayerã¯ã‚Šã¤ã‘
 var mp = new ActiveX("MediaPlayer.MediaPlayer.1", win);
 mp.setPos(10,220);
 mp.setSize(400,200);
@@ -38,13 +38,13 @@ mp.visible = true;
 mp.AutoStart = true;
 //mp.Open("c:test.wma");
 
-// EXCEL ŒÄ‚Ño‚µ
+// EXCEL å‘¼ã³å‡ºã—
 var	excel = new WIN32OLE("Excel.Application");
 excel.Visible = true;
 var workbook = excel.Workbooks.Add();
 var worksheet = workbook.Worksheets(1);
 worksheet.Range("A1").value = 99;
 worksheet.Range("A2").value = 10;
-// ’è”î•ñ‚Ìæ“¾
+// å®šæ•°æƒ…å ±ã®å–å¾—
 excel.getConstant();
 Debug.message("xlinfo:" + excel.xlInfo);

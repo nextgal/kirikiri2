@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>§Œäƒpƒlƒ‹</title>
+<title>åˆ¶å¾¡ãƒ‘ãƒãƒ«</title>
 </head>
 <script>
 var win = window.external.win;
@@ -125,67 +125,67 @@ function stop() {
 <body>
 
 <p>
-<button onclick='win.init()'>‰Šú‰»</button>
-<button onclick='win.addLayer()'>’Ç‰Á</button>
-<button onclick='win.initAll()'>Á‹Ž</button>
+<button onclick='win.init()'>åˆæœŸåŒ–</button>
+<button onclick='win.addLayer()'>è¿½åŠ </button>
+<button onclick='win.initAll()'>æ¶ˆåŽ»</button>
 
 <pre>
-ƒŒƒCƒ„Šî–{‹@”\
-ƒ‚[ƒh:<select id=mode1>
-<option value=0>’Êí
-<option value=1>•¢‚¢Ä‚«iƒŠƒjƒAj
-<option value=2>Ä‚«‚±‚ÝiƒŠƒjƒAj
-<option value=3>æŽZ
-<option value=4>ƒXƒNƒŠ[ƒ“
-<option value=5>ƒI[ƒoƒŒƒC
-<option value=6>ƒn[ƒhƒ‰ƒCƒg
-<option value=7>ƒ\ƒtƒgƒ‰ƒCƒg
-<option value=8>•¢‚¢Ä‚«ƒJƒ‰[
-<option value=9>Ä‚«‚±‚ÝƒJƒ‰[
-<option value=10>”äŠri–¾j
-<option value=11>”äŠriˆÃj
-<option value=12>·‚Ìâ‘Î’l
-<option value=13>œŠO
-</select> •s“§–¾“x:<input size=4 id=opacity value=255> <button onclick='modeChange()'>ƒ‚[ƒh</button>
+ãƒ¬ã‚¤ãƒ¤åŸºæœ¬æ©Ÿèƒ½
+ãƒ¢ãƒ¼ãƒ‰:<select id=mode1>
+<option value=0>é€šå¸¸
+<option value=1>è¦†ã„ç„¼ãï¼ˆãƒªãƒ‹ã‚¢ï¼‰
+<option value=2>ç„¼ãã“ã¿ï¼ˆãƒªãƒ‹ã‚¢ï¼‰
+<option value=3>ä¹—ç®—
+<option value=4>ã‚¹ã‚¯ãƒªãƒ¼ãƒ³
+<option value=5>ã‚ªãƒ¼ãƒãƒ¬ã‚¤
+<option value=6>ãƒãƒ¼ãƒ‰ãƒ©ã‚¤ãƒˆ
+<option value=7>ã‚½ãƒ•ãƒˆãƒ©ã‚¤ãƒˆ
+<option value=8>è¦†ã„ç„¼ãã‚«ãƒ©ãƒ¼
+<option value=9>ç„¼ãã“ã¿ã‚«ãƒ©ãƒ¼
+<option value=10>æ¯”è¼ƒï¼ˆæ˜Žï¼‰
+<option value=11>æ¯”è¼ƒï¼ˆæš—ï¼‰
+<option value=12>å·®ã®çµ¶å¯¾å€¤
+<option value=13>é™¤å¤–
+</select> ä¸é€æ˜Žåº¦:<input size=4 id=opacity value=255> <button onclick='modeChange()'>ãƒ¢ãƒ¼ãƒ‰</button>
 </pre>
 <hr>
 <pre>
-ƒŒƒCƒ„‹@”\Šg’£
-–¾“x:<input size=4 id=brightness value=-50> ƒRƒ“ƒgƒ‰ƒXƒg:<input size=4 id=contrast value=50> <button onclick='light()'>Œõ•â³</button>
-F‘Š:<input size=4 id=hue value=0> Ê“x:<input size=4 id=saturation value=128> ƒuƒŒƒ“ƒh:<input size=4 id=colorizeBlend value=1.0> <button onclick='colorize()'>ƒJƒ‰[ƒ‰ƒCƒY</button>
-ƒmƒCƒYƒŒƒxƒ‹:<input size=4 id=noise value=100> <button onclick='noise()'>ƒmƒCƒY</button>
-F‘Š:<input size=4 id=hue2 value=0> Ê“x:<input size=4 id=saturation2 value=0> ‹P“x:<input size=4 id=luminance value=0> <button onclick='modulate()'>modulate</button>
-RGB:<input size=10 id=rgb value="0xaaaa88"> ƒ‚[ƒh:<select id=mode2>
-<option value=0>’Êí
-<option value=1>•¢‚¢Ä‚«iƒŠƒjƒAj
-<option value=2>Ä‚«‚±‚ÝiƒŠƒjƒAj
-<option value=3>æŽZ
-<option value=4>ƒXƒNƒŠ[ƒ“
-<option value=5 selected>ƒI[ƒoƒŒƒC
-<option value=6>ƒn[ƒhƒ‰ƒCƒg
-<option value=7>ƒ\ƒtƒgƒ‰ƒCƒg
-<option value=8>•¢‚¢Ä‚«ƒJƒ‰[
-<option value=9>Ä‚«‚±‚ÝƒJƒ‰[
-<option value=10>”äŠri–¾j
-<option value=11>”äŠriˆÃj
-<option value=12>·‚Ìâ‘Î’l
-<option value=13>œŠO
-</select><button onclick='fillOperateRect()'>ƒ‚[ƒh‚Â‚«ã‘‚«“h‚è‚Â‚Ô‚µ</button>
-<button onclick='blurLight()'>‚Ú‚©‚µƒ‰ƒCƒg</button> <button onclick='dropShadow()'>‰e•t‚¯</button>
+ãƒ¬ã‚¤ãƒ¤æ©Ÿèƒ½æ‹¡å¼µ
+æ˜Žåº¦:<input size=4 id=brightness value=-50> ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆ:<input size=4 id=contrast value=50> <button onclick='light()'>å…‰è£œæ­£</button>
+è‰²ç›¸:<input size=4 id=hue value=0> å½©åº¦:<input size=4 id=saturation value=128> ãƒ–ãƒ¬ãƒ³ãƒ‰:<input size=4 id=colorizeBlend value=1.0> <button onclick='colorize()'>ã‚«ãƒ©ãƒ¼ãƒ©ã‚¤ã‚º</button>
+ãƒŽã‚¤ã‚ºãƒ¬ãƒ™ãƒ«:<input size=4 id=noise value=100> <button onclick='noise()'>ãƒŽã‚¤ã‚º</button>
+è‰²ç›¸:<input size=4 id=hue2 value=0> å½©åº¦:<input size=4 id=saturation2 value=0> è¼åº¦:<input size=4 id=luminance value=0> <button onclick='modulate()'>modulate</button>
+RGB:<input size=10 id=rgb value="0xaaaa88"> ãƒ¢ãƒ¼ãƒ‰:<select id=mode2>
+<option value=0>é€šå¸¸
+<option value=1>è¦†ã„ç„¼ãï¼ˆãƒªãƒ‹ã‚¢ï¼‰
+<option value=2>ç„¼ãã“ã¿ï¼ˆãƒªãƒ‹ã‚¢ï¼‰
+<option value=3>ä¹—ç®—
+<option value=4>ã‚¹ã‚¯ãƒªãƒ¼ãƒ³
+<option value=5 selected>ã‚ªãƒ¼ãƒãƒ¬ã‚¤
+<option value=6>ãƒãƒ¼ãƒ‰ãƒ©ã‚¤ãƒˆ
+<option value=7>ã‚½ãƒ•ãƒˆãƒ©ã‚¤ãƒˆ
+<option value=8>è¦†ã„ç„¼ãã‚«ãƒ©ãƒ¼
+<option value=9>ç„¼ãã“ã¿ã‚«ãƒ©ãƒ¼
+<option value=10>æ¯”è¼ƒï¼ˆæ˜Žï¼‰
+<option value=11>æ¯”è¼ƒï¼ˆæš—ï¼‰
+<option value=12>å·®ã®çµ¶å¯¾å€¤
+<option value=13>é™¤å¤–
+</select><button onclick='fillOperateRect()'>ãƒ¢ãƒ¼ãƒ‰ã¤ãä¸Šæ›¸ãå¡—ã‚Šã¤ã¶ã—</button>
+<button onclick='blurLight()'>ã¼ã‹ã—ãƒ©ã‚¤ãƒˆ</button> <button onclick='dropShadow()'>å½±ä»˜ã‘</button>
 </pre>
 <hr>
 <pre>
-ƒAƒtƒBƒ“ƒŒƒCƒ„:‰ñ“]Šp‚ÆŠg‘å—¦‚ð•ÛŽ‚Å‚«‚éƒŒƒCƒ„
-‰ñ“]Šp:<input size=4 id=rotate value=45> Šg‘å—¦:<input size=4 id=zoom value=120> <button onclick='affine()'>ƒAƒtƒBƒ“•ÏŒ`</button>
+ã‚¢ãƒ•ã‚£ãƒ³ãƒ¬ã‚¤ãƒ¤:å›žè»¢è§’ã¨æ‹¡å¤§çŽ‡ã‚’ä¿æŒã§ãã‚‹ãƒ¬ã‚¤ãƒ¤
+å›žè»¢è§’:<input size=4 id=rotate value=45> æ‹¡å¤§çŽ‡:<input size=4 id=zoom value=120> <button onclick='affine()'>ã‚¢ãƒ•ã‚£ãƒ³å¤‰å½¢</button>
 </pre>
 <hr>
 <pre>
-ƒAƒNƒVƒ‡ƒ“ƒŒƒCƒ„:ƒAƒNƒVƒ‡ƒ“‚ðŽ©“®ˆ—‚·‚éƒŒƒCƒ„
-Šp‘¬“x:<input size=4 id=angvel value=20>  <button onclick='rotate()'>‰ñ“]</button>
-U“®—Ê<input size=4 id=vibration value=10> U“®ŠÔŽžŠÔ:<input size=4 id=waitTime value=100> <button onclick='vibrate()'>U“®</button>
-U“®—Ê<input size=4 id=vibration2 value=20> ŽüŠú:<input size=4 id=cycle value=1000> <button onclick='jump()'>cU“®</button>
-ƒY[ƒ€<input size=4 id=zoomValue value=10> ŽžŠÔ:<input size=4 id=zoomTime value=1000> <button onclick='zoom()'>’PƒƒY[ƒ€</button>
-<button onclick='stop()'>’âŽ~</button>
+ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãƒ¬ã‚¤ãƒ¤:ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚’è‡ªå‹•å‡¦ç†ã™ã‚‹ãƒ¬ã‚¤ãƒ¤
+è§’é€Ÿåº¦:<input size=4 id=angvel value=20>  <button onclick='rotate()'>å›žè»¢</button>
+æŒ¯å‹•é‡<input size=4 id=vibration value=10> æŒ¯å‹•é–“æ™‚é–“:<input size=4 id=waitTime value=100> <button onclick='vibrate()'>æŒ¯å‹•</button>
+æŒ¯å‹•é‡<input size=4 id=vibration2 value=20> å‘¨æœŸ:<input size=4 id=cycle value=1000> <button onclick='jump()'>ç¸¦æŒ¯å‹•</button>
+ã‚ºãƒ¼ãƒ <input size=4 id=zoomValue value=10> æ™‚é–“:<input size=4 id=zoomTime value=1000> <button onclick='zoom()'>å˜ç´”ã‚ºãƒ¼ãƒ </button>
+<button onclick='stop()'>åœæ­¢</button>
 </pre>
 </body>
 </html>

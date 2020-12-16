@@ -76,9 +76,9 @@ typedef phuff_entropy_encoder * phuff_entropy_ptr;
 
 #ifdef RIGHT_SHIFT_IS_UNSIGNED
 #define ISHIFT_TEMPS	int ishift_temp;
-#define IRIGHT_SHIFT(x,shft)  \
-	((ishift_temp = (x)) < 0 ? \
-	 (ishift_temp >> (shft)) | ((~0) << (16-(shft))) : \
+#define IRIGHT_SHIFT(x,shft)  ¥
+	((ishift_temp = (x)) < 0 ? ¥
+	 (ishift_temp >> (shft)) | ((‾0) << (16-(shft))) : ¥
 	 (ishift_temp >> (shft)))
 #else
 #define ISHIFT_TEMPS
@@ -195,9 +195,9 @@ start_pass_phuff (j_compress_ptr cinfo, boolean gather_statistics)
  */
 
 /* Emit a byte */
-#define emit_byte(entropy,val)  \
-	{ *(entropy)->next_output_byte++ = (JOCTET) (val);  \
-	  if (--(entropy)->free_in_buffer == 0)  \
+#define emit_byte(entropy,val)  ¥
+	{ *(entropy)->next_output_byte++ = (JOCTET) (val);  ¥
+	  if (--(entropy)->free_in_buffer == 0)  ¥
 	    dump_buffer(entropy); }
 
 
@@ -500,7 +500,7 @@ encode_mcu_AC_first (j_compress_ptr cinfo, JBLOCKROW *MCU_data)
       temp = -temp;		/* temp is abs value of input */
       temp >>= Al;		/* apply the point transform */
       /* For a negative coef, want temp2 = bitwise complement of abs(coef) */
-      temp2 = ~temp;
+      temp2 = ‾temp;
     } else {
       temp >>= Al;		/* apply the point transform */
       temp2 = temp;

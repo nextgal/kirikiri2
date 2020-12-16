@@ -68,7 +68,7 @@ class handle
     
  public: // member functions
     handle();
-    ~handle();
+    ‾handle();
 
     template <class Y>
     explicit handle(Y* p)
@@ -183,7 +183,7 @@ inline handle<T>::handle()
 }
 
 template <class T>
-inline handle<T>::~handle()
+inline handle<T>::‾handle()
 {
     python::xdecref(m_p);
 }

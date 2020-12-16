@@ -267,15 +267,15 @@ static void TVPReadRegValue(tTJSVariant &result, const ttstr & key)
 		root = HKEY_DYN_DATA;
 	}
 
-	if(*key_p == TJS_W('\\')) key_p ++;
+	if(*key_p == TJS_W('¥¥')) key_p ++;
 
 	// search value name
 	const tjs_char *start = key_p;
 	key_p += TJS_strlen(key_p);
 	key_p--;
-	while(start <= key_p && *key_p != TJS_W('\\')) key_p--;
+	while(start <= key_p && *key_p != TJS_W('¥¥')) key_p--;
 	ttstr valuename(key_p+1);
-	if(key_p < start || *key_p != TJS_W('\\')) key_p++;
+	if(key_p < start || *key_p != TJS_W('¥¥')) key_p++;
 
 	ttstr keyname(start, key_p - start);
 

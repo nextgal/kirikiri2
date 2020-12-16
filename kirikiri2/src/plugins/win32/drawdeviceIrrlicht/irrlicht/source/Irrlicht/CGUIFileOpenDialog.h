@@ -26,7 +26,7 @@ namespace gui
 		CGUIFileOpenDialog(const wchar_t* title, IGUIEnvironment* environment, IGUIElement* parent, s32 id);
 
 		//! destructor
-		virtual ~CGUIFileOpenDialog();
+		virtual ‾CGUIFileOpenDialog();
 
 		//! returns the filename of the selected file. Returns NULL, if no file was selected.
 		virtual const wchar_t* getFileName() const;

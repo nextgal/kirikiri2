@@ -41,7 +41,7 @@ CZipReader::CZipReader(IReadFile* file, bool ignoreCase, bool ignorePaths)
 	}
 }
 
-CZipReader::~CZipReader()
+CZipReader::‾CZipReader()
 {
 	if (File)
 		File->drop();
@@ -300,7 +300,7 @@ void CZipReader::deletePathFromFilename(core::stringc& filename)
 
 	// search for path separator or beginning
 
-	while (*p!='/' && *p!='\\' && p!=filename.c_str())
+	while (*p!='/' && *p!='¥¥' && p!=filename.c_str())
 		--p;
 
 	if (p != filename.c_str())
@@ -353,7 +353,7 @@ class CUnzipReadFile : public CReadFile
 		{
 			CallFileName = hashName;
 		}
-		virtual ~CUnzipReadFile () {}
+		virtual ‾CUnzipReadFile () {}
 
 		virtual const c8* getFileName() const
 		{
@@ -367,7 +367,7 @@ CUnZipReader::CUnZipReader( IFileSystem * parent, const c8* basename, bool ignor
 :CZipReader ( 0, ignoreCase, ignorePaths ), Parent ( parent )
 {
 	Base = basename;
-	if (	Base [ Base.size() - 1 ] != '\\' ||
+	if (	Base [ Base.size() - 1 ] != '¥¥' ||
 			Base [ Base.size() - 1 ] != '/'
 		)
 	{

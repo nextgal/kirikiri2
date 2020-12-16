@@ -103,7 +103,7 @@ struct dmfWaterPlain
 
 /** A function to convert a hexstring to a int.
 This function converts an hex string (i.e. FF) to its int value (i.e. 255).
-\return An int representing the hex input value.*/
+¥return An int representing the hex input value.*/
 int axtoi(const char *hexStg)
 {
   unsigned int intValue = 0;  // integer value of hex string
@@ -139,7 +139,7 @@ public:
 	}
 
     /**Basic destructor.*/
-    ~StringList()
+    ‾StringList()
 	{
 		clear();
 	}
@@ -153,10 +153,10 @@ public:
         
     //Loads a stringlist from a file
     //note that each String added to StringList
-    //is separed by a \\n character and it's present
+    //is separed by a ¥¥n character and it's present
     //at the end of line.
     /** Loads a StringList from a file.
-    This function loads a StringList from a file where each string is divided by a \\n char.*/
+    This function loads a StringList from a file where each string is divided by a ¥¥n char.*/
     void LoadFromFile(io::IReadFile* file)
 	{
 		const long sz = file->getSize();
@@ -168,7 +168,7 @@ public:
 
 		while(*p)
 		{
-			if (*p == '\n')
+			if (*p == '¥n')
 			{
 				core::stringc str(start, p - start - 1);
 				str.trim();
@@ -192,7 +192,7 @@ public:
 
   //This function subdivides a string in a list of strings
 /** This function subdivides strings divided by divider in a list of strings.
-\return A StringList made of all strings divided by divider.*/
+¥return A StringList made of all strings divided by divider.*/
 StringList SubdivideString(String str, String divider)
 {
     StringList strings; //returned StringList
@@ -213,7 +213,7 @@ StringList SubdivideString(String str, String divider)
             c++;
         }    
 
-        //Remove spaces \t and \n from string in my implementation...
+        //Remove spaces ¥t and ¥n from string in my implementation...
         //pay attention or change it in dll.h if you don't want to remove
         //a particular char.
         resultstr.trim();//trims string resultstr
@@ -228,7 +228,7 @@ StringList SubdivideString(String str, String divider)
 //Get DeleD informations and convert in dmfHeader
 /**This function extract a dmfHeader from a DMF file.
 You must give in input a StringList representing a DMF file loaded with LoadFromFile.
-\return true if function succeed or false on fail.*/
+¥return true if function succeed or false on fail.*/
 bool GetDMFHeader (StringList RawFile, dmfHeader & header)
 {
 	StringList temp=SubdivideString(RawFile[0],String(";")); //file info
@@ -342,7 +342,7 @@ bool GetDMFHeader (StringList RawFile, dmfHeader & header)
 
 /**This function extract an array of dmfMaterial from a DMF file.
 You must give in input a StringList representing a DMF file loaded with LoadFromFile.
-\return true if function succeed or false on fail.*/          
+¥return true if function succeed or false on fail.*/          
 bool GetDMFMaterials(StringList RawFile /**<StringList representing a DMF file.*/,
 			dmfMaterial materials[]/**<Materials returned.*/,
 			int num_material/**<Number of materials contained in DMF file.*/,
@@ -379,7 +379,7 @@ bool GetDMFMaterials(StringList RawFile /**<StringList representing a DMF file.*
 		materials[i].textureFlag = atoi(temp1[0].c_str());
 		if(!use_material_dirs)
 		{
-			temp2=SubdivideString(temp1[1],"\\");
+			temp2=SubdivideString(temp1[1],"¥¥");
 
 			sprintf(materials[i].textureName, "%s", temp2[temp2.size()-1].c_str());
 		}
@@ -395,7 +395,7 @@ bool GetDMFMaterials(StringList RawFile /**<StringList representing a DMF file.*
 			materials[i].lightmapFlag=atoi(temp1[0].c_str());
 			if(!use_material_dirs)
 			{
-				temp2=SubdivideString(temp1[1],"\\");
+				temp2=SubdivideString(temp1[1],"¥¥");
 				sprintf(materials[i].lightmapName,"%s",temp2[temp2.size() - 1].c_str());
 			}
 			else
@@ -415,7 +415,7 @@ bool GetDMFMaterials(StringList RawFile /**<StringList representing a DMF file.*
 
 /**This function extract an array of dmfMaterial from a DMF file considering 1st an 2nd layer for water plains.
 You must give in input a StringList representing a DMF file loaded with LoadFromFile.
-\return true if function succeed or false on fail.*/          
+¥return true if function succeed or false on fail.*/          
 bool GetDMFWaterMaterials(StringList RawFile /**<StringList representing a DMF file.*/,
                      dmfMaterial materials[]/**<Materials returned.*/,
                      int num_material/**<Number of materials contained in DMF file.*/){
@@ -447,7 +447,7 @@ bool GetDMFWaterMaterials(StringList RawFile /**<StringList representing a DMF f
 
              temp1 = SubdivideString(temp[5],",");
              materials[i].textureFlag=atoi(temp1[0].c_str());
-             temp2 = SubdivideString(temp1[1],"\\");
+             temp2 = SubdivideString(temp1[1],"¥¥");
 
              sprintf(materials[i].textureName,"%s",temp2[temp2.size()-1].c_str());
              temp1.clear();
@@ -457,7 +457,7 @@ bool GetDMFWaterMaterials(StringList RawFile /**<StringList representing a DMF f
 			 {
                 temp1=SubdivideString(temp[6],",");
                 materials[i].lightmapFlag=atoi(temp1[0].c_str());
-                temp2=SubdivideString(temp1[1],"\\");
+                temp2=SubdivideString(temp1[1],"¥¥");
                 sprintf(materials[i].lightmapName,"%s",temp2[temp2.size() - 1].c_str());
              }
              else
@@ -473,7 +473,7 @@ bool GetDMFWaterMaterials(StringList RawFile /**<StringList representing a DMF f
 /**This function extract an array of dmfVert and dmfFace from a DMF file.
 You must give in input a StringList representing a DMF file loaded with LoadFromFile and two arrays long enough.
 Please use GetDMFHeader() before this function to know number of vertices and faces.
-\return true if function succeed or false on fail.*/          
+¥return true if function succeed or false on fail.*/          
 bool GetDMFVerticesFaces(StringList RawFile/**<StringList representing a DMF file.*/,
                          dmfVert vertices[]/**<Vertices returned*/,
                          dmfFace faces[]/**Faces returned*/){
@@ -564,7 +564,7 @@ bool GetDMFVerticesFaces(StringList RawFile/**<StringList representing a DMF fil
 You must give in input a StringList representing a DMF file loaded with LoadFromFile
 and one array long enough.
 Please use GetDMFHeader() before this function to know number of dynamic lights.
-\return true if function succeed or false on fail.*/          
+¥return true if function succeed or false on fail.*/          
 bool GetDMFLights(StringList RawFile/**<StringList representing a DMF file.*/,
                          dmfLight lights[]/**<Lights returned.*/){
      
@@ -644,7 +644,7 @@ bool GetDMFLights(StringList RawFile/**<StringList representing a DMF file.*/,
 /**This function extract an array of dmfWaterPlain,dmfVert and dmfFace from a DMF file.
 You must give in input a StringList representing a DMF file loaded with LoadFromFile and three arrays long enough.
 Please use GetDMFHeader() before this function to know number of water plains and water faces as well as water vertices.
-\return true if function succeed or false on fail.*/               
+¥return true if function succeed or false on fail.*/               
 bool GetDMFWaterPlains(StringList RawFile/**<StringList representing a DMF file.*/,
                          dmfWaterPlain wat_planes[]/**<Water planes returned.*/,
                          dmfVert vertices[]/**<Vertices returned*/,

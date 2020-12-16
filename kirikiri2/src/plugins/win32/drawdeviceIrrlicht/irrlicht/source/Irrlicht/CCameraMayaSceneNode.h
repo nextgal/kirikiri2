@@ -22,7 +22,7 @@ namespace scene
 			f32 rotateSpeed = -1500.0f, f32 zoomSpeed = 200.0f, f32 translationSpeed = 100.0f);
 
 		//! destructor
-		virtual ~CCameraMayaSceneNode();
+		virtual ‾CCameraMayaSceneNode();
 
 		//! It is possible to send mouse and key events to the camera. Most cameras
 		//! may ignore this input, but camera scene nodes which are created for 

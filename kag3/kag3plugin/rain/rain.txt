@@ -1,22 +1,22 @@
-�u�J�v�v���O�C��
+「雨」プラグイン
 
-�E�g�ݍ��ݕ�
+・組み込み方
 
-�@scenario\rain.ks �� image\ �̂��ׂẲ摜�����莝���� KAG3 �̃v���W�F�N�g
-�t�H���_�̊e�t�H���_�ɃR�s�[���Ă��������B
+　scenario¥rain.ks と image¥ のすべての画像をお手持ちの KAG3 のプロジェクト
+フォルダの各フォルダにコピーしてください。
 
-�E�g����
+・使い方
 
-�@�V�i���I�̐擪�Ȃǂ�
+　シナリオの先頭などで
 
 @call storage="rain.ks"
 
-�@�Ƃ��� rain.ks ���Ăяo���� raininit �� rainopt �� rainuninit �Ƃ����R��
-�̃^�O����`����܂��B
-�@rain.ks �͂Q��ȏ�Ăяo���Ȃ��ł��������B�}�N���̒�`�Ɠ����ŁA�P��Ă�
-�o���΁A����ȍ~�A�@�\���g�p�\�ɂȂ�܂��B
+　として rain.ks を呼び出すと raininit と rainopt と rainuninit という３つ
+のタグが定義されます。
+　rain.ks は２回以上呼び出さないでください。マクロの定義と同じで、１回呼び
+出せば、それ以降、機能が使用可能になります。
 
-�@�g�����́u��v�v���O�C���Ɠ����ł��B
+　使い方は「雪」プラグインと同じです。
 
 
-���J���̉摜�͋� �H�l���񂩂璸���܂����B�L���������܂��B
+※雨粒の画像は京 秋人さんから頂きました。有り難うございます。

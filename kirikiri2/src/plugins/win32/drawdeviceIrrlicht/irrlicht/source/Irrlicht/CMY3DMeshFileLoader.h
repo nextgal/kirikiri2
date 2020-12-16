@@ -52,7 +52,7 @@ class CMY3DMeshFileLoader : public IMeshLoader
 public:
 	CMY3DMeshFileLoader(
 	io::IFileSystem* fs, video::IVideoDriver* driver, ISceneManager *scmgr);
-	virtual ~CMY3DMeshFileLoader();
+	virtual ‾CMY3DMeshFileLoader();
 
 	virtual bool isALoadableFileExtension(const c8* fileName) const;
 

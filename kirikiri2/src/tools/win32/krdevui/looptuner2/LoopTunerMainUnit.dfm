@@ -8,7 +8,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   Icon.Data = {
     000001000500101000000100200068040000560000003030000001002000A825
@@ -751,7 +751,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -766,7 +766,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -781,7 +781,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -796,7 +796,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -811,7 +811,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -826,7 +826,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -841,7 +841,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -856,7 +856,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -871,7 +871,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -886,7 +886,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -901,7 +901,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -916,7 +916,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -931,7 +931,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -946,7 +946,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -961,7 +961,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -976,7 +976,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
@@ -986,13 +986,13 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       Top = 2
       Width = 17
       Height = 17
-      Hint = 'ƒtƒ‰ƒO‚ğ‘S‚Ä0‚É‚µ‚Ü‚·'
+      Hint = 'ãƒ•ãƒ©ã‚°ã‚’å…¨ã¦0ã«ã—ã¾ã™'
       Caption = 'C'
       Flat = True
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = [fsBold]
       ParentFont = False
       ParentShowHint = False
@@ -1245,7 +1245,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
     Left = 40
     Top = 64
     object FileMenu: TMenuItem
-      Caption = 'ƒtƒ@ƒCƒ‹(&F)'
+      Caption = 'ãƒ•ã‚¡ã‚¤ãƒ«(&F)'
       object OpenMenuItem: TMenuItem
         Action = OpenAction
       end
@@ -1260,7 +1260,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       end
     end
     object EditMenu: TMenuItem
-      Caption = '•ÒW(&E)'
+      Caption = 'ç·¨é›†(&E)'
       object UndoMenuItem: TMenuItem
         Action = UndoAction
       end
@@ -1281,7 +1281,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       end
       object NewLinkOnPlayMenuItem: TMenuItem
         Action = NewLinkOnPlayAction
-        Caption = 'Ä¶ˆÊ’u‚Éƒ‰ƒxƒ‹‚ğì¬(&A)'#9'A ‚Ü‚½‚Í S'
+        Caption = 'å†ç”Ÿä½ç½®ã«ãƒ©ãƒ™ãƒ«ã‚’ä½œæˆ(&A)'#9'A ã¾ãŸã¯ S'
       end
       object NewLinkOnPlay_A_MenuItem: TMenuItem
         Action = NewLinkOnPlayAction
@@ -1299,7 +1299,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       end
     end
     object ViewMenu: TMenuItem
-      Caption = '•\¦(&V)'
+      Caption = 'è¡¨ç¤º(&V)'
       object ZoomInMenuItem: TMenuItem
         Action = ZoomInAction
       end
@@ -1323,7 +1323,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       end
     end
     object PlayMenu: TMenuItem
-      Caption = 'Ä¶(&P)'
+      Caption = 'å†ç”Ÿ(&P)'
       object StopPlayMenuItem: TMenuItem
         Action = StopPlayAction
       end
@@ -1338,7 +1338,7 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
       end
     end
     object HelpMenu: TMenuItem
-      Caption = 'ƒwƒ‹ƒv(&H)'
+      Caption = 'ãƒ˜ãƒ«ãƒ—(&H)'
       object ShowHelpMenuItem: TMenuItem
         Action = ShowHelpAction
       end
@@ -1352,201 +1352,201 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
     Left = 8
     Top = 64
     object ShowStatusBarAction: TAction
-      Category = '•\¦'
-      Caption = 'ƒXƒe[ƒ^ƒXƒo[‚Ì•\¦(&S)'
-      Hint = 'ƒXƒe[ƒ^ƒXƒo[‚ğ•\¦‚µ‚Ü‚·'
+      Category = 'è¡¨ç¤º'
+      Caption = 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼ã®è¡¨ç¤º(&S)'
+      Hint = 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼ã‚’è¡¨ç¤ºã—ã¾ã™'
       OnExecute = ShowStatusBarActionExecute
     end
     object ShowTotalViewAction: TAction
-      Category = '•\¦'
-      Caption = 'k¬”gŒ`‚Ì•\¦(&E)'
-      Hint = 'ƒTƒEƒ“ƒh‘S‘Ì‚ğŒ©“n‚¹‚é”gŒ`‚ğ•\¦‚µ‚Ü‚·'
+      Category = 'è¡¨ç¤º'
+      Caption = 'ç¸®å°æ³¢å½¢ã®è¡¨ç¤º(&E)'
+      Hint = 'ã‚µã‚¦ãƒ³ãƒ‰å…¨ä½“ã‚’è¦‹æ¸¡ã›ã‚‹æ³¢å½¢ã‚’è¡¨ç¤ºã—ã¾ã™'
       OnExecute = ShowTotalViewActionExecute
     end
     object StopPlayAction: TAction
-      Category = 'Ä¶'
-      Caption = '’â~(&Q)'
-      Hint = 'Œ»İ‚ÌÄ¶‚ğ’â~‚µ‚Ü‚·'
+      Category = 'å†ç”Ÿ'
+      Caption = 'åœæ­¢(&Q)'
+      Hint = 'ç¾åœ¨ã®å†ç”Ÿã‚’åœæ­¢ã—ã¾ã™'
       ImageIndex = 4
       ShortCut = 81
       OnExecute = StopPlayActionExecute
     end
     object PlayFromCaretAction: TAction
-      Category = 'Ä¶'
-      Caption = 'Œ»İˆÊ’u‚©‚çÄ¶(&C)'
-      Hint = 'Œ»İ‚ÌƒLƒƒƒŒƒbƒgˆÊ’u‚©‚çÄ¶‚µ‚Ü‚·'
+      Category = 'å†ç”Ÿ'
+      Caption = 'ç¾åœ¨ä½ç½®ã‹ã‚‰å†ç”Ÿ(&C)'
+      Hint = 'ç¾åœ¨ã®ã‚­ãƒ£ãƒ¬ãƒƒãƒˆä½ç½®ã‹ã‚‰å†ç”Ÿã—ã¾ã™'
       ImageIndex = 1
       ShortCut = 32
       OnExecute = PlayFromCaretActionExecute
     end
     object PlayFromStartAction: TAction
-      Category = 'Ä¶'
-      Caption = '‰‚ß‚©‚çÄ¶(&P)'
-      Hint = 'ƒTƒEƒ“ƒh‚Ìæ“ª‚©‚çÄ¶‚µ‚Ü‚·'
+      Category = 'å†ç”Ÿ'
+      Caption = 'åˆã‚ã‹ã‚‰å†ç”Ÿ(&P)'
+      Hint = 'ã‚µã‚¦ãƒ³ãƒ‰ã®å…ˆé ­ã‹ã‚‰å†ç”Ÿã—ã¾ã™'
       ImageIndex = 0
       ShortCut = 80
       OnExecute = PlayFromStartActionExecute
     end
     object ShowToolBarAction: TAction
-      Category = '•\¦'
-      Caption = 'ƒc[ƒ‹ƒo[‚Ì•\¦(&T)'
-      Hint = 'ƒc[ƒ‹ƒo[‚ğ•\¦‚µ‚Ü‚·'
+      Category = 'è¡¨ç¤º'
+      Caption = 'ãƒ„ãƒ¼ãƒ«ãƒãƒ¼ã®è¡¨ç¤º(&T)'
+      Hint = 'ãƒ„ãƒ¼ãƒ«ãƒãƒ¼ã‚’è¡¨ç¤ºã—ã¾ã™'
       OnExecute = ShowToolBarActionExecute
     end
     object ZoomInAction: TAction
-      Category = '•\¦'
-      Caption = 'ƒY[ƒ€EƒCƒ“(&I)'
-      Hint = '”gŒ`‚ğƒY[ƒ€ƒCƒ“‚µ‚Ü‚·'
+      Category = 'è¡¨ç¤º'
+      Caption = 'ã‚ºãƒ¼ãƒ ãƒ»ã‚¤ãƒ³(&I)'
+      Hint = 'æ³¢å½¢ã‚’ã‚ºãƒ¼ãƒ ã‚¤ãƒ³ã—ã¾ã™'
       ImageIndex = 9
       ShortCut = 73
       OnExecute = ZoomInActionExecute
     end
     object OpenAction: TAction
-      Category = 'ƒtƒ@ƒCƒ‹'
-      Caption = 'ŠJ‚­(&O)...'
-      Hint = 'ƒtƒ@ƒCƒ‹‚ğŠJ‚«‚Ü‚·'
+      Category = 'ãƒ•ã‚¡ã‚¤ãƒ«'
+      Caption = 'é–‹ã(&O)...'
+      Hint = 'ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ãã¾ã™'
       ImageIndex = 5
       ShortCut = 16463
       OnExecute = OpenActionExecute
     end
     object ZoomOutAction: TAction
-      Category = '•\¦'
-      Caption = 'ƒY[ƒ€EƒAƒEƒg(&O)'
-      Hint = '”gŒ`‚ğƒY[ƒ€ƒAƒEƒg‚µ‚Ü‚·'
+      Category = 'è¡¨ç¤º'
+      Caption = 'ã‚ºãƒ¼ãƒ ãƒ»ã‚¢ã‚¦ãƒˆ(&O)'
+      Hint = 'æ³¢å½¢ã‚’ã‚ºãƒ¼ãƒ ã‚¢ã‚¦ãƒˆã—ã¾ã™'
       ImageIndex = 10
       ShortCut = 79
       OnExecute = ZoomOutActionExecute
     end
     object ShowEditFlagsAction: TAction
-      Category = '•\¦'
-      Caption = 'ƒtƒ‰ƒO‚Ì•\¦(&G)'
-      Hint = 'ƒtƒ‰ƒO•ÒWƒo[‚ğ•\¦‚µ‚Ü‚·'
+      Category = 'è¡¨ç¤º'
+      Caption = 'ãƒ•ãƒ©ã‚°ã®è¡¨ç¤º(&G)'
+      Hint = 'ãƒ•ãƒ©ã‚°ç·¨é›†ãƒãƒ¼ã‚’è¡¨ç¤ºã—ã¾ã™'
       ImageIndex = 35
       OnExecute = ShowEditFlagsActionExecute
     end
     object FollowMarkerAction: TAction
-      Category = '•\¦'
-      Caption = 'Ä¶ˆÊ’u‚É‰æ–Ê‚ğ’Ç](&F)'
-      Hint = 'Ä¶ˆÊ’u‚É‰æ–Ê‚ğ’Ç]‚µ‚Ü‚·'
+      Category = 'è¡¨ç¤º'
+      Caption = 'å†ç”Ÿä½ç½®ã«ç”»é¢ã‚’è¿½å¾“(&F)'
+      Hint = 'å†ç”Ÿä½ç½®ã«ç”»é¢ã‚’è¿½å¾“ã—ã¾ã™'
       ImageIndex = 11
       ShortCut = 70
       OnExecute = FollowMarkerActionExecute
     end
     object SaveAction: TAction
-      Category = 'ƒtƒ@ƒCƒ‹'
-      Caption = '•Û‘¶(&S)'
-      Hint = 'ƒtƒ@ƒCƒ‹‚ğ•Û‘¶‚µ‚Ü‚·'
+      Category = 'ãƒ•ã‚¡ã‚¤ãƒ«'
+      Caption = 'ä¿å­˜(&S)'
+      Hint = 'ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¿å­˜ã—ã¾ã™'
       ImageIndex = 6
       ShortCut = 16467
       OnExecute = SaveActionExecute
     end
     object UndoAction: TAction
-      Category = '•ÒW'
-      Caption = 'Œ³‚É–ß‚·(&U)'
-      Hint = 'ÅŒã‚Ì•ÒW‚ğæ‚èÁ‚µA’¼‘O‚Ìó‘Ô‚É–ß‚µ‚Ü‚·'
+      Category = 'ç·¨é›†'
+      Caption = 'å…ƒã«æˆ»ã™(&U)'
+      Hint = 'æœ€å¾Œã®ç·¨é›†ã‚’å–ã‚Šæ¶ˆã—ã€ç›´å‰ã®çŠ¶æ…‹ã«æˆ»ã—ã¾ã™'
       ImageIndex = 12
       ShortCut = 16474
       OnExecute = UndoActionExecute
     end
     object RedoAction: TAction
-      Category = '•ÒW'
-      Caption = '‚â‚è’¼‚µ(&R)'
-      Hint = 'uŒ³‚É–ß‚·v‚ÅŒ³‚É–ß‚µ‚½•ÏX‚ğÄ“x“K—p‚µ‚Ü‚·'
+      Category = 'ç·¨é›†'
+      Caption = 'ã‚„ã‚Šç›´ã—(&R)'
+      Hint = 'ã€Œå…ƒã«æˆ»ã™ã€ã§å…ƒã«æˆ»ã—ãŸå¤‰æ›´ã‚’å†åº¦é©ç”¨ã—ã¾ã™'
       ImageIndex = 13
       ShortCut = 24666
       OnExecute = RedoActionExecute
     end
     object DeleteAction: TAction
-      Category = '•ÒW'
-      Caption = 'íœ(&D)'
-      Hint = 'Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚éƒAƒCƒeƒ€‚ğíœ‚µ‚Ü‚·'
+      Category = 'ç·¨é›†'
+      Caption = 'å‰Šé™¤(&D)'
+      Hint = 'ç¾åœ¨é¸æŠã•ã‚Œã¦ã„ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã‚’å‰Šé™¤ã—ã¾ã™'
       ImageIndex = 14
       ShortCut = 46
       OnExecute = DeleteActionExecute
     end
     object NewLinkAction: TAction
-      Category = '•ÒW'
-      Caption = 'V‹KƒŠƒ“ƒN‚ğì¬(&J)'
-      Hint = 'V‚µ‚¢ƒŠƒ“ƒN‚ğì¬‚µ‚Ü‚·'
+      Category = 'ç·¨é›†'
+      Caption = 'æ–°è¦ãƒªãƒ³ã‚¯ã‚’ä½œæˆ(&J)'
+      Hint = 'æ–°ã—ã„ãƒªãƒ³ã‚¯ã‚’ä½œæˆã—ã¾ã™'
       ImageIndex = 15
       ShortCut = 74
       OnExecute = NewLinkActionExecute
     end
     object NewLabelAction: TAction
-      Category = '•ÒW'
-      Caption = 'V‹Kƒ‰ƒxƒ‹‚ğì¬(&L)'
-      Hint = 'V‚µ‚¢ƒ‰ƒxƒ‹‚ğì¬‚µ‚Ü‚·'
+      Category = 'ç·¨é›†'
+      Caption = 'æ–°è¦ãƒ©ãƒ™ãƒ«ã‚’ä½œæˆ(&L)'
+      Hint = 'æ–°ã—ã„ãƒ©ãƒ™ãƒ«ã‚’ä½œæˆã—ã¾ã™'
       ImageIndex = 16
       ShortCut = 76
       OnExecute = NewLabelActionExecute
     end
     object EditLinkDetailAction: TAction
-      Category = '•ÒW'
-      Caption = 'ƒŠƒ“ƒN‚Ì•ÒW(&T) ...'
-      Hint = 'ƒŠƒ“ƒN‚ÌÚ×‚ğ•ÒW‚µ‚Ü‚·'
+      Category = 'ç·¨é›†'
+      Caption = 'ãƒªãƒ³ã‚¯ã®ç·¨é›†(&T) ...'
+      Hint = 'ãƒªãƒ³ã‚¯ã®è©³ç´°ã‚’ç·¨é›†ã—ã¾ã™'
       ImageIndex = 31
       OnExecute = EditLinkDetailActionExecute
     end
     object EditLabelDetailAction: TAction
-      Category = '•ÒW'
-      Caption = 'ƒ‰ƒxƒ‹‚ğ•ÒW(&E) ...'
-      Hint = 'ƒ‰ƒxƒ‹‚ğ•ÒW‚µ‚Ü‚·'
+      Category = 'ç·¨é›†'
+      Caption = 'ãƒ©ãƒ™ãƒ«ã‚’ç·¨é›†(&E) ...'
+      Hint = 'ãƒ©ãƒ™ãƒ«ã‚’ç·¨é›†ã—ã¾ã™'
       ImageIndex = 17
       OnExecute = EditLabelDetailActionExecute
     end
     object GotoLinkFromAction: TAction
-      Category = '•\¦'
-      Caption = 'ƒŠƒ“ƒNŒ³‚ÉˆÚ“®(&B)'
-      Hint = 'ƒŠƒ“ƒNŒ³‚ğ•\¦‚µ‚Ü‚·'
+      Category = 'è¡¨ç¤º'
+      Caption = 'ãƒªãƒ³ã‚¯å…ƒã«ç§»å‹•(&B)'
+      Hint = 'ãƒªãƒ³ã‚¯å…ƒã‚’è¡¨ç¤ºã—ã¾ã™'
       ImageIndex = 33
       ShortCut = 66
       OnExecute = GotoLinkFromActionExecute
     end
     object GotoLinkToAction: TAction
-      Category = '•\¦'
-      Caption = 'ƒŠƒ“ƒNæ‚ÉˆÚ“®(&N)'
-      Hint = 'ƒŠƒ“ƒNæ‚ğ•\¦‚µ‚Ü‚·'
+      Category = 'è¡¨ç¤º'
+      Caption = 'ãƒªãƒ³ã‚¯å…ˆã«ç§»å‹•(&N)'
+      Hint = 'ãƒªãƒ³ã‚¯å…ˆã‚’è¡¨ç¤ºã—ã¾ã™'
       ImageIndex = 34
       ShortCut = 78
       OnExecute = GotoLinkToActionExecute
     end
     object IgnoreLinksAction: TAction
-      Category = 'Ä¶'
-      Caption = 'ƒŠƒ“ƒN‚ğ–³‹‚µ‚ÄÄ¶(&G)'
-      Hint = 'ƒŠƒ“ƒN‚ğ–³‹‚µAƒWƒƒƒ“ƒv‚¹‚¸‚ÉÄ¶‚µ‚Ü‚·'
+      Category = 'å†ç”Ÿ'
+      Caption = 'ãƒªãƒ³ã‚¯ã‚’ç„¡è¦–ã—ã¦å†ç”Ÿ(&G)'
+      Hint = 'ãƒªãƒ³ã‚¯ã‚’ç„¡è¦–ã—ã€ã‚¸ãƒ£ãƒ³ãƒ—ã›ãšã«å†ç”Ÿã—ã¾ã™'
       ImageIndex = 36
       ShortCut = 71
       OnExecute = IgnoreLinksActionExecute
     end
     object CloseAction: TAction
-      Category = 'ƒtƒ@ƒCƒ‹'
-      Caption = 'I—¹(&X)'
-      Hint = 'ƒ‹[ƒvƒ`ƒ…[ƒi‚ğI—¹‚µ‚Ü‚·'
+      Category = 'ãƒ•ã‚¡ã‚¤ãƒ«'
+      Caption = 'çµ‚äº†(&X)'
+      Hint = 'ãƒ«ãƒ¼ãƒ—ãƒãƒ¥ãƒ¼ãƒŠã‚’çµ‚äº†ã—ã¾ã™'
       OnExecute = CloseActionExecute
     end
     object ShowHelpAction: TAction
-      Category = 'ƒwƒ‹ƒv'
-      Caption = 'ƒwƒ‹ƒv(&H) ...'
-      Hint = 'ƒ‹[ƒvƒ`ƒ…[ƒi‚Ìƒwƒ‹ƒv‚ğ•\¦‚µ‚Ü‚·'
+      Category = 'ãƒ˜ãƒ«ãƒ—'
+      Caption = 'ãƒ˜ãƒ«ãƒ—(&H) ...'
+      Hint = 'ãƒ«ãƒ¼ãƒ—ãƒãƒ¥ãƒ¼ãƒŠã®ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã—ã¾ã™'
       OnExecute = ShowHelpActionExecute
     end
     object ShowAboutAction: TAction
-      Category = 'ƒwƒ‹ƒv'
-      Caption = 'ƒ‹[ƒvƒ`ƒ…[ƒi‚É‚Â‚¢‚Ä(&A) ...'
-      Hint = 'ƒ‹[ƒvƒ`ƒ…[ƒi‚Ì’˜ìŒ Eƒo[ƒWƒ‡ƒ“î•ñ‚ğ•\¦‚µ‚Ü‚·'
+      Category = 'ãƒ˜ãƒ«ãƒ—'
+      Caption = 'ãƒ«ãƒ¼ãƒ—ãƒãƒ¥ãƒ¼ãƒŠã«ã¤ã„ã¦(&A) ...'
+      Hint = 'ãƒ«ãƒ¼ãƒ—ãƒãƒ¥ãƒ¼ãƒŠã®è‘—ä½œæ¨©ãƒ»ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’è¡¨ç¤ºã—ã¾ã™'
       OnExecute = ShowAboutActionExecute
     end
     object ClearAllLabelsAction: TAction
-      Category = '•ÒW'
-      Caption = '‘S‚Ä‚Ìƒ‰ƒxƒ‹‚ğƒNƒŠƒA(&Q)'
-      Hint = '‘S‚Ä‚Ìƒ‰ƒxƒ‹‚ğíœ‚µ‚Ü‚·'
+      Category = 'ç·¨é›†'
+      Caption = 'å…¨ã¦ã®ãƒ©ãƒ™ãƒ«ã‚’ã‚¯ãƒªã‚¢(&Q)'
+      Hint = 'å…¨ã¦ã®ãƒ©ãƒ™ãƒ«ã‚’å‰Šé™¤ã—ã¾ã™'
       ImageIndex = 39
       OnExecute = ClearAllLabelsActionExecute
     end
     object NewLinkOnPlayAction: TAction
-      Category = '•ÒW'
-      Caption = 'Ä¶ˆÊ’u‚Éƒ‰ƒxƒ‹‚ğì¬(&A)'
-      Hint = 'Œ»İ‚ÌÄ¶ˆÊ’u‚ÉV‹Kƒ‰ƒxƒ‹‚ğì¬‚µ‚Ü‚·'
+      Category = 'ç·¨é›†'
+      Caption = 'å†ç”Ÿä½ç½®ã«ãƒ©ãƒ™ãƒ«ã‚’ä½œæˆ(&A)'
+      Hint = 'ç¾åœ¨ã®å†ç”Ÿä½ç½®ã«æ–°è¦ãƒ©ãƒ™ãƒ«ã‚’ä½œæˆã—ã¾ã™'
       ImageIndex = 40
       OnExecute = NewLinkOnPlayActionExecute
     end
@@ -2061,19 +2061,19 @@ object TSSLoopTuner2MainForm: TTSSLoopTuner2MainForm
     Left = 152
     Top = 64
     object FlagsEditToggleMenuItem: TMenuItem
-      Caption = 'ƒgƒOƒ‹(&T)'
+      Caption = 'ãƒˆã‚°ãƒ«(&T)'
       Default = True
-      Hint = '’l‚ª0ˆÈŠO‚È‚ç‚Î0‚ÉA0‚È‚ç‚Î1‚É‚µ‚Ü‚·'
+      Hint = 'å€¤ãŒ0ä»¥å¤–ãªã‚‰ã°0ã«ã€0ãªã‚‰ã°1ã«ã—ã¾ã™'
       OnClick = FlagsEditToggleMenuItemClick
     end
     object FlagsEditZeroMenuItem: TMenuItem
-      Caption = '&0‚É‚·‚é'
-      Hint = '’l‚ğ0‚É‚µ‚Ü‚·'
+      Caption = '&0ã«ã™ã‚‹'
+      Hint = 'å€¤ã‚’0ã«ã—ã¾ã™'
       OnClick = FlagsEditZeroMenuItemClick
     end
     object FlasgEditOneMenuItem: TMenuItem
-      Caption = '&1‚É‚·‚é'
-      Hint = '’l‚ğ1‚É‚µ‚Ü‚·'
+      Caption = '&1ã«ã™ã‚‹'
+      Hint = 'å€¤ã‚’1ã«ã—ã¾ã™'
       OnClick = FlasgEditOneMenuItemClick
     end
   end

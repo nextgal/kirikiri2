@@ -29,7 +29,7 @@ namespace gui
 		CGUIColorSelectDialog(const wchar_t* title, IGUIEnvironment* environment, IGUIElement* parent, s32 id);
 
 		//! destructor
-		virtual ~CGUIColorSelectDialog();
+		virtual ‾CGUIColorSelectDialog();
 
 		//! called if an event happened.
 		virtual bool OnEvent(const SEvent& event);

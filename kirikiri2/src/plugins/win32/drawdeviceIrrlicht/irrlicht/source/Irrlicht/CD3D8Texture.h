@@ -34,7 +34,7 @@ public:
 	CD3D8Texture(CD3D8Driver* driver, core::dimension2d<s32> size, const char* name);
 
 	//! destructor
-	virtual ~CD3D8Texture();
+	virtual ‾CD3D8Texture();
 
 	//! lock function
 	virtual void* lock();

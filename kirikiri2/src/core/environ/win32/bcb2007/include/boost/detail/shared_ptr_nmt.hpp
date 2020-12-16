@@ -69,7 +69,7 @@ public:
 #endif
     }
 
-    ~shared_ptr()
+    ‾shared_ptr()
     {
         if(--*pn == 0)
         {

@@ -1,6 +1,6 @@
 /* WARNING: This file was put in the LibPNG distribution for convenience only.
             It is expected to be part of the next zlib release under
-            "projects\visualc71\README.txt." */
+            "projects¥visualc71¥README.txt." */
 
 Microsoft Developer Studio Project File, Format Version 7.10 for zlib.
 
@@ -33,12 +33,12 @@ To use:
 
 This project builds the zlib binaries as follows:
 
-* Win32_DLL_Release\zlib1.dll       DLL build
-* Win32_DLL_Debug\zlib1d.dll        DLL build (debug version)
-* Win32_DLL_ASM_Release\zlib1.dll   DLL build using ASM code
-* Win32_DLL_ASM_Debug\zlib1d.dll    DLL build using ASM code (debug version)
-* Win32_LIB_Release\zlib.lib        static build
-* Win32_LIB_Debug\zlibd.lib         static build (debug version)
-* Win32_LIB_ASM_Release\zlib.lib    static build using ASM code
-* Win32_LIB_ASM_Debug\zlibd.lib     static build using ASM code (debug version)
+* Win32_DLL_Release¥zlib1.dll       DLL build
+* Win32_DLL_Debug¥zlib1d.dll        DLL build (debug version)
+* Win32_DLL_ASM_Release¥zlib1.dll   DLL build using ASM code
+* Win32_DLL_ASM_Debug¥zlib1d.dll    DLL build using ASM code (debug version)
+* Win32_LIB_Release¥zlib.lib        static build
+* Win32_LIB_Debug¥zlibd.lib         static build (debug version)
+* Win32_LIB_ASM_Release¥zlib.lib    static build using ASM code
+* Win32_LIB_ASM_Debug¥zlibd.lib     static build using ASM code (debug version)
 

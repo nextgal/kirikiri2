@@ -349,7 +349,7 @@ this, you can call:
                  PNG_HANDLE_CHUNK_IF_SAFE      2
                  PNG_HANDLE_CHUNK_ALWAYS       3
     chunk_list - list of chunks affected (a byte string,
-                 five bytes per chunk, NULL or '\0' if
+                 five bytes per chunk, NULL or '¥0' if
                  num_chunks is 0)
     num_chunks - number of chunks affected; if 0, all
                  unknown chunks are affected.  If nonzero,
@@ -931,7 +931,7 @@ the normalized graylevel is computed:
     gray = (rw*red + gw*green + bw*blue)/65536;
 
 The default values approximate those recommended in the Charles
-Poynton's Color FAQ, <http://www.inforamp.net/~poynton/>
+Poynton's Color FAQ, <http://www.inforamp.net/‾poynton/>
 Copyright (c) 1998-01-04 Charles Poynton <poynton at inforamp.net>
 
     Y = 0.212671 * R + 0.715160 * G + 0.072169 * B
@@ -2708,12 +2708,12 @@ the message, "message" is the formatted string to be printed,
 and p1 and p2 are parameters that are to be embedded in the string
 according to printf-style formatting directives.  For example,
 
-   png_debug1(2, "foo=%d\n", foo);
+   png_debug1(2, "foo=%d¥n", foo);
 
 is expanded to
 
    if(PNG_DEBUG > 2)
-     fprintf(PNG_DEBUG_FILE, "foo=%d\n", foo);
+     fprintf(PNG_DEBUG_FILE, "foo=%d¥n", foo);
 
 When PNG_DEBUG is defined but is zero, the macros aren't defined, but you
 can still use PNG_DEBUG to control your own debugging:
@@ -2763,7 +2763,7 @@ only writing.  To disable all optimizations:
     #if defined(PNG_LIBPNG_VER) && (PNG_LIBPNG_VER >= 10200)
        flags = png_get_asm_flags(png_ptr);
        mask = png_get_asm_flagmask(PNG_SELECT_READ | PNG_SELECT_WRITE);
-       png_set_asm_flags(png_ptr, flags & ~mask);
+       png_set_asm_flags(png_ptr, flags & ‾mask);
     #endif
 
 To enable or disable only MMX-related features, use png_get_mmx_flagmask()
@@ -2791,11 +2791,11 @@ written and compiled.  It is also possible, of course, to enable only known,
 specific optimizations; for example:
 
     #if defined(PNG_LIBPNG_VER) && (PNG_LIBPNG_VER >= 10200)
-       flags = PNG_ASM_FLAG_MMX_READ_COMBINE_ROW  \
-             | PNG_ASM_FLAG_MMX_READ_INTERLACE    \
-             | PNG_ASM_FLAG_MMX_READ_FILTER_SUB   \
-             | PNG_ASM_FLAG_MMX_READ_FILTER_UP    \
-             | PNG_ASM_FLAG_MMX_READ_FILTER_AVG   \
+       flags = PNG_ASM_FLAG_MMX_READ_COMBINE_ROW  ¥
+             | PNG_ASM_FLAG_MMX_READ_INTERLACE    ¥
+             | PNG_ASM_FLAG_MMX_READ_FILTER_SUB   ¥
+             | PNG_ASM_FLAG_MMX_READ_FILTER_UP    ¥
+             | PNG_ASM_FLAG_MMX_READ_FILTER_AVG   ¥
              | PNG_ASM_FLAG_MMX_READ_FILTER_PAETH ;
        png_set_asm_flags(png_ptr, flags);
     #endif
@@ -2824,7 +2824,7 @@ The following code can be used to prevent an application from using the
 thread_unsafe features, even if libpng was built with PNG_THREAD_UNSAFE_OK
 defined:
 
-#if defined(PNG_USE_PNGGCCRD) && defined(PNG_ASSEMBLER_CODE_SUPPORTED) \
+#if defined(PNG_USE_PNGGCCRD) && defined(PNG_ASSEMBLER_CODE_SUPPORTED) ¥
   && defined(PNG_THREAD_UNSAFE_OK)
     /* Disable thread-unsafe features of pnggccrd */
     if (png_access_version_number() >= 10200)
@@ -2832,12 +2832,12 @@ defined:
       png_uint_32 mmx_disable_mask = 0;
       png_uint_32 asm_flags;
 
-      mmx_disable_mask |= ( PNG_ASM_FLAG_MMX_READ_COMBINE_ROW  \
-                          | PNG_ASM_FLAG_MMX_READ_FILTER_SUB   \
-                          | PNG_ASM_FLAG_MMX_READ_FILTER_AVG   \
+      mmx_disable_mask |= ( PNG_ASM_FLAG_MMX_READ_COMBINE_ROW  ¥
+                          | PNG_ASM_FLAG_MMX_READ_FILTER_SUB   ¥
+                          | PNG_ASM_FLAG_MMX_READ_FILTER_AVG   ¥
                           | PNG_ASM_FLAG_MMX_READ_FILTER_PAETH );
       asm_flags = png_get_asm_flags(png_ptr);
-      png_set_asm_flags(png_ptr, asm_flags & ~mmx_disable_mask);
+      png_set_asm_flags(png_ptr, asm_flags & ‾mmx_disable_mask);
     }
 #endif
 

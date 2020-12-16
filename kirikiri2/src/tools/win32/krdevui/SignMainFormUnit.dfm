@@ -3,14 +3,14 @@ object SignMainForm: TSignMainForm
   Top = 17
   ActiveControl = PageControl
   BorderStyle = bsDialog
-  Caption = 'ƒL[E–¼ƒc[ƒ‹'
+  Caption = 'ã‚­ãƒ¼ãƒ»ç½²åãƒ„ãƒ¼ãƒ«'
   ClientHeight = 384
   ClientWidth = 369
   Color = clBtnFace
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   Icon.Data = {
     000001000700101000000100200068040000760000003030000001002000A825
@@ -643,7 +643,7 @@ object SignMainForm: TSignMainForm
     Width = 75
     Height = 25
     Cancel = True
-    Caption = '•Â‚¶‚é(&C)'
+    Caption = 'é–‰ã˜ã‚‹(&C)'
     ModalResult = 1
     TabOrder = 0
     OnClick = CloseButtonClick
@@ -656,27 +656,27 @@ object SignMainForm: TSignMainForm
     ActivePage = KeyGenTabSheet
     TabOrder = 1
     object KeyGenTabSheet: TTabSheet
-      Caption = 'ƒL[¶¬'
+      Caption = 'ã‚­ãƒ¼ç”Ÿæˆ'
       object Label1: TLabel
         Left = 8
         Top = 8
         Width = 207
         Height = 12
-        Caption = '–¼‚ğs‚¤‚½‚ß‚ÌƒL[(Œ®)‚ğì¬‚µ‚Ü‚·B'
+        Caption = 'ç½²åã‚’è¡Œã†ãŸã‚ã®ã‚­ãƒ¼(éµ)ã‚’ä½œæˆã—ã¾ã™ã€‚'
       end
       object Label2: TLabel
         Left = 8
         Top = 24
         Width = 324
         Height = 12
-        Caption = '‰º‚Ìu¶¬‚·‚évƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚Æ”é–§Œ®‚ÆŒöŠJŒ®‚ª¶¬‚³‚ê‚Ü‚·B'
+        Caption = 'ä¸‹ã®ã€Œç”Ÿæˆã™ã‚‹ã€ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨ç§˜å¯†éµã¨å…¬é–‹éµãŒç”Ÿæˆã•ã‚Œã¾ã™ã€‚'
       end
       object Label3: TLabel
         Left = 8
         Top = 40
         Width = 289
         Height = 12
-        Caption = '‚±‚ê‚ç‚ÍƒyƒA‚ÌŒ®‚Å‚·B—¼•û‚Æ‚à‘åØ‚É•ÛŠÇ‚µ‚Ä‚­‚¾‚³‚¢B'
+        Caption = 'ã“ã‚Œã‚‰ã¯ãƒšã‚¢ã®éµã§ã™ã€‚ä¸¡æ–¹ã¨ã‚‚å¤§åˆ‡ã«ä¿ç®¡ã—ã¦ãã ã•ã„ã€‚'
       end
       object Label4: TLabel
         Left = 12
@@ -685,12 +685,12 @@ object SignMainForm: TSignMainForm
         Height = 17
         Alignment = taCenter
         AutoSize = False
-        Caption = '”é–§Œ®‚Ì•û‚ÍŒöŠJ‚µ‚Ä‚Í‚¢‚¯‚Ü‚¹‚ñ'
+        Caption = 'ç§˜å¯†éµã®æ–¹ã¯å…¬é–‹ã—ã¦ã¯ã„ã‘ã¾ã›ã‚“'
         Color = clRed
         Font.Charset = SHIFTJIS_CHARSET
         Font.Color = clWhite
         Font.Height = -12
-        Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+        Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False
@@ -701,46 +701,46 @@ object SignMainForm: TSignMainForm
         Top = 56
         Width = 179
         Height = 12
-        Caption = 'ŒöŠJŒ®‚Í•K—v‚É‰‚¶‚ÄŒöŠJ‚µ‚Ü‚·B'
+        Caption = 'å…¬é–‹éµã¯å¿…è¦ã«å¿œã˜ã¦å…¬é–‹ã—ã¾ã™ã€‚'
       end
       object Label6: TLabel
         Left = 8
         Top = 173
         Width = 98
         Height = 12
-        Caption = '¶¬‚³‚ê‚½ŒöŠJŒ® :'
+        Caption = 'ç”Ÿæˆã•ã‚ŒãŸå…¬é–‹éµ :'
       end
       object Label7: TLabel
         Left = 8
         Top = 244
         Width = 98
         Height = 12
-        Caption = '¶¬‚³‚ê‚½”é–§Œ® :'
+        Caption = 'ç”Ÿæˆã•ã‚ŒãŸç§˜å¯†éµ :'
       end
       object Label8: TLabel
         Left = 166
         Top = 128
         Width = 12
         Height = 12
-        Caption = '«'
+        Caption = 'â†“'
       end
       object Label9: TLabel
         Left = 9
         Top = 296
         Width = 327
         Height = 12
-        Caption = '¦ ƒEƒBƒ“ƒhƒE‚ğ•Â‚¶‚é‚Æ‚«‚ÉƒNƒŠƒbƒvƒ{[ƒh‚Ì“à—e‚ÍƒNƒŠƒA‚³‚ê‚Ü‚·'
+        Caption = 'â€» ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’é–‰ã˜ã‚‹ã¨ãã«ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã®å†…å®¹ã¯ã‚¯ãƒªã‚¢ã•ã‚Œã¾ã™'
       end
       object KeyGeneratingLabel: TLabel
         Left = 16
         Top = 128
         Width = 308
         Height = 12
-        Caption = 'ƒL[‚ğ¶¬’†‚Å‚· .. ‚±‚ê‚É‚Í‚µ‚Î‚ç‚­ŠÔ‚ª‚©‚©‚è‚Ü‚·'
+        Caption = 'ã‚­ãƒ¼ã‚’ç”Ÿæˆä¸­ã§ã™ .. ã“ã‚Œã«ã¯ã—ã°ã‚‰ãæ™‚é–“ãŒã‹ã‹ã‚Šã¾ã™'
         Font.Charset = SHIFTJIS_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
-        Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+        Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
         Font.Style = [fsBold]
         ParentFont = False
         Visible = False
@@ -750,7 +750,7 @@ object SignMainForm: TSignMainForm
         Top = 96
         Width = 75
         Height = 25
-        Caption = '¶¬‚·‚é(&G)'
+        Caption = 'ç”Ÿæˆã™ã‚‹(&G)'
         Default = True
         TabOrder = 0
         OnClick = GenerateButtonClick
@@ -760,8 +760,8 @@ object SignMainForm: TSignMainForm
         Top = 167
         Width = 75
         Height = 25
-        Hint = 'ƒNƒŠƒbƒvƒ{[ƒh‚ÉŒöŠJŒ®‚ğƒRƒs[‚µ‚Ü‚·'
-        Caption = 'ƒRƒs[(&B)'
+        Hint = 'ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«å…¬é–‹éµã‚’ã‚³ãƒ”ãƒ¼ã—ã¾ã™'
+        Caption = 'ã‚³ãƒ”ãƒ¼(&B)'
         Enabled = False
         ParentShowHint = False
         ShowHint = True
@@ -773,8 +773,8 @@ object SignMainForm: TSignMainForm
         Top = 238
         Width = 75
         Height = 25
-        Hint = 'ƒNƒŠƒbƒvƒ{[ƒh‚É”é–§Œ®‚ğƒRƒs[‚µ‚Ü‚·'
-        Caption = 'ƒRƒs[(&P)'
+        Hint = 'ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ç§˜å¯†éµã‚’ã‚³ãƒ”ãƒ¼ã—ã¾ã™'
+        Caption = 'ã‚³ãƒ”ãƒ¼(&P)'
         Enabled = False
         ParentShowHint = False
         ShowHint = True
@@ -801,35 +801,35 @@ object SignMainForm: TSignMainForm
       end
     end
     object SignTabSheet: TTabSheet
-      Caption = '–¼'
+      Caption = 'ç½²å'
       ImageIndex = 1
       object Label10: TLabel
         Left = 8
         Top = 8
         Width = 210
         Height = 12
-        Caption = '–¼‚ğ‚µ‚Ü‚·B”é–§Œ®‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B'
+        Caption = 'ç½²åã‚’ã—ã¾ã™ã€‚ç§˜å¯†éµã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚'
       end
       object Label11: TLabel
         Left = 16
         Top = 61
         Width = 57
         Height = 12
-        Caption = '”é–§Œ®(&P) :'
+        Caption = 'ç§˜å¯†éµ(&P) :'
       end
       object Label12: TLabel
         Left = 8
         Top = 120
         Width = 249
         Height = 12
-        Caption = '–¼‚ğs‚¤‘ÎÛ‚Æ‚È‚éƒtƒ@ƒCƒ‹‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B'
+        Caption = 'ç½²åã‚’è¡Œã†å¯¾è±¡ã¨ãªã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚'
       end
       object Label13: TLabel
         Left = 8
         Top = 288
         Width = 274
         Height = 12
-        Caption = 'Œ»ƒo[ƒWƒ‡ƒ“‚Å‚Í‹g—¢‹g—¢–{‘Ì‚É‚Ì‚İ–¼‰Â”\‚Å‚·B'
+        Caption = 'ç¾ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã§ã¯å‰é‡Œå‰é‡Œæœ¬ä½“ã«ã®ã¿ç½²åå¯èƒ½ã§ã™ã€‚'
         Visible = False
       end
       object Label14: TLabel
@@ -837,7 +837,7 @@ object SignMainForm: TSignMainForm
         Top = 148
         Width = 86
         Height = 12
-        Caption = '‘ÎÛƒtƒ@ƒCƒ‹(&T) :'
+        Caption = 'å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«(&T) :'
         FocusControl = SignFileNameEdit
       end
       object Label15: TLabel
@@ -845,21 +845,21 @@ object SignMainForm: TSignMainForm
         Top = 200
         Width = 232
         Height = 12
-        Caption = 'ƒtƒ@ƒCƒ‹‚ğ‚±‚ÌƒEƒBƒ“ƒhƒE‚Éƒhƒƒbƒv‚·‚é‚±‚Æ‚Å‚à'
+        Caption = 'ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã“ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ãƒ‰ãƒ­ãƒƒãƒ—ã™ã‚‹ã“ã¨ã§ã‚‚'
       end
       object Label16: TLabel
         Left = 8
         Top = 216
         Width = 207
         Height = 12
-        Caption = '‘ÎÛƒtƒ@ƒCƒ‹‚ğw’è‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B'
+        Caption = 'å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚'
       end
       object SignDoneLabel: TLabel
         Left = 16
         Top = 264
         Width = 96
         Height = 12
-        Caption = '–¼‚ğs‚¢‚Ü‚µ‚½B'
+        Caption = 'ç½²åã‚’è¡Œã„ã¾ã—ãŸã€‚'
         Visible = False
       end
       object SignFileNameEdit: TEdit
@@ -875,7 +875,7 @@ object SignMainForm: TSignMainForm
         Top = 174
         Width = 67
         Height = 25
-        Caption = 'QÆ(&R) ...'
+        Caption = 'å‚ç…§(&R) ...'
         TabOrder = 1
         OnClick = SignFileNameRefButtonClick
       end
@@ -884,7 +884,7 @@ object SignMainForm: TSignMainForm
         Top = 256
         Width = 82
         Height = 25
-        Caption = '–¼‚·‚é(&S)'
+        Caption = 'ç½²åã™ã‚‹(&S)'
         Default = True
         Enabled = False
         TabOrder = 2
@@ -900,14 +900,14 @@ object SignMainForm: TSignMainForm
       end
     end
     object CheckSignTabSheet: TTabSheet
-      Caption = '–¼Šm”F'
+      Caption = 'ç½²åç¢ºèª'
       ImageIndex = 2
       object SignatureIsValidLabel: TLabel
         Left = 0
         Top = 264
         Width = 124
         Height = 12
-        Caption = '–¼‚Í³“–‚È‚à‚Ì‚Å‚·B'
+        Caption = 'ç½²åã¯æ­£å½“ãªã‚‚ã®ã§ã™ã€‚'
         Visible = False
       end
       object Label18: TLabel
@@ -915,21 +915,21 @@ object SignMainForm: TSignMainForm
         Top = 216
         Width = 207
         Height = 12
-        Caption = '‘ÎÛƒtƒ@ƒCƒ‹‚ğw’è‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B'
+        Caption = 'å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚'
       end
       object Label19: TLabel
         Left = 8
         Top = 200
         Width = 232
         Height = 12
-        Caption = 'ƒtƒ@ƒCƒ‹‚ğ‚±‚ÌƒEƒBƒ“ƒhƒE‚Éƒhƒƒbƒv‚·‚é‚±‚Æ‚Å‚à'
+        Caption = 'ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã“ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ãƒ‰ãƒ­ãƒƒãƒ—ã™ã‚‹ã“ã¨ã§ã‚‚'
       end
       object Label20: TLabel
         Left = 16
         Top = 148
         Width = 86
         Height = 12
-        Caption = '‘ÎÛƒtƒ@ƒCƒ‹(&T) :'
+        Caption = 'å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«(&T) :'
         FocusControl = CheckSignFileNameEdit
       end
       object Label21: TLabel
@@ -937,7 +937,7 @@ object SignMainForm: TSignMainForm
         Top = 280
         Width = 274
         Height = 12
-        Caption = 'Œ»ƒo[ƒWƒ‡ƒ“‚Å‚Í‹g—¢‹g—¢–{‘Ì‚É‚Ì‚İ–¼‰Â”\‚Å‚·B'
+        Caption = 'ç¾ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã§ã¯å‰é‡Œå‰é‡Œæœ¬ä½“ã«ã®ã¿ç½²åå¯èƒ½ã§ã™ã€‚'
         Visible = False
       end
       object Label22: TLabel
@@ -945,28 +945,28 @@ object SignMainForm: TSignMainForm
         Top = 120
         Width = 290
         Height = 12
-        Caption = '–¼‚ğƒ`ƒFƒbƒN‚·‚é‘ÎÛ‚Æ‚È‚éƒtƒ@ƒCƒ‹‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B'
+        Caption = 'ç½²åã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹å¯¾è±¡ã¨ãªã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚'
       end
       object Label23: TLabel
         Left = 16
         Top = 61
         Width = 57
         Height = 12
-        Caption = 'ŒöŠJŒ®(&P) :'
+        Caption = 'å…¬é–‹éµ(&P) :'
       end
       object Label24: TLabel
         Left = 8
         Top = 8
         Width = 234
         Height = 12
-        Caption = '–¼‚ğŠm”F‚µ‚Ü‚·BŒöŠJŒ®‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B'
+        Caption = 'ç½²åã‚’ç¢ºèªã—ã¾ã™ã€‚å…¬é–‹éµã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚'
       end
       object SignatureIsInvalidLabel: TLabel
         Left = 16
         Top = 296
         Width = 169
         Height = 12
-        Caption = '–¼‚Í³“–‚È•¨‚Å‚Í‚ ‚è‚Ü‚¹‚ñB'
+        Caption = 'ç½²åã¯æ­£å½“ãªç‰©ã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚'
         Visible = False
       end
       object CheckSignatureButton: TButton
@@ -974,7 +974,7 @@ object SignMainForm: TSignMainForm
         Top = 256
         Width = 82
         Height = 25
-        Caption = 'ƒ`ƒFƒbƒN(&S)'
+        Caption = 'ãƒã‚§ãƒƒã‚¯(&S)'
         Default = True
         Enabled = False
         TabOrder = 2
@@ -985,7 +985,7 @@ object SignMainForm: TSignMainForm
         Top = 174
         Width = 67
         Height = 25
-        Caption = 'QÆ(&R) ...'
+        Caption = 'å‚ç…§(&R) ...'
         TabOrder = 1
         OnClick = CheckSignFileNameRefButtonClick
       end

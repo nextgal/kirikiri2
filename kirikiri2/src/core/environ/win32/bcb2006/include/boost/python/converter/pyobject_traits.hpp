@@ -25,8 +25,8 @@ struct pyobject_traits<PyObject>
 // Specializations
 //
 
-# define BOOST_PYTHON_BUILTIN_OBJECT_TRAITS(T)                  \
-    template <> struct pyobject_traits<Py##T##Object>           \
+# define BOOST_PYTHON_BUILTIN_OBJECT_TRAITS(T)                  ¥
+    template <> struct pyobject_traits<Py##T##Object>           ¥
         : pyobject_type<Py##T##Object, &Py##T##_Type> {}
 
 // This is not an exhaustive list; should be expanded.

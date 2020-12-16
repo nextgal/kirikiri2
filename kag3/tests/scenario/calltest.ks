@@ -47,7 +47,7 @@ call_c_2
 ;
 ;
 *first
-[call_a param=1]\
+[call_a param=1]¥
 *savable|savable
 @l
 @jump target=*first

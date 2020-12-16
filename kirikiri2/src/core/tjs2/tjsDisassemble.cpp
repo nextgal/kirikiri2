@@ -130,11 +130,11 @@ void tTJSInterCodeContext::Disassemble(
 			break;
 
 
-#define OP2_DISASM(c, x) \
-	case c: \
-		msg.printf(TJS_W(x " %%%d, %%%d"), TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), \
-										TJS_FROM_VM_REG_ADDR(CodeArea[i+2])); \
-		size = 3; \
+#define OP2_DISASM(c, x) ¥
+	case c: ¥
+		msg.printf(TJS_W(x " %%%d, %%%d"), TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), ¥
+										TJS_FROM_VM_REG_ADDR(CodeArea[i+2])); ¥
+		size = 3; ¥
 		break
 		// instructions that
 		// 1. have two operands that represent registers.
@@ -148,39 +148,39 @@ void tTJSInterCodeContext::Disassemble(
 #undef OP2_DISASM
 
 
-#define OP2_DISASM(c, x) \
-	case c: \
-		msg.printf(TJS_W(x " %%%d, %%%d"), TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), \
-									TJS_FROM_VM_REG_ADDR(CodeArea[i+2])); \
-		size = 3; \
-		break; \
-	case c+1: \
-		msg.printf(TJS_W(x "pd" " %%%d, %%%d.*%d, %%%d"), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+2]), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+3]), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+4])); \
-		if(DataArea) \
-		{ \
-			com.printf(TJS_W("*%d = %ls"), TJS_FROM_VM_REG_ADDR(CodeArea[i+3]), \
-				GetValueComment(TJS_GET_VM_REG(DataArea, CodeArea[i+3])).c_str()); \
-		} \
-		size = 5; \
-		break; \
-	case c+2: \
-		msg.printf(TJS_W(x "pi" " %%%d, %%%d.%%%d, %%%d"), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+2]), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+3]), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+4])); \
-		size = 5; \
-		break; \
-	case c+3: \
-		msg.printf(TJS_W(x "p" " %%%d, %%%d, %%%d"), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+2]), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+3])); \
-		size = 4; \
+#define OP2_DISASM(c, x) ¥
+	case c: ¥
+		msg.printf(TJS_W(x " %%%d, %%%d"), TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), ¥
+									TJS_FROM_VM_REG_ADDR(CodeArea[i+2])); ¥
+		size = 3; ¥
+		break; ¥
+	case c+1: ¥
+		msg.printf(TJS_W(x "pd" " %%%d, %%%d.*%d, %%%d"), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+2]), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+3]), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+4])); ¥
+		if(DataArea) ¥
+		{ ¥
+			com.printf(TJS_W("*%d = %ls"), TJS_FROM_VM_REG_ADDR(CodeArea[i+3]), ¥
+				GetValueComment(TJS_GET_VM_REG(DataArea, CodeArea[i+3])).c_str()); ¥
+		} ¥
+		size = 5; ¥
+		break; ¥
+	case c+2: ¥
+		msg.printf(TJS_W(x "pi" " %%%d, %%%d.%%%d, %%%d"), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+2]), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+3]), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+4])); ¥
+		size = 5; ¥
+		break; ¥
+	case c+3: ¥
+		msg.printf(TJS_W(x "p" " %%%d, %%%d, %%%d"), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+2]), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+3])); ¥
+		size = 4; ¥
 		break
 		// instructions that
 		// 1. have two operands that represent registers.
@@ -201,8 +201,8 @@ void tTJSInterCodeContext::Disassemble(
 		OP2_DISASM(VM_MUL,		"mul");
 #undef OP2_DISASM
 
-#define OP1_DISASM(x) \
-	msg.printf(TJS_W(x " %%%d"), TJS_FROM_VM_REG_ADDR(CodeArea[i+1])); \
+#define OP1_DISASM(x) ¥
+	msg.printf(TJS_W(x " %%%d"), TJS_FROM_VM_REG_ADDR(CodeArea[i+1])); ¥
 	size = 2
 		// instructions that have one operand which represent a register,
 		// except for inc, dec
@@ -234,36 +234,36 @@ void tTJSInterCodeContext::Disassemble(
 			size = 3;
 			break;
 
-#define OP1_DISASM(c, x) \
-	case c: \
-		msg.printf(TJS_W(x " %%%d"), TJS_FROM_VM_REG_ADDR(CodeArea[i+1])); \
-		size = 2; \
-		break; \
-	case c+1: \
-		msg.printf(TJS_W(x "pd" " %%%d, %%%d.*%d"), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+2]), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+3])); \
-		if(DataArea) \
-		{ \
-			com.printf(TJS_W("*%d = %ls"), \
-				TJS_FROM_VM_REG_ADDR(CodeArea[i+3]), \
-				GetValueComment(TJS_GET_VM_REG(DataArea, CodeArea[i+3])).c_str()); \
-		} \
-		size = 4; \
-		break; \
-	case c+2: \
-		msg.printf(TJS_W(x "pi" " %%%d, %%%d.%%%d"), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+2]), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+3])); \
-		size = 4; \
-		break; \
-	case c+3: \
-		msg.printf(TJS_W(x "p" " %%%d, %%%d"), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), \
-			TJS_FROM_VM_REG_ADDR(CodeArea[i+2])); \
-		size = 3; \
+#define OP1_DISASM(c, x) ¥
+	case c: ¥
+		msg.printf(TJS_W(x " %%%d"), TJS_FROM_VM_REG_ADDR(CodeArea[i+1])); ¥
+		size = 2; ¥
+		break; ¥
+	case c+1: ¥
+		msg.printf(TJS_W(x "pd" " %%%d, %%%d.*%d"), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+2]), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+3])); ¥
+		if(DataArea) ¥
+		{ ¥
+			com.printf(TJS_W("*%d = %ls"), ¥
+				TJS_FROM_VM_REG_ADDR(CodeArea[i+3]), ¥
+				GetValueComment(TJS_GET_VM_REG(DataArea, CodeArea[i+3])).c_str()); ¥
+		} ¥
+		size = 4; ¥
+		break; ¥
+	case c+2: ¥
+		msg.printf(TJS_W(x "pi" " %%%d, %%%d.%%%d"), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+2]), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+3])); ¥
+		size = 4; ¥
+		break; ¥
+	case c+3: ¥
+		msg.printf(TJS_W(x "p" " %%%d, %%%d"), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+1]), ¥
+			TJS_FROM_VM_REG_ADDR(CodeArea[i+2])); ¥
+		size = 3; ¥
 		break
 
 		// inc and dec
@@ -273,8 +273,8 @@ void tTJSInterCodeContext::Disassemble(
 
 
 
-#define OP1A_DISASM(x) \
-	msg.printf(TJS_W(x " %09d"), TJS_FROM_VM_CODE_ADDR(CodeArea[i+1]) + i); \
+#define OP1A_DISASM(x) ¥
+	msg.printf(TJS_W(x " %09d"), TJS_FROM_VM_CODE_ADDR(CodeArea[i+1]) + i); ¥
 	size = 2
 		// instructions that have one operand which represents code area
 		case VM_JF:		OP1A_DISASM("jf");		break;
@@ -573,7 +573,7 @@ void tTJSInterCodeContext::_output_func(const tjs_char *msg,
 	TJS_sprintf(buf, TJS_W("%08d %ls"), addr, msg);
 	if(comment[0])
 	{
-		TJS_strcat(buf, TJS_W("\t// "));
+		TJS_strcat(buf, TJS_W("¥t// "));
 		TJS_strcat(buf, comment);
 	}
 

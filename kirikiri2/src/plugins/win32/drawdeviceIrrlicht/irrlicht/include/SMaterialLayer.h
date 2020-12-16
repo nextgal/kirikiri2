@@ -49,7 +49,7 @@ namespace video
 			{}
 
 		//! Copy constructor
-		/** \param other Material layer to copy from. */
+		/** ¥param other Material layer to copy from. */
 		SMaterialLayer(const SMaterialLayer& other)
 		{
 			// This pointer is checked during assignment
@@ -58,15 +58,15 @@ namespace video
 		}
 
 		//! Destructor
-		~SMaterialLayer()
+		‾SMaterialLayer()
 		{
 			MatrixAllocator.destruct(TextureMatrix);
 			MatrixAllocator.deallocate(TextureMatrix); 
 		}
 
 		//! Assignment operator
-		/** \param other Material layer to copy from.
-		\return This material layer, updated. */
+		/** ¥param other Material layer to copy from.
+		¥return This material layer, updated. */
 		SMaterialLayer& operator=(const SMaterialLayer& other)
 		{
 			Texture = other.Texture;
@@ -121,7 +121,7 @@ namespace video
 		bool AnisotropicFilter;
 
 		//! Gets the texture transformation matrix
-		/** \return Texture matrix of this layer. */
+		/** ¥return Texture matrix of this layer. */
 		core::matrix4& getTextureMatrix()
 		{
 			if (!TextureMatrix)
@@ -133,7 +133,7 @@ namespace video
 		}
 
 		//! Gets the immutable texture transformation matrix
-		/** \return Texture matrix of this layer. */
+		/** ¥return Texture matrix of this layer. */
 		const core::matrix4& getTextureMatrix() const
 		{
 			if (TextureMatrix)
@@ -143,7 +143,7 @@ namespace video
 		}
 
 		//! Sets the texture transformation matrix to mat
-		/** \param mat New texture matrix for this layer. */
+		/** ¥param mat New texture matrix for this layer. */
 		void setTextureMatrix(const core::matrix4& mat)
 		{
 			if (!TextureMatrix)
@@ -156,8 +156,8 @@ namespace video
 		}
 
 		//! Inequality operator
-		/** \param b Layer to compare to.
-		\return True if layers are different, else false. */
+		/** ¥param b Layer to compare to.
+		¥return True if layers are different, else false. */
 		inline bool operator!=(const SMaterialLayer& b) const
 		{
 			bool different =
@@ -176,8 +176,8 @@ namespace video
 		}
 
 		//! Equality operator
-		/** \param b Layer to compare to.
-		\return True if layers are equal, else false. */
+		/** ¥param b Layer to compare to.
+		¥return True if layers are equal, else false. */
 		inline bool operator==(const SMaterialLayer& b) const
 		{ return !(b!=*this); }
 

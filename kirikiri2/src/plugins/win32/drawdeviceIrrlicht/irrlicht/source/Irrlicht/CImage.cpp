@@ -1001,7 +1001,7 @@ void CImage::initData()
 
 
 //! destructor
-CImage::~CImage()
+CImage::‾CImage()
 {
 	if ( DeleteMemory )
 		delete [] (s8*)Data;

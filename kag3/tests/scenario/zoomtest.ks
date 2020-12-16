@@ -7,23 +7,23 @@
 *loop
 @fgzoom storage=uni layer=2 time=2500 accel=0 sl=320 st=240 sw=0 sh=0 dl=100 dt=0 dw=360 dh=480 mode=rect
 @wfgzoom canskip=true
-*ƒY[ƒ€0|ƒY[ƒ€‚»‚Ì0
+*ã‚ºãƒ¼ãƒ 0|ã‚ºãƒ¼ãƒ ãã®0
 @l
 @fgzoom storage=uni layer=2 time=2500 accel=2 sl=100 st=0 sw=360 sh=480 dl=100 dt=100 dw=0 dh=0
 @wfgzoom canskip=true
-*ƒY[ƒ€1|ƒY[ƒ€‚»‚Ì1
+*ã‚ºãƒ¼ãƒ 1|ã‚ºãƒ¼ãƒ ãã®1
 @l
 @bgzoom storage=_24_3 time=2500 accel=2 sl=320 st=240 sw=0 sh=0 dl=0 dt=0 dw=640 dh=480
 @wbgzoom canskip=true
-*ƒY[ƒ€2|ƒY[ƒ€‚»‚Ì2
+*ã‚ºãƒ¼ãƒ 2|ã‚ºãƒ¼ãƒ ãã®2
 @l
 @bgzoom storage=_24_3 basestorage=_24 time=6000 accel=0 sl=0 st=0 sw=640 sh=480 dl=320 dt=240 dw=0 dh=0
 @wbgzoom canskip=true
-*ƒY[ƒ€3|ƒY[ƒ€‚»‚Ì3
+*ã‚ºãƒ¼ãƒ 3|ã‚ºãƒ¼ãƒ ãã®3
 @l
 @bgzoom storage=_24_3 basestorage=_24 time=2500 accel=0 sl=0 st=0 sw=32 sh=24 dl=320 dt=240 dw=320 dh=240
 @wbgzoom canskip=true
-*ƒY[ƒ€4|ƒY[ƒ€‚»‚Ì4
+*ã‚ºãƒ¼ãƒ 4|ã‚ºãƒ¼ãƒ ãã®4
 @l
 @backlay
 @image storage=_24_3 layer=base page=back

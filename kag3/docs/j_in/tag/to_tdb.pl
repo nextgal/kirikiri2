@@ -1,28 +1,28 @@
-# tags.database.tml �� tag database �`���ɕϊ����A�o�͂���
-# perl �X�N���v�g
+# tags.database.tml を tag database 形式に変換し、出力する
+# perl スクリプト
 
-# ���߂����������Ȃ̂Œ���
+# 解釈がいい加減なので注意
 
-# �܂��̓t�@�C�����݂�����܂�
+# まずはファイル一個よみこんぢまえ
 
 open FH,"tags.database.tml";
 @all=<FH>;
 $all=join('',@all);
 
 
-# �s���ƍs���̋󔒕������폜���A�s��A��
+# 行頭と行末の空白文字を削除し、行を連結
 sub cliptext
 {
 	$kdata=$_[0];
-	$kdata=~ s/^\s*(.+)\s*$/$1/gm;
-	$kdata=~ s/\n//g;
-	$kdata=~ s/\s*$//g;
+	$kdata=‾ s/^¥s*(.+)¥s*$/$1/gm;
+	$kdata=‾ s/¥n//g;
+	$kdata=‾ s/¥s*$//g;
 	return $kdata;
 }
 
-# �^�O����
-# tml �ł͓������O�̃^�O������q�ɂȂ邱�Ƃ͂Ȃ��̂�
-# ����������͂͂��Ȃ�
+# タグ分解
+# tml では同じ名前のタグが入れ子になることはないので
+# そういう解析はしない
 
 sub taganalysis
 {
@@ -30,11 +30,11 @@ sub taganalysis
 	$tag=$_[1];
 	local(@contents);
 	@contents=();
-	while($data =~ m/(\<$tag[^\>]+\>)/i)
+	while($data =‾ m/(¥<$tag[^¥>]+¥>)/i)
 	{
 		$taginfo=$1;
 		$data2=$';
-		$data2=~ /\<\/$tag\>/;
+		$data2=‾ /¥<¥/$tag¥>/;
 		$content=$`;
 		push(@contents,$taginfo.$content);
 		$data=$';
@@ -47,102 +47,102 @@ sub taganalysis
 
 foreach $tagcontent (@tags)
 {
-	# tag ���܂����
-	$tagcontent=~ /\<tag name\=[\'\"]([^\'\"]+)[\'\"]\>/i;
+	# tag をまた解析
+	$tagcontent=‾ /¥<tag name¥=[¥'¥"]([^¥'¥"]+)[¥'¥"]¥>/i;
 
 	$tagname=$1;
 	$tagcontent=$';
 
-	# shortinfo �̎擾
+	# shortinfo の取得
 	$temp=$tagcontent;
-	$temp=~ /\<shortinfo\>/i;
+	$temp=‾ /¥<shortinfo¥>/i;
 	$temp=$';
-	$temp=~ /\<\/shortinfo\>/i;
+	$temp=‾ /¥<¥/shortinfo¥>/i;
 	$shortinfo=$`;
 
-	# shortinfo �̊i�[
+	# shortinfo の格納
 	$tagdata{$tagname}{"shortinfo"}=&cliptext($shortinfo);
 
 
-	# remarks �̎擾
+	# remarks の取得
 	$temp=$tagcontent;
-	$temp=~ /\<remarks\>/i;
+	$temp=‾ /¥<remarks¥>/i;
 	$temp=$';
-	$temp=~ /\<\/remarks\>/i;
+	$temp=‾ /¥<¥/remarks¥>/i;
 	$remarks=$`;
 
 
-	# remarks �̊i�[
+	# remarks の格納
 	$tagdata{$tagname}{"remarks"}=&cliptext($remarks);
 
-	# example �̎擾
+	# example の取得
 	$temp=$tagcontent;
-	if($temp=~ /\<example\>/i)
+	if($temp=‾ /¥<example¥>/i)
 	{
 		$temp=$';
-		$temp=~ /\<\/example\>/i;
+		$temp=‾ /¥<¥/example¥>/i;
 		$example=$`;
 
-		# example �̊i�[
+		# example の格納
 		$tagdata{$tagname}{"example"}=&cliptext($example);
 	}
 
 
-	# attribs �̎擾
+	# attribs の取得
 	$temp=$tagcontent;
-	if($temp=~ /\<attribs\>/i)
+	if($temp=‾ /¥<attribs¥>/i)
 	{
 		$temp=$';
-		$temp=~ /\<\/attribs\>/i;
+		$temp=‾ /¥<¥/attribs¥>/i;
 		$attribscontent=$`;
 
-		# attrib �̕���
+		# attrib の分解
 		$no=0;
 		@attribs=&taganalysis($attribscontent,"attrib");
 		foreach $attribscontent (@attribs)
 		{
-			# attrib ���O�̎擾
-			$attribscontent=~ /\<attrib name\=[\'\"]([^\'\"]+)[\'\"]/i;
-			@attribnames=split(/\,/,$1);
+			# attrib 名前の取得
+			$attribscontent=‾ /¥<attrib name¥=[¥'¥"]([^¥'¥"]+)[¥'¥"]/i;
+			@attribnames=split(/¥,/,$1);
 
 
-			# shortinfo �̎擾
+			# shortinfo の取得
 			$attribshortinfo="";
 			$temp=$attribscontent;
-			$temp=~ /\<shortinfo\>/i;
+			$temp=‾ /¥<shortinfo¥>/i;
 			$temp=$';
-			$temp=~ /\<\/shortinfo\>/i;
+			$temp=‾ /¥<¥/shortinfo¥>/i;
 			$attribshortinfo=$`;
 
-			# required �̎擾
+			# required の取得
 			$attribrequired="";
 			$temp=$attribscontent;
-			$temp=~ /\<required\>/i;
+			$temp=‾ /¥<required¥>/i;
 			$temp=$';
-			$temp=~ /\<\/required\>/i;
+			$temp=‾ /¥<¥/required¥>/i;
 			$attribrequired=$`;
 
-			# format �̎擾
+			# format の取得
 			$attribformat="";
 			$temp=$attribscontent;
-			$temp=~ /\<format\>/i;
+			$temp=‾ /¥<format¥>/i;
 			$temp=$';
-			$temp=~ /\<\/format\>/i;
+			$temp=‾ /¥<¥/format¥>/i;
 			$attribformat=$`;
 
-			# info �̎擾
+			# info の取得
 			$attribinfo="";
 			$temp=$attribscontent;
-			$temp=~ /\<info\>/i;
+			$temp=‾ /¥<info¥>/i;
 			$temp=$';
-			$temp=~ /\<\/info\>/i;
+			$temp=‾ /¥<¥/info¥>/i;
 			$attribinfo=$`;
 
-	#		print "shortinfo:",$attribshortinfo,"\n";
-	#		print "required:",$attribrequired,"\n";
-	#		print "info:",$attribinfo,"\n";
+	#		print "shortinfo:",$attribshortinfo,"¥n";
+	#		print "required:",$attribrequired,"¥n";
+	#		print "info:",$attribinfo,"¥n";
 
-			# �f�[�^�̊i�[
+			# データの格納
 			foreach $attribname(@attribnames)
 			{
 
@@ -170,21 +170,21 @@ foreach $tagcontent (@tags)
 
 
 
-# �f�[�^�̓f���o��
+# データの吐き出し
 
 
 sub conv_tdb
 {
 	$data=$_[0];
-	$data=~ s/\n//g;
-	$data=~ s/\\/\\\\/g;
-	$data=~ s/\{/\\\{/g;
-	$data=~ s/\}/\\\}/g;
-	$data=~ s/\<TT\>/\{\\f3 /gi;
-	$data=~ s/\<\/TT\>/\}/gi;
-	$data=~ s/\<BR\>/\\par /gi;
-	$data=~ s/\<ref\s+tag\=[\"\']([^\"\']+)[\"\']\>//gi;
-	$data=~ s/\<\/ref\>//gi;
+	$data=‾ s/¥n//g;
+	$data=‾ s/¥¥/¥¥¥¥/g;
+	$data=‾ s/¥{/¥¥¥{/g;
+	$data=‾ s/¥}/¥¥¥}/g;
+	$data=‾ s/¥<TT¥>/¥{¥¥f3 /gi;
+	$data=‾ s/¥<¥/TT¥>/¥}/gi;
+	$data=‾ s/¥<BR¥>/¥¥par /gi;
+	$data=‾ s/¥<ref¥s+tag¥=[¥"¥']([^¥"¥']+)[¥"¥']¥>//gi;
+	$data=‾ s/¥<¥/ref¥>//gi;
 	return $data;
 }
 
@@ -195,20 +195,20 @@ sub conv_tdb
 
 for($i=0;$i<=$#h_tagdata;$i+=2)
 {
-	$od="*".$h_tagdata[$i]."\n";
+	$od="*".$h_tagdata[$i]."¥n";
 
-	$od.=".shortinfo\n";
-	$od.=" ".$h_tagdata[$i+1]{"shortinfo"}."\n";
+	$od.=".shortinfo¥n";
+	$od.=" ".$h_tagdata[$i+1]{"shortinfo"}."¥n";
 
-	$od.=".remarks\n";
-	$od.=" \{\\b ".$h_tagdata[$i]."�^�O\} ( ".&conv_tdb($h_tagdata[$i+1]{"shortinfo"})." )\\par \\par ".&conv_tdb($h_tagdata[$i+1]{"remarks"});
+	$od.=".remarks¥n";
+	$od.=" ¥{¥¥b ".$h_tagdata[$i]."タグ¥} ( ".&conv_tdb($h_tagdata[$i+1]{"shortinfo"})." )¥¥par ¥¥par ".&conv_tdb($h_tagdata[$i+1]{"remarks"});
 	if($h_tagdata[$i+1]{"example"} ne "")
 	{
-		$od.="\\par ��:\\par \{\\f3 ".&conv_tdb($h_tagdata[$i+1]{"example"})."\}\n";
+		$od.="¥¥par 例:¥¥par ¥{¥¥f3 ".&conv_tdb($h_tagdata[$i+1]{"example"})."¥}¥n";
 	}
 	else
 	{
-		$od.="\n";
+		$od.="¥n";
 	}
 
 	if($h_tagdata[$i+1]{"attribs_data_0"} ne "")
@@ -224,18 +224,18 @@ for($i=0;$i<=$#h_tagdata;$i+=2)
 		
 			%data=split(/__SPLIT__/,$h_tagdata[$i+1]{"attribs_data_".$no});
 			
-			$od.=".attrib:".$data{"nam__e"}."\n";
-			$od.="+shortinfo\n";
-			$od.=" ".$data{"shortinfo"}."\n";
-			$od.="+required\n";
-			$od.=" ".$data{"required"}."\n";
-			$od.="+format\n";
-			$od.=" ".$data{"format"}."\n";
-			$od.="+info\n";
-			$od.=" \{\\b ".$data{"nam__e"}."����\} ( ".&conv_tdb($data{"shortinfo"})." )\\par ";
-			$od.=&conv_tdb("�K�{?")." : \{\\b ".&conv_tdb($data{"required"})."\} \\par ";
-			$od.="�l : \{\\b ".&conv_tdb($data{"format"})."\} \\par \\par";
-			$od.=&conv_tdb($data{"info"})."\n";
+			$od.=".attrib:".$data{"nam__e"}."¥n";
+			$od.="+shortinfo¥n";
+			$od.=" ".$data{"shortinfo"}."¥n";
+			$od.="+required¥n";
+			$od.=" ".$data{"required"}."¥n";
+			$od.="+format¥n";
+			$od.=" ".$data{"format"}."¥n";
+			$od.="+info¥n";
+			$od.=" ¥{¥¥b ".$data{"nam__e"}."属性¥} ( ".&conv_tdb($data{"shortinfo"})." )¥¥par ";
+			$od.=&conv_tdb("必須?")." : ¥{¥¥b ".&conv_tdb($data{"required"})."¥} ¥¥par ";
+			$od.="値 : ¥{¥¥b ".&conv_tdb($data{"format"})."¥} ¥¥par ¥¥par";
+			$od.=&conv_tdb($data{"info"})."¥n";
 			
 			$no++;
 			
@@ -243,7 +243,7 @@ for($i=0;$i<=$#h_tagdata;$i+=2)
 		}
 	}
 
-	$od.="\n";
+	$od.="¥n";
 
 	push(@outdata,$od);
 }

@@ -17,18 +17,18 @@
 //---------------------------------------------------------------------------
 class TFlashContainerForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TShockwaveFlash *Flash;
 	TTimer *Timer;
 	void __fastcall TimerTimer(TObject *Sender);
 	void __fastcall FlashFSCommand(TObject *Sender, BSTR command, BSTR args);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	RECT Rect;
 	tTVPFlashOverlay * Overlay;
 	bool Invisible;
 	bool VisibleState;
 	HWND OwnerWindow;
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TFlashContainerForm(TComponent* Owner, tTVPFlashOverlay *overlay,
 		HWND owner, const RECT &rect);
 	

@@ -22,7 +22,7 @@
 //---------------------------------------------------------------------------
 class TRelSettingsForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TButton *OKButton;
 	TButton *CancelButton;
 	TButton *SelectFolderButton;
@@ -104,7 +104,7 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall CancelButtonClick(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	void __fastcall SaveProfile(AnsiString name);
 	void __fastcall SaveProfileToIni(TMemIniFile *ini);
 public:
@@ -134,7 +134,7 @@ BEGIN_MESSAGE_MAP
 	VCL_MESSAGE_HANDLER(WM_USER + 0x11 , TMessage, WMClose);
 END_MESSAGE_MAP(TForm)
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TRelSettingsForm(TComponent* Owner);
 
 	AnsiString __fastcall GetKrKrFileName();

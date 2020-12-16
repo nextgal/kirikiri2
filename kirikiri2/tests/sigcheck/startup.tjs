@@ -6,11 +6,11 @@ var HEIGHT=300;
 class MyWindow extends Window {
 
 	var publickey =
-		"-----BEGIN PUBLIC KEY-----\n"
-		"MIGJAoGBAL4qXx//6DYgF2dyZtPT11/9T5DVBJM/2QOvUewUpfHmV8FYGH2HdMPd\n"
-		"xppUV5UmkvMjjIIMiCpaCfGe+KnhHI0xgICA5IrbFxuIsPQa7d6yY96U+tT4V1ZY\n"
-		"dqnv3L06PDC9dDApo8ZH8Iqnj/x1ZHSBfd44fw/A1wDDpmOrZfNHAgMBAAE=\n"
-		"-----END PUBLIC KEY-----\n";
+		"-----BEGIN PUBLIC KEY-----Â¥n"
+		"MIGJAoGBAL4qXx//6DYgF2dyZtPT11/9T5DVBJM/2QOvUewUpfHmV8FYGH2HdMPdÂ¥n"
+		"xppUV5UmkvMjjIIMiCpaCfGe+KnhHI0xgICA5IrbFxuIsPQa7d6yY96U+tT4V1ZYÂ¥n"
+		"dqnv3L06PDC9dDApo8ZH8Iqnj/x1ZHSBfd44fw/A1wDDpmOrZfNHAgMBAAE=Â¥n"
+		"-----END PUBLIC KEY-----Â¥n";
 	
 	var keymenu;
 	var checkmenu;
@@ -20,8 +20,8 @@ class MyWindow extends Window {
 	
 	function MyWindow() {
 		super.Window();
-		menu.add(keymenu = new MenuItem(this, "ƒL[“Ç‚İ‚İ"));
-		menu.add(checkmenu = new MenuItem(this, "ƒ`ƒFƒbƒNŠJn"));
+		menu.add(keymenu = new MenuItem(this, "ã‚­ãƒ¼èª­ã¿è¾¼ã¿"));
+		menu.add(checkmenu = new MenuItem(this, "ãƒã‚§ãƒƒã‚¯é–‹å§‹"));
 
 		base = new Layer(this, null);
 		base.setSize(WIDTH, HEIGHT);
@@ -54,10 +54,10 @@ class MyWindow extends Window {
 	}
 	
 	function check(file) {
-		message("–¼Šm”FŠJn:" + checkSignature(file, publickey, null) + ":" + file);
+		message("ç½²åç¢ºèªé–‹å§‹:" + checkSignature(file, publickey, null) + ":" + file);
 	}
 
-	// Às•”
+	// å®Ÿè¡Œéƒ¨
 	function action(ev)	{
 		if(ev.type == "onClick") {
 			if (ev.target == checkmenu) {
@@ -69,19 +69,19 @@ class MyWindow extends Window {
 	}
 
 	function onCheckSignatureProgress(handler, info, percent) {
-		message("–¼Šm”FŒo‰ß:" + handler + ":" + percent);
+		message("ç½²åç¢ºèªçµŒé:" + handler + ":" + percent);
 	}
 
 	function onCheckSignatureDone(handler, info, result, error) {
-		message("–¼Šm”FŒ‹‰Ê:" + handler + ":" + result + ":" + error);
+		message("ç½²åç¢ºèªçµæœ:" + handler + ":" + result + ":" + error);
 	}
 
 	function openKeyDialog() {
 		var fileDialog =%[
-		filter : [ "ƒtƒ@ƒCƒ‹(*.*)|*.*" ],
-		title  :   "”é–§Œ®‚Ì“Ç‚İ",
+		filter : [ "ãƒ•ã‚¡ã‚¤ãƒ«(*.*)|*.*" ],
+		title  :   "ç§˜å¯†éµã®èª­è¾¼ã¿",
 			];
-		if (!Storages.selectFile(fileDialog)) return; // ƒLƒƒƒ“ƒZƒ‹‚Å”²‚¯‚é
+		if (!Storages.selectFile(fileDialog)) return; // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã§æŠœã‘ã‚‹
 		var data = [];
 		data.load(fileDialog.name);
 		publickey = "";
@@ -92,10 +92,10 @@ class MyWindow extends Window {
 
 	function openCheckDialog() {
 		var fileDialog =%[
-		filter : [ "ƒtƒ@ƒCƒ‹(*.*)|*.*" ],
-		title  :   "ƒ`ƒFƒbƒN‘ÎÛƒtƒ@ƒCƒ‹“Ç‚İ",
+		filter : [ "ãƒ•ã‚¡ã‚¤ãƒ«(*.*)|*.*" ],
+		title  :   "ãƒã‚§ãƒƒã‚¯å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«èª­è¾¼ã¿",
 			];
-		if (!Storages.selectFile(fileDialog)) return; // ƒLƒƒƒ“ƒZƒ‹‚Å”²‚¯‚é
+		if (!Storages.selectFile(fileDialog)) return; // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã§æŠœã‘ã‚‹
 		check(fileDialog.name);
 	}
 

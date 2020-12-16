@@ -11,7 +11,7 @@
 #include "MainUnit.h"
 
 #if 0
-// ƒeƒXƒg—p‚Ég‚Á‚Ä‚¢‚éƒL[ƒyƒA
+// ãƒ†ã‚¹ãƒˆç”¨ã«ä½¿ã£ã¦ã„ã‚‹ã‚­ãƒ¼ãƒšã‚¢
 -----BEGIN PUBLIC KEY-----
 MIGJAoGBAJYfPysW57qE3J2ddGWEG+RzXUzFkWa0ct3p7qJfuWDB+52DbfS9qSpw
 iTHQ54vl7K35x+WDQdn29cfgJxp9UD3fzY4h6E2ReE9vj4h0FCMK8dpCFnQkOD/M
@@ -44,7 +44,7 @@ TMainForm *MainForm;
 //---------------------------------------------------------------------------
 static AnsiString ReadTextFile(AnsiString fn)
 {
-	// fn ‚ğ‘S‚Ä“Ç‚İAAnsiString ‚Æ‚µ‚Ä•Ô‚·
+	// fn ã‚’å…¨ã¦èª­ã¿ã€AnsiString ã¨ã—ã¦è¿”ã™
 	TFileStream *s = new TFileStream(fn, fmOpenRead|fmShareDenyWrite);
 	AnsiString ret;
 	char *buf = NULL;
@@ -53,7 +53,7 @@ static AnsiString ReadTextFile(AnsiString fn)
 		int size = s->Size;
 		buf = new char [ size + 1];
 		s->ReadBuffer(buf, size);
-		buf[size] = '\0';
+		buf[size] = 'Â¥0';
 		ret = buf;
 	}
 	catch(...)
@@ -70,26 +70,26 @@ static AnsiString ReadTextFile(AnsiString fn)
 __fastcall TMainForm::TMainForm(TComponent* Owner)
 	: TForm(Owner)
 {
-	// •Ï”‰Šú‰»
+	// å¤‰æ•°åˆæœŸåŒ–
 	Checking = false;
 	Aborting = false;
 
-	// ini ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚Ş
+	// ini ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€
 	AnsiString inifn = ChangeFileExt(ParamStr(0), ".ini");
 	TMemIniFile * memini = new TMemIniFile(inifn);
 	try
 	{
-		// ƒLƒƒƒvƒVƒ‡ƒ“‚ğ“Ç‚İ‚Ş
+		// ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³ã‚’èª­ã¿è¾¼ã‚€
 		Caption = memini->ReadString("message", "caption",
 				"File signature checker");
 		Application->Title = Caption;
 
-		// ŒöŠJŒ®‚ğ“Ç‚İ‚Ş
-		// ŒöŠJŒ®‚Í ini ƒtƒ@ƒCƒ‹‚ğ‚»‚Ì‚Ü‚Ü—p‚¢‚é
-		// (ini ƒtƒ@ƒCƒ‹’†‚É‹Lq‚³‚ê‚½ŒöŠJŒ®‚ğ©“®“I‚É”F¯‚Å‚«‚é‚½‚ß)
+		// å…¬é–‹éµã‚’èª­ã¿è¾¼ã‚€
+		// å…¬é–‹éµã¯ ini ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãã®ã¾ã¾ç”¨ã„ã‚‹
+		// (ini ãƒ•ã‚¡ã‚¤ãƒ«ä¸­ã«è¨˜è¿°ã•ã‚ŒãŸå…¬é–‹éµã‚’è‡ªå‹•çš„ã«èªè­˜ã§ãã‚‹ãŸã‚)
 		PublicKey = ReadTextFile(inifn);
 
-		// notice ‚Ì“Ç‚İ‚İ‚ÆƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌˆÊ’u’²®
+		// notice ã®èª­ã¿è¾¼ã¿ã¨ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ä½ç½®èª¿æ•´
 		AnsiString notice =
 			memini->ReadString("message", "notice",
 				"Please press the check button below.");
@@ -99,7 +99,7 @@ __fastcall TMainForm::TMainForm(TComponent* Owner)
 			if(!pos) break;
 			AnsiString left = notice.SubString(1, pos - 1);
 			AnsiString right = notice.c_str() + pos + 4 - 1;
-			notice = left + "\r\n" + right;
+			notice = left + "Â¥rÂ¥n" + right;
 		}
 		AnsiString pnotice = notice;
 
@@ -122,7 +122,7 @@ __fastcall TMainForm::TMainForm(TComponent* Owner)
 	}
 	delete memini;
 
-	// ƒtƒ@ƒCƒ‹‚ÌƒŠƒXƒg‚ğì¬
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒªã‚¹ãƒˆã‚’ä½œæˆ
 	BaseDir = IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 	ListView->Items->BeginUpdate();
 	try
@@ -138,7 +138,7 @@ __fastcall TMainForm::TMainForm(TComponent* Owner)
 	}
 	ListView->Items->EndUpdate();
 
-	// ƒtƒ@ƒCƒ‹–¼‚É‚ ‚í‚¹‚Ä—ñ•‚ğŒˆ’è
+	// ãƒ•ã‚¡ã‚¤ãƒ«åã«ã‚ã‚ã›ã¦åˆ—å¹…ã‚’æ±ºå®š
 	int maxwidth;
 	Canvas->Font->Assign(ListView->Font);
 	maxwidth = Canvas->TextWidth(ListView->Column[0]->Caption);
@@ -147,12 +147,12 @@ __fastcall TMainForm::TMainForm(TComponent* Owner)
 		int width = Canvas->TextWidth(ListView->Items->Item[i]->Caption);
 		if(width > maxwidth) maxwidth = width;
 
-		// u–¢ƒ`ƒFƒbƒNv‚ğó‘Ô—“‚É’Ç‰Á
+		// ã€Œæœªãƒã‚§ãƒƒã‚¯ã€ã‚’çŠ¶æ…‹æ¬„ã«è¿½åŠ 
 		ListView->Items->Item[i]->SubItems->Add(NotYetCheckedLabel->Caption);
 	}
 	ListView->Column[0]->Width = maxwidth + 12;
 
-	// ó‘Ô—“‚É•\¦‚³‚ê‚é€–Ú‚É‡‚í‚¹‚Ä—ñ•‚ğŒˆ’è
+	// çŠ¶æ…‹æ¬„ã«è¡¨ç¤ºã•ã‚Œã‚‹é …ç›®ã«åˆã‚ã›ã¦åˆ—å¹…ã‚’æ±ºå®š
 	maxwidth = Canvas->TextWidth(ListView->Column[0]->Caption);
 	int width;
 	width = Canvas->TextWidth(NotYetCheckedLabel->Caption);
@@ -176,7 +176,7 @@ void __fastcall TMainForm::CloseButtonClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TMainForm::CheckButtonClick(TObject *Sender)
 {
-	// –¼‚ğƒ`ƒFƒbƒN‚·‚é
+	// ç½²åã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹
 	Checking = true;
 	CheckButton->Enabled = false;
 	AnsiString orgcheckbuttoncaption = CheckButton->Caption;
@@ -240,7 +240,7 @@ void __fastcall TMainForm::FormCloseQuery(TObject *Sender, bool &CanClose)
 //---------------------------------------------------------------------------
 bool __fastcall TMainForm::SigProgressNotify(int percent)
 {
-	// –¼ƒ`ƒFƒbƒN’†‚Ìisó‘Ô‚É‡‚í‚¹‚ÄŒÄ‚Î‚ê‚é
+	// ç½²åãƒã‚§ãƒƒã‚¯ä¸­ã®é€²è¡ŒçŠ¶æ…‹ã«åˆã‚ã›ã¦å‘¼ã°ã‚Œã‚‹
 	DWORD curtick = GetTickCount();
 	if(curtick - LastDisplayedTick < 100) return !Aborting;
 	LastDisplayedTick = curtick;
@@ -256,12 +256,12 @@ bool __fastcall TMainForm::SigProgressNotify(int percent)
 //---------------------------------------------------------------------------
 void __fastcall TMainForm::CopyResultButtonClick(TObject *Sender)
 {
-	// Œ‹‰Ê‚ğƒNƒŠƒbƒvƒ{[ƒh‚ÉƒRƒs[‚·‚é
-	AnsiString str = TDateTime(Now()).DateTimeString() + "\r\n\r\n";
+	// çµæœã‚’ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚³ãƒ”ãƒ¼ã™ã‚‹
+	AnsiString str = TDateTime(Now()).DateTimeString() + "Â¥rÂ¥nÂ¥rÂ¥n";
 
 	for(int i = 0; i < ListView->Items->Count; i++)
 	{
-		AnsiString attr = "\t\t\t";
+		AnsiString attr = "Â¥tÂ¥tÂ¥t";
 		AnsiString filename = BaseDir + ListView->Items->Item[i]->Caption;
 		HANDLE hf = CreateFile(filename.c_str(), GENERIC_READ,
 			FILE_SHARE_READ | FILE_SHARE_WRITE,
@@ -275,7 +275,7 @@ void __fastcall TMainForm::CopyResultButtonClick(TObject *Sender)
 			ZeroMemory(&st, sizeof(st));
 			FileTimeToSystemTime(&time, &st);
 			char tmp[256];
-			sprintf(tmp, "\t%d/%02d/%02d %02d:%02d:%02d",
+			sprintf(tmp, "Â¥t%d/%02d/%02d %02d:%02d:%02d",
 				st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond);
 
 
@@ -285,17 +285,17 @@ void __fastcall TMainForm::CopyResultButtonClick(TObject *Sender)
 			sizelow = GetFileSize(hf, &sizehigh);
 			sprintf(tmp, "%Ld", (__int64)((__int64)(sizelow) +
 				((__int64)sizehigh << 32)));
-			attr += "\t" + AnsiString(tmp) + "\t";
+			attr += "Â¥t" + AnsiString(tmp) + "Â¥t";
 
 			CloseHandle(hf);
 		}
 
 
 		str += filename + attr +
-			ListView->Items->Item[i]->SubItems->Strings[0] + "\r\n";
+			ListView->Items->Item[i]->SubItems->Strings[0] + "Â¥rÂ¥n";
 	}
 
-	str.cat_sprintf("\r\nAll files in target directory (0x%04X files):\r\n", AllFileCount);
+	str.cat_sprintf("Â¥rÂ¥nAll files in target directory (0x%04X files):Â¥rÂ¥n", AllFileCount);
 	str += AllFileList;
 
 	Clipboard()->AsText = str;
@@ -307,7 +307,7 @@ void __fastcall TMainForm::CopyResultButtonClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TMainForm::MakeFileList(AnsiString path, int baselen)
 {
-	// ƒtƒ@ƒCƒ‹‚ÌƒŠƒXƒg‚ğì¬‚·‚é
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒªã‚¹ãƒˆã‚’ä½œæˆã™ã‚‹
 	TSearchRec r;
 	int done;
 
@@ -325,7 +325,7 @@ void __fastcall TMainForm::MakeFileList(AnsiString path, int baselen)
 						r.FindData.cFileName;
 
 					// append to the list
-					AllFileList.cat_sprintf("%s\t%11d\t%s\r\n",
+					AllFileList.cat_sprintf("%sÂ¥t%11dÂ¥t%sÂ¥rÂ¥n",
 						FileDateToDateTime(r.Time).FormatString("yyyy/mm/dd hh:nn:ss").c_str(),
 						r.Size,
 						(path + r.FindData.cFileName).c_str());
@@ -336,18 +336,18 @@ void __fastcall TMainForm::MakeFileList(AnsiString path, int baselen)
 					bool add;
 					if(!fileext.AnsiCompareIC(".sig"))
 					{
-						// Šg’£q‚ª sig ‚Í–¼ƒtƒ@ƒCƒ‹‚È‚Ì‚Å’Ç‰Á‚µ‚È‚¢
+						// æ‹¡å¼µå­ãŒ sig ã¯ç½²åãƒ•ã‚¡ã‚¤ãƒ«ãªã®ã§è¿½åŠ ã—ãªã„
 						add = false;
 					}
 					else if(!fileext.AnsiCompareIC(".exe") &&
 						CheckExeHasSignature(path + r.FindData.cFileName))
 					{
-						// EXEƒtƒ@ƒCƒ‹‚©‚Â–¼‚Â‚«‚Ìƒtƒ@ƒCƒ‹‚Ìê‡‚Í’Ç‰Á‚·‚é
+						// EXEãƒ•ã‚¡ã‚¤ãƒ«ã‹ã¤ç½²åã¤ãã®ãƒ•ã‚¡ã‚¤ãƒ«ã®å ´åˆã¯è¿½åŠ ã™ã‚‹
 						add = true;
 					}
 					else
 					{
-						// ‚»‚êˆÈŠO‚Ìê‡‚ÍA.sig ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚ê‚Î’Ç‰Á‚·‚é
+						// ãã‚Œä»¥å¤–ã®å ´åˆã¯ã€.sig ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚Œã°è¿½åŠ ã™ã‚‹
 						add = FileExists(path + r.FindData.cFileName + ".sig");
 					}
 
@@ -363,7 +363,7 @@ void __fastcall TMainForm::MakeFileList(AnsiString path, int baselen)
 					// a directory
 
 					// append to the list
-					AllFileList.cat_sprintf("%s\t[directory]\t%s\r\n",
+					AllFileList.cat_sprintf("%sÂ¥t[directory]Â¥t%sÂ¥rÂ¥n",
 						FileDateToDateTime(r.Time).FormatString("yyyy/mm/dd hh:nn:ss").c_str(),
 						(path + r.FindData.cFileName).c_str());
 					AllFileCount ++;
@@ -372,7 +372,7 @@ void __fastcall TMainForm::MakeFileList(AnsiString path, int baselen)
 					if(r.Name != "." && r.Name != "..")
 					{
 						MakeFileList(path  + r.FindData.cFileName+
-							AnsiString("\\"), baselen);
+							AnsiString("Â¥Â¥"), baselen);
 					}
 				}
 			}

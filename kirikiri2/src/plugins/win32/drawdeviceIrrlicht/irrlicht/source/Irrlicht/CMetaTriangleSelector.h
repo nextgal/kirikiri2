@@ -22,7 +22,7 @@ public:
 	CMetaTriangleSelector();
 
 	//! destructor
-	virtual ~CMetaTriangleSelector();
+	virtual ‾CMetaTriangleSelector();
 
 	//! Returns amount of all available triangles in this selector
 	virtual s32 getTriangleCount() const;

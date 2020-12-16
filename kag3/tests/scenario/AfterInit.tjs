@@ -1,2 +1,2 @@
-Storages.addAutoPath("c:\\pwork\\");
+Storages.addAutoPath("c:¥¥pwork¥¥");
 Scripts.evalStorage('custommenu.tjs');

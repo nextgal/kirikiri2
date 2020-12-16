@@ -16,10 +16,10 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\..\..\..\..\bin\win32\plugin"
-			IntermediateDirectory=".\Debug"
+			OutputDirectory=".¥..¥..¥..¥..¥bin¥win32¥plugin"
+			IntermediateDirectory=".¥Debug"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults¥UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="1"
@@ -42,7 +42,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\..\..\..\..\bin\win32\plugin/scriptsex.tlb"
+				TypeLibraryName=".¥..¥..¥..¥..¥bin¥win32¥plugin/scriptsex.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -53,10 +53,10 @@
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				PrecompiledHeaderFile=".\Debug/scriptsex.pch"
-				AssemblerListingLocation=".\Debug/"
-				ObjectFile=".\Debug/"
-				ProgramDataBaseFileName=".\Debug/"
+				PrecompiledHeaderFile=".¥Debug/scriptsex.pch"
+				AssemblerListingLocation=".¥Debug/"
+				ObjectFile=".¥Debug/"
+				ProgramDataBaseFileName=".¥Debug/"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="4"
@@ -75,13 +75,13 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions=""
-				OutputFile="$(OutDir)\$(ProjectName).dll"
+				OutputFile="$(OutDir)¥$(ProjectName).dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
 				ModuleDefinitionFile=""
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile=".\..\..\..\..\bin\win32\plugin/scriptsex.pdb"
-				ImportLibrary=".\..\..\..\..\bin\win32\plugin/scriptsex.lib"
+				ProgramDatabaseFile=".¥..¥..¥..¥..¥bin¥win32¥plugin/scriptsex.pdb"
+				ImportLibrary=".¥..¥..¥..¥..¥bin¥win32¥plugin/scriptsex.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -96,7 +96,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\..\..\bin\win32\plugin/scriptsex.bsc"
+				OutputFile=".¥..¥..¥..¥..¥bin¥win32¥plugin/scriptsex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -113,10 +113,10 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\..\..\..\bin\win32\plugin"
-			IntermediateDirectory=".\Release"
+			OutputDirectory=".¥..¥..¥..¥..¥bin¥win32¥plugin"
+			IntermediateDirectory=".¥Release"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults¥UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="1"
@@ -139,7 +139,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\..\..\..\..\bin\win32\plugin/scriptsex.tlb"
+				TypeLibraryName=".¥..¥..¥..¥..¥bin¥win32¥plugin/scriptsex.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -151,10 +151,10 @@
 				StringPooling="true"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
-				PrecompiledHeaderFile=".\Release/scriptsex.pch"
-				AssemblerListingLocation=".\Release/"
-				ObjectFile=".\Release/"
-				ProgramDataBaseFileName=".\Release/"
+				PrecompiledHeaderFile=".¥Release/scriptsex.pch"
+				AssemblerListingLocation=".¥Release/"
+				ObjectFile=".¥Release/"
+				ProgramDataBaseFileName=".¥Release/"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
@@ -173,15 +173,15 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions=""
-				OutputFile="$(OutDir)\$(ProjectName).dll"
+				OutputFile="$(OutDir)¥$(ProjectName).dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
 				ModuleDefinitionFile=""
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile=".\..\..\..\..\bin\win32\plugin/scriptsex.pdb"
+				ProgramDatabaseFile=".¥..¥..¥..¥..¥bin¥win32¥plugin/scriptsex.pdb"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary=".\..\..\..\..\bin\win32\plugin/scriptsex.lib"
+				ImportLibrary=".¥..¥..¥..¥..¥bin¥win32¥plugin/scriptsex.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -196,7 +196,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\..\..\bin\win32\plugin/scriptsex.bsc"
+				OutputFile=".¥..¥..¥..¥..¥bin¥win32¥plugin/scriptsex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -242,11 +242,11 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\ncbind\ncbind.cpp"
+				RelativePath="..¥ncbind¥ncbind.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\tp_stub.cpp"
+				RelativePath="..¥tp_stub.cpp"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
@@ -273,7 +273,7 @@
 			Filter="h;hpp;hxx;hm;inl"
 			>
 			<File
-				RelativePath="..\tp_stub.h"
+				RelativePath="..¥tp_stub.h"
 				>
 			</File>
 		</Filter>

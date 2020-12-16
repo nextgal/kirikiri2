@@ -122,7 +122,7 @@ public:
    raw_storage(const Allocator& a = Allocator());
    raw_storage(size_type n, const Allocator& a = Allocator());
 
-   ~raw_storage()
+   ‾raw_storage()
    {
       alloc_inst.deallocate(start, (alloc_inst.last - start));
    }
@@ -168,7 +168,7 @@ public:
    void BOOST_REGEX_CALL align()
    {
       // move end up to a boundary:
-      end = reinterpret_cast<unsigned char*>(start) + (((reinterpret_cast<unsigned char*>(end) - reinterpret_cast<unsigned char*>(start)) + padding_mask) & ~padding_mask);
+      end = reinterpret_cast<unsigned char*>(start) + (((reinterpret_cast<unsigned char*>(end) - reinterpret_cast<unsigned char*>(start)) + padding_mask) & ‾padding_mask);
    }
 
    Allocator BOOST_REGEX_CALL allocator()const;
@@ -206,7 +206,7 @@ void BOOST_REGEX_CALL raw_storage<Allocator>::resize(size_type n)
    if(newsize < n)
       newsize = n;
    // extend newsize to WORD/DWORD boundary:
-   newsize = (newsize + padding_mask) & ~(padding_mask);
+   newsize = (newsize + padding_mask) & ‾(padding_mask);
 
    // allocate and copy data:
    register unsigned char* ptr = alloc_inst.allocate(newsize);

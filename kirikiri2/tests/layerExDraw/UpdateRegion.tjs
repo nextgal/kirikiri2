@@ -1,16 +1,16 @@
 /**
- * XV—Ìˆæî•ñ
+ * æ›´æ–°é ˜åŸŸæƒ…å ±
  */
 class UpdateRegion {
 
-	// —Ìˆæî•ñ
+	// é ˜åŸŸæƒ…å ±
 	var left;
 	var top;
 	var right;
 	var bottom;
 	
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 */
 	function UpdateRegion(left, top, width, height) {
 		if (left !== void) {
@@ -24,7 +24,7 @@ class UpdateRegion {
 	}
 
 	/**
-	 * ƒŠ[ƒWƒ‡ƒ“î•ñ‚ğ”jŠü
+	 * ãƒªãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’ç ´æ£„
 	 */
 	function clear() {
 		left = void;
@@ -34,7 +34,7 @@ class UpdateRegion {
 	}
 
 	/**
-	 * —ÌˆæXV
+	 * é ˜åŸŸæ›´æ–°
 	 */
 	function update(left, top, width, height) {
 		var right  = left + width - 1;
@@ -54,7 +54,7 @@ class UpdateRegion {
 	}
 
 	/**
-	 * —ÌˆæXV
+	 * é ˜åŸŸæ›´æ–°
 	 */
 	function update2(left, top, right, bottom) {
 		this.left = left;
@@ -63,14 +63,14 @@ class UpdateRegion {
 		this.bottom = bottom;
 	}
 	
-	// XV—Ìˆæ‚Ì‰¡•
+	// æ›´æ–°é ˜åŸŸã®æ¨ªå¹…
 	property width {
 		getter() {
 			return left === void ? 0 : right - left + 1;
 		}
 	}
 
-	// XV—Ìˆæ‚Ìc•
+	// æ›´æ–°é ˜åŸŸã®ç¸¦å¹…
 	property height {
 		getter() {
 			return top === void ? 0 : bottom - top + 1;

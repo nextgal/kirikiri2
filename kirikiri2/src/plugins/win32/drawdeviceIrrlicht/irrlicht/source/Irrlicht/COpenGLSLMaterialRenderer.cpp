@@ -75,7 +75,7 @@ COpenGLSLMaterialRenderer::COpenGLSLMaterialRenderer(COpenGLDriver* driver,
 
 
 //! Destructor
-COpenGLSLMaterialRenderer::~COpenGLSLMaterialRenderer()
+COpenGLSLMaterialRenderer::‾COpenGLSLMaterialRenderer()
 {
 	if (CallBack)
 		CallBack->drop();

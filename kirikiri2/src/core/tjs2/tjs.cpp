@@ -196,7 +196,7 @@ tTJS::tTJS()
 	}
 }
 //---------------------------------------------------------------------------
-tTJS::~tTJS()
+tTJS::‾tTJS()
 {
 	// tTJS destructor
 	Cleanup();
@@ -400,17 +400,17 @@ void tTJS::Dump(tjs_uint width) const
 
 			n = (*i)->GetContextCount();
 			totalcontexts += n;
-			TJS_sprintf(buf, TJS_W("\tCount of contexts      : %d"), n);
+			TJS_sprintf(buf, TJS_W("¥tCount of contexts      : %d"), n);
 			OutputToConsole(buf);
 
 			n = (*i)->GetTotalVMCodeSize();
 			totalcodesize += n;
-			TJS_sprintf(buf, TJS_W("\tVM code area size      : %d words"), n);
+			TJS_sprintf(buf, TJS_W("¥tVM code area size      : %d words"), n);
 			OutputToConsole(buf);
 
 			n = (*i)->GetTotalVMDataSize();
 			totaldatasize += n;
-			TJS_sprintf(buf, TJS_W("\tVM constant data count : %d"), n);
+			TJS_sprintf(buf, TJS_W("¥tVM constant data count : %d"), n);
 			OutputToConsole(buf);
 
 			OutputToConsole(TJS_W(""));

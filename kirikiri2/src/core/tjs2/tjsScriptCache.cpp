@@ -32,7 +32,7 @@ tTJSScriptCache::tTJSScriptCache(tTJS *owner)
 	Owner = owner;
 }
 //---------------------------------------------------------------------------
-tTJSScriptCache::~tTJSScriptCache()
+tTJSScriptCache::‾tTJSScriptCache()
 {
 }
 //---------------------------------------------------------------------------

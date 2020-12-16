@@ -98,14 +98,14 @@ namespace boost { namespace spirit {
 
     template <typename ParserT>
     inline negated_char_parser<ParserT>
-    operator~(char_parser<ParserT> const& p)
+    operator‾(char_parser<ParserT> const& p)
     {
         return negated_char_parser<ParserT>(p.derived());
     }
 
     template <typename ParserT>
     inline ParserT
-    operator~(negated_char_parser<ParserT> const& n)
+    operator‾(negated_char_parser<ParserT> const& n)
     {
         return n.positive;
     }
@@ -442,7 +442,7 @@ namespace boost { namespace spirit {
 
         template <typename CharT>
         bool test(CharT ch) const
-        { return ch == ' ' || ch == '\t'; }
+        { return ch == ' ' || ch == '¥t'; }
         // some systems have isblank(), but some don't, so just do it manually.
     };
 
@@ -521,13 +521,13 @@ namespace boost { namespace spirit {
             typename ScannerT::iterator_t save = scan.first;
             int len = 0;
 
-            if (!scan.at_end() && *scan == '\r')    // CR
+            if (!scan.at_end() && *scan == '¥r')    // CR
             {
                 ++scan;
                 ++len;
             }
 
-            if (!scan.at_end() && *scan == '\n')    // LF
+            if (!scan.at_end() && *scan == '¥n')    // LF
             {
                 ++scan;
                 ++len;
@@ -543,36 +543,4 @@ namespace boost { namespace spirit {
 
     ///////////////////////////////////////////////////////////////////////////
     //
-    //  end_parser class (suggested by Markus Sch�pflin)
-    //
-    ///////////////////////////////////////////////////////////////////////////
-    struct end_parser : public parser<end_parser>
-    {
-        typedef end_parser self_t;
-
-        end_parser() {}
-
-        template <typename ScannerT>
-        typename parser_result<self_t, ScannerT>::type
-        parse(ScannerT const& scan) const
-        {
-            if (scan.at_end())
-                return scan.empty_match();
-            return scan.no_match();
-        }
-    };
-
-    end_parser const end_p = end_parser();
-
-    ///////////////////////////////////////////////////////////////////////////
-    //
-    //  the pizza_p parser :-)
-    //
-    ///////////////////////////////////////////////////////////////////////////
-    inline strlit<char const*> const
-    pizza_p(char const* your_favorite_pizza)
-    { return your_favorite_pizza; }
-
-}} // namespace boost::spirit
-
-#endif
+    //  end_parser class (suggested by Markus Sch

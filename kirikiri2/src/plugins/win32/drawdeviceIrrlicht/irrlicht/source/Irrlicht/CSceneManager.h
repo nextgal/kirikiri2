@@ -37,7 +37,7 @@ namespace scene
 			gui::IGUIEnvironment *guiEnvironment = 0);
 
 		//! destructor
-		virtual ~CSceneManager();
+		virtual ‾CSceneManager();
 
 		//! gets an animateable mesh. loads it if needed. returned pointer must not be dropped.
 		virtual IAnimatedMesh* getMesh(const c8* filename);
@@ -112,11 +112,11 @@ namespace scene
 			s32 id=-1, s32 minimalPolysPerNode=128, bool alsoAddIfMeshPointerZero=false);
 
 		//! Adds a camera scene node to the tree and sets it as active camera.
-		//! \param position: Position of the space relative to its parent where the camera will be placed.
-		//! \param lookat: Position where the camera will look at. Also known as target.
-		//! \param parent: Parent scene node of the camera. Can be null. If the parent moves,
+		//! ¥param position: Position of the space relative to its parent where the camera will be placed.
+		//! ¥param lookat: Position where the camera will look at. Also known as target.
+		//! ¥param parent: Parent scene node of the camera. Can be null. If the parent moves,
 		//! the camera will move too.
-		//! \return Returns pointer to interface to camera
+		//! ¥return Returns pointer to interface to camera
 		virtual ICameraSceneNode* addCameraSceneNode(ISceneNode* parent = 0,
 			const core::vector3df& position = core::vector3df(0,0,0), 
 			const core::vector3df& lookat = core::vector3df(0,0,0), s32 id=-1);
@@ -250,29 +250,29 @@ namespace scene
 		//! of all scene nodes. The root scene node is a special scene node which
 		//! only exists to manage all scene nodes. It is not rendered and cannot
 		//! be removed from the scene.
-		//! \return Returns a pointer to the root scene node.
+		//! ¥return Returns a pointer to the root scene node.
 		virtual ISceneNode* getRootSceneNode();
 
 		//! Returns the current active camera.
-		//! \return The active camera is returned. Note that this can be NULL, if there
+		//! ¥return The active camera is returned. Note that this can be NULL, if there
 		//! was no camera created yet.
 		virtual ICameraSceneNode* getActiveCamera();
 
 		//! Sets the active camera. The previous active camera will be deactivated.
-		//! \param camera: The new camera which should be active.
+		//! ¥param camera: The new camera which should be active.
 		virtual void setActiveCamera(ICameraSceneNode* camera);
 
 		//! creates a rotation animator, which rotates the attached scene node around itself.
-		//! \param rotationPerSecond: Specifies the speed of the animation
-		//! \return Returns the animator. Attach it to a scene node with ISceneNode::addAnimator()
+		//! ¥param rotationPerSecond: Specifies the speed of the animation
+		//! ¥return Returns the animator. Attach it to a scene node with ISceneNode::addAnimator()
 		//! and the animator will animate it.
 		virtual ISceneNodeAnimator* createRotationAnimator(const core::vector3df& rotationPerSecond);
 
 		//! creates a fly circle animator
 		/** Lets the attached scene node fly around a center.
-		\param center Center relative to node origin
-		\param speed rotation speed
-		\return Animator. Attach it to a scene node with ISceneNode::addAnimator()
+		¥param center Center relative to node origin
+		¥param speed rotation speed
+		¥return Animator. Attach it to a scene node with ISceneNode::addAnimator()
 		and the animator will animate it. */
 		virtual ISceneNodeAnimator* createFlyCircleAnimator(
 				const core::vector3df& center=core::vector3df(0.f, 0.f, 0.f),
@@ -324,8 +324,8 @@ namespace scene
 		virtual IMetaTriangleSelector* createMetaTriangleSelector();
 
 		//! Creates a triangle selector which can select triangles from a terrain scene node
-		//! \param: Pointer to the created terrain scene node
-		//! \param: Level of detail, 0 for highest detail.
+		//! ¥param: Pointer to the created terrain scene node
+		//! ¥param: Level of detail, 0 for highest detail.
 		virtual ITriangleSelector* createTerrainTriangleSelector(
 			ITerrainSceneNode* node, s32 LOD=0);
 
@@ -414,14 +414,14 @@ namespace scene
 		virtual ISceneNodeAnimatorFactory* getSceneNodeAnimatorFactory(u32 index);
 
 		//! Saves the current scene into a file.
-		//! \param filename: Name of the file .
+		//! ¥param filename: Name of the file .
 		virtual bool saveScene(const c8* filename, ISceneUserDataSerializer* userDataSerializer=0);
 
 		//! Saves the current scene into a file.
 		virtual bool saveScene(io::IWriteFile* file, ISceneUserDataSerializer* userDataSerializer=0);
 
 		//! Loads a scene. Note that the current scene is not cleared before.
-		//! \param filename: Name of the file .
+		//! ¥param filename: Name of the file .
 		virtual bool loadScene(const c8* filename, ISceneUserDataSerializer* userDataSerializer=0);
 
 		//! Loads a scene. Note that the current scene is not cleared before.

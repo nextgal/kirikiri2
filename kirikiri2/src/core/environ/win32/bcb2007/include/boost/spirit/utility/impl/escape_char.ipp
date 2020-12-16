@@ -48,18 +48,18 @@ namespace impl {
                     char_t unescaped;
 
                     scan.first = save;
-                    if (*scan.first == '\\') {
+                    if (*scan.first == '¥¥') {
 
                         ++scan.first;
                         switch (*scan.first) {
-                        case 'b':   unescaped = '\b';   ++scan.first; break;
-                        case 't':   unescaped = '\t';   ++scan.first; break;
-                        case 'n':   unescaped = '\n';   ++scan.first; break;
-                        case 'f':   unescaped = '\f';   ++scan.first; break;
-                        case 'r':   unescaped = '\r';   ++scan.first; break;
+                        case 'b':   unescaped = '¥b';   ++scan.first; break;
+                        case 't':   unescaped = '¥t';   ++scan.first; break;
+                        case 'n':   unescaped = '¥n';   ++scan.first; break;
+                        case 'f':   unescaped = '¥f';   ++scan.first; break;
+                        case 'r':   unescaped = '¥r';   ++scan.first; break;
                         case '"':   unescaped = '"';    ++scan.first; break;
-                        case '\'':  unescaped = '\'';   ++scan.first; break;
-                        case '\\':  unescaped = '\\';   ++scan.first; break;
+                        case '¥'':  unescaped = '¥'';   ++scan.first; break;
+                        case '¥¥':  unescaped = '¥¥';   ++scan.first; break;
 
                         case 'x': case 'X':
                             {
@@ -185,7 +185,7 @@ namespace impl {
 
             BOOST_SPIRIT_DEBUG_TRACE_NODE(escape,
                 BOOST_SPIRIT_DEBUG_FLAGS & BOOST_SPIRIT_DEBUG_FLAGS_ESCAPE_CHAR);
-            return ((anychar_p - '\\') | ('\\' >> escape)).parse(scan);
+            return ((anychar_p - '¥¥') | ('¥¥' >> escape)).parse(scan);
         }
     };
 

@@ -186,7 +186,7 @@ s = sign,  negative if this is 1, otherwise positive.
 #define TJS_IEEE_D_SIGNIFICAND_MSB_MASK   (TJS_UI64_VAL(0x0008000000000000))
 
 #define TJS_IEEE_D_GET_SIGN(x)   ((bool)(x & TJS_IEEE_D_SIGN_MASK))
-#define TJS_IEEE_D_GET_EXP(x)  ((tjs_int)(((x & TJS_IEEE_D_EXP_MASK) >> \
+#define TJS_IEEE_D_GET_EXP(x)  ((tjs_int)(((x & TJS_IEEE_D_EXP_MASK) >> ¥
 								TJS_IEEE_D_SIGNIFICAND_BITS) - TJS_IEEE_D_EXP_BIAS))
 #define TJS_IEEE_D_GET_SIGNIFICAND(x) (x & TJS_IEEE_D_SIGNIFICAND_MASK)
 
@@ -204,11 +204,11 @@ s = sign,  negative if this is 1, otherwise positive.
   #define TJS_IEEE_D_N_INF (tjs_uint64)(TJS_IEEE_D_SIGN_MASK|TJS_IEEE_D_P_INF)
 
 /* special expression check */
-  #define TJS_IEEE_D_IS_NaN(x) ((TJS_IEEE_D_EXP_MASK & (x)) == TJS_IEEE_D_EXP_MASK) && \
-				(((x) & TJS_IEEE_D_SIGNIFICAND_MSB_MASK) || \
-				(!((x) & TJS_IEEE_D_SIGNIFICAND_MSB_MASK) && \
+  #define TJS_IEEE_D_IS_NaN(x) ((TJS_IEEE_D_EXP_MASK & (x)) == TJS_IEEE_D_EXP_MASK) && ¥
+				(((x) & TJS_IEEE_D_SIGNIFICAND_MSB_MASK) || ¥
+				(!((x) & TJS_IEEE_D_SIGNIFICAND_MSB_MASK) && ¥
 				((x) & (TJS_IEEE_D_SIGNIFICAND_MASK ^ TJS_IEEE_D_SIGNIFICAND_MSB_MASK))))
-  #define TJS_IEEE_D_IS_INF(x) (((TJS_IEEE_D_EXP_MASK & (x)) == TJS_IEEE_D_EXP_MASK) && \
+  #define TJS_IEEE_D_IS_INF(x) (((TJS_IEEE_D_EXP_MASK & (x)) == TJS_IEEE_D_EXP_MASK) && ¥
 				(!((x) & TJS_IEEE_D_SIGNIFICAND_MASK)))
 
 /*]*/

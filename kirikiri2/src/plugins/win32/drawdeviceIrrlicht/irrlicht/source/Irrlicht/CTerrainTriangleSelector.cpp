@@ -24,7 +24,7 @@ CTerrainTriangleSelector::CTerrainTriangleSelector ( ITerrainSceneNode* node, s3
 }
 
 //! destructor
-CTerrainTriangleSelector::~CTerrainTriangleSelector()
+CTerrainTriangleSelector::‾CTerrainTriangleSelector()
 {
 	TrianglePatches.TrianglePatchArray.clear ( );
 }

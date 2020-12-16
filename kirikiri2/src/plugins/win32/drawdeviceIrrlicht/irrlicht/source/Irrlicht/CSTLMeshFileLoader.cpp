@@ -31,7 +31,7 @@ bool CSTLMeshFileLoader::isALoadableFileExtension(const c8* filename) const
 
 
 //! creates/loads an animated mesh from the file.
-//! \return Pointer to the created mesh. Returns 0 if loading failed.
+//! ¥return Pointer to the created mesh. Returns 0 if loading failed.
 //! If you no longer need the mesh, you should call IAnimatedMesh::drop().
 //! See IReferenceCounted::drop() for more information.
 IAnimatedMesh* CSTLMeshFileLoader::createMesh(io::IReadFile* file)
@@ -252,7 +252,7 @@ void CSTLMeshFileLoader::goNextLine(io::IReadFile* file) const
 	{
 		file->read(&c, 1);
 		// found it, so leave
-		if (c=='\n' || c=='\r')
+		if (c=='¥n' || c=='¥r')
 			break;
 	}
 }

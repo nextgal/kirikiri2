@@ -51,8 +51,8 @@ void CParticleFadeOutAffector::serializeAttributes(io::IAttributes* out, io::SAt
 //! Reads attributes of the object.
 //! Implement this to set the attributes of your scene node animator for
 //! scripting languages, editors, debuggers or xml deserialization purposes.
-//! \param startIndex: start index where to start reading attributes.
-//! \return: returns last index of an attribute read by this affector
+//! ¥param startIndex: start index where to start reading attributes.
+//! ¥return: returns last index of an attribute read by this affector
 s32 CParticleFadeOutAffector::deserializeAttributes(s32 startIndex, io::IAttributes* in, io::SAttributeReadWriteOptions* options)
 {
 	const char* name = in->getAttributeName(startIndex);

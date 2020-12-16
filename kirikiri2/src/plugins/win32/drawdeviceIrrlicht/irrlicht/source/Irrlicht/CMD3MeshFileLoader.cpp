@@ -21,7 +21,7 @@ CMD3MeshFileLoader::CMD3MeshFileLoader(io::IFileSystem* fs, video::IVideoDriver*
 
 
 //! destructor
-CMD3MeshFileLoader::~CMD3MeshFileLoader()
+CMD3MeshFileLoader::‾CMD3MeshFileLoader()
 {
 }
 

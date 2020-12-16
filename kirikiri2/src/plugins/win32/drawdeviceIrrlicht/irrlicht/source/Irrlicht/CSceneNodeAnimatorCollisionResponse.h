@@ -33,7 +33,7 @@ namespace scene
 			f32 slidingSpeed = 0.0005f);
 
 		//! destructor
-		virtual ~CSceneNodeAnimatorCollisionResponse();
+		virtual ‾CSceneNodeAnimatorCollisionResponse();
 
 		//! Returns if the attached scene node is falling, which means that
 		//! there is no blocking wall from the scene node in the direction of

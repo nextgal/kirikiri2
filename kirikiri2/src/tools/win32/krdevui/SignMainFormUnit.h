@@ -12,7 +12,7 @@
 //---------------------------------------------------------------------------
 class TSignMainForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TButton *CloseButton;
 	TPageControl *PageControl;
 	TTabSheet *KeyGenTabSheet;
@@ -71,14 +71,14 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall CheckSignatureButtonClick(TObject *Sender);
 	void __fastcall SignPrivateKeyEditChange(TObject *Sender);
 	void __fastcall CheckSignPublicKeyEditChange(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 protected:
 BEGIN_MESSAGE_MAP
 	VCL_MESSAGE_HANDLER( WM_DROPFILES,  TMessage, WMDropFiles);
 END_MESSAGE_MAP(TForm)
 	void __fastcall WMDropFiles(TMessage &Msg);
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TSignMainForm(TComponent* Owner);
 };
 //---------------------------------------------------------------------------

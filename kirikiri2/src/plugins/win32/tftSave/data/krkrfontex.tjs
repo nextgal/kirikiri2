@@ -1,10 +1,10 @@
-// •K—v‚Èƒvƒ‰ƒOƒCƒ“‚ğƒŠƒ“ƒN
+// å¿…è¦ãªãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’ãƒªãƒ³ã‚¯
 Plugins.link("tftSave.dll") if (typeof System.savePreRenderedFont != "Object");
 Plugins.link("fstat.dll")   if (typeof Storages.selectDirectory   != "Object");
 try { Plugins.link("csvParser.dll") if (typeof global.CSVParser != "Object"); } catch {} // optional
 Scripts.execStorage("win32dialog.tjs") if (typeof global.WIN32GenericDialogEX != "Object");
 
-// ƒ_ƒ~[«‘ (KAGParser‚ÌƒGƒ“ƒeƒBƒeƒB‚É‚Ä•]‰¿‚³‚ê‚é‚±‚Æ‚ª‚ ‚é‚Ì‚Å)
+// ãƒ€ãƒŸãƒ¼è¾æ›¸ (KAGParserã®ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£ã«ã¦è©•ä¾¡ã•ã‚Œã‚‹ã“ã¨ãŒã‚ã‚‹ã®ã§)
 global.f   = %[] if (typeof global.f   == "undefined");
 global.sf  = %[] if (typeof global.sf  == "undefined");
 global.tf  = %[] if (typeof global.tf  == "undefined");
@@ -13,14 +13,14 @@ global.kag = %[] if (typeof global.kag == "undefined");
 
 class TftSaveDialog extends WIN32GenericDialogEX
 {
-	// ƒvƒƒOƒŒƒXƒ_ƒCƒAƒƒO
+	// ãƒ—ãƒ­ã‚°ãƒ¬ã‚¹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 	class WaitProgress extends WIN32DialogEX {
 		function WaitProgress(win, text, optov) {
 			super.WIN32DialogEX();
 			modeless = true;
 			var w, h, fh, pad, face, opt = %[
 			width:100, height:12, padding:1,
-			fontSize:20, fontFace:"‚l‚r ‚oƒSƒVƒbƒN",
+			fontSize:20, fontFace:"ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯",
 				];
 			(Dictionary.assign incontextof opt)(optov, false) if (typeof optov == "Object");
 			with (opt) w=.width, h=.height, fh=.fontSize, pad=.padding, face=.fontFace;
@@ -49,18 +49,18 @@ class TftSaveDialog extends WIN32GenericDialogEX
 	var fontFaceList, chListParsed = "";
 	var iniReset = %[], savefile;
 
-	// ƒAƒCƒeƒ€‚Éİ’è‚·‚éƒeƒLƒXƒgichildren[].text‚ÉŠÜ‚Ü‚ê‚È‚¢‚à‚Ìj
+	// ã‚¢ã‚¤ãƒ†ãƒ ã«è¨­å®šã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆï¼ˆchildren[].textã«å«ã¾ã‚Œãªã„ã‚‚ã®ï¼‰
 	var itemTexts =
 		%[
-			IDCANCEL => "•Â‚¶‚é",
+			IDCANCEL => "é–‰ã˜ã‚‹",
 		];
 
-	// “à•”•Û‰Šú’lichildren[].ini‚ÉŠÜ‚Ü‚ê‚È‚¢‚à‚Ìj
+	// å†…éƒ¨ä¿æŒåˆæœŸå€¤ï¼ˆchildren[].iniã«å«ã¾ã‚Œãªã„ã‚‚ã®ï¼‰
 	var ini =
 		%[
 		ListFlag  : "fsfNoVertical | fsfTrueTypeOnly | fsfSameCharSet",
-		SmplWidth : 396, // [XXX] À‘ª’lFDPI‚É‚æ‚èˆÙ‚È‚é
-		SmplHeight:  46, // [XXX] À‘ª’lFDPI‚É‚æ‚èˆÙ‚È‚é
+		SmplWidth : 396, // [XXX] å®Ÿæ¸¬å€¤ï¼šDPIã«ã‚ˆã‚Šç•°ãªã‚‹
+		SmplHeight:  46, // [XXX] å®Ÿæ¸¬å€¤ï¼šDPIã«ã‚ˆã‚Šç•°ãªã‚‹
 		SmplBGCol : 0xFFFFFF,
 		SmplColor : 0,
 
@@ -70,51 +70,51 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		];
 
 
-	// ƒAƒCƒeƒ€‚ÌƒeƒLƒXƒgE‰Šú’lE’Ê’mŠÖ”–¼
+	// ã‚¢ã‚¤ãƒ†ãƒ ã®ãƒ†ã‚­ã‚¹ãƒˆãƒ»åˆæœŸå€¤ãƒ»é€šçŸ¥é–¢æ•°å
 	var children =
-		%[  //         itemText‚Éİ’è           ini‚Éİ’è                   ’Ê’mƒR[ƒ‹ƒoƒbƒN
-		Face      : %[ text:"ƒtƒHƒ“ƒg–¼",       ini:"‚l‚r ƒSƒVƒbƒN",        cmd:"onFaceChanged"      ],
-		Size      : %[ text:"ƒtƒHƒ“ƒgƒTƒCƒY",   ini:24,                     cmd:"onSizeChanged"      ],
-		Bold      : %[ text:"‘¾š",             ini:false,                  cmd:"onFontStateChanged" ],
-		Italic    : %[ text:"Î‘Ì",             ini:false,                  cmd:"onFontStateChanged" ],
+		%[  //         itemTextã«è¨­å®š           iniã«è¨­å®š                   é€šçŸ¥ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
+		Face      : %[ text:"ãƒ•ã‚©ãƒ³ãƒˆå",       ini:"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯",        cmd:"onFaceChanged"      ],
+		Size      : %[ text:"ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º",   ini:24,                     cmd:"onSizeChanged"      ],
+		Bold      : %[ text:"å¤ªå­—",             ini:false,                  cmd:"onFontStateChanged" ],
+		Italic    : %[ text:"æ–œä½“",             ini:false,                  cmd:"onFontStateChanged" ],
 
-		SmplString: %[ text:"ƒTƒ“ƒvƒ‹", ini:"ABCDEFGHI‚ ‚¢‚¤‚¦‚¨ˆŸˆİ‰FŠGŒä",cmd:"onSampleTextChanged"],
+		SmplString: %[ text:"ã‚µãƒ³ãƒ—ãƒ«", ini:"ABCDEFGHIã‚ã„ã†ãˆãŠäºœèƒƒå®‡çµµå¾¡",cmd:"onSampleTextChanged"],
 
-		ASCII     : %[ text:"”¼ŠpASCII",        ini:true,                   cmd:"onEmbChListChanged" ],
-		STDCH     : %[ text:"Šî–{•¶š",         ini:true,                   cmd:"onEmbChListChanged" ],
-		KIGOU     : %[ text:"‹L†—Ş",           ini:false,                  cmd:"onEmbChListChanged" ],
-		JOYOU     : %[ text:"í—pŠ¿š",         ini:false,                  cmd:"onEmbChListChanged" ],
+		ASCII     : %[ text:"åŠè§’ASCII",        ini:true,                   cmd:"onEmbChListChanged" ],
+		STDCH     : %[ text:"åŸºæœ¬æ–‡å­—",         ini:true,                   cmd:"onEmbChListChanged" ],
+		KIGOU     : %[ text:"è¨˜å·é¡",           ini:false,                  cmd:"onEmbChListChanged" ],
+		JOYOU     : %[ text:"å¸¸ç”¨æ¼¢å­—",         ini:false,                  cmd:"onEmbChListChanged" ],
 
-		EmbChk    : %[ text:"‘S‘I‘ğ",                                       cmd:"onAllEmbChanged"    ],
-		EmbUnchk  : %[ text:"‘S‰ğœ",                                       cmd:"onAllEmbChanged"    ],
+		EmbChk    : %[ text:"å…¨é¸æŠ",                                       cmd:"onAllEmbChanged"    ],
+		EmbUnchk  : %[ text:"å…¨è§£é™¤",                                       cmd:"onAllEmbChanged"    ],
 		Output    : %[ text:"",                 ini:"",                     cmd:"onOutputChanged"    ],
-		OutputBtn : %[ text:"QÆ",                                         cmd:"onOutputSelect"     ],
+		OutputBtn : %[ text:"å‚ç…§",                                         cmd:"onOutputSelect"     ],
 
 		Target    : %[                                                      cmd:"onParseListSelect"  ],
-		SelALL    : %[ text:"‘S‘I‘ğ",                                       cmd:"onParseListSelALL"  ],
-		UnselALL  : %[ text:"‘S‰ğœ",                                       cmd:"onParseListSelALL"  ],
-		SelRemove : %[ text:"‘I‘ğ€–Úíœ",                                 cmd:"onParseListRemove"  ],
-		File      : %[ text:"ƒtƒ@ƒCƒ‹’Ç‰Á",                                 cmd:"onParseListFile"    ],
-		Folder    : %[ text:"Ä‹AŒŸõ’Ç‰Á",                                 cmd:"onParseListFolder"  ],
-		Parser    : %[ text:"‘–¸•û–@",         ini:"Array",                cmd:"onParseModeChanged" ],
+		SelALL    : %[ text:"å…¨é¸æŠ",                                       cmd:"onParseListSelALL"  ],
+		UnselALL  : %[ text:"å…¨è§£é™¤",                                       cmd:"onParseListSelALL"  ],
+		SelRemove : %[ text:"é¸æŠé …ç›®å‰Šé™¤",                                 cmd:"onParseListRemove"  ],
+		File      : %[ text:"ãƒ•ã‚¡ã‚¤ãƒ«è¿½åŠ ",                                 cmd:"onParseListFile"    ],
+		Folder    : %[ text:"å†å¸°æ¤œç´¢è¿½åŠ ",                                 cmd:"onParseListFolder"  ],
+		Parser    : %[ text:"èµ°æŸ»æ–¹æ³•",         ini:"Array",                cmd:"onParseModeChanged" ],
 
-		Reload    : %[ text:"XV",                                         cmd:"onChListReload"     ],
-		Reset     : %[ text:"‘S‰Šú‰»",                                     cmd:"onInitialize"       ],
-		Help      : %[ text:"ƒwƒ‹ƒv",                                       cmd:"onHelp"             ],
-		OK        : %[ text:"ì¬",                                         cmd:"onExecute"          ],
+		Reload    : %[ text:"æ›´æ–°",                                         cmd:"onChListReload"     ],
+		Reset     : %[ text:"å…¨åˆæœŸåŒ–",                                     cmd:"onInitialize"       ],
+		Help      : %[ text:"ãƒ˜ãƒ«ãƒ—",                                       cmd:"onHelp"             ],
+		OK        : %[ text:"ä½œæˆ",                                         cmd:"onExecute"          ],
 
 		];
 
-	// TemplateStrings ‚Æ‚Ì‘Î‰
+	// TemplateStrings ã¨ã®å¯¾å¿œ
 	var embList = [
 		"ASCII" => "ASCII",
-		"STDCH" => "Šî–{•¶š",
-		"KIGOU" => "‹L†—Ş",
-		"JOYOU" => "í—pŠ¿š" ];
+		"STDCH" => "åŸºæœ¬æ–‡å­—",
+		"KIGOU" => "è¨˜å·é¡",
+		"JOYOU" => "å¸¸ç”¨æ¼¢å­—" ];
 
 	var parseMethod = [ "Array", "KAGParser", "CSVParser", "CSV_UTF8" ];
 
-	// ’Ê’mŠÖ”ˆê——ichildren[].cmd ‚©‚çƒRƒs[j
+	// é€šçŸ¥é–¢æ•°ä¸€è¦§ï¼ˆchildren[].cmd ã‹ã‚‰ã‚³ãƒ”ãƒ¼ï¼‰
 	var commands = %[];
 
 	// -------------------------------------------------------------
@@ -127,19 +127,19 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		super.finalize(...);
 	}
 
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	function TftSaveDialog(sav, lay) {
-		super.WIN32GenericDialogEX(%[ title:"ƒŒƒ“ƒ_ƒŠƒ“ƒOÏ‚İƒtƒHƒ“ƒgì¬ƒc[ƒ‹",
-									  /**/width:480, fontSize:9, fontFace:"‚l‚r ƒSƒVƒbƒN", 
+		super.WIN32GenericDialogEX(%[ title:"ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°æ¸ˆã¿ãƒ•ã‚©ãƒ³ãƒˆä½œæˆãƒ„ãƒ¼ãƒ«",
+									  /**/width:480, fontSize:9, fontFace:"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 
 									  /**/itemtexts:itemTexts ]);
 
-		// CSVParser‚ª‚È‚¢ê‡‚Í••ˆó
+		// CSVParserãŒãªã„å ´åˆã¯å°å°
 		if (typeof global.CSVParser != "Object") {
 			parseMethod.remove("CSVParser", true);
 			parseMethod.remove("CSV_UTF8",  true);
 		}
 
-		// children ‚ğ‘¼‚Ì«‘‚Éİ’è‚·‚é
+		// children ã‚’ä»–ã®è¾æ›¸ã«è¨­å®šã™ã‚‹
 		initChildren();
 		(Dictionary.assignStruct incontextof iniReset)(ini);
 		if ((savefile = sav) != "" && Storages.isExistentStorage(sav)) try {
@@ -149,21 +149,21 @@ class TftSaveDialog extends WIN32GenericDialogEX
 			}
 		} catch {}
 
-		// ˆêƒŒƒCƒ„‚ğì¬
+		// ä¸€æ™‚ãƒ¬ã‚¤ãƒ¤ã‚’ä½œæˆ
 		tempLayer = new Layer(lay.window, lay);
 
-		// ƒtƒHƒ“ƒgˆê——‚ğæ“¾
+		// ãƒ•ã‚©ãƒ³ãƒˆä¸€è¦§ã‚’å–å¾—
 		var fontflag = ini.ListFlag;
 		if (typeof fontflag == "String") try { fontflag = fontflag!; } catch { fontflag = 0; }
 		fontFaceList = tempLayer.font.getList((int)fontflag);
 		fontFaceList.sort();
 
-		// ƒ_ƒCƒAƒƒO‚Ìƒ{ƒ^ƒ“—Ş‚ğ”z’uiWIN32GenericDialogEX‚Ì©“®”z’u‚ğg—pj
-		// ¦ { ` } ‚ÍƒOƒ‹[ƒv‚âƒtƒŒ[ƒ€‚ğŒ©‚â‚·‚­ƒCƒ“ƒfƒ“ƒg‚·‚é‚½‚ß‚É“ü‚ê‚Ä‚ ‚é‚¾‚¯‚ÅC“Á‚ÉˆÓ–¡‚Í‚È‚¢
+		// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ãƒœã‚¿ãƒ³é¡ã‚’é…ç½®ï¼ˆWIN32GenericDialogEXã®è‡ªå‹•é…ç½®ã‚’ä½¿ç”¨ï¼‰
+		// â€» { ã€œ } ã¯ã‚°ãƒ«ãƒ¼ãƒ—ã‚„ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’è¦‹ã‚„ã™ãã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã™ã‚‹ãŸã‚ã«å…¥ã‚Œã¦ã‚ã‚‹ã ã‘ã§ï¼Œç‰¹ã«æ„å‘³ã¯ãªã„
 		var ts=2, tw=5;
 		beginFrame(makeSpan(0,tw-ts,tw)); {
 
-			beginGroup("š‘Ì"); {
+			beginGroup("å­—ä½“"); {
 				nextLine();
 				var initialFace = fontFaceList.find(ini.Face);
 				if (initialFace < 0) initialFace = 0;
@@ -188,7 +188,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 			} nextLine(); endGroup();
 
 			nextLine();
-			beginGroup("o—Í"); {
+			beginGroup("å‡ºåŠ›"); {
 				nextLine();
 				addLineInput(%[ id:"Output", text:"-", nolabel:true ], makeSpan(0,7,8), getLocalPath(ini.Output));
 				addButton("OutputBtn", makeDiv(7, 8));
@@ -196,7 +196,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 			} nextLine(); endGroup();
 
 			nextLine();
-			beginGroup("ì¬‘ÎÛ•¶š"); {
+			beginGroup("ä½œæˆå¯¾è±¡æ–‡å­—"); {
 				nextLine();
 				addTextInput(%[ id:"ChList", nolabel:true ], 128-14,, getChListString());
 				setLastItemStyle("set",
@@ -210,8 +210,8 @@ class TftSaveDialog extends WIN32GenericDialogEX
 
 		} setFrame(makeSpan(tw-ts,ts,tw)); {
 
-			beginGroup("ì¬•¶š‘I‘ğ"); {
-				beginGroup("‘g‚İ‚İƒŠƒXƒg"); {
+			beginGroup("ä½œæˆæ–‡å­—é¸æŠ"); {
+				beginGroup("çµ„ã¿è¾¼ã¿ãƒªã‚¹ãƒˆ"); {
 					nextLine();
 					beginFrame(makeSpan(0,7,10)); {
 						addToggle("ASCII", makeDiv(0, 2));
@@ -232,7 +232,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 				} nextLine(); endGroup();
 
 				nextLine();
-				beginGroup("ƒtƒ@ƒCƒ‹‘–¸"); {
+				beginGroup("ãƒ•ã‚¡ã‚¤ãƒ«èµ°æŸ»"); {
 					var sel = parseMethod.find(ini.Parser);
 					sel = 0 if (sel < 0);
 					addDropSelect("Parser", 100, makeSpan(2, 3, 5), sel, parseMethod);
@@ -270,7 +270,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		addButton (IDCANCEL, makeStepRight(0, 60), 8);
 	}
 
-	// children ‚ğ itemText, ini, commands ‚É“WŠJ‚·‚é
+	// children ã‚’ itemText, ini, commands ã«å±•é–‹ã™ã‚‹
 	function initChildren() {
 		var ext = [];
 		ext.assign(children);
@@ -285,17 +285,17 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		}
 	}
 
-	// ƒXƒ^ƒCƒ‹ã‘‚«—pƒwƒ‹ƒpŠÖ”
+	// ã‚¹ã‚¿ã‚¤ãƒ«ä¸Šæ›¸ãç”¨ãƒ˜ãƒ«ãƒ‘é–¢æ•°
 	function setLastItemStyle(mode, style) {
 		var items = _templ.items;
 		var target = items[items.count-1];
 		switch (mode) {
-		case "remove": target.style &= ~style;            break;
+		case "remove": target.style &= â€¾style;            break;
 		case "append": target.style |=  style;            break;
 		default:       target.style  =  style|WS_VISIBLE; break;
 		}
 	}
-	// ƒeƒLƒXƒg“ü—Í‚ÌÅ‘å•¶š”‚ğİ’è
+	// ãƒ†ã‚­ã‚¹ãƒˆå…¥åŠ›ã®æœ€å¤§æ–‡å­—æ•°ã‚’è¨­å®š
 	function setLimitText(id, max) {
 		sendItemMessage(id, EM_LIMITTEXT, (int)max, 0);
 	}
@@ -322,12 +322,12 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		return r;
 	}
 
-	// •¶šˆê——ƒTƒ“ƒvƒ‹ƒeƒLƒXƒg‚ğæ“¾
+	// æ–‡å­—ä¸€è¦§ã‚µãƒ³ãƒ—ãƒ«ãƒ†ã‚­ã‚¹ãƒˆã‚’å–å¾—
 	function getChListString() {
 		if (chListParsed != "") return chListParsed;
 		var ret = %[ text:"" ];
 		if (ini.ParseList.count > 0) {
-			ret.text += "¡¦@ƒtƒ@ƒCƒ‹‘–¸‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ@¦¡\r\n¡¦@XVƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢@¦¡\r\n\r\n";
+			ret.text += "â– â€»ã€€ãƒ•ã‚¡ã‚¤ãƒ«èµ°æŸ»ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€€â€»â– Â¥rÂ¥nâ– â€»ã€€æ›´æ–°ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ãã ã•ã„ã€€â€»â– Â¥rÂ¥nÂ¥rÂ¥n";
 		}
 		foreachEmbList(function(tag, tmpl, ret) {
 			ret.text += templateStrings[tmpl] if (ini[tag]);
@@ -335,7 +335,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		return ret.text;;
 	}
 
-	// ƒtƒHƒ‹ƒ_ŒŸõ
+	// ãƒ•ã‚©ãƒ«ãƒ€æ¤œç´¢
 	function appendFolderSearch(list, path) {
 		if (path.charAt(path.length-1) != "/") path += "/";
 		var dir = Storages.dirlist(path);
@@ -358,7 +358,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 			}
 		}
 	}
-	// ƒtƒ@ƒCƒ‹ˆê——‚ğæ“¾
+	// ãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§ã‚’å–å¾—
 	function makeFileList() {
 		var map = %[], list = ini.ParseList;
 		for (var i = 0; i < list.count; i++) {
@@ -377,10 +377,10 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		ret.sort();
 		return ret;
 	}
-	// g—p•¶š‚ğ‘Sƒp[ƒX
+	// ä½¿ç”¨æ–‡å­—ã‚’å…¨ãƒ‘ãƒ¼ã‚¹
 	function parseAllTarget(force = false) {
 		if (!force && chListParsed != "") return;
-		var map = %[], ch = [], wait = new WaitProgress(this, "ì¬‘ÎÛ•¶šæ“¾’†...");
+		var map = %[], ch = [], wait = new WaitProgress(this, "ä½œæˆå¯¾è±¡æ–‡å­—å–å¾—ä¸­...");
 		try {
 			foreachEmbList(function (tag, tmpl, map) {
 				storeUseCh(map, templateStrings[tmpl]) if (ini[tag]);
@@ -439,7 +439,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 	}
 	function parseFile_CSVParser_Common(utf8, map, file) {
 		var line;
-		if (  csvParser === void) csvParser = new CSVParser(null, #"\t", "\n");
+		if (  csvParser === void) csvParser = new CSVParser(null, #"Â¥t", "Â¥n");
 		with (csvParser) {
 			.initStorage(file, utf8);
 			while ((line = .getNextLine()) !== void) {
@@ -450,11 +450,11 @@ class TftSaveDialog extends WIN32GenericDialogEX
 	function parseFile_CSVParser(*) { return parseFile_CSVParser_Common(false, *); }
 	function parseFile_CSV_UTF8 (*) { return parseFile_CSVParser_Common(true,  *); }
 
-	// ƒtƒHƒ“ƒgì¬
+	// ãƒ•ã‚©ãƒ³ãƒˆä½œæˆ
 	function buildRenderedFont() {
 		updateSampleLayer();
 		var allch = parseAllTarget(true);
-		var wait = new WaitProgress(this, "o—Í’†...");
+		var wait = new WaitProgress(this, "å‡ºåŠ›ä¸­...");
 		try {
 			System.savePreRenderedFont(ini.Output, allch, (buildGlyph incontextof this));
 		} catch (e) {
@@ -471,11 +471,11 @@ class TftSaveDialog extends WIN32GenericDialogEX
 
 
 	// -------------------------------------------------------------
-	// ŠeíXVˆ—
+	// å„ç¨®æ›´æ–°å‡¦ç†
 
-	// ‚·‚×‚Ä‚Ì€–Ú‚ğXV
+	// ã™ã¹ã¦ã®é …ç›®ã‚’æ›´æ–°
 	function updateAllItems() {
-		// š‘Ì
+		// å­—ä½“
 		var initialFace = fontFaceList.find(ini.Face);
 		if (initialFace < 0) initialFace = 0;
 		selectComboBox("Face", initialFace);
@@ -485,23 +485,23 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		setItemText("SmplString", (string)ini.SmplString);
 		updateSampleLayer();
 
-		// o—Í
+		// å‡ºåŠ›
 		updateOutput();
 
-		// ˆê——
+		// ä¸€è¦§
 		updateChListString();
 
-		// ‘g‚İ‚İƒŠƒXƒg
+		// çµ„ã¿è¾¼ã¿ãƒªã‚¹ãƒˆ
 		setCheckBox("ASCII", (int)ini.ASCII);
 		setCheckBox("STDCH", (int)ini.STDCH);
 		setCheckBox("KIGOU", (int)ini.KIGOU);
 		setCheckBox("JOYOU", (int)ini.JOYOU);
 
-		// ‘–¸ˆê——
+		// èµ°æŸ»ä¸€è¦§
 		updateParseList();
 	}
 
-	// ƒtƒHƒ“ƒgƒTƒ“ƒvƒ‹‚ğXV
+	// ãƒ•ã‚©ãƒ³ãƒˆã‚µãƒ³ãƒ—ãƒ«ã‚’æ›´æ–°
 	function updateSampleLayer(id = "Sample") {
 		with (tempLayer) try {
 			var str = ini.SmplString;
@@ -514,7 +514,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 			.font.italic    = ini.Italic;
 			var w = .font.getTextWidth (str);
 			var h = .font.getTextHeight(str);
-			.drawText((lw-w)\2, (lh-h)\2, str, ini.SmplColor, 255, true);
+			.drawText((lw-w)Â¥2, (lh-h)Â¥2, str, ini.SmplColor, 255, true);
 		} catch(e) {
 			return errorMessage(e.message);
 		}
@@ -523,11 +523,11 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		removeAllBitmap();
 		allBitmaps.push(bmp);
 	}
-	// •¶šˆê——ƒTƒ“ƒvƒ‹ƒeƒLƒXƒg‚ğÄİ’è
+	// æ–‡å­—ä¸€è¦§ã‚µãƒ³ãƒ—ãƒ«ãƒ†ã‚­ã‚¹ãƒˆã‚’å†è¨­å®š
 	function updateChListString() {
 		setItemText("ChList", getChListString());
 	}
-	// ƒtƒ@ƒCƒ‹‘–¸ˆê——‚ğXV
+	// ãƒ•ã‚¡ã‚¤ãƒ«èµ°æŸ»ä¸€è¦§ã‚’æ›´æ–°
 	function updateParseList(id = "Target") {
 		var list = ini.ParseList;
 		sendItemMessage(id, LB_RESETCONTENT, 0, 0);
@@ -543,7 +543,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		updateChListString();
 		setItemText("Fullpath", "");
 	}
-	// íœƒ{ƒ^ƒ“‚Ì—LŒøE–³Œøó‘Ô‚ğXV
+	// å‰Šé™¤ãƒœã‚¿ãƒ³ã®æœ‰åŠ¹ãƒ»ç„¡åŠ¹çŠ¶æ…‹ã‚’æ›´æ–°
 	function updateSelRemove() {
 		var id = "Target", list = ini.ParseList, selected = false;
 		var path = "";
@@ -561,7 +561,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		setItemEnabled("SelRemove", selected);
 		setItemText("Fullpath", path);
 	}
-	// ‘S‘I‘ğE‘S‰ğœˆ—
+	// å…¨é¸æŠãƒ»å…¨è§£é™¤å‡¦ç†
 	function updateSelALL(en) {
 		var id = "Target", list = ini.ParseList;
 		for (var i = 0; i < list.count; i++) {
@@ -569,7 +569,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		}
 		updateSelRemove();
 	}
-	// ‘I‘ğ€–Úíœ
+	// é¸æŠé …ç›®å‰Šé™¤
 	function removeSelected() {
 		var id = "Target", list = ini.ParseList;
 		for (var i = 0; i < list.count; i++) {
@@ -581,7 +581,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		updateParseList();
 	}
 
-	// o—Íƒtƒ@ƒCƒ‹XV
+	// å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«æ›´æ–°
 	function updateOutput(id = "Output") {
 		setItemText(id, getLocalPath(ini.Output));
 		updateOKButton();
@@ -591,9 +591,9 @@ class TftSaveDialog extends WIN32GenericDialogEX
 	}
 
 	// -------------------------------------------------------------
-	// Šeí’Ê’mˆ—
+	// å„ç¨®é€šçŸ¥å‡¦ç†
 
-	// ’Ê’mˆ—‚ğ commands ‚ÌŠÖ”•Ê‚Éê‡‚í‚¯
+	// é€šçŸ¥å‡¦ç†ã‚’ commands ã®é–¢æ•°åˆ¥ã«å ´åˆã‚ã‘
 	function onCommand(msg, wp, lp) {
 		super.onCommand(...);
 		var id = getNamedId(wp & 0xFFFF);
@@ -602,14 +602,14 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		}
 	}
 
-	// ƒtƒHƒ“ƒg–¼‚ª•ÏX‚³‚ê‚½
+	// ãƒ•ã‚©ãƒ³ãƒˆåãŒå¤‰æ›´ã•ã‚ŒãŸ
 	function onFaceChanged(id, notify, lp) {
 		if (notify != CBN_SELCHANGE) return;
 		var sel = getResult(id);
 		try { ini.Face = fontFaceList[sel]; } catch {}
 		updateSampleLayer();
 	}
-	// ƒtƒHƒ“ƒgƒTƒCƒY‚ª•ÏX‚³‚ê‚½
+	// ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚ºãŒå¤‰æ›´ã•ã‚ŒãŸ
 	function onSizeChanged(id, notify, lp) {
 		if (notify != EN_CHANGE) return;
 		var size = getResult(id);
@@ -617,27 +617,27 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		ini.Size = (int)size;
 		updateSampleLayer();
 	}
-	// ‘¾šEÎ‘Ì‚ª•ÏX‚³‚ê‚½
+	// å¤ªå­—ãƒ»æ–œä½“ãŒå¤‰æ›´ã•ã‚ŒãŸ
 	function onFontStateChanged(id, notify, lp) {
 		if (notify != BN_CLICKED) return;
 		ini[id] = !!getResult(id);
 		updateSampleLayer();
 	}
-	// ƒTƒ“ƒvƒ‹ƒeƒLƒXƒg‚ª•ÏX‚³‚ê‚½
+	// ã‚µãƒ³ãƒ—ãƒ«ãƒ†ã‚­ã‚¹ãƒˆãŒå¤‰æ›´ã•ã‚ŒãŸ
 	function onSampleTextChanged(id, notify, lp) {
 		if (notify != EN_CHANGE) return;
 		ini.SmplString = (string)getResult(id);
 		updateSampleLayer();
 	}
 
-	// ‘g‚İ‚İƒŠƒXƒg‚Ìƒ`ƒFƒbƒN‚ª•ÏX‚³‚ê‚½
+	// çµ„ã¿è¾¼ã¿ãƒªã‚¹ãƒˆã®ãƒã‚§ãƒƒã‚¯ãŒå¤‰æ›´ã•ã‚ŒãŸ
 	function onEmbChListChanged(id, notify, lp) {
 		if (notify != BN_CLICKED) return;
 		ini[id] = !!getResult(id);
 		chListParsed = "";
 		updateChListString();
 	}
-	// ‘g‚İ‚İƒŠƒXƒg‚Ì‘S‘I‘ğE‘S‰ğœƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+	// çµ„ã¿è¾¼ã¿ãƒªã‚¹ãƒˆã®å…¨é¸æŠãƒ»å…¨è§£é™¤ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 	function onAllEmbChanged(id, notify, lp) {
 		if (notify != BN_CLICKED) return;
 		foreachEmbList(function (tag, tmpl, chk) {
@@ -648,13 +648,13 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		updateChListString();
 	}
 
-	// o—Í‘I‘ğ
+	// å‡ºåŠ›é¸æŠ
 	function onOutputSelect(id, notify, lp) {
 		if (notify != BN_CLICKED) return;
 		var elm = %[
-		title:"o—Íƒtƒ@ƒCƒ‹‘I‘ğ", save:true,
+		title:"å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«é¸æŠ", save:true,
 		initialDir:ini.LastOutput,
-		filter: [ "ƒŒƒ“ƒ_ƒŠƒ“ƒOÏ‚İƒtƒHƒ“ƒgƒtƒ@ƒCƒ‹(*.tft)|*.tft", "‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹(*.*)|*.*" ],
+		filter: [ "ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°æ¸ˆã¿ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚¡ã‚¤ãƒ«(*.tft)|*.tft", "ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«(*.*)|*.*" ],
 		defaultExt: "tft",
 		filterIndex: 0,
 			];
@@ -665,7 +665,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 			updateOutput();
 		}
 	}
-	// o—Í‚ÌƒeƒLƒXƒg‚ª•ÏX‚³‚ê‚½
+	// å‡ºåŠ›ã®ãƒ†ã‚­ã‚¹ãƒˆãŒå¤‰æ›´ã•ã‚ŒãŸ
 	function onOutputChanged(id, notify, lp) {
 		if (notify != EN_CHANGE) return;
 		var text = getResult(id);
@@ -673,12 +673,12 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		updateOKButton();
 	}
 
-	// ƒtƒ@ƒCƒ‹‘–¸ˆê——‚Ì‘I‘ğó‘Ô‚ª•ÏX‚³‚ê‚½
+	// ãƒ•ã‚¡ã‚¤ãƒ«èµ°æŸ»ä¸€è¦§ã®é¸æŠçŠ¶æ…‹ãŒå¤‰æ›´ã•ã‚ŒãŸ
 	function onParseListSelect(id, notify, lp) {
 		if (notify != LBN_SELCHANGE) return;
 		updateSelRemove();
 	}
-	// ƒtƒ@ƒCƒ‹‘–¸‚Ì‘S‘I‘ğE‘S‰ğœƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+	// ãƒ•ã‚¡ã‚¤ãƒ«èµ°æŸ»ã®å…¨é¸æŠãƒ»å…¨è§£é™¤ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 	function onParseListSelALL(id, notify, lp) {
 		if (notify != BN_CLICKED) return;
 		updateSelALL(id == "SelALL");
@@ -687,11 +687,11 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		if (notify != BN_CLICKED) return;
 		removeSelected();
 	}
-	// ƒtƒ@ƒCƒ‹‘–¸‚ÌƒtƒHƒ‹ƒ_’Ç‰Á
+	// ãƒ•ã‚¡ã‚¤ãƒ«èµ°æŸ»ã®ãƒ•ã‚©ãƒ«ãƒ€è¿½åŠ 
 	function onParseListFolder(id, notify, lp) {
 		if (notify != BN_CLICKED) return;
 		var elm = %[
-		title:"ƒtƒHƒ‹ƒ_‘I‘ğ",
+		title:"ãƒ•ã‚©ãƒ«ãƒ€é¸æŠ",
 		window:this,
 		name:ini.LastFolder,
 			];
@@ -705,13 +705,13 @@ class TftSaveDialog extends WIN32GenericDialogEX
 			updateParseList();
 		}
 	}
-	// ƒtƒ@ƒCƒ‹‘–¸‚Ìƒtƒ@ƒCƒ‹’Ç‰Á
+	// ãƒ•ã‚¡ã‚¤ãƒ«èµ°æŸ»ã®ãƒ•ã‚¡ã‚¤ãƒ«è¿½åŠ 
 	function onParseListFile(id, notify, lp) {
 		if (notify != BN_CLICKED) return;
 		var elm = %[
-		title:"ƒtƒ@ƒCƒ‹‘I‘ğ",
+		title:"ãƒ•ã‚¡ã‚¤ãƒ«é¸æŠ",
 		initialDir:ini.LastFolder,
-		filter: [ "ƒVƒiƒŠƒIƒtƒ@ƒCƒ‹(*.ks;*.txt)|*.ks;*.txt", "‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹(*.*)|*.*" ],
+		filter: [ "ã‚·ãƒŠãƒªã‚ªãƒ•ã‚¡ã‚¤ãƒ«(*.ks;*.txt)|*.ks;*.txt", "ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«(*.*)|*.*" ],
 		filterIndex: 0,
 			];
 		if (Storages.selectFile(elm)) {
@@ -721,7 +721,7 @@ class TftSaveDialog extends WIN32GenericDialogEX
 			updateParseList();
 		}
 	}
-	// ‘–¸•û–@‚Ì•ÏX
+	// èµ°æŸ»æ–¹æ³•ã®å¤‰æ›´
 	function onParseModeChanged(id, notify, lp) {
 		if (notify != CBN_SELCHANGE) return;
 		var sel = getResult(id);
@@ -730,38 +730,38 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		updateChListString();
 	}
 
-	// •¶šˆê——XV
+	// æ–‡å­—ä¸€è¦§æ›´æ–°
 	function onChListReload(id, notify, lp) {
 		if (notify != BN_CLICKED) return;
 		parseAllTarget();
 		updateChListString();
 	}
 
-	// ì¬ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+	// ä½œæˆãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 	function onExecute(id, notify, lp) {
 		if (notify != BN_CLICKED) return;
 		buildRenderedFont();
 	}
 
-	// ‘S‰Šú‰»ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+	// å…¨åˆæœŸåŒ–ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 	function onInitialize(id, notify, lp) {
 		if (notify != BN_CLICKED) return;
 		(Dictionary.assignStruct incontextof ini)(iniReset);
 		updateAllItems();
 	}
 	
-	// ƒwƒ‹ƒvƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+	// ãƒ˜ãƒ«ãƒ—ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 	function onHelp(id, notify, lp) {
 		if (notify != BN_CLICKED) return;
 		var caption = _templ.title;
 		if (helpPad === void) {
 			helpPad = new Pad();
 			with (helpPad) {
-				.title = @"ƒwƒ‹ƒvF${caption}";
+				.title = @"ãƒ˜ãƒ«ãƒ—ï¼š${caption}";
 				.borderStyle = bsSizeToolWin;
 				.color     = clWindow;
 				.fontColor = clWindowText;
-				.fontFace = "‚l‚r ƒSƒVƒbƒN"; //chDefaultFace;
+				.fontFace = "ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯"; //chDefaultFace;
 				.fontHeight = 12;
 				.readOnly = true;
 				.wordWrap = true;
@@ -772,154 +772,20 @@ class TftSaveDialog extends WIN32GenericDialogEX
 		}
 		with (helpPad) {
 			.visible = true;
-			.text = helpText.join("\n");
+			.text = helpText.join("Â¥n");
 			.statusText = caption;
 		}
 	}
 }
 
-// ‘g‚İ‚İ•¶šƒŠƒXƒg
+// çµ„ã¿è¾¼ã¿æ–‡å­—ãƒªã‚¹ãƒˆ
 TftSaveDialog.TemplateStrings = %[
 
 	"ASCII" => (
-		" !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"),
+		" !Â¥"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[Â¥Â¥]^_`abcdefghijklmnopqrstuvwxyz{|}â€¾"),
 
-	"Šî–{•¶š" => (
-		"‚O‚P‚Q‚R‚S‚T‚U‚V‚W‚X‚`‚a‚b‚c‚d‚e‚f‚g‚h‚i‚j‚k‚l‚m‚n‚o‚p‚q‚r‚s‚t‚u‚v‚w‚x‚y‚‚‚‚ƒ‚„‚…‚†‚‡‚ˆ‚‰‚Š‚‹‚Œ‚‚‚‚‚‘‚’‚“‚”‚•‚–‚—‚˜‚™‚š"
-		"‚Ÿ‚ ‚¡‚¢‚£‚¤‚¥‚¦‚§‚¨‚©‚ª‚«‚¬‚­‚®‚¯‚°‚±‚²‚³‚´‚µ‚¶‚·‚¸‚¹‚º‚»‚¼‚½‚¾‚¿‚À‚Á‚Â‚Ã‚Ä‚Å‚Æ‚Ç‚È‚É‚Ê‚Ë‚Ì‚Í‚Î‚Ï‚Ğ‚Ñ‚Ò‚Ó‚Ô‚Õ‚Ö‚×‚Ø‚Ù‚Ú‚Û‚Ü‚İ‚Ş‚ß‚à‚á‚â‚ã‚ä‚å‚æ‚ç‚è‚é‚ê‚ë‚ì‚í‚î‚ï‚ğ‚ñ"
-		"ƒ@ƒAƒBƒCƒDƒEƒFƒGƒHƒIƒJƒKƒLƒMƒNƒOƒPƒQƒRƒSƒTƒUƒVƒWƒXƒYƒZƒ[ƒ\ƒ]ƒ^ƒ_ƒ`ƒaƒbƒcƒdƒeƒfƒgƒhƒiƒjƒkƒlƒmƒnƒoƒpƒqƒrƒsƒtƒuƒvƒwƒxƒyƒzƒ{ƒ|ƒ}ƒ~ƒ€ƒƒ‚ƒƒƒ„ƒ…ƒ†ƒ‡ƒˆƒ‰ƒŠƒ‹ƒŒƒƒƒƒƒ‘ƒ’ƒ“"
-		"ƒ”ƒ•ƒ–ABCDEFGHIJKLMNO‹ŒRSTUVWXY[`cdefgh‡€‡ijklmnopqrstuvwxyzƒ„"
-		"”“•–—{|}~€‚…†™š›œŸ ¡¢£¤¥Zü\]^_PQb‰Šòóô¨©ª«¦§"
-		),
-
-	"‹L†—Ş" => (
-		"a‘’˜‡ˆæçèğñõö÷¬¸¹º»¼½¾¿ÈÉÊËÌÍÎÚÛÜİŞßàáâãäå‡“‡”‡˜‡™"
-		"ƒŸƒ ƒ¡ƒ¢ƒ£ƒ¤ƒ¥ƒ¦ƒ§ƒ¨ƒ©ƒªƒ«ƒ¬ƒ­ƒ®ƒ¯ƒ°ƒ±ƒ²ƒ³ƒ´ƒµƒ¶"
-		"ƒ¿ƒÀƒÁƒÂƒÃƒÄƒÅƒÆƒÇƒÈƒÉƒÊƒËƒÌƒÍƒÎƒÏƒĞƒÑƒÒƒÓƒÔƒÕƒÖ"
-		"„@„A„B„C„D„E„F„G„H„I„J„K„L„M„N„O„P„Q„R„S„T„U„V„W„X„Y„Z„[„\„]„^„_„`"
-		"„p„q„r„s„t„u„v„w„x„y„z„{„|„}„~„€„„‚„ƒ„„„…„†„‡„ˆ„‰„Š„‹„Œ„„„„„‘"
-		"„Ÿ„ „¡„¢„£„¤„¥„¦„§„¨„©„ª„«„¬„­„®„¯„°„±„²„³„´„µ„¶„·„¸„¹„º„»„¼„½„¾"
-		"‡@‡A‡B‡C‡D‡E‡F‡G‡H‡I‡J‡K‡L‡M‡N‡O‡P‡Q‡R‡S‡T‡U‡V‡W‡X‡Y‡Z‡[‡\‡]"
-		"‡_‡`‡a‡b‡c‡d‡e‡f‡g‡h‡i‡j‡k‡l‡m‡n‡o‡p‡q‡r‡s‡t‡u‡‚‡ƒ‡„"
-		"‡…‡†‡‡‡ˆ‡‰‡Š‡‹‡Œ‡‡‡‡~"
-		),
-
-	"í—pŠ¿š" => (
-		"ˆê’šµ–œäOã‰º•s—^Š¢‹u•¸—¼•À’†ŠÛ’Oå‹v–Ræ‰³‹ã—“ûŠ£—¹—\‘ˆ–"
-		"“ñŒİŒÜˆäˆŸ–SŒğ‹‹’àlm¡‰î•§d‘¼•tå‘ã—ßˆÈ‰¼‹Â’‡Œ”CŠé•š”°‹x‰ï"
-		"“`”Œ”ºLf—’AˆÊ’áZ²‘Ì‰½—]ì‰À•¹g—á˜‹ŸˆË‰¿•ŒòN•ÖŒW‘£r‘­•Û"
-		"MC”o•U•î‘qŒÂ”{“|ŒóØ•í’l—ÏŒˆÌ•Î’âŒ’‘¤’ã‹ô‹U–TŒ†P”õÃÂŒX“­"
-		"‘œ–l—»‘m‹V‰­ò—DŒ³ŒZ[’›æŒõ–Æ™“}“ü‘S”ªŒö˜Z‹¤•º‹ï“TŒ““à‰~û"
-		"Ä–`çÊŠ¥“~—ây“€‹Ã–}ˆ‹¥“Ê‰šo“n•ªØŠ Š§ŒY—ñ‰”»•Ê—˜“§üŒ”"
-		"h‘¥í‘O–U„Œ•Ü•›èŠ„‘nŒ€—ÍŒ÷‰Á—ò•“w—ã˜JŒøŠN’º—E•×“®Š¨–±Ÿ•å"
-		"¨‹ÎŠ©ŒMÙ–æ•ï‰»–k •C‹æˆã“½\ç¡Œß”¼”Ú‘²‘ì‹¦“ì’P”èˆóŠë‘¦‹p—‘"
-		"‰µ–ï—ĞŒúŒ´Œµ‹Q–”‹y—F‘o”½ûfæó–ŒûŒÃ‹å‹©¢‰Â‘äj‰E†iŠe‡‹g"
-		"“¯–¼@—™“fŒüŒN‹á”ÛŠÜ‹z’æŒàü–¡ŒÄ–½˜açˆ£•iˆõ“N´O“‚—B¥¤–â"
-		"Œ[‘PŠ«ŠìŠ…‘r‹i‰ck’QúŠí•¬Šdúl‰ñˆö’c¢ˆÍ}ŒÅ‘Œ—‰€“yˆ³İ’nâ‹Ï"
-		"–VB’Ø‚Œ^Š_–„éˆæ·”|Šî–x“°Œ˜‘Â’çŠ¬•ñê•»—Û‰ò‘Y“ƒ“h’Ë‰–m‹«•æ‘"
-		"’Ä–n•­¤•Ç’d‰óëm‘sºˆë”„•Ï‰Ä—[ŠO‘½–é–²‘å“V‘¾•v‰›¸Šï•ò‘tŒ_–z‰œ"
-		"§’D•±—“zD”@”Ü–Ï”D–­‘Ã–W–…Èon©ˆÏ•Pˆ÷pˆĞ–ºPŒâ”k¥•w–¹”}‰Å"
-		"Œ™’„ìqEš‘¶F‹GŒÇŠw‘·‘î‰FçˆÀŠ®@Š¯’ˆ’è‹X•óÀ‹qéº‹{ÉŠQ‰ƒª"
-		"‰Æ—ehâŠñ–§•xŠ¦Š°Q@‰Ç”JR—¾¡›‘Îõ••êË«ˆÑ‘¸q“±¬­®AÚ"
-		"“òs”ö”A‹Ç‹‹ü“Í‰®“W‘®‘w—š“ÔRŠòŠâ–¦ŠxŠİ“»‹¬•ô“‡’è•öìB„‘ƒH"
-		"¶I‹·ŒÈŠªs•z”¿Šó’éƒtÈ‘Ñ‹A’ í–X•–‹•¼Š±•½”NKŠ²Œ¶—c—HŠô’¡"
-		"L°˜’ê“X•{“xÀŒÉ’ëN—f”p—õ˜L‰„’ìŒš•Ù•¾®“ó‹|’¢ˆø’íŒ·ŒÊã’£‹­"
-		"’e“–Œ`Ê’¤²‰e–ğ”Ş‰ªŒa‘Ò—¥Œã™“k]“¾Œä•œz”÷“¿’¥“OS•KŠõ”Eu–Y"
-		"–Z‰’‰‰õ”O“{•|v‘Ó‹}«‰ö—ö‹°P’p¦‰¶‹±‘§Œb‰÷Œå—IŠ³‰x”Yˆ«”ß“‰î˜f"
-		"ÉS‘Ä‘zD–ùˆÓ‹ğˆ¤Š´œ‘ÔQT•ç–ŠµŠS—¶ˆÔŒc—J‘•®ŒeŒ›‰¯Š¶§‰ù’¦Œœ"
-		"¬‰ä‰úí‹YŒË–ß–[Šî”àèË‘Å•¥ˆµ•}”á³‹Z´”c—}“ŠRÜ”²‘ğ”â•ø’ï–•"
-		"‰Ÿ’Š’S”‰û‹‘‘ñSÙµ”q‹’ŠgŠ‡‰Ew’§‹“‹²U‘}•ß‘{Ì˜‘|ö¶”rŒ@"
-		"Š|Ì’TÚT„‘[Œf•`’ñ—gŠ·ˆ¬Šö‰‡—h‘¹”À“‹ŒgïÛ“E–€Œ‚“PB–o—i‘€C‹["
-		"x‰üU•ú­ŒÌ•q‹~”s‹³Š¸UŒh”®“G•~•¶ÄÖ“l—¿Î‹ÒË’fV•û{—·ù‘°"
-		"ŠøŠù“ú‹Œ|‘{©¸–¾ˆÕÌ¯‰ftğº¥’‹”Ó•Œi°»‹Å‰É‹’gˆÃ—ïb"
-		"•é–\“Ü—j‹ÈX‘‘‚‘ÖÅŒ—L•’½˜N–]’©Šú–Ø–¢–––{Dé–pŠ÷‹€™Ş‘º‘©ğ"
-		"—ˆ”t“Œ¼”ÂÍ—Ñ–‡‰Ê}˜g•ŒÍ‰Ë•¿–^õ_’Œ–ö¸‰hğZŠ”ŠjªŠiÍ“ˆÄŒK"
-		"÷V”~ŠBŠüŠû–_’I“XŠ»AŒŸ‹Æ‹É˜OŠyŠT\—l‘…•W–ÍŒ ‰¡÷‹´‹@—“Œ‡Ÿ‰¢"
-		"—~‹\Š¼‰ÌŠ½~³••à•Î—ğ€}êcB‰£’iEŠk“a•ê–ˆ“Å”ä–Ñ–¯‹C…•X"
-		"‰i`‹Š¾‰˜]’rŒˆ‹D’¾‰«–v‘ò‰Í•¦–û¡À‰ˆ‹µò”‘”å–@–A”g‹ƒ“D’‘×‰j—m"
-		"ô“´’Ã^Šˆ”h—¬òó•l‰Y˜Q•‚—ŠCZÁ—ÜŠU‰t—Ái’W[¬“Y´Š‰ÏÂaŒk"
-		"Œ¸“n‰Q‰·‘ª`ŒÎ“’˜p¼–Œ¹€a—n–Å ŠŠ‘ê‘Ø“H‹™•Y½˜R‰‰”™Š¿–Ÿ’Ğ‘QŒ‰"
-		"öŠƒ’ªŸŒƒ‘÷”Z—”‘ó£‰Î“”ŠDĞ˜F†‰Š’Y“_ˆ×—ó–³Å‘RÄ‰ŒÆ”ÏÏn”M"
-		"”R‘‡”šİ•ƒ•Ğ”Å‹–q•¨µ“Á‹]Œ¢”Æó‹¶ë“Æ‹·–Ò—Â”LŒ£—P‰–bŠlŒº—¦‹Ê"
-		"‰¤’¿ì”ÇŒ»‹…—‹ÕŠÂ£•rŠÃr¶Y—p“c—Rb\’j’¬‰æŠE”¨”È—¯’{¤—ª”ÔˆÙ"
-		"ô‘a‹^‰u”æ¾•aÇ“—’É—Ÿ’s—Ã–ü•È”­“o”’•S“IŠFc”çM–~‰v“·–¿ŠÄ”Õ–Ú"
-		"–Ó’¼‘Š‚ÈŠÅŒ§^–°’­Šá’…‡“Âu–µ–î’m’Z‹¸Î»Œ¤Ó–C”jÉ—°dŒé”èŠm"
-		"¥–Ê‘b¦—çĞ‹Fƒ‘cj_Ë•[Õ‹Ö‘T‰Ğ•ŸG„H‰È•b”é‘d’ÌˆÚ’öÅ’t"
-		"íˆî‰Òe’•äÏ‰¸ŠnŒŠ‹†‹ó“ËŞ’‚‘‹‹‡—q—§—³Í“¶’[‹£’|Î“J•„‘æ•M“™‹Ø"
-		"“›“šô‰ÓZŠÇ” ß”Í’z“ÄŠÈ•ëĞ•Ä•²ˆ—±‘e”SlÏ¸“œ—Æ…Œn‹Š‹I–ñg–ä"
-		"”[ƒ†‹‰•´‘f–aõ‡—İ×aĞ®I‘gŒoŒ‹i—‹‹“ŠGâŒ¦Œp‘±ˆÛj–Ô–È‹Ù"
-		"‘—Îü’÷•ÒŠÉˆÜ—û‰“ê”›c–DkÑ”É‘@D‘U–šŒJŠÊß’u”±”ë—…—r”üŒQ"
-		"‹`‰H‰¥—‚K–|—ƒ˜VlÒ‘Ïk–Õ¨¹•·’®E“÷”§ÑŠÌˆ”ìŒ¨–bmˆç”xˆİ’_”w"
-		"‘Ù–E“·‹¹”\‰‹º–¬‹r’E”]’¯•…˜r˜’°• •†–Œ–c‘Ÿb—Õ©LŠ’v‹»ãÉ•Ü•‘"
-		"Mq”Ê”•‘D’øŠÍ—ÇFˆğÅ‰Ô–FŒ|‰è•cá‹ê‰p–ÎŒs’ƒ‘r‘‘‰×‹e‹Û‰ÙØ‰Ø—"
-		"—t’˜‘’ö’~‘ ”–‘EdŒO–ò”Ë‘”‹s‹•—¸‹ñ’‰á\ÖŒu”Ø—ZŒŒOspŠX‰qÕt"
-		"ˆß•\Š’‘Ü”íÙ—ô‘•— —T•â—‡»•¡ŠŒ–J‹İP¼—v•¢”eŒ©‹K‹Šo——eŠÏŠp‰ğ"
-		"GŒ¾’ùŒv“¢ŒP‘õ‹L×–Kİ‹––ó‘ifØ¼Ù•]Œ‰r‹l˜bŠYÚŒÖ—_”F¾"
-		"’a—UŒê½Œëà“Ç‰Û’²’k¿˜_—@”‘ø–d‰y“£ŒªuÓ—w‹Ş¯•ˆŒx‹c÷Œì’J“¤"
-		"–L“ØÛ‹ŠL’å•‰àv•n‰İ”ÌŠÑÓ’™‹M”ƒ‘İ”ï–f‰ê’À˜d‘‘¯•o^’Ü”…Œ«•Š"
-		"¿w‘¡ÔÍ‘–•‹‹N’´‰zï‘«‹—Õ˜H’µ‘H—x“¥–ôgÔ‹OŒRŒ¬“î“]²ŒyŠrÚ‹P"
-		"”y—Ö—AŠh«J”_•ÓvŒ}‹ß•Ô”—“Rq–À’Ç‘Ş‘—“¦‹t“§’€’ü“r’ÊÀ‘¬‘¢˜A"
-		"‘ßTiˆí‹’x‹ö—V‰^•Õ‰ß“¹’Bˆá‰“Œ­“K‘˜Õ…‘J‘Iˆâ”ğŠÒ–M×“@x˜YŒS•”"
-		"Šs—X‹½“sŞ”zğŒ|—Vy“_Xøß—¢d–ì—Ê‹àj’Ş“İ—é“S‰””«z‹âe"
-		"“º‘L–Á‘K‰s’’|ù˜Bö˜^’b½’Á‹¾àŠÓ’·–å•ÂŠJŠÕŠÔŠÖŠt”´‰{“¬–h‘j•"
-		"~ŒÀ•Ã‰@wœŠ×”†‰A’Â—Ë“©—¤Œ¯—z‹÷—²‘àŠKŠuÛá‰B—×—êÇ—Y‰ëWŒÙ“"
-		"G—£“ï‰Já•µ‰_—ë—‹“dùk—ì‘š–¶˜IÂÃ”ñ–ÊŠvŒC‰¹‰C‹¿’¸€‡—aŠæ”Ğ—Ì"
-		"“ª•p—Š‘èŠzŠçŒ°Šè—ŞŒÚ•—”òH‹Q”Ñˆù”–Oü—{‰ìŠÙñ”n‘Ê‰w‹ì’“‹R‘›Œ±"
-		"“«‹Áœ‘‚”¯‹S°–£–‚‹›‘NŒ~’¹–ÂŒ{—í”–ƒ‰©•–ÙŒÛ•@—î")
-
-	];
-TftSaveDialog.HelpText =
-[
-	"ƒŒƒ“ƒ_ƒŠƒ“ƒOÏ‚İƒtƒHƒ“ƒgì¬ƒc[ƒ‹ƒwƒ‹ƒv",
-	"----------------------------------------",
-	"œš‘Ì",
-	"o—Í‚·‚éƒtƒHƒ“ƒg‚ÌƒtƒFƒCƒX^ƒTƒCƒY^Cü‚ğw’è‚µ‚Ü‚·B",
-	"",
-	"œo—Í",
-	"o—Í‚·‚éƒtƒ@ƒCƒ‹‚ğw’è‚µ‚Ü‚·BQÆƒ{ƒ^ƒ“‚Åƒtƒ@ƒCƒ‹‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B",
-	"",
-	"œì¬‘ÎÛ•¶š",
-	"o—Í‚·‚é•¶š‚Ìˆê——‚ª•\¦‚³‚ê‚Ü‚·Bƒtƒ@ƒCƒ‹‘–¸‚ª•K—v‚Èê‡‚ÍXVƒ{ƒ^ƒ“‚ğ‰Ÿ‚³‚È‚¢‚Æ³‚µ‚­•\¦‚³‚ê‚Ü‚¹‚ñB",
-	"",
-	"œì¬•¶š‘I‘ğF‘g‚İ‚İƒŠƒXƒg",
-	"ì¬•¶š‘ÎÛ‚ÉŠÜ‚ß‚é•¶š‚ÌƒZƒbƒgi‚ ‚ç‚©‚¶‚ß‘g‚İ‚İÏ‚İ‚ÌƒŠƒXƒgj‚ğ‘I‘ğ‚µ‚Ü‚·B",
-	"",
-	"œì¬•¶š‘I‘ğFƒtƒ@ƒCƒ‹‘–¸",
-	"ƒeƒLƒXƒgƒtƒ@ƒCƒ‹’†‚Ég—p‚³‚ê‚é•¶š‚ğ‘–¸‚µ‚ÄCì¬‘ÎÛ•¶š‚ÉŠÜ‚ß‚Ü‚·B",
-	"E‘–¸•û–@",
-	"@ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚Ìæ“¾•û–@‚ğw’è‚µ‚Ü‚·B",
-	"@* Array     : ”z—ñ‚Ìloadƒƒ\ƒbƒh‚ğg—p‚µCƒRƒƒ“ƒg‚È‚Ç‚àŠÜ‚ß‚·‚×‚Ä‚Ì•¶š‚ªì¬‘ÎÛ‚É‚È‚è‚Ü‚·B",
-	"@* KAGParser : KAGŒ`®‚ÌƒeƒLƒXƒg‚ªì¬‘ÎÛ‚É‚È‚è‚Ü‚·BƒRƒƒ“ƒg‚âƒ^ƒO‚Åg—p‚³‚ê‚é•¶š‚Í–³‹‚³‚ê‚Ü‚·B",
-	"@* CSVParser : CSVParser‚ğg—p‚µCƒRƒƒ“ƒg‚È‚Ç‚àŠÜ‚ß‚·‚×‚Ä‚Ì•¶š‚ªì¬‘ÎÛ‚É‚È‚è‚Ü‚·B",
-	"@* CSV_UTF8  : CSVParser‚ğg—p‚µCUTF8Œ`®‚Æ‚µ‚ÄƒeƒLƒXƒg‚ğ“Ç‚İ‚İ‚Ü‚·B",
-	"",
-	"EÄ‹AŒŸõ’Ç‰ÁFw’èƒtƒHƒ‹ƒ_ˆÈ‰º‚É‚ ‚é *.txt ‚¨‚æ‚Ñ *.ks ‚Ì‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹‚ğ‘–¸‘ÎÛ‚É’Ç‰Á‚µ‚Ü‚·B",
-	"Eƒtƒ@ƒCƒ‹’Ç‰ÁF’Pƒtƒ@ƒCƒ‹‚ğ‘–¸‘ÎÛ‚É’Ç‰Á‚µ‚Ü‚·B",
-	"E‘I‘ğ€–ÚíœF‘–¸‘ÎÛ‚Ì‘I‘ğ’†‚Ì€–Ú‚ğˆê——‚©‚çíœ‚µ‚Ü‚·B",
-	"",
-	"œ‚»‚Ì‘¼",
-	"E‘S‰Šú‰»F‚·‚×‚Ä‚Ì€–Ú‚ğ‰Šú‰»‚µ‚Ü‚·",
-	"Eì¬@@FƒŒƒ“ƒ_ƒŠƒ“ƒOÏ‚İƒtƒHƒ“ƒg‚ğì¬‚µ‚Ü‚·",
-	"E•Â‚¶‚é@FƒEƒBƒ“ƒhƒE‚ğ•Â‚¶‚Ü‚·",
-	"",
-	];
-
-/**
- * ƒŒƒ“ƒ_ƒŠƒ“ƒOÏ‚İƒtƒHƒ“ƒgƒc[ƒ‹ƒ_ƒCƒAƒƒO‚ğŠJ‚­
- * @param save : İ’è•Û‘¶ƒtƒ@ƒCƒ‹–¼
- * @param win  : eƒEƒBƒ“ƒhƒEi”ñ•\¦ƒEƒBƒ“ƒhƒE‚ğw’è‚µ‚½C‚Ü‚½‚ÍƒEƒBƒ“ƒhƒE‚ğw’è‚µ‚È‚¢ê‡‚Íƒ‹[ƒgj
- */
-function OpenTftSaveDialog(save = System.dataPath + "krkrfontex.sav", win) {
-	var localwin = false;
-	if (!(win && typeof win == "Object" && isvalid win)) {
-		win = new Window();
-		win.add(new Layer(win, null));
-		localwin = true;
-	}
-	//Debug.console.visible = true;
-	var dialog = new TftSaveDialog(save, win.primaryLayer);
-	dialog.open(win.visible ? win : void);
-	invalidate dialog;
-
-	if (localwin) invalidate win;
-}
+	"åŸºæœ¬æ–‡å­—" => (
+		"ï¼ï¼‘ï¼’ï¼“ï¼”ï¼•ï¼–ï¼—ï¼˜ï¼™ï¼¡ï¼¢ï¼£ï¼¤ï¼¥ï¼¦ï¼§ï¼¨ï¼©ï¼ªï¼«ï¼¬ï¼­ï¼®ï¼¯ï¼°ï¼±ï¼²ï¼³ï¼´ï¼µï¼¶ï¼·ï¼¸ï¼¹ï¼ºï½ï½‚ï½ƒï½„ï½…ï½†ï½‡ï½ˆï½‰ï½Šï½‹ï½Œï½ï½ï½ï½ï½‘ï½’ï½“ï½”ï½•ï½–ï½—ï½˜ï½™ï½š"
+		"ãã‚ãƒã„ã…ã†ã‡ãˆã‰ãŠã‹ãŒããããã‘ã’ã“ã”ã•ã–ã—ã˜ã™ãšã›ãœãããŸã ã¡ã¢ã£ã¤ã¥ã¦ã§ã¨ã©ãªã«ã¬ã­ã®ã¯ã°ã±ã²ã³ã´ãµã¶ã·ã¸ã¹ãºã»ã¼ã½ã¾ã¿ã‚€ã‚ã‚‚ã‚ƒã‚„ã‚…ã‚†ã‚‡ã‚ˆã‚‰ã‚Šã‚‹ã‚Œã‚ã‚ã‚ã‚ã‚‘ã‚’ã‚“"
+		"ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³"
+		"ãƒ´ãƒµãƒ¶ã€ã€‚ï¼Œï¼ãƒ»ï¼šï¼›ï¼Ÿï¼ã‚›ã‚œÂ´ï½€Â¨ï¼¾Â°â€²â€³ãƒ½ãƒ¾ã‚ã‚ã€ƒä»ã€…ã€†ãƒ¼ã€œâ€¦â€¥â€˜â€™â€œâ€

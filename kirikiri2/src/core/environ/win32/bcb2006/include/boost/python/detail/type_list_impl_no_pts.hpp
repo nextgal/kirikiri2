@@ -36,13 +36,13 @@ template<int> struct type_list_impl_chooser;
 #  define BOOST_PYTHON_LIST_ACTUAL_PARAMS BOOST_PP_ENUM_PARAMS_Z(1,BOOST_PYTHON_LIST_SIZE,T)
 #  define BOOST_PYTHON_LIST_FORMAL_PARAMS BOOST_PP_ENUM_PARAMS_Z(1,BOOST_PYTHON_LIST_SIZE,class T)
 
-#  define BOOST_PP_ITERATION_PARAMS_1                                                           \
+#  define BOOST_PP_ITERATION_PARAMS_1                                                           ¥
         (3, (0, BOOST_PYTHON_LIST_SIZE, <boost/python/detail/type_list_impl_no_pts.hpp>))
 #  include BOOST_PP_ITERATE()
 
 #  define BOOST_PYTHON_PLUS() +
-#  define BOOST_PYTHON_IS_LIST_ARG(z, n, data)          \
-    BOOST_PP_IF(n, BOOST_PYTHON_PLUS, BOOST_PP_EMPTY)() \
+#  define BOOST_PYTHON_IS_LIST_ARG(z, n, data)          ¥
+    BOOST_PP_IF(n, BOOST_PYTHON_PLUS, BOOST_PP_EMPTY)() ¥
     is_list_arg< BOOST_PP_CAT(T,n) >::value
     
 template<

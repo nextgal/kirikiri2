@@ -12,10 +12,10 @@
 //---------------------------------------------------------------------------
 #define BYTEOF(x, b)  (((x) >> ((b)*8)) & 0xff)
 #define COLOR_BLEND_8(x, y, ratio)  (((x) * (ratio) + (y) * (100-(ratio))) / 100)
-#define BLEND_ARGB(x, y, ratio) (\
-			(COLOR_BLEND_8(BYTEOF(x, 0), BYTEOF(y, 0), (ratio))    )+ \
-			(COLOR_BLEND_8(BYTEOF(x, 1), BYTEOF(y, 1), (ratio))<<8 )+ \
-			(COLOR_BLEND_8(BYTEOF(x, 2), BYTEOF(y, 2), (ratio))<<16)+ \
+#define BLEND_ARGB(x, y, ratio) (¥
+			(COLOR_BLEND_8(BYTEOF(x, 0), BYTEOF(y, 0), (ratio))    )+ ¥
+			(COLOR_BLEND_8(BYTEOF(x, 1), BYTEOF(y, 1), (ratio))<<8 )+ ¥
+			(COLOR_BLEND_8(BYTEOF(x, 2), BYTEOF(y, 2), (ratio))<<16)+ ¥
 			(COLOR_BLEND_8(BYTEOF(x, 3), BYTEOF(y, 3), (ratio))<<24)  )
 
 //---------------------------------------------------------------------------

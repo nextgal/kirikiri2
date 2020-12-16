@@ -45,17 +45,17 @@ public:
 	virtual u32 getMaterialCount() const;
 	
 	//! Set the color of all vertices of the billboard
-	//! \param overallColor: the color to set
+	//! ¥param overallColor: the color to set
 	virtual void setColor(const video::SColor & overallColor);
 
 	//! Set the color of the top and bottom vertices of the billboard
-	//! \param topColor: the color to set the top vertices
-	//! \param bottomColor: the color to set the bottom vertices
+	//! ¥param topColor: the color to set the top vertices
+	//! ¥param bottomColor: the color to set the bottom vertices
 	virtual void setColor(const video::SColor & topColor, const video::SColor & bottomColor);
 
 	//! Gets the color of the top and bottom vertices of the billboard
-	//! \param[out] topColor: stores the color of the top vertices
-	//! \param[out] bottomColor: stores the color of the bottom vertices
+	//! ¥param[out] topColor: stores the color of the top vertices
+	//! ¥param[out] bottomColor: stores the color of the bottom vertices
 	virtual void getColor(video::SColor& topColor, video::SColor& bottomColor) const;
 
 	//! Writes attributes of the scene node.

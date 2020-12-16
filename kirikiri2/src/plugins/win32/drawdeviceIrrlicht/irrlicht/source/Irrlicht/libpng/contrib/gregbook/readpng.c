@@ -51,9 +51,9 @@ uch  *image_data = NULL;
 
 void readpng_version_info(void)
 {
-    fprintf(stderr, "   Compiled with libpng %s; using libpng %s.\n",
+    fprintf(stderr, "   Compiled with libpng %s; using libpng %s.¥n",
       PNG_LIBPNG_VER_STRING, png_libpng_ver);
-    fprintf(stderr, "   Compiled with zlib %s; using zlib %s.\n",
+    fprintf(stderr, "   Compiled with zlib %s; using zlib %s.¥n",
       ZLIB_VERSION, zlib_version);
 }
 
@@ -239,7 +239,7 @@ uch *readpng_get_image(double display_exponent, int *pChannels, ulg *pRowbytes)
         return NULL;
     }
 
-    Trace((stderr, "readpng_get_image:  channels = %d, rowbytes = %ld, height = %ld\n", *pChannels, rowbytes, height));
+    Trace((stderr, "readpng_get_image:  channels = %d, rowbytes = %ld, height = %ld¥n", *pChannels, rowbytes, height));
 
 
     /* set the individual row_pointers to point at the correct offsets */

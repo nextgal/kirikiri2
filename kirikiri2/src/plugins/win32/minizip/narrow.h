@@ -4,7 +4,7 @@
 #include <windows.h>
 
 /**
- * C•¶Žš—ñˆ——p
+ * Cæ–‡å­—åˆ—å‡¦ç†ç”¨
  */
 class NarrowString {
 private:
@@ -17,7 +17,7 @@ public:
 			if (len > 0) {
 				_data = new tjs_nchar[len + 1];
 				::WideCharToMultiByte(CP_UTF8, 0, n, -1, _data, len, NULL, NULL);
-				_data[len] = '\0';
+				_data[len] = 'Â¥0';
 			}
 		} else {
 			tjs_int len = str.GetNarrowStrLen();
@@ -27,7 +27,7 @@ public:
 			}
 		}
 	}
-	~NarrowString() {
+	â€¾NarrowString() {
 		delete[] _data;
 	}
 

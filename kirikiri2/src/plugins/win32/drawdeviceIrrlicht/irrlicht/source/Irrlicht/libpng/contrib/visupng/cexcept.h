@@ -188,11 +188,11 @@ is subject to change.
 
 #include <setjmp.h>
 
-#define define_exception_type(etype) \
-struct exception_context { \
-  jmp_buf *penv; \
-  int caught; \
-  volatile struct { etype etmp; } v; \
+#define define_exception_type(etype) ¥
+struct exception_context { ¥
+  jmp_buf *penv; ¥
+  int caught; ¥
+  volatile struct { etype etmp; } v; ¥
 }
 
 /* etmp must be volatile because the application might use automatic */
@@ -203,24 +203,24 @@ struct exception_context { \
 
 #define init_exception_context(ec) ((void)((ec)->penv = 0))
 
-#define Try \
-  { \
-    jmp_buf *exception__prev, exception__env; \
-    exception__prev = the_exception_context->penv; \
-    the_exception_context->penv = &exception__env; \
-    if (setjmp(exception__env) == 0) { \
+#define Try ¥
+  { ¥
+    jmp_buf *exception__prev, exception__env; ¥
+    exception__prev = the_exception_context->penv; ¥
+    the_exception_context->penv = &exception__env; ¥
+    if (setjmp(exception__env) == 0) { ¥
       if (&exception__prev)
 
-#define exception__catch(action) \
-      else { } \
-      the_exception_context->caught = 0; \
-    } \
-    else { \
-      the_exception_context->caught = 1; \
-    } \
-    the_exception_context->penv = exception__prev; \
-  } \
-  if (!the_exception_context->caught || action) { } \
+#define exception__catch(action) ¥
+      else { } ¥
+      the_exception_context->caught = 0; ¥
+    } ¥
+    else { ¥
+      the_exception_context->caught = 1; ¥
+    } ¥
+    the_exception_context->penv = exception__prev; ¥
+  } ¥
+  if (!the_exception_context->caught || action) { } ¥
   else
 
 #define Catch(e) exception__catch(((e) = the_exception_context->v.etmp, 0))
@@ -235,8 +235,8 @@ struct exception_context { \
 /* should still recognize that &exception__prev is never zero and     */
 /* avoid generating test code.                                        */
 
-#define Throw \
-  for (;; longjmp(*the_exception_context->penv, 1)) \
+#define Throw ¥
+  for (;; longjmp(*the_exception_context->penv, 1)) ¥
     the_exception_context->v.etmp =
 
 

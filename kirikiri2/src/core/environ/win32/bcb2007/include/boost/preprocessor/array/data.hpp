@@ -18,7 +18,7 @@
 #
 # /* BOOST_PP_ARRAY_DATA */
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
 #    define BOOST_PP_ARRAY_DATA(array) BOOST_PP_TUPLE_ELEM(2, 1, array)
 # else
 #    define BOOST_PP_ARRAY_DATA(array) BOOST_PP_ARRAY_DATA_I(array)

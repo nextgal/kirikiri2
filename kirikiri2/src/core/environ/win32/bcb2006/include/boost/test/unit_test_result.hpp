@@ -39,7 +39,7 @@ class unit_test_result {
     friend struct unit_test_result_saver;
 public:
     // Destructor
-    ~unit_test_result();
+    ‾unit_test_result();
 
     // current test results access and management
     static unit_test_result& instance();
@@ -94,7 +94,7 @@ private:
 struct unit_test_result_saver
 {
     unit_test_result_saver()  { unit_test_result::reset_current_result_set(); }
-    ~unit_test_result_saver() { unit_test_result::reset_current_result_set(); }
+    ‾unit_test_result_saver() { unit_test_result::reset_current_result_set(); }
 };
 
 } // namespace unit_test_framework

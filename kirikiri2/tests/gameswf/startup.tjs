@@ -27,24 +27,24 @@ var HEIGHT=300;
 
 class MyWindow extends Window
 {
-    //  ƒƒjƒ…
+    //  ãƒ¡ãƒ‹ãƒ¥
     var filemenu;
     var exitmenu;
     
-    var base;   // ƒx[ƒXƒŒƒCƒ„
-    var layer;  // •\¦ƒŒƒCƒ„
+    var base;   // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
+    var layer;  // è¡¨ç¤ºãƒ¬ã‚¤ãƒ¤
     
     function MyWindow() {
 
         super.Window();
 
-        caption = "GAMWSWFŠg’£";
+        caption = "GAMWSWFæ‹¡å¼µ";
         
-        menu.add(filemenu = new MenuItem(this, "ƒtƒ@ƒCƒ‹(&F)"));
-		filemenu.add(this.openMenuItem = new CommandMenuItem(this, "ŠJ‚­(&O) ...", openFile));
-        filemenu.add(exitmenu = new MenuItem(this, "I—¹(&X)"));
+        menu.add(filemenu = new MenuItem(this, "ãƒ•ã‚¡ã‚¤ãƒ«(&F)"));
+		filemenu.add(this.openMenuItem = new CommandMenuItem(this, "é–‹ã(&O) ...", openFile));
+        filemenu.add(exitmenu = new MenuItem(this, "çµ‚äº†(&X)"));
 
-        // ƒx[ƒXƒŒƒCƒ„
+        // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
         base = new Layer(this,null);
         base.visible=true;
         base.setSize(WIDTH,HEIGHT);
@@ -75,10 +75,10 @@ class MyWindow extends Window
 	function openFile(fn)
 	{
 		var params = %[
-			filter : [ "SWFƒtƒ@ƒCƒ‹(*.swf)|*.swf" ],
+			filter : [ "SWFãƒ•ã‚¡ã‚¤ãƒ«(*.swf)|*.swf" ],
 			filterIndex : 1,
 			name : "",
-			title : "ƒtƒ@ƒCƒ‹‚ğŠJ‚­",
+			title : "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã",
 			save : false,
             ];
         if (Storages.selectFile(params)) {
@@ -87,14 +87,14 @@ class MyWindow extends Window
 	}
     
     /**
-     * Ä¶ŠJn
-     * @param filename ƒtƒ@ƒCƒ‹–¼
+     * å†ç”Ÿé–‹å§‹
+     * @param filename ãƒ•ã‚¡ã‚¤ãƒ«å
      */
     function start(filename) {
         layer.load(filename);
     }
 }
 
-// ‘‹
+// çª“
 var win = new MyWindow();
 win.visible=true;

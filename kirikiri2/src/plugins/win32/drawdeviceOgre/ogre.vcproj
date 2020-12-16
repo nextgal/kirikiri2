@@ -16,10 +16,10 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(OGRE_HOME)\bin\$(ConfigurationName)"
+			OutputDirectory="$(OGRE_HOME)¥bin¥$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults¥UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="1"
@@ -42,21 +42,21 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\..\..\..\..\bin\win32\plugin\ogre.tlb"
+				TypeLibraryName=".¥..¥..¥..¥..¥bin¥win32¥plugin¥ogre.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..;..\drawdevice;$(OGRE_HOME)\include"
+				AdditionalIncludeDirectories="..;..¥drawdevice;$(OGRE_HOME)¥include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
-				PrecompiledHeaderFile=".\Debug\ogre.pch"
-				AssemblerListingLocation=".\Debug\"
-				ObjectFile=".\Debug\"
-				ProgramDataBaseFileName=".\Debug\"
+				PrecompiledHeaderFile=".¥Debug¥ogre.pch"
+				AssemblerListingLocation=".¥Debug¥"
+				ObjectFile=".¥Debug¥"
+				ProgramDataBaseFileName=".¥Debug¥"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="4"
@@ -76,11 +76,11 @@
 				Name="VCLinkerTool"
 				AdditionalOptions=""
 				AdditionalDependencies="OgreMain_d.lib"
-				OutputFile="$(OutDir)\$(ProjectName).dll"
+				OutputFile="$(OutDir)¥$(ProjectName).dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="$(OGRE_HOME)\lib"
-				ModuleDefinitionFile=".\ogre.def"
+				AdditionalLibraryDirectories="$(OGRE_HOME)¥lib"
+				ModuleDefinitionFile=".¥ogre.def"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
 			/>
@@ -112,10 +112,10 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\..\..\bin\win32\plugin"
+			OutputDirectory="..¥..¥..¥..¥bin¥win32¥plugin"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults¥UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="1"
@@ -138,22 +138,22 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\..\..\..\..\bin\win32\plugin\ogre.tlb"
+				TypeLibraryName=".¥..¥..¥..¥..¥bin¥win32¥plugin¥ogre.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..;..\drawdevice;$(OGRE_HOME)\include"
+				AdditionalIncludeDirectories="..;..¥drawdevice;$(OGRE_HOME)¥include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL"
 				StringPooling="true"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
-				PrecompiledHeaderFile=".\Release\ogre.pch"
-				AssemblerListingLocation=".\Release\"
-				ObjectFile=".\Release\"
-				ProgramDataBaseFileName=".\Release\"
+				PrecompiledHeaderFile=".¥Release¥ogre.pch"
+				AssemblerListingLocation=".¥Release¥"
+				ObjectFile=".¥Release¥"
+				ProgramDataBaseFileName=".¥Release¥"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
@@ -173,11 +173,11 @@
 				Name="VCLinkerTool"
 				AdditionalOptions=""
 				AdditionalDependencies="OgreMain.lib"
-				OutputFile="$(OutDir)\$(ProjectName).dll"
+				OutputFile="$(OutDir)¥$(ProjectName).dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="$(OGRE_HOME)\lib"
-				ModuleDefinitionFile=".\ogre.def"
+				AdditionalLibraryDirectories="$(OGRE_HOME)¥lib"
+				ModuleDefinitionFile=".¥ogre.def"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
 			/>
@@ -216,11 +216,11 @@
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 			>
 			<File
-				RelativePath="..\drawdevice\BasicDrawDevice.cpp"
+				RelativePath="..¥drawdevice¥BasicDrawDevice.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\drawdevice\BasicDrawDevice.h"
+				RelativePath="..¥drawdevice¥BasicDrawDevice.h"
 				>
 			</File>
 			<File
@@ -246,7 +246,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\ncbind\ncbind.cpp"
+				RelativePath="..¥ncbind¥ncbind.cpp"
 				>
 			</File>
 			<File
@@ -254,15 +254,15 @@
 				>
 			</File>
 			<File
-				RelativePath=".\OgreDrawDevice.cpp"
+				RelativePath=".¥OgreDrawDevice.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\OgreInfo.cpp"
+				RelativePath=".¥OgreInfo.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\tp_stub.cpp"
+				RelativePath="..¥tp_stub.cpp"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
@@ -289,15 +289,15 @@
 			Filter="h;hpp;hxx;hm;inl"
 			>
 			<File
-				RelativePath=".\OgreDrawDevice.h"
+				RelativePath=".¥OgreDrawDevice.h"
 				>
 			</File>
 			<File
-				RelativePath=".\OgreInfo.h"
+				RelativePath=".¥OgreInfo.h"
 				>
 			</File>
 			<File
-				RelativePath="..\tp_stub.h"
+				RelativePath="..¥tp_stub.h"
 				>
 			</File>
 		</Filter>

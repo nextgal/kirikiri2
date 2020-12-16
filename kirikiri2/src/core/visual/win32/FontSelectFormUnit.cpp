@@ -183,18 +183,18 @@ HDWP TTVPFontSelectForm::ShowTop(HDWP hdwp)
 
 
 
-// ˆÈ‰º‚Ì“ñ‚Â‚Ìdefine‚ÍOpenType ƒtƒHƒ“ƒg‚ğ•\‚µ‚Ä‚¢‚ÄA
-// EnumFontsProc ‚Ì lpntme->ntmTm.ntmFlags ‚ÉƒrƒbƒgƒZƒbƒg‚Æ‚µ‚Ä“n‚³‚ê‚Ä‚­‚éB
-// (OpenType‚ªƒTƒ|[ƒg‚³‚ê‚½ Windows 2000 ˆÈ~‚Å‘¶İ)
-// tBaseFreeTypeFontDriver::EnumerateFonts ‚Å‚ÍTrueType ƒtƒHƒ“ƒg‚Æ‚Æ‚à‚É
-// ‚±‚ê‚ç‚ÌƒtƒHƒ“ƒg‚à—ñ‹“‚³‚ê‚éB
+// ä»¥ä¸‹ã®äºŒã¤ã®defineã¯OpenType ãƒ•ã‚©ãƒ³ãƒˆã‚’è¡¨ã—ã¦ã„ã¦ã€
+// EnumFontsProc ã® lpntme->ntmTm.ntmFlags ã«ãƒ“ãƒƒãƒˆã‚»ãƒƒãƒˆã¨ã—ã¦æ¸¡ã•ã‚Œã¦ãã‚‹ã€‚
+// (OpenTypeãŒã‚µãƒãƒ¼ãƒˆã•ã‚ŒãŸ Windows 2000 ä»¥é™ã§å­˜åœ¨)
+// tBaseFreeTypeFontDriver::EnumerateFonts ã§ã¯TrueType ãƒ•ã‚©ãƒ³ãƒˆã¨ã¨ã‚‚ã«
+// ã“ã‚Œã‚‰ã®ãƒ•ã‚©ãƒ³ãƒˆã‚‚åˆ—æŒ™ã•ã‚Œã‚‹ã€‚
 
 #ifndef NTM_PS_OPENTYPE
-#define NTM_PS_OPENTYPE     0x00020000 //!< PostScript Œ`® OpenType ƒtƒHƒ“ƒg
+#define NTM_PS_OPENTYPE     0x00020000 //!< PostScript å½¢å¼ OpenType ãƒ•ã‚©ãƒ³ãƒˆ
 #endif
 
 #ifndef NTM_TT_OPENTYPE
-#define NTM_TT_OPENTYPE     0x00040000 //!< TrueType Œ`® OpenType ƒtƒHƒ“ƒg
+#define NTM_TT_OPENTYPE     0x00040000 //!< TrueType å½¢å¼ OpenType ãƒ•ã‚©ãƒ³ãƒˆ
 #endif
 
 
@@ -275,7 +275,7 @@ void TVPGetFontList(std::vector<AnsiString> & list, tjs_uint32 flags, TCanvas * 
 	l.lfOutPrecision = OUT_DEFAULT_PRECIS;
 	l.lfQuality = DEFAULT_QUALITY;
 	l.lfPitchAndFamily = 0;
-	l.lfFaceName[0] = '\0';
+	l.lfFaceName[0] = 'Â¥0';
 
 	::EnumFontFamiliesEx(refcanvas->Handle, &l, (FONTENUMPROC)TVPFSFEnumFontsProc,
 		reinterpret_cast<LPARAM>(&data), 0);

@@ -30,7 +30,7 @@ class guard
     explicit guard(Mutex & nmtx)
     :mtx(nmtx) { mtx.lock(); }
 
-    ~guard() { mtx.unlock(); }
+    ‾guard() { mtx.unlock(); }
 };
 
 } // namespace pool

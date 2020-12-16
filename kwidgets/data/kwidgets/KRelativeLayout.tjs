@@ -4,26 +4,26 @@
 
 
 /*----------------------------------------------------------------------
- * ‘Š‘ÎˆÊ’uƒŒƒCƒAƒEƒg
+ * ç›¸å¯¾ä½ç½®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
  ----------------------------------------------------------------------*/
 class KRelativeLayout extends KWidget
 {
-  // Ši”[‚µ‚Ä‚éƒEƒBƒWƒFƒbƒg
+  // æ ¼ç´ã—ã¦ã‚‹ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
   var childList;
-  // Šî€ƒŒƒCƒ„
+  // åŸºæº–ãƒ¬ã‚¤ãƒ¤
   var nomativeChild;
 
   /**------------------------------
-   * â‘ÎˆÊ’uƒŒƒCƒAƒEƒg
+   * çµ¶å¯¾ä½ç½®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
    * 
-   * ƒEƒBƒWƒFƒbƒg‚ğAƒŒƒCƒAƒEƒg’†‚É‘Š‘ÎÀ•WŠî€‚Åİ’u‚µ‚Ü‚·B
-   * ‚¢‚í‚ä‚éu‘½dƒXƒNƒ[ƒ‹v‚ğÀŒ»‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B
-   * KRelativeLayout‚ğKScrollLayout‚É“o˜^‚µ‚½ã‚ÅA
-   * ‘å‚«‚³‚ÌˆÙ‚È‚é•¡”‚ÌƒEƒBƒWƒFƒbƒg‚ğ“à•”‚É”z’u‚µA
-   * ‚»‚Ì‘Š‘Î“I‚ÈˆÊ’uŠÖŒW‚É‚æ‚Á‚ÄƒXƒNƒ[ƒ‹—Ê‚ğ©“®“I‚É’²®‚µ‚Ü‚·B
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ã€ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆä¸­ã«ç›¸å¯¾åº§æ¨™åŸºæº–ã§è¨­ç½®ã—ã¾ã™ã€‚
+   * ã„ã‚ã‚†ã‚‹ã€Œå¤šé‡ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã€ã‚’å®Ÿç¾ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚
+   * KRelativeLayoutã‚’KScrollLayoutã«ç™»éŒ²ã—ãŸä¸Šã§ã€
+   * å¤§ãã•ã®ç•°ãªã‚‹è¤‡æ•°ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å†…éƒ¨ã«é…ç½®ã—ã€
+   * ãã®ç›¸å¯¾çš„ãªä½ç½®é–¢ä¿‚ã«ã‚ˆã£ã¦ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«é‡ã‚’è‡ªå‹•çš„ã«èª¿æ•´ã—ã¾ã™ã€‚
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param name åå‰
    ------------------------------*/
   function KRelativeLayout(win, name) {
     super.KWidget(win, name);
@@ -34,9 +34,9 @@ class KRelativeLayout extends KWidget
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚ğƒŒƒCƒAƒEƒg‚É“o˜^‚·‚é
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã«ç™»éŒ²ã™ã‚‹
    * 
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function add(child) {
     child.parent = this;
@@ -45,9 +45,9 @@ class KRelativeLayout extends KWidget
   }
 
   /**------------------------------
-   * Šî€ƒEƒBƒWƒFƒbƒg‚ğƒŒƒCƒAƒEƒg‚É“o˜^‚·‚é
+   * åŸºæº–ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã«ç™»éŒ²ã™ã‚‹
    * 
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function insert(index, child) {
     child.parent = this;
@@ -56,10 +56,10 @@ class KRelativeLayout extends KWidget
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚ğƒŒƒCƒAƒEƒg‚©‚çŠJ•ú‚·‚é
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‹ã‚‰é–‹æ”¾ã™ã‚‹
    * 
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(child, doInvalidate = true) {
     if (child === nomativeChild)
@@ -72,10 +72,10 @@ class KRelativeLayout extends KWidget
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚ğƒŒƒCƒAƒEƒg‚©‚çŠJ•ú‚·‚é
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‹ã‚‰é–‹æ”¾ã™ã‚‹
    * 
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function erase(index, doInvalidate = true) {
     var child = childList[index];
@@ -89,9 +89,9 @@ class KRelativeLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğƒJƒEƒ“ƒg‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹
    * 
-   * @return qƒAƒCƒeƒ€”
+   * @return å­ã‚¢ã‚¤ãƒ†ãƒ æ•°
    ------------------------------*/
   property childCount {
     getter {
@@ -100,22 +100,22 @@ class KRelativeLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğQÆ‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å‚ç…§ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @return qƒEƒBƒWƒFƒbƒg
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @return å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function childAt(index) {
     return childList[index];
   }
 
   /*------------------------------
-   * Šî€ƒEƒBƒWƒFƒbƒg‚ğİ’è‚·‚é
+   * åŸºæº–ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’è¨­å®šã™ã‚‹
    *
-   * @param v Šî€ƒEƒBƒWƒFƒbƒg
-   * @return Šî€ƒEƒBƒWƒFƒbƒg
+   * @param v åŸºæº–ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @return åŸºæº–ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    *
-   * ©•ª©g‚ÌƒTƒCƒY‚ğŒˆ‚ß‚éÛ‚ÌuŠî€ƒEƒBƒWƒFƒbƒgv‚ğw’è‚µ‚Ü‚·B
+   * è‡ªåˆ†è‡ªèº«ã®ã‚µã‚¤ã‚ºã‚’æ±ºã‚ã‚‹éš›ã®ã€ŒåŸºæº–ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã€ã‚’æŒ‡å®šã—ã¾ã™ã€‚
    * 
    ------------------------------*/
   property nomative {
@@ -131,7 +131,7 @@ class KRelativeLayout extends KWidget
   }
 
   /*------------------------------
-   * ƒŒƒCƒAƒEƒg‚ğ‚â‚è’¼‚µ
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ã‚„ã‚Šç›´ã—
    ------------------------------*/
   function invalidateLayout {
     var minW, minH, maxW, maxH;

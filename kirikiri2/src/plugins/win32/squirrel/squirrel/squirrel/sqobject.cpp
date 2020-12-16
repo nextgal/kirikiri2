@@ -91,7 +91,7 @@ SQWeakRef *SQRefCounted::GetWeakRef(SQObjectType type)
 	return _weakref;
 }
 
-SQRefCounted::~SQRefCounted()
+SQRefCounted::‾SQRefCounted()
 {
 	if(_weakref) {
 		_weakref->_obj._type = OT_NULL;
@@ -593,10 +593,10 @@ bool SQFunctionProto::Load(SQVM *v,SQUserPointer up,SQREADFUNC read,SQObjectPtr 
 
 #ifndef NO_GARBAGE_COLLECTOR
 
-#define START_MARK() 	if(!(_uiRef&MARK_FLAG)){ \
+#define START_MARK() 	if(!(_uiRef&MARK_FLAG)){ ¥
 		_uiRef|=MARK_FLAG;
 
-#define END_MARK() RemoveFromChain(&_sharedstate->_gc_chain, this); \
+#define END_MARK() RemoveFromChain(&_sharedstate->_gc_chain, this); ¥
 		AddToChain(chain, this); }
 
 void SQVM::Mark(SQCollectable **chain)
@@ -694,7 +694,7 @@ void SQUserData::Mark(SQCollectable **chain){
 	END_MARK()
 }
 
-void SQCollectable::UnMark() { _uiRef&=~MARK_FLAG; }
+void SQCollectable::UnMark() { _uiRef&=‾MARK_FLAG; }
 
 #endif
 

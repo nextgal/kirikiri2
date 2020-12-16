@@ -97,10 +97,10 @@
 // (by defining BOOST_NO_STDC_NAMESPACE), we do this because STLport doesn't
 // necessarily import all the names we need into namespace std::
 // 
-#  if (defined(__STL_IMPORT_VENDOR_CSTD) \
-         || defined(__STL_USE_OWN_NAMESPACE) \
-         || defined(_STLP_IMPORT_VENDOR_CSTD) \
-         || defined(_STLP_USE_OWN_NAMESPACE)) \
+#  if (defined(__STL_IMPORT_VENDOR_CSTD) ¥
+         || defined(__STL_USE_OWN_NAMESPACE) ¥
+         || defined(_STLP_IMPORT_VENDOR_CSTD) ¥
+         || defined(_STLP_USE_OWN_NAMESPACE)) ¥
       && (defined(__STL_VENDOR_GLOBAL_CSTD) || defined (_STLP_VENDOR_GLOBAL_CSTD))
 #     define BOOST_NO_STDC_NAMESPACE
 #     define BOOST_NO_EXCEPTION_STD_NAMESPACE

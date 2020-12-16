@@ -41,7 +41,7 @@ CWaterSurfaceSceneNode::CWaterSurfaceSceneNode(f32 waveHeight, f32 waveSpeed, f3
 
 
 //! destructor
-CWaterSurfaceSceneNode::~CWaterSurfaceSceneNode()
+CWaterSurfaceSceneNode::‾CWaterSurfaceSceneNode()
 {
 	// Mesh is dropped in CMeshSceneNode destructor
 	if (OriginalMesh)

@@ -19,7 +19,7 @@
 			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults¥UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="1"
@@ -42,7 +42,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\Release/AdjustMoni.tlb"
+				TypeLibraryName=".¥Release/AdjustMoni.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -56,8 +56,8 @@
 				EnableFunctionLevelLinking="true"
 				PrecompiledHeaderFile=""
 				AssemblerListingLocation=""
-				ObjectFile="$(IntDir)\"
-				ProgramDataBaseFileName="$(IntDir)\vc80.pdb"
+				ObjectFile="$(IntDir)¥"
+				ProgramDataBaseFileName="$(IntDir)¥vc80.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
@@ -76,7 +76,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/COMMENT:&quot;(--has-option--)&quot;"
-				OutputFile="$(OutDir)\$(ProjectName).dll"
+				OutputFile="$(OutDir)¥$(ProjectName).dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
 				ModuleDefinitionFile="$(ProjectName).def"
@@ -97,7 +97,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\Release/AdjustMoni.bsc"
+				OutputFile=".¥Release/AdjustMoni.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -110,7 +110,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				Description="���쐬����Release��DLL���g���g���v���W�F�N�g��Plugin�t�H���_�ɃR�s�[���܂���"
+				Description="■作成したRelease版DLLを吉里吉里プロジェクトのPluginフォルダにコピーします■"
 				CommandLine=""
 			/>
 		</Configuration>
@@ -119,7 +119,7 @@
 			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults¥UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="1"
@@ -142,7 +142,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\Debug/AdjustMoni.tlb"
+				TypeLibraryName=".¥Debug/AdjustMoni.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -155,8 +155,8 @@
 				RuntimeLibrary="1"
 				PrecompiledHeaderFile=""
 				AssemblerListingLocation=""
-				ObjectFile="$(IntDir)\"
-				ProgramDataBaseFileName="$(IntDir)\vc80.pdb"
+				ObjectFile="$(IntDir)¥"
+				ProgramDataBaseFileName="$(IntDir)¥vc80.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="4"
@@ -174,12 +174,12 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)\$(ProjectName).dll"
+				OutputFile="$(OutDir)¥$(ProjectName).dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
 				ModuleDefinitionFile="$(ProjectName).def"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile=".\Debug/AdjustMonid.pdb"
+				ProgramDatabaseFile=".¥Debug/AdjustMonid.pdb"
 				ImportLibrary="$(TargetDir)$(TargetName).lib"
 				TargetMachine="1"
 			/>
@@ -195,7 +195,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\Debug/AdjustMoni.bsc"
+				OutputFile=".¥Debug/AdjustMoni.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -208,7 +208,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				Description="���쐬����Debug��DLL���g���g���v���W�F�N�g��Plugin�t�H���_�ɃR�s�[���܂���"
+				Description="■作成したDebug版DLLを吉里吉里プロジェクトのPluginフォルダにコピーします■"
 			/>
 		</Configuration>
 	</Configurations>
@@ -246,7 +246,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\tp_stub.cpp"
+				RelativePath="..¥tp_stub.cpp"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -273,7 +273,7 @@
 			Filter="h;hpp;hxx;hm;inl"
 			>
 			<File
-				RelativePath="..\tp_stub.h"
+				RelativePath="..¥tp_stub.h"
 				>
 			</File>
 		</Filter>

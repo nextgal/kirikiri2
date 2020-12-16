@@ -67,7 +67,7 @@ public:
 		Handle = handle;
 	}
 
-	~tTVPPipeStream()
+	‾tTVPPipeStream()
 	{
 		CloseHandle(Handle);
 	}
@@ -265,8 +265,8 @@ void TVPShowScriptException(eTJS &e)
 	if(!TVPSystemUninitCalled)
 	{
 		if(TVPMainForm) TVPMainForm->Visible = true;
-		ttstr errstr = (ttstr(TVPScriptExceptionRaised) + TJS_W("\n") + e.GetMessage());
-		TVPAddLog(ttstr(TVPScriptExceptionRaised) + TJS_W("\n") + e.GetMessage());
+		ttstr errstr = (ttstr(TVPScriptExceptionRaised) + TJS_W("¥n") + e.GetMessage());
+		TVPAddLog(ttstr(TVPScriptExceptionRaised) + TJS_W("¥n") + e.GetMessage());
 		MessageDlg(errstr.AsAnsiString(), mtError, TMsgDlgButtons() << mbOK, 0);
 	}
 //	throw EAbort("Script Error Abortion");
@@ -292,8 +292,8 @@ void TVPShowScriptException(eTJSScriptError &e)
 		pad->Caption = ttstr(TVPExceptionCDPName).AsAnsiString();
 		pad->Visible = true;
 
-		ttstr errstr = (ttstr(TVPScriptExceptionRaised) + TJS_W("\n") + e.GetMessage());
-		TVPAddLog(ttstr(TVPScriptExceptionRaised) + TJS_W("\n") + e.GetMessage());
+		ttstr errstr = (ttstr(TVPScriptExceptionRaised) + TJS_W("¥n") + e.GetMessage());
+		TVPAddLog(ttstr(TVPScriptExceptionRaised) + TJS_W("¥n") + e.GetMessage());
 		if(e.GetTrace().GetLen() != 0)
 			TVPAddLog(ttstr(TJS_W("trace : ")) + e.GetTrace());
 		Application->MessageBox(errstr.AsAnsiString().c_str(),

@@ -2,14 +2,14 @@ object RandomizeForm: TRandomizeForm
   Left = 429
   Top = 26
   BorderStyle = bsDialog
-  Caption = 'ƒGƒ“ƒgƒƒs[‚ğûW’†'
+  Caption = 'ã‚¨ãƒ³ãƒˆãƒ­ãƒ”ãƒ¼ã‚’åé›†ä¸­'
   ClientHeight = 182
   ClientWidth = 215
   Color = clBtnFace
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
@@ -21,7 +21,7 @@ object RandomizeForm: TRandomizeForm
     Width = 87
     Height = 12
     Alignment = taCenter
-    Caption = 'ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ğ'
+    Caption = 'ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã‚’'
   end
   object Label2: TLabel
     Left = 44
@@ -29,7 +29,7 @@ object RandomizeForm: TRandomizeForm
     Width = 126
     Height = 12
     Alignment = taCenter
-    Caption = '‚µ‚Î‚ç‚­ƒ}ƒEƒX‚ğ“®‚©‚·‚Æ'
+    Caption = 'ã—ã°ã‚‰ããƒã‚¦ã‚¹ã‚’å‹•ã‹ã™ã¨'
   end
   object Label3: TLabel
     Left = 21
@@ -37,7 +37,7 @@ object RandomizeForm: TRandomizeForm
     Width = 173
     Height = 12
     Alignment = taCenter
-    Caption = '‚±‚ÌƒEƒBƒ“ƒhƒE‚Í©“®“I‚É•Â‚¶‚Ü‚·'
+    Caption = 'ã“ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¯è‡ªå‹•çš„ã«é–‰ã˜ã¾ã™'
   end
   object Label5: TLabel
     Left = 35
@@ -45,14 +45,14 @@ object RandomizeForm: TRandomizeForm
     Width = 145
     Height = 12
     Alignment = taCenter
-    Caption = '‚Å‚½‚ç‚ß‚É“®‚©‚µ‚Ä‚­‚¾‚³‚¢B'
+    Caption = 'ã§ãŸã‚‰ã‚ã«å‹•ã‹ã—ã¦ãã ã•ã„ã€‚'
   end
   object Label7: TLabel
     Left = 27
     Top = 8
     Width = 161
     Height = 12
-    Caption = 'u‚Å‚½‚ç‚ß‚³v‚ª•K—v‚Æ‚È‚è‚Ü‚·B'
+    Caption = 'ã€Œã§ãŸã‚‰ã‚ã•ã€ãŒå¿…è¦ã¨ãªã‚Šã¾ã™ã€‚'
   end
   object CancelButton: TButton
     Left = 59
@@ -60,7 +60,7 @@ object RandomizeForm: TRandomizeForm
     Width = 97
     Height = 25
     Cancel = True
-    Caption = 'ƒLƒƒƒ“ƒZƒ‹(&C)'
+    Caption = 'ã‚­ãƒ£ãƒ³ã‚»ãƒ«(&C)'
     ModalResult = 2
     TabOrder = 0
   end

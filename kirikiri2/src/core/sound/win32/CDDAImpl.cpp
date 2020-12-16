@@ -301,7 +301,7 @@ void tTJSNI_CDDASoundBuffer::Open(const ttstr &storage)
 		// search the drive connected to the system
 		bool found = false;
 		char dr[4];
-		dr[1] = ':'; dr[2] = '\\'; dr[3] = 0;
+		dr[1] = ':'; dr[2] = '¥¥'; dr[3] = 0;
 		for(dr[0] = 'A'; dr[0] <= 'Z'; dr[0] ++)
 		{
 			if(GetDriveType(dr ) == DRIVE_CDROM)
@@ -333,7 +333,7 @@ void tTJSNI_CDDASoundBuffer::Open(const ttstr &storage)
 		reg->RootKey = HKEY_LOCAL_MACHINE;
 		DWORD defdrive = 0;
 		if(!reg ->OpenKey(
-		"System\\CurrentControlSet\\Control\\MediaResources\\mci\\cdaudio",false))
+		"System¥¥CurrentControlSet¥¥Control¥¥MediaResources¥¥mci¥¥cdaudio",false))
 		{
 			// cannot open the key
 			delete reg;
@@ -364,7 +364,7 @@ void tTJSNI_CDDASoundBuffer::Open(const ttstr &storage)
 
 		char dr[4];
 		dr[1] = ':';
-		dr[2] = '\\';
+		dr[2] = '¥¥';
 		dr[3] = 0;
 		char firstdr = ' ';
 		bool found = false;
@@ -587,7 +587,7 @@ bool tTJSNI_CDDASoundBuffer::ReadOrgVolumeData()
 
 	char key[256];
 	sprintf(key,
-	"System\\CurrentControlSet\\Control\\MediaResources\\mci\\cdaudio\\unit %d",
+	"System¥¥CurrentControlSet¥¥Control¥¥MediaResources¥¥mci¥¥cdaudio¥¥unit %d",
 		Drive);
 
 	TRegistry *reg = new TRegistry();
@@ -625,7 +625,7 @@ void tTJSNI_CDDASoundBuffer::WriteVolumeRegistry(tjs_int vol)
 
 	char key[256];
 	sprintf(key,
-	"System\\CurrentControlSet\\Control\\MediaResources\\mci\\cdaudio\\unit %d",
+	"System¥¥CurrentControlSet¥¥Control¥¥MediaResources¥¥mci¥¥cdaudio¥¥unit %d",
 		Drive);
 
 	TRegistry *reg=new TRegistry();

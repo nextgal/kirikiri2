@@ -34,7 +34,7 @@ tTVPSimpleOptionProvider::tTVPSimpleOptionProvider(tTJSVariantClosure object)
 	Object.AddRef();
 }
 //---------------------------------------------------------------------------
-tTVPSimpleOptionProvider::~tTVPSimpleOptionProvider()
+tTVPSimpleOptionProvider::‾tTVPSimpleOptionProvider()
 {
 	Object.Release();
 }
@@ -207,7 +207,7 @@ tTVPScanLineProviderForBaseBitmap::
 	Bitmap = bmp;
 }
 //---------------------------------------------------------------------------
-tTVPScanLineProviderForBaseBitmap::~tTVPScanLineProviderForBaseBitmap()
+tTVPScanLineProviderForBaseBitmap::‾tTVPScanLineProviderForBaseBitmap()
 {
 	if(Own) if(Bitmap) delete Bitmap;
 }
@@ -418,7 +418,7 @@ public:
 		First = true;
 	}
 
-	virtual ~tTVPCrossFadeTransHandler()
+	virtual ‾tTVPCrossFadeTransHandler()
 	{
 		if(Options) Options->Release();
 	}
@@ -464,7 +464,7 @@ class tTVPCrossFadeTransHandlerProvider : public iTVPTransHandlerProvider
 	tjs_int RefCount;
 public:
 	tTVPCrossFadeTransHandlerProvider() { RefCount = 1; }
-	virtual ~tTVPCrossFadeTransHandlerProvider() { };
+	virtual ‾tTVPCrossFadeTransHandlerProvider() { };
 
 	tjs_error TJS_INTF_METHOD AddRef()
 	{
@@ -724,7 +724,7 @@ public:
 		Rule->AddRef();
 	}
 
-	~tTVPUniversalTransHandler()
+	‾tTVPUniversalTransHandler()
 	{
 		Rule->Release();
 	}
@@ -740,7 +740,7 @@ class tTVPUniversalTransHandlerProvider : public tTVPCrossFadeTransHandlerProvid
 {
 public:
 	tTVPUniversalTransHandlerProvider() : tTVPCrossFadeTransHandlerProvider() {}
-	virtual ~tTVPUniversalTransHandlerProvider() { };
+	virtual ‾tTVPUniversalTransHandlerProvider() { };
 
 	tjs_error TJS_INTF_METHOD GetName(
 			/*out*/const tjs_char ** name)
@@ -981,7 +981,7 @@ public:
 		Stay = stay;
 	}
 
-	~tTVPScrollTransHandler()
+	‾tTVPScrollTransHandler()
 	{
 	}
 
@@ -994,7 +994,7 @@ class tTVPScrollTransHandlerProvider : public tTVPCrossFadeTransHandlerProvider
 {
 public:
 	tTVPScrollTransHandlerProvider() : tTVPCrossFadeTransHandlerProvider() {}
-	virtual ~tTVPScrollTransHandlerProvider() { };
+	virtual ‾tTVPScrollTransHandlerProvider() { };
 
 	tjs_error TJS_INTF_METHOD GetName(
 			/*out*/const tjs_char ** name)

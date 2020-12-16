@@ -7,7 +7,7 @@ function testMisc() {
 	var isSuccess = false;
 	var tmp;
 
-	// if statementAvariant ‚Å‚¾‚¢‚½‚¢ƒeƒXƒgÏ‚İ‚É‚È‚Á‚Ä‚¢‚é‚Í‚¸
+	// if statementã€variant ã§ã ã„ãŸã„ãƒ†ã‚¹ãƒˆæ¸ˆã¿ã«ãªã£ã¦ã„ã‚‹ã¯ãš
 	if( int5 == int10 ) {
 		Debug.message("faild: if ");
 	}
@@ -94,12 +94,12 @@ function testMisc() {
 	}
 	isSuccess = false;
 
-	i = "ƒVƒXƒeƒ€";
+	i = "ã‚·ã‚¹ãƒ†ãƒ ";
 	switch(i)  {
-	case "ƒeƒXƒg":
+	case "ãƒ†ã‚¹ãƒˆ":
 		Debug.message("faild: switch");
 		break;
-	case "ƒAƒvƒŠ":
+	case "ã‚¢ãƒ—ãƒª":
 		Debug.message("faild: switch");
 		break;
 	default:
@@ -113,13 +113,13 @@ function testMisc() {
 	}
 	isSuccess = false;
 
-	i = "ƒVƒXƒeƒ€";
+	i = "ã‚·ã‚¹ãƒ†ãƒ ";
 	switch(i)  {
-	case "ƒVƒXƒeƒ€":
+	case "ã‚·ã‚¹ãƒ†ãƒ ":
 		Debug.message("success: switch");
 		isSuccess = true;
 		break;
-	case "ƒAƒvƒŠ":
+	case "ã‚¢ãƒ—ãƒª":
 		Debug.message("faild: switch");
 		break;
 	}
@@ -144,7 +144,7 @@ function testMisc() {
 	}
 	isSuccess = false;
 	try {
-		//tmp = 3%0; ‚±‚ê‚Í—‚¿‚é‚Ì‚Åg‚¦‚È‚¢
+		//tmp = 3%0; ã“ã‚Œã¯è½ã¡ã‚‹ã®ã§ä½¿ãˆãªã„
 		var oct5 = <% 5 %>;
 		tmp = <% 10 %> / oct5;
 	} catch(e) {
@@ -167,7 +167,7 @@ function testMisc() {
 	isSuccess = false;
 	tmp = -10;
 	try {
-		if(tmp<0) throw new Exception("•‰‚Ì”‚Íw’è‚Å‚«‚Ü‚¹‚ñB");
+		if(tmp<0) throw new Exception("è² ã®æ•°ã¯æŒ‡å®šã§ãã¾ã›ã‚“ã€‚");
 	} catch(e) {
 		Debug.message(e.message);
 		isSuccess = true;
@@ -180,9 +180,9 @@ function testMisc() {
 function tryfunc() {
 	var tmp = -10;
 	try {
-		if(tmp<0) throw new Exception("•‰‚Ì”‚Íw’è‚Å‚«‚Ü‚¹‚ñB");
+		if(tmp<0) throw new Exception("è² ã®æ•°ã¯æŒ‡å®šã§ãã¾ã›ã‚“ã€‚");
 	} catch(e) {
-		throw e; // ƒƒbƒZ[ƒW‚ğ•\¦‚Í‚·‚é‚ªA—áŠO‚ğÄ‚Ñ“Š‚°‚é
+		throw e; // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¡¨ç¤ºã¯ã™ã‚‹ãŒã€ä¾‹å¤–ã‚’å†ã³æŠ•ã’ã‚‹
 	}
 }
 function testthrow() {

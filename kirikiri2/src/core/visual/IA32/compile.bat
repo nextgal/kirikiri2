@@ -8,5 +8,5 @@ del *.bak
 perl copy_if_differ.pl tvpgl_ia32_intf_.c tvpgl_ia32_intf.c
 perl copy_if_differ.pl tvpgl_ia32_intf_.h tvpgl_ia32_intf.h
 pause
-cd ..\..\base\win32
+cd ..¥..¥base¥win32
 call makestub.bat

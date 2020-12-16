@@ -71,7 +71,7 @@ BUILD INSTRUCTIONS
      you need to download and build both zlib (on which libpng depends) and
      libpng.  A common build setup is to place the zlib, libpng and pngbook
      subdirectory trees ("folders") in the same parent directory.  Then the
-     libpng build can refer to files in ../zlib (or ..\zlib or [-.zlib]),
+     libpng build can refer to files in ../zlib (or ..¥zlib or [-.zlib]),
      and similarly for the pngbook build.
 
      Note that all three packages are designed to be built from a command
@@ -104,11 +104,11 @@ BUILD INSTRUCTIONS
 
      For MSVC, set up the necessary environment variables by invoking
  
-        %devstudio%\vc\bin\vcvars32.bat
+        %devstudio%¥vc¥bin¥vcvars32.bat
 
      where where %devstudio% is the installation directory for MSVC /
      DevStudio.  If you get "environment out of space" errors under 95/98,
-     create a desktop shortcut with "c:\windows\command.com /e:4096" as
+     create a desktop shortcut with "c:¥windows¥command.com /e:4096" as
      the program command line and set the working directory to the pngbook
      directory.  Then double-click to open the new DOS-prompt window with
      a bigger environment and retry the commands above.

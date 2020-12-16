@@ -131,7 +131,7 @@ public:
 		start = TJSGetTickCount();
 	}
 
-	~tTJSTimeProfiler()
+	‾tTJSTimeProfiler()
 	{
 		timevar += TJSGetTickCount() - start;
 	}
@@ -150,11 +150,11 @@ public:
 	tTJSFuncTrace(tjs_char *p)
 	{
 		funcname = p;
-		TJS_debug_out(TJS_W("enter: %ls\n"), funcname);
+		TJS_debug_out(TJS_W("enter: %ls¥n"), funcname);
 	}
-	~tTJSFuncTrace()
+	‾tTJSFuncTrace()
 	{
-		TJS_debug_out(TJS_W("exit: %ls\n"), funcname);
+		TJS_debug_out(TJS_W("exit: %ls¥n"), funcname);
 	}
 };
 //---------------------------------------------------------------------------
@@ -170,7 +170,7 @@ struct tTJSNarrowStringHolder
 public:
 	tTJSNarrowStringHolder(const wchar_t *wide);
 
-	~tTJSNarrowStringHolder(void);
+	‾tTJSNarrowStringHolder(void);
 
 	operator const tjs_nchar *()
 	{

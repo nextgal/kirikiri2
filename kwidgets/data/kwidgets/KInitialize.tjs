@@ -51,7 +51,7 @@ Scripts.execStorage("KColorPickerDialog.tjs");
 Scripts.execStorage("KTimeLineControl.tjs");
 Scripts.execStorage("KCustomDialog.tjs");
 
-// ƒ}ƒEƒXƒzƒC[ƒ‹‚ÍƒƒbƒZ[ƒW‚Åæ“¾
-// (DirectInputŒo—R‚Åæ“¾‚·‚é‚Æ‚½‚Ü‚ÉƒoƒO‚Á‚Ä‹g—¢‹g—¢‚ª‰“š‚µ‚È‚­‚È‚é‚Ì‚Å‚»‚Ì‘Îô)
+// ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«ã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã§å–å¾—
+// (DirectInputçµŒç”±ã§å–å¾—ã™ã‚‹ã¨ãŸã¾ã«ãƒã‚°ã£ã¦å‰é‡Œå‰é‡ŒãŒå¿œç­”ã—ãªããªã‚‹ã®ã§ãã®å¯¾ç­–)
 System.setArgument('-wheel', 'message');
 

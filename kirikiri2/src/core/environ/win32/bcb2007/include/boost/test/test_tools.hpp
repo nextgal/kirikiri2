@@ -37,79 +37,79 @@
 // **************                    TOOL BOX                  ************** //
 // ************************************************************************** //
 
-#define BOOST_CHECKPOINT(message_) \
-    boost::test_toolbox::detail::checkpoint_impl( \
+#define BOOST_CHECKPOINT(message_) ¥
+    boost::test_toolbox::detail::checkpoint_impl( ¥
         boost::wrap_stringstream().ref() << message_, __FILE__, __LINE__)
 
-#define BOOST_WARN(predicate) \
-    boost::test_toolbox::detail::warn_and_continue_impl((predicate), \
+#define BOOST_WARN(predicate) ¥
+    boost::test_toolbox::detail::warn_and_continue_impl((predicate), ¥
         boost::wrap_stringstream().ref() << #predicate, __FILE__, __LINE__)
 
-#define BOOST_CHECK(predicate) \
-    boost::test_toolbox::detail::test_and_continue_impl((predicate), \
+#define BOOST_CHECK(predicate) ¥
+    boost::test_toolbox::detail::test_and_continue_impl((predicate), ¥
         boost::wrap_stringstream().ref() << #predicate, __FILE__, __LINE__)
 
-#define BOOST_CHECK_EQUAL(left_, right_) \
-    boost::test_toolbox::detail::equal_and_continue_impl((left_), (right_), \
+#define BOOST_CHECK_EQUAL(left_, right_) ¥
+    boost::test_toolbox::detail::equal_and_continue_impl((left_), (right_), ¥
         boost::wrap_stringstream().ref() << #left_ " == " #right_, __FILE__, __LINE__)
 
-#define BOOST_CHECK_CLOSE(left_, right_, tolerance_src) \
-    boost::test_toolbox::detail::compare_and_continue_impl((left_), (right_), (tolerance_src),\
-        boost::wrap_stringstream().ref() << #left_ " ~= " #right_, __FILE__, __LINE__)
+#define BOOST_CHECK_CLOSE(left_, right_, tolerance_src) ¥
+    boost::test_toolbox::detail::compare_and_continue_impl((left_), (right_), (tolerance_src),¥
+        boost::wrap_stringstream().ref() << #left_ " ‾= " #right_, __FILE__, __LINE__)
 
-#define BOOST_BITWISE_EQUAL(left_, right_) \
-    boost::test_toolbox::detail::bitwise_equal_and_continue_impl((left_), (right_), \
+#define BOOST_BITWISE_EQUAL(left_, right_) ¥
+    boost::test_toolbox::detail::bitwise_equal_and_continue_impl((left_), (right_), ¥
         boost::wrap_stringstream().ref() << #left_ " =.= " #right_, __FILE__, __LINE__)
 
-#define BOOST_REQUIRE(predicate) \
-    boost::test_toolbox::detail::test_and_throw_impl((predicate), \
+#define BOOST_REQUIRE(predicate) ¥
+    boost::test_toolbox::detail::test_and_throw_impl((predicate), ¥
         boost::wrap_stringstream().ref() << #predicate, __FILE__, __LINE__)
 
-#define BOOST_MESSAGE(message_) \
-    boost::test_toolbox::detail::message_impl( \
+#define BOOST_MESSAGE(message_) ¥
+    boost::test_toolbox::detail::message_impl( ¥
         boost::wrap_stringstream().ref() << message_, __FILE__, __LINE__)
 
-#define BOOST_WARN_MESSAGE(predicate, message_) \
-    boost::test_toolbox::detail::warn_and_continue_impl((predicate), \
+#define BOOST_WARN_MESSAGE(predicate, message_) ¥
+    boost::test_toolbox::detail::warn_and_continue_impl((predicate), ¥
         boost::wrap_stringstream().ref() << message_, __FILE__, __LINE__,false)
 
-#define BOOST_CHECK_MESSAGE(predicate, message_) \
-    boost::test_toolbox::detail::test_and_continue_impl((predicate), \
+#define BOOST_CHECK_MESSAGE(predicate, message_) ¥
+    boost::test_toolbox::detail::test_and_continue_impl((predicate), ¥
         boost::wrap_stringstream().ref() << message_, __FILE__, __LINE__,false)
 
-#define BOOST_REQUIRE_MESSAGE(predicate, message_) \
-    boost::test_toolbox::detail::test_and_throw_impl((predicate), \
+#define BOOST_REQUIRE_MESSAGE(predicate, message_) ¥
+    boost::test_toolbox::detail::test_and_throw_impl((predicate), ¥
         boost::wrap_stringstream().ref() << message_, __FILE__, __LINE__,false)
 
-#define BOOST_CHECK_PREDICATE( predicate, arg_list_size, arg_list ) \
-    boost::test_toolbox::detail::test_and_continue_impl(predicate, BOOST_PLACE_PREDICATE_ARGS ## arg_list_size arg_list, \
-        boost::wrap_stringstream().ref() << #predicate << "("\
+#define BOOST_CHECK_PREDICATE( predicate, arg_list_size, arg_list ) ¥
+    boost::test_toolbox::detail::test_and_continue_impl(predicate, BOOST_PLACE_PREDICATE_ARGS ## arg_list_size arg_list, ¥
+        boost::wrap_stringstream().ref() << #predicate << "("¥
         << BOOST_PRINT_PREDICATE_ARGS ## arg_list_size arg_list << ")", __FILE__, __LINE__)
 
-#define BOOST_REQUIRE_PREDICATE( predicate, arg_list_size, arg_list ) \
-    boost::test_toolbox::detail::test_and_throw_impl(predicate, BOOST_PLACE_PREDICATE_ARGS ## arg_list_size arg_list, \
-        boost::wrap_stringstream().ref() << #predicate << "("\
+#define BOOST_REQUIRE_PREDICATE( predicate, arg_list_size, arg_list ) ¥
+    boost::test_toolbox::detail::test_and_throw_impl(predicate, BOOST_PLACE_PREDICATE_ARGS ## arg_list_size arg_list, ¥
+        boost::wrap_stringstream().ref() << #predicate << "("¥
         << BOOST_PRINT_PREDICATE_ARGS ## arg_list_size arg_list << ")", __FILE__, __LINE__)
 
 #define BOOST_ERROR(message_) BOOST_CHECK_MESSAGE( false, message_ )
 
 #define BOOST_FAIL(message_) BOOST_REQUIRE_MESSAGE( false, message_ )
 
-#define BOOST_CHECK_THROW( statement, exception ) \
-    try { statement; BOOST_ERROR( "exception "#exception" is expected" ); } \
-    catch( exception const& ) { \
-        BOOST_CHECK_MESSAGE( true, "exception "#exception" is caught" ); \
+#define BOOST_CHECK_THROW( statement, exception ) ¥
+    try { statement; BOOST_ERROR( "exception "#exception" is expected" ); } ¥
+    catch( exception const& ) { ¥
+        BOOST_CHECK_MESSAGE( true, "exception "#exception" is caught" ); ¥
     }
 
-#define BOOST_CHECK_NO_THROW( statement ) \
-    try { statement; BOOST_CHECK_MESSAGE( true, "no exceptions was thrown by "#statement ); } \
-    catch( ... ) { \
-        BOOST_ERROR( "exception was thrown by "#statement ); \
+#define BOOST_CHECK_NO_THROW( statement ) ¥
+    try { statement; BOOST_CHECK_MESSAGE( true, "no exceptions was thrown by "#statement ); } ¥
+    catch( ... ) { ¥
+        BOOST_ERROR( "exception was thrown by "#statement ); ¥
     }
 
-#define BOOST_CHECK_EQUAL_COLLECTIONS(left_begin_, left_end_, right_begin_) \
-    boost::test_toolbox::detail::equal_and_continue_impl( (left_begin_), (left_end_), (right_begin_),\
-        boost::wrap_stringstream().ref() << \
+#define BOOST_CHECK_EQUAL_COLLECTIONS(left_begin_, left_end_, right_begin_) ¥
+    boost::test_toolbox::detail::equal_and_continue_impl( (left_begin_), (left_end_), (right_begin_),¥
+        boost::wrap_stringstream().ref() << ¥
             "{" #left_begin_ ", " #left_end_ "}" " == {" #right_begin_ ", ...}", __FILE__, __LINE__)
 
 #define BOOST_IS_DEFINED(symb) boost::test_toolbox::detail::is_defined_impl( #symb, BOOST_STRINGIZE(= symb) )
@@ -364,7 +364,7 @@ compare_and_continue_impl( FPT left_, FPT right_, ToleranceSource tolerance_src,
     if( !predicate ) {
         return test_and_continue_impl( predicate,
             wrap_stringstream().ref() << "test " << message_
-                            << " failed [" << left_ << " !~= " << right_
+                            << " failed [" << left_ << " !‾= " << right_
                             << " (+/-" << compute_tolerance( tolerance_src, left_ ) << ")]",
             file_name_, line_num_, false, log_level_ );
     }
@@ -434,7 +434,7 @@ public:
                                         bool                match_or_save     = true );
 
     // Destructor
-    ~output_test_stream();
+    ‾output_test_stream();
 
     // checking function
     result_type     is_empty( bool flush_stream_ = true );

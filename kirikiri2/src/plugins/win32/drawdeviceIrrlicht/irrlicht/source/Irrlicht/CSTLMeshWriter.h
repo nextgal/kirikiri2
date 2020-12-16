@@ -22,7 +22,7 @@ namespace scene
 	public:
 
 		CSTLMeshWriter(scene::ISceneManager* smgr);
-		virtual ~CSTLMeshWriter();
+		virtual ‾CSTLMeshWriter();
 
 		//! Returns the type of the mesh writer
 		virtual EMESH_WRITER_TYPE getType() const;

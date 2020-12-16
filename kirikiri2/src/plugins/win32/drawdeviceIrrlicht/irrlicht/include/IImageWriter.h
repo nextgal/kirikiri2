@@ -24,15 +24,15 @@ class IImageWriter : public IReferenceCounted
 {
 public:
 	//! Check if this writer can write a file with the given extension
-	/** \param fileName Name of the file to check.
-	\return True if file extension specifies a writable type. */
+	/** ¥param fileName Name of the file to check.
+	¥return True if file extension specifies a writable type. */
 	virtual bool isAWriteableFileExtension(const c8* fileName) const = 0;
 
 	//! Write image to file
-	/** \param file File handle to write to.
-	\param image Image to write into file.
-	\param param Writer specific parameter, influencing e.g. quality.
-	\return True if image was successfully written. */
+	/** ¥param file File handle to write to.
+	¥param image Image to write into file.
+	¥param param Writer specific parameter, influencing e.g. quality.
+	¥return True if image was successfully written. */
 	virtual bool writeImage(io::IWriteFile *file, IImage *image, u32 param = 0) const = 0;
 };
 

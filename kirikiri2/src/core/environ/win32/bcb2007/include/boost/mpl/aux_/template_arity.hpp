@@ -37,7 +37,7 @@
 
 #include "boost/mpl/aux_/config/use_preprocessed.hpp"
 
-#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) \
+#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) ¥
  && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER template_arity.hpp
@@ -67,8 +67,8 @@ template< BOOST_MPL_AUX_NTTP_DECL(int, N) > struct arity_tag
     typedef char (&type)[N + 1];
 };
 
-#define AUX_MAX_ARITY_OP(unused, state, i) \
-    ( BOOST_PP_CAT(C,i) > 0 ? BOOST_PP_CAT(C,i) : state ) \
+#define AUX_MAX_ARITY_OP(unused, state, i) ¥
+    ( BOOST_PP_CAT(C,i) > 0 ? BOOST_PP_CAT(C,i) : state ) ¥
 /**/
 
 template<
@@ -104,8 +104,8 @@ struct template_arity_impl
         );
 };
 
-#define AUX_TEMPLATE_ARITY_IMPL_INVOCATION(unused, i, F) \
-    BOOST_PP_COMMA_IF(i) template_arity_impl<F,BOOST_PP_INC(i)>::value \
+#define AUX_TEMPLATE_ARITY_IMPL_INVOCATION(unused, i, F) ¥
+    BOOST_PP_COMMA_IF(i) template_arity_impl<F,BOOST_PP_INC(i)>::value ¥
 /**/
 
 template< typename F >

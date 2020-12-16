@@ -27,7 +27,7 @@ namespace io
 
 		CLimitReadFile(IReadFile* alreadyOpenedFile, long areaSize, const c8* name);
 
-		virtual ~CLimitReadFile();
+		virtual ‾CLimitReadFile();
 
 		//! returns how much was read
 		virtual s32 read(void* buffer, u32 sizeToRead);

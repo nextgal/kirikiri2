@@ -67,16 +67,16 @@ static void init_keys(const char* passwd,unsigned long* pkeys,const unsigned lon
     *(pkeys+0) = 305419896L;
     *(pkeys+1) = 591751049L;
     *(pkeys+2) = 878082192L;
-    while (*passwd != '\0') {
+    while (*passwd != '¥0') {
         update_keys(pkeys,pcrc_32_tab,(int)*passwd);
         passwd++;
     }
 }
 
-#define zdecode(pkeys,pcrc_32_tab,c) \
+#define zdecode(pkeys,pcrc_32_tab,c) ¥
     (update_keys(pkeys,pcrc_32_tab,c ^= decrypt_byte(pkeys,pcrc_32_tab)))
 
-#define zencode(pkeys,pcrc_32_tab,c,t) \
+#define zencode(pkeys,pcrc_32_tab,c,t) ¥
     (t=decrypt_byte(pkeys,pcrc_32_tab), update_keys(pkeys,pcrc_32_tab,c), t^(c))
 
 #ifdef INCLUDECRYPTINGCODE_IFCRYPTALLOWED

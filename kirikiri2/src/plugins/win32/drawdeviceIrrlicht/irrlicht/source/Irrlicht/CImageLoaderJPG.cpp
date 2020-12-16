@@ -27,7 +27,7 @@ CImageLoaderJPG::CImageLoaderJPG()
 
 
 //! destructor
-CImageLoaderJPG::~CImageLoaderJPG()
+CImageLoaderJPG::‾CImageLoaderJPG()
 {
 }
 

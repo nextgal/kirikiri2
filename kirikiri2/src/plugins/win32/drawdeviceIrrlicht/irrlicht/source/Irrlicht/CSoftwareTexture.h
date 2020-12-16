@@ -24,7 +24,7 @@ public:
 	CSoftwareTexture(IImage* surface, const char* name, bool renderTarget=false);
 
 	//! destructor
-	virtual ~CSoftwareTexture();
+	virtual ‾CSoftwareTexture();
 
 	//! lock function
 	virtual void* lock();

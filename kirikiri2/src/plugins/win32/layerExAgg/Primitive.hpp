@@ -5,7 +5,7 @@
 #include "tp_stub.h"
 
 // ----------------------------------------
-// Anti-Grain Geometry —p’è‹`ŒQ
+// Anti-Grain Geometry ç”¨å®šç¾©ç¾¤
 // ----------------------------------------
 
 #include "agg_basics.h"
@@ -27,25 +27,25 @@ typedef agg::scanline_p8 scanline;
 class NI_AGGPrimitive;
 
 /**
- * ƒŒƒCƒ„‚É”z’u‰Â”\‚È AGG ƒvƒŠƒ~ƒeƒBƒu‚ÌŠî’êƒNƒ‰ƒX
+ * ãƒ¬ã‚¤ãƒ¤ã«é…ç½®å¯èƒ½ãª AGG ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã®åŸºåº•ã‚¯ãƒ©ã‚¹
  */
 class AGGPrimitive
 {
 protected:
 	NI_AGGPrimitive *owner;
 
-	// •\¦ˆÊ’u
+	// è¡¨ç¤ºä½ç½®
 	double _x;
     double _y;
 
-	/// •â³’l
+	/// è£œæ­£å€¤
 	double _expand;
 	double _scale;
 	double _rotate;
 	
 public:
 
-	/// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	/// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	AGGPrimitive(NI_AGGPrimitive *owner) : owner(owner) {
 		_x = 0.0;
 		_y = 0.0;
@@ -54,8 +54,8 @@ public:
 		_rotate = 1.0;
 	}
 
-	/// ƒfƒXƒgƒ‰ƒNƒ^
-	virtual ~AGGPrimitive() {
+	/// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	virtual â€¾AGGPrimitive() {
 	}
 
 	void redraw();
@@ -78,7 +78,7 @@ public:
 	inline void setExpand(double expand) { _expand = expand; redraw();};
 	
 	/*
-	 * À•Ww’è
+	 * åº§æ¨™æŒ‡å®š
 	 */
 	inline void setPos(double x, double y) {
 		_x = x;
@@ -87,9 +87,9 @@ public:
 	}
 	
 	/**
-	 * •`‰æˆ—
-	 * @param rb ƒx[ƒXƒŒƒ“ƒ_ƒ‰
-	 * @param mtx ‘S‘ÌƒAƒtƒBƒ“•ÏŒ`w’è
+	 * æç”»å‡¦ç†
+	 * @param rb ãƒ™ãƒ¼ã‚¹ãƒ¬ãƒ³ãƒ€ãƒ©
+	 * @param mtx å…¨ä½“ã‚¢ãƒ•ã‚£ãƒ³å¤‰å½¢æŒ‡å®š
 	 */
 	virtual void paint(renderer_base &rb, agg::trans_affine &mtx) = 0;
 };
@@ -97,22 +97,22 @@ public:
 extern AGGPrimitive *getAGGPrimitive(iTJSDispatch2 *obj);
 extern void addMember(iTJSDispatch2 *dispatch, const tjs_char *memberName, iTJSDispatch2 *member);
 
-#define PRIMFUNC(funcname,pnum,type) \
-class funcname : public tTJSDispatch\
-{\
-protected:\
-public:\
-	tjs_error TJS_INTF_METHOD FuncCall(\
-		tjs_uint32 flag, const tjs_char * membername, tjs_uint32 *hint,\
-		tTJSVariant *result,\
-		tjs_int numparams, tTJSVariant **param, iTJSDispatch2 *objthis) {\
-		type *_this;\
-		if ((_this = (type)getAGGPrimitiveNative(objthis)) == NULL) return TJS_E_NATIVECLASSCRASH;\
+#define PRIMFUNC(funcname,pnum,type) Â¥
+class funcname : public tTJSDispatchÂ¥
+{Â¥
+protected:Â¥
+public:Â¥
+	tjs_error TJS_INTF_METHOD FuncCall(Â¥
+		tjs_uint32 flag, const tjs_char * membername, tjs_uint32 *hint,Â¥
+		tTJSVariant *result,Â¥
+		tjs_int numparams, tTJSVariant **param, iTJSDispatch2 *objthis) {Â¥
+		type *_this;Â¥
+		if ((_this = (type)getAGGPrimitiveNative(objthis)) == NULL) return TJS_E_NATIVECLASSCRASH;Â¥
 		if (numparams < pnum) return TJS_E_BADPARAMCOUNT;
 
-#define PRIMFUNCEND \
-		return TJS_S_OK;\
-	}\
+#define PRIMFUNCEND Â¥
+		return TJS_S_OK;Â¥
+	}Â¥
 };
 
 // --------------------------------------------------------------------
@@ -126,8 +126,8 @@ public:
 extern void registType(RegistType *type);
 
 /**
- * Œ^ƒtƒ@ƒNƒgƒŠ“o˜^—pƒeƒ“ƒvƒŒ[ƒg
- * ”CˆÓ‚Ì AGGPrimiitveVN Œ^‚Ì create ƒƒ\ƒbƒh‚ğ“o˜^‚·‚é
+ * å‹ãƒ•ã‚¡ã‚¯ãƒˆãƒªç™»éŒ²ç”¨ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆ
+ * ä»»æ„ã® AGGPrimiitveVN å‹ã® create ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç™»éŒ²ã™ã‚‹
  */
 template <class U>
 class RegistTypeFactory : public RegistType {

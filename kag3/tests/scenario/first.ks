@@ -14,9 +14,9 @@
 @s
 @jump storage=maptest.ks
 
-[link]‚Ù‚°‚Ù‚°[endlink][r]
-[link]‚Ù‚°‚Ù‚°[endlink][r]
-[link]‚Ù‚°‚Ù‚°[endlink][r]
+[link]ã»ã’ã»ã’[endlink][r]
+[link]ã»ã’ã»ã’[endlink][r]
+[link]ã»ã’ã»ã’[endlink][r]
 ;[layopt layer=message0 visible=false]
 ;[layopt layer=message0 visible=true]
 @s
@@ -53,12 +53,12 @@ yh
 @wv
 @s
 
-[image storage="uni" page=fore layer=0 visible=true left=140 index=20000000]\
+[image storage="uni" page=fore layer=0 visible=true left=140 index=20000000]Â¥
 @jump storage=raintest.ks
 
 @layopt layer=message0 page=fore visible=false
 @backlay
-*start|ƒXƒ^[ƒg
+*start|ã‚¹ã‚¿ãƒ¼ãƒˆ
 ;
 @l
 @trans method=brightness rule=fore_light vague=128 time=600 blur=3
@@ -68,8 +68,8 @@ yh
 @s
 @gotostart
 
-[image storage="_24" page=fore layer=base]\
-[layopt layer=0 page=fore visible=true]\
+[image storage="_24" page=fore layer=base]Â¥
+[layopt layer=0 page=fore visible=true]Â¥
 @s
 *hoge|hoge
 @backlay
@@ -85,7 +85,7 @@ yh
 @endmacro
 *saveable|saveable
 @cm
-[red]‚±‚ê‚ÍÔ‚¢•¶š‚Ìƒ}ƒNƒ‚Ì‚Í‚¸‚Å‚·B
+[red]ã“ã‚Œã¯èµ¤ã„æ–‡å­—ã®ãƒã‚¯ãƒ­ã®ã¯ãšã§ã™ã€‚
 [s]
 
 @jump storage=pimagetest.ks
@@ -98,10 +98,10 @@ yh
 @jump storage=oven.ks
 @eval exp="kag.conductor.loadScenario('second.ks')"
 
-@jump storage=c:\pwork\longtest.ks
+@jump storage=c:Â¥pworkÂ¥longtest.ks
 @call storage="rclick_tjs.ks"
 @jump storage=animtest.ks
-@mappfont storage=c:\pwork\r.tft
+@mappfont storage=c:Â¥pworkÂ¥r.tft
 @loadplugin module=wuvorbis.dll
 @l
 

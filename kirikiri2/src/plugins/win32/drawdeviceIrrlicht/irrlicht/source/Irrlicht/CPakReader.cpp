@@ -33,7 +33,7 @@ CPakReader::CPakReader(IReadFile* file, bool ignoreCase, bool ignorePaths)
 	}
 }
 
-CPakReader::~CPakReader()
+CPakReader::‾CPakReader()
 {
 	if (File)
 		File->drop();
@@ -176,7 +176,7 @@ void CPakReader::deletePathFromFilename(core::stringc& filename)
 
 	// search for path separator or beginning
 
-	while (*p!='/' && *p!='\\' && p!=filename.c_str())
+	while (*p!='/' && *p!='¥¥' && p!=filename.c_str())
 		--p;
 
 	if (p != filename.c_str())

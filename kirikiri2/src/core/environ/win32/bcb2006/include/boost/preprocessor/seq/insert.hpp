@@ -19,7 +19,7 @@
 #
 # /* BOOST_PP_SEQ_INSERT */
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
 #    define BOOST_PP_SEQ_INSERT(seq, i, elem) BOOST_PP_SEQ_FIRST_N(i, seq) (elem) BOOST_PP_SEQ_REST_N(i, seq)
 # else
 #    define BOOST_PP_SEQ_INSERT(seq, i, elem) BOOST_PP_SEQ_INSERT_I(seq, i, elem)

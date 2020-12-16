@@ -38,7 +38,7 @@ public:
 	CLMTSMeshFileLoader(io::IFileSystem* fs, 
 		video::IVideoDriver* driver, io::IAttributes* parameters);
 
-	virtual ~CLMTSMeshFileLoader();
+	virtual ‾CLMTSMeshFileLoader();
 
 	virtual bool isALoadableFileExtension(const c8* fileName) const;
 

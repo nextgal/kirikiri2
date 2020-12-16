@@ -32,7 +32,7 @@ public:
 
   //  Destructor.
   virtual
-  ~gzfilebuf();
+  ‾gzfilebuf();
 
   /**
    *  @brief  Set compression level and strategy on the fly.

@@ -30,20 +30,20 @@
 if test "${CDPATH+set}" = set; then CDPATH=; export CDPATH; fi
 
 echo=echo
-if test "X`($echo '\t') 2>/dev/null`" = 'X\t'; then :
+if test "X`($echo '¥t') 2>/dev/null`" = 'X¥t'; then :
 else
   # The Solaris and AIX default echo program unquotes backslashes.
   # This makes it impossible to quote backslashes using
-  #   echo "$something" | sed 's/\\/\\\\/g'
-  # So, we emulate echo with printf '%s\n'
-  echo="printf %s\\n"
-  if test "X`($echo '\t') 2>/dev/null`" = 'X\t'; then :
+  #   echo "$something" | sed 's/¥¥/¥¥¥¥/g'
+  # So, we emulate echo with printf '%s¥n'
+  echo="printf %s¥¥n"
+  if test "X`($echo '¥t') 2>/dev/null`" = 'X¥t'; then :
   else
     # Oops.  We have no working printf.  Try to find a not-so-buggy echo.
     echo=echo
     IFS="${IFS= 	}"; save_ifs="$IFS"; IFS="${IFS}:"
     for dir in $PATH /usr/ucb; do
-      if test -f $dir/echo && test "X`$dir/echo '\t'`" = 'X\t'; then
+      if test -f $dir/echo && test "X`$dir/echo '¥t'`" = 'X¥t'; then
         echo="$dir/echo"
         break
       fi
@@ -55,10 +55,10 @@ fi
 # Sed substitution that helps us do robust quoting.  It backslashifies
 # metacharacters that are still active within double-quoted strings.
 Xsed='sed -e s/^X//'
-sed_quote_subst='s/\([\\"\\`$\\\\]\)/\\\1/g'
+sed_quote_subst='s/¥([¥¥"¥¥`$¥¥¥¥]¥)/¥¥¥1/g'
 
 # Same as above, but do not quote variable references.
-double_quote_subst='s/\([\\"\\`\\\\]\)/\\\1/g'
+double_quote_subst='s/¥([¥¥"¥¥`¥¥¥¥]¥)/¥¥¥1/g'
 
 # The name of this program.
 progname=`$echo "X$0" | $Xsed -e 's%^.*/%%'`
@@ -71,7 +71,7 @@ ac_compile='${CC-cc} -c $CFLAGS $CPPFLAGS conftest.c 1>&5'
 ac_link='${CC-cc} -o conftest $CFLAGS $CPPFLAGS $LDFLAGS conftest.c $LIBS 1>&5'
 rm="rm -f"
 
-help="Try \`$progname --help' for more information."
+help="Try ¥`$progname --help' for more information."
 
 # Global variables:
 can_build_shared=yes
@@ -110,7 +110,7 @@ do
 
   # If the previous option needs an argument, assign it.
   if test -n "$prev"; then
-    eval "$prev=\$option"
+    eval "$prev=¥$option"
     prev=
     continue
   fi
@@ -125,14 +125,14 @@ Generate a system-specific libtool script.
     --disable-static       do not build static libraries
     --help                 display this help and exit
     --no-verify            do not verify that HOST is a valid host type
-    --quiet                same as \`--silent'
+    --quiet                same as ¥`--silent'
     --silent               do not print informational messages
-    --srcdir=DIR           find \`config.guess' in DIR
+    --srcdir=DIR           find ¥`config.guess' in DIR
     --version              output version information and exit
     --with-gcc             assume that the GNU C compiler will be used
     --with-gnu-ld          assume that the C compiler uses the GNU linker
 
-LTMAIN is the \`ltmain.sh' shell script fragment that provides basic libtool
+LTMAIN is the ¥`ltmain.sh' shell script fragment that provides basic libtool
 functionality.
 
 HOST is the canonical host system name [default=guessed].
@@ -157,7 +157,7 @@ EOM
   --with-gnu-ld) with_gnu_ld=yes ;;
 
   -*)
-    echo "$progname: unrecognized option \`$option'" 1>&2
+    echo "$progname: unrecognized option ¥`$option'" 1>&2
     echo "$help" 1>&2
     exit 1
     ;;
@@ -168,7 +168,7 @@ EOM
     elif test -z "$host"; then
 # This generates an unnecessary warning for sparc-sun-solaris4.1.3_U1
 #      if test -n "`echo $option| sed 's/[-a-z0-9.]//g'`"; then
-#        echo "$progname: warning \`$option' is not a valid host type" 1>&2
+#        echo "$progname: warning ¥`$option' is not a valid host type" 1>&2
 #      fi
       host="$option"
     else
@@ -187,7 +187,7 @@ fi
 
 if test -f "$ltmain"; then :
 else
-  echo "$progname: \`$ltmain' does not exist" 1>&2
+  echo "$progname: ¥`$ltmain' does not exist" 1>&2
   echo "$help" 1>&2
   exit 1
 fi
@@ -197,7 +197,7 @@ ltconfig_args=
 for arg
 do
   case "$arg" in
-  *" "*|*"	"*|*[\[\]\~\#\$\^\&\*\(\)\{\}\\\|\;\<\>\?]*)
+  *" "*|*"	"*|*[¥[¥]¥‾¥#¥$¥^¥&¥*¥(¥)¥{¥}¥¥¥|¥;¥<¥>¥?]*)
   ltconfig_args="$ltconfig_args '$arg'" ;;
   *) ltconfig_args="$ltconfig_args $arg" ;;
   esac
@@ -227,7 +227,7 @@ exec 5>>./config.log
 if test "${LC_ALL+set}" = set; then LC_ALL=C; export LC_ALL; fi
 if test "${LANG+set}"   = set; then LANG=C;   export LANG;   fi
 
-if (echo "testing\c"; echo 1,2,3) | grep c >/dev/null; then
+if (echo "testing¥c"; echo 1,2,3) | grep c >/dev/null; then
   # Stardent Vistra SVR4 grep lacks -e, says ghazi@caip.rutgers.edu.
   if (echo -n testing; echo 1,2,3) | sed s/-n/xn/ | grep xn >/dev/null; then
     ac_n= ac_c='
@@ -236,7 +236,7 @@ if (echo "testing\c"; echo 1,2,3) | grep c >/dev/null; then
     ac_n=-n ac_c= ac_t=
   fi
 else
-  ac_n= ac_c='\c' ac_t=
+  ac_n= ac_c='¥c' ac_t=
 fi
 
 if test -z "$srcdir"; then
@@ -290,7 +290,7 @@ if test "$verify_host" = yes; then
   test -z "$host" && exit 1
 
 elif test -z "$host"; then
-  echo "$progname: you must specify a host type if you use \`--no-verify'" 1>&2
+  echo "$progname: you must specify a host type if you use ¥`--no-verify'" 1>&2
   echo "$help" 1>&2
   exit 1
 else
@@ -300,12 +300,12 @@ fi
 # Transform linux* to *-*-linux-gnu*, to support old configure scripts.
 case "$host_os" in
 linux-gnu*) ;;
-linux*) host=`echo $host | sed 's/^\(.*-.*-linux\)\(.*\)$/\1-gnu\2/'`
+linux*) host=`echo $host | sed 's/^¥(.*-.*-linux¥)¥(.*¥)$/¥1-gnu¥2/'`
 esac
 
-host_cpu=`echo $host | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\1/'`
-host_vendor=`echo $host | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\2/'`
-host_os=`echo $host | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\3/'`
+host_cpu=`echo $host | sed 's/^¥([^-]*¥)-¥([^-]*¥)-¥(.*¥)$/¥1/'`
+host_vendor=`echo $host | sed 's/^¥([^-]*¥)-¥([^-]*¥)-¥(.*¥)$/¥2/'`
+host_os=`echo $host | sed 's/^¥([^-]*¥)-¥([^-]*¥)-¥(.*¥)$/¥3/'`
 
 case "$host_os" in
 aix3*)
@@ -347,8 +347,8 @@ if test "${RANLIB+set}" != "set"; then
 fi
 
 if test -n "$RANLIB"; then
-  old_archive_cmds="$old_archive_cmds;\$RANLIB \$oldlib"
-  old_postinstall_cmds="\$RANLIB \$oldlib;$old_postinstall_cmds"
+  old_archive_cmds="$old_archive_cmds;¥$RANLIB ¥$oldlib"
+  old_postinstall_cmds="¥$RANLIB ¥$oldlib;$old_postinstall_cmds"
 fi
 
 # Check to see if we are using GCC.
@@ -413,7 +413,7 @@ if test "$with_gcc" != yes || test -z "$CC"; then
     fi
 
     if test -z "$CC"; then
-      echo "$progname: error: no acceptable cc found in \$PATH" 1>&2
+      echo "$progname: error: no acceptable cc found in ¥$PATH" 1>&2
       exit 1
     fi
   fi
@@ -429,7 +429,7 @@ if test "$with_gcc" != yes || test -z "$CC"; then
   yes;
 #endif
 EOF
-  if { ac_try='${CC-cc} -E conftest.c'; { (eval echo $progname:432: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }; } | egrep yes >/dev/null 2>&1; then
+  if { ac_try='${CC-cc} -E conftest.c'; { (eval echo $progname:432: ¥"$ac_try¥") 1>&5; (eval $ac_try) 2>&5; }; } | egrep yes >/dev/null 2>&1; then
     with_gcc=yes
   fi
   $rm conftest.c
@@ -545,7 +545,7 @@ if test -n "$pic_flag"; then
   save_CFLAGS="$CFLAGS"
   CFLAGS="$CFLAGS $pic_flag -DPIC"
   echo "$progname:547: checking if $compiler PIC flag $pic_flag works" >&5
-  if { (eval echo $progname:548: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>conftest.err; } && test -s conftest.o; then
+  if { (eval echo $progname:548: ¥"$ac_compile¥") 1>&5; (eval $ac_compile) 2>conftest.err; } && test -s conftest.o; then
     # Append any warnings to the config.log.
     cat conftest.err 1>&5
 
@@ -575,10 +575,10 @@ fi
 
 # Check for any special shared library compilation flags.
 if test -n "$special_shlib_compile_flags"; then
-  echo "$progname: warning: \`$CC' requires \`$special_shlib_compile_flags' to build shared libraries" 1>&2
+  echo "$progname: warning: ¥`$CC' requires ¥`$special_shlib_compile_flags' to build shared libraries" 1>&2
   if echo "$old_CC $old_CFLAGS " | egrep -e "[ 	]$special_shlib_compile_flags[ 	]" >/dev/null; then :
   else
-    echo "$progname: add \`$special_shlib_compile_flags' to the CC or CFLAGS env variable and reconfigure" 1>&2
+    echo "$progname: add ¥`$special_shlib_compile_flags' to the CC or CFLAGS env variable and reconfigure" 1>&2
     can_build_shared=no
   fi
 fi
@@ -589,7 +589,7 @@ echo 'main(){return(0);}' > conftest.c
 save_LDFLAGS="$LDFLAGS"
 LDFLAGS="$LDFLAGS $link_static_flag"
 echo "$progname:591: checking if $compiler static flag $link_static_flag works" >&5
-if { (eval echo $progname:592: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest; then
+if { (eval echo $progname:592: ¥"$ac_link¥") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest; then
   echo "$ac_t$link_static_flag" 1>&6
 else
   echo "$ac_t"none 1>&6
@@ -625,7 +625,7 @@ if test -z "$LD"; then
     ac_prog=`($CC -print-prog-name=ld) 2>&5`
     case "$ac_prog" in
     # Accept absolute paths.
-    /* | [A-Za-z]:\\*)
+    /* | [A-Za-z]:¥¥*)
       test -z "$LD" && LD="$ac_prog"
       ;;
     "")
@@ -671,7 +671,7 @@ if test -z "$LD"; then
   fi
 
   if test -z "$LD"; then
-    echo "$progname: error: no acceptable ld found in \$PATH" 1>&2
+    echo "$progname: error: no acceptable ld found in ¥$PATH" 1>&2
     exit 1
   fi
 fi
@@ -732,7 +732,7 @@ else
   case "$host_os" in
   aix3*)
     allow_undefined_flag=unsupported
-    archive_cmds='$NM$libobjs | $global_symbol_pipe | sed '\''s/.* //'\'' > $lib.exp;$LD -o $objdir/$soname$libobjs -bE:$lib.exp -T512 -H512 -bM:SRE;$AR cru $lib $objdir/$soname'
+    archive_cmds='$NM$libobjs | $global_symbol_pipe | sed '¥''s/.* //'¥'' > $lib.exp;$LD -o $objdir/$soname$libobjs -bE:$lib.exp -T512 -H512 -bM:SRE;$AR cru $lib $objdir/$soname'
     # Note: this linker hardcodes the directories in LIBPATH if there
     # are no directories specified by -L.
     hardcode_minus_L=yes
@@ -745,7 +745,7 @@ else
 
   aix4*)
     allow_undefined_flag=unsupported
-    archive_cmds='$NM$libobjs | $global_symbol_pipe | sed '\''s/.* //'\'' > $lib.exp;$CC -o $objdir/$soname$libobjs ${wl}-bE:$lib.exp ${wl}-bM:SRE ${wl}-bnoentry;$AR cru $lib $objdir/$soname'
+    archive_cmds='$NM$libobjs | $global_symbol_pipe | sed '¥''s/.* //'¥'' > $lib.exp;$CC -o $objdir/$soname$libobjs ${wl}-bE:$lib.exp ${wl}-bM:SRE ${wl}-bnoentry;$AR cru $lib $objdir/$soname'
     hardcode_direct=yes
     hardcode_minus_L=yes
     ;;
@@ -825,12 +825,12 @@ else
     hardcode_libdir_flag_spec='-L$libdir'
     hardcode_minus_L=yes
     allow_undefined_flag=unsupported
-    archive_cmds='$echo "LIBRARY $libname INITINSTANCE" > $objdir/$libname.def;$echo "DESCRIPTION \"$libname\"" >> $objdir/$libname.def;$echo DATA >> $objdir/$libname.def;$echo " SINGLE NONSHARED" >> $objdir/$libname.def;$echo EXPORTS >> $objdir/$libname.def;emxexp$libobjs >> $objdir/$libname.def;$CC -Zdll -Zcrtdll -o $lib$libobjs $objdir/$libname.def'
+    archive_cmds='$echo "LIBRARY $libname INITINSTANCE" > $objdir/$libname.def;$echo "DESCRIPTION ¥"$libname¥"" >> $objdir/$libname.def;$echo DATA >> $objdir/$libname.def;$echo " SINGLE NONSHARED" >> $objdir/$libname.def;$echo EXPORTS >> $objdir/$libname.def;emxexp$libobjs >> $objdir/$libname.def;$CC -Zdll -Zcrtdll -o $lib$libobjs $objdir/$libname.def'
     old_archive_from_new_cmds='emximp -o $objdir/$libname.a $objdir/$libname.def'
     ;;
 
   osf3* | osf4*)
-    allow_undefined_flag=' -expect_unresolved \*'
+    allow_undefined_flag=' -expect_unresolved ¥*'
     archive_cmds='$LD -shared${allow_undefined_flag} -o $lib -soname $soname -set_version $verstring$libobjs$deplibs'
     hardcode_libdir_flag_spec='${wl}-rpath ${wl}$libdir'
     hardcode_libdir_separator=:
@@ -890,7 +890,7 @@ echo "$ac_t$ld_shlibs" 1>&6
 if test -z "$NM"; then
   echo $ac_n "checking for BSD-compatible nm... $ac_c" 1>&6
   case "$NM" in
-  /* | [A-Za-z]:\\*) ;; # Let the user override the test with a path.
+  /* | [A-Za-z]:¥¥*) ;; # Let the user override the test with a path.
   *)
     IFS="${IFS= 	}"; ac_save_ifs="$IFS"; IFS="${IFS}:"
     for ac_dir in /usr/ucb /usr/ccs/bin $PATH /bin; do
@@ -926,10 +926,10 @@ echo $ac_n "checking command to parse $NM output... $ac_c" 1>&6
 symcode='[BCDEGRSTU]'
 
 # Regexp to match symbols that can be accessed directly from C.
-sympat='\([_A-Za-z][_A-Za-z0-9]*\)'
+sympat='¥([_A-Za-z][_A-Za-z0-9]*¥)'
 
 # Transform the above into a raw symbol and a C symbol.
-symxfrm='\1 \1'
+symxfrm='¥1 ¥1'
 
 # Define system-specific variables.
 case "$host_os" in
@@ -969,16 +969,16 @@ main(){nm_test_var='a';nm_test_func();return(0);}
 EOF
 
 echo "$progname:971: checking if global_symbol_pipe works" >&5
-if { (eval echo $progname:972: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; } && test -s conftest.o; then
+if { (eval echo $progname:972: ¥"$ac_compile¥") 1>&5; (eval $ac_compile) 2>&5; } && test -s conftest.o; then
   # Now try to grab the symbols.
   nlist=conftest.nm
-  if { echo "$progname:975: eval \"$NM conftest.o | $global_symbol_pipe > $nlist\"" >&5; eval "$NM conftest.o | $global_symbol_pipe > $nlist 2>&5"; } && test -s "$nlist"; then
+  if { echo "$progname:975: eval ¥"$NM conftest.o | $global_symbol_pipe > $nlist¥"" >&5; eval "$NM conftest.o | $global_symbol_pipe > $nlist 2>&5"; } && test -s "$nlist"; then
 
     # Try sorting and uniquifying the output.
     if sort "$nlist" | uniq > "$nlist"T; then
       mv -f "$nlist"T "$nlist"
       wcout=`wc "$nlist" 2>/dev/null`
-      count=`$echo "X$wcout" | $Xsed -e 's/^[ 	]*\([0-9][0-9]*\).*$/\1/'`
+      count=`$echo "X$wcout" | $Xsed -e 's/^[ 	]*¥([0-9][0-9]*¥).*$/¥1/'`
       (test "$count" -ge 0) 2>/dev/null || count=-1
     else
       rm -f "$nlist"T
@@ -995,7 +995,7 @@ extern "C" {
 
 EOF
         # Now generate the symbol file.
-        sed 's/^.* \(.*\)$/extern char \1;/' < "$nlist" >> conftest.c
+        sed 's/^.* ¥(.*¥)$/extern char ¥1;/' < "$nlist" >> conftest.c
 
 	cat <<EOF >> conftest.c
 #if defined (__STDC__) && __STDC__
@@ -1015,8 +1015,8 @@ struct {
 dld_preloaded_symbols[] =
 {
 EOF
-        sed 's/^\(.*\) \(.*\)$/  {"\1", (__ptr_t) \&\2},/' < "$nlist" >> conftest.c
-        cat <<\EOF >> conftest.c
+        sed 's/^¥(.*¥) ¥(.*¥)$/  {"¥1", (__ptr_t) ¥&¥2},/' < "$nlist" >> conftest.c
+        cat <<¥EOF >> conftest.c
   {0, (__ptr_t) 0}
 };
 
@@ -1030,7 +1030,7 @@ EOF
 	save_CFLAGS="$CFLAGS"
         LIBS='conftestm.o'
 	CFLAGS="$CFLAGS$no_builtin_flag"
-        if { (eval echo $progname:1033: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest; then
+        if { (eval echo $progname:1033: ¥"$ac_link¥") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest; then
           pipe_works=yes
         else
           echo "$progname: failed program was:" >&5
@@ -1059,12 +1059,12 @@ test "$pipe_works" = yes || global_symbol_pipe=
 # Check hardcoding attributes.
 echo $ac_n "checking how to hardcode library paths into programs... $ac_c" 1>&6
 hardcode_action=
-if test -n "$hardcode_libdir_flag_spec" || \
+if test -n "$hardcode_libdir_flag_spec" || ¥
    test -n "$runpath_var"; then
 
   # We can hardcode non-existant directories.
-  if test "$hardcode_direct" != no && \
-     test "$hardcode_minus_L" != no && \
+  if test "$hardcode_direct" != no && ¥
+     test "$hardcode_minus_L" != no && ¥
      test "$hardcode_shlibpath_var" != no; then
 
     # Linking always hardcodes the temporary library directory.
@@ -1073,8 +1073,8 @@ if test -n "$hardcode_libdir_flag_spec" || \
     # We can link without hardcoding, and we can hardcode nonexisting dirs.
     hardcode_action=immediate
   fi
-elif test "$hardcode_direct" != yes && \
-     test "$hardcode_minus_L" != yes && \
+elif test "$hardcode_direct" != yes && ¥
+     test "$hardcode_minus_L" != yes && ¥
      test "$hardcode_shlibpath_var" != yes; then
   # We cannot hardcode anything.
   hardcode_action=unsupported
@@ -1120,7 +1120,7 @@ aix3* | aix4*)
 amigaos*)
   library_names_spec='$libname.ixlibrary $libname.a'
   # Create ${libname}_ixlibrary.a entries in /sys/libs.
-  finish_eval='for lib in `ls $libdir/*.ixlibrary 2>/dev/null`; do libname=`$echo "X$lib" | $Xsed -e '\''s%^.*/\([^/]*\)\.ixlibrary$%\1%'\''`; test $rm /sys/libs/${libname}_ixlibrary.a; $show "(cd /sys/libs && $LN_S $lib ${libname}_ixlibrary.a)"; (cd /sys/libs && $LN_S $lib ${libname}_ixlibrary.a) || exit 1; done'
+  finish_eval='for lib in `ls $libdir/*.ixlibrary 2>/dev/null`; do libname=`$echo "X$lib" | $Xsed -e '¥''s%^.*/¥([^/]*¥)¥.ixlibrary$%¥1%'¥''`; test $rm /sys/libs/${libname}_ixlibrary.a; $show "(cd /sys/libs && $LN_S $lib ${libname}_ixlibrary.a)"; (cd /sys/libs && $LN_S $lib ${libname}_ixlibrary.a) || exit 1; done'
   ;;
 
 freebsd2* | freebsd3*)
@@ -1254,7 +1254,7 @@ case "$host_os" in
 aix*)
   test "$enable_shared" = yes && enable_static=no
   if test -n "$RANLIB"; then
-    archive_cmds="$archive_cmds;\$RANLIB \$lib"
+    archive_cmds="$archive_cmds;¥$RANLIB ¥$lib"
     postinstall_cmds='$RANLIB $lib'
   fi
   ;;
@@ -1284,25 +1284,25 @@ echo "$ac_t$objdir" 1>&6
 ltecho="$echo"
 
 # Now quote all the things that may contain metacharacters.
-for var in ltecho old_CC old_CFLAGS old_CPPFLAGS old_LD old_NM old_RANLIB \
-  old_LN_S AR CC LD LN_S NM reload_flag reload_cmds wl pic_flag \
-  link_static_flag no_builtin_flag export_dynamic_flag_spec \
-  libname_spec library_names_spec soname_spec RANLIB \
-  old_archive_cmds old_archive_from_new_cmds old_postinstall_cmds \
-  old_postuninstall_cmds archive_cmds postinstall_cmds postuninstall_cmds \
-  allow_undefined_flag no_undefined_flag \
-  finish_cmds finish_eval global_symbol_pipe \
+for var in ltecho old_CC old_CFLAGS old_CPPFLAGS old_LD old_NM old_RANLIB ¥
+  old_LN_S AR CC LD LN_S NM reload_flag reload_cmds wl pic_flag ¥
+  link_static_flag no_builtin_flag export_dynamic_flag_spec ¥
+  libname_spec library_names_spec soname_spec RANLIB ¥
+  old_archive_cmds old_archive_from_new_cmds old_postinstall_cmds ¥
+  old_postuninstall_cmds archive_cmds postinstall_cmds postuninstall_cmds ¥
+  allow_undefined_flag no_undefined_flag ¥
+  finish_cmds finish_eval global_symbol_pipe ¥
   hardcode_libdir_flag_spec hardcode_libdir_separator; do
 
   case "$var" in
-  reload_cmds | old_archive_cmds | old_archive_from_new_cmds | \
-  old_postinstall_cmds | old_postuninstall_cmds | archive_cmds | \
+  reload_cmds | old_archive_cmds | old_archive_from_new_cmds | ¥
+  old_postinstall_cmds | old_postuninstall_cmds | archive_cmds | ¥
   postinstall_cmds | postuninstall_cmds | finish_cmds)
     # Double-quote double-evaled strings.
-    eval "$var=\`\$echo \"X\$$var\" | \$Xsed -e \"\$double_quote_subst\" -e \"\$sed_quote_subst\"\`"
+    eval "$var=¥`¥$echo ¥"X¥$$var¥" | ¥$Xsed -e ¥"¥$double_quote_subst¥" -e ¥"¥$sed_quote_subst¥"¥`"
     ;;
   *)
-    eval "$var=\`\$echo \"X\$$var\" | \$Xsed -e \"\$sed_quote_subst\"\`"
+    eval "$var=¥`¥$echo ¥"X¥$$var¥" | ¥$Xsed -e ¥"¥$sed_quote_subst¥"¥`"
     ;;
   esac
 done
@@ -1343,8 +1343,8 @@ cat <<EOF > $ofile
 # This program was configured as follows,
 # on host `(hostname || uname -n) 2>/dev/null | sed 1q`:
 #
-# CC="$old_CC" CFLAGS="$old_CFLAGS" CPPFLAGS="$old_CPPFLAGS" \\
-# LD="$old_LD" NM="$old_NM" RANLIB="$old_RANLIB" LN_S="$old_LN_S" \\
+# CC="$old_CC" CFLAGS="$old_CFLAGS" CPPFLAGS="$old_CPPFLAGS" ¥¥
+# LD="$old_LD" NM="$old_NM" RANLIB="$old_RANLIB" LN_S="$old_LN_S" ¥¥
 #   $0$ltconfig_args
 #
 # Compiler and other test output produced by $progname, useful for
@@ -1355,7 +1355,7 @@ Xsed="sed -e s/^X//"
 
 # The HP-UX ksh and POSIX shell print the target directory to stdout
 # if CDPATH is set.
-if test "\${CDPATH+set}" = set; then CDPATH=; export CDPATH; fi
+if test "¥${CDPATH+set}" = set; then CDPATH=; export CDPATH; fi
 
 # An echo program that does not interpret backslashes.
 echo="$ltecho"
@@ -1464,8 +1464,8 @@ shlibpath_var=$shlibpath_var
 # How to hardcode a shared library path into an executable.
 hardcode_action=$hardcode_action
 
-# Flag to hardcode \$libdir into a binary during linking.
-# This must work even if \$libdir does not exist.
+# Flag to hardcode ¥$libdir into a binary during linking.
+# This must work even if ¥$libdir does not exist.
 hardcode_libdir_flag_spec="$hardcode_libdir_flag_spec"
 
 # Whether we need a single -rpath flag with a separated argument.
@@ -1487,7 +1487,7 @@ EOF
 
 case "$host_os" in
 aix3*)
-  cat <<\EOF >> $ofile
+  cat <<¥EOF >> $ofile
 # AIX sometimes has problems with the GCC collect2 program.  For some
 # reason, if we set the COLLECT_NAMES environment variable, the problems
 # vanish in a puff of smoke.

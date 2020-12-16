@@ -4,14 +4,14 @@ object LinkDetailForm: TLinkDetailForm
   Width = 637
   Height = 350
   ActiveControl = WaveAreaPanel
-  Caption = 'ƒŠƒ“ƒN‚Ì•ÒW'
+  Caption = 'ãƒªãƒ³ã‚¯ã®ç·¨é›†'
   Color = clBtnFace
   Constraints.MinHeight = 189
   Constraints.MinWidth = 612
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   OnClose = FormClose
@@ -153,8 +153,8 @@ object LinkDetailForm: TLinkDetailForm
       Top = 5
       Width = 109
       Height = 12
-      Hint = 'ƒŠƒ“ƒN‚Ü‚Å‚ ‚Æ %.1f •b'
-      Caption = 'ƒŠƒ“ƒN‚Ü‚Å‚ ‚Æ %.1f •b'
+      Hint = 'ãƒªãƒ³ã‚¯ã¾ã§ã‚ã¨ %.1f ç§’'
+      Caption = 'ãƒªãƒ³ã‚¯ã¾ã§ã‚ã¨ %.1f ç§’'
       Visible = False
     end
     object BottomToolBar: TToolBar
@@ -279,7 +279,7 @@ object LinkDetailForm: TLinkDetailForm
       Height = 25
       Anchors = [akTop, akRight]
       Cancel = True
-      Caption = 'ƒLƒƒƒ“ƒZƒ‹'
+      Caption = 'ã‚­ãƒ£ãƒ³ã‚»ãƒ«'
       TabOrder = 3
       OnClick = CancelButtonClick
     end
@@ -329,11 +329,11 @@ object LinkDetailForm: TLinkDetailForm
       Width = 45
       Height = 12
       Anchors = [akTop, akRight]
-      Caption = 'ƒŠƒ“ƒNŒã'
+      Caption = 'ãƒªãƒ³ã‚¯å¾Œ'
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = [fsBold]
       ParentFont = False
       Transparent = True
@@ -343,11 +343,11 @@ object LinkDetailForm: TLinkDetailForm
       Top = 8
       Width = 45
       Height = 12
-      Caption = 'ƒŠƒ“ƒN‘O'
+      Caption = 'ãƒªãƒ³ã‚¯å‰'
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
       Font.Style = [fsBold]
       ParentFont = False
       Transparent = True
@@ -358,175 +358,175 @@ object LinkDetailForm: TLinkDetailForm
     Left = 456
     Top = 24
     object StopPlayAction: TAction
-      Category = 'Ä¶'
-      Caption = 'Ä¶’â~(&Q)'
-      Hint = 'Ä¶‚ğ’â~'
+      Category = 'å†ç”Ÿ'
+      Caption = 'å†ç”Ÿåœæ­¢(&Q)'
+      Hint = 'å†ç”Ÿã‚’åœæ­¢'
       ImageIndex = 4
       ShortCut = 81
       OnExecute = StopPlayActionExecute
     end
     object ZoomInAction: TAction
-      Category = '•\¦'
-      Caption = 'ƒY[ƒ€EƒCƒ“(&I)'
-      Hint = '”gŒ`‚ğŠg‘å‚·‚é'
+      Category = 'è¡¨ç¤º'
+      Caption = 'ã‚ºãƒ¼ãƒ ãƒ»ã‚¤ãƒ³(&I)'
+      Hint = 'æ³¢å½¢ã‚’æ‹¡å¤§ã™ã‚‹'
       ImageIndex = 9
       ShortCut = 73
       OnExecute = ZoomInActionExecute
     end
     object ZoomOutAction: TAction
-      Category = '•\¦'
-      Caption = 'ƒY[ƒ€EƒAƒEƒg(&O)'
-      Hint = '”gŒ`‚ğk¬‚·‚é'
+      Category = 'è¡¨ç¤º'
+      Caption = 'ã‚ºãƒ¼ãƒ ãƒ»ã‚¢ã‚¦ãƒˆ(&O)'
+      Hint = 'æ³¢å½¢ã‚’ç¸®å°ã™ã‚‹'
       ImageIndex = 10
       ShortCut = 79
       OnExecute = ZoomOutActionExecute
     end
     object PlayHalfSecAction: TAction
-      Category = 'Ä¶'
-      Caption = '0.5•b‘O‚©‚çÄ¶(&0)'
-      Hint = '0.5•b‘O‚©‚çÄ¶'
+      Category = 'å†ç”Ÿ'
+      Caption = '0.5ç§’å‰ã‹ã‚‰å†ç”Ÿ(&0)'
+      Hint = '0.5ç§’å‰ã‹ã‚‰å†ç”Ÿ'
       ImageIndex = 25
       ShortCut = 16432
       OnExecute = PlayHalfSecActionExecute
     end
     object Play1SecAction: TAction
-      Category = 'Ä¶'
-      Caption = '1•b‘O‚©‚çÄ¶(&1)'
-      Hint = '1•b‘O‚©‚çÄ¶'
+      Category = 'å†ç”Ÿ'
+      Caption = '1ç§’å‰ã‹ã‚‰å†ç”Ÿ(&1)'
+      Hint = '1ç§’å‰ã‹ã‚‰å†ç”Ÿ'
       ImageIndex = 26
       ShortCut = 16433
       OnExecute = Play1SecActionExecute
     end
     object Play2SecAction: TAction
-      Category = 'Ä¶'
-      Caption = '2•b‘O‚©‚çÄ¶(&2)'
-      Hint = '2•b‘O‚©‚çÄ¶'
+      Category = 'å†ç”Ÿ'
+      Caption = '2ç§’å‰ã‹ã‚‰å†ç”Ÿ(&2)'
+      Hint = '2ç§’å‰ã‹ã‚‰å†ç”Ÿ'
       ImageIndex = 27
       ShortCut = 16434
       OnExecute = Play2SecActionExecute
     end
     object Play3SecAction: TAction
-      Category = 'Ä¶'
-      Caption = '3•b‘O‚©‚çÄ¶(&3)'
-      Hint = '3•b‘O‚©‚çÄ¶'
+      Category = 'å†ç”Ÿ'
+      Caption = '3ç§’å‰ã‹ã‚‰å†ç”Ÿ(&3)'
+      Hint = '3ç§’å‰ã‹ã‚‰å†ç”Ÿ'
       ImageIndex = 28
       ShortCut = 16435
       OnExecute = Play3SecActionExecute
     end
     object Play5SecAction: TAction
-      Category = 'Ä¶'
-      Caption = '5•b‘O‚©‚çÄ¶(&5)'
-      Hint = '5•b‘O‚©‚çÄ¶'
+      Category = 'å†ç”Ÿ'
+      Caption = '5ç§’å‰ã‹ã‚‰å†ç”Ÿ(&5)'
+      Hint = '5ç§’å‰ã‹ã‚‰å†ç”Ÿ'
       ImageIndex = 29
       ShortCut = 16437
       OnExecute = Play5SecActionExecute
     end
     object SmoothAction: TAction
-      Category = '‘®«'
-      Caption = 'ƒXƒ€[ƒY(&S)'
-      Hint = 'ƒŠƒ“ƒN‚ğƒXƒ€[ƒY‚É‚·‚é'
+      Category = 'å±æ€§'
+      Caption = 'ã‚¹ãƒ ãƒ¼ã‚º(&S)'
+      Hint = 'ãƒªãƒ³ã‚¯ã‚’ã‚¹ãƒ ãƒ¼ã‚ºã«ã™ã‚‹'
       ImageIndex = 30
       ShortCut = 77
       OnExecute = SmoothActionExecute
     end
     object BeforePrevCrossAction: TAction
-      Category = 'ƒŠƒ“ƒN‘O'
-      Caption = '‘O‚ÌƒNƒƒbƒVƒ“ƒOEƒ|ƒCƒ“ƒg‚Ö(&A)'
-      Hint = '‘O‚ÌƒNƒƒbƒVƒ“ƒOEƒ|ƒCƒ“ƒg‚Ö'
+      Category = 'ãƒªãƒ³ã‚¯å‰'
+      Caption = 'å‰ã®ã‚¯ãƒ­ãƒƒã‚·ãƒ³ã‚°ãƒ»ãƒã‚¤ãƒ³ãƒˆã¸(&A)'
+      Hint = 'å‰ã®ã‚¯ãƒ­ãƒƒã‚·ãƒ³ã‚°ãƒ»ãƒã‚¤ãƒ³ãƒˆã¸'
       ImageIndex = 22
       ShortCut = 65
       OnExecute = BeforePrevCrossActionExecute
     end
     object BeforePrevFastAction: TAction
-      Category = 'ƒŠƒ“ƒN‘O'
-      Caption = '‘O‚Ö20ƒXƒeƒbƒv(&S)'
-      Hint = '‘O‚Ö20ƒXƒeƒbƒv'
+      Category = 'ãƒªãƒ³ã‚¯å‰'
+      Caption = 'å‰ã¸20ã‚¹ãƒ†ãƒƒãƒ—(&S)'
+      Hint = 'å‰ã¸20ã‚¹ãƒ†ãƒƒãƒ—'
       ImageIndex = 23
       ShortCut = 83
       OnExecute = BeforePrevFastActionExecute
     end
     object BeforePrevStepAction: TAction
-      Category = 'ƒŠƒ“ƒN‘O'
-      Caption = '‘O‚Ö1ƒXƒeƒbƒv(&D)'
-      Hint = '‘O‚Ö1ƒXƒeƒbƒv'
+      Category = 'ãƒªãƒ³ã‚¯å‰'
+      Caption = 'å‰ã¸1ã‚¹ãƒ†ãƒƒãƒ—(&D)'
+      Hint = 'å‰ã¸1ã‚¹ãƒ†ãƒƒãƒ—'
       ImageIndex = 21
       ShortCut = 68
       OnExecute = BeforePrevStepActionExecute
     end
     object BeforeNextStepAction: TAction
-      Category = 'ƒŠƒ“ƒN‘O'
-      Caption = 'Ÿ‚Ö1ƒXƒeƒbƒv(&F)'
-      Hint = 'Ÿ‚Ö1ƒXƒeƒbƒv'
+      Category = 'ãƒªãƒ³ã‚¯å‰'
+      Caption = 'æ¬¡ã¸1ã‚¹ãƒ†ãƒƒãƒ—(&F)'
+      Hint = 'æ¬¡ã¸1ã‚¹ãƒ†ãƒƒãƒ—'
       ImageIndex = 18
       ShortCut = 70
       OnExecute = BeforeNextStepActionExecute
     end
     object BeforeNextFastAction: TAction
-      Category = 'ƒŠƒ“ƒN‘O'
-      Caption = 'Ÿ‚Ö20ƒXƒeƒbƒv(&G)'
-      Hint = 'Ÿ‚Ö20ƒXƒeƒbƒv'
+      Category = 'ãƒªãƒ³ã‚¯å‰'
+      Caption = 'æ¬¡ã¸20ã‚¹ãƒ†ãƒƒãƒ—(&G)'
+      Hint = 'æ¬¡ã¸20ã‚¹ãƒ†ãƒƒãƒ—'
       ImageIndex = 20
       ShortCut = 71
       OnExecute = BeforeNextFastActionExecute
     end
     object BeforeNextCrossAction: TAction
-      Category = 'ƒŠƒ“ƒN‘O'
-      Caption = 'Ÿ‚ÌƒNƒƒbƒVƒ“ƒOEƒ|ƒCƒ“ƒg‚Ö(&H)'
-      Hint = 'Ÿ‚ÌƒNƒƒbƒVƒ“ƒOEƒ|ƒCƒ“ƒg‚Ö'
+      Category = 'ãƒªãƒ³ã‚¯å‰'
+      Caption = 'æ¬¡ã®ã‚¯ãƒ­ãƒƒã‚·ãƒ³ã‚°ãƒ»ãƒã‚¤ãƒ³ãƒˆã¸(&H)'
+      Hint = 'æ¬¡ã®ã‚¯ãƒ­ãƒƒã‚·ãƒ³ã‚°ãƒ»ãƒã‚¤ãƒ³ãƒˆã¸'
       ImageIndex = 19
       ShortCut = 72
       OnExecute = BeforeNextCrossActionExecute
     end
     object AfterPrevCrossAction: TAction
-      Category = 'ƒŠƒ“ƒNŒã'
-      Caption = '‘O‚ÌƒNƒƒbƒVƒ“ƒOEƒ|ƒCƒ“ƒg‚Ö(&Z)'
-      Hint = '‘O‚ÌƒNƒƒbƒVƒ“ƒOEƒ|ƒCƒ“ƒg‚Ö'
+      Category = 'ãƒªãƒ³ã‚¯å¾Œ'
+      Caption = 'å‰ã®ã‚¯ãƒ­ãƒƒã‚·ãƒ³ã‚°ãƒ»ãƒã‚¤ãƒ³ãƒˆã¸(&Z)'
+      Hint = 'å‰ã®ã‚¯ãƒ­ãƒƒã‚·ãƒ³ã‚°ãƒ»ãƒã‚¤ãƒ³ãƒˆã¸'
       ImageIndex = 22
       ShortCut = 90
       OnExecute = AfterPrevCrossActionExecute
     end
     object AfterPrevFastAction: TAction
-      Category = 'ƒŠƒ“ƒNŒã'
-      Caption = '‘O‚Ö20ƒXƒeƒbƒv(&X)'
-      Hint = '‘O‚Ö20ƒXƒeƒbƒv'
+      Category = 'ãƒªãƒ³ã‚¯å¾Œ'
+      Caption = 'å‰ã¸20ã‚¹ãƒ†ãƒƒãƒ—(&X)'
+      Hint = 'å‰ã¸20ã‚¹ãƒ†ãƒƒãƒ—'
       ImageIndex = 23
       ShortCut = 88
       OnExecute = AfterPrevFastActionExecute
     end
     object AfterPrevStepAction: TAction
-      Category = 'ƒŠƒ“ƒNŒã'
-      Caption = '‘O‚Ö1ƒXƒeƒbƒv(&C)'
-      Hint = '‘O‚Ö1ƒXƒeƒbƒv'
+      Category = 'ãƒªãƒ³ã‚¯å¾Œ'
+      Caption = 'å‰ã¸1ã‚¹ãƒ†ãƒƒãƒ—(&C)'
+      Hint = 'å‰ã¸1ã‚¹ãƒ†ãƒƒãƒ—'
       ImageIndex = 21
       ShortCut = 67
       OnExecute = AfterPrevStepActionExecute
     end
     object AfterNextStepAction: TAction
-      Category = 'ƒŠƒ“ƒNŒã'
-      Caption = 'Ÿ‚Ö1ƒXƒeƒbƒv(&V)'
-      Hint = 'Ÿ‚Ö1ƒXƒeƒbƒv'
+      Category = 'ãƒªãƒ³ã‚¯å¾Œ'
+      Caption = 'æ¬¡ã¸1ã‚¹ãƒ†ãƒƒãƒ—(&V)'
+      Hint = 'æ¬¡ã¸1ã‚¹ãƒ†ãƒƒãƒ—'
       ImageIndex = 18
       ShortCut = 86
       OnExecute = AfterNextStepActionExecute
     end
     object AfterNextFastAction: TAction
-      Category = 'ƒŠƒ“ƒNŒã'
-      Caption = 'Ÿ‚Ö20ƒXƒeƒbƒv(&B)'
-      Hint = 'Ÿ‚Ö20ƒXƒeƒbƒv'
+      Category = 'ãƒªãƒ³ã‚¯å¾Œ'
+      Caption = 'æ¬¡ã¸20ã‚¹ãƒ†ãƒƒãƒ—(&B)'
+      Hint = 'æ¬¡ã¸20ã‚¹ãƒ†ãƒƒãƒ—'
       ImageIndex = 20
       ShortCut = 66
       OnExecute = AfterNextFastActionExecute
     end
     object AfterNextCrossAction: TAction
-      Category = 'ƒŠƒ“ƒNŒã'
-      Caption = 'Ÿ‚ÌƒNƒƒbƒVƒ“ƒOEƒ|ƒCƒ“ƒg‚Ö(&N)'
-      Hint = 'Ÿ‚ÌƒNƒƒbƒVƒ“ƒOEƒ|ƒCƒ“ƒg‚Ö'
+      Category = 'ãƒªãƒ³ã‚¯å¾Œ'
+      Caption = 'æ¬¡ã®ã‚¯ãƒ­ãƒƒã‚·ãƒ³ã‚°ãƒ»ãƒã‚¤ãƒ³ãƒˆã¸(&N)'
+      Hint = 'æ¬¡ã®ã‚¯ãƒ­ãƒƒã‚·ãƒ³ã‚°ãƒ»ãƒã‚¤ãƒ³ãƒˆã¸'
       ImageIndex = 19
       ShortCut = 78
       OnExecute = AfterNextCrossActionExecute
     end
     object PlayAction: TAction
-      Category = 'Ä¶'
+      Category = 'å†ç”Ÿ'
       Caption = 'PlayAction'
       ImageIndex = 24
       ShortCut = 32
@@ -552,7 +552,7 @@ object LinkDetailForm: TLinkDetailForm
       Caption = '-'
     end
     object PlayMenuItem: TMenuItem
-      Caption = 'Ä¶'
+      Caption = 'å†ç”Ÿ'
       Default = True
       ImageIndex = 24
       ShortCut = 32

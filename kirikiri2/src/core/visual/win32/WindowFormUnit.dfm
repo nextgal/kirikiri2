@@ -1,4 +1,4 @@
-object TVPWindowForm: TTVPWindowForm
+Ôªøobject TVPWindowForm: TTVPWindowForm
   Left = 245
   Top = 137
   Width = 323
@@ -12,7 +12,7 @@ object TVPWindowForm: TTVPWindowForm
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = 'ÇlÇr ÇoÉSÉVÉbÉN'
+  Font.Name = 'Ôº≠Ôº≥ Ôº∞„Ç¥„Ç∑„ÉÉ„ÇØ'
   Font.Style = []
   Menu = MainMenu
   OldCreateOrder = False
@@ -54,23 +54,23 @@ object TVPWindowForm: TTVPWindowForm
     Left = 218
     Top = 10
     object ShowControllerMenuItem: TMenuItem
-      Caption = 'ÉRÉìÉgÉçÅ[Éâ(&Z)'
+      Caption = '„Ç≥„É≥„Éà„É≠„Éº„É©(&Z)'
       ShortCut = 8304
       Visible = False
       OnClick = ShowControllerMenuItemClick
     end
     object ShowScriptEditorMenuItem: TMenuItem
-      Caption = 'ÉXÉNÉäÉvÉgÉGÉfÉBÉ^(&E)'
+      Caption = '„Çπ„ÇØ„É™„Éó„Éà„Ç®„Éá„Ç£„Çø(&E)'
       ShortCut = 8305
       OnClick = ShowScriptEditorMenuItemClick
     end
     object ShowWatchMenuItem: TMenuItem
-      Caption = 'äƒéãéÆ(&W)'
+      Caption = 'Áõ£Ë¶ñÂºè(&W)'
       ShortCut = 8306
       OnClick = ShowWatchMenuItemClick
     end
     object ShowConsoleMenuItem: TMenuItem
-      Caption = 'ÉRÉìÉ\Å[Éã(&S)'
+      Caption = '„Ç≥„É≥„ÇΩ„Éº„É´(&S)'
       ShortCut = 8307
       OnClick = ShowConsoleMenuItemClick
     end

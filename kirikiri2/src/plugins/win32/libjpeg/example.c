@@ -112,7 +112,7 @@ write_JPEG_file (char * filename, int quality)
    * requires it in order to write binary files.
    */
   if ((outfile = fopen(filename, "wb")) == NULL) {
-    fprintf(stderr, "can't open %s\n", filename);
+    fprintf(stderr, "can't open %s¥n", filename);
     exit(1);
   }
   jpeg_stdio_dest(&cinfo, outfile);
@@ -304,7 +304,7 @@ read_JPEG_file (char * filename)
    */
 
   if ((infile = fopen(filename, "rb")) == NULL) {
-    fprintf(stderr, "can't open %s\n", filename);
+    fprintf(stderr, "can't open %s¥n", filename);
     return 0;
   }
 

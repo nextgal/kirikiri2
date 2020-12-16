@@ -98,14 +98,14 @@ IImage* CImageLoaderPng::loadImage(io::IReadFile* file) const
 	// Read the first few bytes of the PNG file
 	if( file->read(buffer, 8) != 8 )
 	{
-		os::Printer::log("LOAD PNG: can't read file\n", file->getFileName(), ELL_ERROR);
+		os::Printer::log("LOAD PNG: can't read file¥n", file->getFileName(), ELL_ERROR);
 		return 0;
 	}
 
 	// Check if it really is a PNG file
 	if( png_sig_cmp(buffer, 0, 8) )
 	{
-		os::Printer::log("LOAD PNG: not really a png\n", file->getFileName(), ELL_ERROR);
+		os::Printer::log("LOAD PNG: not really a png¥n", file->getFileName(), ELL_ERROR);
 		return 0;
 	}
 
@@ -114,7 +114,7 @@ IImage* CImageLoaderPng::loadImage(io::IReadFile* file) const
 		NULL, (png_error_ptr)png_cpexcept_error, NULL);
 	if (!png_ptr)
 	{
-		os::Printer::log("LOAD PNG: Internal PNG create read struct failure\n", file->getFileName(), ELL_ERROR);
+		os::Printer::log("LOAD PNG: Internal PNG create read struct failure¥n", file->getFileName(), ELL_ERROR);
 		return 0;
 	}
 
@@ -122,7 +122,7 @@ IImage* CImageLoaderPng::loadImage(io::IReadFile* file) const
 	png_infop info_ptr = png_create_info_struct(png_ptr);
 	if (!info_ptr)
 	{
-		os::Printer::log("LOAD PNG: Internal PNG create info struct failure\n", file->getFileName(), ELL_ERROR);
+		os::Printer::log("LOAD PNG: Internal PNG create info struct failure¥n", file->getFileName(), ELL_ERROR);
 		png_destroy_read_struct(&png_ptr, NULL, NULL);
 		return 0;
 	}
@@ -210,7 +210,7 @@ IImage* CImageLoaderPng::loadImage(io::IReadFile* file) const
 		image = new CImage(ECF_R8G8B8, core::dimension2d<s32>(Width, Height));
 	if (!image)
 	{
-		os::Printer::log("LOAD PNG: Internal PNG create image struct failure\n", file->getFileName(), ELL_ERROR);
+		os::Printer::log("LOAD PNG: Internal PNG create image struct failure¥n", file->getFileName(), ELL_ERROR);
 		png_destroy_read_struct(&png_ptr, NULL, NULL);
 		return 0;
 	}
@@ -219,7 +219,7 @@ IImage* CImageLoaderPng::loadImage(io::IReadFile* file) const
 	RowPointers = new png_bytep[Height];
 	if (!RowPointers)
 	{
-		os::Printer::log("LOAD PNG: Internal PNG create row pointers failure\n", file->getFileName(), ELL_ERROR);
+		os::Printer::log("LOAD PNG: Internal PNG create row pointers failure¥n", file->getFileName(), ELL_ERROR);
 		png_destroy_read_struct(&png_ptr, NULL, NULL);
 		delete image;
 		return 0;

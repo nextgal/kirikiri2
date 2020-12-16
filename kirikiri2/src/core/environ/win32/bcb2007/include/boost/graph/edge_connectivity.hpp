@@ -174,7 +174,7 @@ namespace boost {
                           std::back_inserter(non_neighbor_S));
     }
     //-------------------------------------------------------------------------
-    // Compute edges of the cut [S*, ~S*]
+    // Compute edges of the cut [S*, ‾S*]
     std::vector<bool> in_S_star(num_vertices(g), false);
     typename std::vector<vertex_descriptor>::iterator si;
     for (si = S_star.begin(); si != S_star.end(); ++si)

@@ -223,14 +223,14 @@ template<class T, unsigned int p, unsigned int q>
 const bool fibonacci_validation<T, p, q>::is_specialized;
 #endif
 
-#define BOOST_RANDOM_FIBONACCI_VAL(T,P,Q,V,E) \
-template<> \
-struct fibonacci_validation<T, P, Q>  \
-{                                     \
-  BOOST_STATIC_CONSTANT(bool, is_specialized = true);     \
-  static T value() { return V; }      \
-  static T tolerance()                \
-    { return std::max(E, static_cast<T>(5*std::numeric_limits<T>::epsilon())); } \
+#define BOOST_RANDOM_FIBONACCI_VAL(T,P,Q,V,E) ¥
+template<> ¥
+struct fibonacci_validation<T, P, Q>  ¥
+{                                     ¥
+  BOOST_STATIC_CONSTANT(bool, is_specialized = true);     ¥
+  static T value() { return V; }      ¥
+  static T tolerance()                ¥
+    { return std::max(E, static_cast<T>(5*std::numeric_limits<T>::epsilon())); } ¥
 };
 // (The extra static_cast<T> in the std::max call above is actually
 // unnecessary except for HP aCC 1.30, which claims that
@@ -304,7 +304,7 @@ public:
     using std::fmod;
     using std::pow;
 #endif
-    unsigned long mask = ~((~0u) << (w%32));   // now lowest w bits set
+    unsigned long mask = ‾((‾0u) << (w%32));   // now lowest w bits set
     RealType two32 = pow(RealType(2), 32);
     unsigned int j;
     for(j = 0; j < long_lag && first != last; ++j, ++first) {

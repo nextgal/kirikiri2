@@ -28,19 +28,19 @@ public:
 
 	//! Check if the file might be loaded by this class
 	/** Check is based on the file extension (e.g. ".tga")
-	\param fileName Name of file to check.
-	\return True if file seems to be loadable. */
+	¥param fileName Name of file to check.
+	¥return True if file seems to be loadable. */
 	virtual bool isALoadableFileExtension(const c8* fileName) const = 0;
 
 	//! Check if the file might be loaded by this class
 	/** Check might look into the file.
-	\param file File handle to check.
-	\return True if file seems to be loadable. */
+	¥param file File handle to check.
+	¥return True if file seems to be loadable. */
 	virtual bool isALoadableFileFormat(io::IReadFile* file) const = 0;
 
 	//! Creates a surface from the file
-	/** \param file File handle to check.
-	\return Pointer to newly created image, or 0 upon error. */
+	/** ¥param file File handle to check.
+	¥return Pointer to newly created image, or 0 upon error. */
 	virtual IImage* loadImage(io::IReadFile* file) const = 0;
 };
 

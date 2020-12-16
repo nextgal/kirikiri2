@@ -64,7 +64,7 @@ public:
             }
         }
 
-        ~scoped_lock()
+        ‾scoped_lock()
         {
             m_.l_ = 0;
         }

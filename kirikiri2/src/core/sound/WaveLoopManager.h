@@ -51,7 +51,7 @@
 		CRITICAL_SECTION CS;
 	public:
 		tTJSCriticalSection() { InitializeCriticalSection(&CS); }
-		~tTJSCriticalSection() { DeleteCriticalSection(&CS); }
+		‾tTJSCriticalSection() { DeleteCriticalSection(&CS); }
 
 		void Enter() { EnterCriticalSection(&CS); }
 		void Leave() { LeaveCriticalSection(&CS); }
@@ -69,7 +69,7 @@
 			Section->Enter();
 		}
 
-		~tTJSCriticalSectionHolder()
+		‾tTJSCriticalSectionHolder()
 		{
 			Section->Leave();
 		}
@@ -178,7 +178,7 @@ public:
 
 	virtual const tTVPWaveFormat & GetFormat() const  = 0;
 
-	virtual ~ tTVPSampleAndLabelSource() { }
+	virtual ‾ tTVPSampleAndLabelSource() { }
 };
 //---------------------------------------------------------------------------
 
@@ -215,7 +215,7 @@ class tTVPWaveLoopManager : public tTVPSampleAndLabelSource
 
 public:
 	tTVPWaveLoopManager();
-	virtual ~tTVPWaveLoopManager();
+	virtual ‾tTVPWaveLoopManager();
 
 	void SetDecoder(tTVPWaveDecoder * decoder);
 

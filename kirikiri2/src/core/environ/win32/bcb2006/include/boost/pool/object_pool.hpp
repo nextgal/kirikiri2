@@ -57,7 +57,7 @@ class object_pool: protected pool<UserAllocator>
     explicit object_pool(const size_type next_size = 32)
     :pool<UserAllocator>(sizeof(T), next_size) { }
 
-    ~object_pool();
+    ‾object_pool();
 
     // Returns 0 if out-of-memory
     element_type * malloc()
@@ -87,7 +87,7 @@ class object_pool: protected pool<UserAllocator>
 
     void destroy(element_type * const chunk)
     {
-      chunk->~T();
+      chunk->‾T();
       free(chunk);
     }
 
@@ -97,7 +97,7 @@ class object_pool: protected pool<UserAllocator>
 };
 
 template <typename T, typename UserAllocator>
-object_pool<T, UserAllocator>::~object_pool()
+object_pool<T, UserAllocator>::‾object_pool()
 {
   // handle trivial case
   if (!this->list.valid())
@@ -132,7 +132,7 @@ object_pool<T, UserAllocator>::~object_pool()
       }
 
       // This chunk is not free (allocated), so call its destructor
-      static_cast<T *>(static_cast<void *>(i))->~T();
+      static_cast<T *>(static_cast<void *>(i))->‾T();
       // and continue searching chunks in the memory block
     }
 

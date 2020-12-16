@@ -48,7 +48,7 @@ CGUIMessageBox::CGUIMessageBox(IGUIEnvironment* environment, const wchar_t* capt
 
 
 //! destructor
-CGUIMessageBox::~CGUIMessageBox()
+CGUIMessageBox::‾CGUIMessageBox()
 {
 	if (StaticText)
 		StaticText->drop();

@@ -20,7 +20,7 @@
 
 #include "boost/mpl/aux_/config/use_preprocessed.hpp"
 
-#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) \
+#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) ¥
  && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   include "boost/mpl/bool.hpp"

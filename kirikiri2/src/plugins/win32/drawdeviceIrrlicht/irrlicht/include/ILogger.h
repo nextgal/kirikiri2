@@ -33,7 +33,7 @@ class ILogger : public virtual IReferenceCounted
 public:
 
 	//! Destructor
-	virtual ~ILogger() {}
+	virtual ‾ILogger() {}
 
 	//! Returns the current set log level.
 	virtual ELOG_LEVEL getLogLevel() const = 0;
@@ -44,12 +44,12 @@ public:
 	errors are printed out. Setting it to ELL_INFORMATION, which is the
 	default setting, warnings, errors and informational texts are printed
 	out.
-	\param ll: new log level filter value. */
+	¥param ll: new log level filter value. */
 	virtual void setLogLevel(ELOG_LEVEL ll) = 0;
 
 	//! Prints out a text into the log
-	/** \param text: Text to print out.
-	\param ll: Log level of the text. If the text is an error, set
+	/** ¥param text: Text to print out.
+	¥param ll: Log level of the text. If the text is an error, set
 	it to ELL_ERROR, if it is warning set it to ELL_WARNING, and if it
 	is just an informational text, set it to ELL_INFORMATION. Texts are
 	filtered with these levels. If you want to be a text displayed,
@@ -57,10 +57,10 @@ public:
 	virtual void log(const c8* text, ELOG_LEVEL ll=ELL_INFORMATION) = 0;
 
 	//! Prints out a text into the log
-	/** \param text: Text to print out.
-	\param hint: Additional info. This string is added after a " :" to the
+	/** ¥param text: Text to print out.
+	¥param hint: Additional info. This string is added after a " :" to the
 	string.
-	\param ll: Log level of the text. If the text is an error, set
+	¥param ll: Log level of the text. If the text is an error, set
 	it to ELL_ERROR, if it is warning set it to ELL_WARNING, and if it
 	is just an informational text, set it to ELL_INFORMATION. Texts are
 	filtered with these levels. If you want to be a text displayed,
@@ -68,10 +68,10 @@ public:
 	virtual void log(const c8* text, const c8* hint, ELOG_LEVEL ll=ELL_INFORMATION) = 0;
 
 	//! Prints out a text into the log
-	/** \param text: Text to print out.
-	\param hint: Additional info. This string is added after a " :" to the
+	/** ¥param text: Text to print out.
+	¥param hint: Additional info. This string is added after a " :" to the
 	string.
-	\param ll: Log level of the text. If the text is an error, set
+	¥param ll: Log level of the text. If the text is an error, set
 	it to ELL_ERROR, if it is warning set it to ELL_WARNING, and if it
 	is just an informational text, set it to ELL_INFORMATION. Texts are
 	filtered with these levels. If you want to be a text displayed,
@@ -79,8 +79,8 @@ public:
 	virtual void log(const wchar_t* text, const wchar_t* hint, ELOG_LEVEL ll=ELL_INFORMATION) = 0;
 
 	//! Prints out a text into the log
-	/** \param text: Text to print out.
-	\param ll: Log level of the text. If the text is an error, set
+	/** ¥param text: Text to print out.
+	¥param ll: Log level of the text. If the text is an error, set
 	it to ELL_ERROR, if it is warning set it to ELL_WARNING, and if it
 	is just an informational text, set it to ELL_INFORMATION. Texts are
 	filtered with these levels. If you want to be a text displayed,

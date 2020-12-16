@@ -75,7 +75,7 @@ public:
             }
         }
 
-        ~scoped_lock()
+        ‾scoped_lock()
         {
             atomic_inc(&m_.a_);
         }

@@ -6,7 +6,7 @@
 	See details of license at "license.txt"
 */
 //---------------------------------------------------------------------------
-//!@file •`‰æƒfƒoƒCƒXŠÇ—
+//!@file æç”»ãƒ‡ãƒã‚¤ã‚¹ç®¡ç†
 //---------------------------------------------------------------------------
 #ifndef DRAWDEVICE_H
 #define DRAWDEVICE_H
@@ -16,66 +16,66 @@
 
 
 //---------------------------------------------------------------------------
-//! @brief		•`‰æƒfƒoƒCƒXƒCƒ“ƒ^[ƒtƒF[ƒX‚ÌŠî–{“I‚ÈÀ‘•
+//! @brief		æç”»ãƒ‡ãƒã‚¤ã‚¹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã®åŸºæœ¬çš„ãªå®Ÿè£…
 //---------------------------------------------------------------------------
 class tTVPDrawDevice : public iTVPDrawDevice
 {
 protected:
 	iTVPWindow * Window;
-	size_t PrimaryLayerManagerIndex; //!< ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„ƒ}ƒl[ƒWƒƒ
-	std::vector<iTVPLayerManager *> Managers; //!< ƒŒƒCƒ„ƒ}ƒl[ƒWƒƒ‚Ì”z—ñ
-	tTVPRect DestRect; //!< •`‰ææˆÊ’u
+	size_t PrimaryLayerManagerIndex; //!< ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤ãƒãƒãƒ¼ã‚¸ãƒ£
+	std::vector<iTVPLayerManager *> Managers; //!< ãƒ¬ã‚¤ãƒ¤ãƒãƒãƒ¼ã‚¸ãƒ£ã®é…åˆ—
+	tTVPRect DestRect; //!< æç”»å…ˆä½ç½®
 
 protected:
-	tTVPDrawDevice(); //!< ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	tTVPDrawDevice(); //!< ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 protected:
-	virtual ~tTVPDrawDevice(); //!< ƒfƒXƒgƒ‰ƒNƒ^
+	virtual â€¾tTVPDrawDevice(); //!< ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
 public:
-	//! @brief		w’èˆÊ’u‚É‚ ‚éƒŒƒCƒ„ƒ}ƒl[ƒWƒƒ‚ğ“¾‚é
-	//! @param		index		ƒCƒ“ƒfƒbƒNƒX(0`)
-	//! @return		w’èˆÊ’u‚É‚ ‚éƒŒƒCƒ„ƒ}ƒl[ƒWƒƒ(AddRef‚³‚ê‚È‚¢‚Ì‚Å’ˆÓ)B
-	//!				w’èˆÊ’u‚ÉƒŒƒCƒ„ƒ}ƒl[ƒWƒƒ‚ª‚È‚¯‚ê‚ÎNULL‚ª•Ô‚é
+	//! @brief		æŒ‡å®šä½ç½®ã«ã‚ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒãƒãƒ¼ã‚¸ãƒ£ã‚’å¾—ã‚‹
+	//! @param		index		ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹(0ã€œ)
+	//! @return		æŒ‡å®šä½ç½®ã«ã‚ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒãƒãƒ¼ã‚¸ãƒ£(AddRefã•ã‚Œãªã„ã®ã§æ³¨æ„)ã€‚
+	//!				æŒ‡å®šä½ç½®ã«ãƒ¬ã‚¤ãƒ¤ãƒãƒãƒ¼ã‚¸ãƒ£ãŒãªã‘ã‚Œã°NULLãŒè¿”ã‚‹
 	iTVPLayerManager * GetLayerManagerAt(size_t index)
 	{
 		if(Managers.size() <= index) return NULL;
 		return Managers[index];
 	}
 
-	//! @brief		Device¨LayerManager•ûŒü‚ÌÀ•W‚Ì•ÏŠ·‚ğs‚¤
-	//! @param		x		XˆÊ’u
-	//! @param		y		YˆÊ’u
-	//! @return		•ÏŠ·‚É¬Œ÷‚·‚ê‚Î^B‚³‚à‚È‚¯‚ê‚Î‹UBPrimaryLayerManagerIndex‚ÉŠY“–‚·‚é
-	//!				ƒŒƒCƒ„ƒ}ƒl[ƒWƒƒ‚ª‚È‚¯‚ê‚Î‹U‚ª•Ô‚é
-	//! @note		x, y ‚Í DestRect‚Ì (0,0) ‚ğŒ´“_‚Æ‚·‚éÀ•W‚Æ‚µ‚Ä“n‚³‚ê‚é‚ÆŒ©‚È‚·
+	//! @brief		Deviceâ†’LayerManageræ–¹å‘ã®åº§æ¨™ã®å¤‰æ›ã‚’è¡Œã†
+	//! @param		x		Xä½ç½®
+	//! @param		y		Yä½ç½®
+	//! @return		å¤‰æ›ã«æˆåŠŸã™ã‚Œã°çœŸã€‚ã•ã‚‚ãªã‘ã‚Œã°å½ã€‚PrimaryLayerManagerIndexã«è©²å½“ã™ã‚‹
+	//!				ãƒ¬ã‚¤ãƒ¤ãƒãƒãƒ¼ã‚¸ãƒ£ãŒãªã‘ã‚Œã°å½ãŒè¿”ã‚‹
+	//! @note		x, y ã¯ DestRectã® (0,0) ã‚’åŸç‚¹ã¨ã™ã‚‹åº§æ¨™ã¨ã—ã¦æ¸¡ã•ã‚Œã‚‹ã¨è¦‹ãªã™
 	bool TransformToPrimaryLayerManager(tjs_int &x, tjs_int &y);
 
-	//! @brief		LayerManager¨Device•ûŒü‚ÌÀ•W‚Ì•ÏŠ·‚ğs‚¤
-	//! @param		x		XˆÊ’u
-	//! @param		y		YˆÊ’u
-	//! @return		•ÏŠ·‚É¬Œ÷‚·‚ê‚Î^B‚³‚à‚È‚¯‚ê‚Î‹UBPrimaryLayerManagerIndex‚ÉŠY“–‚·‚é
-	//!				ƒŒƒCƒ„ƒ}ƒl[ƒWƒƒ‚ª‚È‚¯‚ê‚Î‹U‚ª•Ô‚é
-	//! @note		x, y ‚Í ƒŒƒCƒ„‚Ì (0,0) ‚ğŒ´“_‚Æ‚·‚éÀ•W‚Æ‚µ‚Ä“n‚³‚ê‚é‚ÆŒ©‚È‚·
+	//! @brief		LayerManagerâ†’Deviceæ–¹å‘ã®åº§æ¨™ã®å¤‰æ›ã‚’è¡Œã†
+	//! @param		x		Xä½ç½®
+	//! @param		y		Yä½ç½®
+	//! @return		å¤‰æ›ã«æˆåŠŸã™ã‚Œã°çœŸã€‚ã•ã‚‚ãªã‘ã‚Œã°å½ã€‚PrimaryLayerManagerIndexã«è©²å½“ã™ã‚‹
+	//!				ãƒ¬ã‚¤ãƒ¤ãƒãƒãƒ¼ã‚¸ãƒ£ãŒãªã‘ã‚Œã°å½ãŒè¿”ã‚‹
+	//! @note		x, y ã¯ ãƒ¬ã‚¤ãƒ¤ã® (0,0) ã‚’åŸç‚¹ã¨ã™ã‚‹åº§æ¨™ã¨ã—ã¦æ¸¡ã•ã‚Œã‚‹ã¨è¦‹ãªã™
 	bool TransformFromPrimaryLayerManager(tjs_int &x, tjs_int &y);
 
-//---- ƒIƒuƒWƒFƒNƒg¶‘¶ŠúŠÔ§Œä
+//---- ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿå­˜æœŸé–“åˆ¶å¾¡
 	virtual void TJS_INTF_METHOD Destruct();
 
-//---- window interface ŠÖ˜A
+//---- window interface é–¢é€£
 	virtual void TJS_INTF_METHOD SetWindowInterface(iTVPWindow * window);
 
-//---- LayerManager ‚ÌŠÇ—ŠÖ˜A
+//---- LayerManager ã®ç®¡ç†é–¢é€£
 	virtual void TJS_INTF_METHOD AddLayerManager(iTVPLayerManager * manager);
 	virtual void TJS_INTF_METHOD RemoveLayerManager(iTVPLayerManager * manager);
 
-//---- •`‰æˆÊ’uEƒTƒCƒYŠÖ˜A
+//---- æç”»ä½ç½®ãƒ»ã‚µã‚¤ã‚ºé–¢é€£
 	virtual void TJS_INTF_METHOD SetDestRectangle(const tTVPRect & rect);
 	virtual void TJS_INTF_METHOD GetSrcSize(tjs_int &w, tjs_int &h);
 	virtual void TJS_INTF_METHOD NotifyLayerResize(iTVPLayerManager * manager);
 	virtual void TJS_INTF_METHOD NotifyLayerImageChange(iTVPLayerManager * manager);
 
-//---- ƒ†[ƒU[ƒCƒ“ƒ^[ƒtƒF[ƒXŠÖ˜A
-	// window ¨ drawdevice
+//---- ãƒ¦ãƒ¼ã‚¶ãƒ¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹é–¢é€£
+	// window â†’ drawdevice
 	virtual void TJS_INTF_METHOD OnClick(tjs_int x, tjs_int y);
 	virtual void TJS_INTF_METHOD OnDoubleClick(tjs_int x, tjs_int y);
 	virtual void TJS_INTF_METHOD OnMouseDown(tjs_int x, tjs_int y, tTVPMouseButton mb, tjs_uint32 flags);
@@ -89,7 +89,7 @@ public:
 	virtual void TJS_INTF_METHOD OnMouseWheel(tjs_uint32 shift, tjs_int delta, tjs_int x, tjs_int y);
 	virtual void TJS_INTF_METHOD RecheckInputState();
 
-	// layer manager ¨ drawdevice
+	// layer manager â†’ drawdevice
 	virtual void TJS_INTF_METHOD SetDefaultMouseCursor(iTVPLayerManager * manager);
 	virtual void TJS_INTF_METHOD SetMouseCursor(iTVPLayerManager * manager, tjs_int cursor);
 	virtual void TJS_INTF_METHOD GetCursorPos(iTVPLayerManager * manager, tjs_int &x, tjs_int &y);
@@ -103,21 +103,21 @@ public:
 	virtual void TJS_INTF_METHOD SetImeMode(iTVPLayerManager * manager, tTVPImeMode mode);
 	virtual void TJS_INTF_METHOD ResetImeMode(iTVPLayerManager * manager);
 
-//---- ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„ŠÖ˜A
+//---- ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤é–¢é€£
 	virtual tTJSNI_BaseLayer * TJS_INTF_METHOD GetPrimaryLayer();
 	virtual tTJSNI_BaseLayer * TJS_INTF_METHOD GetFocusedLayer();
 	virtual void TJS_INTF_METHOD SetFocusedLayer(tTJSNI_BaseLayer * layer);
 
-//---- Ä•`‰æŠÖ˜A
+//---- å†æç”»é–¢é€£
 	virtual void TJS_INTF_METHOD RequestInvalidation(const tTVPRect & rect);
 	virtual void TJS_INTF_METHOD Update();
 	virtual void TJS_INTF_METHOD Show() = 0;
 
-//---- ƒfƒoƒbƒOx‰‡
+//---- ãƒ‡ãƒãƒƒã‚°æ”¯æ´
 	virtual void TJS_INTF_METHOD DumpLayerStructure();
 	virtual void TJS_INTF_METHOD SetShowUpdateRect(bool b);
 
-// ‚Ù‚©‚Ìƒƒ\ƒbƒh‚É‚Â‚¢‚Ä‚ÍÀ‘•‚µ‚È‚¢
+// ã»ã‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«ã¤ã„ã¦ã¯å®Ÿè£…ã—ãªã„
 };
 //---------------------------------------------------------------------------
 #endif

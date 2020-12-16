@@ -32,7 +32,7 @@ namespace scene
 		}
 
 		//! destructor
-		virtual ~SSharedMeshBuffer() { }
+		virtual ‾SSharedMeshBuffer() { }
 
 		//! returns the material of this meshbuffer
 		virtual const video::SMaterial& getMaterial() const

@@ -36,7 +36,7 @@
 #include "boost/mpl/aux_/lambda_arity_param.hpp"
 #include "boost/mpl/aux_/config/use_preprocessed.hpp"
 
-#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) \
+#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) ¥
  && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER full_lambda.hpp
@@ -59,24 +59,24 @@ namespace boost {
 namespace mpl {
 
 // local macros, #undef-ined at the end of the header
-#   define AUX_LAMBDA_PARAMS(i, param) \
-    BOOST_MPL_PP_PARAMS(i, param) \
+#   define AUX_LAMBDA_PARAMS(i, param) ¥
+    BOOST_MPL_PP_PARAMS(i, param) ¥
     /**/
 
-#   define AUX_LAMBDA_BIND_PARAMS(param) \
-    BOOST_MPL_PP_PARAMS( \
-          BOOST_MPL_METAFUNCTION_MAX_ARITY \
-        , param \
-        ) \
+#   define AUX_LAMBDA_BIND_PARAMS(param) ¥
+    BOOST_MPL_PP_PARAMS( ¥
+          BOOST_MPL_METAFUNCTION_MAX_ARITY ¥
+        , param ¥
+        ) ¥
     /**/
 
-#   define AUX_LAMBDA_BIND_N_PARAMS(i, param) \
-    BOOST_PP_COMMA_IF(i) \
-    BOOST_MPL_PP_PARAMS(i, param) \
+#   define AUX_LAMBDA_BIND_N_PARAMS(i, param) ¥
+    BOOST_PP_COMMA_IF(i) ¥
+    BOOST_MPL_PP_PARAMS(i, param) ¥
     /**/
 
-#   define AUX_ARITY_PARAM(param) \
-    BOOST_MPL_AUX_LAMBDA_ARITY_PARAM(param) \
+#   define AUX_ARITY_PARAM(param) ¥
+    BOOST_MPL_AUX_LAMBDA_ARITY_PARAM(param) ¥
     /**/
 
 template<
@@ -215,9 +215,9 @@ struct lambda_impl<
       F<AUX_LAMBDA_PARAMS(i, T)>, Protect AUX_ARITY_PARAM(int_<i>)
     >
 {
-#   define AUX_LAMBDA_INVOCATION(unused, i, T) \
-    BOOST_PP_COMMA_IF(i) \
-    typename lambda_impl< BOOST_PP_CAT(T, BOOST_PP_INC(i)) >::type \
+#   define AUX_LAMBDA_INVOCATION(unused, i, T) ¥
+    BOOST_PP_COMMA_IF(i) ¥
+    typename lambda_impl< BOOST_PP_CAT(T, BOOST_PP_INC(i)) >::type ¥
     /**/
 
     typedef BOOST_PP_CAT(bind,i)<
@@ -230,9 +230,9 @@ struct lambda_impl<
 
 #else // BOOST_MPL_NO_LAMBDA_HEURISTIC
 
-#   define AUX_LAMBDA_RESULT(unused, i, T) \
-    BOOST_PP_COMMA_IF(i) \
-    typename BOOST_PP_CAT(T, BOOST_PP_INC(i))::type \
+#   define AUX_LAMBDA_RESULT(unused, i, T) ¥
+    BOOST_PP_COMMA_IF(i) ¥
+    typename BOOST_PP_CAT(T, BOOST_PP_INC(i))::type ¥
     /**/
 
 namespace aux {
@@ -275,14 +275,14 @@ struct BOOST_PP_CAT(le_result,i)< true_,true_,F,AUX_LAMBDA_PARAMS(i, L) >
 
 } // namespace aux
 
-#   define AUX_LAMBDA_INVOCATION(unused, i, T) \
-    typedef lambda_impl< BOOST_PP_CAT(T, BOOST_PP_INC(i)) > \
-        BOOST_PP_CAT(l,BOOST_PP_INC(i)); \
+#   define AUX_LAMBDA_INVOCATION(unused, i, T) ¥
+    typedef lambda_impl< BOOST_PP_CAT(T, BOOST_PP_INC(i)) > ¥
+        BOOST_PP_CAT(l,BOOST_PP_INC(i)); ¥
     /**/
 
-#   define AUX_IS_LAMBDA_EXPR(unused, i, unused2) \
-    BOOST_PP_COMMA_IF(i) \
-    BOOST_PP_CAT(l,BOOST_PP_INC(i))::is_le::value \
+#   define AUX_IS_LAMBDA_EXPR(unused, i, unused2) ¥
+    BOOST_PP_COMMA_IF(i) ¥
+    BOOST_PP_CAT(l,BOOST_PP_INC(i))::is_le::value ¥
     /**/
 
 template<

@@ -236,8 +236,8 @@ template<class UIntType, int w, int n, int m, int r, UIntType a, int u,
   int s, UIntType b, int t, UIntType c, int l, UIntType val>
 void mersenne_twister<UIntType,w,n,m,r,a,u,s,b,t,c,l,val>::twist(int block)
 {
-  const UIntType upper_mask = (~0u) << r;
-  const UIntType lower_mask = ~upper_mask;
+  const UIntType upper_mask = (‾0u) << r;
+  const UIntType lower_mask = ‾upper_mask;
 
   if(block == 0) {
     for(int j = n; j < 2*n; j++) {

@@ -152,7 +152,7 @@ public:
 
    mapfile(){ hfile = hmap = 0; _first = _last = 0; }
    mapfile(const char* file){ hfile = hmap = 0; _first = _last = 0; open(file); }
-   ~mapfile(){ close(); }
+   ‾mapfile(){ close(); }
    void open(const char* file);
    void close();
    const char* begin(){ return _first; }
@@ -186,7 +186,7 @@ public:
 
    mapfile(){ hfile = 0; _size = 0; _first = _last = 0; }
    mapfile(const char* file){ hfile = 0; _size = 0; _first = _last = 0; open(file); }
-   ~mapfile(){ close(); }
+   ‾mapfile(){ close(); }
    void open(const char* file);
    void close();
    iterator begin()const;
@@ -241,7 +241,7 @@ public:
       if(file)
          file->lock(node);
    }
-   ~mapfile_iterator()
+   ‾mapfile_iterator()
    {
       if(file && node)
          file->unlock(node);
@@ -317,7 +317,7 @@ public:
 
 #endif
 
-// _fi_sep determines the directory separator, either '\\' or '/'
+// _fi_sep determines the directory separator, either '¥¥' or '/'
 BOOST_REGEX_DECL extern const char* _fi_sep;
 
 struct file_iterator_ref
@@ -344,7 +344,7 @@ public:
 
    file_iterator();
    file_iterator(const char* wild);
-   ~file_iterator();
+   ‾file_iterator();
    file_iterator(const file_iterator&);
    file_iterator& operator=(const file_iterator&);
    const char* root()const { return _root; }
@@ -391,7 +391,7 @@ public:
 
    directory_iterator();
    directory_iterator(const char* wild);
-   ~directory_iterator();
+   ‾directory_iterator();
    directory_iterator(const directory_iterator& other);
    directory_iterator& operator=(const directory_iterator& other);
 

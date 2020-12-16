@@ -6348,8 +6348,8 @@ register tjs_uint32 tmp;
 	switch(len % 4)
 	{
 	case 0: do { {
-s = ~*src;
-s = ~ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (  ( s & *dest ) + ( ((s ^ *dest)>>1) & 0x7f7f7f7f)  ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
@@ -6359,8 +6359,8 @@ src++;
 }
 ;
 	case 3: {
-s = ~*src;
-s = ~ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (  ( s & *dest ) + ( ((s ^ *dest)>>1) & 0x7f7f7f7f)  ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
@@ -6370,8 +6370,8 @@ src++;
 }
 ;
 	case 2: {
-s = ~*src;
-s = ~ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (  ( s & *dest ) + ( ((s ^ *dest)>>1) & 0x7f7f7f7f)  ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
@@ -6381,8 +6381,8 @@ src++;
 }
 ;
 	case 1: {
-s = ~*src;
-s = ~ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (  ( s & *dest ) + ( ((s ^ *dest)>>1) & 0x7f7f7f7f)  ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
@@ -6407,8 +6407,8 @@ register tjs_uint32 tmp;
 	switch(len % 4)
 	{
 	case 0: do { {
-s = ~*src;
-s = 0xff000000 | ~ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = 0xff000000 | ‾ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (  ( s & *dest ) + ( ((s ^ *dest)>>1) & 0x7f7f7f7f)  ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
@@ -6418,8 +6418,8 @@ src++;
 }
 ;
 	case 3: {
-s = ~*src;
-s = 0xff000000 | ~ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = 0xff000000 | ‾ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (  ( s & *dest ) + ( ((s ^ *dest)>>1) & 0x7f7f7f7f)  ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
@@ -6429,8 +6429,8 @@ src++;
 }
 ;
 	case 2: {
-s = ~*src;
-s = 0xff000000 | ~ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = 0xff000000 | ‾ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (  ( s & *dest ) + ( ((s ^ *dest)>>1) & 0x7f7f7f7f)  ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
@@ -6440,8 +6440,8 @@ src++;
 }
 ;
 	case 1: {
-s = ~*src;
-s = 0xff000000 | ~ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = 0xff000000 | ‾ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (  ( s & *dest ) + ( ((s ^ *dest)>>1) & 0x7f7f7f7f)  ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
@@ -6574,8 +6574,8 @@ register tjs_uint32 tmp;
 	switch(len % 4)
 	{
 	case 0: do { {
-s = ~*src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (*dest & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((*dest & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -6587,8 +6587,8 @@ src++;
 }
 ;
 	case 3: {
-s = ~*src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (*dest & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((*dest & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -6600,8 +6600,8 @@ src++;
 }
 ;
 	case 2: {
-s = ~*src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (*dest & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((*dest & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -6613,8 +6613,8 @@ src++;
 }
 ;
 	case 1: {
-s = ~*src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (*dest & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((*dest & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -6641,8 +6641,8 @@ register tjs_uint32 tmp;
 	switch(len % 4)
 	{
 	case 0: do { {
-s = ~*src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (*dest & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((*dest & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -6654,8 +6654,8 @@ src++;
 }
 ;
 	case 3: {
-s = ~*src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (*dest & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((*dest & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -6667,8 +6667,8 @@ src++;
 }
 ;
 	case 2: {
-s = ~*src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (*dest & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((*dest & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -6680,8 +6680,8 @@ src++;
 }
 ;
 	case 1: {
-s = ~*src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (*dest & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((*dest & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -6707,52 +6707,52 @@ register tjs_uint32 tmp, tmp2, tmp3;
 	switch(len % 4)
 	{
 	case 0: do { {
-tmp2 = ~*src;
+tmp2 = ‾*src;
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3;
 dest++;
 src++;
 }
 ;
 	case 3: {
-tmp2 = ~*src;
+tmp2 = ‾*src;
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3;
 dest++;
 src++;
 }
 ;
 	case 2: {
-tmp2 = ~*src;
+tmp2 = ‾*src;
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3;
 dest++;
 src++;
 }
 ;
 	case 1: {
-tmp2 = ~*src;
+tmp2 = ‾*src;
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3;
 dest++;
 src++;
@@ -6773,52 +6773,52 @@ register tjs_uint32 tmp, tmp2, tmp3;
 	switch(len % 4)
 	{
 	case 0: do { {
-tmp2 = ~*src;
+tmp2 = ‾*src;
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3 + (*dest & 0xff000000);
 dest++;
 src++;
 }
 ;
 	case 3: {
-tmp2 = ~*src;
+tmp2 = ‾*src;
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3 + (*dest & 0xff000000);
 dest++;
 src++;
 }
 ;
 	case 2: {
-tmp2 = ~*src;
+tmp2 = ‾*src;
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3 + (*dest & 0xff000000);
 dest++;
 src++;
 }
 ;
 	case 1: {
-tmp2 = ~*src;
+tmp2 = ‾*src;
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3 + (*dest & 0xff000000);
 dest++;
 src++;
@@ -6839,56 +6839,56 @@ register tjs_uint32 tmp, tmp2, tmp3;
 	switch(len % 4)
 	{
 	case 0: do { {
-tmp2 = ~ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
+tmp2 = ‾ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (*src&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3;
 dest++;
 src++;
 }
 ;
 	case 3: {
-tmp2 = ~ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
+tmp2 = ‾ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (*src&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3;
 dest++;
 src++;
 }
 ;
 	case 2: {
-tmp2 = ~ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
+tmp2 = ‾ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (*src&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3;
 dest++;
 src++;
 }
 ;
 	case 1: {
-tmp2 = ~ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
+tmp2 = ‾ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (*src&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3;
 dest++;
 src++;
@@ -6909,56 +6909,56 @@ register tjs_uint32 tmp, tmp2, tmp3;
 	switch(len % 4)
 	{
 	case 0: do { {
-tmp2 = ~ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
+tmp2 = ‾ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (*src&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3 + (*dest & 0xff000000);
 dest++;
 src++;
 }
 ;
 	case 3: {
-tmp2 = ~ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
+tmp2 = ‾ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (*src&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3 + (*dest & 0xff000000);
 dest++;
 src++;
 }
 ;
 	case 2: {
-tmp2 = ~ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
+tmp2 = ‾ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (*src&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3 + (*dest & 0xff000000);
 dest++;
 src++;
 }
 ;
 	case 1: {
-tmp2 = ~ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
+tmp2 = ‾ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (*src&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3 + (*dest & 0xff000000);
 dest++;
 src++;
@@ -6979,7 +6979,7 @@ register tjs_uint32 tmp, m_src;
 	switch(len % 4)
 	{
 	case 0: do { {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= (*dest ^ *src) & tmp;
@@ -6988,7 +6988,7 @@ src++;
 }
 ;
 	case 3: {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= (*dest ^ *src) & tmp;
@@ -6997,7 +6997,7 @@ src++;
 }
 ;
 	case 2: {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= (*dest ^ *src) & tmp;
@@ -7006,7 +7006,7 @@ src++;
 }
 ;
 	case 1: {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= (*dest ^ *src) & tmp;
@@ -7029,7 +7029,7 @@ register tjs_uint32 tmp, m_src;
 	switch(len % 4)
 	{
 	case 0: do { {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= ((*dest ^ *src) & tmp) & 0xffffff;
@@ -7038,7 +7038,7 @@ src++;
 }
 ;
 	case 3: {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= ((*dest ^ *src) & tmp) & 0xffffff;
@@ -7047,7 +7047,7 @@ src++;
 }
 ;
 	case 2: {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= ((*dest ^ *src) & tmp) & 0xffffff;
@@ -7056,7 +7056,7 @@ src++;
 }
 ;
 	case 1: {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= ((*dest ^ *src) & tmp) & 0xffffff;
@@ -7079,7 +7079,7 @@ register tjs_uint32 tmp, m_src, d1;
 	switch(len % 4)
 	{
 	case 0: do { {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ ((*dest ^ *src) & tmp);
@@ -7094,7 +7094,7 @@ src++;
 }
 ;
 	case 3: {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ ((*dest ^ *src) & tmp);
@@ -7109,7 +7109,7 @@ src++;
 }
 ;
 	case 2: {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ ((*dest ^ *src) & tmp);
@@ -7124,7 +7124,7 @@ src++;
 }
 ;
 	case 1: {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ ((*dest ^ *src) & tmp);
@@ -7153,7 +7153,7 @@ register tjs_uint32 tmp, m_src, d1;
 	switch(len % 4)
 	{
 	case 0: do { {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ (((*dest ^ *src) & tmp) & 0xffffff);
@@ -7167,7 +7167,7 @@ src++;
 }
 ;
 	case 3: {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ (((*dest ^ *src) & tmp) & 0xffffff);
@@ -7181,7 +7181,7 @@ src++;
 }
 ;
 	case 2: {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ (((*dest ^ *src) & tmp) & 0xffffff);
@@ -7195,7 +7195,7 @@ src++;
 }
 ;
 	case 1: {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ (((*dest ^ *src) & tmp) & 0xffffff);
@@ -7223,7 +7223,7 @@ register tjs_uint32 tmp, m_dest;
 	switch(len % 4)
 	{
 	case 0: do { {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= (*dest ^ *src) & tmp;
@@ -7232,7 +7232,7 @@ src++;
 }
 ;
 	case 3: {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= (*dest ^ *src) & tmp;
@@ -7241,7 +7241,7 @@ src++;
 }
 ;
 	case 2: {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= (*dest ^ *src) & tmp;
@@ -7250,7 +7250,7 @@ src++;
 }
 ;
 	case 1: {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= (*dest ^ *src) & tmp;
@@ -7273,7 +7273,7 @@ register tjs_uint32 tmp, m_dest;
 	switch(len % 4)
 	{
 	case 0: do { {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= ((*dest ^ *src) & tmp) & 0xffffff;
@@ -7282,7 +7282,7 @@ src++;
 }
 ;
 	case 3: {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= ((*dest ^ *src) & tmp) & 0xffffff;
@@ -7291,7 +7291,7 @@ src++;
 }
 ;
 	case 2: {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= ((*dest ^ *src) & tmp) & 0xffffff;
@@ -7300,7 +7300,7 @@ src++;
 }
 ;
 	case 1: {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= ((*dest ^ *src) & tmp) & 0xffffff;
@@ -7323,7 +7323,7 @@ register tjs_uint32 tmp, m_dest, d1;
 	switch(len % 4)
 	{
 	case 0: do { {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ ((*dest ^ *src) & tmp);
@@ -7338,7 +7338,7 @@ src++;
 }
 ;
 	case 3: {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ ((*dest ^ *src) & tmp);
@@ -7353,7 +7353,7 @@ src++;
 }
 ;
 	case 2: {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ ((*dest ^ *src) & tmp);
@@ -7368,7 +7368,7 @@ src++;
 }
 ;
 	case 1: {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ ((*dest ^ *src) & tmp);
@@ -7397,7 +7397,7 @@ register tjs_uint32 tmp, m_dest, d1;
 	switch(len % 4)
 	{
 	case 0: do { {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ (((*dest ^ *src) & tmp) & 0xffffff);
@@ -7411,7 +7411,7 @@ src++;
 }
 ;
 	case 3: {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ (((*dest ^ *src) & tmp) & 0xffffff);
@@ -7425,7 +7425,7 @@ src++;
 }
 ;
 	case 2: {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ (((*dest ^ *src) & tmp) & 0xffffff);
@@ -7439,7 +7439,7 @@ src++;
 }
 ;
 	case 1: {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ (((*dest ^ *src) & tmp) & 0xffffff);
@@ -7467,49 +7467,49 @@ register tjs_uint32 tmp, s, d;
 	switch(len % 4)
 	{
 	case 0: do { {
-s = ~*src;
-d = ~*dest;
+s = ‾*src;
+d = ‾*dest;
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp;
+*dest = ‾tmp;
 dest++;
 src++;
 }
 ;
 	case 3: {
-s = ~*src;
-d = ~*dest;
+s = ‾*src;
+d = ‾*dest;
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp;
+*dest = ‾tmp;
 dest++;
 src++;
 }
 ;
 	case 2: {
-s = ~*src;
-d = ~*dest;
+s = ‾*src;
+d = ‾*dest;
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp;
+*dest = ‾tmp;
 dest++;
 src++;
 }
 ;
 	case 1: {
-s = ~*src;
-d = ~*dest;
+s = ‾*src;
+d = ‾*dest;
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp;
+*dest = ‾tmp;
 dest++;
 src++;
 }
@@ -7529,49 +7529,49 @@ register tjs_uint32 tmp, s, d;
 	switch(len % 4)
 	{
 	case 0: do { {
-s = ~*src;
-d = ~*dest;
+s = ‾*src;
+d = ‾*dest;
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp ^ (d & 0xff000000);
+*dest = ‾tmp ^ (d & 0xff000000);
 dest++;
 src++;
 }
 ;
 	case 3: {
-s = ~*src;
-d = ~*dest;
+s = ‾*src;
+d = ‾*dest;
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp ^ (d & 0xff000000);
+*dest = ‾tmp ^ (d & 0xff000000);
 dest++;
 src++;
 }
 ;
 	case 2: {
-s = ~*src;
-d = ~*dest;
+s = ‾*src;
+d = ‾*dest;
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp ^ (d & 0xff000000);
+*dest = ‾tmp ^ (d & 0xff000000);
 dest++;
 src++;
 }
 ;
 	case 1: {
-s = ~*src;
-d = ~*dest;
+s = ‾*src;
+d = ‾*dest;
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp ^ (d & 0xff000000);
+*dest = ‾tmp ^ (d & 0xff000000);
 dest++;
 src++;
 }
@@ -7592,9 +7592,9 @@ register tjs_uint32 tmp;
 	switch(len % 4)
 	{
 	case 0: do { {
-d = ~*dest;
+d = ‾*dest;
 s = *src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -7606,9 +7606,9 @@ src++;
 }
 ;
 	case 3: {
-d = ~*dest;
+d = ‾*dest;
 s = *src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -7620,9 +7620,9 @@ src++;
 }
 ;
 	case 2: {
-d = ~*dest;
+d = ‾*dest;
 s = *src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -7634,9 +7634,9 @@ src++;
 }
 ;
 	case 1: {
-d = ~*dest;
+d = ‾*dest;
 s = *src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -7663,57 +7663,57 @@ register tjs_uint32 tmp;
 	switch(len % 4)
 	{
 	case 0: do { {
-d = ~*dest;
+d = ‾*dest;
 s = *src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp ^ (d & 0xff000000);
+*dest = ‾tmp ^ (d & 0xff000000);
 dest++;
 src++;
 }
 ;
 	case 3: {
-d = ~*dest;
+d = ‾*dest;
 s = *src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp ^ (d & 0xff000000);
+*dest = ‾tmp ^ (d & 0xff000000);
 dest++;
 src++;
 }
 ;
 	case 2: {
-d = ~*dest;
+d = ‾*dest;
 s = *src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp ^ (d & 0xff000000);
+*dest = ‾tmp ^ (d & 0xff000000);
 dest++;
 src++;
 }
 ;
 	case 1: {
-d = ~*dest;
+d = ‾*dest;
 s = *src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp ^ (d & 0xff000000);
+*dest = ‾tmp ^ (d & 0xff000000);
 dest++;
 src++;
 }
@@ -9984,7 +9984,7 @@ TVP_GL_FUNC_DECL(void, TVPBLExpand4BitTo8BitPal_c, (tjs_uint8 *dest, const tjs_u
 	tjs_uint8 *d=dest, *dlim;
 	tjs_uint8 b;
 
-	dlim = dest + (len & ~1);
+	dlim = dest + (len & ‾1);
 	while(d < dlim)
 	{
 		b = *(buf++);
@@ -10004,7 +10004,7 @@ TVP_GL_FUNC_DECL(void, TVPBLExpand4BitTo8Bit_c, (tjs_uint8 *dest, const tjs_uint
 	tjs_uint8 *d=dest, *dlim;
 	tjs_uint8 b;
 
-	dlim = dest + (len & ~1);
+	dlim = dest + (len & ‾1);
 	while(d < dlim)
 	{
 		b = *(buf++);
@@ -10024,7 +10024,7 @@ TVP_GL_FUNC_DECL(void, TVPBLExpand4BitTo32BitPal_c, (tjs_uint32 *dest, const tjs
 	tjs_uint32 *d=dest, *dlim;
 	tjs_uint8 b;
 
-	dlim = dest + (len & ~1);
+	dlim = dest + (len & ‾1);
 	while(d < dlim)
 	{
 		b = *(buf++);
@@ -11013,9 +11013,9 @@ TVP_GL_FUNC_DECL(tjs_int, TVPTLG5DecompressSlide_c, (tjs_uint8 *out, const tjs_u
 #if TJS_HOST_IS_BIG_ENDIAN
 	#define TVP_TLG6_BYTEOF(a, x) (((tjs_uint8*)(a))[(x)])
 
-	#define TVP_TLG6_FETCH_32BITS(addr) ((tjs_uint32)TVP_TLG6_BYTEOF((addr), 0) +  \
-									((tjs_uint32)TVP_TLG6_BYTEOF((addr), 1) << 8) + \
-									((tjs_uint32)TVP_TLG6_BYTEOF((addr), 2) << 16) + \
+	#define TVP_TLG6_FETCH_32BITS(addr) ((tjs_uint32)TVP_TLG6_BYTEOF((addr), 0) +  ¥
+									((tjs_uint32)TVP_TLG6_BYTEOF((addr), 1) << 8) + ¥
+									((tjs_uint32)TVP_TLG6_BYTEOF((addr), 2) << 16) + ¥
 									((tjs_uint32)TVP_TLG6_BYTEOF((addr), 3) << 24) )
 #else
 	#define TVP_TLG6_FETCH_32BITS(addr) (*(tjs_uint32*)addr)
@@ -11268,7 +11268,7 @@ TVP_GL_FUNC_DECL(void, TVPTLG6DecodeGolombValues_c, (tjs_int8 *pixelbuf, tjs_int
 
 
 static TVP_INLINE_FUNC tjs_uint32 make_gt_mask(tjs_uint32 a, tjs_uint32 b){
-	tjs_uint32 tmp2 = ~b;
+	tjs_uint32 tmp2 = ‾b;
 	tjs_uint32 tmp = ((a & tmp2) + (((a ^ tmp2) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 	tmp = ((tmp >> 7) + 0x7f7f7f7f) ^ 0x7f7f7f7f;
 	return tmp;
@@ -11286,45 +11286,45 @@ static TVP_INLINE_FUNC tjs_uint32 med2(tjs_uint32 a, tjs_uint32 b, tjs_uint32 c)
 	tjs_uint32 bb = a_xor_b_and_aa_gt_bb ^ b;
 	tjs_uint32 n = make_gt_mask(c, bb);
 	tjs_uint32 nn = make_gt_mask(aa, c);
-	tjs_uint32 m = ~(n | nn);
+	tjs_uint32 m = ‾(n | nn);
 	return (n & aa) | (nn & bb) | ((bb & m) - (c & m) + (aa & m));
 }
 static TVP_INLINE_FUNC tjs_uint32 med(tjs_uint32 a, tjs_uint32 b, tjs_uint32 c, tjs_uint32 v){
 	return packed_bytes_add(med2(a, b, c), v);
 }
 
-#define TLG6_AVG_PACKED(x, y) ((((x) & (y)) + ((((x) ^ (y)) & 0xfefefefe) >> 1)) +\
+#define TLG6_AVG_PACKED(x, y) ((((x) & (y)) + ((((x) ^ (y)) & 0xfefefefe) >> 1)) +¥
 			(((x)^(y))&0x01010101))
 
 static TVP_INLINE_FUNC tjs_uint32 avg(tjs_uint32 a, tjs_uint32 b, tjs_uint32 c, tjs_uint32 v){
 	return packed_bytes_add(TLG6_AVG_PACKED(a, b), v);
 }
 
-#define TVP_TLG6_DO_CHROMA_DECODE_PROTO(B, G, R, A, POST_INCREMENT) do \
-			{ \
-				tjs_uint32 u = *prevline; \
-				p = med(p, u, up, \
-					(0xff0000 & ((R)<<16)) + (0xff00 & ((G)<<8)) + (0xff & (B)) + ((A) << 24) ); \
-				up = u; \
-				*curline = p; \
-				curline ++; \
-				prevline ++; \
-				POST_INCREMENT \
+#define TVP_TLG6_DO_CHROMA_DECODE_PROTO(B, G, R, A, POST_INCREMENT) do ¥
+			{ ¥
+				tjs_uint32 u = *prevline; ¥
+				p = med(p, u, up, ¥
+					(0xff0000 & ((R)<<16)) + (0xff00 & ((G)<<8)) + (0xff & (B)) + ((A) << 24) ); ¥
+				up = u; ¥
+				*curline = p; ¥
+				curline ++; ¥
+				prevline ++; ¥
+				POST_INCREMENT ¥
 			} while(--w);
-#define TVP_TLG6_DO_CHROMA_DECODE_PROTO2(B, G, R, A, POST_INCREMENT) do \
-			{ \
-				tjs_uint32 u = *prevline; \
-				p = avg(p, u, up, \
-					(0xff0000 & ((R)<<16)) + (0xff00 & ((G)<<8)) + (0xff & (B)) + ((A) << 24) ); \
-				up = u; \
-				*curline = p; \
-				curline ++; \
-				prevline ++; \
-				POST_INCREMENT \
+#define TVP_TLG6_DO_CHROMA_DECODE_PROTO2(B, G, R, A, POST_INCREMENT) do ¥
+			{ ¥
+				tjs_uint32 u = *prevline; ¥
+				p = avg(p, u, up, ¥
+					(0xff0000 & ((R)<<16)) + (0xff00 & ((G)<<8)) + (0xff & (B)) + ((A) << 24) ); ¥
+				up = u; ¥
+				*curline = p; ¥
+				curline ++; ¥
+				prevline ++; ¥
+				POST_INCREMENT ¥
 			} while(--w);
-#define TVP_TLG6_DO_CHROMA_DECODE(N, R, G, B) case (N<<1): \
-	TVP_TLG6_DO_CHROMA_DECODE_PROTO(R, G, B, IA, {in+=step;}) break; \
-	case (N<<1)+1: \
+#define TVP_TLG6_DO_CHROMA_DECODE(N, R, G, B) case (N<<1): ¥
+	TVP_TLG6_DO_CHROMA_DECODE_PROTO(R, G, B, IA, {in+=step;}) break; ¥
+	case (N<<1)+1: ¥
 	TVP_TLG6_DO_CHROMA_DECODE_PROTO2(R, G, B, IA, {in+=step;}) break;
 
 /*export*/
@@ -11430,184 +11430,184 @@ unsigned char TVPPsTableOverlay[256][256];
 /* --------------------------------------------------------------------
   Operation defines
 -------------------------------------------------------------------- */
-#define TVPPS_MAINLOOP \
-		if(len > 0) {                                        \
-			tjs_int lu_n = (len + (4-1)) / 4;                \
-			switch(len % 4) {                                \
-			case 0:                                          \
-					do {                                     \
-						OPERATION1;                          \
-			case 3:		OPERATION1;                          \
-			case 2:		OPERATION1;                          \
-			case 1:		OPERATION1;                          \
-					} while(-- lu_n);                        \
-			}                                                \
+#define TVPPS_MAINLOOP ¥
+		if(len > 0) {                                        ¥
+			tjs_int lu_n = (len + (4-1)) / 4;                ¥
+			switch(len % 4) {                                ¥
+			case 0:                                          ¥
+					do {                                     ¥
+						OPERATION1;                          ¥
+			case 3:		OPERATION1;                          ¥
+			case 2:		OPERATION1;                          ¥
+			case 1:		OPERATION1;                          ¥
+					} while(-- lu_n);                        ¥
+			}                                                ¥
 		}
 
-#define TVPPS_ALPHABLEND { \
-        TVPPS_REG tjs_uint32 d1 = d&0x00ff00ff, d2 = d&0x0000ff00;                                         \
-        s = ((((((s&0x00ff00ff)-d1)*a)>>8)+d1)&0x00ff00ff)|((((((s&0x0000ff00)-d2)*a)>>8)+d2)&0x0000ff00); \
+#define TVPPS_ALPHABLEND { ¥
+        TVPPS_REG tjs_uint32 d1 = d&0x00ff00ff, d2 = d&0x0000ff00;                                         ¥
+        s = ((((((s&0x00ff00ff)-d1)*a)>>8)+d1)&0x00ff00ff)|((((((s&0x0000ff00)-d2)*a)>>8)+d2)&0x0000ff00); ¥
 }
 
 #define TVPPS_FADESRC   s = ((((s&0x00ff00ff)*a)>>8)&0x00ff00ff)|((((s&0x0000ff00)*a)>>8)&0x0000ff00);
 
 
-#define TVPPsOperationAlphaBlend      { \
-        TVPPS_ALPHABLEND                                                                                   \
+#define TVPPsOperationAlphaBlend      { ¥
+        TVPPS_ALPHABLEND                                                                                   ¥
 }
 #if 0 /* Fade src BEFORE add/sub */
-#define TVPPsOperationAddBlend        { \
-        TVPPS_REG tjs_uint32 n;                                                                            \
-        TVPPS_FADESRC                                                                                      \
-        n = (((d&s)<<1)+((d^s)&0x00fefefe))&0x01010100;                                                    \
-        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                \
-        s = (d+s-n)|n;                                                                                     \
+#define TVPPsOperationAddBlend        { ¥
+        TVPPS_REG tjs_uint32 n;                                                                            ¥
+        TVPPS_FADESRC                                                                                      ¥
+        n = (((d&s)<<1)+((d^s)&0x00fefefe))&0x01010100;                                                    ¥
+        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                ¥
+        s = (d+s-n)|n;                                                                                     ¥
 }
-#define TVPPsOperationSubBlend        { \
-        TVPPS_REG tjs_uint32 n;                                                                            \
-        TVPPS_FADESRC                                                                                      \
-        s = ~s;                                                                                            \
-        n = (((~d&s)<<1)+((~d^s)&0x00fefefe))&0x01010100;                                                  \
-        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                \
-        s = (d|n)-(s|n);                                                                                   \
+#define TVPPsOperationSubBlend        { ¥
+        TVPPS_REG tjs_uint32 n;                                                                            ¥
+        TVPPS_FADESRC                                                                                      ¥
+        s = ‾s;                                                                                            ¥
+        n = (((‾d&s)<<1)+((‾d^s)&0x00fefefe))&0x01010100;                                                  ¥
+        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                ¥
+        s = (d|n)-(s|n);                                                                                   ¥
 }
 #else  /* Blend src and dst AFTER add/sub */
-#define TVPPsOperationAddBlend        { \
-        TVPPS_REG tjs_uint32 n;                                                                            \
-        n = (((d&s)<<1)+((d^s)&0x00fefefe))&0x01010100;                                                    \
-        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                \
-        s = (d+s-n)|n;                                                                                     \
-        TVPPS_ALPHABLEND                                                                                   \
+#define TVPPsOperationAddBlend        { ¥
+        TVPPS_REG tjs_uint32 n;                                                                            ¥
+        n = (((d&s)<<1)+((d^s)&0x00fefefe))&0x01010100;                                                    ¥
+        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                ¥
+        s = (d+s-n)|n;                                                                                     ¥
+        TVPPS_ALPHABLEND                                                                                   ¥
 }
-#define TVPPsOperationSubBlend        { \
-        TVPPS_REG tjs_uint32 n;                                                                            \
-        s = ~s;                                                                                            \
-        n = (((~d&s)<<1)+((~d^s)&0x00fefefe))&0x01010100;                                                  \
-        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                \
-        s = (d|n)-(s|n);                                                                                   \
-        TVPPS_ALPHABLEND                                                                                   \
+#define TVPPsOperationSubBlend        { ¥
+        TVPPS_REG tjs_uint32 n;                                                                            ¥
+        s = ‾s;                                                                                            ¥
+        n = (((‾d&s)<<1)+((‾d^s)&0x00fefefe))&0x01010100;                                                  ¥
+        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                ¥
+        s = (d|n)-(s|n);                                                                                   ¥
+        TVPPS_ALPHABLEND                                                                                   ¥
 }
 #endif
-#define TVPPsOperationMulBlend        { \
-        s = ( ((((d>>16)&0xff)*(s&0x00ff0000))&0xff000000) |                                               \
-              ((((d>>8 )&0xff)*(s&0x0000ff00))&0x00ff0000) |                                               \
-              ((((d>>0 )&0xff)*(s&0x000000ff))           ) ) >> 8;                                         \
-        TVPPS_ALPHABLEND                                                                                   \
+#define TVPPsOperationMulBlend        { ¥
+        s = ( ((((d>>16)&0xff)*(s&0x00ff0000))&0xff000000) |                                               ¥
+              ((((d>>8 )&0xff)*(s&0x0000ff00))&0x00ff0000) |                                               ¥
+              ((((d>>0 )&0xff)*(s&0x000000ff))           ) ) >> 8;                                         ¥
+        TVPPS_ALPHABLEND                                                                                   ¥
 }
-#define TVPPsOperationScreenBlend     { \
-        /* c = ((s+d-(s*d)/255)-d)*a + d = (s-(s*d)/255)*a + d */                                          \
-        TVPPS_REG tjs_uint32 sd1, sd2;                                                                     \
-        sd1 = ( ((((d>>16)&0xff)*(s&0x00ff0000))&0xff000000) |                                             \
-                ((((d>>0 )&0xff)*(s&0x000000ff))           ) ) >> 8;                                       \
-        sd2 = ( ((((d>>8 )&0xff)*(s&0x0000ff00))&0x00ff0000) ) >> 8;                                       \
-        s = ((((((s&0x00ff00ff)-sd1)*a)>>8)+(d&0x00ff00ff))&0x00ff00ff) |                                  \
-            ((((((s&0x0000ff00)-sd2)*a)>>8)+(d&0x0000ff00))&0x0000ff00);                                   \
+#define TVPPsOperationScreenBlend     { ¥
+        /* c = ((s+d-(s*d)/255)-d)*a + d = (s-(s*d)/255)*a + d */                                          ¥
+        TVPPS_REG tjs_uint32 sd1, sd2;                                                                     ¥
+        sd1 = ( ((((d>>16)&0xff)*(s&0x00ff0000))&0xff000000) |                                             ¥
+                ((((d>>0 )&0xff)*(s&0x000000ff))           ) ) >> 8;                                       ¥
+        sd2 = ( ((((d>>8 )&0xff)*(s&0x0000ff00))&0x00ff0000) ) >> 8;                                       ¥
+        s = ((((((s&0x00ff00ff)-sd1)*a)>>8)+(d&0x00ff00ff))&0x00ff00ff) |                                  ¥
+            ((((((s&0x0000ff00)-sd2)*a)>>8)+(d&0x0000ff00))&0x0000ff00);                                   ¥
 }
 #ifdef TVPPS_USE_OVERLAY_TABLE
-#define TVPPsOperationOverlayBlend    { \
-        s = (TVPPsTableOverlay[(s>>16)&0xff][(d>>16)&0xff]<<16) |                                          \
-            (TVPPsTableOverlay[(s>>8 )&0xff][(d>>8 )&0xff]<<8 ) |                                          \
-            (TVPPsTableOverlay[(s>>0 )&0xff][(d>>0 )&0xff]<<0 );                                           \
-        TVPPS_ALPHABLEND                                                                                   \
+#define TVPPsOperationOverlayBlend    { ¥
+        s = (TVPPsTableOverlay[(s>>16)&0xff][(d>>16)&0xff]<<16) |                                          ¥
+            (TVPPsTableOverlay[(s>>8 )&0xff][(d>>8 )&0xff]<<8 ) |                                          ¥
+            (TVPPsTableOverlay[(s>>0 )&0xff][(d>>0 )&0xff]<<0 );                                           ¥
+        TVPPS_ALPHABLEND                                                                                   ¥
 }
-#define TVPPsOperationHardLightBlend  { \
-        s = (TVPPsTableOverlay[(d>>16)&0xff][(s>>16)&0xff]<<16) |                                          \
-            (TVPPsTableOverlay[(d>>8 )&0xff][(s>>8 )&0xff]<<8 ) |                                          \
-            (TVPPsTableOverlay[(d>>0 )&0xff][(s>>0 )&0xff]<<0 );                                           \
-        TVPPS_ALPHABLEND                                                                                   \
+#define TVPPsOperationHardLightBlend  { ¥
+        s = (TVPPsTableOverlay[(d>>16)&0xff][(s>>16)&0xff]<<16) |                                          ¥
+            (TVPPsTableOverlay[(d>>8 )&0xff][(s>>8 )&0xff]<<8 ) |                                          ¥
+            (TVPPsTableOverlay[(d>>0 )&0xff][(s>>0 )&0xff]<<0 );                                           ¥
+        TVPPS_ALPHABLEND                                                                                   ¥
 }
 #else
-#define TVPPsOperationOverlayBlend    { \
-        TVPPS_REG tjs_uint32 n = (((d&0x00808080)>>7)+0x007f7f7f)^0x007f7f7f;                              \
-        TVPPS_REG tjs_uint32 sa1, sa2, d1 = d&n, s1 = s&n;                                                 \
-        /* some tricks to avoid overflow (error between /255 and >>8) */                                   \
-        s |= 0x00010101;                                                                                   \
-        sa1 = ( ((((d>>16)&0xff)*(s&0x00ff0000))&0xff800000) |                                             \
-                ((((d>>0 )&0xff)*(s&0x000000ff))           ) ) >> 7;                                       \
-        sa2 = ( ((((d>>8 )&0xff)*(s&0x0000ff00))&0x00ff8000) ) >> 7;                                       \
-        s = ((sa1&~n)|(sa2&~n));                                                                           \
-        s |= (((s1&0x00fe00fe)+(d1&0x00ff00ff))<<1)-(n&0x00ff00ff)-(sa1&n);                                \
-        s |= (((s1&0x0000fe00)+(d1&0x0000ff00))<<1)-(n&0x0000ff00)-(sa2&n);                                \
-        TVPPS_ALPHABLEND                                                                                   \
+#define TVPPsOperationOverlayBlend    { ¥
+        TVPPS_REG tjs_uint32 n = (((d&0x00808080)>>7)+0x007f7f7f)^0x007f7f7f;                              ¥
+        TVPPS_REG tjs_uint32 sa1, sa2, d1 = d&n, s1 = s&n;                                                 ¥
+        /* some tricks to avoid overflow (error between /255 and >>8) */                                   ¥
+        s |= 0x00010101;                                                                                   ¥
+        sa1 = ( ((((d>>16)&0xff)*(s&0x00ff0000))&0xff800000) |                                             ¥
+                ((((d>>0 )&0xff)*(s&0x000000ff))           ) ) >> 7;                                       ¥
+        sa2 = ( ((((d>>8 )&0xff)*(s&0x0000ff00))&0x00ff8000) ) >> 7;                                       ¥
+        s = ((sa1&‾n)|(sa2&‾n));                                                                           ¥
+        s |= (((s1&0x00fe00fe)+(d1&0x00ff00ff))<<1)-(n&0x00ff00ff)-(sa1&n);                                ¥
+        s |= (((s1&0x0000fe00)+(d1&0x0000ff00))<<1)-(n&0x0000ff00)-(sa2&n);                                ¥
+        TVPPS_ALPHABLEND                                                                                   ¥
 }
-#define TVPPsOperationHardLightBlend  { \
-        TVPPS_REG tjs_uint32 n = (((s&0x00808080)>>7)+0x007f7f7f)^0x007f7f7f;                              \
-        TVPPS_REG tjs_uint32 sa1, sa2, d1 = d&n, s1 = s&n;                                                 \
-        /* some tricks to avoid overflow (error between /255 and >>8) */                                   \
-        d |= 0x00010101;                                                                                   \
-        sa1 = ( ((((d>>16)&0xff)*(s&0x00ff0000))&0xff800000) |                                             \
-                ((((d>>0 )&0xff)*(s&0x000000ff))           ) ) >> 7;                                       \
-        sa2 = ( ((((d>>8 )&0xff)*(s&0x0000ff00))&0x00ff8000) ) >> 7;                                       \
-        s = ((sa1&~n)|(sa2&~n));                                                                           \
-        s |= (((s1&0x00ff00ff)+(d1&0x00fe00fe))<<1)-(n&0x00ff00ff)-(sa1&n);                                \
-        s |= (((s1&0x0000ff00)+(d1&0x0000fe00))<<1)-(n&0x0000ff00)-(sa2&n);                                \
-        TVPPS_ALPHABLEND                                                                                   \
+#define TVPPsOperationHardLightBlend  { ¥
+        TVPPS_REG tjs_uint32 n = (((s&0x00808080)>>7)+0x007f7f7f)^0x007f7f7f;                              ¥
+        TVPPS_REG tjs_uint32 sa1, sa2, d1 = d&n, s1 = s&n;                                                 ¥
+        /* some tricks to avoid overflow (error between /255 and >>8) */                                   ¥
+        d |= 0x00010101;                                                                                   ¥
+        sa1 = ( ((((d>>16)&0xff)*(s&0x00ff0000))&0xff800000) |                                             ¥
+                ((((d>>0 )&0xff)*(s&0x000000ff))           ) ) >> 7;                                       ¥
+        sa2 = ( ((((d>>8 )&0xff)*(s&0x0000ff00))&0x00ff8000) ) >> 7;                                       ¥
+        s = ((sa1&‾n)|(sa2&‾n));                                                                           ¥
+        s |= (((s1&0x00ff00ff)+(d1&0x00fe00fe))<<1)-(n&0x00ff00ff)-(sa1&n);                                ¥
+        s |= (((s1&0x0000ff00)+(d1&0x0000fe00))<<1)-(n&0x0000ff00)-(sa2&n);                                ¥
+        TVPPS_ALPHABLEND                                                                                   ¥
 }
 #endif
-#define TVPPsOperationSoftLightBlend  { \
-        s = (TVPPsTableSoftLight[(s>>16)&0xff][(d>>16)&0xff]<<16) |                                        \
-            (TVPPsTableSoftLight[(s>>8 )&0xff][(d>>8 )&0xff]<<8 ) |                                        \
-            (TVPPsTableSoftLight[(s>>0 )&0xff][(d>>0 )&0xff]<<0 );                                         \
-        TVPPS_ALPHABLEND                                                                                   \
+#define TVPPsOperationSoftLightBlend  { ¥
+        s = (TVPPsTableSoftLight[(s>>16)&0xff][(d>>16)&0xff]<<16) |                                        ¥
+            (TVPPsTableSoftLight[(s>>8 )&0xff][(d>>8 )&0xff]<<8 ) |                                        ¥
+            (TVPPsTableSoftLight[(s>>0 )&0xff][(d>>0 )&0xff]<<0 );                                         ¥
+        TVPPS_ALPHABLEND                                                                                   ¥
 }
-#define TVPPsOperationColorDodgeBlend { \
-        s = (TVPPsTableColorDodge[(s>>16)&0xff][(d>>16)&0xff]<<16) |                                       \
-            (TVPPsTableColorDodge[(s>>8 )&0xff][(d>>8 )&0xff]<<8 ) |                                       \
-            (TVPPsTableColorDodge[(s>>0 )&0xff][(d>>0 )&0xff]<<0 );                                        \
-        TVPPS_ALPHABLEND                                                                                   \
+#define TVPPsOperationColorDodgeBlend { ¥
+        s = (TVPPsTableColorDodge[(s>>16)&0xff][(d>>16)&0xff]<<16) |                                       ¥
+            (TVPPsTableColorDodge[(s>>8 )&0xff][(d>>8 )&0xff]<<8 ) |                                       ¥
+            (TVPPsTableColorDodge[(s>>0 )&0xff][(d>>0 )&0xff]<<0 );                                        ¥
+        TVPPS_ALPHABLEND                                                                                   ¥
 }
-#define TVPPsOperationColorDodge5Blend { \
-        TVPPS_FADESRC                                                                                      \
-        s = (TVPPsTableColorDodge[(s>>16)&0xff][(d>>16)&0xff]<<16) |                                       \
-            (TVPPsTableColorDodge[(s>>8 )&0xff][(d>>8 )&0xff]<<8 ) |                                       \
-            (TVPPsTableColorDodge[(s>>0 )&0xff][(d>>0 )&0xff]<<0 );                                        \
+#define TVPPsOperationColorDodge5Blend { ¥
+        TVPPS_FADESRC                                                                                      ¥
+        s = (TVPPsTableColorDodge[(s>>16)&0xff][(d>>16)&0xff]<<16) |                                       ¥
+            (TVPPsTableColorDodge[(s>>8 )&0xff][(d>>8 )&0xff]<<8 ) |                                       ¥
+            (TVPPsTableColorDodge[(s>>0 )&0xff][(d>>0 )&0xff]<<0 );                                        ¥
 }
-#define TVPPsOperationColorBurnBlend  { \
-        s = (TVPPsTableColorBurn[(s>>16)&0xff][(d>>16)&0xff]<<16) |                                        \
-            (TVPPsTableColorBurn[(s>>8 )&0xff][(d>>8 )&0xff]<<8 ) |                                        \
-            (TVPPsTableColorBurn[(s>>0 )&0xff][(d>>0 )&0xff]<<0 );                                         \
-        TVPPS_ALPHABLEND                                                                                   \
+#define TVPPsOperationColorBurnBlend  { ¥
+        s = (TVPPsTableColorBurn[(s>>16)&0xff][(d>>16)&0xff]<<16) |                                        ¥
+            (TVPPsTableColorBurn[(s>>8 )&0xff][(d>>8 )&0xff]<<8 ) |                                        ¥
+            (TVPPsTableColorBurn[(s>>0 )&0xff][(d>>0 )&0xff]<<0 );                                         ¥
+        TVPPS_ALPHABLEND                                                                                   ¥
 }
-#define TVPPsOperationLightenBlend    { \
-        TVPPS_REG tjs_uint32 n;                                                                            \
-        n = (((~d&s)<<1)+((~d^s)&0x00fefefe))&0x01010100;                                                  \
-        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                \
-        /* n=mask (d<s:0xff, d>=s:0x00) */                                                                 \
-        s = (s&n)|(d&~n);                                                                                  \
-        TVPPS_ALPHABLEND                                                                                   \
+#define TVPPsOperationLightenBlend    { ¥
+        TVPPS_REG tjs_uint32 n;                                                                            ¥
+        n = (((‾d&s)<<1)+((‾d^s)&0x00fefefe))&0x01010100;                                                  ¥
+        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                ¥
+        /* n=mask (d<s:0xff, d>=s:0x00) */                                                                 ¥
+        s = (s&n)|(d&‾n);                                                                                  ¥
+        TVPPS_ALPHABLEND                                                                                   ¥
 }
-#define TVPPsOperationDarkenBlend     { \
-        TVPPS_REG tjs_uint32 n;                                                                            \
-        n = (((~d&s)<<1)+((~d^s)&0x00fefefe))&0x01010100;                                                  \
-        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                \
-        /* n=mask (d<s:0xff, d>=s:0x00) */                                                                 \
-        s = (d&n)|(s&~n);                                                                                  \
-        TVPPS_ALPHABLEND                                                                                   \
+#define TVPPsOperationDarkenBlend     { ¥
+        TVPPS_REG tjs_uint32 n;                                                                            ¥
+        n = (((‾d&s)<<1)+((‾d^s)&0x00fefefe))&0x01010100;                                                  ¥
+        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                ¥
+        /* n=mask (d<s:0xff, d>=s:0x00) */                                                                 ¥
+        s = (d&n)|(s&‾n);                                                                                  ¥
+        TVPPS_ALPHABLEND                                                                                   ¥
 }
-#define TVPPsOperationDiffBlend       { \
-        TVPPS_REG tjs_uint32 n;                                                                            \
-        n = (((~d&s)<<1)+((~d^s)&0x00fefefe))&0x01010100;                                                  \
-        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                \
-        /* n=mask (d<s:0xff, d>=s:0x00) */                                                                 \
-        s = ((s&n)-(d&n))|((d&~n)-(s&~n));                                                                 \
-        TVPPS_ALPHABLEND     /* Alphablend result & dst */                                                 \
+#define TVPPsOperationDiffBlend       { ¥
+        TVPPS_REG tjs_uint32 n;                                                                            ¥
+        n = (((‾d&s)<<1)+((‾d^s)&0x00fefefe))&0x01010100;                                                  ¥
+        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                ¥
+        /* n=mask (d<s:0xff, d>=s:0x00) */                                                                 ¥
+        s = ((s&n)-(d&n))|((d&‾n)-(s&‾n));                                                                 ¥
+        TVPPS_ALPHABLEND     /* Alphablend result & dst */                                                 ¥
 }
-#define TVPPsOperationDiff5Blend      { \
-        TVPPS_REG tjs_uint32 n;                                                                            \
-        TVPPS_FADESRC        /* Fade src first */                                                          \
-        n = (((~d&s)<<1)+((~d^s)&0x00fefefe))&0x01010100;                                                  \
-        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                \
-        /* n=mask (d<s:0xff, d>=s:0x00) */                                                                 \
-        s = ((s&n)-(d&n))|((d&~n)-(s&~n));                                                                 \
+#define TVPPsOperationDiff5Blend      { ¥
+        TVPPS_REG tjs_uint32 n;                                                                            ¥
+        TVPPS_FADESRC        /* Fade src first */                                                          ¥
+        n = (((‾d&s)<<1)+((‾d^s)&0x00fefefe))&0x01010100;                                                  ¥
+        n = ((n>>8)+0x007f7f7f)^0x007f7f7f;                                                                ¥
+        /* n=mask (d<s:0xff, d>=s:0x00) */                                                                 ¥
+        s = ((s&n)-(d&n))|((d&‾n)-(s&‾n));                                                                 ¥
 }
-#define TVPPsOperationExclusionBlend  { \
-        /* c = ((s+d-(s*d*2)/255)-d)*a + d = (s-(s*d*2)/255)*a + d */                                      \
-        TVPPS_REG tjs_uint32 sd1, sd2;                                                                     \
-        sd1 = ( ((((d>>16)&0xff)*((s&0x00ff0000)>>7))&0x01ff0000) |                                        \
-                ((((d>>0 )&0xff)*( s&0x000000ff    ))>>7        ) );                                       \
-        sd2 = ( ((((d>>8 )&0xff)*(s&0x0000ff00))&0x00ff8000) ) >> 7;                                       \
-        s = ((((((s&0x00ff00ff)-sd1)*a)>>8)+(d&0x00ff00ff))&0x00ff00ff) |                                  \
-            ((((((s&0x0000ff00)-sd2)*a)>>8)+(d&0x0000ff00))&0x0000ff00);                                   \
+#define TVPPsOperationExclusionBlend  { ¥
+        /* c = ((s+d-(s*d*2)/255)-d)*a + d = (s-(s*d*2)/255)*a + d */                                      ¥
+        TVPPS_REG tjs_uint32 sd1, sd2;                                                                     ¥
+        sd1 = ( ((((d>>16)&0xff)*((s&0x00ff0000)>>7))&0x01ff0000) |                                        ¥
+                ((((d>>0 )&0xff)*( s&0x000000ff    ))>>7        ) );                                       ¥
+        sd2 = ( ((((d>>8 )&0xff)*(s&0x0000ff00))&0x00ff8000) ) >> 7;                                       ¥
+        s = ((((((s&0x00ff00ff)-sd1)*a)>>8)+(d&0x00ff00ff))&0x00ff00ff) |                                  ¥
+            ((((((s&0x0000ff00)-sd2)*a)>>8)+(d&0x0000ff00))&0x0000ff00);                                   ¥
 }
 
 

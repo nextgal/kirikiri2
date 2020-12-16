@@ -62,7 +62,7 @@ SQInteger sqstd_feof(SQFILE file)
 struct SQFile : public SQStream {
 	SQFile() { _handle = NULL; _owns = false;}
 	SQFile(SQFILE file, bool owns) { _handle = file; _owns = owns;}
-	virtual ~SQFile() { Close(); }
+	virtual ‾SQFile() { Close(); }
 	bool Open(const SQChar *filename ,const SQChar *mode) {
 		Close();
 		if( (_handle = sqstd_fopen(filename,mode)) ) {
@@ -204,8 +204,8 @@ static SQInteger _io_file_lexfeed_ASCII(SQUserPointer file)
 
 static SQInteger _io_file_lexfeed_UTF8(SQUserPointer file)
 {
-#define READ() \
-	if(sqstd_fread(&inchar,sizeof(inchar),1,(FILE *)file) != 1) \
+#define READ() ¥
+	if(sqstd_fread(&inchar,sizeof(inchar),1,(FILE *)file) != 1) ¥
 		return 0;
 
 	static const SQInteger utf8_lengths[16] =

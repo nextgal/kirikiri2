@@ -101,7 +101,7 @@ CGUIFileOpenDialog::CGUIFileOpenDialog(const wchar_t* title,
 
 
 //! destructor
-CGUIFileOpenDialog::~CGUIFileOpenDialog()
+CGUIFileOpenDialog::‾CGUIFileOpenDialog()
 {
 	if (CloseButton)
 		CloseButton->drop();

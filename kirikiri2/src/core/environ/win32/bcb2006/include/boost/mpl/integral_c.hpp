@@ -36,7 +36,7 @@
 #include "boost/mpl/aux_/integral_wrapper.hpp"
 
 
-#if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) \
+#if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) ¥
  && !BOOST_WORKAROUND(__BORLANDC__, <= 0x551)
 namespace boost { namespace mpl {
 // 'bool' constant doesn't have 'next'/'prior' members

@@ -38,7 +38,7 @@ tTJSNI_RandomGenerator::tTJSNI_RandomGenerator()
 	Generator = NULL;
 }
 //---------------------------------------------------------------------------
-tTJSNI_RandomGenerator::~tTJSNI_RandomGenerator()
+tTJSNI_RandomGenerator::‾tTJSNI_RandomGenerator()
 {
 	// C++ destructor
 	if(Generator) delete Generator;

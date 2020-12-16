@@ -23,7 +23,7 @@
 
 #include "boost/mpl/aux_/config/use_preprocessed.hpp"
 
-#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) \
+#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) ¥
  && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER vector20.hpp
@@ -39,7 +39,7 @@
 namespace boost {
 namespace mpl {
 
-#   define BOOST_PP_ITERATION_PARAMS_1 \
+#   define BOOST_PP_ITERATION_PARAMS_1 ¥
     (3,(11, 20, "boost/mpl/vector/aux_/numbered.hpp"))
 #   include BOOST_PP_ITERATE()
 

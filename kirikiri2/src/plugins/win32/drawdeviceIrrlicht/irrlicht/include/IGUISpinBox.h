@@ -27,15 +27,15 @@ namespace gui
 		virtual IGUIEditBox* getEditBox() const = 0;
 
 		//! set the current value of the spinbox
-		/** \param val: value to be set in the spinbox */
+		/** ¥param val: value to be set in the spinbox */
 		virtual void setValue(f32 val) = 0;
 
 		//! Get the current value of the spinbox
 		virtual f32 getValue() const = 0;
 
 		//! set the range of values which can be used in the spinbox
-		/** \param min: minimum value
-		\param max: maximum value */
+		/** ¥param min: minimum value
+		¥param max: maximum value */
 		virtual void setRange(f32 min, f32 max) = 0;
 
 		//! get the minimum value which can be used in the spinbox
@@ -46,11 +46,11 @@ namespace gui
 
 		//! Step size by which values are changed when pressing the spinbuttons
 		/** The step size also determines the number of decimal places to display
-		\param step: stepsize used for value changes when pressing spinbuttons */
+		¥param step: stepsize used for value changes when pressing spinbuttons */
 		virtual void setStepSize(f32 step=1.f) = 0;
 
 		//! Sets the number of decimal places to display.
-		/** \param places: The number of decimal places to display, use -1 to reset */
+		/** ¥param places: The number of decimal places to display, use -1 to reset */
 		virtual void setDecimalPlaces(s32 places) = 0;
 
 		//! get the current step size

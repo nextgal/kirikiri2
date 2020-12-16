@@ -49,7 +49,7 @@ namespace irr
 		}
 
 		//! Destructor.
-		virtual ~IReferenceCounted()
+		virtual ‾IReferenceCounted()
 		{
 		}
 
@@ -112,7 +112,7 @@ namespace irr
 		You will not have to drop the pointer to the loaded texture,
 		because the name of the method does not start with 'create'.
 		The texture is stored somewhere by the driver.
-		\return True, if the object was deleted. */
+		¥return True, if the object was deleted. */
 		bool drop() const
 		{
 			// someone is doing bad reference counting.
@@ -129,7 +129,7 @@ namespace irr
 		}
 
 		//! Get the reference count.
-		/** \return Current value of the reference counter. */
+		/** ¥return Current value of the reference counter. */
 		s32 getReferenceCount() const
 		{
 			return ReferenceCounter;
@@ -138,7 +138,7 @@ namespace irr
 		//! Returns the debug name of the object.
 		/** The Debugname may only be set and changed by the object
 		itself. This method should only be used in Debug mode.
-		\return Returns a string, previously set by setDebugName(); */
+		¥return Returns a string, previously set by setDebugName(); */
 		const c8* getDebugName() const
 		{
 			return DebugName;
@@ -149,7 +149,7 @@ namespace irr
 		//! Sets the debug name of the object.
 		/** The Debugname may only be set and changed by the object
 		itself. This method should only be used in Debug mode.
-		\param newName: New debug name to set. */
+		¥param newName: New debug name to set. */
 		void setDebugName(const c8* newName)
 		{
 			DebugName = newName;

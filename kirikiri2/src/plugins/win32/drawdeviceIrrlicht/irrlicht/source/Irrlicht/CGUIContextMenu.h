@@ -29,7 +29,7 @@ namespace gui
 			bool getFocus = true, bool allowFocus = true);
 
 		//! destructor
-		virtual ~CGUIContextMenu();
+		virtual ‾CGUIContextMenu();
 
 		//! Returns amount of menu items
 		virtual u32 getItemCount() const;
@@ -75,7 +75,7 @@ namespace gui
 		virtual s32 getSelectedItem() const;
 
 		//! Returns a pointer to the submenu of an item.
-		//! \return Pointer to the submenu of an item.
+		//! ¥return Pointer to the submenu of an item.
 		virtual IGUIContextMenu* getSubMenu(u32 idx) const;
 
 		//! Sets the visible state of this element.

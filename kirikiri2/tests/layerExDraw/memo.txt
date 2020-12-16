@@ -1,4 +1,4 @@
-test.emf ‚ÍˆÈ‰º‚©‚ç‚à‚ç‚Á‚Ä‚«‚Ü‚µ‚½
+test.emf ã¯ä»¥ä¸‹ã‹ã‚‰ã‚‚ã‚‰ã£ã¦ãã¾ã—ãŸ
 
 from http://openclipart.org
 

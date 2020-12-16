@@ -34,17 +34,17 @@
 #  define BOOST_PYTHON_MAX_BASES 10
 # endif 
 
-# define BOOST_PYTHON_CV_QUALIFIER(i)                          \
-    BOOST_PYTHON_APPLY(                                        \
-        BOOST_PP_TUPLE_ELEM(4, i, BOOST_PYTHON_CV_QUALIFIER_I) \
+# define BOOST_PYTHON_CV_QUALIFIER(i)                          ¥
+    BOOST_PYTHON_APPLY(                                        ¥
+        BOOST_PP_TUPLE_ELEM(4, i, BOOST_PYTHON_CV_QUALIFIER_I) ¥
     )
 
-# define BOOST_PYTHON_CV_QUALIFIER_I      \
-    (                                     \
-        BOOST_PYTHON_NIL,                 \
-        BOOST_PYTHON_ITEM(const),         \
-        BOOST_PYTHON_ITEM(volatile),      \
-        BOOST_PYTHON_ITEM(const volatile) \
+# define BOOST_PYTHON_CV_QUALIFIER_I      ¥
+    (                                     ¥
+        BOOST_PYTHON_NIL,                 ¥
+        BOOST_PYTHON_ITEM(const),         ¥
+        BOOST_PYTHON_ITEM(volatile),      ¥
+        BOOST_PYTHON_ITEM(const volatile) ¥
     )
 
 // enumerators

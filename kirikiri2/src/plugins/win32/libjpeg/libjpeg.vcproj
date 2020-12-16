@@ -144,207 +144,207 @@
 	</References>
 	<Files>
 		<Filter
-			Name="ソース ファイル"
+			Name="繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\jcapimin.c"
+				RelativePath=".ﾂ･jcapimin.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jcapistd.c"
+				RelativePath=".ﾂ･jcapistd.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jccoefct.c"
+				RelativePath=".ﾂ･jccoefct.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jccolor.c"
+				RelativePath=".ﾂ･jccolor.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jcdctmgr.c"
+				RelativePath=".ﾂ･jcdctmgr.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jchuff.c"
+				RelativePath=".ﾂ･jchuff.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jcinit.c"
+				RelativePath=".ﾂ･jcinit.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jcmainct.c"
+				RelativePath=".ﾂ･jcmainct.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jcmarker.c"
+				RelativePath=".ﾂ･jcmarker.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jcmaster.c"
+				RelativePath=".ﾂ･jcmaster.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jcomapi.c"
+				RelativePath=".ﾂ･jcomapi.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jcparam.c"
+				RelativePath=".ﾂ･jcparam.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jcphuff.c"
+				RelativePath=".ﾂ･jcphuff.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jcprepct.c"
+				RelativePath=".ﾂ･jcprepct.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jcsample.c"
+				RelativePath=".ﾂ･jcsample.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jctrans.c"
+				RelativePath=".ﾂ･jctrans.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdapimin.c"
+				RelativePath=".ﾂ･jdapimin.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdapistd.c"
+				RelativePath=".ﾂ･jdapistd.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdatadst.c"
+				RelativePath=".ﾂ･jdatadst.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdatasrc.c"
+				RelativePath=".ﾂ･jdatasrc.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdcoefct.c"
+				RelativePath=".ﾂ･jdcoefct.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdcolor.c"
+				RelativePath=".ﾂ･jdcolor.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jddctmgr.c"
+				RelativePath=".ﾂ･jddctmgr.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdhuff.c"
+				RelativePath=".ﾂ･jdhuff.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdinput.c"
+				RelativePath=".ﾂ･jdinput.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdmainct.c"
+				RelativePath=".ﾂ･jdmainct.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdmarker.c"
+				RelativePath=".ﾂ･jdmarker.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdmaster.c"
+				RelativePath=".ﾂ･jdmaster.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdmerge.c"
+				RelativePath=".ﾂ･jdmerge.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdphuff.c"
+				RelativePath=".ﾂ･jdphuff.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdpostct.c"
+				RelativePath=".ﾂ･jdpostct.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdsample.c"
+				RelativePath=".ﾂ･jdsample.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jdtrans.c"
+				RelativePath=".ﾂ･jdtrans.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jerror.c"
+				RelativePath=".ﾂ･jerror.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jfdctflt.c"
+				RelativePath=".ﾂ･jfdctflt.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jfdctfst.c"
+				RelativePath=".ﾂ･jfdctfst.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jfdctint.c"
+				RelativePath=".ﾂ･jfdctint.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jidctflt.c"
+				RelativePath=".ﾂ･jidctflt.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jidctfst.c"
+				RelativePath=".ﾂ･jidctfst.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jidctint.c"
+				RelativePath=".ﾂ･jidctint.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jidctred.c"
+				RelativePath=".ﾂ･jidctred.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jmemansi.c"
+				RelativePath=".ﾂ･jmemansi.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jmemmgr.c"
+				RelativePath=".ﾂ･jmemmgr.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jpegtran.c"
+				RelativePath=".ﾂ･jpegtran.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jquant1.c"
+				RelativePath=".ﾂ･jquant1.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jquant2.c"
+				RelativePath=".ﾂ･jquant2.c"
 				>
 			</File>
 			<File
-				RelativePath=".\jutils.c"
+				RelativePath=".ﾂ･jutils.c"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="ヘッダー ファイル"
+			Name="繝倥ャ繝繝ｼ 繝輔ぃ繧､繝ｫ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 		</Filter>
 		<Filter
-			Name="リソース ファイル"
+			Name="繝ｪ繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>

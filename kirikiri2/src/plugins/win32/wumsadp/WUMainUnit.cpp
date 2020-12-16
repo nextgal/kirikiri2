@@ -37,7 +37,7 @@ static int AdaptationTable[]=
 void strcpy_limit(LPWSTR dest, LPWSTR  src, int n)
 {
 	wcsncpy(dest, src, n-1);
-	dest[n-1] = '\0';
+	dest[n-1] = 'Â¥0';
 }
 //---------------------------------------------------------------------------
 ITSSStorageProvider *StorageProvider = NULL;
@@ -48,7 +48,7 @@ class MSADPCMModule : public ITSSModule
 
 public:
 	MSADPCMModule();
-	~MSADPCMModule();
+	â€¾MSADPCMModule();
 
 public:
 	// IUnknown
@@ -71,8 +71,8 @@ public:
 class MSADPCMDecoder : public ITSSWaveDecoder
 {
 	ULONG RefCount;
-	adpcmwaveformat Format; // Wave ‚ÌƒtƒH[ƒ}ƒbƒg
-	adpcmcoef *Coefs; // Coef‚ÌƒZƒbƒg
+	adpcmwaveformat Format; // Wave ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
+	adpcmcoef *Coefs; // Coefã®ã‚»ãƒƒãƒˆ
 	IStream *InputStream;
 	__int64 StreamPos;
 	short int *SamplePos;
@@ -88,7 +88,7 @@ class MSADPCMDecoder : public ITSSWaveDecoder
 
 public:
 	MSADPCMDecoder();
-	~MSADPCMDecoder();
+	â€¾MSADPCMDecoder();
 
 public:
 	// IUnkown
@@ -102,19 +102,19 @@ public:
 			unsigned long *rendered, unsigned long *status);
 	HRESULT __stdcall SetPosition(unsigned __int64 samplepos);
 
-	// ‚»‚Ì‚Ù‚©
+	// ãã®ã»ã‹
 	HRESULT Open(wchar_t * url);
 	bool ReadBlock(void);
 };
 //---------------------------------------------------------------------------
-// MSADPCMModule ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ #####################################
+// MSADPCMModule ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ #####################################
 //---------------------------------------------------------------------------
 MSADPCMModule::MSADPCMModule()
 {
 	RefCount = 1;
 }
 //---------------------------------------------------------------------------
-MSADPCMModule::~MSADPCMModule()
+MSADPCMModule::â€¾MSADPCMModule()
 {
 }
 //---------------------------------------------------------------------------
@@ -171,7 +171,7 @@ HRESULT __stdcall MSADPCMModule::GetSupportExts(unsigned long index, LPWSTR medi
 												LPWSTR buf, unsigned long buflen )
 {
 	if(index >= 1) return S_FALSE;
-	wcscpy(mediashortname, L"MS-ADPCM Wave ƒtƒ@ƒCƒ‹");
+	wcscpy(mediashortname, L"MS-ADPCM Wave ãƒ•ã‚¡ã‚¤ãƒ«");
 	strcpy_limit(buf, L".wav", buflen);
 	return S_OK;
 }
@@ -202,7 +202,7 @@ HRESULT __stdcall MSADPCMModule::GetMediaInstance(LPWSTR url, IUnknown ** instan
 	return S_OK;
 }
 //---------------------------------------------------------------------------
-// MSADPCMDecoder ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ####################################
+// MSADPCMDecoder ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ####################################
 //---------------------------------------------------------------------------
 MSADPCMDecoder::MSADPCMDecoder()
 {
@@ -213,7 +213,7 @@ MSADPCMDecoder::MSADPCMDecoder()
 	Samples=NULL;
 }
 //---------------------------------------------------------------------------
-MSADPCMDecoder::~MSADPCMDecoder()
+MSADPCMDecoder::â€¾MSADPCMDecoder()
 {
 	if(InputStream)
 	{
@@ -271,7 +271,7 @@ HRESULT __stdcall MSADPCMDecoder::GetFormat(TSSWaveFormat *format)
 HRESULT __stdcall MSADPCMDecoder::Render(void *buf, unsigned long bufsamplelen,
             unsigned long *rendered, unsigned long *status)
 {
-	// “WŠJ
+	// å±•é–‹
 	unsigned long n;
 	short int *pbuf=(short int*)buf;
 
@@ -279,9 +279,9 @@ HRESULT __stdcall MSADPCMDecoder::Render(void *buf, unsigned long bufsamplelen,
 	{
 		if(BufferRemain<=0)
 		{
-			if(!ReadBlock()) // ƒfƒR[ƒh
+			if(!ReadBlock()) // ãƒ‡ã‚³ãƒ¼ãƒ‰
 			{
-				// ƒfƒR[ƒhI—¹
+				// ãƒ‡ã‚³ãƒ¼ãƒ‰çµ‚äº†
 				if(rendered) *rendered = n;
 				if(status) *status = 0;
 				Pos += n;
@@ -310,9 +310,9 @@ HRESULT __stdcall MSADPCMDecoder::Render(void *buf, unsigned long bufsamplelen,
 //---------------------------------------------------------------------------
 HRESULT __stdcall MSADPCMDecoder::SetPosition(unsigned __int64 samplepos)
 {
-	// pos (ms’PˆÊ) ‚ÉˆÚ“®‚·‚é
+	// pos (mså˜ä½) ã«ç§»å‹•ã™ã‚‹
 
-	// Œ»İˆÊ’u‚ğ•Û‘¶
+	// ç¾åœ¨ä½ç½®ã‚’ä¿å­˜
 	LARGE_INTEGER newpos;
 	ULARGE_INTEGER result;
 	newpos.QuadPart=0;
@@ -321,19 +321,19 @@ HRESULT __stdcall MSADPCMDecoder::SetPosition(unsigned __int64 samplepos)
 	__int64 bytepossave=(long)newpos.QuadPart;
 	__int64 samplepossave=Pos;
 
-	// V‚µ‚¢ˆÊ’u‚ğ“Á’è
+	// æ–°ã—ã„ä½ç½®ã‚’ç‰¹å®š
 	long newbytepos= samplepos / Format.wSamplesPerBlock;
-		// ‚±‚Ì“_‚Å newbytepos = ƒuƒƒbƒN”
+		// ã“ã®æ™‚ç‚¹ã§ newbytepos = ãƒ–ãƒ­ãƒƒã‚¯æ•°
 	long remnant = samplepos - newbytepos * Format.wSamplesPerBlock;
 	Pos = samplepos;
 	newbytepos *= Format.wfxx.nBlockAlign;
 
-	// ƒV[ƒN
+	// ã‚·ãƒ¼ã‚¯
 	newpos.QuadPart=DataStart+newbytepos;
 	InputStream->Seek(newpos,0,&result);
 	if(result.QuadPart != (unsigned __int64) newpos.QuadPart)
 	{
-		// ƒV[ƒN¸”s
+		// ã‚·ãƒ¼ã‚¯å¤±æ•—
 		newpos.QuadPart=bytepossave;
 		InputStream->Seek(newpos,0,&result);
 		Pos=samplepossave;
@@ -351,7 +351,7 @@ HRESULT __stdcall MSADPCMDecoder::SetPosition(unsigned __int64 samplepos)
 //---------------------------------------------------------------------------
 HRESULT MSADPCMDecoder::Open(wchar_t * url)
 {
-	// url ‚Åw’è‚³‚ê‚½ URL ‚ğŠJ‚«‚Ü‚·
+	// url ã§æŒ‡å®šã•ã‚ŒãŸ URL ã‚’é–‹ãã¾ã™
 	InputStream = NULL;
 
 	HRESULT hr;
@@ -377,25 +377,25 @@ HRESULT MSADPCMDecoder::Open(wchar_t * url)
 	if(result.QuadPart != (unsigned __int64) newpos.QuadPart)
 		return E_FAIL;
 
-	// RIFF ƒ`ƒFƒbƒN
+	// RIFF ãƒã‚§ãƒƒã‚¯
 	InputStream->Read(buf,16,&read);
 	if(read!=16) return E_FAIL;
 	if(memcmp(buf,"RIFF",4)) return E_FAIL; // riff
-	if(memcmp(buf+8,"WAVEfmt ",8)) return E_FAIL; // wave+fmt // ‚±‚±‚ç•Ó‚Í“K“–
+	if(memcmp(buf+8,"WAVEfmt ",8)) return E_FAIL; // wave+fmt // ã“ã“ã‚‰è¾ºã¯é©å½“
 
 	InputStream->Read(buf,4,&read); // dummy
 
-	// ƒwƒbƒ_“Ç‚İ‚İ
+	// ãƒ˜ãƒƒãƒ€èª­ã¿è¾¼ã¿
 	InputStream->Read(&Format,sizeof(adpcmwaveformat),&read);
 	if(read!=sizeof(adpcmwaveformat)) return E_FAIL;
 	if(Format.wfxx.wFormatTag!=0x0002) return E_FAIL;
 
-	// coef “Ç‚İ‚İ
+	// coef èª­ã¿è¾¼ã¿
 	Coefs=new adpcmcoef[Format.wNumCoef];
 	InputStream->Read(Coefs,sizeof(adpcmcoef)*Format.wNumCoef,&read);
 	if(read!=sizeof(adpcmcoef)*Format.wNumCoef) return E_FAIL;
 
-	// data ƒ`ƒƒƒ“ƒN‚ğ’T‚·
+	// data ãƒãƒ£ãƒ³ã‚¯ã‚’æ¢ã™
 	for(;;)
 	{
 		InputStream->Read(buf,4,&read);
@@ -412,13 +412,13 @@ HRESULT MSADPCMDecoder::Open(wchar_t * url)
 	InputStream->Read(&DataSize,4,&read);
 	if(read!=4) return E_FAIL;
 
-	// Œ»İˆÊ’u‚ğæ“¾
+	// ç¾åœ¨ä½ç½®ã‚’å–å¾—
 	newpos.QuadPart=0;
 	InputStream->Seek(newpos,1,&result);
 	StreamPos=(long)result.QuadPart;
 	DataStart=StreamPos;
 
-	// ‚»‚Ì‘¼A‰Šú‰»
+	// ãã®ä»–ã€åˆæœŸåŒ–
 	BufferRemain=0;
 	Pos=0;
 
@@ -436,13 +436,13 @@ HRESULT MSADPCMDecoder::Open(wchar_t * url)
 bool MSADPCMDecoder::ReadBlock(void)
 {
 
-	// ƒƒ‚ƒŠŠm•Û
+	// ãƒ¡ãƒ¢ãƒªç¢ºä¿
 	if(!BlockBuffer)
 		BlockBuffer=new BYTE[Format.wfxx.nBlockAlign];
 	if(!Samples)
 		Samples=new short int[Format.wSamplesPerBlock  *  Format.wfxx.nChannels];
 
-	// ƒV[ƒN
+	// ã‚·ãƒ¼ã‚¯
 	LARGE_INTEGER newpos;
 	ULARGE_INTEGER result;
 	newpos.QuadPart=0;
@@ -454,7 +454,7 @@ bool MSADPCMDecoder::ReadBlock(void)
 		if(result.QuadPart != (unsigned __int64) newpos.QuadPart) return false;
 	}
 
-	// ƒuƒƒbƒNƒwƒbƒ_“Ç‚İ‚İ
+	// ãƒ–ãƒ­ãƒƒã‚¯ãƒ˜ãƒƒãƒ€èª­ã¿è¾¼ã¿
 	ULONG read;
 	InputStream->Read(BlockBuffer,Format.wfxx.nBlockAlign,&read);
 	StreamPos+=read;
@@ -485,7 +485,7 @@ bool MSADPCMDecoder::ReadBlock(void)
 		Samples[1]=*(short int*)(BlockBuffer+12);
 	}
 
-	// ƒTƒ“ƒvƒ‹’u‚«ê‚Énibbleƒf[ƒ^‚ğ”z•ª
+	// ã‚µãƒ³ãƒ—ãƒ«ç½®ãå ´ã«nibbleãƒ‡ãƒ¼ã‚¿ã‚’é…åˆ†
 	int p=7 * Format.wfxx.nChannels;
 	int i=2* Format.wfxx.nChannels;
 	while(i< Format.wSamplesPerBlock * Format.wfxx.nChannels)
@@ -495,7 +495,7 @@ bool MSADPCMDecoder::ReadBlock(void)
 		Samples[i++]=b&0x0f;
 	}
 
-	// ƒfƒR[ƒh
+	// ãƒ‡ã‚³ãƒ¼ãƒ‰
 	int channels=Format.wfxx.nChannels;
 	p=2*channels;
 	while(p<Format.wSamplesPerBlock*channels)

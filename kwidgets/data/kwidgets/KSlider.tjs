@@ -7,46 +7,46 @@ global.SLIDER_SLIDER_WIDTH = 8;
 global.SLIDER_FRAME_SIZE = 3;
 
 /**----------------------------------------------------------------------
- * ƒXƒ‰ƒCƒ_[
+ * ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼
  ----------------------------------------------------------------------*/
 class KSlider extends KValueWidget
 {
-  // ƒXƒ‰ƒCƒ_[‚Ì•(’è”)
+  // ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®å¹…(å®šæ•°)
   var sliderWidth = SLIDER_SLIDER_WIDTH;
-  // ƒtƒŒ[ƒ€‚ÌƒTƒCƒY(’è”)
+  // ãƒ•ãƒ¬ãƒ¼ãƒ ã®ã‚µã‚¤ã‚º(å®šæ•°)
   var frameSize = SLIDER_FRAME_SIZE;
 
-  // Å¬’lAÅ‘å’l
+  // æœ€å°å€¤ã€æœ€å¤§å€¤
   var leftValue, rightValue;
   var minValue, maxValue;
-  // ’l
+  // å€¤
   var _value;
-  // ƒXƒ‰ƒCƒh‚·‚é”ÍˆÍ
+  // ã‚¹ãƒ©ã‚¤ãƒ‰ã™ã‚‹ç¯„å›²
   var railLeft, railTop, railWidth, railHeight;
-  // ƒXƒ‰ƒCƒ_[‚ÌÀ•W’lŠÖ˜A
+  // ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®åº§æ¨™å€¤é–¢é€£
   var sliderLeft, mouseDownX, mouseDownSliderLeft;
   var sign;
   var dragging;
-  // ‚İ•
+  // åˆ»ã¿å¹…
   var step;
-  // ‰i‘±‰»«‘
+  // æ°¸ç¶šåŒ–è¾æ›¸
   var dict;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * ƒXƒ‰ƒCƒ_[‚ğì¬‚µ‚Ü‚·B
-   * w‚É’è”SLIDER_ADAPTIVE_WIDTH‚ğw’è‚·‚é‚ÆAƒXƒ‰ƒCƒ_[‚ÍÅ¬’l‚©‚çÅ‘å’l‚Ü‚Å
-   * ‘S‚Ä‚Ì’l‚ğƒXƒ‰ƒCƒh‚Åw’è‚Å‚«‚é‚Ì‚É‚¶‚ã‚¤‚Ô‚ñ‚ÈÅ¬‚Ì
-   * •‚ğ©“®“I‚ÉŒvZ‚µ‚Äw’è‚µ‚Ü‚·B
+   * ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã‚’ä½œæˆã—ã¾ã™ã€‚
+   * wã«å®šæ•°SLIDER_ADAPTIVE_WIDTHã‚’æŒ‡å®šã™ã‚‹ã¨ã€ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã¯æœ€å°å€¤ã‹ã‚‰æœ€å¤§å€¤ã¾ã§
+   * å…¨ã¦ã®å€¤ã‚’ã‚¹ãƒ©ã‚¤ãƒ‰ã§æŒ‡å®šã§ãã‚‹ã®ã«ã˜ã‚…ã†ã¶ã‚“ãªæœ€å°ã®
+   * å¹…ã‚’è‡ªå‹•çš„ã«è¨ˆç®—ã—ã¦æŒ‡å®šã—ã¾ã™ã€‚
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param w ƒXƒ‰ƒCƒ_[‚Ì•
-   * @param h ƒXƒ‰ƒCƒ_[‚Ì‚‚³
-   * @param minValue ’l‚ÌÅ¬’l
-   * @param maxValue ’l‚ÌÅ‘å’l
-   * @param name –¼‘O
-   * @param step ‚İ•
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param w ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®å¹…
+   * @param h ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®é«˜ã•
+   * @param minValue å€¤ã®æœ€å°å€¤
+   * @param maxValue å€¤ã®æœ€å¤§å€¤
+   * @param name åå‰
+   * @param step åˆ»ã¿å¹…
    ------------------------------*/
   function KSlider(win, w, h, leftValue, rightValue, step = 1, name = "") {
     super.KWidget(win, name);
@@ -62,13 +62,13 @@ class KSlider extends KValueWidget
     else
       w += SLIDER_SLIDER_WIDTH + SLIDER_FRAME_SIZE * 2;
 
-    // ƒfƒtƒHƒ‹ƒgƒtƒH[ƒJƒX
+    // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹
     focusable = win.defaultFocusable;
 
     setFixedSize(w, h);
   }
 
-  // uÅ“K‚Èv•
+  // ã€Œæœ€é©ãªã€å¹…
   property adaptiveWidth {
     getter {
       return maxValue - minValue + 1 + frameSize * 2 + sliderWidth;
@@ -76,10 +76,10 @@ class KSlider extends KValueWidget
   }
 
   /**------------------------------
-   * ’l
+   * å€¤
    *
-   * @param v ’l
-   * @return ’l
+   * @param v å€¤
+   * @return å€¤
    ------------------------------*/
   property value {
     getter {
@@ -99,8 +99,8 @@ class KSlider extends KValueWidget
   }
 
   /*------------------------------
-   * ƒTƒCƒY‚ªXV‚³‚ê‚½‚çA
-   * ƒXƒ‰ƒCƒ_ƒTƒCƒY‚ğXV‚µ‚ÄÄ•`‰æ
+   * ã‚µã‚¤ã‚ºãŒæ›´æ–°ã•ã‚ŒãŸã‚‰ã€
+   * ã‚¹ãƒ©ã‚¤ãƒ€ã‚µã‚¤ã‚ºã‚’æ›´æ–°ã—ã¦å†æç”»
    ------------------------------*/
   function onSizeModified(w, h) {
     railLeft = railTop = frameSize;
@@ -110,7 +110,7 @@ class KSlider extends KValueWidget
   }
   
   /*------------------------------
-   * ƒXƒ‰ƒCƒ_‚ğ•`‰æ‚·‚é
+   * ã‚¹ãƒ©ã‚¤ãƒ€ã‚’æç”»ã™ã‚‹
    ------------------------------*/
   function drawContent {
     fillRect(0, 0, width, height, focused ? WIN_HIGHLIGHT : 0);
@@ -121,7 +121,7 @@ class KSlider extends KValueWidget
   }
 
   /*------------------------------
-   * ƒ}ƒEƒX“ü—Í‚ğˆ—‚·‚éB
+   * ãƒã‚¦ã‚¹å…¥åŠ›ã‚’å‡¦ç†ã™ã‚‹ã€‚
    ------------------------------*/
   function onMouseDown(x) {
     super.onMouseDown(...);
@@ -156,7 +156,7 @@ class KSlider extends KValueWidget
   }
 
   /*------------------------------
-   * ƒtƒH[ƒJƒX‚ÌƒL[“ü—Í‚ğˆ—‚·‚é
+   * ãƒ•ã‚©ãƒ¼ã‚«ã‚¹æ™‚ã®ã‚­ãƒ¼å…¥åŠ›ã‚’å‡¦ç†ã™ã‚‹
    ------------------------------*/
   function onKeyDown(key) {
     if (key == VK_LEFT)
@@ -168,8 +168,8 @@ class KSlider extends KValueWidget
   }
 
   /*------------------------------
-   * “à•”“I‚È’l‚ÌXVˆ—B
-   * ’l‚ğXV‚µ‚ÄAƒXƒ‰ƒCƒ_[‚ğÄ•`‰æ‚µA’l‚ÌXV‚ğ’Ê’m‚·‚é
+   * å†…éƒ¨çš„ãªå€¤ã®æ›´æ–°å‡¦ç†ã€‚
+   * å€¤ã‚’æ›´æ–°ã—ã¦ã€ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã‚’å†æç”»ã—ã€å€¤ã®æ›´æ–°ã‚’é€šçŸ¥ã™ã‚‹
    ------------------------------*/
   function setValue(v) {
     v = int(Math.min(maxValue, Math.max(v, minValue)));
@@ -180,22 +180,22 @@ class KSlider extends KValueWidget
     invalidateValue();
   }
 
-  // ƒtƒH[ƒJƒX‚³‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã•ã‚ŒãŸã‚‰å†æç”»
   function onFocus {
     drawContent();
   }
 
-  // ƒtƒH[ƒJƒX‚ªŠO‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒå¤–ã‚ŒãŸã‚‰å†æç”»
   function onBlur {
     drawContent();
   }
 
-  // enabled==true‚È‚ç‚»‚Ì‚Ü‚Ü•\¦
+  // enabled==trueãªã‚‰ãã®ã¾ã¾è¡¨ç¤º
   function onNodeEnabled {
     opacity = 255;
   }
 
-  // enabled=false‚È‚ç”¼“§–¾‚Å•\¦
+  // enabled=falseãªã‚‰åŠé€æ˜ã§è¡¨ç¤º
   function onNodeDisabled {
     opacity = 64;
   }

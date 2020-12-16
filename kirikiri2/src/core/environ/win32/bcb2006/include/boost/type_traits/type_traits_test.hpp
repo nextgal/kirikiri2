@@ -77,7 +77,7 @@ struct checker<false>
       // (like compiler options)...
       if(soft)++expected_failures;
       std::cout << "checking value of " << name << "...failed" << std::endl;
-      std::cout << "\tfound: " << n << " expected " << o << std::endl;
+      std::cout << "¥tfound: " << n << " expected " << o << std::endl;
    }
 };
 
@@ -116,38 +116,38 @@ struct type_checker<T,T>
 #define value_test(v, x) checker<(v == x)>::check(v, x, #x, false);
 #define soft_value_test(v, x) checker<(v == x)>::check(v, x, #x, true);
 
-#define value_fail(v, x) \
-      ++test_count; \
-      ++failures; \
-      ++expected_failures;\
-      std::cout << "checking value of " << #x << "...failed" << std::endl; \
+#define value_fail(v, x) ¥
+      ++test_count; ¥
+      ++failures; ¥
+      ++expected_failures;¥
+      std::cout << "checking value of " << #x << "...failed" << std::endl; ¥
       std::cout << "   " #x " does not compile on this compiler" << std::endl;
 
 
 #define type_test(v, x) type_checker<v,x>::check(#v, #x, #x);
 #define type_test3(v, x, z) type_checker<v,x,z>::check(#v, #x "," #z, #x "," #z);
 #ifndef SHORT_TRANSFORM_TEST
-#define transform_check(name, from_suffix, to_suffix)\
-   type_test(bool to_suffix, name<bool from_suffix>::type);\
-   type_test(char to_suffix, name<char from_suffix>::type);\
-   type_test(wchar_t to_suffix, name<wchar_t from_suffix>::type);\
-   type_test(signed char to_suffix, name<signed char from_suffix>::type);\
-   type_test(unsigned char to_suffix, name<unsigned char from_suffix>::type);\
-   type_test(short to_suffix, name<short from_suffix>::type);\
-   type_test(unsigned short to_suffix, name<unsigned short from_suffix>::type);\
-   type_test(int to_suffix, name<int from_suffix>::type);\
-   type_test(unsigned int to_suffix, name<unsigned int from_suffix>::type);\
-   type_test(long to_suffix, name<long from_suffix>::type);\
-   type_test(unsigned long to_suffix, name<unsigned long from_suffix>::type);\
-   type_test(float to_suffix, name<float from_suffix>::type);\
-   type_test(long double to_suffix, name<long double from_suffix>::type);\
-   type_test(double to_suffix, name<double from_suffix>::type);\
-   type_test(UDT to_suffix, name<UDT from_suffix>::type);\
+#define transform_check(name, from_suffix, to_suffix)¥
+   type_test(bool to_suffix, name<bool from_suffix>::type);¥
+   type_test(char to_suffix, name<char from_suffix>::type);¥
+   type_test(wchar_t to_suffix, name<wchar_t from_suffix>::type);¥
+   type_test(signed char to_suffix, name<signed char from_suffix>::type);¥
+   type_test(unsigned char to_suffix, name<unsigned char from_suffix>::type);¥
+   type_test(short to_suffix, name<short from_suffix>::type);¥
+   type_test(unsigned short to_suffix, name<unsigned short from_suffix>::type);¥
+   type_test(int to_suffix, name<int from_suffix>::type);¥
+   type_test(unsigned int to_suffix, name<unsigned int from_suffix>::type);¥
+   type_test(long to_suffix, name<long from_suffix>::type);¥
+   type_test(unsigned long to_suffix, name<unsigned long from_suffix>::type);¥
+   type_test(float to_suffix, name<float from_suffix>::type);¥
+   type_test(long double to_suffix, name<long double from_suffix>::type);¥
+   type_test(double to_suffix, name<double from_suffix>::type);¥
+   type_test(UDT to_suffix, name<UDT from_suffix>::type);¥
    type_test(enum1 to_suffix, name<enum1 from_suffix>::type);
 #else
-#define transform_check(name, from_suffix, to_suffix)\
-   type_test(int to_suffix, name<int from_suffix>::type);\
-   type_test(UDT to_suffix, name<UDT from_suffix>::type);\
+#define transform_check(name, from_suffix, to_suffix)¥
+   type_test(int to_suffix, name<int from_suffix>::type);¥
+   type_test(UDT to_suffix, name<UDT from_suffix>::type);¥
    type_test(enum1 to_suffix, name<enum1 from_suffix>::type);
 #endif
 
@@ -172,7 +172,7 @@ struct test_align
       {
          ++failures;
          std::cout << "checking value of " << typeid(boost::alignment_of<T>).name() << "...failed" << std::endl;
-         std::cout << "\tfound: " << boost::alignment_of<T>::value << " expected " << a << std::endl;
+         std::cout << "¥tfound: " << boost::alignment_of<T>::value << " expected " << a << std::endl;
       }
       // suppress warnings about unused variables:
       not_unused(p);
@@ -198,7 +198,7 @@ struct test_align<T&>
       {
          ++failures;
          std::cout << "checking value of " << typeid(boost::alignment_of<T&>).name() << "...failed" << std::endl;
-         std::cout << "\tfound: " << boost::alignment_of<T&>::value << " expected " << a << std::endl;
+         std::cout << "¥tfound: " << boost::alignment_of<T&>::value << " expected " << a << std::endl;
       }
    }
 };
@@ -222,7 +222,7 @@ struct test_type_with_align
       ++failures;
       std::cerr << "checking for an object with same alignment as " 
       << typeid(T).name() << "...failed" << std::endl;
-      std::cerr << "\tfound: " << typeid(align_t).name() << std::endl;
+      std::cerr << "¥tfound: " << typeid(align_t).name() << std::endl;
     }
   }
 };
@@ -255,13 +255,13 @@ struct nested_test
 };
 
 #ifndef __SUNPRO_CC
-#define NESTED_DECL(what)\
-template <class T> \
-struct BOOST_TT_JOIN(nested_tester_,what){\
-   nested_test< (::boost::type_traits::ice_ne<0, ::boost::what<T>::value>::value)> tester;\
-   BOOST_TT_JOIN(nested_tester_,what)(const char* s) : tester(::boost::what<T>::value, s){}\
+#define NESTED_DECL(what)¥
+template <class T> ¥
+struct BOOST_TT_JOIN(nested_tester_,what){¥
+   nested_test< (::boost::type_traits::ice_ne<0, ::boost::what<T>::value>::value)> tester;¥
+   BOOST_TT_JOIN(nested_tester_,what)(const char* s) : tester(::boost::what<T>::value, s){}¥
 };
-#define NESTED_TEST(what, with)\
+#define NESTED_TEST(what, with)¥
 {BOOST_TT_JOIN(nested_tester_,what)<with> check(#what "<" #with ">"); (void)check;}
 #else
 #define NESTED_DECL(what)
@@ -280,7 +280,7 @@ enum enum_UDT{ one, two, three };
 struct UDT
 {
    UDT(){};
-   ~UDT(){};
+   ‾UDT(){};
    UDT(const UDT&);
    UDT& operator=(const UDT&);
    int i;
@@ -329,7 +329,7 @@ typedef const r_type cr_type;
 struct POD_UDT { int x; };
 struct empty_UDT
 {
-   ~empty_UDT(){};
+   ‾empty_UDT(){};
    empty_UDT& operator=(const empty_UDT&){ return *this; }
    bool operator==(const empty_UDT&)const
    { return true; }
@@ -344,7 +344,7 @@ union union_UDT
 {
   int x;
   double y;
-  ~union_UDT();
+  ‾union_UDT();
 };
 union POD_union_UDT
 {
@@ -353,7 +353,7 @@ union POD_union_UDT
 };
 union empty_union_UDT
 {
-  ~empty_union_UDT();
+  ‾empty_union_UDT();
 };
 union empty_POD_union_UDT{};
 
@@ -375,12 +375,12 @@ enum enum2
 
 struct VB
 {
-   virtual ~VB(){};
+   virtual ‾VB(){};
 };
 
 struct VD : VB
 {
-   ~VD(){};
+   ‾VD(){};
 };
 //
 // struct non_pointer:

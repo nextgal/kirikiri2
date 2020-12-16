@@ -33,19 +33,19 @@ namespace boost { namespace python { namespace detail {
 // an AdaptableFunction object, you must pass OL as a second argument
 // to get this to work portably.
 
-#  define BOOST_PP_ITERATION_PARAMS_1                                                                   \
+#  define BOOST_PP_ITERATION_PARAMS_1                                                                   ¥
     (4, (0, BOOST_PYTHON_MAX_ARITY, <boost/python/detail/result.hpp>, BOOST_PYTHON_FUNCTION_POINTER))
 #  include BOOST_PP_ITERATE()
 
-#  define BOOST_PP_ITERATION_PARAMS_1                                                                     \
+#  define BOOST_PP_ITERATION_PARAMS_1                                                                     ¥
     (4, (0, BOOST_PYTHON_CV_COUNT - 1, <boost/python/detail/result.hpp>, BOOST_PYTHON_POINTER_TO_MEMBER))
 #  include BOOST_PP_ITERATE()
 
 template <class R, class T>
 boost::type<R>* result(R (T::*), int = 0) { return 0; }
 
-#  if (defined(BOOST_MSVC) && _MSC_FULL_VER <= 13102140)  \
-   || (defined(__GNUC__) && __GNUC__ < 3)                 \
+#  if (defined(BOOST_MSVC) && _MSC_FULL_VER <= 13102140)  ¥
+   || (defined(__GNUC__) && __GNUC__ < 3)                 ¥
    || (defined(__MWERKS__) && __MWERKS__ < 0x3000)
 // This code actually works on all implementations, but why use it when we don't have to?
 template <class T>

@@ -19,7 +19,7 @@ class BOOST_PYTHON_DECL scope
     inline scope(scope const&);
     inline scope(object const&);
     inline scope();
-    inline ~scope();
+    inline ‾scope();
     
  private: // data members
     PyObject* m_previous_scope;
@@ -48,7 +48,7 @@ inline scope::scope()
 {
 }
 
-inline scope::~scope()
+inline scope::‾scope()
 {
     python::xdecref(current_scope);
     current_scope = m_previous_scope;

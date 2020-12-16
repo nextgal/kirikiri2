@@ -96,7 +96,7 @@ template <typename T> struct rank<PHOENIX_STD::complex<T> >
 #endif
 
 //////////////////////////////////
-#if defined(__GNUC__) && (__GNUC__ < 3) \
+#if defined(__GNUC__) && (__GNUC__ < 3) ¥
     || (defined(__ICL) && defined(_STLPORT_VERSION))
 template <typename T1>
 struct binary_operator<shift_r_op, PHOENIX_ISTREAM, T1>
@@ -148,7 +148,7 @@ operator>>(PHOENIX_ISTREAM& _0, actor<BaseT> const& _1)
 #endif
 
 //////////////////////////////////
-#if defined(__GNUC__) && (__GNUC__ < 3) \
+#if defined(__GNUC__) && (__GNUC__ < 3) ¥
     || (defined(__ICL) && defined(_STLPORT_VERSION))
 template <typename T1>
 struct binary_operator<shift_l_op, PHOENIX_OSTREAM, T1>
@@ -230,7 +230,7 @@ operator<<(PHOENIX_STD::PHOENIX_SSTREAM& _0, actor<BaseT> const& _1)
 //      I/O manipulator specializations
 //
 ///////////////////////////////////////////////////////////////////////////////
-#if (!defined(__GNUC__) || (__GNUC__ > 2)) \
+#if (!defined(__GNUC__) || (__GNUC__ > 2)) ¥
     && !(defined(__ICL) && defined(_STLPORT_VERSION))
 
 typedef PHOENIX_STD::ios_base&  (*iomanip_t)(PHOENIX_STD::ios_base&);

@@ -47,7 +47,7 @@ tTVPFlashOverlay::tTVPFlashOverlay(const wchar_t *flashfile, HWND callbackwindow
 	Form = NULL;
 }
 //---------------------------------------------------------------------------
-tTVPFlashOverlay::~tTVPFlashOverlay()
+tTVPFlashOverlay::‾tTVPFlashOverlay()
 {
 	Shutdown = true;
 	if(FileName) delete [] FileName;

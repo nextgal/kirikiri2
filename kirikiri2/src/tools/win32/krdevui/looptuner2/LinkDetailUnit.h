@@ -27,7 +27,7 @@
 //---------------------------------------------------------------------------
 class TLinkDetailForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TPanel *ToolBarPanel;
 	TToolBar *PosAdjustToolBar;
 	TToolButton *BeforePrevCrossToolButton;
@@ -135,7 +135,7 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
           int WheelDelta, TPoint &MousePos, bool &Handled);
 	void __fastcall PlayActionExecute(TObject *Sender);
 	void __fastcall PlayMenuItemClick(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	TWaveReader * FReader; // wave reader
 	tTVPWaveLoopManager * FManager; // wave loop manager
 	int LinkNum; // link number
@@ -154,7 +154,7 @@ private:	// ƒ†[ƒU[éŒ¾
 	int PlayStartPos;
 	int PlayLastPos;
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TLinkDetailForm(TComponent* Owner);
 	void __fastcall SetReaderAndLink(TWaveReader * reader, tTVPWaveLoopLink link, int linknum);
 

@@ -23,7 +23,7 @@
  * compiled with gcc -DNO_MMX, but inffast.S is still faster on the P3 with MMX
  * enabled.  I will attempt to merge the MMX code into this version.  Newer
  * versions of this and inffast.S can be found at
- * http://www.eetbeetee.com/zlib/ and http://www.charm.net/~christop/zlib/
+ * http://www.eetbeetee.com/zlib/ and http://www.charm.net/‾christop/zlib/
  */
 
 #include "zutil.h"
@@ -133,335 +133,335 @@ unsigned start;         /* inflate()'s starting value for strm->avail_out */
 
 #if defined( __GNUC__ ) && defined( __amd64__ ) && ! defined( __i386 )
     __asm__ __volatile__ (
-"        leaq    %0, %%rax\n"
-"        movq    %%rbp, 8(%%rax)\n"       /* save regs rbp and rsp */
-"        movq    %%rsp, (%%rax)\n"
-"        movq    %%rax, %%rsp\n"          /* make rsp point to &ar */
-"        movq    16(%%rsp), %%rsi\n"      /* rsi  = in */
-"        movq    32(%%rsp), %%rdi\n"      /* rdi  = out */
-"        movq    24(%%rsp), %%r9\n"       /* r9   = last */
-"        movq    48(%%rsp), %%r10\n"      /* r10  = end */
-"        movq    64(%%rsp), %%rbp\n"      /* rbp  = lcode */
-"        movq    72(%%rsp), %%r11\n"      /* r11  = dcode */
-"        movq    80(%%rsp), %%rdx\n"      /* rdx  = hold */
-"        movl    88(%%rsp), %%ebx\n"      /* ebx  = bits */
-"        movl    100(%%rsp), %%r12d\n"    /* r12d = lmask */
-"        movl    104(%%rsp), %%r13d\n"    /* r13d = dmask */
+"        leaq    %0, %%rax¥n"
+"        movq    %%rbp, 8(%%rax)¥n"       /* save regs rbp and rsp */
+"        movq    %%rsp, (%%rax)¥n"
+"        movq    %%rax, %%rsp¥n"          /* make rsp point to &ar */
+"        movq    16(%%rsp), %%rsi¥n"      /* rsi  = in */
+"        movq    32(%%rsp), %%rdi¥n"      /* rdi  = out */
+"        movq    24(%%rsp), %%r9¥n"       /* r9   = last */
+"        movq    48(%%rsp), %%r10¥n"      /* r10  = end */
+"        movq    64(%%rsp), %%rbp¥n"      /* rbp  = lcode */
+"        movq    72(%%rsp), %%r11¥n"      /* r11  = dcode */
+"        movq    80(%%rsp), %%rdx¥n"      /* rdx  = hold */
+"        movl    88(%%rsp), %%ebx¥n"      /* ebx  = bits */
+"        movl    100(%%rsp), %%r12d¥n"    /* r12d = lmask */
+"        movl    104(%%rsp), %%r13d¥n"    /* r13d = dmask */
                                           /* r14d = len */
                                           /* r15d = dist */
-"        cld\n"
-"        cmpq    %%rdi, %%r10\n"
-"        je      .L_one_time\n"           /* if only one decode left */
-"        cmpq    %%rsi, %%r9\n"
-"        je      .L_one_time\n"
-"        jmp     .L_do_loop\n"
+"        cld¥n"
+"        cmpq    %%rdi, %%r10¥n"
+"        je      .L_one_time¥n"           /* if only one decode left */
+"        cmpq    %%rsi, %%r9¥n"
+"        je      .L_one_time¥n"
+"        jmp     .L_do_loop¥n"
 
-".L_one_time:\n"
-"        movq    %%r12, %%r8\n"           /* r8 = lmask */
-"        cmpb    $32, %%bl\n"
-"        ja      .L_get_length_code_one_time\n"
+".L_one_time:¥n"
+"        movq    %%r12, %%r8¥n"           /* r8 = lmask */
+"        cmpb    $32, %%bl¥n"
+"        ja      .L_get_length_code_one_time¥n"
 
-"        lodsl\n"                         /* eax = *(uint *)in++ */
-"        movb    %%bl, %%cl\n"            /* cl = bits, needs it for shifting */
-"        addb    $32, %%bl\n"             /* bits += 32 */
-"        shlq    %%cl, %%rax\n"
-"        orq     %%rax, %%rdx\n"          /* hold |= *((uint *)in)++ << bits */
-"        jmp     .L_get_length_code_one_time\n"
+"        lodsl¥n"                         /* eax = *(uint *)in++ */
+"        movb    %%bl, %%cl¥n"            /* cl = bits, needs it for shifting */
+"        addb    $32, %%bl¥n"             /* bits += 32 */
+"        shlq    %%cl, %%rax¥n"
+"        orq     %%rax, %%rdx¥n"          /* hold |= *((uint *)in)++ << bits */
+"        jmp     .L_get_length_code_one_time¥n"
 
-".align 32,0x90\n"
-".L_while_test:\n"
-"        cmpq    %%rdi, %%r10\n"
-"        jbe     .L_break_loop\n"
-"        cmpq    %%rsi, %%r9\n"
-"        jbe     .L_break_loop\n"
+".align 32,0x90¥n"
+".L_while_test:¥n"
+"        cmpq    %%rdi, %%r10¥n"
+"        jbe     .L_break_loop¥n"
+"        cmpq    %%rsi, %%r9¥n"
+"        jbe     .L_break_loop¥n"
 
-".L_do_loop:\n"
-"        movq    %%r12, %%r8\n"           /* r8 = lmask */
-"        cmpb    $32, %%bl\n"
-"        ja      .L_get_length_code\n"    /* if (32 < bits) */
+".L_do_loop:¥n"
+"        movq    %%r12, %%r8¥n"           /* r8 = lmask */
+"        cmpb    $32, %%bl¥n"
+"        ja      .L_get_length_code¥n"    /* if (32 < bits) */
 
-"        lodsl\n"                         /* eax = *(uint *)in++ */
-"        movb    %%bl, %%cl\n"            /* cl = bits, needs it for shifting */
-"        addb    $32, %%bl\n"             /* bits += 32 */
-"        shlq    %%cl, %%rax\n"
-"        orq     %%rax, %%rdx\n"          /* hold |= *((uint *)in)++ << bits */
+"        lodsl¥n"                         /* eax = *(uint *)in++ */
+"        movb    %%bl, %%cl¥n"            /* cl = bits, needs it for shifting */
+"        addb    $32, %%bl¥n"             /* bits += 32 */
+"        shlq    %%cl, %%rax¥n"
+"        orq     %%rax, %%rdx¥n"          /* hold |= *((uint *)in)++ << bits */
 
-".L_get_length_code:\n"
-"        andq    %%rdx, %%r8\n"            /* r8 &= hold */
-"        movl    (%%rbp,%%r8,4), %%eax\n"  /* eax = lcode[hold & lmask] */
+".L_get_length_code:¥n"
+"        andq    %%rdx, %%r8¥n"            /* r8 &= hold */
+"        movl    (%%rbp,%%r8,4), %%eax¥n"  /* eax = lcode[hold & lmask] */
 
-"        movb    %%ah, %%cl\n"            /* cl = this.bits */
-"        subb    %%ah, %%bl\n"            /* bits -= this.bits */
-"        shrq    %%cl, %%rdx\n"           /* hold >>= this.bits */
+"        movb    %%ah, %%cl¥n"            /* cl = this.bits */
+"        subb    %%ah, %%bl¥n"            /* bits -= this.bits */
+"        shrq    %%cl, %%rdx¥n"           /* hold >>= this.bits */
 
-"        testb   %%al, %%al\n"
-"        jnz     .L_test_for_length_base\n" /* if (op != 0) 45.7% */
+"        testb   %%al, %%al¥n"
+"        jnz     .L_test_for_length_base¥n" /* if (op != 0) 45.7% */
 
-"        movq    %%r12, %%r8\n"            /* r8 = lmask */
-"        shrl    $16, %%eax\n"            /* output this.val char */
-"        stosb\n"
+"        movq    %%r12, %%r8¥n"            /* r8 = lmask */
+"        shrl    $16, %%eax¥n"            /* output this.val char */
+"        stosb¥n"
 
-".L_get_length_code_one_time:\n"
-"        andq    %%rdx, %%r8\n"            /* r8 &= hold */
-"        movl    (%%rbp,%%r8,4), %%eax\n" /* eax = lcode[hold & lmask] */
+".L_get_length_code_one_time:¥n"
+"        andq    %%rdx, %%r8¥n"            /* r8 &= hold */
+"        movl    (%%rbp,%%r8,4), %%eax¥n" /* eax = lcode[hold & lmask] */
 
-".L_dolen:\n"
-"        movb    %%ah, %%cl\n"            /* cl = this.bits */
-"        subb    %%ah, %%bl\n"            /* bits -= this.bits */
-"        shrq    %%cl, %%rdx\n"           /* hold >>= this.bits */
+".L_dolen:¥n"
+"        movb    %%ah, %%cl¥n"            /* cl = this.bits */
+"        subb    %%ah, %%bl¥n"            /* bits -= this.bits */
+"        shrq    %%cl, %%rdx¥n"           /* hold >>= this.bits */
 
-"        testb   %%al, %%al\n"
-"        jnz     .L_test_for_length_base\n" /* if (op != 0) 45.7% */
+"        testb   %%al, %%al¥n"
+"        jnz     .L_test_for_length_base¥n" /* if (op != 0) 45.7% */
 
-"        shrl    $16, %%eax\n"            /* output this.val char */
-"        stosb\n"
-"        jmp     .L_while_test\n"
+"        shrl    $16, %%eax¥n"            /* output this.val char */
+"        stosb¥n"
+"        jmp     .L_while_test¥n"
 
-".align 32,0x90\n"
-".L_test_for_length_base:\n"
-"        movl    %%eax, %%r14d\n"         /* len = this */
-"        shrl    $16, %%r14d\n"           /* len = this.val */
-"        movb    %%al, %%cl\n"
+".align 32,0x90¥n"
+".L_test_for_length_base:¥n"
+"        movl    %%eax, %%r14d¥n"         /* len = this */
+"        shrl    $16, %%r14d¥n"           /* len = this.val */
+"        movb    %%al, %%cl¥n"
 
-"        testb   $16, %%al\n"
-"        jz      .L_test_for_second_level_length\n" /* if ((op & 16) == 0) 8% */
-"        andb    $15, %%cl\n"             /* op &= 15 */
-"        jz      .L_decode_distance\n"    /* if (!op) */
+"        testb   $16, %%al¥n"
+"        jz      .L_test_for_second_level_length¥n" /* if ((op & 16) == 0) 8% */
+"        andb    $15, %%cl¥n"             /* op &= 15 */
+"        jz      .L_decode_distance¥n"    /* if (!op) */
 
-".L_add_bits_to_len:\n"
-"        subb    %%cl, %%bl\n"
-"        xorl    %%eax, %%eax\n"
-"        incl    %%eax\n"
-"        shll    %%cl, %%eax\n"
-"        decl    %%eax\n"
-"        andl    %%edx, %%eax\n"          /* eax &= hold */
-"        shrq    %%cl, %%rdx\n"
-"        addl    %%eax, %%r14d\n"         /* len += hold & mask[op] */
+".L_add_bits_to_len:¥n"
+"        subb    %%cl, %%bl¥n"
+"        xorl    %%eax, %%eax¥n"
+"        incl    %%eax¥n"
+"        shll    %%cl, %%eax¥n"
+"        decl    %%eax¥n"
+"        andl    %%edx, %%eax¥n"          /* eax &= hold */
+"        shrq    %%cl, %%rdx¥n"
+"        addl    %%eax, %%r14d¥n"         /* len += hold & mask[op] */
 
-".L_decode_distance:\n"
-"        movq    %%r13, %%r8\n"           /* r8 = dmask */
-"        cmpb    $32, %%bl\n"
-"        ja      .L_get_distance_code\n"  /* if (32 < bits) */
+".L_decode_distance:¥n"
+"        movq    %%r13, %%r8¥n"           /* r8 = dmask */
+"        cmpb    $32, %%bl¥n"
+"        ja      .L_get_distance_code¥n"  /* if (32 < bits) */
 
-"        lodsl\n"                         /* eax = *(uint *)in++ */
-"        movb    %%bl, %%cl\n"            /* cl = bits, needs it for shifting */
-"        addb    $32, %%bl\n"             /* bits += 32 */
-"        shlq    %%cl, %%rax\n"
-"        orq     %%rax, %%rdx\n"          /* hold |= *((uint *)in)++ << bits */
+"        lodsl¥n"                         /* eax = *(uint *)in++ */
+"        movb    %%bl, %%cl¥n"            /* cl = bits, needs it for shifting */
+"        addb    $32, %%bl¥n"             /* bits += 32 */
+"        shlq    %%cl, %%rax¥n"
+"        orq     %%rax, %%rdx¥n"          /* hold |= *((uint *)in)++ << bits */
 
-".L_get_distance_code:\n"
-"        andq    %%rdx, %%r8\n"           /* r8 &= hold */
-"        movl    (%%r11,%%r8,4), %%eax\n" /* eax = dcode[hold & dmask] */
+".L_get_distance_code:¥n"
+"        andq    %%rdx, %%r8¥n"           /* r8 &= hold */
+"        movl    (%%r11,%%r8,4), %%eax¥n" /* eax = dcode[hold & dmask] */
 
-".L_dodist:\n"
-"        movl    %%eax, %%r15d\n"         /* dist = this */
-"        shrl    $16, %%r15d\n"           /* dist = this.val */
-"        movb    %%ah, %%cl\n"
-"        subb    %%ah, %%bl\n"            /* bits -= this.bits */
-"        shrq    %%cl, %%rdx\n"           /* hold >>= this.bits */
-"        movb    %%al, %%cl\n"            /* cl = this.op */
+".L_dodist:¥n"
+"        movl    %%eax, %%r15d¥n"         /* dist = this */
+"        shrl    $16, %%r15d¥n"           /* dist = this.val */
+"        movb    %%ah, %%cl¥n"
+"        subb    %%ah, %%bl¥n"            /* bits -= this.bits */
+"        shrq    %%cl, %%rdx¥n"           /* hold >>= this.bits */
+"        movb    %%al, %%cl¥n"            /* cl = this.op */
 
-"        testb   $16, %%al\n"             /* if ((op & 16) == 0) */
-"        jz      .L_test_for_second_level_dist\n"
-"        andb    $15, %%cl\n"             /* op &= 15 */
-"        jz      .L_check_dist_one\n"
+"        testb   $16, %%al¥n"             /* if ((op & 16) == 0) */
+"        jz      .L_test_for_second_level_dist¥n"
+"        andb    $15, %%cl¥n"             /* op &= 15 */
+"        jz      .L_check_dist_one¥n"
 
-".L_add_bits_to_dist:\n"
-"        subb    %%cl, %%bl\n"
-"        xorl    %%eax, %%eax\n"
-"        incl    %%eax\n"
-"        shll    %%cl, %%eax\n"
-"        decl    %%eax\n"                 /* (1 << op) - 1 */
-"        andl    %%edx, %%eax\n"          /* eax &= hold */
-"        shrq    %%cl, %%rdx\n"
-"        addl    %%eax, %%r15d\n"         /* dist += hold & ((1 << op) - 1) */
+".L_add_bits_to_dist:¥n"
+"        subb    %%cl, %%bl¥n"
+"        xorl    %%eax, %%eax¥n"
+"        incl    %%eax¥n"
+"        shll    %%cl, %%eax¥n"
+"        decl    %%eax¥n"                 /* (1 << op) - 1 */
+"        andl    %%edx, %%eax¥n"          /* eax &= hold */
+"        shrq    %%cl, %%rdx¥n"
+"        addl    %%eax, %%r15d¥n"         /* dist += hold & ((1 << op) - 1) */
 
-".L_check_window:\n"
-"        movq    %%rsi, %%r8\n"           /* save in so from can use it's reg */
-"        movq    %%rdi, %%rax\n"
-"        subq    40(%%rsp), %%rax\n"      /* nbytes = out - beg */
+".L_check_window:¥n"
+"        movq    %%rsi, %%r8¥n"           /* save in so from can use it's reg */
+"        movq    %%rdi, %%rax¥n"
+"        subq    40(%%rsp), %%rax¥n"      /* nbytes = out - beg */
 
-"        cmpl    %%r15d, %%eax\n"
-"        jb      .L_clip_window\n"        /* if (dist > nbytes) 4.2% */
+"        cmpl    %%r15d, %%eax¥n"
+"        jb      .L_clip_window¥n"        /* if (dist > nbytes) 4.2% */
 
-"        movl    %%r14d, %%ecx\n"         /* ecx = len */
-"        movq    %%rdi, %%rsi\n"
-"        subq    %%r15, %%rsi\n"          /* from = out - dist */
+"        movl    %%r14d, %%ecx¥n"         /* ecx = len */
+"        movq    %%rdi, %%rsi¥n"
+"        subq    %%r15, %%rsi¥n"          /* from = out - dist */
 
-"        sarl    %%ecx\n"
-"        jnc     .L_copy_two\n"           /* if len % 2 == 0 */
+"        sarl    %%ecx¥n"
+"        jnc     .L_copy_two¥n"           /* if len % 2 == 0 */
 
-"        rep     movsw\n"
-"        movb    (%%rsi), %%al\n"
-"        movb    %%al, (%%rdi)\n"
-"        incq    %%rdi\n"
+"        rep     movsw¥n"
+"        movb    (%%rsi), %%al¥n"
+"        movb    %%al, (%%rdi)¥n"
+"        incq    %%rdi¥n"
 
-"        movq    %%r8, %%rsi\n"           /* move in back to %rsi, toss from */
-"        jmp     .L_while_test\n"
+"        movq    %%r8, %%rsi¥n"           /* move in back to %rsi, toss from */
+"        jmp     .L_while_test¥n"
 
-".L_copy_two:\n"
-"        rep     movsw\n"
-"        movq    %%r8, %%rsi\n"           /* move in back to %rsi, toss from */
-"        jmp     .L_while_test\n"
+".L_copy_two:¥n"
+"        rep     movsw¥n"
+"        movq    %%r8, %%rsi¥n"           /* move in back to %rsi, toss from */
+"        jmp     .L_while_test¥n"
 
-".align 32,0x90\n"
-".L_check_dist_one:\n"
-"        cmpl    $1, %%r15d\n"            /* if dist 1, is a memset */
-"        jne     .L_check_window\n"
-"        cmpq    %%rdi, 40(%%rsp)\n"      /* if out == beg, outside window */
-"        je      .L_check_window\n"
+".align 32,0x90¥n"
+".L_check_dist_one:¥n"
+"        cmpl    $1, %%r15d¥n"            /* if dist 1, is a memset */
+"        jne     .L_check_window¥n"
+"        cmpq    %%rdi, 40(%%rsp)¥n"      /* if out == beg, outside window */
+"        je      .L_check_window¥n"
 
-"        movl    %%r14d, %%ecx\n"         /* ecx = len */
-"        movb    -1(%%rdi), %%al\n"
-"        movb    %%al, %%ah\n"
+"        movl    %%r14d, %%ecx¥n"         /* ecx = len */
+"        movb    -1(%%rdi), %%al¥n"
+"        movb    %%al, %%ah¥n"
 
-"        sarl    %%ecx\n"
-"        jnc     .L_set_two\n"
-"        movb    %%al, (%%rdi)\n"
-"        incq    %%rdi\n"
+"        sarl    %%ecx¥n"
+"        jnc     .L_set_two¥n"
+"        movb    %%al, (%%rdi)¥n"
+"        incq    %%rdi¥n"
 
-".L_set_two:\n"
-"        rep     stosw\n"
-"        jmp     .L_while_test\n"
+".L_set_two:¥n"
+"        rep     stosw¥n"
+"        jmp     .L_while_test¥n"
 
-".align 32,0x90\n"
-".L_test_for_second_level_length:\n"
-"        testb   $64, %%al\n"
-"        jnz     .L_test_for_end_of_block\n" /* if ((op & 64) != 0) */
+".align 32,0x90¥n"
+".L_test_for_second_level_length:¥n"
+"        testb   $64, %%al¥n"
+"        jnz     .L_test_for_end_of_block¥n" /* if ((op & 64) != 0) */
 
-"        xorl    %%eax, %%eax\n"
-"        incl    %%eax\n"
-"        shll    %%cl, %%eax\n"
-"        decl    %%eax\n"
-"        andl    %%edx, %%eax\n"         /* eax &= hold */
-"        addl    %%r14d, %%eax\n"        /* eax += len */
-"        movl    (%%rbp,%%rax,4), %%eax\n" /* eax = lcode[val+(hold&mask[op])]*/
-"        jmp     .L_dolen\n"
+"        xorl    %%eax, %%eax¥n"
+"        incl    %%eax¥n"
+"        shll    %%cl, %%eax¥n"
+"        decl    %%eax¥n"
+"        andl    %%edx, %%eax¥n"         /* eax &= hold */
+"        addl    %%r14d, %%eax¥n"        /* eax += len */
+"        movl    (%%rbp,%%rax,4), %%eax¥n" /* eax = lcode[val+(hold&mask[op])]*/
+"        jmp     .L_dolen¥n"
 
-".align 32,0x90\n"
-".L_test_for_second_level_dist:\n"
-"        testb   $64, %%al\n"
-"        jnz     .L_invalid_distance_code\n" /* if ((op & 64) != 0) */
+".align 32,0x90¥n"
+".L_test_for_second_level_dist:¥n"
+"        testb   $64, %%al¥n"
+"        jnz     .L_invalid_distance_code¥n" /* if ((op & 64) != 0) */
 
-"        xorl    %%eax, %%eax\n"
-"        incl    %%eax\n"
-"        shll    %%cl, %%eax\n"
-"        decl    %%eax\n"
-"        andl    %%edx, %%eax\n"         /* eax &= hold */
-"        addl    %%r15d, %%eax\n"        /* eax += dist */
-"        movl    (%%r11,%%rax,4), %%eax\n" /* eax = dcode[val+(hold&mask[op])]*/
-"        jmp     .L_dodist\n"
+"        xorl    %%eax, %%eax¥n"
+"        incl    %%eax¥n"
+"        shll    %%cl, %%eax¥n"
+"        decl    %%eax¥n"
+"        andl    %%edx, %%eax¥n"         /* eax &= hold */
+"        addl    %%r15d, %%eax¥n"        /* eax += dist */
+"        movl    (%%r11,%%rax,4), %%eax¥n" /* eax = dcode[val+(hold&mask[op])]*/
+"        jmp     .L_dodist¥n"
 
-".align 32,0x90\n"
-".L_clip_window:\n"
-"        movl    %%eax, %%ecx\n"         /* ecx = nbytes */
-"        movl    92(%%rsp), %%eax\n"     /* eax = wsize, prepare for dist cmp */
-"        negl    %%ecx\n"                /* nbytes = -nbytes */
+".align 32,0x90¥n"
+".L_clip_window:¥n"
+"        movl    %%eax, %%ecx¥n"         /* ecx = nbytes */
+"        movl    92(%%rsp), %%eax¥n"     /* eax = wsize, prepare for dist cmp */
+"        negl    %%ecx¥n"                /* nbytes = -nbytes */
 
-"        cmpl    %%r15d, %%eax\n"
-"        jb      .L_invalid_distance_too_far\n" /* if (dist > wsize) */
+"        cmpl    %%r15d, %%eax¥n"
+"        jb      .L_invalid_distance_too_far¥n" /* if (dist > wsize) */
 
-"        addl    %%r15d, %%ecx\n"         /* nbytes = dist - nbytes */
-"        cmpl    $0, 96(%%rsp)\n"
-"        jne     .L_wrap_around_window\n" /* if (write != 0) */
+"        addl    %%r15d, %%ecx¥n"         /* nbytes = dist - nbytes */
+"        cmpl    $0, 96(%%rsp)¥n"
+"        jne     .L_wrap_around_window¥n" /* if (write != 0) */
 
-"        movq    56(%%rsp), %%rsi\n"     /* from  = window */
-"        subl    %%ecx, %%eax\n"         /* eax  -= nbytes */
-"        addq    %%rax, %%rsi\n"         /* from += wsize - nbytes */
+"        movq    56(%%rsp), %%rsi¥n"     /* from  = window */
+"        subl    %%ecx, %%eax¥n"         /* eax  -= nbytes */
+"        addq    %%rax, %%rsi¥n"         /* from += wsize - nbytes */
 
-"        movl    %%r14d, %%eax\n"        /* eax = len */
-"        cmpl    %%ecx, %%r14d\n"
-"        jbe     .L_do_copy\n"           /* if (nbytes >= len) */
+"        movl    %%r14d, %%eax¥n"        /* eax = len */
+"        cmpl    %%ecx, %%r14d¥n"
+"        jbe     .L_do_copy¥n"           /* if (nbytes >= len) */
 
-"        subl    %%ecx, %%eax\n"         /* eax -= nbytes */
-"        rep     movsb\n"
-"        movq    %%rdi, %%rsi\n"
-"        subq    %%r15, %%rsi\n"         /* from = &out[ -dist ] */
-"        jmp     .L_do_copy\n"
+"        subl    %%ecx, %%eax¥n"         /* eax -= nbytes */
+"        rep     movsb¥n"
+"        movq    %%rdi, %%rsi¥n"
+"        subq    %%r15, %%rsi¥n"         /* from = &out[ -dist ] */
+"        jmp     .L_do_copy¥n"
 
-".align 32,0x90\n"
-".L_wrap_around_window:\n"
-"        movl    96(%%rsp), %%eax\n"     /* eax = write */
-"        cmpl    %%eax, %%ecx\n"
-"        jbe     .L_contiguous_in_window\n" /* if (write >= nbytes) */
+".align 32,0x90¥n"
+".L_wrap_around_window:¥n"
+"        movl    96(%%rsp), %%eax¥n"     /* eax = write */
+"        cmpl    %%eax, %%ecx¥n"
+"        jbe     .L_contiguous_in_window¥n" /* if (write >= nbytes) */
 
-"        movl    92(%%rsp), %%esi\n"     /* from  = wsize */
-"        addq    56(%%rsp), %%rsi\n"     /* from += window */
-"        addq    %%rax, %%rsi\n"         /* from += write */
-"        subq    %%rcx, %%rsi\n"         /* from -= nbytes */
-"        subl    %%eax, %%ecx\n"         /* nbytes -= write */
+"        movl    92(%%rsp), %%esi¥n"     /* from  = wsize */
+"        addq    56(%%rsp), %%rsi¥n"     /* from += window */
+"        addq    %%rax, %%rsi¥n"         /* from += write */
+"        subq    %%rcx, %%rsi¥n"         /* from -= nbytes */
+"        subl    %%eax, %%ecx¥n"         /* nbytes -= write */
 
-"        movl    %%r14d, %%eax\n"        /* eax = len */
-"        cmpl    %%ecx, %%eax\n"
-"        jbe     .L_do_copy\n"           /* if (nbytes >= len) */
+"        movl    %%r14d, %%eax¥n"        /* eax = len */
+"        cmpl    %%ecx, %%eax¥n"
+"        jbe     .L_do_copy¥n"           /* if (nbytes >= len) */
 
-"        subl    %%ecx, %%eax\n"         /* len -= nbytes */
-"        rep     movsb\n"
-"        movq    56(%%rsp), %%rsi\n"     /* from = window */
-"        movl    96(%%rsp), %%ecx\n"     /* nbytes = write */
-"        cmpl    %%ecx, %%eax\n"
-"        jbe     .L_do_copy\n"           /* if (nbytes >= len) */
+"        subl    %%ecx, %%eax¥n"         /* len -= nbytes */
+"        rep     movsb¥n"
+"        movq    56(%%rsp), %%rsi¥n"     /* from = window */
+"        movl    96(%%rsp), %%ecx¥n"     /* nbytes = write */
+"        cmpl    %%ecx, %%eax¥n"
+"        jbe     .L_do_copy¥n"           /* if (nbytes >= len) */
 
-"        subl    %%ecx, %%eax\n"         /* len -= nbytes */
-"        rep     movsb\n"
-"        movq    %%rdi, %%rsi\n"
-"        subq    %%r15, %%rsi\n"         /* from = out - dist */
-"        jmp     .L_do_copy\n"
+"        subl    %%ecx, %%eax¥n"         /* len -= nbytes */
+"        rep     movsb¥n"
+"        movq    %%rdi, %%rsi¥n"
+"        subq    %%r15, %%rsi¥n"         /* from = out - dist */
+"        jmp     .L_do_copy¥n"
 
-".align 32,0x90\n"
-".L_contiguous_in_window:\n"
-"        movq    56(%%rsp), %%rsi\n"     /* rsi = window */
-"        addq    %%rax, %%rsi\n"
-"        subq    %%rcx, %%rsi\n"         /* from += write - nbytes */
+".align 32,0x90¥n"
+".L_contiguous_in_window:¥n"
+"        movq    56(%%rsp), %%rsi¥n"     /* rsi = window */
+"        addq    %%rax, %%rsi¥n"
+"        subq    %%rcx, %%rsi¥n"         /* from += write - nbytes */
 
-"        movl    %%r14d, %%eax\n"        /* eax = len */
-"        cmpl    %%ecx, %%eax\n"
-"        jbe     .L_do_copy\n"           /* if (nbytes >= len) */
+"        movl    %%r14d, %%eax¥n"        /* eax = len */
+"        cmpl    %%ecx, %%eax¥n"
+"        jbe     .L_do_copy¥n"           /* if (nbytes >= len) */
 
-"        subl    %%ecx, %%eax\n"         /* len -= nbytes */
-"        rep     movsb\n"
-"        movq    %%rdi, %%rsi\n"
-"        subq    %%r15, %%rsi\n"         /* from = out - dist */
-"        jmp     .L_do_copy\n"           /* if (nbytes >= len) */
+"        subl    %%ecx, %%eax¥n"         /* len -= nbytes */
+"        rep     movsb¥n"
+"        movq    %%rdi, %%rsi¥n"
+"        subq    %%r15, %%rsi¥n"         /* from = out - dist */
+"        jmp     .L_do_copy¥n"           /* if (nbytes >= len) */
 
-".align 32,0x90\n"
-".L_do_copy:\n"
-"        movl    %%eax, %%ecx\n"         /* ecx = len */
-"        rep     movsb\n"
+".align 32,0x90¥n"
+".L_do_copy:¥n"
+"        movl    %%eax, %%ecx¥n"         /* ecx = len */
+"        rep     movsb¥n"
 
-"        movq    %%r8, %%rsi\n"          /* move in back to %esi, toss from */
-"        jmp     .L_while_test\n"
+"        movq    %%r8, %%rsi¥n"          /* move in back to %esi, toss from */
+"        jmp     .L_while_test¥n"
 
-".L_test_for_end_of_block:\n"
-"        testb   $32, %%al\n"
-"        jz      .L_invalid_literal_length_code\n"
-"        movl    $1, 116(%%rsp)\n"
-"        jmp     .L_break_loop_with_status\n"
+".L_test_for_end_of_block:¥n"
+"        testb   $32, %%al¥n"
+"        jz      .L_invalid_literal_length_code¥n"
+"        movl    $1, 116(%%rsp)¥n"
+"        jmp     .L_break_loop_with_status¥n"
 
-".L_invalid_literal_length_code:\n"
-"        movl    $2, 116(%%rsp)\n"
-"        jmp     .L_break_loop_with_status\n"
+".L_invalid_literal_length_code:¥n"
+"        movl    $2, 116(%%rsp)¥n"
+"        jmp     .L_break_loop_with_status¥n"
 
-".L_invalid_distance_code:\n"
-"        movl    $3, 116(%%rsp)\n"
-"        jmp     .L_break_loop_with_status\n"
+".L_invalid_distance_code:¥n"
+"        movl    $3, 116(%%rsp)¥n"
+"        jmp     .L_break_loop_with_status¥n"
 
-".L_invalid_distance_too_far:\n"
-"        movl    $4, 116(%%rsp)\n"
-"        jmp     .L_break_loop_with_status\n"
+".L_invalid_distance_too_far:¥n"
+"        movl    $4, 116(%%rsp)¥n"
+"        jmp     .L_break_loop_with_status¥n"
 
-".L_break_loop:\n"
-"        movl    $0, 116(%%rsp)\n"
+".L_break_loop:¥n"
+"        movl    $0, 116(%%rsp)¥n"
 
-".L_break_loop_with_status:\n"
+".L_break_loop_with_status:¥n"
 /* put in, out, bits, and hold back into ar and pop esp */
-"        movq    %%rsi, 16(%%rsp)\n"     /* in */
-"        movq    %%rdi, 32(%%rsp)\n"     /* out */
-"        movl    %%ebx, 88(%%rsp)\n"     /* bits */
-"        movq    %%rdx, 80(%%rsp)\n"     /* hold */
-"        movq    (%%rsp), %%rax\n"       /* restore rbp and rsp */
-"        movq    8(%%rsp), %%rbp\n"
-"        movq    %%rax, %%rsp\n"
+"        movq    %%rsi, 16(%%rsp)¥n"     /* in */
+"        movq    %%rdi, 32(%%rsp)¥n"     /* out */
+"        movl    %%ebx, 88(%%rsp)¥n"     /* bits */
+"        movq    %%rdx, 80(%%rsp)¥n"     /* hold */
+"        movq    (%%rsp), %%rax¥n"       /* restore rbp and rsp */
+"        movq    8(%%rsp), %%rbp¥n"
+"        movq    %%rax, %%rsp¥n"
           :
           : "m" (ar)
           : "memory", "%rax", "%rbx", "%rcx", "%rdx", "%rsi", "%rdi",
@@ -469,327 +469,327 @@ unsigned start;         /* inflate()'s starting value for strm->avail_out */
     );
 #elif ( defined( __GNUC__ ) || defined( __ICC ) ) && defined( __i386 )
     __asm__ __volatile__ (
-"        leal    %0, %%eax\n"
-"        movl    %%esp, (%%eax)\n"        /* save esp, ebp */
-"        movl    %%ebp, 4(%%eax)\n"
-"        movl    %%eax, %%esp\n"
-"        movl    8(%%esp), %%esi\n"       /* esi = in */
-"        movl    16(%%esp), %%edi\n"      /* edi = out */
-"        movl    40(%%esp), %%edx\n"      /* edx = hold */
-"        movl    44(%%esp), %%ebx\n"      /* ebx = bits */
-"        movl    32(%%esp), %%ebp\n"      /* ebp = lcode */
+"        leal    %0, %%eax¥n"
+"        movl    %%esp, (%%eax)¥n"        /* save esp, ebp */
+"        movl    %%ebp, 4(%%eax)¥n"
+"        movl    %%eax, %%esp¥n"
+"        movl    8(%%esp), %%esi¥n"       /* esi = in */
+"        movl    16(%%esp), %%edi¥n"      /* edi = out */
+"        movl    40(%%esp), %%edx¥n"      /* edx = hold */
+"        movl    44(%%esp), %%ebx¥n"      /* ebx = bits */
+"        movl    32(%%esp), %%ebp¥n"      /* ebp = lcode */
 
-"        cld\n"
-"        jmp     .L_do_loop\n"
+"        cld¥n"
+"        jmp     .L_do_loop¥n"
 
-".align 32,0x90\n"
-".L_while_test:\n"
-"        cmpl    %%edi, 24(%%esp)\n"      /* out < end */
-"        jbe     .L_break_loop\n"
-"        cmpl    %%esi, 12(%%esp)\n"      /* in < last */
-"        jbe     .L_break_loop\n"
+".align 32,0x90¥n"
+".L_while_test:¥n"
+"        cmpl    %%edi, 24(%%esp)¥n"      /* out < end */
+"        jbe     .L_break_loop¥n"
+"        cmpl    %%esi, 12(%%esp)¥n"      /* in < last */
+"        jbe     .L_break_loop¥n"
 
-".L_do_loop:\n"
-"        cmpb    $15, %%bl\n"
-"        ja      .L_get_length_code\n"    /* if (15 < bits) */
+".L_do_loop:¥n"
+"        cmpb    $15, %%bl¥n"
+"        ja      .L_get_length_code¥n"    /* if (15 < bits) */
 
-"        xorl    %%eax, %%eax\n"
-"        lodsw\n"                         /* al = *(ushort *)in++ */
-"        movb    %%bl, %%cl\n"            /* cl = bits, needs it for shifting */
-"        addb    $16, %%bl\n"             /* bits += 16 */
-"        shll    %%cl, %%eax\n"
-"        orl     %%eax, %%edx\n"        /* hold |= *((ushort *)in)++ << bits */
+"        xorl    %%eax, %%eax¥n"
+"        lodsw¥n"                         /* al = *(ushort *)in++ */
+"        movb    %%bl, %%cl¥n"            /* cl = bits, needs it for shifting */
+"        addb    $16, %%bl¥n"             /* bits += 16 */
+"        shll    %%cl, %%eax¥n"
+"        orl     %%eax, %%edx¥n"        /* hold |= *((ushort *)in)++ << bits */
 
-".L_get_length_code:\n"
-"        movl    56(%%esp), %%eax\n"      /* eax = lmask */
-"        andl    %%edx, %%eax\n"          /* eax &= hold */
-"        movl    (%%ebp,%%eax,4), %%eax\n" /* eax = lcode[hold & lmask] */
+".L_get_length_code:¥n"
+"        movl    56(%%esp), %%eax¥n"      /* eax = lmask */
+"        andl    %%edx, %%eax¥n"          /* eax &= hold */
+"        movl    (%%ebp,%%eax,4), %%eax¥n" /* eax = lcode[hold & lmask] */
 
-".L_dolen:\n"
-"        movb    %%ah, %%cl\n"            /* cl = this.bits */
-"        subb    %%ah, %%bl\n"            /* bits -= this.bits */
-"        shrl    %%cl, %%edx\n"           /* hold >>= this.bits */
+".L_dolen:¥n"
+"        movb    %%ah, %%cl¥n"            /* cl = this.bits */
+"        subb    %%ah, %%bl¥n"            /* bits -= this.bits */
+"        shrl    %%cl, %%edx¥n"           /* hold >>= this.bits */
 
-"        testb   %%al, %%al\n"
-"        jnz     .L_test_for_length_base\n" /* if (op != 0) 45.7% */
+"        testb   %%al, %%al¥n"
+"        jnz     .L_test_for_length_base¥n" /* if (op != 0) 45.7% */
 
-"        shrl    $16, %%eax\n"            /* output this.val char */
-"        stosb\n"
-"        jmp     .L_while_test\n"
+"        shrl    $16, %%eax¥n"            /* output this.val char */
+"        stosb¥n"
+"        jmp     .L_while_test¥n"
 
-".align 32,0x90\n"
-".L_test_for_length_base:\n"
-"        movl    %%eax, %%ecx\n"          /* len = this */
-"        shrl    $16, %%ecx\n"            /* len = this.val */
-"        movl    %%ecx, 64(%%esp)\n"      /* save len */
-"        movb    %%al, %%cl\n"
+".align 32,0x90¥n"
+".L_test_for_length_base:¥n"
+"        movl    %%eax, %%ecx¥n"          /* len = this */
+"        shrl    $16, %%ecx¥n"            /* len = this.val */
+"        movl    %%ecx, 64(%%esp)¥n"      /* save len */
+"        movb    %%al, %%cl¥n"
 
-"        testb   $16, %%al\n"
-"        jz      .L_test_for_second_level_length\n" /* if ((op & 16) == 0) 8% */
-"        andb    $15, %%cl\n"             /* op &= 15 */
-"        jz      .L_decode_distance\n"    /* if (!op) */
-"        cmpb    %%cl, %%bl\n"
-"        jae     .L_add_bits_to_len\n"    /* if (op <= bits) */
+"        testb   $16, %%al¥n"
+"        jz      .L_test_for_second_level_length¥n" /* if ((op & 16) == 0) 8% */
+"        andb    $15, %%cl¥n"             /* op &= 15 */
+"        jz      .L_decode_distance¥n"    /* if (!op) */
+"        cmpb    %%cl, %%bl¥n"
+"        jae     .L_add_bits_to_len¥n"    /* if (op <= bits) */
 
-"        movb    %%cl, %%ch\n"            /* stash op in ch, freeing cl */
-"        xorl    %%eax, %%eax\n"
-"        lodsw\n"                         /* al = *(ushort *)in++ */
-"        movb    %%bl, %%cl\n"            /* cl = bits, needs it for shifting */
-"        addb    $16, %%bl\n"             /* bits += 16 */
-"        shll    %%cl, %%eax\n"
-"        orl     %%eax, %%edx\n"         /* hold |= *((ushort *)in)++ << bits */
-"        movb    %%ch, %%cl\n"            /* move op back to ecx */
+"        movb    %%cl, %%ch¥n"            /* stash op in ch, freeing cl */
+"        xorl    %%eax, %%eax¥n"
+"        lodsw¥n"                         /* al = *(ushort *)in++ */
+"        movb    %%bl, %%cl¥n"            /* cl = bits, needs it for shifting */
+"        addb    $16, %%bl¥n"             /* bits += 16 */
+"        shll    %%cl, %%eax¥n"
+"        orl     %%eax, %%edx¥n"         /* hold |= *((ushort *)in)++ << bits */
+"        movb    %%ch, %%cl¥n"            /* move op back to ecx */
 
-".L_add_bits_to_len:\n"
-"        subb    %%cl, %%bl\n"
-"        xorl    %%eax, %%eax\n"
-"        incl    %%eax\n"
-"        shll    %%cl, %%eax\n"
-"        decl    %%eax\n"
-"        andl    %%edx, %%eax\n"          /* eax &= hold */
-"        shrl    %%cl, %%edx\n"
-"        addl    %%eax, 64(%%esp)\n"      /* len += hold & mask[op] */
+".L_add_bits_to_len:¥n"
+"        subb    %%cl, %%bl¥n"
+"        xorl    %%eax, %%eax¥n"
+"        incl    %%eax¥n"
+"        shll    %%cl, %%eax¥n"
+"        decl    %%eax¥n"
+"        andl    %%edx, %%eax¥n"          /* eax &= hold */
+"        shrl    %%cl, %%edx¥n"
+"        addl    %%eax, 64(%%esp)¥n"      /* len += hold & mask[op] */
 
-".L_decode_distance:\n"
-"        cmpb    $15, %%bl\n"
-"        ja      .L_get_distance_code\n"  /* if (15 < bits) */
+".L_decode_distance:¥n"
+"        cmpb    $15, %%bl¥n"
+"        ja      .L_get_distance_code¥n"  /* if (15 < bits) */
 
-"        xorl    %%eax, %%eax\n"
-"        lodsw\n"                         /* al = *(ushort *)in++ */
-"        movb    %%bl, %%cl\n"            /* cl = bits, needs it for shifting */
-"        addb    $16, %%bl\n"             /* bits += 16 */
-"        shll    %%cl, %%eax\n"
-"        orl     %%eax, %%edx\n"         /* hold |= *((ushort *)in)++ << bits */
+"        xorl    %%eax, %%eax¥n"
+"        lodsw¥n"                         /* al = *(ushort *)in++ */
+"        movb    %%bl, %%cl¥n"            /* cl = bits, needs it for shifting */
+"        addb    $16, %%bl¥n"             /* bits += 16 */
+"        shll    %%cl, %%eax¥n"
+"        orl     %%eax, %%edx¥n"         /* hold |= *((ushort *)in)++ << bits */
 
-".L_get_distance_code:\n"
-"        movl    60(%%esp), %%eax\n"      /* eax = dmask */
-"        movl    36(%%esp), %%ecx\n"      /* ecx = dcode */
-"        andl    %%edx, %%eax\n"          /* eax &= hold */
-"        movl    (%%ecx,%%eax,4), %%eax\n"/* eax = dcode[hold & dmask] */
+".L_get_distance_code:¥n"
+"        movl    60(%%esp), %%eax¥n"      /* eax = dmask */
+"        movl    36(%%esp), %%ecx¥n"      /* ecx = dcode */
+"        andl    %%edx, %%eax¥n"          /* eax &= hold */
+"        movl    (%%ecx,%%eax,4), %%eax¥n"/* eax = dcode[hold & dmask] */
 
-".L_dodist:\n"
-"        movl    %%eax, %%ebp\n"          /* dist = this */
-"        shrl    $16, %%ebp\n"            /* dist = this.val */
-"        movb    %%ah, %%cl\n"
-"        subb    %%ah, %%bl\n"            /* bits -= this.bits */
-"        shrl    %%cl, %%edx\n"           /* hold >>= this.bits */
-"        movb    %%al, %%cl\n"            /* cl = this.op */
+".L_dodist:¥n"
+"        movl    %%eax, %%ebp¥n"          /* dist = this */
+"        shrl    $16, %%ebp¥n"            /* dist = this.val */
+"        movb    %%ah, %%cl¥n"
+"        subb    %%ah, %%bl¥n"            /* bits -= this.bits */
+"        shrl    %%cl, %%edx¥n"           /* hold >>= this.bits */
+"        movb    %%al, %%cl¥n"            /* cl = this.op */
 
-"        testb   $16, %%al\n"             /* if ((op & 16) == 0) */
-"        jz      .L_test_for_second_level_dist\n"
-"        andb    $15, %%cl\n"             /* op &= 15 */
-"        jz      .L_check_dist_one\n"
-"        cmpb    %%cl, %%bl\n"
-"        jae     .L_add_bits_to_dist\n"   /* if (op <= bits) 97.6% */
+"        testb   $16, %%al¥n"             /* if ((op & 16) == 0) */
+"        jz      .L_test_for_second_level_dist¥n"
+"        andb    $15, %%cl¥n"             /* op &= 15 */
+"        jz      .L_check_dist_one¥n"
+"        cmpb    %%cl, %%bl¥n"
+"        jae     .L_add_bits_to_dist¥n"   /* if (op <= bits) 97.6% */
 
-"        movb    %%cl, %%ch\n"            /* stash op in ch, freeing cl */
-"        xorl    %%eax, %%eax\n"
-"        lodsw\n"                         /* al = *(ushort *)in++ */
-"        movb    %%bl, %%cl\n"            /* cl = bits, needs it for shifting */
-"        addb    $16, %%bl\n"             /* bits += 16 */
-"        shll    %%cl, %%eax\n"
-"        orl     %%eax, %%edx\n"        /* hold |= *((ushort *)in)++ << bits */
-"        movb    %%ch, %%cl\n"            /* move op back to ecx */
+"        movb    %%cl, %%ch¥n"            /* stash op in ch, freeing cl */
+"        xorl    %%eax, %%eax¥n"
+"        lodsw¥n"                         /* al = *(ushort *)in++ */
+"        movb    %%bl, %%cl¥n"            /* cl = bits, needs it for shifting */
+"        addb    $16, %%bl¥n"             /* bits += 16 */
+"        shll    %%cl, %%eax¥n"
+"        orl     %%eax, %%edx¥n"        /* hold |= *((ushort *)in)++ << bits */
+"        movb    %%ch, %%cl¥n"            /* move op back to ecx */
 
-".L_add_bits_to_dist:\n"
-"        subb    %%cl, %%bl\n"
-"        xorl    %%eax, %%eax\n"
-"        incl    %%eax\n"
-"        shll    %%cl, %%eax\n"
-"        decl    %%eax\n"                 /* (1 << op) - 1 */
-"        andl    %%edx, %%eax\n"          /* eax &= hold */
-"        shrl    %%cl, %%edx\n"
-"        addl    %%eax, %%ebp\n"          /* dist += hold & ((1 << op) - 1) */
+".L_add_bits_to_dist:¥n"
+"        subb    %%cl, %%bl¥n"
+"        xorl    %%eax, %%eax¥n"
+"        incl    %%eax¥n"
+"        shll    %%cl, %%eax¥n"
+"        decl    %%eax¥n"                 /* (1 << op) - 1 */
+"        andl    %%edx, %%eax¥n"          /* eax &= hold */
+"        shrl    %%cl, %%edx¥n"
+"        addl    %%eax, %%ebp¥n"          /* dist += hold & ((1 << op) - 1) */
 
-".L_check_window:\n"
-"        movl    %%esi, 8(%%esp)\n"       /* save in so from can use it's reg */
-"        movl    %%edi, %%eax\n"
-"        subl    20(%%esp), %%eax\n"      /* nbytes = out - beg */
+".L_check_window:¥n"
+"        movl    %%esi, 8(%%esp)¥n"       /* save in so from can use it's reg */
+"        movl    %%edi, %%eax¥n"
+"        subl    20(%%esp), %%eax¥n"      /* nbytes = out - beg */
 
-"        cmpl    %%ebp, %%eax\n"
-"        jb      .L_clip_window\n"        /* if (dist > nbytes) 4.2% */
+"        cmpl    %%ebp, %%eax¥n"
+"        jb      .L_clip_window¥n"        /* if (dist > nbytes) 4.2% */
 
-"        movl    64(%%esp), %%ecx\n"      /* ecx = len */
-"        movl    %%edi, %%esi\n"
-"        subl    %%ebp, %%esi\n"          /* from = out - dist */
+"        movl    64(%%esp), %%ecx¥n"      /* ecx = len */
+"        movl    %%edi, %%esi¥n"
+"        subl    %%ebp, %%esi¥n"          /* from = out - dist */
 
-"        sarl    %%ecx\n"
-"        jnc     .L_copy_two\n"           /* if len % 2 == 0 */
+"        sarl    %%ecx¥n"
+"        jnc     .L_copy_two¥n"           /* if len % 2 == 0 */
 
-"        rep     movsw\n"
-"        movb    (%%esi), %%al\n"
-"        movb    %%al, (%%edi)\n"
-"        incl    %%edi\n"
+"        rep     movsw¥n"
+"        movb    (%%esi), %%al¥n"
+"        movb    %%al, (%%edi)¥n"
+"        incl    %%edi¥n"
 
-"        movl    8(%%esp), %%esi\n"       /* move in back to %esi, toss from */
-"        movl    32(%%esp), %%ebp\n"      /* ebp = lcode */
-"        jmp     .L_while_test\n"
+"        movl    8(%%esp), %%esi¥n"       /* move in back to %esi, toss from */
+"        movl    32(%%esp), %%ebp¥n"      /* ebp = lcode */
+"        jmp     .L_while_test¥n"
 
-".L_copy_two:\n"
-"        rep     movsw\n"
-"        movl    8(%%esp), %%esi\n"       /* move in back to %esi, toss from */
-"        movl    32(%%esp), %%ebp\n"      /* ebp = lcode */
-"        jmp     .L_while_test\n"
+".L_copy_two:¥n"
+"        rep     movsw¥n"
+"        movl    8(%%esp), %%esi¥n"       /* move in back to %esi, toss from */
+"        movl    32(%%esp), %%ebp¥n"      /* ebp = lcode */
+"        jmp     .L_while_test¥n"
 
-".align 32,0x90\n"
-".L_check_dist_one:\n"
-"        cmpl    $1, %%ebp\n"            /* if dist 1, is a memset */
-"        jne     .L_check_window\n"
-"        cmpl    %%edi, 20(%%esp)\n"
-"        je      .L_check_window\n"      /* out == beg, if outside window */
+".align 32,0x90¥n"
+".L_check_dist_one:¥n"
+"        cmpl    $1, %%ebp¥n"            /* if dist 1, is a memset */
+"        jne     .L_check_window¥n"
+"        cmpl    %%edi, 20(%%esp)¥n"
+"        je      .L_check_window¥n"      /* out == beg, if outside window */
 
-"        movl    64(%%esp), %%ecx\n"      /* ecx = len */
-"        movb    -1(%%edi), %%al\n"
-"        movb    %%al, %%ah\n"
+"        movl    64(%%esp), %%ecx¥n"      /* ecx = len */
+"        movb    -1(%%edi), %%al¥n"
+"        movb    %%al, %%ah¥n"
 
-"        sarl    %%ecx\n"
-"        jnc     .L_set_two\n"
-"        movb    %%al, (%%edi)\n"
-"        incl    %%edi\n"
+"        sarl    %%ecx¥n"
+"        jnc     .L_set_two¥n"
+"        movb    %%al, (%%edi)¥n"
+"        incl    %%edi¥n"
 
-".L_set_two:\n"
-"        rep     stosw\n"
-"        movl    32(%%esp), %%ebp\n"      /* ebp = lcode */
-"        jmp     .L_while_test\n"
+".L_set_two:¥n"
+"        rep     stosw¥n"
+"        movl    32(%%esp), %%ebp¥n"      /* ebp = lcode */
+"        jmp     .L_while_test¥n"
 
-".align 32,0x90\n"
-".L_test_for_second_level_length:\n"
-"        testb   $64, %%al\n"
-"        jnz     .L_test_for_end_of_block\n" /* if ((op & 64) != 0) */
+".align 32,0x90¥n"
+".L_test_for_second_level_length:¥n"
+"        testb   $64, %%al¥n"
+"        jnz     .L_test_for_end_of_block¥n" /* if ((op & 64) != 0) */
 
-"        xorl    %%eax, %%eax\n"
-"        incl    %%eax\n"
-"        shll    %%cl, %%eax\n"
-"        decl    %%eax\n"
-"        andl    %%edx, %%eax\n"         /* eax &= hold */
-"        addl    64(%%esp), %%eax\n"     /* eax += len */
-"        movl    (%%ebp,%%eax,4), %%eax\n" /* eax = lcode[val+(hold&mask[op])]*/
-"        jmp     .L_dolen\n"
+"        xorl    %%eax, %%eax¥n"
+"        incl    %%eax¥n"
+"        shll    %%cl, %%eax¥n"
+"        decl    %%eax¥n"
+"        andl    %%edx, %%eax¥n"         /* eax &= hold */
+"        addl    64(%%esp), %%eax¥n"     /* eax += len */
+"        movl    (%%ebp,%%eax,4), %%eax¥n" /* eax = lcode[val+(hold&mask[op])]*/
+"        jmp     .L_dolen¥n"
 
-".align 32,0x90\n"
-".L_test_for_second_level_dist:\n"
-"        testb   $64, %%al\n"
-"        jnz     .L_invalid_distance_code\n" /* if ((op & 64) != 0) */
+".align 32,0x90¥n"
+".L_test_for_second_level_dist:¥n"
+"        testb   $64, %%al¥n"
+"        jnz     .L_invalid_distance_code¥n" /* if ((op & 64) != 0) */
 
-"        xorl    %%eax, %%eax\n"
-"        incl    %%eax\n"
-"        shll    %%cl, %%eax\n"
-"        decl    %%eax\n"
-"        andl    %%edx, %%eax\n"         /* eax &= hold */
-"        addl    %%ebp, %%eax\n"         /* eax += dist */
-"        movl    36(%%esp), %%ecx\n"     /* ecx = dcode */
-"        movl    (%%ecx,%%eax,4), %%eax\n" /* eax = dcode[val+(hold&mask[op])]*/
-"        jmp     .L_dodist\n"
+"        xorl    %%eax, %%eax¥n"
+"        incl    %%eax¥n"
+"        shll    %%cl, %%eax¥n"
+"        decl    %%eax¥n"
+"        andl    %%edx, %%eax¥n"         /* eax &= hold */
+"        addl    %%ebp, %%eax¥n"         /* eax += dist */
+"        movl    36(%%esp), %%ecx¥n"     /* ecx = dcode */
+"        movl    (%%ecx,%%eax,4), %%eax¥n" /* eax = dcode[val+(hold&mask[op])]*/
+"        jmp     .L_dodist¥n"
 
-".align 32,0x90\n"
-".L_clip_window:\n"
-"        movl    %%eax, %%ecx\n"
-"        movl    48(%%esp), %%eax\n"     /* eax = wsize */
-"        negl    %%ecx\n"                /* nbytes = -nbytes */
-"        movl    28(%%esp), %%esi\n"     /* from = window */
+".align 32,0x90¥n"
+".L_clip_window:¥n"
+"        movl    %%eax, %%ecx¥n"
+"        movl    48(%%esp), %%eax¥n"     /* eax = wsize */
+"        negl    %%ecx¥n"                /* nbytes = -nbytes */
+"        movl    28(%%esp), %%esi¥n"     /* from = window */
 
-"        cmpl    %%ebp, %%eax\n"
-"        jb      .L_invalid_distance_too_far\n" /* if (dist > wsize) */
+"        cmpl    %%ebp, %%eax¥n"
+"        jb      .L_invalid_distance_too_far¥n" /* if (dist > wsize) */
 
-"        addl    %%ebp, %%ecx\n"         /* nbytes = dist - nbytes */
-"        cmpl    $0, 52(%%esp)\n"
-"        jne     .L_wrap_around_window\n" /* if (write != 0) */
+"        addl    %%ebp, %%ecx¥n"         /* nbytes = dist - nbytes */
+"        cmpl    $0, 52(%%esp)¥n"
+"        jne     .L_wrap_around_window¥n" /* if (write != 0) */
 
-"        subl    %%ecx, %%eax\n"
-"        addl    %%eax, %%esi\n"         /* from += wsize - nbytes */
+"        subl    %%ecx, %%eax¥n"
+"        addl    %%eax, %%esi¥n"         /* from += wsize - nbytes */
 
-"        movl    64(%%esp), %%eax\n"     /* eax = len */
-"        cmpl    %%ecx, %%eax\n"
-"        jbe     .L_do_copy\n"           /* if (nbytes >= len) */
+"        movl    64(%%esp), %%eax¥n"     /* eax = len */
+"        cmpl    %%ecx, %%eax¥n"
+"        jbe     .L_do_copy¥n"           /* if (nbytes >= len) */
 
-"        subl    %%ecx, %%eax\n"         /* len -= nbytes */
-"        rep     movsb\n"
-"        movl    %%edi, %%esi\n"
-"        subl    %%ebp, %%esi\n"         /* from = out - dist */
-"        jmp     .L_do_copy\n"
+"        subl    %%ecx, %%eax¥n"         /* len -= nbytes */
+"        rep     movsb¥n"
+"        movl    %%edi, %%esi¥n"
+"        subl    %%ebp, %%esi¥n"         /* from = out - dist */
+"        jmp     .L_do_copy¥n"
 
-".align 32,0x90\n"
-".L_wrap_around_window:\n"
-"        movl    52(%%esp), %%eax\n"     /* eax = write */
-"        cmpl    %%eax, %%ecx\n"
-"        jbe     .L_contiguous_in_window\n" /* if (write >= nbytes) */
+".align 32,0x90¥n"
+".L_wrap_around_window:¥n"
+"        movl    52(%%esp), %%eax¥n"     /* eax = write */
+"        cmpl    %%eax, %%ecx¥n"
+"        jbe     .L_contiguous_in_window¥n" /* if (write >= nbytes) */
 
-"        addl    48(%%esp), %%esi\n"     /* from += wsize */
-"        addl    %%eax, %%esi\n"         /* from += write */
-"        subl    %%ecx, %%esi\n"         /* from -= nbytes */
-"        subl    %%eax, %%ecx\n"         /* nbytes -= write */
+"        addl    48(%%esp), %%esi¥n"     /* from += wsize */
+"        addl    %%eax, %%esi¥n"         /* from += write */
+"        subl    %%ecx, %%esi¥n"         /* from -= nbytes */
+"        subl    %%eax, %%ecx¥n"         /* nbytes -= write */
 
-"        movl    64(%%esp), %%eax\n"     /* eax = len */
-"        cmpl    %%ecx, %%eax\n"
-"        jbe     .L_do_copy\n"           /* if (nbytes >= len) */
+"        movl    64(%%esp), %%eax¥n"     /* eax = len */
+"        cmpl    %%ecx, %%eax¥n"
+"        jbe     .L_do_copy¥n"           /* if (nbytes >= len) */
 
-"        subl    %%ecx, %%eax\n"         /* len -= nbytes */
-"        rep     movsb\n"
-"        movl    28(%%esp), %%esi\n"     /* from = window */
-"        movl    52(%%esp), %%ecx\n"     /* nbytes = write */
-"        cmpl    %%ecx, %%eax\n"
-"        jbe     .L_do_copy\n"           /* if (nbytes >= len) */
+"        subl    %%ecx, %%eax¥n"         /* len -= nbytes */
+"        rep     movsb¥n"
+"        movl    28(%%esp), %%esi¥n"     /* from = window */
+"        movl    52(%%esp), %%ecx¥n"     /* nbytes = write */
+"        cmpl    %%ecx, %%eax¥n"
+"        jbe     .L_do_copy¥n"           /* if (nbytes >= len) */
 
-"        subl    %%ecx, %%eax\n"         /* len -= nbytes */
-"        rep     movsb\n"
-"        movl    %%edi, %%esi\n"
-"        subl    %%ebp, %%esi\n"         /* from = out - dist */
-"        jmp     .L_do_copy\n"
+"        subl    %%ecx, %%eax¥n"         /* len -= nbytes */
+"        rep     movsb¥n"
+"        movl    %%edi, %%esi¥n"
+"        subl    %%ebp, %%esi¥n"         /* from = out - dist */
+"        jmp     .L_do_copy¥n"
 
-".align 32,0x90\n"
-".L_contiguous_in_window:\n"
-"        addl    %%eax, %%esi\n"
-"        subl    %%ecx, %%esi\n"         /* from += write - nbytes */
+".align 32,0x90¥n"
+".L_contiguous_in_window:¥n"
+"        addl    %%eax, %%esi¥n"
+"        subl    %%ecx, %%esi¥n"         /* from += write - nbytes */
 
-"        movl    64(%%esp), %%eax\n"     /* eax = len */
-"        cmpl    %%ecx, %%eax\n"
-"        jbe     .L_do_copy\n"           /* if (nbytes >= len) */
+"        movl    64(%%esp), %%eax¥n"     /* eax = len */
+"        cmpl    %%ecx, %%eax¥n"
+"        jbe     .L_do_copy¥n"           /* if (nbytes >= len) */
 
-"        subl    %%ecx, %%eax\n"         /* len -= nbytes */
-"        rep     movsb\n"
-"        movl    %%edi, %%esi\n"
-"        subl    %%ebp, %%esi\n"         /* from = out - dist */
-"        jmp     .L_do_copy\n"           /* if (nbytes >= len) */
+"        subl    %%ecx, %%eax¥n"         /* len -= nbytes */
+"        rep     movsb¥n"
+"        movl    %%edi, %%esi¥n"
+"        subl    %%ebp, %%esi¥n"         /* from = out - dist */
+"        jmp     .L_do_copy¥n"           /* if (nbytes >= len) */
 
-".align 32,0x90\n"
-".L_do_copy:\n"
-"        movl    %%eax, %%ecx\n"
-"        rep     movsb\n"
+".align 32,0x90¥n"
+".L_do_copy:¥n"
+"        movl    %%eax, %%ecx¥n"
+"        rep     movsb¥n"
 
-"        movl    8(%%esp), %%esi\n"      /* move in back to %esi, toss from */
-"        movl    32(%%esp), %%ebp\n"     /* ebp = lcode */
-"        jmp     .L_while_test\n"
+"        movl    8(%%esp), %%esi¥n"      /* move in back to %esi, toss from */
+"        movl    32(%%esp), %%ebp¥n"     /* ebp = lcode */
+"        jmp     .L_while_test¥n"
 
-".L_test_for_end_of_block:\n"
-"        testb   $32, %%al\n"
-"        jz      .L_invalid_literal_length_code\n"
-"        movl    $1, 72(%%esp)\n"
-"        jmp     .L_break_loop_with_status\n"
+".L_test_for_end_of_block:¥n"
+"        testb   $32, %%al¥n"
+"        jz      .L_invalid_literal_length_code¥n"
+"        movl    $1, 72(%%esp)¥n"
+"        jmp     .L_break_loop_with_status¥n"
 
-".L_invalid_literal_length_code:\n"
-"        movl    $2, 72(%%esp)\n"
-"        jmp     .L_break_loop_with_status\n"
+".L_invalid_literal_length_code:¥n"
+"        movl    $2, 72(%%esp)¥n"
+"        jmp     .L_break_loop_with_status¥n"
 
-".L_invalid_distance_code:\n"
-"        movl    $3, 72(%%esp)\n"
-"        jmp     .L_break_loop_with_status\n"
+".L_invalid_distance_code:¥n"
+"        movl    $3, 72(%%esp)¥n"
+"        jmp     .L_break_loop_with_status¥n"
 
-".L_invalid_distance_too_far:\n"
-"        movl    8(%%esp), %%esi\n"
-"        movl    $4, 72(%%esp)\n"
-"        jmp     .L_break_loop_with_status\n"
+".L_invalid_distance_too_far:¥n"
+"        movl    8(%%esp), %%esi¥n"
+"        movl    $4, 72(%%esp)¥n"
+"        jmp     .L_break_loop_with_status¥n"
 
-".L_break_loop:\n"
-"        movl    $0, 72(%%esp)\n"
+".L_break_loop:¥n"
+"        movl    $0, 72(%%esp)¥n"
 
-".L_break_loop_with_status:\n"
+".L_break_loop_with_status:¥n"
 /* put in, out, bits, and hold back into ar and pop esp */
-"        movl    %%esi, 8(%%esp)\n"      /* save in */
-"        movl    %%edi, 16(%%esp)\n"     /* save out */
-"        movl    %%ebx, 44(%%esp)\n"     /* save bits */
-"        movl    %%edx, 40(%%esp)\n"     /* save hold */
-"        movl    4(%%esp), %%ebp\n"      /* restore esp, ebp */
-"        movl    (%%esp), %%esp\n"
+"        movl    %%esi, 8(%%esp)¥n"      /* save in */
+"        movl    %%edi, 16(%%esp)¥n"     /* save out */
+"        movl    %%ebx, 44(%%esp)¥n"     /* save bits */
+"        movl    %%edx, 40(%%esp)¥n"     /* save hold */
+"        movl    4(%%esp), %%ebp¥n"      /* restore esp, ebp */
+"        movl    (%%esp), %%esp¥n"
           :
           : "m" (ar)
           : "memory", "%eax", "%ebx", "%ecx", "%edx", "%esi", "%edi"

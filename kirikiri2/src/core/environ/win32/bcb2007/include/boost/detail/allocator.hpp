@@ -51,7 +51,7 @@ template <class T>
 void allocator_destroy(T* p)
 { 
    (void)p; // warning suppression
-   p->~T(); 
+   p->‾T(); 
 }
 
 } }
@@ -113,7 +113,7 @@ public:
    allocator& operator=(const allocator<U>&)
    { return *this; }
 
-   ~allocator(){}
+   ‾allocator(){}
 
    pointer address(reference x) { return &x; }
 
@@ -188,7 +188,7 @@ public:
    simple_alloc(){}
    simple_alloc(const simple_alloc&){}
 
-   ~simple_alloc(){}
+   ‾simple_alloc(){}
 
    pointer allocate(size_type n, const void* = 0) 
    {
@@ -239,7 +239,7 @@ public:
       return *this;
    }
 
-   ~allocator_adapter(){}
+   ‾allocator_adapter(){}
 
    pointer address(reference x) { return &x; }
 

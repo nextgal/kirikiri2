@@ -1,10 +1,10 @@
-[image storage="_24_3" page=fore layer=base]\
-;[position vertical=true]\
+[image storage="_24_3" page=fore layer=base]Â¥
+;[position vertical=true]Â¥
 *first
-[er]\
-‚µ‚Ü‚·B[l]
+[er]Â¥
+ã—ã¾ã™ã€‚[l]
 2
-3  [indent]‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†‚±‚±‚ÍƒCƒ“ƒfƒ“ƒg’†[endindent][l]
+3  [indent]ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­ã“ã“ã¯ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸­[endindent][l]
 4
 5
 6
@@ -30,5 +30,5 @@
 26
 27
 28
-29 [indent]‚Æ‚±‚ë‚ÅƒsƒJƒ\‚Ì–{–¼‚ÍuƒpƒuƒƒfƒBƒGƒSƒzƒZƒtƒ‰ƒ“ƒ`ƒXƒRƒgƒ|[ƒ‹ƒWƒƒƒ“ƒlƒ|ƒ€ƒ`ƒF[ƒmƒNƒŠƒXƒpƒ“ƒNƒŠƒXƒsƒAƒmƒhƒ‰ƒTƒ“ƒ`ƒVƒ}ƒgƒŠƒjƒ_ƒbƒgƒ‹ƒCƒXƒCƒsƒJƒ\v[endindent]
-[link target=*first]‚à‚¤ˆê‰ñ[endlink]
+29 [indent]ã¨ã“ã‚ã§ãƒ”ã‚«ã‚½ã®æœ¬åã¯ã€Œãƒ‘ãƒ–ãƒ­ï¼ãƒ‡ã‚£ã‚¨ã‚´ï¼ãƒ›ã‚»ï¼ãƒ•ãƒ©ãƒ³ãƒã‚¹ã‚³ï¼ãƒˆï¼ãƒãƒ¼ãƒ«ï¼ã‚¸ãƒ£ãƒ³ï¼ãƒãƒãƒ ãƒã‚§ãƒ¼ãƒŽï¼ã‚¯ãƒªã‚¹ãƒ‘ãƒ³ï¼ã‚¯ãƒªã‚¹ãƒ”ã‚¢ãƒŽï¼ãƒ‰ï¼ãƒ©ï¼ã‚µãƒ³ãƒã‚·ãƒžï¼ãƒˆãƒªãƒ‹ãƒ€ãƒƒãƒˆï¼ãƒ«ã‚¤ã‚¹ï¼ã‚¤ï¼ãƒ”ã‚«ã‚½ã€[endindent]
+[link target=*first]ã‚‚ã†ä¸€å›ž[endlink]

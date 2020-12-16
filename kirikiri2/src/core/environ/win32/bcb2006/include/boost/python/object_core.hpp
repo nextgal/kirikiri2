@@ -200,7 +200,7 @@ namespace api
       inline object_base(PyObject* ptr);
       
       object_base& operator=(object_base const& rhs);
-      ~object_base();
+      ‾object_base();
         
       // Underlying object access -- returns a borrowed reference
       PyObject* ptr() const;
@@ -237,12 +237,12 @@ namespace api
   // Macros for forwarding constructors in classes derived from
   // object. Derived classes will usually want these as an
   // implementation detail
-# define BOOST_PYTHON_FORWARD_OBJECT_CONSTRUCTORS_(derived, base)       \
-    inline explicit derived(python::detail::borrowed_reference p)       \
-        : base(p) {}                                                    \
-    inline explicit derived(python::detail::new_reference p)            \
-        : base(p) {}                                                    \
-    inline explicit derived(python::detail::new_non_null_reference p)   \
+# define BOOST_PYTHON_FORWARD_OBJECT_CONSTRUCTORS_(derived, base)       ¥
+    inline explicit derived(python::detail::borrowed_reference p)       ¥
+        : base(p) {}                                                    ¥
+    inline explicit derived(python::detail::new_reference p)            ¥
+        : base(p) {}                                                    ¥
+    inline explicit derived(python::detail::new_non_null_reference p)   ¥
         : base(p) {}
 
 # if !defined(BOOST_MSVC) || BOOST_MSVC > 1200
@@ -256,9 +256,9 @@ namespace api
   // runtime failure into an ambiguity error at compile-time due to
   // the lack of partial ordering, or at least a link-time error if no
   // generalized template constructor is declared.
-#  define BOOST_PYTHON_FORWARD_OBJECT_CONSTRUCTORS(derived, base)       \
-    BOOST_PYTHON_FORWARD_OBJECT_CONSTRUCTORS_(derived, base)            \
-    template <class T>                                                  \
+#  define BOOST_PYTHON_FORWARD_OBJECT_CONSTRUCTORS(derived, base)       ¥
+    BOOST_PYTHON_FORWARD_OBJECT_CONSTRUCTORS_(derived, base)            ¥
+    template <class T>                                                  ¥
     explicit derived(extract<T> const&);
 # endif
 
@@ -337,7 +337,7 @@ inline api::object_base& api::object_base::operator=(api::object_base const& rhs
     return *this;
 }
 
-inline api::object_base::~object_base()
+inline api::object_base::‾object_base()
 {
     Py_DECREF(m_ptr);
 }

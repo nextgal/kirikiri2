@@ -89,9 +89,9 @@ static char *strwinerror (error)
         0,
         NULL);
     if (chars != 0) {
-        /* If there is an \r\n appended, zap it.  */
+        /* If there is an ¥r¥n appended, zap it.  */
         if (chars >= 2
-            && msgbuf[chars - 2] == '\r' && msgbuf[chars - 1] == '\n') {
+            && msgbuf[chars - 2] == '¥r' && msgbuf[chars - 1] == '¥n') {
             chars -= 2;
             msgbuf[chars] = 0;
         }
@@ -116,9 +116,9 @@ static void pwinerror (s)
     const char *s;
 {
     if (s && *s)
-        fprintf(stderr, "%s: %s\n", s, strwinerror(GetLastError ()));
+        fprintf(stderr, "%s: %s¥n", s, strwinerror(GetLastError ()));
     else
-        fprintf(stderr, "%s\n", strwinerror(GetLastError ()));
+        fprintf(stderr, "%s¥n", strwinerror(GetLastError ()));
 }
 
 #endif /* UNDER_CE */
@@ -156,7 +156,7 @@ int  main             OF((int argc, char *argv[]));
 void error(msg)
     const char *msg;
 {
-    fprintf(stderr, "%s: %s\n", prog, msg);
+    fprintf(stderr, "%s: %s¥n", prog, msg);
     exit(1);
 }
 
@@ -268,7 +268,7 @@ void file_compress(file, mode)
     gzFile out;
 
     if (strlen(file) + strlen(GZ_SUFFIX) >= sizeof(outfile)) {
-        fprintf(stderr, "%s: filename too long\n", prog);
+        fprintf(stderr, "%s: filename too long¥n", prog);
         exit(1);
     }
 
@@ -282,7 +282,7 @@ void file_compress(file, mode)
     }
     out = gzopen(outfile, mode);
     if (out == NULL) {
-        fprintf(stderr, "%s: can't gzopen %s\n", prog, outfile);
+        fprintf(stderr, "%s: can't gzopen %s¥n", prog, outfile);
         exit(1);
     }
     gz_compress(in, out);
@@ -304,7 +304,7 @@ void file_uncompress(file)
     size_t len = strlen(file);
 
     if (len + strlen(GZ_SUFFIX) >= sizeof(buf)) {
-        fprintf(stderr, "%s: filename too long\n", prog);
+        fprintf(stderr, "%s: filename too long¥n", prog);
         exit(1);
     }
 
@@ -313,7 +313,7 @@ void file_uncompress(file)
     if (len > SUFFIX_LEN && strcmp(file+len-SUFFIX_LEN, GZ_SUFFIX) == 0) {
         infile = file;
         outfile = buf;
-        outfile[len-3] = '\0';
+        outfile[len-3] = '¥0';
     } else {
         outfile = file;
         infile = buf;
@@ -321,7 +321,7 @@ void file_uncompress(file)
     }
     in = gzopen(infile, "rb");
     if (in == NULL) {
-        fprintf(stderr, "%s: can't gzopen %s\n", prog, infile);
+        fprintf(stderr, "%s: can't gzopen %s¥n", prog, infile);
         exit(1);
     }
     out = fopen(outfile, "wb");
@@ -411,7 +411,7 @@ int main(argc, argv)
                 if (copyout) {
                     file = gzopen(*argv, "rb");
                     if (file == NULL)
-                        fprintf(stderr, "%s: can't gzopen %s\n", prog, *argv);
+                        fprintf(stderr, "%s: can't gzopen %s¥n", prog, *argv);
                     else
                         gz_uncompress(file, stdout);
                 } else {

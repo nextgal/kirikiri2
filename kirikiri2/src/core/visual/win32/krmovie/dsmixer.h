@@ -1,15 +1,15 @@
 /****************************************************************************/
 /*! @file
-@brief VMR9‚ğg‚¤ƒI[ƒo[ƒŒƒCƒNƒ‰ƒX
+@brief VMR9ã‚’ä½¿ã†ã‚ªãƒ¼ãƒãƒ¼ãƒ¬ã‚¤ã‚¯ãƒ©ã‚¹
 
-Às‚É‚ÍDirectX9ˆÈ~‚ª•K—v
+å®Ÿè¡Œã«ã¯DirectX9ä»¥é™ãŒå¿…è¦
 -----------------------------------------------------------------------------
 	Copyright (C) 2005 T.Imoto
 -----------------------------------------------------------------------------
 @author		T.Imoto
 @date		2005/09/25
 @note
-			2005/09/25	T.Imoto		ì¬
+			2005/09/25	T.Imoto		ä½œæˆ
 *****************************************************************************/
 
 
@@ -23,7 +23,7 @@
 #include <ctlutil.h>
 #include "CVMRCustomAllocatorPresenter9.h"
 //----------------------------------------------------------------------------
-//! @brief ƒI[ƒo[ƒŒƒC ƒrƒfƒIƒ~ƒLƒVƒ“ƒO•`‰æƒNƒ‰ƒX
+//! @brief ã‚ªãƒ¼ãƒãƒ¼ãƒ¬ã‚¤ ãƒ“ãƒ‡ã‚ªãƒŸã‚­ã‚·ãƒ³ã‚°æç”»ã‚¯ãƒ©ã‚¹
 //----------------------------------------------------------------------------
 class tTVPDSMixerVideoOverlay : public tTVPDSMovie
 {
@@ -82,7 +82,7 @@ private:
 
 public:
 	tTVPDSMixerVideoOverlay();
-	virtual ~tTVPDSMixerVideoOverlay();
+	virtual â€¾tTVPDSMixerVideoOverlay();
 
 	virtual void __stdcall BuildGraph( HWND callbackwin, IStream *stream,
 		const wchar_t * streamname, const wchar_t *type, unsigned __int64 size );

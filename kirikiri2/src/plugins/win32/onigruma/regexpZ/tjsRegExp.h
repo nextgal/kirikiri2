@@ -41,7 +41,7 @@ private:
 
 public:
 	tTJSNI_RegExp();
-	~tTJSNI_RegExp();
+	‾tTJSNI_RegExp();
 	void Split(iTJSDispatch2 ** array, const ttstr &target, bool purgeempty);
 };
 //---------------------------------------------------------------------------

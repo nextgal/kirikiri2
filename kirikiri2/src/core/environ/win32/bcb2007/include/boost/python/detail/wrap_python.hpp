@@ -149,7 +149,7 @@ typedef int pid_t;
 #endif
 
 #if !defined(PY_MAJOR_VERSION) || PY_MAJOR_VERSION < 2
-# define PyObject_INIT(op, typeobj) \
+# define PyObject_INIT(op, typeobj) ¥
         ( (op)->ob_type = (typeobj), _Py_NewReference((PyObject *)(op)), (op) )
 #endif
 

@@ -25,7 +25,7 @@ struct BOOST_PYTHON_DECL function : PyObject
         , python::detail::keyword const* names_and_defaults
         , unsigned num_keywords);
       
-    ~function();
+    ‾function();
     
     PyObject* call(PyObject*, PyObject*) const;
 

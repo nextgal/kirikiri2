@@ -1818,7 +1818,7 @@ public:
 		setTexture(value);
 	}
 
-	~CTextureAttribute()
+	‾CTextureAttribute()
 	{
 		if (Driver)
 			Driver->drop();

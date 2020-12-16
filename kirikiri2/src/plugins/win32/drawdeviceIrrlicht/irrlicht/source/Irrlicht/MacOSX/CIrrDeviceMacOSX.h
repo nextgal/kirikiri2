@@ -33,7 +33,7 @@ namespace irr
 			const char* version);
 
 		//! destructor
-		virtual ~CIrrDeviceMacOSX();
+		virtual ‾CIrrDeviceMacOSX();
 
 		//! runs the device. Returns false if device wants to be deleted
 		virtual bool run();

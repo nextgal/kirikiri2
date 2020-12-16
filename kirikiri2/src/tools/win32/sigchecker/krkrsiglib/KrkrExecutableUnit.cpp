@@ -12,7 +12,7 @@
 char XOPT_EMBED_AREA_[] = " OPT_EMBED_AREA_";
 char XCORE_SIG_______[] = " CORE_SIG_______";
 char XRELEASE_SIG____[] = " RELEASE_SIG____";
-char XP3_SIG[] = " P3\x0d\x0a\x20\x0a\x1a\x8b\x67\x01";   // mark_size = 11
+char XP3_SIG[] = " P3¥x0d¥x0a¥x20¥x0a¥x1a¥x8b¥x67¥x01";   // mark_size = 11
 //---------------------------------------------------------------------------
 int CheckKrkrExecutable(AnsiString fn, const char *mark)
 {
@@ -22,7 +22,7 @@ int CheckKrkrExecutable(AnsiString fn, const char *mark)
 	// Additionally
 	// "XCORE_SIG_______" and "XRELEASE_SIG____" are reserved area for
 	// signatures.
-	// "XP3\x0d\x0a\x20\x0a\x1a\x8b\x67\x01" are optional XP3 archive attached
+	// "XP3¥x0d¥x0a¥x20¥x0a¥x1a¥x8b¥x67¥x01" are optional XP3 archive attached
 	// to the executable.
 
 	// This function returns the mark offset

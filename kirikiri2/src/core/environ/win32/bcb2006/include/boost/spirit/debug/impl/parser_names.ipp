@@ -236,9 +236,9 @@ namespace boost { namespace spirit {
     inline std::string
     parser_name(chlit<CharT> const &p)
     {
-        return std::string("chlit(\'")
+        return std::string("chlit(¥'")
             + std::string(1, p.ch)
-            + std::string("\')");
+            + std::string("¥')");
     }
 
     template <typename CharT>
@@ -254,18 +254,18 @@ namespace boost { namespace spirit {
     inline std::string
     parser_name(chseq<IteratorT> const &p)
     {
-        return std::string("chseq(\"")
+        return std::string("chseq(¥"")
             + std::string(p.first, p.last)
-            + std::string("\")");
+            + std::string("¥")");
     }
 
     template <typename IteratorT>
     inline std::string
     parser_name(strlit<IteratorT> const &p)
     {
-        return std::string("strlit(\"")
+        return std::string("strlit(¥"")
             + std::string(p.seq.first, p.seq.last)
-            + std::string("\")");
+            + std::string("¥")");
     }
 
     inline std::string

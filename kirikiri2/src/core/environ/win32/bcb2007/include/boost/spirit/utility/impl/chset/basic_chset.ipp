@@ -226,7 +226,7 @@ template <typename CharT>
 inline basic_chset_8bit<CharT>&
 basic_chset_8bit<CharT>::operator-=(basic_chset_8bit const& x)
 {
-    bset &= ~x.bset;
+    bset &= ‾x.bset;
     return *this;
 }
 

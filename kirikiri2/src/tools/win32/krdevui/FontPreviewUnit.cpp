@@ -94,7 +94,7 @@ static Graphics::TBitmap * GetGlyphBitmap(wchar_t code, TCanvas *refcanvas,
 	SetGrayscalePalette(bmp);
 
 	if(antialiased)
-		pitch = (size / gm.gmBlackBoxY) & ~0x03; // data is aligned to DWORD
+		pitch = (size / gm.gmBlackBoxY) & ‾0x03; // data is aligned to DWORD
 	else
 		pitch = (((gm.gmBlackBoxX -1)>>5)+1)<<2; // data is aligned to DWORD
 
@@ -165,7 +165,7 @@ __fastcall TFontPreviewBox::TFontPreviewBox(TWinControl *Owner)
 	Application->OnIdle = ApplicationIdle;
 }
 //---------------------------------------------------------------------------
-__fastcall TFontPreviewBox::~TFontPreviewBox()
+__fastcall TFontPreviewBox::‾TFontPreviewBox()
 {
 	for(int i = 0; i < RedrawList->Count; i++)
 		delete (TRedrawData*)(RedrawList->Items[i]);

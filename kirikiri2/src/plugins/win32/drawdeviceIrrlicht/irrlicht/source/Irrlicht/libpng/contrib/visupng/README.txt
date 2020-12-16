@@ -13,18 +13,18 @@ binaries, go to "http://www.schaik.com/png/visualpng.html".
 
 Assumes that
 
-   libpng DLLs and LIBs are in ..\..\projects\msvc\win32\libpng
-   zlib DLLs and LIBs are in   ..\..\projects\msvc\win32\zlib
-   libpng header files are in  ..\..\..\libpng
-   zlib header files are in    ..\..\..\zlib
-   the pngsuite images are in  ..\pngsuite
+   libpng DLLs and LIBs are in ..¥..¥projects¥msvc¥win32¥libpng
+   zlib DLLs and LIBs are in   ..¥..¥projects¥msvc¥win32¥zlib
+   libpng header files are in  ..¥..¥..¥libpng
+   zlib header files are in    ..¥..¥..¥zlib
+   the pngsuite images are in  ..¥pngsuite
 
 To build:
 
 1) On the main menu Select "Build|Set Active configuration".
    Choose the configuration that corresponds to the library you want to test.
    This library must have been built using the libpng MS project located in
-   the "..\..\mscv" subdirectory.
+   the "..¥..¥mscv" subdirectory.
 
 2) Select "Build|Clean"
 

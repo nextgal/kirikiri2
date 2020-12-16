@@ -19,7 +19,7 @@
 class TMainForm;
 class TProgressForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TProgressBar *ProgressBar;
 	TLabel *CurrentFileLabel;
 	TButton *CancelButton;
@@ -27,13 +27,13 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall CancelButtonClick(TObject *Sender);
 	void __fastcall TimerTimer(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	bool Interrupted;
 	bool Shutdown;
 	bool AllSucceeded;
 	TMainForm *MainForm;
 	TStringList *FileList;
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TProgressForm(TComponent* Owner, TStringList *list);
 
 	bool GetInterrupted() const {return Interrupted; }

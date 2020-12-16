@@ -8,9 +8,9 @@ class MyWindow extends Window
 
 		borderStyle = bsSingle;
 
-		caption = "•¶š‚ÌoŒ»‰ñ”‚ğ”‚¦‚é";
+		caption = "æ–‡å­—ã®å‡ºç¾å›æ•°ã‚’æ•°ãˆã‚‹";
 
-		// ‰º•~‚«(ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„)
+		// ä¸‹æ•·ã(ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤)
 		add(primlayer = new Layer(this, null));
 		primlayer.left = primlayer.top = 0;
 		primlayer.imageWidth = 260;
@@ -18,15 +18,15 @@ class MyWindow extends Window
 		primlayer.setSizeToImageSize();
 		setInnerSize(primlayer.width, primlayer.height);
 
-		primlayer.drawText(10, 10, "ƒGƒNƒXƒvƒ[ƒ‰“™‚©‚ç•¶š‚ğ”‚¦‚½‚¢ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğ",
+		primlayer.drawText(10, 10, "ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ç­‰ã‹ã‚‰æ–‡å­—ã‚’æ•°ãˆãŸã„ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’",
 			0x0000ff, 255, true, 255, 0x000000, 3, 2, 2);
-		primlayer.drawText(10, 30, "‚±‚±‚Éƒhƒƒbƒv‚µ‚Ä‚­‚¾‚³‚¢",
+		primlayer.drawText(10, 30, "ã“ã“ã«ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ãã ã•ã„",
 			0x0000ff, 255, true, 255, 0x000000, 3, 2, 2);
 
 		Debug.console.visible = true;
 
-		Debug.message("ƒGƒNƒXƒvƒ[ƒ‰“™‚©‚ç•¶š‚ğ”‚¦‚½‚¢ƒtƒ@ƒCƒ‹‚ğA"
-			"ƒƒCƒ“ƒEƒBƒ“ƒhƒE‚Éƒhƒƒbƒv‚µ‚Ä‚­‚¾‚³‚¢B");
+		Debug.message("ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ç­‰ã‹ã‚‰æ–‡å­—ã‚’æ•°ãˆãŸã„ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã€"
+			"ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ãã ã•ã„ã€‚");
 
 
 		visible = true;
@@ -43,16 +43,16 @@ class MyWindow extends Window
 
 	function convert_file(file)
 	{
-		// ƒtƒ@ƒCƒ‹’†‚ÌoŒ»•¶š‚ğ”‚¦‚é
+		// ãƒ•ã‚¡ã‚¤ãƒ«ä¸­ã®å‡ºç¾æ–‡å­—ã‚’æ•°ãˆã‚‹
 		try
 		{
-			Debug.message(file + " ‚ğ”‚¦‚Ä‚¢‚Ü‚·");
+			Debug.message(file + " ã‚’æ•°ãˆã¦ã„ã¾ã™");
 			var input = [];
 			input.load(file);
 			var new_file = Storages.chopStorageExt(file) + ".out.txt";
 			var output = %[];
 
-			// ƒtƒ@ƒCƒ‹‚ğ‚İ‚é
+			// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã¿ã‚‹
 			var totalTime = 0;
 			for(var i = 0; i < input.count; i++)
 			{
@@ -64,14 +64,14 @@ class MyWindow extends Window
 				}
 			}
 
-			// ƒtƒ@ƒCƒ‹‚ğ‘‚«‚İ
+			// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ›¸ãè¾¼ã¿
 			(Dictionary.saveStruct incontextof output)(new_file);
 
-			Debug.message(file + " ”‚¦I—¹ --> " + new_file);
+			Debug.message(file + " æ•°ãˆçµ‚äº† --> " + new_file);
 		}
 		catch(e)
 		{
-			Debug.message("ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½(ƒtƒ@ƒCƒ‹ " + file + ") : " + e.message);
+			Debug.message("ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ(ãƒ•ã‚¡ã‚¤ãƒ« " + file + ") : " + e.message);
 		}
 	}
 

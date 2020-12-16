@@ -2,47 +2,47 @@
 @iscript
 
 /*
-	á‚ğ‚Ó‚ç‚¹‚éƒvƒ‰ƒOƒCƒ“
+	é›ªã‚’ãµã‚‰ã›ã‚‹ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
 */
 
 class SnowGrain
 {
-	// á—±‚ÌƒNƒ‰ƒX
+	// é›ªç²’ã®ã‚¯ãƒ©ã‚¹
 
-	var fore; // •\‰æ–Ê‚Ìá—±ƒIƒuƒWƒFƒNƒg
-	var back; // — ‰æ–Ê‚Ìá—±ƒIƒuƒWƒFƒNƒg
-	var xvelo; // ‰¡‘¬“x
-	var yvelo; // c‘¬“x
-	var xaccel; // ‰¡‰Á‘¬
-	var l, t; // ‰¡ˆÊ’u‚ÆcˆÊ’u
-	var ownwer; // ‚±‚ÌƒIƒuƒWƒFƒNƒg‚ğŠ—L‚·‚é SnowPlugin ƒIƒuƒWƒFƒNƒg
-	var spawned = false; // á—±‚ªoŒ»‚µ‚Ä‚¢‚é‚©
-	var window; // ƒEƒBƒ“ƒhƒEƒIƒuƒWƒFƒNƒg‚Ö‚ÌQÆ
+	var fore; // è¡¨ç”»é¢ã®é›ªç²’ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	var back; // è£ç”»é¢ã®é›ªç²’ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	var xvelo; // æ¨ªé€Ÿåº¦
+	var yvelo; // ç¸¦é€Ÿåº¦
+	var xaccel; // æ¨ªåŠ é€Ÿ
+	var l, t; // æ¨ªä½ç½®ã¨ç¸¦ä½ç½®
+	var ownwer; // ã“ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ‰€æœ‰ã™ã‚‹ SnowPlugin ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	var spawned = false; // é›ªç²’ãŒå‡ºç¾ã—ã¦ã„ã‚‹ã‹
+	var window; // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®å‚ç…§
 
 	function SnowGrain(window, n, owner)
 	{
-		// SnowGrain ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		// SnowGrain ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		this.owner = owner;
 		this.window = window;
 
 		fore = new Layer(window, window.fore.base);
 		back = new Layer(window, window.back.base);
 
-		fore.absolute = 2000000-1; // d‚Ë‡‚í‚¹‡˜‚ÍƒƒbƒZ[ƒW—š—ğ‚æ‚è‚à‰œ
+		fore.absolute = 2000000-1; // é‡ã­åˆã‚ã›é †åºã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å±¥æ­´ã‚ˆã‚Šã‚‚å¥¥
 		back.absolute = fore.absolute;
 
 		fore.hitType = htMask;
-		fore.hitThreshold = 256; // ƒ}ƒEƒXƒƒbƒZ[ƒW‚Í‘Sˆæ“§‰ß
+		fore.hitThreshold = 256; // ãƒã‚¦ã‚¹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯å…¨åŸŸé€é
 		back.hitType = htMask;
 		back.hitThreshold = 256;
 
-		fore.loadImages("snow_" + n); // ‰æ‘œ‚ğ“Ç‚İ‚Ş
+		fore.loadImages("snow_" + n); // ç”»åƒã‚’èª­ã¿è¾¼ã‚€
 		back.assignImages(fore);
-		fore.setSizeToImageSize(); // ƒŒƒCƒ„‚ÌƒTƒCƒY‚ğ‰æ‘œ‚ÌƒTƒCƒY‚Æ“¯‚¶‚É
+		fore.setSizeToImageSize(); // ãƒ¬ã‚¤ãƒ¤ã®ã‚µã‚¤ã‚ºã‚’ç”»åƒã®ã‚µã‚¤ã‚ºã¨åŒã˜ã«
 		back.setSizeToImageSize();
-		xvelo = 0; // ‰¡•ûŒü‘¬“x
-		yvelo = n*0.6 + 1.9 + Math.random() * 0.2; // c•ûŒü‘¬“x
-		xaccel = Math.random(); // ‰Šú‰Á‘¬“x
+		xvelo = 0; // æ¨ªæ–¹å‘é€Ÿåº¦
+		yvelo = n*0.6 + 1.9 + Math.random() * 0.2; // ç¸¦æ–¹å‘é€Ÿåº¦
+		xaccel = Math.random(); // åˆæœŸåŠ é€Ÿåº¦
 	}
 
 	function finalize()
@@ -53,19 +53,19 @@ class SnowGrain
 
 	function spawn()
 	{
-		// oŒ»
-		l = Math.random() * window.primaryLayer.width; // ‰¡‰ŠúˆÊ’u
-		t = -fore.height; // c‰ŠúˆÊ’u
+		// å‡ºç¾
+		l = Math.random() * window.primaryLayer.width; // æ¨ªåˆæœŸä½ç½®
+		t = -fore.height; // ç¸¦åˆæœŸä½ç½®
 		spawned = true;
 		fore.setPos(l, t);
-		back.setPos(l, t); // — ‰æ–Ê‚ÌˆÊ’u‚à“¯‚¶‚É
+		back.setPos(l, t); // è£ç”»é¢ã®ä½ç½®ã‚‚åŒã˜ã«
 		fore.visible = owner.foreVisible;
 		back.visible = owner.backVisible;
 	}
 
 	function resetVisibleState()
 	{
-		// •\¦E”ñ•\¦‚Ìó‘Ô‚ğÄİ’è‚·‚é
+		// è¡¨ç¤ºãƒ»éè¡¨ç¤ºã®çŠ¶æ…‹ã‚’å†è¨­å®šã™ã‚‹
 		if(spawned)
 		{
 			fore.visible = owner.foreVisible;
@@ -80,10 +80,10 @@ class SnowGrain
 
 	function move()
 	{
-		// á—±‚ğ“®‚©‚·
+		// é›ªç²’ã‚’å‹•ã‹ã™
 		if(!spawned)
 		{
-			// oŒ»‚µ‚Ä‚¢‚È‚¢‚Ì‚ÅoŒ»‚·‚é‹@‰ï‚ğ‚¤‚©‚ª‚¤
+			// å‡ºç¾ã—ã¦ã„ãªã„ã®ã§å‡ºç¾ã™ã‚‹æ©Ÿä¼šã‚’ã†ã‹ãŒã†
 			if(Math.random() < 0.002) spawn();
 		}
 		else
@@ -102,13 +102,13 @@ class SnowGrain
 				l = Math.random() * window.primaryLayer.width;
 			}
 			fore.setPos(l, t);
-			back.setPos(l, t); // — ‰æ–Ê‚ÌˆÊ’u‚à“¯‚¶‚É
+			back.setPos(l, t); // è£ç”»é¢ã®ä½ç½®ã‚‚åŒã˜ã«
 		}
 	}
 
 	function exchangeForeBack()
 	{
-		// •\‚Æ— ‚ÌŠÇ—î•ñ‚ğŒğŠ·‚·‚é
+		// è¡¨ã¨è£ã®ç®¡ç†æƒ…å ±ã‚’äº¤æ›ã™ã‚‹
 		var tmp = fore;
 		fore = back;
 		back = tmp;
@@ -117,13 +117,13 @@ class SnowGrain
 
 class SnowPlugin extends KAGPlugin
 {
-	// á‚ğU‚ç‚·ƒvƒ‰ƒOƒCƒ“ƒNƒ‰ƒX
+	// é›ªã‚’æŒ¯ã‚‰ã™ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚¯ãƒ©ã‚¹
 
-	var snows = []; // á—±
-	var timer; // ƒ^ƒCƒ}
-	var window; // ƒEƒBƒ“ƒhƒE‚Ö‚ÌQÆ
-	var foreVisible = true; // •\‰æ–Ê‚ª•\¦ó‘Ô‚©‚Ç‚¤‚©
-	var backVisible = true; // — ‰æ–Ê‚ª•\¦ó‘Ô‚©‚Ç‚¤‚©
+	var snows = []; // é›ªç²’
+	var timer; // ã‚¿ã‚¤ãƒ
+	var window; // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¸ã®å‚ç…§
+	var foreVisible = true; // è¡¨ç”»é¢ãŒè¡¨ç¤ºçŠ¶æ…‹ã‹ã©ã†ã‹
+	var backVisible = true; // è£ç”»é¢ãŒè¡¨ç¤ºçŠ¶æ…‹ã‹ã©ã†ã‹
 
 	function SnowPlugin(window)
 	{
@@ -133,8 +133,8 @@ class SnowPlugin extends KAGPlugin
 
 	function finalize()
 	{
-		// finalize ƒƒ\ƒbƒh
-		// ‚±‚ÌƒNƒ‰ƒX‚ÌŠÇ—‚·‚é‚·‚×‚Ä‚ÌƒIƒuƒWƒFƒNƒg‚ğ–¾¦“I‚É”jŠü
+		// finalize ãƒ¡ã‚½ãƒƒãƒ‰
+		// ã“ã®ã‚¯ãƒ©ã‚¹ã®ç®¡ç†ã™ã‚‹ã™ã¹ã¦ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ˜ç¤ºçš„ã«ç ´æ£„
 		for(var i = 0; i < snows.count; i++)
 			invalidate snows[i];
 		invalidate snows;
@@ -146,31 +146,31 @@ class SnowPlugin extends KAGPlugin
 
 	function init(num, options)
 	{
-		// num ŒÂ‚Ìá—±‚ğoŒ»‚³‚¹‚é
-		if(timer !== void) return; // ‚·‚Å‚Éá—±‚Í‚Å‚Ä‚¢‚é
+		// num å€‹ã®é›ªç²’ã‚’å‡ºç¾ã•ã›ã‚‹
+		if(timer !== void) return; // ã™ã§ã«é›ªç²’ã¯ã§ã¦ã„ã‚‹
 
-		// á—±‚ğì¬
+		// é›ªç²’ã‚’ä½œæˆ
 		for(var i = 0; i < num; i++)
 		{
-			var n = intrandom(0, 4); // á—±‚Ì‘å‚«‚³ ( ƒ‰ƒ“ƒ_ƒ€ )
+			var n = intrandom(0, 4); // é›ªç²’ã®å¤§ãã• ( ãƒ©ãƒ³ãƒ€ãƒ  )
 			snows[i] = new SnowGrain(window, n, this);
 		}
-		snows[0].spawn(); // Å‰‚Ìá—±‚¾‚¯‚ÍÅ‰‚©‚ç•\¦
+		snows[0].spawn(); // æœ€åˆã®é›ªç²’ã ã‘ã¯æœ€åˆã‹ã‚‰è¡¨ç¤º
 
-		// ƒ^ƒCƒ}[‚ğì¬
+		// ã‚¿ã‚¤ãƒãƒ¼ã‚’ä½œæˆ
 		timer = new Timer(onTimer, '');
 		timer.interval = 80;
 		timer.enabled = true;
 
 		foreVisible = true;
 		backVisible = true;
-		setOptions(options); // ƒIƒvƒVƒ‡ƒ“‚ğİ’è
+		setOptions(options); // ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’è¨­å®š
 	}
 
 	function uninit()
 	{
-		// á—±‚ğÁ‚·
-		if(timer === void) return; // á—±‚Í‚Å‚Ä‚¢‚È‚¢
+		// é›ªç²’ã‚’æ¶ˆã™
+		if(timer === void) return; // é›ªç²’ã¯ã§ã¦ã„ãªã„
 
 		for(var i = 0; i < snows.count; i++)
 			invalidate snows[i];
@@ -182,7 +182,7 @@ class SnowPlugin extends KAGPlugin
 
 	function setOptions(elm)
 	{
-		// ƒIƒvƒVƒ‡ƒ“‚ğİ’è‚·‚é
+		// ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’è¨­å®šã™ã‚‹
 		foreVisible = +elm.forevisible if elm.forevisible !== void;
 		backVisible = +elm.backvisible if elm.backvisible !== void;
 		resetVisibleState();
@@ -190,23 +190,23 @@ class SnowPlugin extends KAGPlugin
 
 	function onTimer()
 	{
-		// ƒ^ƒCƒ}[‚ÌüŠú‚²‚Æ‚ÉŒÄ‚Î‚ê‚é
+		// ã‚¿ã‚¤ãƒãƒ¼ã®å‘¨æœŸã”ã¨ã«å‘¼ã°ã‚Œã‚‹
 		var snowcount = snows.count;
 		for(var i = 0; i < snowcount; i++)
-			snows[i].move(); // move ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·
+			snows[i].move(); // move ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™
 	}
 
 	function resetVisibleState()
 	{
-		// ‚·‚×‚Ä‚Ìá—±‚Ì •\¦E”ñ•\¦‚Ìó‘Ô‚ğÄİ’è‚·‚é
+		// ã™ã¹ã¦ã®é›ªç²’ã® è¡¨ç¤ºãƒ»éè¡¨ç¤ºã®çŠ¶æ…‹ã‚’å†è¨­å®šã™ã‚‹
 		var snowcount = snows.count;
 		for(var i = 0; i < snowcount; i++)
-			snows[i].resetVisibleState(); // resetVisibleState ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·
+			snows[i].resetVisibleState(); // resetVisibleState ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™
 	}
 
 	function onStore(f, elm)
 	{
-		// x‚ğ•Û‘¶‚·‚é‚Æ‚«
+		// æ ã‚’ä¿å­˜ã™ã‚‹ã¨ã
 		var dic = f.snows = %[];
 		dic.init = timer !== void;
 		dic.foreVisible = foreVisible;
@@ -216,16 +216,16 @@ class SnowPlugin extends KAGPlugin
 
 	function onRestore(f, clear, elm)
 	{
-		// x‚ğ“Ç‚İo‚·‚Æ‚«
+		// æ ã‚’èª­ã¿å‡ºã™ã¨ã
 		var dic = f.snows;
 		if(dic === void || !+dic.init)
 		{
-			// á‚Í‚Å‚Ä‚¢‚È‚¢
+			// é›ªã¯ã§ã¦ã„ãªã„
 			uninit();
 		}
 		else if(dic !== void && +dic.init)
 		{
-			// á‚Í‚Å‚Ä‚¢‚½
+			// é›ªã¯ã§ã¦ã„ãŸ
 			init(dic.snowCount, %[ forevisible : dic.foreVisible, backvisible : dic.backVisible ] );
 		}
 	}
@@ -240,16 +240,16 @@ class SnowPlugin extends KAGPlugin
 
 	function onCopyLayer(toback)
 	{
-		// ƒŒƒCƒ„‚Ì•\©¨— î•ñ‚ÌƒRƒs[
-		// ‚±‚Ìƒvƒ‰ƒOƒCƒ“‚Å‚ÍƒRƒs[‚·‚×‚«î•ñ‚Í•\¦E”ñ•\¦‚Ìî•ñ‚¾‚¯
+		// ãƒ¬ã‚¤ãƒ¤ã®è¡¨â†â†’è£æƒ…å ±ã®ã‚³ãƒ”ãƒ¼
+		// ã“ã®ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã§ã¯ã‚³ãƒ”ãƒ¼ã™ã¹ãæƒ…å ±ã¯è¡¨ç¤ºãƒ»éè¡¨ç¤ºã®æƒ…å ±ã ã‘
 		if(toback)
 		{
-			// •\¨— 
+			// è¡¨â†’è£
 			backVisible = foreVisible;
 		}
 		else
 		{
-			// — ¨•\
+			// è£â†’è¡¨
 			foreVisible = backVisible;
 		}
 		resetVisibleState();
@@ -257,19 +257,19 @@ class SnowPlugin extends KAGPlugin
 
 	function onExchangeForeBack()
 	{
-		// — ‚Æ•\‚ÌŠÇ—î•ñ‚ğŒğŠ·
+		// è£ã¨è¡¨ã®ç®¡ç†æƒ…å ±ã‚’äº¤æ›
 		var snowcount = snows.count;
 		for(var i = 0; i < snowcount; i++)
-			snows[i].exchangeForeBack(); // exchangeForeBack ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·
+			snows[i].exchangeForeBack(); // exchangeForeBack ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™
 	}
 }
 
 kag.addPlugin(global.snow_object = new SnowPlugin(kag));
-	// ƒvƒ‰ƒOƒCƒ“ƒIƒuƒWƒFƒNƒg‚ğì¬‚µA“o˜^‚·‚é
+	// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã€ç™»éŒ²ã™ã‚‹
 
 @endscript
 @endif
-; ƒ}ƒNƒ“o˜^
+; ãƒã‚¯ãƒ­ç™»éŒ²
 @macro name="snowinit"
 @eval exp="snow_object.init(17, mp)"
 @endmacro

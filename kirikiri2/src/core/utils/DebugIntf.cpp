@@ -100,7 +100,7 @@ class tTVPLogStreamHolder
 
 public:
 	tTVPLogStreamHolder() { Stream = NULL; Alive = true; OpenFailed = false; }
-	~tTVPLogStreamHolder() { if(Stream) fclose(Stream); Alive = false; }
+	‾tTVPLogStreamHolder() { if(Stream) fclose(Stream); Alive = false; }
 
 private:
 	void Open(const tjs_nchar *mode);
@@ -129,7 +129,7 @@ void tTVPLogStreamHolder::Open(const tjs_nchar *mode)
 		{
 			// no log location specified
 			TJS_nstrcpy(filename, TVPNativeLogLocation);
-			TJS_nstrcat(filename, TJS_N("\\krkr.console.log"));
+			TJS_nstrcat(filename, TJS_N("¥¥krkr.console.log"));
 			TVPEnsureDataPathDirectory();
 			Stream = fopen(filename, mode);
 			if(!Stream) OpenFailed = true;
@@ -142,18 +142,18 @@ void tTVPLogStreamHolder::Open(const tjs_nchar *mode)
 			{
 				// write BOM
 				// TODO: 32-bit unicode support
-				fwrite(TJS_N("\xff\xfe"), 1, 2, Stream); // indicate unicode text
+				fwrite(TJS_N("¥xff¥xfe"), 1, 2, Stream); // indicate unicode text
 			}
 
 #ifdef TJS_TEXT_OUT_CRLF
-			ttstr separator(TJS_W("\r\n\r\n\r\n"
-"==============================================================================\r\n"
-"==============================================================================\r\n"
+			ttstr separator(TJS_W("¥r¥n¥r¥n¥r¥n"
+"==============================================================================¥r¥n"
+"==============================================================================¥r¥n"
 				));
 #else
-			ttstr separator(TJS_W("\n\n\n"
-"==============================================================================\n"
-"==============================================================================\n"
+			ttstr separator(TJS_W("¥n¥n¥n"
+"==============================================================================¥n"
+"==============================================================================¥n"
 				));
 #endif
 			Log(separator);
@@ -203,9 +203,9 @@ void tTVPLogStreamHolder::Log(const ttstr & text)
 				return;
 			}
 	#ifdef TJS_TEXT_OUT_CRLF
-			fwrite(TJS_W("\r\n"), 1, 2 * sizeof(tjs_char), Stream);
+			fwrite(TJS_W("¥r¥n"), 1, 2 * sizeof(tjs_char), Stream);
 	#else
-			fwrite(TJS_W("\n"), 1, 1 * sizeof(tjs_char), Stream);
+			fwrite(TJS_W("¥n"), 1, 1 * sizeof(tjs_char), Stream);
 	#endif
 
 			// flush
@@ -267,9 +267,9 @@ void TVPAddLog(const ttstr &line, bool appendtoimportant)
 	if(appendtoimportant)
 	{
 #ifdef TJS_TEXT_OUT_CRLF
-		*TVPImportantLogs += ttstr(timebuf) + TJS_W(" ! ") + line + TJS_W("\r\n");
+		*TVPImportantLogs += ttstr(timebuf) + TJS_W(" ! ") + line + TJS_W("¥r¥n");
 #else
-		*TVPImportantLogs += ttstr(timebuf) + TJS_W(" ! ") + line + TJS_W("\n");
+		*TVPImportantLogs += ttstr(timebuf) + TJS_W(" ! ") + line + TJS_W("¥n");
 #endif
 	}
 	while(TVPLogDeque->size() >= TVPLogMaxLines+100)
@@ -314,7 +314,7 @@ ttstr TVPGetImportantLog()
 
 
 //---------------------------------------------------------------------------
-// TVPGetLastLog : get last n lines of the log ( each line is spearated with '\n'/'\r\n' )
+// TVPGetLastLog : get last n lines of the log ( each line is spearated with '¥n'/'¥r¥n' )
 //---------------------------------------------------------------------------
 ttstr TVPGetLastLog(tjs_uint n)
 {
@@ -351,12 +351,12 @@ ttstr TVPGetLastLog(tjs_uint n)
 		TJS_strcpy(p, i->Log.c_str());
 		p += i->Log.GetLen();
 #ifdef TJS_TEXT_OUT_CRLF
-		*p = TJS_W('\r');
+		*p = TJS_W('¥r');
 		p++;
-		*p = TJS_W('\n');
+		*p = TJS_W('¥n');
 		p++;
 #else
-		*p = TJS_W('\n');
+		*p = TJS_W('¥n');
 		p++;
 #endif
 		i++;
@@ -384,12 +384,12 @@ void TVPStartLogToFile(bool clear)
 	TVPLogStreamHolder.Log(*TVPImportantLogs);
 
 #ifdef TJS_TEXT_OUT_CRLF
-	ttstr separator(TJS_W("\r\n"
-"------------------------------------------------------------------------------\r\n"
+	ttstr separator(TJS_W("¥r¥n"
+"------------------------------------------------------------------------------¥r¥n"
 				));
 #else
-	ttstr separator(TJS_W("\n"
-"------------------------------------------------------------------------------\n"
+	ttstr separator(TJS_W("¥n"
+"------------------------------------------------------------------------------¥n"
 				));
 #endif
 
@@ -433,8 +433,8 @@ void TVPSetLogLocation(const ttstr &loc)
 	else
 	{
 		TJS_nstrcpy(TVPNativeLogLocation, native.AsAnsiString().c_str());
-		if(TVPNativeLogLocation[TJS_nstrlen(TVPNativeLogLocation)-1] != '\\')
-			TJS_nstrcat(TVPNativeLogLocation, "\\");
+		if(TVPNativeLogLocation[TJS_nstrlen(TVPNativeLogLocation)-1] != '¥¥')
+			TJS_nstrcat(TVPNativeLogLocation, "¥¥");
 	}
 
 	TVPLogStreamHolder.Reopen();
@@ -669,9 +669,9 @@ class tTVPTJS2DumpOutputGateway : public iTJSConsoleOutput
 		{
 			fwrite(msg, 1, TJS_strlen(msg)*sizeof(tjs_char), TVPDumpOutFile);
 #ifdef TJS_TEXT_OUT_CRLF
-			fwrite(TJS_W("\r\n"), 1, 2 * sizeof(tjs_char), TVPDumpOutFile);
+			fwrite(TJS_W("¥r¥n"), 1, 2 * sizeof(tjs_char), TVPDumpOutFile);
 #else
-			fwrite(TJS_W("\n"), 1, 1 * sizeof(tjs_char), TVPDumpOutFile);
+			fwrite(TJS_W("¥n"), 1, 1 * sizeof(tjs_char), TVPDumpOutFile);
 #endif
 		}
 	}
@@ -687,7 +687,7 @@ void TVPTJS2StartDump()
 	if(TVPDumpOutFile)
 	{
 		// TODO: 32-bit unicode support
-		fwrite(TJS_N("\xff\xfe"), 1, 2, TVPDumpOutFile); // indicate unicode text
+		fwrite(TJS_N("¥xff¥xfe"), 1, 2, TVPDumpOutFile); // indicate unicode text
 	}
 }
 //---------------------------------------------------------------------------

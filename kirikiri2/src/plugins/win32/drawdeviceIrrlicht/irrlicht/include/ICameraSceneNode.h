@@ -32,22 +32,22 @@ namespace scene
 			: ISceneNode(parent, mgr, id, position, rotation, scale), IsOrthogonal(false) {}
 
 		//! Destructor
-		virtual ~ICameraSceneNode() {}
+		virtual ‾ICameraSceneNode() {}
 
 		//! Sets the projection matrix of the camera.
 		/** The core::matrix4 class has some methods
 		to build a projection matrix. e.g: core::matrix4::buildProjectionMatrixPerspectiveFovLH.
 		Note that the matrix will only stay as set by this method until one of
 		the following Methods are called: setNearValue, setFarValue, setAspectRatio, setFOV.
-		\param projection: The new projection matrix of the camera. */
+		¥param projection: The new projection matrix of the camera. */
 		virtual void setProjectionMatrix(const core::matrix4& projection) = 0;
 
 		//! Gets the current projection matrix of the camera.
-		/** \return Returns the current projection matrix of the camera. */
+		/** ¥return Returns the current projection matrix of the camera. */
 		virtual const core::matrix4& getProjectionMatrix() const = 0;
 
 		//! Gets the current view matrix of the camera.
-		/** \return Returns the current view matrix of the camera. */
+		/** ¥return Returns the current view matrix of the camera. */
 		virtual const core::matrix4& getViewMatrix() const = 0;
 
 		//! It is possible to send mouse and key events to the camera.
@@ -59,56 +59,56 @@ namespace scene
 		virtual bool OnEvent(const SEvent& event) = 0;
 
 		//! Sets the look at target of the camera
-		/** \param pos: Look at target of the camera. */
+		/** ¥param pos: Look at target of the camera. */
 		virtual void setTarget(const core::vector3df& pos) = 0;
 
 		//! Gets the current look at target of the camera
-		/** \return Returns the current look at target of the camera */
+		/** ¥return Returns the current look at target of the camera */
 		virtual core::vector3df getTarget() const = 0;
 
 		//! Sets the up vector of the camera.
-		/** \param pos: New upvector of the camera. */
+		/** ¥param pos: New upvector of the camera. */
 		virtual void setUpVector(const core::vector3df& pos) = 0;
 
 		//! Gets the up vector of the camera.
-		/** \return Returns the up vector of the camera. */
+		/** ¥return Returns the up vector of the camera. */
 		virtual core::vector3df getUpVector() const = 0;
 
 		//! Gets the value of the near plane of the camera.
-		/** \return Returns the value of the near plane of the camera. */
+		/** ¥return Returns the value of the near plane of the camera. */
 		virtual f32 getNearValue() const = 0;
 
 		//! Gets the value of the far plane of the camera.
-		/** \return Returns the value of the far plane of the camera. */
+		/** ¥return Returns the value of the far plane of the camera. */
 		virtual f32 getFarValue() const = 0;
 
 		//! Gets the aspect ratio of the camera.
-		/** \return Returns the aspect ratio of the camera. */
+		/** ¥return Returns the aspect ratio of the camera. */
 		virtual f32 getAspectRatio() const = 0;
 
 		//! Gets the field of view of the camera.
-		/** \return Returns the field of view of the camera in radiants. */
+		/** ¥return Returns the field of view of the camera in radiants. */
 		virtual f32 getFOV() const = 0;
 
 		//! Sets the value of the near clipping plane. (default: 1.0f)
-		/** \param zn: New z near value. */
+		/** ¥param zn: New z near value. */
 		virtual void setNearValue(f32 zn) = 0;
 
 		//! Sets the value of the far clipping plane (default: 2000.0f)
-		/** \param zf: New z far value. */
+		/** ¥param zf: New z far value. */
 		virtual void setFarValue(f32 zf) = 0;
 
 		//! Sets the aspect ratio (default: 4.0f / 3.0f)
-		/** \param aspect: New aspect ratio. */
+		/** ¥param aspect: New aspect ratio. */
 		virtual void setAspectRatio(f32 aspect) = 0;
 
 		//! Sets the field of view (Default: PI / 2.5f)
-		/** \param fovy: New field of view in radiants. */
+		/** ¥param fovy: New field of view in radiants. */
 		virtual void setFOV(f32 fovy) = 0;
 
 		//! Returns the view frustum.
 		/** Needed sometimes by bspTree or LOD render nodes.
-		\return Returns the current view frustum. */
+		¥return Returns the current view frustum. */
 		virtual const SViewFrustum* getViewFrustum() const = 0;
 
 		//! Disables or enables the camera to get key or mouse inputs.

@@ -1,1 +1,1 @@
-_release.bat ..\..
+_release.bat ..¥..

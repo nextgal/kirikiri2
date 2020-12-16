@@ -62,28 +62,28 @@ template<int x> struct static_assert_test{};
 #if defined(BOOST_MSVC)
 // __LINE__ macro broken when -ZI is used see Q199057
 // fortunately MSVC ignores duplicate typedef's.
-#define BOOST_STATIC_ASSERT( B ) \
-   typedef ::boost::static_assert_test<\
-      sizeof(::boost::STATIC_ASSERTION_FAILURE< (bool)( B ) >)\
+#define BOOST_STATIC_ASSERT( B ) ¥
+   typedef ::boost::static_assert_test<¥
+      sizeof(::boost::STATIC_ASSERTION_FAILURE< (bool)( B ) >)¥
       > boost_static_assert_typedef_
 #elif defined(BOOST_INTEL_CXX_VERSION)
 // agurt 15/sep/02: a special care is needed to force Intel C++ issue an error 
 // instead of warning in case of failure
-# define BOOST_STATIC_ASSERT( B ) \
-    typedef char BOOST_JOIN(boost_static_assert_typedef_, __LINE__) \
+# define BOOST_STATIC_ASSERT( B ) ¥
+    typedef char BOOST_JOIN(boost_static_assert_typedef_, __LINE__) ¥
         [ ::boost::STATIC_ASSERTION_FAILURE< (bool)( B ) >::value ]
 #else
 // generic version
-#define BOOST_STATIC_ASSERT( B ) \
-   typedef ::boost::static_assert_test<\
-      sizeof(::boost::STATIC_ASSERTION_FAILURE< (bool)( B ) >)>\
+#define BOOST_STATIC_ASSERT( B ) ¥
+   typedef ::boost::static_assert_test<¥
+      sizeof(::boost::STATIC_ASSERTION_FAILURE< (bool)( B ) >)>¥
          BOOST_JOIN(boost_static_assert_typedef_, __LINE__)
 #endif
 
 #else
 // alternative enum based implementation:
-#define BOOST_STATIC_ASSERT( B ) \
-   enum { BOOST_JOIN(boost_static_assert_enum_, __LINE__) \
+#define BOOST_STATIC_ASSERT( B ) ¥
+   enum { BOOST_JOIN(boost_static_assert_enum_, __LINE__) ¥
       = sizeof(::boost::STATIC_ASSERTION_FAILURE< (bool)( B ) >) }
 #endif
 

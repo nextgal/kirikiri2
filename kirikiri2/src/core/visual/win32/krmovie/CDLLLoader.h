@@ -16,7 +16,7 @@
 #define __DLL_LOADER_H__
 
 //----------------------------------------------------------------------------
-//! @brief DLLÇì«Ç›çûÇﬁÇΩÇﬂÇÃÉNÉâÉX
+//! @brief DLL„ÇíË™≠„ÅøËæº„ÇÄ„Åü„ÇÅ„ÅÆ„ÇØ„É©„Çπ
 //----------------------------------------------------------------------------
 class CDLLLoader
 {
@@ -28,7 +28,7 @@ public:
 	{
 		m_hModule = ::LoadLibrary( lpFileName );
 	}
-	~CDLLLoader() { Free(); }
+	‚ÄæCDLLLoader() { Free(); }
 	bool IsLoaded() { return( m_hModule != NULL ); }
 	bool Load( LPCTSTR lpFileName )
 	{
@@ -44,7 +44,7 @@ public:
 	}
 	HRESULT GetLastError() { return HRESULT_FROM_WIN32( ::GetLastError() ); }
 
-	//! @param lpProcName : ä÷êîñº
+	//! @param lpProcName : Èñ¢Êï∞Âêç
 	FARPROC GetProcAddress( LPCSTR lpProcName )
 	{
 		return ::GetProcAddress( m_hModule, lpProcName );

@@ -78,7 +78,7 @@ namespace core
 
 		//! Get squared length of the vector.
 		/** This is useful because it is much faster than getLength().
-		\return Squared length of the vector. */
+		¥return Squared length of the vector. */
 		T getLengthSQ() const { return X*X + Y*Y + Z*Z; }
 
 		//! Get the dot product with another vector.
@@ -102,8 +102,8 @@ namespace core
 		}
 
 		//! Calculates the cross product with another vector.
-		/** \param p Vector to multiply with.
-		\return Crossproduct of this vector with p. */
+		/** ¥param p Vector to multiply with.
+		¥return Crossproduct of this vector with p. */
 		vector3d<T> crossProduct(const vector3d<T>& p) const
 		{
 			return vector3d<T>(Y * p.Z - Z * p.Y, Z * p.X - X * p.Z, X * p.Y - Y * p.X);
@@ -111,9 +111,9 @@ namespace core
 
 		//! Returns if this vector interpreted as a point is on a line between two other points.
 		/** It is assumed that the point is on the line.
-		\param begin Beginning vector to compare between.
-		\param end Ending vector to compare between.
-		\return True if this vector is between begin and end, false if not. */
+		¥param begin Beginning vector to compare between.
+		¥param end Ending vector to compare between.
+		¥return True if this vector is between begin and end, false if not. */
 		bool isBetweenPoints(const vector3d<T>& begin, const vector3d<T>& end) const
 		{
 			T f = (end - begin).getLengthSQ();
@@ -125,7 +125,7 @@ namespace core
 		/** In case of the 0 vector the result is still 0, otherwise
 		the length of the vector will be 1.
 		TODO: 64 Bit template doesnt work.. need specialized template
-		\return Reference to this vector after normalization. */
+		¥return Reference to this vector after normalization. */
 		vector3d<T>& normalize()
 		{
 			T l = X*X + Y*Y + Z*Z;
@@ -154,8 +154,8 @@ namespace core
 		}
 
 		//! Rotates the vector by a specified number of degrees around the Y axis and the specified center.
-		/** \param degrees Number of degrees to rotate around the Y axis.
-		\param center The center of the rotation. */
+		/** ¥param degrees Number of degrees to rotate around the Y axis.
+		¥param center The center of the rotation. */
 		void rotateXZBy(f64 degrees, const vector3d<T>& center)
 		{
 			degrees *= DEGTORAD64;
@@ -169,8 +169,8 @@ namespace core
 		}
 
 		//! Rotates the vector by a specified number of degrees around the Z axis and the specified center.
-		/** \param degrees: Number of degrees to rotate around the Z axis.
-		\param center: The center of the rotation. */
+		/** ¥param degrees: Number of degrees to rotate around the Z axis.
+		¥param center: The center of the rotation. */
 		void rotateXYBy(f64 degrees, const vector3d<T>& center)
 		{
 			degrees *= DEGTORAD64;
@@ -184,8 +184,8 @@ namespace core
 		}
 
 		//! Rotates the vector by a specified number of degrees around the X axis and the specified center.
-		/** \param degrees: Number of degrees to rotate around the X axis.
-		\param center: The center of the rotation. */
+		/** ¥param degrees: Number of degrees to rotate around the X axis.
+		¥param center: The center of the rotation. */
 		void rotateYZBy(f64 degrees, const vector3d<T>& center)
 		{
 			degrees *= DEGTORAD64;
@@ -199,8 +199,8 @@ namespace core
 		}
 
 		//! Returns interpolated vector.
-		/** \param other Other vector to interpolate between
-		\param d Value between 0.0f and 1.0f. */
+		/** ¥param other Other vector to interpolate between
+		¥param d Value between 0.0f and 1.0f. */
 		vector3d<T> getInterpolated(const vector3d<T>& other, const T d) const
 		{
 			const T inv = (T) 1.0 - d;
@@ -208,9 +208,9 @@ namespace core
 		}
 
 		//! Returns interpolated vector. ( quadratic )
-		/** \param v2 Second vector to interpolate with
-		\param v3 Third vector to interpolate with
-		\param d Value between 0.0f and 1.0f. */
+		/** ¥param v2 Second vector to interpolate with
+		¥param v3 Third vector to interpolate with
+		¥param d Value between 0.0f and 1.0f. */
 		vector3d<T> getInterpolated_quadratic(const vector3d<T>& v2, const vector3d<T>& v3, const T d) const
 		{
 			// this*(1-d)*(1-d) + 2 * v2 * (1-d) + v3 * d * d;
@@ -226,7 +226,7 @@ namespace core
 
 		//! Gets the Y and Z rotations of a vector.
 		/** Thanks to Arras on the Irrlicht forums to add this method.
-		\return A vector representing the rotation in degrees of
+		¥return A vector representing the rotation in degrees of
 		this vector. The Z component of the vector will always be 0. */
 		vector3d<T> getHorizontalAngle()
 		{

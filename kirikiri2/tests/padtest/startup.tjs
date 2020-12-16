@@ -1,9 +1,9 @@
-// pad ƒeƒXƒg
+// pad ãƒ†ã‚¹ãƒˆ
 
 
 Debug.console.visible = true;
 
-class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
+class MainWindow extends Window // ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹
 {
 	var layer;
 	var pointlayer;
@@ -11,19 +11,19 @@ class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
 
 	function MainWindow()
 	{
-		// MainWindow ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		// MainWindow ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		super.Window();
 
 		borderStyle = bsSingle;
 		setInnerSize(640, 480);
 
-		caption = System.title = "JoyPadƒeƒXƒg";
+		caption = System.title = "JoyPadãƒ†ã‚¹ãƒˆ";
 
-		// ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„‚ğì¬
+		// ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤ã‚’ä½œæˆ
 		add(layer = new Layer(this, null));
 		layer.setSize(innerWidth, innerHeight);
 
-		// ˆÊ’u•\¦—pƒŒƒCƒ„‚ğì¬
+		// ä½ç½®è¡¨ç¤ºç”¨ãƒ¬ã‚¤ãƒ¤ã‚’ä½œæˆ
 		add(pointlayer = new Layer(this, layer));
 		with(pointlayer)
 		{
@@ -32,14 +32,14 @@ class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
 			.setPos(320 - 5, 240 - 5);
 			.type = ltCoverRect;
 			.opacity = 128;
-			.hint = "ƒpƒbƒh‚ÌƒL[‚ğ‰Ÿ‚·‚Æ‚±‚ê‚ªˆÚ“®‚µ‚Ü‚·";
+			.hint = "ãƒ‘ãƒƒãƒ‰ã®ã‚­ãƒ¼ã‚’æŠ¼ã™ã¨ã“ã‚ŒãŒç§»å‹•ã—ã¾ã™";
 			.hitType = htMask;
 			.hitThreshold = 0;
 			.cursor = crCross;
 			.visible = true;
 		}
 
-		// ƒ^ƒCƒ}[‚ğì¬
+		// ã‚¿ã‚¤ãƒãƒ¼ã‚’ä½œæˆ
 		add(timer = new Timer(this));
 		with(timer)
 		{
@@ -47,7 +47,7 @@ class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
 			.enabled = true;
 		}
 
-		// •\¦ó‘Ô‚É
+		// è¡¨ç¤ºçŠ¶æ…‹ã«
 		visible = true;
 	}
 
@@ -111,7 +111,7 @@ class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
 
 	function action(ev)
 	{
-		// ƒCƒxƒ“ƒgW–ñƒnƒ“ƒhƒ‰
+		// ã‚¤ãƒ™ãƒ³ãƒˆé›†ç´„ãƒãƒ³ãƒ‰ãƒ©
 		var type = ev.type;
 		var target = ev.target;
 		if(type == 'onKeyDown')

@@ -21,7 +21,7 @@
 #
 # /* BOOST_PP_NOR */
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
 #    define BOOST_PP_NOR(p, q) BOOST_PP_BITNOR(BOOST_PP_BOOL(p), BOOST_PP_BOOL(q))
 # else
 #    define BOOST_PP_NOR(p, q) BOOST_PP_NOR_I(p, q)

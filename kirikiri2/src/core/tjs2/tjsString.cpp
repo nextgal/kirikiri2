@@ -205,16 +205,16 @@ tTJSString tTJSString::EscapeC() const
 	{
 		switch(*p)
 		{
-		case 0x07: ret += TJS_W("\\a"); hexflag = false; continue;
-		case 0x08: ret += TJS_W("\\b"); hexflag = false; continue;
-		case 0x0c: ret += TJS_W("\\f"); hexflag = false; continue;
-		case 0x0a: ret += TJS_W("\\n"); hexflag = false; continue;
-		case 0x0d: ret += TJS_W("\\r"); hexflag = false; continue;
-		case 0x09: ret += TJS_W("\\t"); hexflag = false; continue;
-		case 0x0b: ret += TJS_W("\\v"); hexflag = false; continue;
-		case TJS_W('\\'): ret += TJS_W("\\\\"); hexflag = false; continue;
-		case TJS_W('\''): ret += TJS_W("\\\'"); hexflag = false; continue;
-		case TJS_W('\"'): ret += TJS_W("\\\""); hexflag = false; continue;
+		case 0x07: ret += TJS_W("¥¥a"); hexflag = false; continue;
+		case 0x08: ret += TJS_W("¥¥b"); hexflag = false; continue;
+		case 0x0c: ret += TJS_W("¥¥f"); hexflag = false; continue;
+		case 0x0a: ret += TJS_W("¥¥n"); hexflag = false; continue;
+		case 0x0d: ret += TJS_W("¥¥r"); hexflag = false; continue;
+		case 0x09: ret += TJS_W("¥¥t"); hexflag = false; continue;
+		case 0x0b: ret += TJS_W("¥¥v"); hexflag = false; continue;
+		case TJS_W('¥¥'): ret += TJS_W("¥¥¥¥"); hexflag = false; continue;
+		case TJS_W('¥''): ret += TJS_W("¥¥¥'"); hexflag = false; continue;
+		case TJS_W('¥"'): ret += TJS_W("¥¥¥""); hexflag = false; continue;
 		default:
 			if(hexflag)
 			{
@@ -223,7 +223,7 @@ tTJSString tTJSString::EscapeC() const
 						*p >= TJS_W('0') && *p <= TJS_W('9') )
 				{
 					tjs_char buf[20];
-					TJS_sprintf(buf, TJS_W("\\x%02x"), (int)*p);
+					TJS_sprintf(buf, TJS_W("¥¥x%02x"), (int)*p);
 					hexflag = true;
 					ret += buf;
 					continue;
@@ -233,7 +233,7 @@ tTJSString tTJSString::EscapeC() const
 			if(*p < 0x20)
 			{
 				tjs_char buf[20];
-				TJS_sprintf(buf, TJS_W("\\x%02x"), (int)*p);
+				TJS_sprintf(buf, TJS_W("¥¥x%02x"), (int)*p);
 				hexflag = true;
 				ret += buf;
 			}

@@ -24,7 +24,7 @@ namespace scene
 			const core::vector3df& scale = core::vector3df(1.0f, 1.0f, 1.0f));
 
 		//! destructor
-		virtual ~CMeshSceneNode();
+		virtual ‾CMeshSceneNode();
 
 		//! frame
 		virtual void OnRegisterSceneNode();

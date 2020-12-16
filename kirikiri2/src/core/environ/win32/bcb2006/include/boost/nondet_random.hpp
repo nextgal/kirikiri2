@@ -43,7 +43,7 @@ public:
   result_type min() const { return min_value; }
   result_type max() const { return max_value; }
   explicit random_device(const std::string& token = default_token);
-  ~random_device();
+  ‾random_device();
   double entropy() const;
   unsigned int operator()();
 

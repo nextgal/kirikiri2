@@ -42,7 +42,7 @@ namespace irr
 	public:
 
 		//! Destructor
-		virtual ~IrrlichtDevice() {}
+		virtual ‾IrrlichtDevice() {}
 
 		//! Runs the device.
 		/** Also increments the virtual timer by calling
@@ -50,12 +50,12 @@ namespace irr
 		by calling ITimer::stop(); before and ITimer::start() after
 		calling IrrlichtDevice::run(). Returns false if device wants
 		to be deleted. Use it in this way:
-		\code
+		¥code
 		while(device->run())
 		{
 			// draw everything here
 		}
-		\endcode
+		¥endcode
 		If you want the device to do nothing if the window is inactive
 		(recommended), use the slightly enhanced code shown at isWindowActive().
 
@@ -78,33 +78,33 @@ namespace irr
 
 		//! Pause execution and let other processes to run for a specified amount of time.
 		/** It may not wait the full given time, as sleep may be interrupted
-		\param timeMs: Time to sleep for in milisecs.
-		\param pauseTimer: If true, pauses the device timer while sleeping
+		¥param timeMs: Time to sleep for in milisecs.
+		¥param pauseTimer: If true, pauses the device timer while sleeping
 		*/
 		virtual void sleep(u32 timeMs, bool pauseTimer=false) = 0;
 
 		//! Provides access to the video driver for drawing 3d and 2d geometry.
-		/** \return Pointer the video driver. */
+		/** ¥return Pointer the video driver. */
 		virtual video::IVideoDriver* getVideoDriver() = 0;
 
 		//! Provides access to the virtual file system.
-		/** \return Pointer to the file system. */
+		/** ¥return Pointer to the file system. */
 		virtual io::IFileSystem* getFileSystem() = 0;
 
 		//! Provides access to the 2d user interface environment.
-		/** \return Pointer to the gui environment. */
+		/** ¥return Pointer to the gui environment. */
 		virtual gui::IGUIEnvironment* getGUIEnvironment() = 0;
 
 		//! Provides access to the scene manager.
-		/** \return Pointer to the scene manager. */
+		/** ¥return Pointer to the scene manager. */
 		virtual scene::ISceneManager* getSceneManager() = 0;
 
 		//! Provides access to the cursor control.
-		/** \return Pointer to the mouse cursor control interface. */
+		/** ¥return Pointer to the mouse cursor control interface. */
 		virtual gui::ICursorControl* getCursorControl() = 0;
 
 		//! Provides access to the message logger.
-		/** \return Pointer to the logger. */
+		/** ¥return Pointer to the logger. */
 		virtual ILogger* getLogger() = 0;
 
 		//! Gets a list with all video modes available.
@@ -114,7 +114,7 @@ namespace irr
 		need to start up an Irrlicht Device with EDT_DIRECT3D8,
 		EDT_OPENGL or EDT_SOFTWARE: For this (and for lots of other
 		reasons) the null driver, EDT_NULL exists.
-		\return Pointer to a list with all video modes supported
+		¥return Pointer to a list with all video modes supported
 		by the gfx adapter. */
 		virtual video::IVideoModeList* getVideoModeList() = 0;
 
@@ -123,24 +123,24 @@ namespace irr
 		getting system specific informations and doing system
 		specific operations, such as exchanging data with the clipboard
 		or reading the operation system version.
-		\return Pointer to the OS operator. */
+		¥return Pointer to the OS operator. */
 		virtual IOSOperator* getOSOperator() = 0;
 
 		//! Provides access to the engine's timer.
 		/** The system time can be retrieved by it as
 		well as the virtual time, which also can be manipulated.
-		\return Pointer to the ITimer object. */
+		¥return Pointer to the ITimer object. */
 		virtual ITimer* getTimer() = 0;
 
 		//! Sets the caption of the window.
-		/** \param text: New text of the window caption. */
+		/** ¥param text: New text of the window caption. */
 		virtual void setWindowCaption(const wchar_t* text) = 0;
 
 		//! Returns if the window is active.
 		/** If the window is inactive,
 		nothing needs to be drawn. So if you don't want to draw anything
 		when the window is inactive, create your drawing loop this way:
-		\code
+		¥code
 		while(device->run())
 		{
 			if (device->isWindowActive())
@@ -150,8 +150,8 @@ namespace irr
 			else
 				device->yield();
 		}
-		\endcode
-		\return True if window is active. */
+		¥endcode
+		¥return True if window is active. */
 		virtual bool isWindowActive() const = 0;
 
 		//! Notifies the device that it should close itself.
@@ -161,15 +161,15 @@ namespace irr
 		//! Get the version of the engine.
 		/** The returned string
 		will look like this: "1.2.3" or this: "1.2".
-		\return String which contains the version. */
+		¥return String which contains the version. */
 		virtual const c8* getVersion() const = 0;
 
 		//! Sets a new event receiver to receive events.
-		/** \param receiver New receiver to be used. */
+		/** ¥param receiver New receiver to be used. */
 		virtual void setEventReceiver(IEventReceiver* receiver) = 0;
 
 		//! Provides access to the current event receiver.
-		/** \return Pointer to the current event receiver. Returns 0 if there is none. */
+		/** ¥return Pointer to the current event receiver. Returns 0 if there is none. */
 		virtual IEventReceiver* getEventReceiver() = 0;
 
 		//! Sends a user created event to the engine.
@@ -183,13 +183,13 @@ namespace irr
 		//! Sets the input receiving scene manager.
 		/** If set to null, the main scene manager (returned by
 		GetSceneManager()) will receive the input
-		\param sceneManager New scene manager to be used. */
+		¥param sceneManager New scene manager to be used. */
 		virtual void setInputReceivingSceneManager(scene::ISceneManager* sceneManager) = 0;
 
 		//! Sets if the window should be resizeable in windowed mode.
 		/** The default is false. This method only works in windowed
 		mode.
-		\param resize Flag whether the window should be resizeable. */
+		¥param resize Flag whether the window should be resizeable. */
 		virtual void setResizeAble(bool resize=false) = 0;
 	};
 

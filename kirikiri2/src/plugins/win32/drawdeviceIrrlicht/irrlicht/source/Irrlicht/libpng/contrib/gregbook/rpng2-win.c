@@ -96,10 +96,10 @@
  * only happen with alpha (which could easily be avoided with
  * "ush acopy = (alpha);") */
 
-#define alpha_composite(composite, fg, alpha, bg) {               \
-    ush temp = ((ush)(fg)*(ush)(alpha) +                          \
-                (ush)(bg)*(ush)(255 - (ush)(alpha)) + (ush)128);  \
-    (composite) = (uch)((temp + (temp >> 8)) >> 8);               \
+#define alpha_composite(composite, fg, alpha, bg) {               ¥
+    ush temp = ((ush)(fg)*(ush)(alpha) +                          ¥
+                (ush)(bg)*(ush)(255 - (ush)(alpha)) + (ush)128);  ¥
+    (composite) = (uch)((temp + (temp >> 8)) >> 8);               ¥
 }
 
 
@@ -195,7 +195,7 @@ static struct background_pattern {
     {1,    10,0,  7,0},         /* diamonds:  red vs. medium blue */
     {1,     4,0,  5,0},         /* diamonds:  gold vs. yellow */
     {1,     3,0,  0,0},         /* diamonds:  medium green vs. black */
-    {2,    16, 100,  20,   0},  /* radial:  ~hard radial color-beams */
+    {2,    16, 100,  20,   0},  /* radial:  ‾hard radial color-beams */
     {2,    18, 100,  10,   2},  /* radial:  soft, curved radial color-beams */
     {2,    16, 256, 100, 250},  /* radial:  very tight spiral */
     {2, 10000, 256,  11,   0}   /* radial:  dipole-moire' (almost fractal) */
@@ -316,15 +316,15 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
             while (*++p == ' ')
                 ;
         /* now p points at the first non-space after some spaces */
-        if (*p == '\0')
+        if (*p == '¥0')
             break;    /* nothing after the spaces:  done */
         argv[argc++] = q = p;
         while (*q && *q != ' ')
             ++q;
         /* now q points at a space or the end of the string */
-        if (*q == '\0')
+        if (*q == '¥0')
             break;    /* last argv already terminated; quit */
-        *q = '\0';    /* change space to terminator */
+        *q = '¥0';    /* change space to terminator */
         p = q + 1;
     }
     argv[argc] = NULL;   /* terminate the argv array itself */
@@ -392,28 +392,28 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
     if (!filename) {
         ++error;
     } else if (!(infile = fopen(filename, "rb"))) {
-        fprintf(stderr, PROGNAME ":  can't open PNG file [%s]\n", filename);
+        fprintf(stderr, PROGNAME ":  can't open PNG file [%s]¥n", filename);
         ++error;
     } else {
         incount = fread(inbuf, 1, INBUFSIZE, infile);
         if (incount < 8 || !readpng2_check_sig(inbuf, 8)) {
             fprintf(stderr, PROGNAME
-              ":  [%s] is not a PNG file: incorrect signature\n",
+              ":  [%s] is not a PNG file: incorrect signature¥n",
               filename);
             ++error;
         } else if ((rc = readpng2_init(&rpng2_info)) != 0) {
             switch (rc) {
                 case 2:
                     fprintf(stderr, PROGNAME
-                      ":  [%s] has bad IHDR (libpng longjmp)\n",
+                      ":  [%s] has bad IHDR (libpng longjmp)¥n",
                       filename);
                     break;
                 case 4:
-                    fprintf(stderr, PROGNAME ":  insufficient memory\n");
+                    fprintf(stderr, PROGNAME ":  insufficient memory¥n");
                     break;
                 default:
                     fprintf(stderr, PROGNAME
-                      ":  unknown readpng2_init() error\n");
+                      ":  unknown readpng2_init() error¥n");
                     break;
             }
             ++error;
@@ -428,30 +428,30 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
     if (error) {
         int ch;
 
-        fprintf(stderr, "\n%s %s:  %s\n\n", PROGNAME, VERSION, appname);
+        fprintf(stderr, "¥n%s %s:  %s¥n¥n", PROGNAME, VERSION, appname);
         readpng2_version_info();
-        fprintf(stderr, "\n"
-          "Usage:  %s [-gamma exp] [-bgcolor bg | -bgpat pat] [-timing]\n"
+        fprintf(stderr, "¥n"
+          "Usage:  %s [-gamma exp] [-bgcolor bg | -bgpat pat] [-timing]¥n"
 #if (defined(__i386__) || defined(_M_IX86))
-          "        %*s [[-nommxfilters] [-nommxcombine] [-nommxinterlace] | -nommx]\n"
+          "        %*s [[-nommxfilters] [-nommxcombine] [-nommxinterlace] | -nommx]¥n"
 #endif
-          "        %*s file.png\n\n"
-          "    exp \ttransfer-function exponent (``gamma'') of the display\n"
-          "\t\t  system in floating-point format (e.g., ``%.1f''); equal\n"
-          "\t\t  to the product of the lookup-table exponent (varies)\n"
-          "\t\t  and the CRT exponent (usually 2.2); must be positive\n"
-          "    bg  \tdesired background color in 7-character hex RGB format\n"
-          "\t\t  (e.g., ``#ff7700'' for orange:  same as HTML colors);\n"
-          "\t\t  used with transparent images; overrides -bgpat option\n"
-          "    pat \tdesired background pattern number (1-%d); used with\n"
-          "\t\t  transparent images; overrides -bgcolor option\n"
-          "    -timing\tenables delay for every block read, to simulate modem\n"
-          "\t\t  download of image (~36 Kbps)\n"
+          "        %*s file.png¥n¥n"
+          "    exp ¥ttransfer-function exponent (``gamma'') of the display¥n"
+          "¥t¥t  system in floating-point format (e.g., ``%.1f''); equal¥n"
+          "¥t¥t  to the product of the lookup-table exponent (varies)¥n"
+          "¥t¥t  and the CRT exponent (usually 2.2); must be positive¥n"
+          "    bg  ¥tdesired background color in 7-character hex RGB format¥n"
+          "¥t¥t  (e.g., ``#ff7700'' for orange:  same as HTML colors);¥n"
+          "¥t¥t  used with transparent images; overrides -bgpat option¥n"
+          "    pat ¥tdesired background pattern number (1-%d); used with¥n"
+          "¥t¥t  transparent images; overrides -bgcolor option¥n"
+          "    -timing¥tenables delay for every block read, to simulate modem¥n"
+          "¥t¥t  download of image (‾36 Kbps)¥n"
 #if (defined(__i386__) || defined(_M_IX86))
-          "    -nommx*\tdisable optimized MMX routines for decoding row filters,\n"
-          "\t\t  combining rows, and expanding interlacing, respectively\n"
+          "    -nommx*¥tdisable optimized MMX routines for decoding row filters,¥n"
+          "¥t¥t  combining rows, and expanding interlacing, respectively¥n"
 #endif
-          "\nPress Q, Esc or mouse button 1 after image is displayed to quit.\n"
+          "¥nPress Q, Esc or mouse button 1 after image is displayed to quit.¥n"
           "Press Q or Esc to quit this usage screen. ",
           PROGNAME,
 #if (defined(__i386__) || defined(_M_IX86))
@@ -464,9 +464,9 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
         while (ch != 'q' && ch != 'Q' && ch != 0x1B);
         exit(1);
     } else {
-        fprintf(stderr, "\n%s %s:  %s\n", PROGNAME, VERSION, appname);
+        fprintf(stderr, "¥n%s %s:  %s¥n", PROGNAME, VERSION, appname);
         fprintf(stderr,
-          "\n   [console window:  closing this window will terminate %s]\n\n",
+          "¥n   [console window:  closing this window will terminate %s]¥n¥n",
           PROGNAME);
         fflush(stderr);
     }
@@ -510,10 +510,10 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
      * modem. */
 
     for (;;) {
-        Trace((stderr, "about to call readpng2_decode_data()\n"))
+        Trace((stderr, "about to call readpng2_decode_data()¥n"))
         if (readpng2_decode_data(&rpng2_info, inbuf, incount))
             ++error;
-        Trace((stderr, "done with readpng2_decode_data()\n"))
+        Trace((stderr, "done with readpng2_decode_data()¥n"))
         if (error || feof(infile) || rpng2_info.done)
             break;
         if (timing)
@@ -525,11 +525,11 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
     /* clean up PNG stuff and report any decoding errors */
 
     fclose(infile);
-    Trace((stderr, "about to call readpng2_cleanup()\n"))
+    Trace((stderr, "about to call readpng2_cleanup()¥n"))
     readpng2_cleanup(&rpng2_info);
 
     if (error) {
-        fprintf(stderr, PROGNAME ":  libpng error while decoding PNG image\n");
+        fprintf(stderr, PROGNAME ":  libpng error while decoding PNG image¥n");
         exit(3);
     }
 
@@ -544,7 +544,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
 
     /* we're done:  clean up all image and Windows resources and go away */
 
-    Trace((stderr, "about to call rpng2_win_cleanup()\n"))
+    Trace((stderr, "about to call rpng2_win_cleanup()¥n"))
     rpng2_win_cleanup();
 
     return msg.wParam;
@@ -563,10 +563,10 @@ static void rpng2_win_init()
     ulg i;
     ulg rowbytes = rpng2_info.rowbytes;
 
-    Trace((stderr, "beginning rpng2_win_init()\n"))
-    Trace((stderr, "  rowbytes = %ld\n", rpng2_info.rowbytes))
-    Trace((stderr, "  width  = %ld\n", rpng2_info.width))
-    Trace((stderr, "  height = %ld\n", rpng2_info.height))
+    Trace((stderr, "beginning rpng2_win_init()¥n"))
+    Trace((stderr, "  rowbytes = %ld¥n", rpng2_info.rowbytes))
+    Trace((stderr, "  width  = %ld¥n", rpng2_info.width))
+    Trace((stderr, "  height = %ld¥n", rpng2_info.height))
 
     rpng2_info.image_data = (uch *)malloc(rowbytes * rpng2_info.height);
     if (!rpng2_info.image_data) {
@@ -767,7 +767,7 @@ static int rpng2_win_load_bg_image()
     bg_data = (uch *)malloc(bg_rowbytes * rpng2_info.height);
     if (!bg_data) {
         fprintf(stderr, PROGNAME
-          ":  unable to allocate memory for background image\n");
+          ":  unable to allocate memory for background image¥n");
         bg_image = 0;
         return 1;
     }
@@ -953,7 +953,7 @@ static int rpng2_win_load_bg_image()
                 }
             }
         }
-        fprintf(stderr, "done.\n");
+        fprintf(stderr, "done.¥n");
         fflush(stderr);
     }
 
@@ -1000,7 +1000,7 @@ static void rpng2_win_display_row(ulg row)
     every row and not bother with the records-keeping.
   ---------------------------------------------------------------------------*/
 
-    Trace((stderr, "beginning rpng2_win_display_row()\n"))
+    Trace((stderr, "beginning rpng2_win_display_row()¥n"))
 
     if (rows == 0)
         firstrow = row;   /* first row not yet displayed */
@@ -1083,7 +1083,7 @@ static void rpng2_win_display_row(ulg row)
 
 static void rpng2_win_finish_display()
 {
-    Trace((stderr, "beginning rpng2_win_finish_display()\n"))
+    Trace((stderr, "beginning rpng2_win_finish_display()¥n"))
 
     /* last row has already been displayed by rpng2_win_display_row(), so
      * we have nothing to do here except set a flag and let the user know
@@ -1091,7 +1091,7 @@ static void rpng2_win_finish_display()
 
     rpng2_info.done = TRUE;
     printf(
-      "Done.  Press Q, Esc or mouse button 1 (within image window) to quit.\n");
+      "Done.  Press Q, Esc or mouse button 1 (within image window) to quit.¥n");
     fflush(stdout);
 }
 

@@ -28,20 +28,20 @@ class MyWindow extends Window
 	{
 		super.Window();
 
-		// ‰º•~‚«(ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„)
+		// ä¸‹æ•·ã(ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤)
 		add(primlayer = new Layer(this, null));
 		primlayer.loadImages("grad_base");
 		primlayer.setSizeToImageSize();
 		setInnerSize(primlayer.width, primlayer.height);
 
-		// ã‚Éd‚Ë‚éƒŒƒCƒ„
+		// ä¸Šã«é‡ã­ã‚‹ãƒ¬ã‚¤ãƒ¤
 		add(forelayer = new Layer(this, primlayer));
 		forelayer.setPos(0, 0);
 		forelayer.visible = true;
 		forelayer.loadImages("grad_fore");
 		forelayer.setSizeToImageSize();
 
-		// ˆêƒŒƒCƒ„
+		// ä¸€æ™‚ãƒ¬ã‚¤ãƒ¤
 		add(tmplayer = new Layer(this, primlayer));
 		tmplayer.setImageSize(primlayer.imageWidth, primlayer.imageHeight);
 		tmplayer.setSizeToImageSize();
@@ -54,19 +54,19 @@ class MyWindow extends Window
 
 	function save_image(fn)
 	{
-		// primlayer ‚Æ forelayer ‚ğd‚Ë‡‚í‚¹‚½‰æ‘œ‚ğ•Û‘¶
+		// primlayer ã¨ forelayer ã‚’é‡ã­åˆã‚ã›ãŸç”»åƒã‚’ä¿å­˜
 		tmplayer.piledCopy(0, 0, primlayer, 0, 0, primlayer.width, primlayer.height);
 		tmplayer.saveLayerImage(fn, "bmp24");
 	}
 
 	function test_normal(mode, fn)
 	{
-		// •’Ê‚Ìd‚Ë‡‚í‚¹
+		// æ™®é€šã®é‡ã­åˆã‚ã›
 		primlayer.loadImages("grad_base");
 		forelayer.loadImages("grad_fore");
 		forelayer.face = dfMask;
 		forelayer.fillRect(0, 0, forelayer.imageWidth, forelayer.imageHeight,
-			255); // •s“§–¾“x‚ğ 255 ‚Å“h‚è‚Â‚Ô‚µ
+			255); // ä¸é€æ˜åº¦ã‚’ 255 ã§å¡—ã‚Šã¤ã¶ã—
 		forelayer.type = mode;
 		forelayer.opacity = 255;
 		save_image(fn);
@@ -74,7 +74,7 @@ class MyWindow extends Window
 
 	function test_o(mode, fn)
 	{
-		// •s“§–¾“x‚ğ 128 ‚É‚µ‚½d‚Ë‡‚í‚¹
+		// ä¸é€æ˜åº¦ã‚’ 128 ã«ã—ãŸé‡ã­åˆã‚ã›
 		primlayer.loadImages("grad_base");
 		forelayer.loadImages("grad_fore");
 		forelayer.type = mode;
@@ -84,12 +84,12 @@ class MyWindow extends Window
 
 	function test_h(mode, fn)
 	{
-		// ‘SƒsƒNƒZƒ‹‚Ì•s“§–¾“x‚ğ 128 ‚É‚µ‚½d‚Ë‡‚í‚¹
+		// å…¨ãƒ”ã‚¯ã‚»ãƒ«ã®ä¸é€æ˜åº¦ã‚’ 128 ã«ã—ãŸé‡ã­åˆã‚ã›
 		primlayer.loadImages("grad_base");
 		forelayer.loadImages("grad_fore");
 		forelayer.face = dfMask;
 		forelayer.fillRect(0, 0, forelayer.imageWidth, forelayer.imageHeight,
-			128); // •s“§–¾“x‚ğ 128 ‚Å“h‚è‚Â‚Ô‚µ
+			128); // ä¸é€æ˜åº¦ã‚’ 128 ã§å¡—ã‚Šã¤ã¶ã—
 		forelayer.type = mode;
 		forelayer.opacity = 255;
 		save_image(fn);
@@ -97,7 +97,7 @@ class MyWindow extends Window
 
 	function test_c(mode, fn)
 	{
-		// •\ƒŒƒCƒ„‚Æ— ƒŒƒCƒ„‚ğ‚Æ‚è‚©‚¦A•s“§–¾“x‚ğ 128 ‚É‚µ‚½d‚Ë‡‚í‚¹
+		// è¡¨ãƒ¬ã‚¤ãƒ¤ã¨è£ãƒ¬ã‚¤ãƒ¤ã‚’ã¨ã‚Šã‹ãˆã€ä¸é€æ˜åº¦ã‚’ 128 ã«ã—ãŸé‡ã­åˆã‚ã›
 		primlayer.loadImages("grad_fore");
 		forelayer.loadImages("grad_base");
 		forelayer.type = mode;
@@ -107,7 +107,7 @@ class MyWindow extends Window
 
 	function test()
 	{
-		// ƒeƒXƒg‚ğÀs‚·‚é
+		// ãƒ†ã‚¹ãƒˆã‚’å®Ÿè¡Œã™ã‚‹
 		for(var i = 0; i < mode_list.count; i++)
 		{
 			var mode = global[mode_list[i]];

@@ -31,8 +31,8 @@ struct print_
 } // namespace mpl
 } // namespace boost
 
-#define BOOST_MPL_AUX_DEBUG_PRINT(type) \
-enum { mpl_debug_print_##type = boost::mpl::aux::print_<type>::value } ;\
+#define BOOST_MPL_AUX_DEBUG_PRINT(type) ¥
+enum { mpl_debug_print_##type = boost::mpl::aux::print_<type>::value } ;¥
 /**/
 
 #endif // BOOST_MPL_AUX_DEBUG_PRINT_HPP_INCLUDED

@@ -12,8 +12,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\..\..\..\..\bin\win32\plugin"
-			IntermediateDirectory=".\Debug"
+			OutputDirectory=".¥..¥..¥..¥..¥bin¥win32¥plugin"
+			IntermediateDirectory=".¥Debug"
 			ConfigurationType="2"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -21,15 +21,15 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../,$(EXPAT_HOME)\Source\lib"
+				AdditionalIncludeDirectories="../,$(EXPAT_HOME)¥Source¥lib"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;EXPAT_EXPORTS;XML_STATIC"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				UsePrecompiledHeader="2"
-				PrecompiledHeaderFile=".\Debug/expat.pch"
-				AssemblerListingLocation=".\Debug/"
-				ObjectFile=".\Debug/"
-				ProgramDataBaseFileName=".\Debug/"
+				PrecompiledHeaderFile=".¥Debug/expat.pch"
+				AssemblerListingLocation=".¥Debug/"
+				ObjectFile=".¥Debug/"
+				ProgramDataBaseFileName=".¥Debug/"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="4"
@@ -40,15 +40,15 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/COMMENT:&quot;(--has-option--)&quot;"
 				AdditionalDependencies="odbc32.lib odbccp32.lib libexpatwMT.lib"
-				OutputFile=".\..\..\..\..\bin\win32\plugin/expat.dll"
+				OutputFile=".¥..¥..¥..¥..¥bin¥win32¥plugin/expat.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories="&quot;$(EXPAT_HOME)\StaticLibs&quot;;&quot;$(EXPAT_HOME)\Bin&quot;"
+				AdditionalLibraryDirectories="&quot;$(EXPAT_HOME)¥StaticLibs&quot;;&quot;$(EXPAT_HOME)¥Bin&quot;"
 				IgnoreDefaultLibraryNames="LIBCMT"
-				ModuleDefinitionFile=".\expat.def"
+				ModuleDefinitionFile=".¥expat.def"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile=".\..\..\..\..\bin\win32\plugin/expat.pdb"
-				ImportLibrary=".\..\..\..\..\bin\win32\plugin/expat.lib"
+				ProgramDatabaseFile=".¥..¥..¥..¥..¥bin¥win32¥plugin/expat.pdb"
+				ImportLibrary=".¥..¥..¥..¥..¥bin¥win32¥plugin/expat.lib"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCMIDLTool"
@@ -56,7 +56,7 @@
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName=".\..\..\..\..\bin\win32\plugin/expat.tlb"
+				TypeLibraryName=".¥..¥..¥..¥..¥bin¥win32¥plugin/expat.tlb"
 				HeaderFileName=""/>
 			<Tool
 				Name="VCPostBuildEventTool"/>
@@ -81,8 +81,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\..\..\..\bin\win32\plugin"
-			IntermediateDirectory=".\Release"
+			OutputDirectory=".¥..¥..¥..¥..¥bin¥win32¥plugin"
+			IntermediateDirectory=".¥Release"
 			ConfigurationType="2"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -91,16 +91,16 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="../,$(EXPAT_HOME)\Source\lib"
+				AdditionalIncludeDirectories="../,$(EXPAT_HOME)¥Source¥lib"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;EXPAT_EXPORTS;XML_STATIC"
 				StringPooling="TRUE"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="TRUE"
 				UsePrecompiledHeader="2"
-				PrecompiledHeaderFile=".\Release/expat.pch"
-				AssemblerListingLocation=".\Release/"
-				ObjectFile=".\Release/"
-				ProgramDataBaseFileName=".\Release/"
+				PrecompiledHeaderFile=".¥Release/expat.pch"
+				AssemblerListingLocation=".¥Release/"
+				ObjectFile=".¥Release/"
+				ProgramDataBaseFileName=".¥Release/"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="3"
@@ -111,14 +111,14 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/COMMENT:&quot;(--has-option--)&quot;"
 				AdditionalDependencies="odbc32.lib odbccp32.lib libexpatwMT.lib"
-				OutputFile=".\..\..\..\..\bin\win32\plugin/expat.dll"
+				OutputFile=".¥..¥..¥..¥..¥bin¥win32¥plugin/expat.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories="&quot;$(EXPAT_HOME)\StaticLibs&quot;;&quot;$(EXPAT_HOME)\Bin&quot;"
-				ModuleDefinitionFile=".\expat.def"
+				AdditionalLibraryDirectories="&quot;$(EXPAT_HOME)¥StaticLibs&quot;;&quot;$(EXPAT_HOME)¥Bin&quot;"
+				ModuleDefinitionFile=".¥expat.def"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile=".\..\..\..\..\bin\win32\plugin/expat.pdb"
-				ImportLibrary=".\..\..\..\..\bin\win32\plugin/expat.lib"
+				ProgramDatabaseFile=".¥..¥..¥..¥..¥bin¥win32¥plugin/expat.pdb"
+				ImportLibrary=".¥..¥..¥..¥..¥bin¥win32¥plugin/expat.lib"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCMIDLTool"
@@ -126,7 +126,7 @@
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName=".\..\..\..\..\bin\win32\plugin/expat.tlb"
+				TypeLibraryName=".¥..¥..¥..¥..¥bin¥win32¥plugin/expat.tlb"
 				HeaderFileName=""/>
 			<Tool
 				Name="VCPostBuildEventTool"/>
@@ -180,7 +180,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\tp_stub.cpp">
+				RelativePath="..¥tp_stub.cpp">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -204,7 +204,7 @@
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl">
 			<File
-				RelativePath="..\tp_stub.h">
+				RelativePath="..¥tp_stub.h">
 			</File>
 		</Filter>
 		<Filter

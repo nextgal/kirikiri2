@@ -41,7 +41,7 @@ private:
             pthread_mutex_lock(&m_);
         }
 
-        ~scoped_lock()
+        ‾scoped_lock()
         {
             pthread_mutex_unlock(&m_);
         }
@@ -58,7 +58,7 @@ public:
         pthread_mutex_init(&mutex_, 0);
     }
 
-    ~atomic_count()
+    ‾atomic_count()
     {
         pthread_mutex_destroy(&mutex_);
     }

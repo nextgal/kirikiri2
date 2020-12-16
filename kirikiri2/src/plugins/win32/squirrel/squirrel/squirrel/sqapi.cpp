@@ -27,9 +27,9 @@ bool sq_aux_gettypedarg(HSQUIRRELVM v,SQInteger idx,SQObjectType type,SQObjectPt
 
 #define _GETSAFE_OBJ(v,idx,type,o) { if(!sq_aux_gettypedarg(v,idx,type,&o)) return SQ_ERROR; }
 
-#define sq_aux_paramscheck(v,count) \
-{ \
-	if(sq_gettop(v) < count){ v->Raise_Error(_SC("not enough params in the stack")); return SQ_ERROR; }\
+#define sq_aux_paramscheck(v,count) ¥
+{ ¥
+	if(sq_gettop(v) < count){ v->Raise_Error(_SC("not enough params in the stack")); return SQ_ERROR; }¥
 }		
 
 SQInteger sq_aux_throwobject(HSQUIRRELVM v,SQObjectPtr &e)

@@ -48,7 +48,7 @@ public:
 
 	tTVPBitmap(const tTVPBitmap & r);
 
-	~tTVPBitmap();
+	‾tTVPBitmap();
 
 	void Allocate(tjs_uint width, tjs_uint height, tjs_uint bpp);
 
@@ -104,7 +104,7 @@ class tTVPNativeBaseBitmap
 public:
 	tTVPNativeBaseBitmap(tjs_uint w, tjs_uint h, tjs_uint bpp);
 	tTVPNativeBaseBitmap(const tTVPNativeBaseBitmap & r);
-	virtual ~tTVPNativeBaseBitmap();
+	virtual ‾tTVPNativeBaseBitmap();
 
 	/* metrics */
 	tjs_uint GetWidth() const ;

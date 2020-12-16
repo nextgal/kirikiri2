@@ -134,7 +134,7 @@ class tTVPContinuousHandlerCallLimitThread : public tTVPThread
 
 public:
 	tTVPContinuousHandlerCallLimitThread();
-	~tTVPContinuousHandlerCallLimitThread();
+	â€¾tTVPContinuousHandlerCallLimitThread();
 
 protected:
 	void Execute();
@@ -168,7 +168,7 @@ tTVPContinuousHandlerCallLimitThread::tTVPContinuousHandlerCallLimitThread()
 
 
 //---------------------------------------------------------------------------
-tTVPContinuousHandlerCallLimitThread::~tTVPContinuousHandlerCallLimitThread()
+tTVPContinuousHandlerCallLimitThread::â€¾tTVPContinuousHandlerCallLimitThread()
 {
 	Terminate();
 	Resume();
@@ -349,22 +349,22 @@ bool TVPGetWaitVSync()
 
 
 //---------------------------------------------------------------------------
-// VSync—p‚Ìƒ^ƒCƒ~ƒ“ƒO‚ğ”­¶‚³‚¹‚é‚½‚ß‚ÌƒXƒŒƒbƒh
+// VSyncç”¨ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã‚’ç™ºç”Ÿã•ã›ã‚‹ãŸã‚ã®ã‚¹ãƒ¬ãƒƒãƒ‰
 //---------------------------------------------------------------------------
 class tTVPVSyncTimingThread : public tTVPThread
 {
 	DWORD SleepTime;
 	tTVPThreadEvent Event;
 	tTJSCriticalSection CS;
-	DWORD VSyncInterval; //!< VSync ‚ÌŠÔŠu(Ql’l)
-	DWORD LastVBlankTick; //!< ÅŒã‚Ì vblank ‚ÌŠÔ
+	DWORD VSyncInterval; //!< VSync ã®é–“éš”(å‚è€ƒå€¤)
+	DWORD LastVBlankTick; //!< æœ€å¾Œã® vblank ã®æ™‚é–“
 
 	bool Enabled;
 	HWND UtilWindow;
 
 public:
 	tTVPVSyncTimingThread();
-	~tTVPVSyncTimingThread();
+	â€¾tTVPVSyncTimingThread();
 
 protected:
 	void Execute();
@@ -372,7 +372,7 @@ protected:
 	void __fastcall UtilWndProc(Messages::TMessage &Msg);
 
 public:
-	void MeasureVSyncInterval(); // VSyncInterval ‚ğŒv‘ª‚·‚é
+	void MeasureVSyncInterval(); // VSyncInterval ã‚’è¨ˆæ¸¬ã™ã‚‹
 } static * TVPVSyncTimingThread = NULL;
 //---------------------------------------------------------------------------
 
@@ -383,7 +383,7 @@ tTVPVSyncTimingThread::tTVPVSyncTimingThread()
 {
 	SleepTime = 1;
 	LastVBlankTick = 0;
-	VSyncInterval = 16; // ‰Šú’lB
+	VSyncInterval = 16; // åˆæœŸå€¤ã€‚
 	Enabled = false;
 	UtilWindow = AllocateHWnd(UtilWndProc);
 	MeasureVSyncInterval();
@@ -393,7 +393,7 @@ tTVPVSyncTimingThread::tTVPVSyncTimingThread()
 
 
 //---------------------------------------------------------------------------
-tTVPVSyncTimingThread::~tTVPVSyncTimingThread()
+tTVPVSyncTimingThread::â€¾tTVPVSyncTimingThread()
 {
 	Terminate();
 	Resume();
@@ -409,7 +409,7 @@ void tTVPVSyncTimingThread::Execute()
 {
 	while(!GetTerminated())
 	{
-		// SleepTime ‚Æ LastVBlankTick ‚ğ“¾‚é
+		// SleepTime ã¨ LastVBlankTick ã‚’å¾—ã‚‹
 		DWORD sleep_time, last_vblank_tick;
 		{	// thread-protected
 			tTJSCriticalSectionHolder holder(CS);
@@ -417,8 +417,8 @@ void tTVPVSyncTimingThread::Execute()
 			last_vblank_tick = LastVBlankTick;
 		}
 
-		// SleepTime •ª–°‚é
-		// LastVBlankTick ‚©‚ç‹NZ‚µASleepTime •ª–°‚é
+		// SleepTime åˆ†çœ ã‚‹
+		// LastVBlankTick ã‹ã‚‰èµ·ç®—ã—ã€SleepTime åˆ†çœ ã‚‹
 		DWORD sleep_start_tick = timeGetTime();
 
 		DWORD sleep_time_adj = sleep_start_tick - last_vblank_tick;
@@ -429,21 +429,21 @@ void tTVPVSyncTimingThread::Execute()
 		}
 		else
 		{
-			// •’ÊAƒƒCƒ“ƒXƒŒƒbƒh“à‚Å Event.Set() ‚µ‚½‚È‚ç‚ÎA
-			// ƒ^ƒCƒ€ƒXƒ‰ƒCƒX(’·‚­‚Ä10ms) ‚ªI‚í‚é ‚Í
-			// ‚±‚±‚É—ˆ‚Ä‚¢‚é‚Í‚¸‚Å‚ ‚éB
-			// sleep_time ‚Í’Êí 10ms ‚æ‚è’·‚¢‚Ì‚ÅA
-			// ‚±‚±‚É—ˆ‚é‚Á‚Ä‚Ì‚ÍˆÙíB
-			// ‚æ‚Ù‚ÇƒVƒXƒeƒ€‚ªd‚½‚¢ó‘Ô‚É‚È‚Á‚Ä‚é‚Æl‚¦‚ç‚ê‚éB
-			// ‚»‚±‚Å—§‚Ä‘±‚¯‚É ƒCƒxƒ“ƒg‚ğƒ|ƒXƒg‚·‚é‚í‚¯‚É‚Í‚¢‚©‚È‚¢‚Ì‚Å
-			// “K“–‚ÈŠÔ(–{“–‚É“K“–) –°‚éB
+			// æ™®é€šã€ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰å†…ã§ Event.Set() ã—ãŸãªã‚‰ã°ã€
+			// ã‚¿ã‚¤ãƒ ã‚¹ãƒ©ã‚¤ã‚¹(é•·ãã¦10ms) ãŒçµ‚ã‚ã‚‹é ƒã¯
+			// ã“ã“ã«æ¥ã¦ã„ã‚‹ã¯ãšã§ã‚ã‚‹ã€‚
+			// sleep_time ã¯é€šå¸¸ 10ms ã‚ˆã‚Šé•·ã„ã®ã§ã€
+			// ã“ã“ã«æ¥ã‚‹ã£ã¦ã®ã¯ç•°å¸¸ã€‚
+			// ã‚ˆã»ã©ã‚·ã‚¹ãƒ†ãƒ ãŒé‡ãŸã„çŠ¶æ…‹ã«ãªã£ã¦ã‚‹ã¨è€ƒãˆã‚‰ã‚Œã‚‹ã€‚
+			// ãã“ã§ç«‹ã¦ç¶šã‘ã« ã‚¤ãƒ™ãƒ³ãƒˆã‚’ãƒã‚¹ãƒˆã™ã‚‹ã‚ã‘ã«ã¯ã„ã‹ãªã„ã®ã§
+			// é©å½“ãªæ™‚é–“(æœ¬å½“ã«é©å½“) çœ ã‚‹ã€‚
 			Sleep(5);
 		}
 
-		// ƒCƒxƒ“ƒg‚ğƒ|ƒXƒg‚·‚é
+		// ã‚¤ãƒ™ãƒ³ãƒˆã‚’ãƒã‚¹ãƒˆã™ã‚‹
 		::PostMessage(UtilWindow, WM_APP+2, 0, (LPARAM)sleep_start_tick);
 
-		Event.WaitFor(0x7fffffff); // vsync ‚Ü‚Å‘Ò‚Â
+		Event.WaitFor(0x7fffffff); // vsync ã¾ã§å¾…ã¤
 	}
 }
 //---------------------------------------------------------------------------
@@ -458,25 +458,25 @@ void __fastcall tTVPVSyncTimingThread::UtilWndProc(Messages::TMessage &Msg)
 		return;
 	}
 
-	// tTVPVSyncTimingThread ‚©‚ç“Š‚°‚ç‚ê‚½ƒƒbƒZ[ƒW
+	// tTVPVSyncTimingThread ã‹ã‚‰æŠ•ã’ã‚‰ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 
-	// ‚¢‚Ü vblank ’†H
+	// ã„ã¾ vblank ä¸­ï¼Ÿ
 	IDirectDraw2 * DirectDraw2 = TVPGetDirectDrawObjectNoAddRef();
 	BOOL in_vblank = false;
 	if(DirectDraw2)
 		DirectDraw2->GetVerticalBlankStatus(&in_vblank);
 
-	// ŠÔ‚ğƒ`ƒFƒbƒN
+	// æ™‚é–“ã‚’ãƒã‚§ãƒƒã‚¯
 	bool drawn = false;
 //	DWORD vblank_wait_start = timeGetTime();
 
-	// VSync ‘Ò‚¿‚ğs‚¤
+	// VSync å¾…ã¡ã‚’è¡Œã†
 	bool delayed = false;
 	if(!drawn)
 	{
 		if(!in_vblank)
 		{
-			// vblank ‚©‚ç”²‚¯‚é‚Ü‚Å‘Ò‚Â
+			// vblank ã‹ã‚‰æŠœã‘ã‚‹ã¾ã§å¾…ã¤
 			DWORD timeout_target_tick = timeGetTime() + 1;
 
 			BOOL in_vblank = false;
@@ -485,7 +485,7 @@ void __fastcall tTVPVSyncTimingThread::UtilWndProc(Messages::TMessage &Msg)
 				DirectDraw2->GetVerticalBlankStatus(&in_vblank);
 			} while(in_vblank && (long)(timeGetTime() - timeout_target_tick) <= 0);
 
-			// vblank ‚É“ü‚é‚Ü‚Å‘Ò‚Â
+			// vblank ã«å…¥ã‚‹ã¾ã§å¾…ã¤
 			in_vblank = true;
 			do
 			{
@@ -494,7 +494,7 @@ void __fastcall tTVPVSyncTimingThread::UtilWndProc(Messages::TMessage &Msg)
 
 			if((int)(timeGetTime() - timeout_target_tick) > 0)
 			{
-				// ƒtƒŒ[ƒ€ƒXƒLƒbƒv‚ª”­¶‚µ‚½‚Æl‚¦‚Ä‚æ‚¢
+				// ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¹ã‚­ãƒƒãƒ—ãŒç™ºç”Ÿã—ãŸã¨è€ƒãˆã¦ã‚ˆã„
 				delayed  =true;
 			}
 		}
@@ -502,51 +502,51 @@ void __fastcall tTVPVSyncTimingThread::UtilWndProc(Messages::TMessage &Msg)
 
 //	DWORD vblank_wait_end = timeGetTime();
 
-	// ƒ^ƒCƒ}‚ÌŠÔŒ´“_‚ğİ’è‚·‚é
+	// ã‚¿ã‚¤ãƒã®æ™‚é–“åŸç‚¹ã‚’è¨­å®šã™ã‚‹
 	if(!delayed)
 	{
 		tTJSCriticalSectionHolder holder(CS);
-		LastVBlankTick = timeGetTime(); // ‚±‚ê‚ªŸ‚É–°‚éŠÔ‚Ì‹NZ“_‚É‚È‚é
+		LastVBlankTick = timeGetTime(); // ã“ã‚ŒãŒæ¬¡ã«çœ ã‚‹æ™‚é–“ã®èµ·ç®—ç‚¹ã«ãªã‚‹
 	}
 	else
 	{
 		tTJSCriticalSectionHolder holder(CS);
-		LastVBlankTick += VSyncInterval; // ‚±‚ê‚ªŸ‚É–°‚éŠÔ‚Ì‹NZ“_‚É‚È‚é(‚¨‚¨‚´‚Á‚Ï)
+		LastVBlankTick += VSyncInterval; // ã“ã‚ŒãŒæ¬¡ã«çœ ã‚‹æ™‚é–“ã®èµ·ç®—ç‚¹ã«ãªã‚‹(ãŠãŠã–ã£ã±)
 		if((long) (timeGetTime() - (LastVBlankTick + SleepTime)) <= 0)
 		{
-			// –°‚Á‚½ŒãAŸ‚É‹N‚«‚æ‚¤‚Æ‚·‚éŠÔ‚ª‚·‚Å‚É‰ß‹‚È‚Ì‚Å–°‚ê‚Ü‚¹‚ñ
-			LastVBlankTick = timeGetTime(); // ‹­§“I‚É¡‚Ì‚É‚µ‚Ü‚·
+			// çœ ã£ãŸå¾Œã€æ¬¡ã«èµ·ãã‚ˆã†ã¨ã™ã‚‹æ™‚é–“ãŒã™ã§ã«éå»ãªã®ã§çœ ã‚Œã¾ã›ã‚“
+			LastVBlankTick = timeGetTime(); // å¼·åˆ¶çš„ã«ä»Šã®æ™‚åˆ»ã«ã—ã¾ã™
 		}
 	}
 
-	// ‰æ–Ê‚ÌXV‚ğs‚¤ (DrawDevice‚ÌShowƒƒ\ƒbƒh‚ğŒÄ‚Ô)
+	// ç”»é¢ã®æ›´æ–°ã‚’è¡Œã† (DrawDeviceã®Showãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã¶)
 	if(!drawn) TVPDeliverDrawDeviceShow();
 
-	// ‚à‚µ vsync ‘Ò‚¿‚ğs‚¤’¼‘OA‚·‚Å‚É vblank ‚É“ü‚Á‚Ä‚¢‚½ê‡‚ÍA
-	// ‘Ò‚ÂŠÔ‚ª’·‚·‚¬‚½‚ÆŒ¾‚¤‚±‚Æ‚Å‚ ‚é
+	// ã‚‚ã— vsync å¾…ã¡ã‚’è¡Œã†ç›´å‰ã€ã™ã§ã« vblank ã«å…¥ã£ã¦ã„ãŸå ´åˆã¯ã€
+	// å¾…ã¤æ™‚é–“ãŒé•·ã™ããŸã¨è¨€ã†ã“ã¨ã§ã‚ã‚‹
 	if(in_vblank)
 	{
-		// ‚»‚Ìê‡‚Í SleepTime ‚ğŒ¸‚ç‚·
+		// ãã®å ´åˆã¯ SleepTime ã‚’æ¸›ã‚‰ã™
 		tTJSCriticalSectionHolder holder(CS);
 		if(SleepTime > 8) SleepTime --;
 	}
 	else
 	{
-		// vblank ‚Å–³‚©‚Á‚½ê‡‚Í“ñ‚Â‚Ìê‡‚ªl‚¦‚ç‚ê‚é
-		// 1. vblank ‘O‚¾‚Á‚½
-		// 2. vblank Œã‚¾‚Á‚½
-		// ‚Ç‚Á‚¿‚©‚Í•ª‚©‚ç‚È‚¢‚ª
-		// SleepTime ‚ğ‘‚â‚·B‚½‚¾‚µ‚±‚ê‚ª VSyncInterval ‚ğ’´‚¦‚é‚Í‚¸‚Í‚È‚¢B
+		// vblank ã§ç„¡ã‹ã£ãŸå ´åˆã¯äºŒã¤ã®å ´åˆãŒè€ƒãˆã‚‰ã‚Œã‚‹
+		// 1. vblank å‰ã ã£ãŸ
+		// 2. vblank å¾Œã ã£ãŸ
+		// ã©ã£ã¡ã‹ã¯åˆ†ã‹ã‚‰ãªã„ãŒ
+		// SleepTime ã‚’å¢—ã‚„ã™ã€‚ãŸã ã—ã“ã‚ŒãŒ VSyncInterval ã‚’è¶…ãˆã‚‹ã¯ãšã¯ãªã„ã€‚
 		tTJSCriticalSectionHolder holder(CS);
 		SleepTime ++;
 		if(SleepTime > VSyncInterval) SleepTime = VSyncInterval;
 	}
 
-	// ƒ^ƒCƒ}‚ğ‹N“®‚·‚é
+	// ã‚¿ã‚¤ãƒã‚’èµ·å‹•ã™ã‚‹
 	Event.Set();
 
-	// ContinuousHandler ‚ğŒÄ‚Ô
-	// ‚±‚ê‚Í\•ª‚ÈŠÔ‚ğ‚Æ‚ê‚é‚æ‚¤Avsync ‘Ò‚¿‚Ì’¼Œã‚ÉŒÄ‚Î‚ê‚é
+	// ContinuousHandler ã‚’å‘¼ã¶
+	// ã“ã‚Œã¯ååˆ†ãªæ™‚é–“ã‚’ã¨ã‚Œã‚‹ã‚ˆã†ã€vsync å¾…ã¡ã®ç›´å¾Œã«å‘¼ã°ã‚Œã‚‹
 	TVPProcessContinuousHandlerEventFlag = true; // set flag to invoke continuous handler on next idle
 
 /*
@@ -571,29 +571,29 @@ void tTVPVSyncTimingThread::MeasureVSyncInterval()
 
 	DWORD vsync_interval = 10000;
 
-	// vsync üŠú‚ğ ms ‚Å“¾‚éB
-	// ms ’PˆÊ‚È‚Ì‚Å‚ ‚Ü‚è³Šm‚È’l‚Í“¾‚ç‚ê‚È‚¢‚ªA‚Ü‚Ÿ“Á‚É–â‘è‚È‚¢‚±‚Æ‚Æ‚·‚éB
+	// vsync å‘¨æœŸã‚’ ms ã§å¾—ã‚‹ã€‚
+	// ms å˜ä½ãªã®ã§ã‚ã¾ã‚Šæ­£ç¢ºãªå€¤ã¯å¾—ã‚‰ã‚Œãªã„ãŒã€ã¾ãç‰¹ã«å•é¡Œãªã„ã“ã¨ã¨ã™ã‚‹ã€‚
 
-	// ‚Ü‚¸ADirectDraw ‚ªg—p‰Â”\‚Èê‡A WaitForVerticalBlank ‚ ‚é‚¢‚Í
-	// GetScanLine ‚ğ busy loop ‚ÅŠÄ‹‚µ‚ÄüŠú‚ğ“¾‚é‚±‚Æ‚ğ‚·B
+	// ã¾ãšã€DirectDraw ãŒä½¿ç”¨å¯èƒ½ãªå ´åˆã€ WaitForVerticalBlank ã‚ã‚‹ã„ã¯
+	// GetScanLine ã‚’ busy loop ã§ç›£è¦–ã—ã¦å‘¨æœŸã‚’å¾—ã‚‹ã“ã¨ã‚’è©¦ã™ã€‚
 	IDirectDraw2 * dd2 = TVPGetDirectDrawObjectNoAddRef();
 	if(dd2)
 	{
-		// Ql: http://hpcgi1.nifty.com/MADIA/Vcbbs/wwwlng.cgi?print+200605/06050028.txt
+		// å‚è€ƒ: http://hpcgi1.nifty.com/MADIA/Vcbbs/wwwlng.cgi?print+200605/06050028.txt
 
-		// ‚»‚ê‚É‚µ‚Ä‚à GetScanLine ‚ÍM—p‚È‚ç‚È‚¢
-		// ‚±‚ê‚Å³í‚ÉüŠú‚ğ“¾‚ç‚ê‚È‚¢ŠÂ‹«‚ª‘½‚·‚¬‚Ä’f”O
+		// ãã‚Œã«ã—ã¦ã‚‚ GetScanLine ã¯ä¿¡ç”¨ãªã‚‰ãªã„
+		// ã“ã‚Œã§æ­£å¸¸ã«å‘¨æœŸã‚’å¾—ã‚‰ã‚Œãªã„ç’°å¢ƒãŒå¤šã™ãã¦æ–­å¿µ
 		DWORD start_tick;
 		DWORD timeout;
 
 		DWORD last_sync_tick;
 		int repeat_count;
 /*
-		// ‚Ü‚¸AGetScanLine ‚É‚æ‚éüŠú‚Ìæ“¾‚ğ‚İ‚é
+		// ã¾ãšã€GetScanLine ã«ã‚ˆã‚‹å‘¨æœŸã®å–å¾—ã‚’è©¦ã¿ã‚‹
 		DWORD last_scanline = 65536;
 
-		// ‘–¸ü‚ªŒ³‚É–ß‚é‚Ü‚Å‹óƒ‹[ƒv
-		// ‚±‚±‚©‚ç‚ª–{—ˆ‚ÌŒv‘ªB
+		// èµ°æŸ»ç·šãŒå…ƒã«æˆ»ã‚‹ã¾ã§ç©ºãƒ«ãƒ¼ãƒ—
+		// ã“ã“ã‹ã‚‰ãŒæœ¬æ¥ã®è¨ˆæ¸¬ã€‚
 		last_sync_tick = timeGetTime();
 		timeout = 250;
 		start_tick = timeGetTime();
@@ -604,19 +604,19 @@ void tTVPVSyncTimingThread::MeasureVSyncInterval()
 			if(FAILED(dd2->GetScanLine(&scanline))) scanline = 65536;
 			if(scanline < last_scanline && last_scanline - scanline > 100)
 			{
-				// ‘–¸ü‚ªŒ³‚É–ß‚Á‚½
-				// ‘O‰ñƒ`ƒFƒbƒN‚µ‚½ˆÊ’u‚æ‚è‚à‘O‚É’l‚ª–ß‚Á‚½ê‡‚Í
-				// •œ‹A‚µ‚½‚Æ‚İ‚È‚·
-				// ‘O‰ñ‚Æ”ä‚×‚Ä100ƒ‰ƒCƒ“ˆÈã–ß‚Á‚Ä‚é‚±‚Æ‚ğŠm”F‚·‚éB
-				// ‚±‚ê‚Í W.Dee ‚ÌŠÂ‹« (GeForce 7600 GT) ‚ÅA‚È‚º‚©
-				// ‚Ü‚ê‚ÉƒXƒLƒƒƒ“ƒ‰ƒCƒ“‚ª1‚¾‚¯–ß‚é‚±‚Æ‚ª‚ ‚é‚Æ‚¢‚¤Œ»Û‚ª
-				// ‚ ‚Á‚½‚½‚ßB
-				// ‚µ‚©‚µ‚±‚Ì‘Îô‚ğ‚Æ‚Á‚Ä‚à‚Ü‚Æ‚à‚ÉüŠú‚ğæ“¾‚Å‚«‚È‚¢ŠÂ‹«‚ª‚ ‚écc
+				// èµ°æŸ»ç·šãŒå…ƒã«æˆ»ã£ãŸ
+				// å‰å›ãƒã‚§ãƒƒã‚¯ã—ãŸä½ç½®ã‚ˆã‚Šã‚‚å‰ã«å€¤ãŒæˆ»ã£ãŸå ´åˆã¯
+				// å¾©å¸°ã—ãŸã¨ã¿ãªã™
+				// å‰å›ã¨æ¯”ã¹ã¦100ãƒ©ã‚¤ãƒ³ä»¥ä¸Šæˆ»ã£ã¦ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+				// ã“ã‚Œã¯ W.Dee ã®ç’°å¢ƒ (GeForce 7600 GT) ã§ã€ãªãœã‹
+				// ã¾ã‚Œã«ã‚¹ã‚­ãƒ£ãƒ³ãƒ©ã‚¤ãƒ³ãŒ1ã ã‘æˆ»ã‚‹ã“ã¨ãŒã‚ã‚‹ã¨ã„ã†ç¾è±¡ãŒ
+				// ã‚ã£ãŸãŸã‚ã€‚
+				// ã—ã‹ã—ã“ã®å¯¾ç­–ã‚’ã¨ã£ã¦ã‚‚ã¾ã¨ã‚‚ã«å‘¨æœŸã‚’å–å¾—ã§ããªã„ç’°å¢ƒãŒã‚ã‚‹â€¦â€¦
 				DWORD tick = timeGetTime();
 				if(repeat_count > 2)
 				{
-					// Å‰‚Ì”‰ñ‚ÌŒ‹‰Ê‚ÍÌ‚Ä‚é
-					// Å¬‚ÌŠÔŠu‚ğ‹L˜^‚·‚é
+					// æœ€åˆã®æ•°å›ã®çµæœã¯æ¨ã¦ã‚‹
+					// æœ€å°ã®é–“éš”ã‚’è¨˜éŒ²ã™ã‚‹
 					if(tick - last_sync_tick < vsync_interval)
 						vsync_interval = tick - last_sync_tick;
 				}
@@ -628,24 +628,24 @@ void tTVPVSyncTimingThread::MeasureVSyncInterval()
 
 		TVPAddLog(TJS_W("Rough VSync interval measured by GetScanLine() : " + ttstr((int)vsync_interval)));
 
-		// vsync üŠú‚Í“KØ‚Á‚Û‚¢H
+		// vsync å‘¨æœŸã¯é©åˆ‡ã£ã½ã„ï¼Ÿ
 		if(vsync_interval < 6 || vsync_interval > 66)
 		{
 			TVPAddLog(TJS_W("VSync interval by GetScanLine() seems to be strange, trying WaitForVerticalBlank() ..."));
 */
-			// ‚Ç‚¤‚à•Ï
+			// ã©ã†ã‚‚å¤‰
 			vsync_interval = 10000;
-			// WaitForVerticalBlank ‚É‚æ‚é‘ª’è‚ğ‚İ‚é
-			// Å‰‚Ìvblank‚ğ‘Ò‚Â
+			// WaitForVerticalBlank ã«ã‚ˆã‚‹æ¸¬å®šã‚’è©¦ã¿ã‚‹
+			// æœ€åˆã®vblankã‚’å¾…ã¤
 			dd2->WaitForVerticalBlank(DDWAITVB_BLOCKBEGIN, NULL);
-			// ‰½‰ñ‚©ƒ‹[ƒv‚ğ‰ñ‚µ‚ÄŠÔŠu‚ğ‘ª’è‚·‚é
+			// ä½•å›ã‹ãƒ«ãƒ¼ãƒ—ã‚’å›ã—ã¦é–“éš”ã‚’æ¸¬å®šã™ã‚‹
 			timeout = 250;
 			last_sync_tick = timeGetTime();
 			start_tick = timeGetTime();
 			repeat_count = 0;
 			while(timeGetTime() - start_tick < timeout)
 			{
-				// vblank ‚©‚ç”²‚¯‚é‚Ü‚Å‘Ò‚Â
+				// vblank ã‹ã‚‰æŠœã‘ã‚‹ã¾ã§å¾…ã¤
 				BOOL in_vblank = false;
 				do
 				{
@@ -654,13 +654,13 @@ void tTVPVSyncTimingThread::MeasureVSyncInterval()
 
 				DWORD aux_wait = timeGetTime();
 				while(timeGetTime() - aux_wait < 2) ;
-					// 1ms`2ms‚Ù‚Ç‚Ü‚Â
-					// ‚Ç‚¤‚àA’ZŠúŠÔ‚É vblank ‚É“ü‚Á‚½‚è vblank ‚©‚ç”²‚¯‚½‚è‚·‚é‚æ‚¤‚È
-					// Œ‹‰Ê‚ª“¾‚ç‚ê‚é‚±‚Æ‚ª‚ ‚éB
-					// Ú‚µ‚¢Œ´ˆö‚Í•ª‚©‚ç‚È‚¢‚ªA‚±‚±‚É“K“–‚ÈƒEƒFƒCƒg‚ğ“ü‚ê‚é‚±‚Æ‚Å
-					// ‚È‚ñ‚Æ‚©‘Îˆ‚ğ‚İ‚éB
+					// 1msã€œ2msã»ã©ã¾ã¤
+					// ã©ã†ã‚‚ã€çŸ­æœŸé–“ã« vblank ã«å…¥ã£ãŸã‚Š vblank ã‹ã‚‰æŠœã‘ãŸã‚Šã™ã‚‹ã‚ˆã†ãª
+					// çµæœãŒå¾—ã‚‰ã‚Œã‚‹ã“ã¨ãŒã‚ã‚‹ã€‚
+					// è©³ã—ã„åŸå› ã¯åˆ†ã‹ã‚‰ãªã„ãŒã€ã“ã“ã«é©å½“ãªã‚¦ã‚§ã‚¤ãƒˆã‚’å…¥ã‚Œã‚‹ã“ã¨ã§
+					// ãªã‚“ã¨ã‹å¯¾å‡¦ã‚’è©¦ã¿ã‚‹ã€‚
 
-				// vblank ‚É“ü‚é‚Ü‚Å‘Ò‚Â
+				// vblank ã«å…¥ã‚‹ã¾ã§å¾…ã¤
 				in_vblank = true;
 				do
 				{
@@ -670,9 +670,9 @@ void tTVPVSyncTimingThread::MeasureVSyncInterval()
 				DWORD tick = timeGetTime();
 				if(repeat_count > 2)
 				{
-					// Å‰‚Ì”‰ñ‚ÌŒ‹‰Ê‚ÍÌ‚Ä‚é
-					// Å¬‚ÌŠÔŠu‚ğ‹L˜^‚·‚é
-					// Å¬‚ÌŠÔŠu‚ğ‹L˜^‚·‚é
+					// æœ€åˆã®æ•°å›ã®çµæœã¯æ¨ã¦ã‚‹
+					// æœ€å°ã®é–“éš”ã‚’è¨˜éŒ²ã™ã‚‹
+					// æœ€å°ã®é–“éš”ã‚’è¨˜éŒ²ã™ã‚‹
 					if(tick - last_sync_tick < vsync_interval)
 						vsync_interval = tick - last_sync_tick;
 				}
@@ -687,12 +687,12 @@ void tTVPVSyncTimingThread::MeasureVSyncInterval()
 	}
 
 
-	// vsync üŠú‚Í“KØ‚Á‚Û‚¢H
+	// vsync å‘¨æœŸã¯é©åˆ‡ã£ã½ã„ï¼Ÿ
 	if(!dd2 || vsync_interval < 6 || vsync_interval > 66)
 	{
-		// ‚Ç‚¤‚à‚±‚ê‚Å‚à vsync üŠú‚ğ‚¤‚Ü‚­‚Æ‚ê‚Ä‚¢‚È‚¢‚Á‚Û‚¢
-		// ‚»‚¤‚È‚é‚ÆAŸ‚Í API ‚É‚æ‚éæ“¾B
-		// Ql: http://www.interq.or.jp/moonstone/person/del/zenact01.htm
+		// ã©ã†ã‚‚ã“ã‚Œã§ã‚‚ vsync å‘¨æœŸã‚’ã†ã¾ãã¨ã‚Œã¦ã„ãªã„ã£ã½ã„
+		// ãã†ãªã‚‹ã¨ã€æ¬¡ã¯ API ã«ã‚ˆã‚‹å–å¾—ã€‚
+		// å‚è€ƒ: http://www.interq.or.jp/moonstone/person/del/zenact01.htm
 		DWORD vsync_rate = 0;
 
 		OSVERSIONINFO osvi;
@@ -724,7 +724,7 @@ void tTVPVSyncTimingThread::MeasureVSyncInterval()
 		TVPAddLog(TJS_W("Rough VSync interval read from API : " + ttstr((int)vsync_interval)));
 	}
 
-	// vsync üŠú‚Í“KØ‚Á‚Û‚¢H
+	// vsync å‘¨æœŸã¯é©åˆ‡ã£ã½ã„ï¼Ÿ
 	if(vsync_interval < 6 || vsync_interval > 66)
 	{
 		TVPAddLog(TJS_W("Rough VSync interval still seems wrong, assuming default value (16)"));
@@ -739,7 +739,7 @@ void tTVPVSyncTimingThread::MeasureVSyncInterval()
 //---------------------------------------------------------------------------
 void TVPEnsureVSyncTimingThread()
 {
-	// (‚à‚µ•K—v‚È‚ç‚Î) VSyncTimingThread ‚ğì¬‚·‚é
+	// (ã‚‚ã—å¿…è¦ãªã‚‰ã°) VSyncTimingThread ã‚’ä½œæˆã™ã‚‹
 	if(TVPGetWaitVSync())
 	{
 		if(!TVPVSyncTimingThread)

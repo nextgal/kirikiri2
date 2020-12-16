@@ -38,17 +38,17 @@ template< BOOST_MPL_AUX_NTTP_DECL(long, N) > struct typeof_answer { typedef char
 template< BOOST_MPL_AUX_NTTP_DECL(long, S) > struct typeof_c;
 }
 
-#define BOOST_MPL_AUX_REGISTER_TYPE(index, T) \
-namespace boost { namespace mpl { namespace aux { \
-template<> struct typeof_c<index> { typedef T type; }; \
-typeof_answer<index>::type& type_index(T const&); \
-}}} \
+#define BOOST_MPL_AUX_REGISTER_TYPE(index, T) ¥
+namespace boost { namespace mpl { namespace aux { ¥
+template<> struct typeof_c<index> { typedef T type; }; ¥
+typeof_answer<index>::type& type_index(T const&); ¥
+}}} ¥
 /**/
 
-#define BOOST_MPL_AUX_TYPEOF(T,x) \
-typename boost::mpl::aux::typeof_c< \
-    sizeof(::boost::mpl::aux::type_index(x)) \
-    >::type \
+#define BOOST_MPL_AUX_TYPEOF(T,x) ¥
+typename boost::mpl::aux::typeof_c< ¥
+    sizeof(::boost::mpl::aux::type_index(x)) ¥
+    >::type ¥
 /**/
 
 } // namespace mpl

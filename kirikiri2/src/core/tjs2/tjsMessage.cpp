@@ -26,7 +26,7 @@ class tTJSMessageMapper
 
 public:
 	tTJSMessageMapper() {;}
-	~tTJSMessageMapper() {;}
+	‾tTJSMessageMapper() {;}
 
 	void Register(const tjs_char *name, tTJSMessageHolder *holder)
 	{
@@ -73,14 +73,14 @@ ttstr tTJSMessageMapper::CreateMessageMapString()
 	{
 		ttstr name = i.GetKey();
 		tTJSMessageHolder *holder = i.GetValue();
-		script += TJS_W("\tr(\"");
+		script += TJS_W("¥tr(¥"");
 		script += name.EscapeC();
-		script += TJS_W("\", \"");
+		script += TJS_W("¥", ¥"");
 		script += ttstr((const tjs_char *)(*holder)).EscapeC();
 #ifdef TJS_TEXT_OUT_CRLF
-		script += TJS_W("\");\r\n");
+		script += TJS_W("¥");¥r¥n");
 #else
-		script += TJS_W("\");\n");
+		script += TJS_W("¥");¥n");
 #endif
 	}
 	return script;

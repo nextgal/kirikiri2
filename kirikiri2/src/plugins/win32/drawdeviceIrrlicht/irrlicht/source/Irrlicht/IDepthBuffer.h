@@ -18,7 +18,7 @@ namespace video
 	public:
 
 		//! destructor
-		virtual ~IDepthBuffer() {};
+		virtual ‾IDepthBuffer() {};
 
 		//! clears the zbuffer
 		virtual void clear() = 0;

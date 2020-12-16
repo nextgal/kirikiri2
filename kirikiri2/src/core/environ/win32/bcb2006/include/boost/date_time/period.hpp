@@ -5,7 +5,7 @@
  * Author: Jeff Garland 
  */
 
-/*! \file period.hpp
+/*! ¥file period.hpp
   This file contain the implementation of the period abstraction. This is
   basically the same idea as a range.  Although this class is intended for
   use in the time library, it is pretty close to general enough for other

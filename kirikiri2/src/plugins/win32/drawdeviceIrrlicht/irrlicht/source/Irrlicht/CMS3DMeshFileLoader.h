@@ -27,7 +27,7 @@ public:
 	virtual bool isALoadableFileExtension(const c8* fileName) const;
 
 	//! creates/loads an animated mesh from the file.
-	//! \return Pointer to the created mesh. Returns 0 if loading failed.
+	//! ¥return Pointer to the created mesh. Returns 0 if loading failed.
 	//! If you no longer need the mesh, you should call IAnimatedMesh::drop().
 	//! See IReferenceCounted::drop() for more information.
 	virtual IAnimatedMesh* createMesh(io::IReadFile* file);

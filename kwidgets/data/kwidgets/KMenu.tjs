@@ -4,43 +4,43 @@
 
 
 /**----------------------------------------------------------------------
- * ƒƒjƒ…[ƒAƒCƒeƒ€
+ * ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ 
  ----------------------------------------------------------------------*/
 class KMenuItem extends MenuItem
 {
-  // –¼‘O
+  // åå‰
   var name;
-  // «‘“o˜^‚ğ”ğ‚¯‚é‚©‚Ç‚¤‚©
+  // è¾æ›¸ç™»éŒ²ã‚’é¿ã‘ã‚‹ã‹ã©ã†ã‹
   var _isAvoidDictionaryRegistration;
-  // ƒEƒBƒWƒFƒbƒg
+  // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
   var _nameCache = %[];
-  // ƒAƒCƒRƒ“ƒŒƒCƒ„
+  // ã‚¢ã‚¤ã‚³ãƒ³ãƒ¬ã‚¤ãƒ¤
   var iconCheckedLayer = void, iconUncheckedLayer = void;
-  // ƒAƒCƒeƒ€‚Ì’l
+  // ã‚¢ã‚¤ãƒ†ãƒ ã®å€¤
   var value = void;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @window ƒEƒBƒ“ƒhƒE
-   * @caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @name –¼‘O
+   * @window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @name åå‰
    ------------------------------*/
   function KMenuItem(window, caption, name) {
     super.MenuItem(window, caption);
     this.name = name;
     _isAvoidDictionaryRegistration = false;
-    // missing ‚ğ—LŒø‚É‚·‚é
+    // missing ã‚’æœ‰åŠ¹ã«ã™ã‚‹
     Scripts.setCallMissing(this);
   }
 
   /**------------------------------
-   * ƒfƒXƒgƒ‰ƒNƒ^
+   * ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    * 
-   * ©“®“I‚ÉA©•ª‚ª•Û‚µ‚Ä‚¢‚éqƒAƒCƒeƒ€‚ğ‘S‚Äinvalidate‚·‚éB
+   * è‡ªå‹•çš„ã«ã€è‡ªåˆ†ãŒä¿æŒã—ã¦ã„ã‚‹å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’å…¨ã¦invalidateã™ã‚‹ã€‚
    ------------------------------*/
   function finalize {
-    // qƒŒƒCƒ„[‚ğ‘S‚Ä”jŠü‚·‚é
+    // å­ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å…¨ã¦ç ´æ£„ã™ã‚‹
     discardArray(children);
     discard(iconCheckedLayer);
     discard(iconUncheckedLayer);
@@ -48,7 +48,7 @@ class KMenuItem extends MenuItem
   }
 
   /**------------------------------
-   * windowƒvƒƒpƒeƒB‚Íƒ‹[ƒg‚ÌˆÓ–¡‚Ì‚ ‚é’l‚ğ•Ô‚·
+   * windowãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã¯ãƒ«ãƒ¼ãƒˆã®æ„å‘³ã®ã‚ã‚‹å€¤ã‚’è¿”ã™
    */
   property window {
     getter {
@@ -57,9 +57,9 @@ class KMenuItem extends MenuItem
   }
 
   /**------------------------------
-   * eƒEƒBƒWƒFƒbƒgB
+   * è¦ªã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã€‚
    *
-   * @return ƒ‹[ƒgƒƒjƒ…[‚Ìq‚È‚çwindow‚ğA‚»‚êˆÈŠO‚ÌƒAƒCƒeƒ€‚È‚çparent‚ğ•Ô‚·
+   * @return ãƒ«ãƒ¼ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®å­ãªã‚‰windowã‚’ã€ãã‚Œä»¥å¤–ã®ã‚¢ã‚¤ãƒ†ãƒ ãªã‚‰parentã‚’è¿”ã™
    ------------------------------*/
   property parentWidget {
     getter {
@@ -71,7 +71,7 @@ class KMenuItem extends MenuItem
   }
 
   /**------------------------------
-   * q‘·ƒEƒBƒWƒFƒbƒg‚©‚ç“Á’è‚Ì–¼‘O‚ğ‚Á‚½qƒEƒBƒWƒFƒbƒg‚ğ‘{‚·
+   * å­å­«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‹ã‚‰ç‰¹å®šã®åå‰ã‚’æŒã£ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æœã™
    ------------------------------*/
   function find(name) {
     if (this.name === name)
@@ -88,7 +88,7 @@ class KMenuItem extends MenuItem
   }
 
   /**------------------------------
-   * ”CˆÓ‚ÌƒAƒCƒRƒ“‚ğİ’è‚·‚éB
+   * ä»»æ„ã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®šã™ã‚‹ã€‚
    ------------------------------*/
   property icon {
     setter(v) {
@@ -128,7 +128,7 @@ class KMenuItem extends MenuItem
   }
 
   /**------------------------------
-   * ”CˆÓ‚ÌƒAƒCƒRƒ“‚ğ•¶š‚Å
+   * ä»»æ„ã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’æ–‡å­—ã§
    ------------------------------*/
   property iconChar {
     setter(v) {
@@ -172,13 +172,13 @@ class KMenuItem extends MenuItem
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒgƒcƒŠ[‚©‚ç“Á’è‚Ì–¼‘O‚ğ‚Á‚½qƒEƒBƒWƒFƒbƒg‚ğ‘{‚µ‚Ü‚·
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ„ãƒªãƒ¼ã‹ã‚‰ç‰¹å®šã®åå‰ã‚’æŒã£ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æœã—ã¾ã™
    *
-   * findŠÖ”‚ğŒo—R‚¹‚¸‚ÉAƒIƒuƒWƒFƒNƒg‚ÌƒvƒƒpƒeƒBˆµ‚¢‚Å–¼‘O‚ğw’è‚µ‚Ä
-   * ƒEƒBƒWƒFƒbƒgƒcƒŠ[’†‚ÌƒEƒBƒWƒFƒbƒg‚ğQÆ‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B
+   * findé–¢æ•°ã‚’çµŒç”±ã›ãšã«ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£æ‰±ã„ã§åå‰ã‚’æŒ‡å®šã—ã¦
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ„ãƒªãƒ¼ä¸­ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å‚ç…§ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚
    *
-   * ƒpƒtƒH[ƒ}ƒ“ƒX‚Ì“s‡‚ÅAƒOƒ[ƒoƒ‹‚É“¯–¼‚ÌƒVƒ“ƒ{ƒ‹‚ª‘¶İ‚·‚éê‡‚Í
-   * —Dæ“I‚É‚»‚¿‚ç‚ğŒ©‚És‚­‚Æ‚¢‚¤‹““®‚ğ‚·‚é‚Ì‚Å’ˆÓB
+   * ãƒ‘ãƒ•ã‚©ãƒ¼ãƒãƒ³ã‚¹ã®éƒ½åˆã§ã€ã‚°ãƒ­ãƒ¼ãƒãƒ«ã«åŒåã®ã‚·ãƒ³ãƒœãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯
+   * å„ªå…ˆçš„ã«ãã¡ã‚‰ã‚’è¦‹ã«è¡Œãã¨ã„ã†æŒ™å‹•ã‚’ã™ã‚‹ã®ã§æ³¨æ„ã€‚
    ------------------------------*/
   function missing(get_or_set, name, value) {
     if (! get_or_set) {
@@ -205,10 +205,10 @@ class KMenuItem extends MenuItem
   }
 
   /**------------------------------
-   * ‰i‘±‰»«‘‚ÌƒoƒCƒ“ƒh‚ğ”ğ‚¯‚é‚©‚Ç‚¤‚©
+   * æ°¸ç¶šåŒ–è¾æ›¸ã®ãƒã‚¤ãƒ³ãƒ‰ã‚’é¿ã‘ã‚‹ã‹ã©ã†ã‹
    *
-   * @param v ‰i‘±‰»«‘‚ÌƒoƒCƒ“ƒh‚ğ”ğ‚¯‚é‚©‚Ç‚¤‚©
-   * @return ‰i‘±‰»«‘‚ÌƒoƒCƒ“ƒh‚ğ”ğ‚¯‚é‚©‚Ç‚¤‚©
+   * @param v æ°¸ç¶šåŒ–è¾æ›¸ã®ãƒã‚¤ãƒ³ãƒ‰ã‚’é¿ã‘ã‚‹ã‹ã©ã†ã‹
+   * @return æ°¸ç¶šåŒ–è¾æ›¸ã®ãƒã‚¤ãƒ³ãƒ‰ã‚’é¿ã‘ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   property isAvoidDictionaryRegistration {
     getter {
@@ -220,13 +220,13 @@ class KMenuItem extends MenuItem
   }
 
   /**------------------------------
-   * ‰i‘±‰»«‘‚ğƒoƒCƒ“ƒh‚·‚é
+   * æ°¸ç¶šåŒ–è¾æ›¸ã‚’ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    *
-   * ƒEƒBƒWƒFƒbƒg‚ğ KPersistentDictionary ƒNƒ‰ƒX‚ÌƒIƒuƒWƒFƒNƒg‚ÉƒoƒCƒ“ƒh‚µ‚Ü‚·B
-   * ƒfƒtƒHƒ‹ƒg‚Å‚ÍA‘S‚Ä‚ÌqƒEƒBƒWƒFƒbƒg‚ğ’Tõ‚µA‚»‚ê‚ç‚Ì
-   * ƒEƒBƒWƒFƒbƒg‚Ì bindPersistentDictionary ‚ğÄ‹A“I‚ÉŒÄ‚Ño‚·‚Æ‚¢‚¤“®ì‚ğ‚µ‚Ü‚·B
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ KPersistentDictionary ã‚¯ãƒ©ã‚¹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ãƒã‚¤ãƒ³ãƒ‰ã—ã¾ã™ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã€å…¨ã¦ã®å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æ¢ç´¢ã—ã€ãã‚Œã‚‰ã®
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã® bindPersistentDictionary ã‚’å†å¸°çš„ã«å‘¼ã³å‡ºã™ã¨ã„ã†å‹•ä½œã‚’ã—ã¾ã™ã€‚
    *
-   * @param dict ƒoƒCƒ“ƒh‚·‚é«‘
+   * @param dict ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹è¾æ›¸
    ------------------------------*/
   function bindPersistentDictionary(dict) {
     if (_isAvoidDictionaryRegistration)
@@ -240,37 +240,37 @@ class KMenuItem extends MenuItem
   }
 
   /**------------------------------
-   * u’lv‚ª•Ï‚í‚Á‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã€Œå€¤ã€ãŒå¤‰ã‚ã£ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * u’lv‚ğ‚ÂƒEƒBƒWƒFƒbƒg‚ÅA’l‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚Ü‚·B
-   * ƒfƒtƒHƒ‹ƒg‚Å‚ÍAparent ‚Ì onChildValueModified‚ğŒÄ‚Ô‚æ‚¤‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·B
+   * ã€Œå€¤ã€ã‚’æŒã¤ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã§ã€å€¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã¾ã™ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã€parent ã® onChildValueModifiedã‚’å‘¼ã¶ã‚ˆã†ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™ã€‚
    *
-   * @param newValue V‹K‚Ì’l
-   * @param oldValue •ÏX‘O‚Ì’l
+   * @param newValue æ–°è¦ã®å€¤
+   * @param oldValue å¤‰æ›´å‰ã®å€¤
    ------------------------------*/
   function onValueModified(newValue, oldValue) {
     parentWidget.onChildValueModified(this, newValue, oldValue);
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚Ìu’lv‚ª•Ï‚í‚Á‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã€Œå€¤ã€ãŒå¤‰ã‚ã£ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * qƒEƒBƒWƒFƒbƒg‚Ìu’lv’l‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚Ü‚·B
-   * ƒfƒtƒHƒ‹ƒg‚Å‚ÍA‚³‚ç‚É parent ‚Ì onChildValueModified‚ğŒÄ‚Ô‚æ‚¤‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·B
-   * ‚Ç‚±‚©‚ÌƒEƒBƒWƒFƒbƒg‚ªŠÖ”‚ğƒI[ƒo[ƒ‰ƒCƒh‚µ‚Äˆ—‚ğs‚í‚È‚¢ŒÀ‚èA
-   * ’l•ÏX‚Ì’Ê’m‚Í KWindow ‚Ü‚Å“Í‚«‚Ü‚·B
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã€Œå€¤ã€å€¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã¾ã™ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã€ã•ã‚‰ã« parent ã® onChildValueModifiedã‚’å‘¼ã¶ã‚ˆã†ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™ã€‚
+   * ã©ã“ã‹ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãŒé–¢æ•°ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¦å‡¦ç†ã‚’è¡Œã‚ãªã„é™ã‚Šã€
+   * å€¤å¤‰æ›´ã®é€šçŸ¥ã¯ KWindow ã¾ã§å±Šãã¾ã™ã€‚
    *
-   * @param newValue V‹K‚Ì’l
-   * @param oldValue •ÏX‘O‚Ì’l
+   * @param newValue æ–°è¦ã®å€¤
+   * @param oldValue å¤‰æ›´å‰ã®å€¤
    ------------------------------*/
   function onChildValueModified(child, newValue, oldValue) {
     parentWidget.onChildValueModified(...);
   }
 
   /**------------------------------
-   * ƒCƒxƒ“ƒg‚ğ”­¶‚³‚¹‹­§“I‚ÉŒ»İ‚Ì’l‚ğ’Ê’m‚·‚éB
+   * ã‚¤ãƒ™ãƒ³ãƒˆã‚’ç™ºç”Ÿã•ã›å¼·åˆ¶çš„ã«ç¾åœ¨ã®å€¤ã‚’é€šçŸ¥ã™ã‚‹ã€‚
    *
-   * KMenuItem ‚Å‚Íí‚É ’l:void ‚ÅonValueModified‚ğŒÄ‚Ñ‚Ü‚·B
+   * KMenuItem ã§ã¯å¸¸ã« å€¤:void ã§onValueModifiedã‚’å‘¼ã³ã¾ã™ã€‚
    ------------------------------*/
   function invalidateValue {
     if (enabled)
@@ -278,16 +278,16 @@ class KMenuItem extends MenuItem
   }
 
   /*------------------------------
-   * ƒƒjƒ…[ƒAƒCƒeƒ€‚ªƒNƒŠƒbƒN‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éŠÖ”
+   * ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹é–¢æ•°
    * 
-   * ƒfƒtƒHƒ‹ƒg‚Å‚Í invalidateValue‚ğŒÄ‚Ô
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ invalidateValueã‚’å‘¼ã¶
    ------------------------------*/
   function onClick {
     invalidateValue();
   }
 
   /**------------------------------
-   * ƒAƒCƒeƒ€‚ğ‘S‚ÄƒNƒŠƒA‚·‚é
+   * ã‚¢ã‚¤ãƒ†ãƒ ã‚’å…¨ã¦ã‚¯ãƒªã‚¢ã™ã‚‹
    ------------------------------*/
   function clearItems {
     while (children.count) {
@@ -298,19 +298,19 @@ class KMenuItem extends MenuItem
   }
 
   /**------------------------------
-   * ƒZƒpƒŒ[ƒ^‚ğ’Ç‰Á
+   * ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ã‚’è¿½åŠ 
    ------------------------------*/
   function addSeparator {
     return add(new global.MenuItem(window, "-"));
   }
 
   /**------------------------------
-   * ƒAƒCƒeƒ€‚ğ’Ç‰Á
+   * ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ 
    *
-   * @param caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @param name –¼‘O 
-   * @param enabled —LŒø‚©‚Ç‚¤‚©
-   * @param func onValueModified ŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒhw’è
+   * @param caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @param name åå‰ 
+   * @param enabled æœ‰åŠ¹ã‹ã©ã†ã‹
+   * @param func onValueModified é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰æŒ‡å®š
    ------------------------------*/
   function addItem(caption, name = "", enabled = true, func = void) {
     var item = new global.KMenuItem(window, caption, name);
@@ -323,13 +323,13 @@ class KMenuItem extends MenuItem
   }
 
   /**------------------------------
-   * ’l‚¿ƒAƒCƒeƒ€‚ğ’Ç‰Á
+   * å€¤æŒã¡ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ 
    *
-   * @param caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @param value ’l
-   * @param name –¼‘O 
-   * @param enabled —LŒø‚©‚Ç‚¤‚©
-   * @param func onValueModified ŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒhw’è
+   * @param caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @param value å€¤
+   * @param name åå‰ 
+   * @param enabled æœ‰åŠ¹ã‹ã©ã†ã‹
+   * @param func onValueModified é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰æŒ‡å®š
    ------------------------------*/
   function addValueItem(caption, value, name = "", enabled = true, func = void) {
     var item = new global.KValueMenuItem(window, caption, value, name);
@@ -341,13 +341,13 @@ class KMenuItem extends MenuItem
   }
 
   /**------------------------------
-   * ƒgƒOƒ‹ƒAƒCƒeƒ€‚ğ’Ç‰Á
+   * ãƒˆã‚°ãƒ«ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ 
    *
-   * @param caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @param value ƒgƒOƒ‹‚Ì‰Šú’l
-   * @param name –¼‘O 
-   * @param enabled —LŒø‚©‚Ç‚¤‚©
-   * @param func onValueModified ŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒhw’è
+   * @param caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @param value ãƒˆã‚°ãƒ«ã®åˆæœŸå€¤
+   * @param name åå‰ 
+   * @param enabled æœ‰åŠ¹ã‹ã©ã†ã‹
+   * @param func onValueModified é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰æŒ‡å®š
    ------------------------------*/
   function addToggleItem(caption, value = false, name = "", enabled = true, func = void) {
     var item = new global.KToggleMenuItem(window, caption, name);
@@ -360,13 +360,13 @@ class KMenuItem extends MenuItem
   }
 
   /**------------------------------
-   * ƒ‰ƒWƒIƒAƒCƒeƒ€‚ğ’Ç‰Á
+   * ãƒ©ã‚¸ã‚ªã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ 
    *
-   * @param caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @param value ƒAƒCƒeƒ€‚Ì’l
-   * @param name –¼‘O 
-   * @param enabled —LŒø‚©‚Ç‚¤‚©
-   * @param func onValueModified ŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒhw’è
+   * @param caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @param value ã‚¢ã‚¤ãƒ†ãƒ ã®å€¤
+   * @param name åå‰ 
+   * @param enabled æœ‰åŠ¹ã‹ã©ã†ã‹
+   * @param func onValueModified é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰æŒ‡å®š
    ------------------------------*/
   function addRadioItem(caption, value, name = "", enabled = true, func = void) {
     var item = new global.KRadioMenuItem(window, caption, value, name);
@@ -380,19 +380,19 @@ class KMenuItem extends MenuItem
 }
 
 /*----------------------------------------------------------------------
- * ’l‚¿ƒƒjƒ…[ƒAƒCƒeƒ€
+ * å€¤æŒã¡ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ 
  ----------------------------------------------------------------------*/
 class KValueMenuItem extends KMenuItem
 {
   var value;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param window ƒEƒBƒ“ƒhƒE
-   * @param caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @param value ’l
-   * @param name –¼‘O
+   * @param window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @param value å€¤
+   * @param name åå‰
    ------------------------------*/
   function KValueMenuItem(window, caption, value, name) {
     super.KMenuItem(window, caption, name);
@@ -400,7 +400,7 @@ class KValueMenuItem extends KMenuItem
   }
 
   /**------------------------------
-   * ƒCƒxƒ“ƒg‚ğ”­¶‚³‚¹‹­§“I‚ÉŒ»İ‚Ì’l‚ğ’Ê’m‚·‚éB
+   * ã‚¤ãƒ™ãƒ³ãƒˆã‚’ç™ºç”Ÿã•ã›å¼·åˆ¶çš„ã«ç¾åœ¨ã®å€¤ã‚’é€šçŸ¥ã™ã‚‹ã€‚
    ------------------------------*/
   function invalidateValue {
     if (enabled)
@@ -410,25 +410,25 @@ class KValueMenuItem extends KMenuItem
 
 
 /*----------------------------------------------------------------------
- * ƒgƒOƒ‹ƒƒjƒ…[ƒAƒCƒeƒ€
+ * ãƒˆã‚°ãƒ«ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ 
  ----------------------------------------------------------------------*/
 class KToggleMenuItem extends KMenuItem
 {
   var dict;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @window ƒEƒBƒ“ƒhƒE
-   * @caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @name –¼‘O
+   * @window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @name åå‰
    ------------------------------*/
   function KToggleMenuItem(window, caption, name) {
     super.KMenuItem(...);
   }
 
   /*------------------------------
-   * ƒtƒ@ƒCƒiƒ‰ƒCƒU
+   * ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
    ------------------------------*/
   function finalize {
     if (dict)
@@ -437,12 +437,12 @@ class KToggleMenuItem extends KMenuItem
   }
 
   /**------------------------------
-   * ’l
+   * å€¤
    *
-   * ƒgƒOƒ‹‚Ì’lBcheckbox‚Ì’l‚Æ˜A“®‚·‚éB
+   * ãƒˆã‚°ãƒ«ã®å€¤ã€‚checkboxã®å€¤ã¨é€£å‹•ã™ã‚‹ã€‚
    *
-   * @param v ’l
-   * @return ’l
+   * @param v å€¤
+   * @return å€¤
    ------------------------------*/
   property value {
     getter {
@@ -454,9 +454,9 @@ class KToggleMenuItem extends KMenuItem
   }
 
   /**------------------------------
-   * ƒCƒxƒ“ƒg‚ğ”­¶‚³‚¹‹­§“I‚ÉŒ»İ‚Ì’l‚ğ’Ê’m‚·‚éB
+   * ã‚¤ãƒ™ãƒ³ãƒˆã‚’ç™ºç”Ÿã•ã›å¼·åˆ¶çš„ã«ç¾åœ¨ã®å€¤ã‚’é€šçŸ¥ã™ã‚‹ã€‚
    *
-   * Œ»İ‚Ì’l‚Å onValueModified‚ğŒÄ‚Ñ‚Ü‚·B
+   * ç¾åœ¨ã®å€¤ã§ onValueModifiedã‚’å‘¼ã³ã¾ã™ã€‚
    ------------------------------*/
   function invalidateValue {
     if (enabled)
@@ -464,9 +464,9 @@ class KToggleMenuItem extends KMenuItem
   }
 
   /*------------------------------
-   * ƒƒjƒ…[ƒAƒCƒeƒ€‚ªƒNƒŠƒbƒN‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éŠÖ”
+   * ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹é–¢æ•°
    * 
-   * value‚ğ”½“]‚µAinvalidateValue‚ğŒÄ‚Ô
+   * valueã‚’åè»¢ã—ã€invalidateValueã‚’å‘¼ã¶
    ------------------------------*/
   function onClick {
     var oldValue = checked;
@@ -475,7 +475,7 @@ class KToggleMenuItem extends KMenuItem
   }
 
   /*------------------------------
-   * ‰i‘±‰»«‘‚ğ’l‚ÉƒoƒCƒ“ƒh‚·‚é
+   * æ°¸ç¶šåŒ–è¾æ›¸ã‚’å€¤ã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    ------------------------------*/
   function bindPersistentDictionary(dict) {
     if (isAvoidDictionaryRegistration)
@@ -489,7 +489,7 @@ class KToggleMenuItem extends KMenuItem
 }
 
 /*----------------------------------------------------------------------
- * ƒ‰ƒWƒIƒƒjƒ…[ƒAƒCƒeƒ€
+ * ãƒ©ã‚¸ã‚ªãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ 
  ----------------------------------------------------------------------*/
 class KRadioMenuItem extends KMenuItem
 {
@@ -497,12 +497,12 @@ class KRadioMenuItem extends KMenuItem
   var _value;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param window ƒEƒBƒ“ƒhƒE
-   * @param caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @param value ’l
-   * @param name –¼‘O
+   * @param window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @param value å€¤
+   * @param name åå‰
    ------------------------------*/
   function KRadioMenuItem(window, caption, value, name) {
     super.KMenuItem(window, caption, name);
@@ -510,7 +510,7 @@ class KRadioMenuItem extends KMenuItem
   }
 
   /*------------------------------
-   * ƒtƒ@ƒCƒiƒ‰ƒCƒU
+   * ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
    ------------------------------*/
   function finalize {
     if (dict && checked)
@@ -519,7 +519,7 @@ class KRadioMenuItem extends KMenuItem
   }
 
   /*------------------------------
-   * ‰i‘±‰»«‘‚ğ’l‚ÉƒoƒCƒ“ƒh‚·‚é
+   * æ°¸ç¶šåŒ–è¾æ›¸ã‚’å€¤ã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    ------------------------------*/
   function bindPersistentDictionary(dict) {
     super.bindPersistentDictionary(dict);
@@ -533,7 +533,7 @@ class KRadioMenuItem extends KMenuItem
   }
 
   /*------------------------------
-   * e‚Éadd‚³‚ê‚½‚ç
+   * è¦ªã«addã•ã‚ŒãŸã‚‰
    ------------------------------*/
   function onAddToParent(parent) {
     var newGroup = 1;
@@ -581,7 +581,7 @@ class KRadioMenuItem extends KMenuItem
   }
 
   /**------------------------------
-   * ƒCƒxƒ“ƒg‚ğ”­¶‚³‚¹‹­§“I‚ÉŒ»İ‚Ì’l‚ğ’Ê’m‚·‚éB
+   * ã‚¤ãƒ™ãƒ³ãƒˆã‚’ç™ºç”Ÿã•ã›å¼·åˆ¶çš„ã«ç¾åœ¨ã®å€¤ã‚’é€šçŸ¥ã™ã‚‹ã€‚
    ------------------------------*/
   function invalidateValue {
     if (enabled)
@@ -589,9 +589,9 @@ class KRadioMenuItem extends KMenuItem
   }
   
   /*------------------------------
-   * ƒƒjƒ…[ƒAƒCƒeƒ€‚ªƒNƒŠƒbƒN‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éŠÖ”
+   * ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹é–¢æ•°
    * 
-   * value‚ğ”½“]‚µAinvalidateValue‚ğŒÄ‚Ô
+   * valueã‚’åè»¢ã—ã€invalidateValueã‚’å‘¼ã¶
    ------------------------------*/
   function onClick {
     var oldValue = value;

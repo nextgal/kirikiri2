@@ -7,14 +7,14 @@ object RelFolderSelectorForm: TRelFolderSelectorForm
   HorzScrollBar.Visible = False
   VertScrollBar.Tracking = True
   VertScrollBar.Visible = False
-  Caption = '‹g—¢‹g—¢ Releaser - ƒtƒHƒ‹ƒ_‘I‘ğ'
+  Caption = 'å‰é‡Œå‰é‡Œ Releaser - ãƒ•ã‚©ãƒ«ãƒ€é¸æŠ'
   Color = clBtnFace
   Constraints.MinHeight = 209
   Constraints.MinWidth = 307
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   Icon.Data = {
     0000010004002020100000000000E80200004600000010101000000000002801
@@ -175,7 +175,7 @@ object RelFolderSelectorForm: TRelFolderSelectorForm
     Top = 8
     Width = 279
     Height = 12
-    Caption = 'ƒA[ƒJƒCƒu‰»‚·‚éƒvƒƒWƒFƒNƒgƒtƒHƒ‹ƒ_‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢ :'
+    Caption = 'ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–åŒ–ã™ã‚‹ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆãƒ•ã‚©ãƒ«ãƒ€ã‚’é¸ã‚“ã§ãã ã•ã„ :'
   end
   object ShellTreeView: TShellTreeView
     Left = 8
@@ -209,7 +209,7 @@ object RelFolderSelectorForm: TRelFolderSelectorForm
     Height = 25
     Anchors = [akRight, akBottom]
     Cancel = True
-    Caption = 'ƒLƒƒƒ“ƒZƒ‹'
+    Caption = 'ã‚­ãƒ£ãƒ³ã‚»ãƒ«'
     ModalResult = 2
     TabOrder = 4
   end
@@ -241,7 +241,7 @@ object RelFolderSelectorForm: TRelFolderSelectorForm
     Left = 192
     Top = 96
     object SelectMenuItem: TMenuItem
-      Caption = '‘I‘ğ'
+      Caption = 'é¸æŠ'
       Default = True
       OnClick = SelectMenuItemClick
     end

@@ -50,15 +50,15 @@ struct end_traits
 
 // specialize 'begin_trait/end_trait' for two pre-defined tags
 
-#   define AUX_AGLORITM_TRAIT_SPEC(name, tag, result) \
-template<> \
-struct name##_traits<tag> \
-{ \
-    template< typename Sequence > struct algorithm  \
-    { \
-        typedef result type; \
-    }; \
-}; \
+#   define AUX_AGLORITM_TRAIT_SPEC(name, tag, result) ¥
+template<> ¥
+struct name##_traits<tag> ¥
+{ ¥
+    template< typename Sequence > struct algorithm  ¥
+    { ¥
+        typedef result type; ¥
+    }; ¥
+}; ¥
 /**/
 
 // a sequence with nested 'begin/end' typedefs; just query them

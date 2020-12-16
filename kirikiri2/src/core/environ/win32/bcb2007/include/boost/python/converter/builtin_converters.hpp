@@ -46,48 +46,48 @@ namespace detail
 }
 
 // Use expr to create the PyObject corresponding to x
-# define BOOST_PYTHON_RETURN_TO_PYTHON_BY_VALUE(T, expr)        \
-    template <> struct to_python_value<T&>                      \
-        : detail::builtin_to_python                             \
-    {                                                           \
-        inline PyObject* operator()(T const& x) const           \
-        {                                                       \
-            return (expr);                                      \
-        }                                                       \
-    };                                                          \
-    template <> struct to_python_value<T const&>                \
-        : detail::builtin_to_python                             \
-    {                                                           \
-        inline PyObject* operator()(T const& x) const           \
-        {                                                       \
-            return (expr);                                      \
-        }                                                       \
+# define BOOST_PYTHON_RETURN_TO_PYTHON_BY_VALUE(T, expr)        ¥
+    template <> struct to_python_value<T&>                      ¥
+        : detail::builtin_to_python                             ¥
+    {                                                           ¥
+        inline PyObject* operator()(T const& x) const           ¥
+        {                                                       ¥
+            return (expr);                                      ¥
+        }                                                       ¥
+    };                                                          ¥
+    template <> struct to_python_value<T const&>                ¥
+        : detail::builtin_to_python                             ¥
+    {                                                           ¥
+        inline PyObject* operator()(T const& x) const           ¥
+        {                                                       ¥
+            return (expr);                                      ¥
+        }                                                       ¥
     };
 
-# define BOOST_PYTHON_ARG_TO_PYTHON_BY_VALUE(T, expr)   \
-    namespace converter                                 \
-    {                                                   \
-      template <> struct arg_to_python< T >             \
-        : handle<>                                      \
-      {                                                 \
-          arg_to_python(T const& x)                     \
-            : python::handle<>(expr) {}                 \
-      };                                                \
+# define BOOST_PYTHON_ARG_TO_PYTHON_BY_VALUE(T, expr)   ¥
+    namespace converter                                 ¥
+    {                                                   ¥
+      template <> struct arg_to_python< T >             ¥
+        : handle<>                                      ¥
+      {                                                 ¥
+          arg_to_python(T const& x)                     ¥
+            : python::handle<>(expr) {}                 ¥
+      };                                                ¥
     } 
 
 // Specialize argument and return value converters for T using expr
-# define BOOST_PYTHON_TO_PYTHON_BY_VALUE(T, expr)       \
-        BOOST_PYTHON_RETURN_TO_PYTHON_BY_VALUE(T,expr)  \
+# define BOOST_PYTHON_TO_PYTHON_BY_VALUE(T, expr)       ¥
+        BOOST_PYTHON_RETURN_TO_PYTHON_BY_VALUE(T,expr)  ¥
         BOOST_PYTHON_ARG_TO_PYTHON_BY_VALUE(T,expr)
 
 // Specialize converters for signed and unsigned T to Python Int
-# define BOOST_PYTHON_TO_INT(T)                                         \
-    BOOST_PYTHON_TO_PYTHON_BY_VALUE(signed T, PyInt_FromLong(x))        \
-    BOOST_PYTHON_TO_PYTHON_BY_VALUE(                                    \
-        unsigned T                                                      \
-        , static_cast<unsigned long>(x) > static_cast<unsigned long>(   \
-                std::numeric_limits<long>::max())                       \
-        ? PyLong_FromUnsignedLong(x)                                    \
+# define BOOST_PYTHON_TO_INT(T)                                         ¥
+    BOOST_PYTHON_TO_PYTHON_BY_VALUE(signed T, PyInt_FromLong(x))        ¥
+    BOOST_PYTHON_TO_PYTHON_BY_VALUE(                                    ¥
+        unsigned T                                                      ¥
+        , static_cast<unsigned long>(x) > static_cast<unsigned long>(   ¥
+                std::numeric_limits<long>::max())                       ¥
+        ? PyLong_FromUnsignedLong(x)                                    ¥
         : PyInt_FromLong(x))
 
 // Bool is not signed.

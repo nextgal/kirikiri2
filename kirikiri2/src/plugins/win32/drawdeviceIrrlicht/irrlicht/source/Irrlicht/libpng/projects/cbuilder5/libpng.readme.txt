@@ -5,7 +5,7 @@ In order to build and use libpng, please follow these steps:
  1). Install zlib in a directory at the same level with libpng.
 
  2). In a console window, go to the zlib directory and type:
-       make -f win32\Makefile.bor
+       make -f win32¥Makefile.bor
      After performing this step, you should have a file named
      zlib.lib in the zlib directory.
 

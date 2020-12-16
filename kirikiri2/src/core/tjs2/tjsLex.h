@@ -46,7 +46,7 @@ class tTJSLexicalAnalyzer
 public:
 	tTJSLexicalAnalyzer(tTJSScriptBlock *block, const tjs_char *script,
 		bool exprmode, bool resneeded);
-	~tTJSLexicalAnalyzer();
+	‾tTJSLexicalAnalyzer();
 
 private:
 	const tjs_char *Current;

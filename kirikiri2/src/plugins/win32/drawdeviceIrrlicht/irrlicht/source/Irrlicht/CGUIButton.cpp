@@ -39,7 +39,7 @@ CGUIButton::CGUIButton(IGUIEnvironment* environment, IGUIElement* parent,
 
 
 //! destructor
-CGUIButton::~CGUIButton()
+CGUIButton::‾CGUIButton()
 {
 	if (OverrideFont)
 		OverrideFont->drop();

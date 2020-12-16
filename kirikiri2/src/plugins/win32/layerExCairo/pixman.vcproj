@@ -18,7 +18,7 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)ﾂ･$(ProjectName)"
 			ConfigurationType="4"
 			CharacterSet="1"
 			>
@@ -81,7 +81,7 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)ﾂ･$(ProjectName)"
 			ConfigurationType="4"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
@@ -144,141 +144,141 @@
 	</References>
 	<Files>
 		<Filter
-			Name="ソース ファイル"
+			Name="繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\cairo\pixman\src\fbcompose.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･fbcompose.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\fbedge.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･fbedge.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\fbpict.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･fbpict.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\fbtrap.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･fbtrap.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\icblt.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･icblt.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\icbltone.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･icbltone.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\iccolor.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･iccolor.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\icformat.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･icformat.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\icimage.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･icimage.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\icpixels.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･icpixels.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\icrect.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･icrect.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\icstipple.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･icstipple.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\ictransform.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･ictransform.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\ictrap.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･ictrap.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\ictri.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･ictri.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\icutil.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･icutil.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\pixregion.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･pixregion.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\renderedge.c"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･renderedge.c"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="ヘッダー ファイル"
+			Name="繝倥ャ繝繝ｼ 繝輔ぃ繧､繝ｫ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\cairo\pixman\src\fbedgeimp.h"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･fbedgeimp.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\fbmmx.h"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･fbmmx.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\fbpict.h"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･fbpict.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\icimage.h"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･icimage.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\icint.h"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･icint.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\icrop.h"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･icrop.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\pixman-remap.h"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･pixman-remap.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\pixman-xserver-compat.h"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･pixman-xserver-compat.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\pixman.h"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･pixman.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\pixregionint.h"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･pixregionint.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\pixman\src\renderedge.h"
+				RelativePath=".ﾂ･cairoﾂ･pixmanﾂ･srcﾂ･renderedge.h"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="リソース ファイル"
+			Name="繝ｪ繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
 		<File
-			RelativePath=".\ReadMe.txt"
+			RelativePath=".ﾂ･ReadMe.txt"
 			>
 		</File>
 	</Files>

@@ -21,7 +21,7 @@ namespace date_time {
      partial_date pd(1, Jan);
      date d = pd.get_date(2002); //2002-Jan-01
     @endcode
-    \ingroup date_alg
+    ¥ingroup date_alg
    */
   template<class date_type>
   class partial_date {
@@ -74,7 +74,7 @@ namespace date_time {
    *  to the 'nth kday'.  There are probably more efficient 
    *  algorithms based on using a mod 7, but this one works 
    *  reasonably well for basic applications.
-   *  \ingroup date_alg
+   *  ¥ingroup date_alg
    */
   template<class date_type>
   class nth_kday_of_month {
@@ -116,7 +116,7 @@ namespace date_time {
 
   //! Useful generator functor for finding holidays and daylight savings 
   /*! Similar to nth_kday_of_month, but requires less paramters
-   *  \ingroup date_alg
+   *  ¥ingroup date_alg
    */
   template<class date_type>
   class first_kday_of_month {
@@ -156,7 +156,7 @@ namespace date_time {
    *  Get the last day of the month and then calculate the difference
    *  to the last previous day.
    *  @param date_type A date class that exports day_of_week, month_type, etc.
-   *  \ingroup date_alg
+   *  ¥ingroup date_alg
    */
   template<class date_type>
   class last_kday_of_month {
@@ -197,7 +197,7 @@ namespace date_time {
       firstkdayafter fkaf(Monday);
       fkaf.get_date(date(2002,Feb,1));
     @endcode
-   *  \ingroup date_alg
+   *  ¥ingroup date_alg
    */
   template<class date_type>
   class first_kday_after {
@@ -230,7 +230,7 @@ namespace date_time {
       firstkdaybefore fkbf(Monday);
       fkbf.get_date(date(2002,Feb,1));
     @endcode
-   *  \ingroup date_alg
+   *  ¥ingroup date_alg
    */
   template<class date_type>
   class first_kday_before {

@@ -238,12 +238,12 @@ typedef enum {
 
 /* Common fields between JPEG compression and decompression master structs. */
 
-#define jpeg_common_fields \
-  struct jpeg_error_mgr * err;	/* Error handler module */\
-  struct jpeg_memory_mgr * mem;	/* Memory manager module */\
-  struct jpeg_progress_mgr * progress; /* Progress monitor, or NULL if none */\
-  void * client_data;		/* Available for use by application */\
-  boolean is_decompressor;	/* So common code can tell which is which */\
+#define jpeg_common_fields ¥
+  struct jpeg_error_mgr * err;	/* Error handler module */¥
+  struct jpeg_memory_mgr * mem;	/* Memory manager module */¥
+  struct jpeg_progress_mgr * progress; /* Progress monitor, or NULL if none */¥
+  void * client_data;		/* Available for use by application */¥
+  boolean is_decompressor;	/* So common code can tell which is which */¥
   int global_state		/* For checking call sequence validity */
 
 /* Routines that are to be used by both halves of the library are declared
@@ -891,11 +891,11 @@ EXTERN(struct jpeg_error_mgr *) jpeg_std_error
  * passed for version mismatch checking.
  * NB: you must set up the error-manager BEFORE calling jpeg_create_xxx.
  */
-#define jpeg_create_compress(cinfo) \
-    jpeg_CreateCompress((cinfo), JPEG_LIB_VERSION, \
+#define jpeg_create_compress(cinfo) ¥
+    jpeg_CreateCompress((cinfo), JPEG_LIB_VERSION, ¥
 			(size_t) sizeof(struct jpeg_compress_struct))
-#define jpeg_create_decompress(cinfo) \
-    jpeg_CreateDecompress((cinfo), JPEG_LIB_VERSION, \
+#define jpeg_create_decompress(cinfo) ¥
+    jpeg_CreateDecompress((cinfo), JPEG_LIB_VERSION, ¥
 			  (size_t) sizeof(struct jpeg_decompress_struct))
 EXTERN(void) jpeg_CreateCompress JPP((j_compress_ptr cinfo,
 				      int version, size_t structsize));

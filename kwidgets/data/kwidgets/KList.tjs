@@ -4,7 +4,7 @@
 
 
 /*----------------------------------------------------------------------
- * ƒŠƒXƒg€–ÚƒŠƒl[ƒ€‚ÌƒeƒLƒXƒgƒGƒfƒBƒbƒg
+ * ãƒªã‚¹ãƒˆé …ç›®ãƒªãƒãƒ¼ãƒ æ™‚ã®ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ãƒƒãƒˆ
  ----------------------------------------------------------------------*/
 class KLabelEdit extends KTextInput {
   var item;
@@ -14,7 +14,7 @@ class KLabelEdit extends KTextInput {
     this.item = item;
     minLabelWidth = item.minLabelWidth;
 
-    // ƒŠƒXƒg‚Éû‚Ü‚é”ÍˆÍ‚Ì‘å‚«‚³‚ÅƒeƒLƒXƒgƒGƒfƒBƒbƒg‚ğì¬B
+    // ãƒªã‚¹ãƒˆã«åã¾ã‚‹ç¯„å›²ã®å¤§ãã•ã§ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ãƒƒãƒˆã‚’ä½œæˆã€‚
     var rootRect = item.root.viewingRect;
     var rect = item.labelRect;
     rect.left += item.left - 5;
@@ -39,13 +39,13 @@ class KLabelEdit extends KTextInput {
     super.finalize(...);
   }
 
-  // ƒtƒH[ƒJƒX‚ªŠO‚ê‚½‚çƒLƒƒƒ“ƒZƒ‹ˆµ‚¢
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒå¤–ã‚ŒãŸã‚‰ã‚­ãƒ£ãƒ³ã‚»ãƒ«æ‰±ã„
   function onChildBlur {
     super.onChildBlur(...);
     text.cancelValue();
   }
 
-  // ENTER‰Ÿ‚µ‚½‚ç“à—e‚ğ”½‰f
+  // ENTERæŠ¼ã—ãŸã‚‰å†…å®¹ã‚’åæ˜ 
   function onEnter {
     if (! item.isAcceptRename(value))
       return;
@@ -57,12 +57,12 @@ class KLabelEdit extends KTextInput {
     asyncCaller.call(parent.removeLabelEdit);
   }
 
-  // ƒLƒƒƒ“ƒZƒ‹‚µ‚½‚ç–³‚©‚Á‚½‚±‚Æ‚É
+  // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ãŸã‚‰ç„¡ã‹ã£ãŸã“ã¨ã«
   function onCancel {
     asyncCaller.call(parent.removeLabelEdit);
   }
 
-  // ƒXƒNƒ[ƒ‹‚³‚ê‚¿‚á‚Ü‚¸‚¢‚ñ‚ÅƒzƒC[ƒ‹‚ÍH‚¤B
+  // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã•ã‚Œã¡ã‚ƒã¾ãšã„ã‚“ã§ãƒ›ã‚¤ãƒ¼ãƒ«ã¯é£Ÿã†ã€‚
   function onMouseWheel {
   }
 
@@ -72,7 +72,7 @@ class KLabelEdit extends KTextInput {
 };   
 
 /**----------------------------------------------------------------------
- * ƒŠƒXƒgƒrƒ…[
+ * ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼
  ----------------------------------------------------------------------*/
 class KList extends KVirtualWidget
 {
@@ -117,20 +117,20 @@ class KList extends KVirtualWidget
   var _disabledItemCapabilityMask = LIST_ITEM_CAPABILITY_MASK_FOCUS;
 
   /*------------------------------
-   * ƒŠƒXƒgƒrƒ…[
+   * ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼
    *
-   * “ü‚êq‚ª‰Â”\‚ÈƒŠƒXƒgƒrƒ…[B
-   * ƒŠƒXƒg–{‘Ì‚Å‚ ‚é KList ‚ÆAƒŠƒXƒgƒAƒCƒeƒ€ KListItem ‚©‚ç–Â‚éB
+   * å…¥ã‚Œå­ãŒå¯èƒ½ãªãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ã€‚
+   * ãƒªã‚¹ãƒˆæœ¬ä½“ã§ã‚ã‚‹ KList ã¨ã€ãƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ  KListItem ã‹ã‚‰é³´ã‚‹ã€‚
    *
-   * KList ‚Í KWidget ‚ğŒp³‚µ‚½ƒNƒ‰ƒX‚¾‚ªAKListItem ‚Í KWidget ‚Å‚Í–³‚¢B
-   * ƒƒ‚ƒŠß–ñ‚ÌŠÏ“_‚©‚çAKListItem ‚Í‰æ–Ê‚É•\¦‚³‚ê‚é‚Ì‚İ
-   * “à•”“I‚É proxy widget ‚ğì‚éİŒv‚É‚È‚Á‚Ä‚¢‚éB
-   * ‚¾‚ªAƒ}ƒEƒXŠÖ˜A‚âƒhƒ‰ƒbƒO•ƒhƒƒbƒvŠÖ˜A‚ÌƒCƒxƒ“ƒg‚Ì‚Ù‚Æ‚ñ‚Ç‚Í
-   * proxy widget ‚©‚ç KListItem ‚É“]‘—‚³‚ê‚é‚½‚ßA KListItem ‚ğ
-   * KWidget Œp³ƒNƒ‰ƒX‚Æ‚İ‚È‚µ‚Äˆµ‚Á‚Ä‚àÀ¿“I‚É–â‘è‚Í–³‚¢B
+   * KList ã¯ KWidget ã‚’ç¶™æ‰¿ã—ãŸã‚¯ãƒ©ã‚¹ã ãŒã€KListItem ã¯ KWidget ã§ã¯ç„¡ã„ã€‚
+   * ãƒ¡ãƒ¢ãƒªç¯€ç´„ã®è¦³ç‚¹ã‹ã‚‰ã€KListItem ã¯ç”»é¢ã«è¡¨ç¤ºã•ã‚Œã‚‹æ™‚ã®ã¿
+   * å†…éƒ¨çš„ã« proxy widget ã‚’ä½œã‚‹è¨­è¨ˆã«ãªã£ã¦ã„ã‚‹ã€‚
+   * ã ãŒã€ãƒã‚¦ã‚¹é–¢é€£ã‚„ãƒ‰ãƒ©ãƒƒã‚°ï¼†ãƒ‰ãƒ­ãƒƒãƒ—é–¢é€£ã®ã‚¤ãƒ™ãƒ³ãƒˆã®ã»ã¨ã‚“ã©ã¯
+   * proxy widget ã‹ã‚‰ KListItem ã«è»¢é€ã•ã‚Œã‚‹ãŸã‚ã€ KListItem ã‚’
+   * KWidget ç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã¨ã¿ãªã—ã¦æ‰±ã£ã¦ã‚‚å®Ÿè³ªçš„ã«å•é¡Œã¯ç„¡ã„ã€‚
    *
-   * @param window ƒEƒBƒ“ƒhƒE
-   * @param name –¼‘O
+   * @param window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param name åå‰
    ------------------------------*/
   function KList(window, name = "") {
     super.KVirtualWidget(window, name);
@@ -148,7 +148,7 @@ class KList extends KVirtualWidget
   }
 
   /*------------------------------
-   * ƒtƒ@ƒCƒiƒ‰ƒCƒU
+   * ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
    ------------------------------*/
   function finalize {
     discardArray(childList);
@@ -156,7 +156,7 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * ”wŒiƒJƒ‰[
+   * èƒŒæ™¯ã‚«ãƒ©ãƒ¼
    ------------------------------*/
   property backgroundColor {
     getter {
@@ -171,14 +171,14 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * Å’áŒÀ‚ÌƒTƒCƒY‚ğİ’è‚·‚é
+   * æœ€ä½é™ã®ã‚µã‚¤ã‚ºã‚’è¨­å®šã™ã‚‹
    *
-   * ƒŠƒXƒg€–Ú‚ª­‚È‚­‚Ä‚àÅ’áŒÀL‚°‚ç‚ê‚é
-   * uÅ’áÅ‘åƒTƒCƒYv‚ğŒˆ’è‚·‚éB
-   * ƒfƒtƒHƒ‹ƒg’l‚Í1000x1000
+   * ãƒªã‚¹ãƒˆé …ç›®ãŒå°‘ãªãã¦ã‚‚æœ€ä½é™åºƒã’ã‚‰ã‚Œã‚‹
+   * ã€Œæœ€ä½æœ€å¤§ã‚µã‚¤ã‚ºã€ã‚’æ±ºå®šã™ã‚‹ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã¯1000x1000
    *
-   * @param w •
-   * @param h ‚‚³
+   * @param w å¹…
+   * @param h é«˜ã•
    ------------------------------*/
   function setMarginalSize(w, h) {
     marginalWidth = w;
@@ -187,9 +187,9 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğ’Ç‰Á‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ ã™ã‚‹
    *
-   * @param item ƒAƒCƒeƒ€
+   * @param item ã‚¢ã‚¤ãƒ†ãƒ 
    ------------------------------*/
   function add(item) {
     item.depth = -1;
@@ -200,10 +200,10 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğ‘}“ü‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒ¿å…¥ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @param item ƒAƒCƒeƒ€
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @param item ã‚¢ã‚¤ãƒ†ãƒ 
    ------------------------------*/
   function insert(index, item) {
     item.depth = -1;
@@ -214,10 +214,10 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğíœ‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’å‰Šé™¤ã™ã‚‹
    * 
-   * @param item ƒAƒCƒeƒ€
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param item ã‚¢ã‚¤ãƒ†ãƒ 
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(item, doInvalidate = true) {
     if (! (item isvalid))
@@ -247,9 +247,9 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğ‘S‚Äíœ‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’å…¨ã¦å‰Šé™¤ã™ã‚‹
    *
-   * @param doInvalidate æ‚èœ‚¢‚½qƒEƒBƒWƒFƒbƒg‚ğ–³Œø‰»‚·‚é‚©
+   * @param doInvalidate å–ã‚Šé™¤ã„ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ç„¡åŠ¹åŒ–ã™ã‚‹ã‹
    ------------------------------*/
   function removeAll(doInvalidate = true)
   {
@@ -272,9 +272,9 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğƒJƒEƒ“ƒg‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹
    * 
-   * @return qƒAƒCƒeƒ€”
+   * @return å­ã‚¢ã‚¤ãƒ†ãƒ æ•°
    ------------------------------*/
   property childCount {
     getter {
@@ -283,20 +283,20 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğQÆ‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’å‚ç…§ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @return qƒAƒCƒeƒ€
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @return å­ã‚¢ã‚¤ãƒ†ãƒ 
    ------------------------------*/
   function childAt(index) {
     return childList[index];
   }
 
   /**------------------------------
-   * q‘·ƒAƒCƒeƒ€‚©‚ç“Á’è‚Ì–¼‘O‚ğ‚Á‚½qƒAƒCƒeƒ€‚ğ‘{‚·
+   * å­å­«ã‚¢ã‚¤ãƒ†ãƒ ã‹ã‚‰ç‰¹å®šã®åå‰ã‚’æŒã£ãŸå­ã‚¢ã‚¤ãƒ†ãƒ ã‚’æœã™
    * 
-   * @param name ƒAƒCƒeƒ€‚Ì–¼‘O
-   * @return ƒAƒCƒeƒ€
+   * @param name ã‚¢ã‚¤ãƒ†ãƒ ã®åå‰
+   * @return ã‚¢ã‚¤ãƒ†ãƒ 
    ------------------------------*/
   function find(name) {
     if (this.name === name)
@@ -311,7 +311,7 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * ‰i‘±‰»«‘‚ğƒoƒCƒ“ƒh‚·‚é
+   * æ°¸ç¶šåŒ–è¾æ›¸ã‚’ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    ------------------------------*/
   function bindPersistentDictionary(dict) {
     if (_isAvoidDictionaryRegistration)
@@ -325,7 +325,7 @@ class KList extends KVirtualWidget
 
 
   /*------------------------------
-   * ”ñ‘I‘ğó‘Ô‚ÌƒAƒCƒeƒ€‚ªó‚¯“ü‚ê‚é‘€ì‚Ìƒ}ƒXƒN
+   * éé¸æŠçŠ¶æ…‹ã®ã‚¢ã‚¤ãƒ†ãƒ ãŒå—ã‘å…¥ã‚Œã‚‹æ“ä½œã®ãƒã‚¹ã‚¯
    ------------------------------*/
   property disabledItemCapabilityMask {
     getter {
@@ -337,7 +337,7 @@ class KList extends KVirtualWidget
   }
 
   /*------------------------------
-   * ƒtƒH[ƒJƒXƒAƒCƒeƒ€‚ÌƒCƒ“ƒfƒbƒNƒX
+   * ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚¢ã‚¤ãƒ†ãƒ ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   property focusedItemIndex {
     getter {
@@ -346,9 +346,9 @@ class KList extends KVirtualWidget
   }
 
   /*------------------------------
-   * ƒtƒH[ƒJƒX‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
+   * ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
    *
-   * @param focusedItem ƒZƒŒƒNƒVƒ‡ƒ“
+   * @param focusedItem ã‚»ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³
    ------------------------------*/
   function onFocusItem(item) {
     onSelect(item);
@@ -367,7 +367,7 @@ class KList extends KVirtualWidget
       focusItem(item);
   }
 
-  // ‘cæ‚Å‚ ‚é‚©‚Ç‚¤‚©”»’è
+  // ç¥–å…ˆã§ã‚ã‚‹ã‹ã©ã†ã‹åˆ¤å®š
   function isAncestorOf(item) {
     for (; item != root; item = item.parent) {
       if (item == this)
@@ -376,13 +376,13 @@ class KList extends KVirtualWidget
     return false;
   }
 
-  // q‘·‚Å‚ ‚é‚©‚Ç‚¤‚©”»’è
+  // å­å­«ã§ã‚ã‚‹ã‹ã©ã†ã‹åˆ¤å®š
   function isDescendantOf(item) {
     return item.isAncestorOf(this);
   }
 
   /**------------------------------
-   * q‘·ƒEƒBƒWƒFƒbƒg‚Ìˆê——
+   * å­å­«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ä¸€è¦§
    ------------------------------*/
   property descendants {
     getter {
@@ -399,7 +399,7 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * ƒ}ƒ‹ƒ`ƒZƒŒƒNƒVƒ‡ƒ“‚Ì—LŒøE–³Œø
+   * ãƒãƒ«ãƒã‚»ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã®æœ‰åŠ¹ãƒ»ç„¡åŠ¹
    ------------------------------*/
   property multipleSelection {
     getter {
@@ -411,10 +411,10 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * ƒZƒŒƒNƒg‚ÉƒtƒH[ƒJƒX‚ğˆÚ“®‚·‚é‚©‚Ç‚¤‚©
+   * ã‚»ãƒ¬ã‚¯ãƒˆæ™‚ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’ç§»å‹•ã™ã‚‹ã‹ã©ã†ã‹
    *
-   * @param v ƒZƒŒƒNƒg‚ÉƒtƒH[ƒJƒX‚ğˆÚ“®‚·‚é‚©‚Ç‚¤‚©
-   * @return ƒZƒŒƒNƒg‚ÉƒtƒH[ƒJƒX‚ğˆÚ“®‚·‚é‚©‚Ç‚¤‚©
+   * @param v ã‚»ãƒ¬ã‚¯ãƒˆæ™‚ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹æ™‚ã‚’ç§»å‹•ã™ã‚‹ã‹ã©ã†ã‹
+   * @return ã‚»ãƒ¬ã‚¯ãƒˆæ™‚ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹æ™‚ã‚’ç§»å‹•ã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   property focusOnSelect {
     getter {
@@ -425,7 +425,7 @@ class KList extends KVirtualWidget
     }
   }
 
-  // ƒAƒCƒRƒ“‚ğƒ[ƒh‚µ‚ÄƒLƒƒƒbƒVƒ…‚·‚é
+  // ã‚¢ã‚¤ã‚³ãƒ³ã‚’ãƒ­ãƒ¼ãƒ‰ã—ã¦ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã™ã‚‹
   function findIcon(filename) {
     if (typeof(iconDeposit[filename]) == "undefined") {
       var layer = iconDeposit[filename] = new global.Layer(window, this);
@@ -435,7 +435,7 @@ class KList extends KVirtualWidget
     return iconDeposit[filename];
   }
 
-  // yÀ•W‚©‚çƒAƒCƒeƒ€‚ğŒŸõ
+  // yåº§æ¨™ã‹ã‚‰ã‚¢ã‚¤ãƒ†ãƒ ã‚’æ¤œç´¢
   function findItem(y, includeTail = false, onlyFocusable = true) {
     var index = findItemIndex(y, includeTail, onlyFocusable);
     if (index < 0)
@@ -444,7 +444,7 @@ class KList extends KVirtualWidget
       return drawItemList[index];
   }
 
-  // yÀ•W‚©‚çƒAƒCƒeƒ€‚ÌƒCƒ“ƒfƒbƒNƒX‚ğŒŸõ
+  // yåº§æ¨™ã‹ã‚‰ã‚¢ã‚¤ãƒ†ãƒ ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æ¤œç´¢
   function findItemIndex(y, includeTail = false, onlyFocusable = true) {
     var begin, end, mid;
     begin = 0, end = drawItemList.count;
@@ -475,7 +475,7 @@ class KList extends KVirtualWidget
     return result;
   }
 
-  // ‘I‘ğ”ÍˆÍ‚ğ‚Á‚Ä‚¢‚éH
+  // é¸æŠç¯„å›²ã‚’æŒã£ã¦ã„ã‚‹ï¼Ÿ
   property hasSelection {
     getter {
       for (var i = 0; i < drawItemList.count; i++) 
@@ -485,7 +485,7 @@ class KList extends KVirtualWidget
     }
   }
 
-  // ‘I‘ğƒAƒCƒeƒ€‚ÌƒŠƒXƒg
+  // é¸æŠã‚¢ã‚¤ãƒ†ãƒ ã®ãƒªã‚¹ãƒˆ
   property selectedItemList {
     getter {
       var result = [];
@@ -498,9 +498,9 @@ class KList extends KVirtualWidget
     }
   }
 
-  // ‘I‘ğƒAƒCƒeƒ€‚Ì“àA©•ª‚Ìe‚ª‘¶İ‚·‚éƒAƒCƒeƒ€‚ğ”²‚«æ‚Á‚Ä
-  // eƒAƒCƒeƒ€‚Ì‚İ‚ğc‚µ‚½ƒŠƒXƒgB
-  // (íœ“®ì‚âˆÚ“®“®ì‚Ì‘ÎÛ‚Æ‚µ‚Äg‚¤)
+  // é¸æŠã‚¢ã‚¤ãƒ†ãƒ ã®å†…ã€è‡ªåˆ†ã®è¦ªãŒå­˜åœ¨ã™ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŠœãå–ã£ã¦
+  // è¦ªã‚¢ã‚¤ãƒ†ãƒ ã®ã¿ã‚’æ®‹ã—ãŸãƒªã‚¹ãƒˆã€‚
+  // (å‰Šé™¤å‹•ä½œã‚„ç§»å‹•å‹•ä½œã®å¯¾è±¡ã¨ã—ã¦ä½¿ã†)
   property selectedItemParentOnlyList {
     getter {
       var result = [];
@@ -515,7 +515,7 @@ class KList extends KVirtualWidget
     }
   }
   
-  // ƒAƒCƒeƒ€‚ÌƒtƒŒ[ƒ€‚ğ•`‰æ
+  // ã‚¢ã‚¤ãƒ†ãƒ ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æç”»
   function drawItemFrame(item) {
     var fillColor = 0;
     var edgeColor = 0;
@@ -523,7 +523,7 @@ class KList extends KVirtualWidget
     var edgeAlpha = 0;
     var pointed = (item == curPointItem) && (curDragInfo.acceptType == DRAG_ACCEPT_TYPE_NONE);
 
-    // ƒtƒŒ[ƒ€EƒGƒbƒW‚ÌƒJƒ‰[‚Æ•s“§–¾“x‚ğŒˆ’è
+    // ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ»ã‚¨ãƒƒã‚¸ã®ã‚«ãƒ©ãƒ¼ã¨ä¸é€æ˜åº¦ã‚’æ±ºå®š
     if (item.focused && item.selected)
       fillAlpha = 4;
     else {
@@ -544,7 +544,7 @@ class KList extends KVirtualWidget
     else
       fillColor = edgeColor = System.toActualColor(clActiveBorder);
 
-    // ƒpƒPƒbƒg‚ğƒhƒ‰ƒbƒO’†‚È‚çF‚ğ•Ï‚¦‚é
+    // ãƒ‘ã‚±ãƒƒãƒˆã‚’ãƒ‰ãƒ©ãƒƒã‚°ä¸­ãªã‚‰è‰²ã‚’å¤‰ãˆã‚‹
     if (curDragInfo.acceptType == DRAG_ACCEPT_TYPE_DIRECT
         && curDragInfo.item === item) {
       fillColor = edgeColor = 0xFF0000;
@@ -555,7 +555,7 @@ class KList extends KVirtualWidget
       edgeColor = 0xFF0000;
       edgeAlpha = 2;
     } 
-    // •`‰æ
+    // æç”»
     fillAlpha *= 32;
     edgeAlpha *= 64;
     colorRect(1, item.top, width - 2, 1, edgeColor, edgeAlpha);
@@ -565,7 +565,7 @@ class KList extends KVirtualWidget
     colorGradientRectUD(1, item.top + 1, width - 2, item.height - 2, fillColor, fillColor | (fillAlpha << 24));
   }
 
-  // ƒ}ƒEƒX‘I‘ğ—Ìˆæ‚ğ•`‰æ
+  // ãƒã‚¦ã‚¹é¸æŠé ˜åŸŸã‚’æç”»
   function drawMouseSelection() {
     if (! inMouseSelection
         || curMouseSelectionRect === void)
@@ -587,7 +587,7 @@ class KList extends KVirtualWidget
     colorRect(range.left + 1, range.top + 1, range.width - 2, range.height - 2, color, fillAlpha);
   }
 
-  // qƒAƒCƒeƒ€‚Ì‘}“üˆÊ’u‚ğ•`‰æ
+  // å­ã‚¢ã‚¤ãƒ†ãƒ ã®æŒ¿å…¥ä½ç½®ã‚’æç”»
   function drawChildPacketInsertion() {
     if (curDragInfo.acceptType != DRAG_ACCEPT_TYPE_CHILD)
       return;
@@ -600,7 +600,7 @@ class KList extends KVirtualWidget
       colorRect(x + 3 - (i - 1), y - i, 1, i * 2, edgeColor, edgeAlpha);
   }
 
-  // —Ìˆæ“à‚ÌƒAƒCƒeƒ€‚ğ•`‰æ
+  // é ˜åŸŸå†…ã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’æç”»
   function onDraw(left, top, width, height) {
     fillRect(0, treeHeight, this.width, this.height - treeHeight, backgroundColor);
     if (drawItemList.count) {
@@ -637,7 +637,7 @@ class KList extends KVirtualWidget
     reconstructRequired = true;
     relocateRequired = true;
     resizeRequired = true;
-    // Šù‘¶ƒAƒCƒeƒ€‚Íˆê’U‘S‚Ä•s‰Â‹‚Éİ’è‚·‚é
+    // æ—¢å­˜ã‚¢ã‚¤ãƒ†ãƒ ã¯ä¸€æ—¦å…¨ã¦ä¸å¯è¦–ã«è¨­å®šã™ã‚‹
     for (var i = 0; i < drawItemList.count; i++)
       if (drawItemList[i] isvalid)
         drawItemList[i].visible = false;
@@ -667,7 +667,7 @@ class KList extends KVirtualWidget
     }
   }
 
-  // •`‰æXV
+  // æç”»æ›´æ–°
   function onPaint() { 
     updateDrawItemList();
   }
@@ -677,17 +677,17 @@ class KList extends KVirtualWidget
 
     var prevFocusedItem = focusedItem;
 
-    // ƒcƒŠ[‚ğÄ\’z
+    // ãƒ„ãƒªãƒ¼ã‚’å†æ§‹ç¯‰
     if (reconstructRequired) {
       reconstructItems();
     }
-    // ƒcƒŠ[ƒTƒCƒY‚ğÄŒvZ
+    // ãƒ„ãƒªãƒ¼ã‚µã‚¤ã‚ºã‚’å†è¨ˆç®—
     if (relocateRequired) {
       relocateItems();
     }
 
-    // ‘I‘ğƒAƒCƒeƒ€‚ª•Â‚¶‚Ä‚µ‚Ü‚Á‚½‚ç
-    // ãŠK‘w‚ÌƒAƒCƒeƒ€‚ğ‘I‘ğ‚µ’¼‚·
+    // é¸æŠã‚¢ã‚¤ãƒ†ãƒ ãŒé–‰ã˜ã¦ã—ã¾ã£ãŸã‚‰
+    // ä¸Šéšå±¤ã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’é¸æŠã—ç›´ã™
     if (prevFocusedItem !== void
         && ! prevFocusedItem.visible) {
       var newFocusedItem = prevFocusedItem;
@@ -696,29 +696,29 @@ class KList extends KVirtualWidget
       focusItem(newFocusedItem);
     }
 
-    // ƒTƒCƒY‚ğÄİ’è
+    // ã‚µã‚¤ã‚ºã‚’å†è¨­å®š
     if (resizeRequired) {
       setMinMaxSize(treeWidth, treeHeight,
                     Math.max(marginalWidth, treeWidth),
                     Math.max(marginalHeight, treeHeight));
     }
 
-    // ƒŠƒXƒg‚ğŠJ‚¢‚½ê‡‚»‚Ìq‚ğ’‹
+    // ãƒªã‚¹ãƒˆã‚’é–‹ã„ãŸå ´åˆãã®å­ã‚’æ³¨è¦–
     if (openNoticeItem !== void
         && openNoticeItem isvalid)
       openNotice(openNoticeItem);
 
-    // ‘I‘ğƒAƒCƒeƒ€‚Ì”wŒiF‚ğ•ÏX
+    // é¸æŠã‚¢ã‚¤ãƒ†ãƒ ã®èƒŒæ™¯è‰²ã‚’å¤‰æ›´
     redrawAll();
 
-    // ƒtƒ‰ƒOƒŠƒZƒbƒg
+    // ãƒ•ãƒ©ã‚°ãƒªã‚»ãƒƒãƒˆ
     relocateRequired = false;
     reconstructRequired = false;
     resizeRequired = false;
     openNoticeItem = void;
   }
 
-  // ƒAƒCƒeƒ€‚ÌÄ\’z
+  // ã‚¢ã‚¤ãƒ†ãƒ ã®å†æ§‹ç¯‰
   function reconstructItems() {
     var i, num, child, v, item;
     var stack = [];
@@ -760,7 +760,7 @@ class KList extends KVirtualWidget
     }
   }
 
-  // ƒAƒCƒeƒ€‚ÌƒTƒCƒYÄ”z’u
+  // ã‚¢ã‚¤ãƒ†ãƒ ã®ã‚µã‚¤ã‚ºå†é…ç½®
   function relocateItems() {
     treeWidth = 0;
     treeHeight = 0;
@@ -774,7 +774,7 @@ class KList extends KVirtualWidget
     }
   }      
 
-  // ŠJ‚¢‚½‚Î‚©‚è‚ÌƒAƒCƒeƒ€‚ğ’‹
+  // é–‹ã„ãŸã°ã‹ã‚Šã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’æ³¨è¦–
   function openNotice(openNoticeItem) {
     var r = 0, h = 0;
     var fromIndex = drawItemList.find(openNoticeItem) + 1;
@@ -789,7 +789,7 @@ class KList extends KVirtualWidget
     noticeRect(openNoticeItem.left, openNoticeItem.top, openNoticeItem.width, openNoticeItem.height);
   }
 
-  // “Á’è‚ÌƒAƒCƒeƒ€‚ğƒtƒH[ƒJƒX‚·‚é
+  // ç‰¹å®šã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã™ã‚‹
   function focusItem(item, resetSelection = true) {
     resetSelection = resetSelection && multipleSelection;
 
@@ -803,7 +803,7 @@ class KList extends KVirtualWidget
       return;
     }
 
-    // ‘cæƒAƒCƒeƒ€‚ğQÆ
+    // ç¥–å…ˆã‚¢ã‚¤ãƒ†ãƒ ã‚’å‚ç…§
     var prevAncestors = [], curAncestors = [];
     if (focusedItem !== void) {
       prevAncestors = focusedItem.ancestors;
@@ -814,7 +814,7 @@ class KList extends KVirtualWidget
       curAncestors.insert(0, item);
     }
 
-    // ‘cæƒAƒCƒeƒ€‚ª‹¤’Ê‚Ì•”•ª‚ÉŠÖ‚µ‚Ä‚ÍAXV‚ğŒÄ‚Î‚È‚¢
+    // ç¥–å…ˆã‚¢ã‚¤ãƒ†ãƒ ãŒå…±é€šã®éƒ¨åˆ†ã«é–¢ã—ã¦ã¯ã€æ›´æ–°ã‚’å‘¼ã°ãªã„
     while (prevAncestors.count 
            && curAncestors.count
            && prevAncestors[prevAncestors.count - 1] === curAncestors[curAncestors.count - 1]) {
@@ -852,25 +852,25 @@ class KList extends KVirtualWidget
     onFocusItem(focusedItem);
   }
 
-  // ‘I‘ğƒAƒCƒeƒ€‚Ì”wŒi‚ğ‘I‘ğF‚Å•`‰æ‚·‚é
+  // é¸æŠã‚¢ã‚¤ãƒ†ãƒ ã®èƒŒæ™¯ã‚’é¸æŠè‰²ã§æç”»ã™ã‚‹
   function drawFocusedItem {
     if (focusedItem !== void)
       focusedItem.redraw();
   }
 
-  // ƒtƒH[ƒJƒX”½‰
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹æ™‚åå¿œ
   function onFocus {
-    // ƒZƒŒƒNƒVƒ‡ƒ“Ä•`‰æ
+    // ã‚»ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å†æç”»
     drawFocusedItem();
   }
 
-  // ƒtƒH[ƒJƒX¸‚Á‚½‚Ì”½‰
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹å¤±ã£ãŸæ™‚ã®åå¿œ
   function onBlur {
-    // ƒZƒŒƒNƒVƒ‡ƒ“Ä•`‰æ
+    // ã‚»ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å†æç”»
     drawFocusedItem();
   }
 
-  // ƒZƒŒƒNƒVƒ‡ƒ“‚ğ’‹‚·‚é
+  // ã‚»ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚’æ³¨è¦–ã™ã‚‹
   function seeFocusedItem {
     asyncCaller.callOnce(this.doSeeFocusedItem, this);
   }
@@ -882,13 +882,13 @@ class KList extends KVirtualWidget
     }
   }
 
-  // ‘S‘I‘ğó‘Ô‚ğƒŠƒZƒbƒg
+  // å…¨é¸æŠçŠ¶æ…‹ã‚’ãƒªã‚»ãƒƒãƒˆ
   function clearAllSelection() {
     for (var i = 0; i < childList.count; i++)
       childList[i].clearAllSelection();
   }
 
-  // ƒAƒCƒeƒ€‚Ì”ÍˆÍ‚ğ‘I‘ğ
+  // ã‚¢ã‚¤ãƒ†ãƒ ã®ç¯„å›²ã‚’é¸æŠ
   function selectItemRange(item1, item2) {
     var index1 = drawItemList.find(item1);
     var index2 = drawItemList.find(item2);
@@ -900,13 +900,13 @@ class KList extends KVirtualWidget
       drawItemList[i].selected = true;
   }
 
-  // ƒAƒCƒeƒ€ˆêŒÂ‰Ÿ‰º
+  // ã‚¢ã‚¤ãƒ†ãƒ ä¸€å€‹æŠ¼ä¸‹
   function pressItem(targetItem, x, y, button, shift) {
-    //@ƒ}ƒ‹ƒ`‘I‘ğ
+    //ã€€ãƒãƒ«ãƒé¸æŠæ™‚
     if (multipleSelection) {
-      // ¶ƒNƒŠƒbƒN‚Ì‹““®
+      // å·¦ã‚¯ãƒªãƒƒã‚¯æ™‚ã®æŒ™å‹•
       if (button == mbLeft) {
-        // ShiftƒL[‚ğ‰Ÿ‚µ‚Ä‚é‚ÍƒAƒCƒeƒ€‚ğ‘O‚Ìƒ`ƒ‡ƒCƒX‚©‚ç”ÍˆÍ‘I‘ğ
+        // Shiftã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ã‚‹æ™‚ã¯ã‚¢ã‚¤ãƒ†ãƒ ã‚’å‰ã®ãƒãƒ§ã‚¤ã‚¹ã‹ã‚‰ç¯„å›²é¸æŠ
         if (targetItem !== void
             && (shift & ssShift)) {
           if (focusedItem === void) {
@@ -920,35 +920,35 @@ class KList extends KVirtualWidget
             focusItem(targetItem, false);
           }
         } 
-        // CtrlƒL[‚ğ‰Ÿ‚µ‚Ä‚é‚Í‘I‘ğ‚Ì”½“]B
+        // Ctrlã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ã‚‹æ™‚ã¯é¸æŠã®åè»¢ã€‚
         else if (targetItem !== void
                  && (shift & ssCtrl)) {
           targetItem.selected = ! targetItem.selected;
           lastFocusedItem = targetItem;
           focusItem(targetItem, false);
         } 
-        // ƒ^[ƒQƒbƒgƒAƒCƒeƒ€‚ª‚ ‚Á‚½‚ç‘I‘ğ‚ÆƒtƒH[ƒJƒX‚ğ“¯‚ÉˆÚ“®B
+        // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¢ã‚¤ãƒ†ãƒ ãŒã‚ã£ãŸã‚‰é¸æŠã¨ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’åŒæ™‚ã«ç§»å‹•ã€‚
         else if (targetItem !== void) {
           lastFocusedItem = targetItem;
           focusItem(targetItem);
           targetItem.selected = true;
           pressSelection = true;
         }
-        // ƒ^[ƒQƒbƒgƒAƒCƒeƒ€‚ª–³‚©‚Á‚½‚ç‘I‘ğ‚ğƒNƒŠƒAB
+        // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¢ã‚¤ãƒ†ãƒ ãŒç„¡ã‹ã£ãŸã‚‰é¸æŠã‚’ã‚¯ãƒªã‚¢ã€‚
         else {
           clearAllSelection();
           lastFocusedItem = void;
         }
 
-        // ƒ^[ƒQƒbƒgƒAƒCƒeƒ€‚Ì onMouseDown ‚ğƒR[ƒ‹
+        // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¢ã‚¤ãƒ†ãƒ ã® onMouseDown ã‚’ã‚³ãƒ¼ãƒ«
         if (targetItem !== void)
           targetItem.onMouseDown(x, y - targetItem.top, button, shift);
       }
 
-      // ‰EƒNƒŠƒbƒN‚Ì‹““®
+      // å³ã‚¯ãƒªãƒƒã‚¯æ™‚ã®æŒ™å‹•
       else if (button == mbRight) {
-        // ‘I‘ğ‚µ‚Ä‚¢‚È‚¢ƒ^[ƒQƒbƒgƒAƒCƒeƒ€‚ª‚ ‚Á‚½‚ç‚»‚ÌƒAƒCƒeƒ€‚Ì‚İ‚ğ‘I‘ğ‚µA
-        // ‘I‘ğƒtƒ‰ƒO‚ğ—§‚Ä‚é
+        // é¸æŠã—ã¦ã„ãªã„ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¢ã‚¤ãƒ†ãƒ ãŒã‚ã£ãŸã‚‰ãã®ã‚¢ã‚¤ãƒ†ãƒ ã®ã¿ã‚’é¸æŠã—ã€
+        // é¸æŠãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
         if (targetItem !== void
             && ! targetItem.selected) {
           lastFocusedItem = targetItem;
@@ -956,21 +956,21 @@ class KList extends KVirtualWidget
           targetItem.selected = true;
           pressSelection = true;
         } 
-          // ƒ^[ƒQƒbƒgƒAƒCƒeƒ€‚ª–³‚©‚Á‚½‚ç‘I‘ğ‚ğƒNƒŠƒAB
+          // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¢ã‚¤ãƒ†ãƒ ãŒç„¡ã‹ã£ãŸã‚‰é¸æŠã‚’ã‚¯ãƒªã‚¢ã€‚
         else if (targetItem === void) {
           clearAllSelection();
           lastFocusedItem = void;
         }
 
-        // ‘I‘ğ”ÍˆÍ‰EƒNƒŠƒbƒNƒR[ƒ‹ƒoƒbƒN
+        // é¸æŠç¯„å›²å³ã‚¯ãƒªãƒƒã‚¯ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
         if (pressSelection) 
           onSelectionRightClick(...);
-        // ƒoƒbƒNƒOƒ‰ƒEƒ“ƒh‰EƒNƒŠƒbƒNƒR[ƒ‹ƒoƒbƒN
+        // ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰å³ã‚¯ãƒªãƒƒã‚¯ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
         else
           onBackgroundRightClick(...);
       }
     } 
-    // ƒVƒ“ƒOƒ‹‘I‘ğ
+    // ã‚·ãƒ³ã‚°ãƒ«é¸æŠæ™‚
     else {
       focusItem(targetItem);
       if (targetItem !== void) {
@@ -980,13 +980,13 @@ class KList extends KVirtualWidget
     focus();
   }
 
-  // ƒ}ƒEƒX‰Ÿ‚³‚ê‚½‚ç‚»‚ÌˆÊ’u‚ÌƒAƒCƒeƒ€‚ğƒZƒŒƒNƒg
+  // ãƒã‚¦ã‚¹æŠ¼ã•ã‚ŒãŸã‚‰ãã®ä½ç½®ã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚»ãƒ¬ã‚¯ãƒˆ
   function onMouseDown(x, y, button, shift) {
     super.onMouseDown(...);
     if (button == mbMiddle)
      return;
 
-    // Ä\’z’†‚Í–³‹
+    // å†æ§‹ç¯‰ä¸­ã¯ç„¡è¦–
     if (childCount > 0
         && drawItemList.count == 0)
       return;
@@ -1003,26 +1003,26 @@ class KList extends KVirtualWidget
     }
 
     if (multipleSelection) {
-      // ƒ}ƒEƒX‘I‘ğƒIƒt‚©‚ç‰‚ß‚Ä[c
+      // ãƒã‚¦ã‚¹é¸æŠã‚ªãƒ•ã‹ã‚‰åˆã‚ã¦ãƒ¼â€¦
       inMouseSelection = false;
       pressSelection = false;
-      // ƒ^[ƒQƒbƒg‚ª‘I‘ğó‘Ô‚Å‚È‚­Aƒ‰ƒxƒ‹‚Ì”ÍˆÍŠO‚ğƒNƒŠƒbƒN‚µ‚½ƒP[ƒX
+      // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãŒé¸æŠçŠ¶æ…‹ã§ãªãã€ãƒ©ãƒ™ãƒ«ã®ç¯„å›²å¤–ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚±ãƒ¼ã‚¹
       if (targetItem === void
           || (! targetItem.selected
               && ! targetItem.inMarking(x, y))) {
-        // ¶ƒNƒŠƒbƒN‚¾‚Á‚½‚çAƒ}ƒEƒXƒhƒ‰ƒbƒO‚É‚æ‚é”ÍˆÍ‘I‘ğ‚ğŠJn‚·‚éB
+        // å·¦ã‚¯ãƒªãƒƒã‚¯ã ã£ãŸã‚‰ã€ãƒã‚¦ã‚¹ãƒ‰ãƒ©ãƒƒã‚°ã«ã‚ˆã‚‹ç¯„å›²é¸æŠã‚’é–‹å§‹ã™ã‚‹ã€‚
         if (button == mbLeft) {
           inMouseSelection = true;
           delayMouseEvent = true;
         }
       }
-      // ‘I‘ğ’†‚ÌƒAƒCƒeƒ€‚ğƒNƒŠƒbƒN‚µ‚½‚ÍAƒhƒ‰ƒbƒO‚µ‚È‚©‚Á‚½ê‡‚Ìƒ{ƒ^ƒ“‰Ÿ‰º“®ì‚ÍAMouseUp‚Ü‚Å’x‰„‚³‚¹‚éB
+      // é¸æŠä¸­ã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸæ™‚ã¯ã€ãƒ‰ãƒ©ãƒƒã‚°ã—ãªã‹ã£ãŸå ´åˆã®ãƒœã‚¿ãƒ³æŠ¼ä¸‹å‹•ä½œã¯ã€MouseUpæ™‚ã¾ã§é…å»¶ã•ã›ã‚‹ã€‚
       else if (targetItem !== void
                && targetItem.selected)  {
         pressSelection = true;
         delayMouseEvent = true;
       }
-      // ƒ}ƒEƒXƒ_ƒEƒ“ƒCƒxƒ“ƒg‚Ì’x‰„ˆ—
+      // ãƒã‚¦ã‚¹ãƒ€ã‚¦ãƒ³ã‚¤ãƒ™ãƒ³ãƒˆã®é…å»¶å‡¦ç†
       if (delayMouseEvent) {
         mouseDownTargetItem = targetItem;
         mouseDownTargetX = x;
@@ -1041,8 +1041,8 @@ class KList extends KVirtualWidget
 
   function onMouseUp(x, y, button, shift) {
     super.onMouseUp(...);
-    // ƒ}ƒEƒXƒhƒ‰ƒbƒO‚É‚æ‚é”ÍˆÍ‘I‘ğ‚ğ‚İ‚ÄŒ‹‹Ç
-    // ƒhƒ‰ƒbƒO‚³‚ê‚È‚©‚Á‚½ê‡A‚±‚±‚Åƒ{ƒ^ƒ“‰Ÿ‰º“®ì‚ğÀs‚·‚éB
+    // ãƒã‚¦ã‚¹ãƒ‰ãƒ©ãƒƒã‚°ã«ã‚ˆã‚‹ç¯„å›²é¸æŠã‚’è©¦ã¿ã¦çµå±€
+    // ãƒ‰ãƒ©ãƒƒã‚°ã•ã‚Œãªã‹ã£ãŸå ´åˆã€ã“ã“ã§ãƒœã‚¿ãƒ³æŠ¼ä¸‹å‹•ä½œã‚’å®Ÿè¡Œã™ã‚‹ã€‚
     if (delayMouseEvent
         && button == mouseDownTargetButton) {
       pressItem(mouseDownTargetItem, mouseDownTargetX, mouseDownTargetY, mouseDownTargetButton, mouseDownTargetShift);
@@ -1106,7 +1106,7 @@ class KList extends KVirtualWidget
     delayMouseEvent = false;
 
     if (inMouseSelection) {
-      // ƒ‰ƒXƒgƒtƒH[ƒJƒX‚Íƒ^[ƒQƒbƒgƒAƒCƒeƒ€‚ÉˆÚ‚·
+      // ãƒ©ã‚¹ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã¯ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¢ã‚¤ãƒ†ãƒ ã«ç§»ã™
       lastFocusedItem = mouseDownTargetItem;
       mouseSelectionBaseX = x;
       mouseSelectionBaseY = y;
@@ -1123,7 +1123,7 @@ class KList extends KVirtualWidget
 
   function onDragMove(x, y, shift) {
     if (inMouseSelection ) {
-      // ƒ}ƒEƒXƒhƒ‰ƒbƒO‚É‚æ‚é”ÍˆÍ‘I‘ğ
+      // ãƒã‚¦ã‚¹ãƒ‰ãƒ©ãƒƒã‚°ã«ã‚ˆã‚‹ç¯„å›²é¸æŠ
       var range = curMouseSelectionRect;
       curMouseSelectionRect = new KRect(Math.min(mouseSelectionBaseX, x),
                                         Math.min(mouseSelectionBaseY, y),
@@ -1133,24 +1133,24 @@ class KList extends KVirtualWidget
 
       redrawRect(range.left, range.top, range.width, range.height);
 
-      // ƒAƒCƒeƒ€‚ª–³‚©‚Á‚½‚ç‚±‚±‚Ü‚ÅB
+      // ã‚¢ã‚¤ãƒ†ãƒ ãŒç„¡ã‹ã£ãŸã‚‰ã“ã“ã¾ã§ã€‚
       if (drawItemList.count == 0)
         return;
 
-      // ‘I‘ğ”ÍˆÍ‚ÉŠÜ‚Ü‚ê‚éƒAƒCƒeƒ€ŒQ‚ğ”»’è
+      // é¸æŠç¯„å›²ã«å«ã¾ã‚Œã‚‹ã‚¢ã‚¤ãƒ†ãƒ ç¾¤ã‚’åˆ¤å®š
       var fromY, toY, from, to;
       fromY = Math.min(mouseSelectionBaseY, y);
       toY = Math.max(mouseSelectionBaseY, y);
-      // Š®‘S‚É”ÍˆÍŠO‚È‚ç“Y‚¦š‚ğ0‚ÉB
+      // å®Œå…¨ã«ç¯„å›²å¤–ãªã‚‰æ·»ãˆå­—ã‚’0ã«ã€‚
       if (toY < 0 || fromY >= drawItemList[-1].top + drawItemList[-1].height) {
         from = to = 0;
       } else {
-        // ”ÍˆÍ‚ğƒCƒ“ƒfƒbƒNƒX‚ÅŠm’è
+        // ç¯„å›²ã‚’ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã§ç¢ºå®š
         from = (fromY < 0) ? 0 : findItemIndex(fromY);
         to = findItemIndex(toY, true) + 1;
       }
 
-      // Shift‚ğ‰Ÿ‚µ‚È‚ª‚ç‚È‚çA”ÍˆÍ‚ğ’Ç‰Á
+      // Shiftã‚’æŠ¼ã—ãªãŒã‚‰ãªã‚‰ã€ç¯„å›²ã‚’è¿½åŠ 
       if (mouseDownTargetShift & ssShift) {
         clearAllSelection();
         for (var i = 0; i < mouseDownTargetSelectedItemList.count; i++)
@@ -1159,7 +1159,7 @@ class KList extends KVirtualWidget
           for (var i = from; i < to; i++) 
             drawItemList[i].selected = true;
       } 
-      // Ctrl‚ğ‰Ÿ‚µ‚È‚ª‚ç‚È‚çA”ÍˆÍ‚ğ”½“]
+      // Ctrlã‚’æŠ¼ã—ãªãŒã‚‰ãªã‚‰ã€ç¯„å›²ã‚’åè»¢
       else if (mouseDownTargetShift & ssCtrl) {
         clearAllSelection();
         for (var i = 0; i < mouseDownTargetSelectedItemList.count; i++)
@@ -1168,7 +1168,7 @@ class KList extends KVirtualWidget
           for (var i = from; i < to; i++) 
             drawItemList[i].selected = ! drawItemList[i].selected;
       } 
-      // ‰½‚à‰Ÿ‚µ‚Ä‚È‚¯‚ê‚ÎAV‹K‚É”ÍˆÍ‚ğ‘I‘ğ
+      // ä½•ã‚‚æŠ¼ã—ã¦ãªã‘ã‚Œã°ã€æ–°è¦ã«ç¯„å›²ã‚’é¸æŠ
       else {
         clearAllSelection();
         if (from >= 0) 
@@ -1204,12 +1204,12 @@ class KList extends KVirtualWidget
     return true;
   }
 
-  // q‚Ì‘}“üXÀ•W‚ğ“¾‚é
+  // å­ã®æŒ¿å…¥Xåº§æ¨™ã‚’å¾—ã‚‹
   function getChildInsertionX {
     return toggleWidth;
   }
 
-  // q‚Ì‘}“üYÀ•W‚ğ“¾‚é
+  // å­ã®æŒ¿å…¥Yåº§æ¨™ã‚’å¾—ã‚‹
   function getChildInsertionY(insertionIndex) {
     if (insertionIndex == 0)
       return 0;
@@ -1221,7 +1221,7 @@ class KList extends KVirtualWidget
       return drawItemList[-1].top + drawItemList[-1].height;
   }
 
-  // ƒpƒPƒbƒgˆÚ“®
+  // ãƒ‘ã‚±ãƒƒãƒˆç§»å‹•
   function onPacketMove(x, y, packet, shift) {
     var prevDragInfo = curDragInfo;
     var prevDragRegion = curDragRegion;
@@ -1240,26 +1240,26 @@ class KList extends KVirtualWidget
       curDragInfo = %[ acceptType: DRAG_ACCEPT_TYPE_NONE ];
     } else {
       var directItem = void, upperChildItemList = [], lowerChildItemList = [];
-      // ƒAƒCƒeƒ€©g‚ÍƒpƒPƒbƒg‚ğó‚¯“ü‚ê‰Â”\‚©H
+      // ã‚¢ã‚¤ãƒ†ãƒ è‡ªèº«ã¯ãƒ‘ã‚±ãƒƒãƒˆã‚’å—ã‘å…¥ã‚Œå¯èƒ½ã‹ï¼Ÿ
       if (item.droppable
           && item.isPacketAcceptable(packet))
         directItem = item;
 
-      // ƒAƒCƒeƒ€‚Ìã”¼•ªAƒŠƒXƒgŠÔ‚ÌqƒAƒCƒeƒ€‘}“üˆÊ’u‚Ìó‚¯“ü‚êŒó•â‚ğ“¾‚é
+      // ã‚¢ã‚¤ãƒ†ãƒ ã®ä¸ŠåŠåˆ†ã€ãƒªã‚¹ãƒˆé–“ã®å­ã‚¢ã‚¤ãƒ†ãƒ æŒ¿å…¥ä½ç½®ã®å—ã‘å…¥ã‚Œå€™è£œã‚’å¾—ã‚‹
       if (item.prevDrawItem !== void)
         upperChildItemList = item.prevDrawItem.getChildPacketInsertionHierarchyList(packet);
       else if (isChildPacketAcceptable(0, packet))
         upperChildItemList = [ %[ item: this, insertionIndex: 0] ];
       
-      // ƒAƒCƒeƒ€‚Ì‰º”¼•ªAƒŠƒXƒgŠÔ‚ÌqƒAƒCƒeƒ€‘}“üˆÊ’u‚Ìó‚¯“ü‚êŒó•â‚ğ“¾‚é
+      // ã‚¢ã‚¤ãƒ†ãƒ ã®ä¸‹åŠåˆ†ã€ãƒªã‚¹ãƒˆé–“ã®å­ã‚¢ã‚¤ãƒ†ãƒ æŒ¿å…¥ä½ç½®ã®å—ã‘å…¥ã‚Œå€™è£œã‚’å¾—ã‚‹
       lowerChildItemList = item.getChildPacketInsertionHierarchyList(packet);
 
-      // ã”¼•ª‚Ì”»’è
+      // ä¸ŠåŠåˆ†ã®åˆ¤å®š
       if (y < item.top + item.height / 2) {
         if (upperChildItemList.count
             && (directItem === void
                 || y < item.top + item.height / 4)) {
-          // Œó•â‚ª•¡”‚ ‚éê‡‚ÍXÀ•W‚É‡‚í‚¹‚ÄŒˆ’è‚·‚é
+          // å€™è£œãŒè¤‡æ•°ã‚ã‚‹å ´åˆã¯Xåº§æ¨™ã«åˆã‚ã›ã¦æ±ºå®šã™ã‚‹
           for (var i = 0; i < upperChildItemList.count; i++)
             if (i == upperChildItemList.count - 1
                 || x >= upperChildItemList[i].item.getChildInsertionX()) {
@@ -1274,12 +1274,12 @@ class KList extends KVirtualWidget
           curDragInfo = %[ acceptType: DRAG_ACCEPT_TYPE_NONE ];
         }
       } 
-      // ‰º”¼•ª‚Ì”»’è
+      // ä¸‹åŠåˆ†ã®åˆ¤å®š
       else {
         if (lowerChildItemList.count
             && (directItem === void
                 || y >= item.top + item.height * 3 / 4)) {
-          // Œó•â‚ª•¡”‚ ‚éê‡‚ÍXÀ•W‚É‡‚í‚¹‚ÄŒˆ’è‚·‚é
+          // å€™è£œãŒè¤‡æ•°ã‚ã‚‹å ´åˆã¯Xåº§æ¨™ã«åˆã‚ã›ã¦æ±ºå®šã™ã‚‹
           for (var i = 0; i < lowerChildItemList.count; i++)
             if (i == lowerChildItemList.count - 1
                 || x >= lowerChildItemList[i].item.getChildInsertionX()) {
@@ -1295,7 +1295,7 @@ class KList extends KVirtualWidget
         }
       }
 
-      // V‹Kƒhƒ‰ƒbƒOæ‚ÌA•`‰æ‚ª•K—v‚È—Ìˆæ‚ğ‹L˜^‚·‚é
+      // æ–°è¦ãƒ‰ãƒ©ãƒƒã‚°å…ˆã®ã€æç”»ãŒå¿…è¦ãªé ˜åŸŸã‚’è¨˜éŒ²ã™ã‚‹
       curDragRegion = new KRegion();
       switch (curDragInfo.acceptType) {
       case DRAG_ACCEPT_TYPE_DIRECT: 
@@ -1309,7 +1309,7 @@ class KList extends KVirtualWidget
       }
     }
 
-    // ‘O‰ñ‚Ìó‘Ô‚©‚çƒhƒ‰ƒbƒO‘ÎÛ‚ª•Ï‰»‚µ‚½‚çAƒAƒCƒeƒ€‚Ì“–ŠYŠÖ”‚ğŒÄ‚Ô
+    // å‰å›ã®çŠ¶æ…‹ã‹ã‚‰ãƒ‰ãƒ©ãƒƒã‚°å¯¾è±¡ãŒå¤‰åŒ–ã—ãŸã‚‰ã€ã‚¢ã‚¤ãƒ†ãƒ ã®å½“è©²é–¢æ•°ã‚’å‘¼ã¶
     if (curDragInfo.acceptType != prevDragInfo.acceptType
         || curDragInfo.item !== prevDragInfo.item
         || curDragInfo.insertionIndex != prevDragInfo.insertionIndex) {
@@ -1323,13 +1323,13 @@ class KList extends KVirtualWidget
       }
     }
 
-    // ƒAƒCƒeƒ€‚Ì“–ŠYŠÖ”‚ğŒÄ‚Ô
+    // ã‚¢ã‚¤ãƒ†ãƒ ã®å½“è©²é–¢æ•°ã‚’å‘¼ã¶
     switch (curDragInfo.acceptType) {
     case DRAG_ACCEPT_TYPE_DIRECT: curDragInfo.item.onPacketMove(x, y - curDragInfo.item.top, packet, shift); break;
     case DRAG_ACCEPT_TYPE_CHILD: curDragInfo.item.onChildPacketMove(curDragInfo.insertionIndex, x, y - curDragInfo.item.top, packet, shift); break;
     }
 
-    // Ä•`‰æÀs
+    // å†æç”»å®Ÿè¡Œ
     var drawRegion = new KRegion();
     drawRegion.include(prevDragRegion);
     drawRegion.include(curDragRegion);
@@ -1340,26 +1340,26 @@ class KList extends KVirtualWidget
   }  
 
   function onPacketLeave(x, y, packet, shift) {
-    // ƒAƒCƒeƒ€‚Ì“–ŠYŠÖ”‚ğŒÄ‚Ô
+    // ã‚¢ã‚¤ãƒ†ãƒ ã®å½“è©²é–¢æ•°ã‚’å‘¼ã¶
     switch (curDragInfo.acceptType) {
     case DRAG_ACCEPT_TYPE_DIRECT: curDragInfo.item.onPacketLeave(x, y - curDragInfo.item.top, packet, shift); break;
     case DRAG_ACCEPT_TYPE_CHILD: curDragInfo.item.onChildPacketLeave(curDragInfo.insertionIndex, x, y - curDragInfo.item.top, packet, shift); break;
     }
-    // ³”F‚µ‚½ƒ^[ƒQƒbƒgî•ñ‚ğ‹L˜^‚µ‚½ã‚Åƒhƒ‰ƒbƒOî•ñ‚ğƒNƒŠƒA
+    // æ‰¿èªã—ãŸã‚¿ãƒ¼ã‚²ãƒƒãƒˆæƒ…å ±ã‚’è¨˜éŒ²ã—ãŸä¸Šã§ãƒ‰ãƒ©ãƒƒã‚°æƒ…å ±ã‚’ã‚¯ãƒªã‚¢
     confirmedDragTarget = curDragInfo;
     curDragInfo = %[ acceptType: DRAG_ACCEPT_TYPE_NONE ];
     curDragRegion = new KRegion();
-    // Ä•`‰æ
+    // å†æç”»
     redrawAll();
   }
 
   function isPacketConfirmed(x, y, packet, shift) {
-    // ó‚¯“ü‚ê‚ç‚ê‚éƒ^ƒCƒv‚ÌƒpƒPƒbƒg‚ğ‘I‘ğ’†‚©H
+    // å—ã‘å…¥ã‚Œã‚‰ã‚Œã‚‹ã‚¿ã‚¤ãƒ—ã®ãƒ‘ã‚±ãƒƒãƒˆã‚’é¸æŠä¸­ã‹ï¼Ÿ
     return curDragInfo.acceptType != DRAG_ACCEPT_TYPE_NONE;
   }
 
   function onPacketDrop(x, y, packet, shift) {
-    // ƒpƒPƒbƒgó‚¯“ü‚ê
+    // ãƒ‘ã‚±ãƒƒãƒˆå—ã‘å…¥ã‚Œ
     switch (confirmedDragTarget.acceptType) {
     case DRAG_ACCEPT_TYPE_DIRECT: confirmedDragTarget.item.onPacketDrop(x, y - confirmedDragTarget.item.top, packet, shift); break;
     case DRAG_ACCEPT_TYPE_CHILD: confirmedDragTarget.item.onChildPacketDrop(confirmedDragTarget.insertionIndex, x, y - confirmedDragTarget.item.top, packet, shift); break;
@@ -1388,7 +1388,7 @@ class KList extends KVirtualWidget
     super.onKeyDown(...);
   }
 
-  // ƒL[”½‰
+  // ã‚­ãƒ¼åå¿œ
   function onKeyPress(key) {
     switch (key) {
     case '+': {
@@ -1411,7 +1411,7 @@ class KList extends KVirtualWidget
     }
   }
 
-  // ‘I‘ğ’†‚ÌƒAƒCƒeƒ€‚ğƒŠƒl[ƒ€‚·‚é
+  // é¸æŠä¸­ã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’ãƒªãƒãƒ¼ãƒ ã™ã‚‹
   function renameFocusedItem {
     if (focusedItem !== void
         && focusedItem.labelEditable) {
@@ -1421,7 +1421,7 @@ class KList extends KVirtualWidget
     }
   }
 
-  // ƒŠƒl[ƒ€‚ğI—¹
+  // ãƒªãƒãƒ¼ãƒ ã‚’çµ‚äº†
   function removeLabelEdit {
     onFinishLabelEdit();
     discard(labelEdit);
@@ -1434,7 +1434,7 @@ class KList extends KVirtualWidget
   function onFinishLabelEdit {
   }
 
-  // enabled==true‚È‚ç‚»‚Ì‚Ü‚Ü•\¦
+  // enabled==trueãªã‚‰ãã®ã¾ã¾è¡¨ç¤º
   function onNodeEnabled {
     canvas.opacity = 255;
     opacity = 255;
@@ -1442,7 +1442,7 @@ class KList extends KVirtualWidget
     redrawAll();
   } 
 
-  // enabled=false‚È‚ç”¼“§–¾‚Å•\¦
+  // enabled=falseãªã‚‰åŠé€æ˜ã§è¡¨ç¤º
   function onNodeDisabled {
     canvas.opacity = 64;
     opacity = 64;
@@ -1456,7 +1456,7 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * ƒhƒ‰ƒbƒO•ƒhƒƒbƒvƒtƒbƒNŠÖ”
+   * ãƒ‰ãƒ©ãƒƒã‚°ï¼†ãƒ‰ãƒ­ãƒƒãƒ—ãƒ•ãƒƒã‚¯é–¢æ•°
    ------------------------------*/
   function isChildPacketAcceptable(index, packet) {
     return false;
@@ -1475,7 +1475,7 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * ƒ}ƒ‹ƒ`ƒvƒ‹ƒZƒŒƒNƒVƒ‡ƒ“ƒtƒbƒNŠÖ”
+   * ãƒãƒ«ãƒãƒ—ãƒ«ã‚»ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ãƒ•ãƒƒã‚¯é–¢æ•°
    ------------------------------*/
   function onSelectionDragEnter(x, y, shift) {
   }
@@ -1514,7 +1514,7 @@ class KList extends KVirtualWidget
   }
 
   /**------------------------------
-   * ‹Œd—l‚Æ‚ÌŒİŠ·«‚Ì‚½‚ß‚Ìƒ_ƒ~[ŠÖ”ŒQ
+   * æ—§ä»•æ§˜ã¨ã®äº’æ›æ€§ã®ãŸã‚ã®ãƒ€ãƒŸãƒ¼é–¢æ•°ç¾¤
    ------------------------------*/
   function seeSelection() {
     seeFocusedItem();
@@ -1541,7 +1541,7 @@ class KList extends KVirtualWidget
 };
 
 /**----------------------------------------------------------------------
- * ƒŠƒXƒgƒAƒCƒeƒ€
+ * ãƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ 
  ----------------------------------------------------------------------*/
 class KListItem
 {
@@ -1563,7 +1563,7 @@ class KListItem
   var _label;
   var _hint;
   var _status;
-  // ƒEƒBƒWƒFƒbƒg
+  // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
   var _nameCache = %[];
   var _fontColor = 0xFFFFFFFF;
   var _fontBold = false;
@@ -1582,10 +1582,10 @@ class KListItem
   var labelSize = %[ width: 0, height: 0];
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    * 
-   * @param label ƒ‰ƒxƒ‹
-   * @param name –¼‘O
+   * @param label ãƒ©ãƒ™ãƒ«
+   * @param name åå‰
    ------------------------------*/
   function KListItem(label = "", name = "", isRecordOpenedToDictionary = false) {
     _opened = false;
@@ -1597,12 +1597,12 @@ class KListItem
     _status = "";
     _icon = [];
     iconLayerList = [];
-    ownIconLayerList = [];    // missing ‚ğ—LŒø‚É‚·‚é
+    ownIconLayerList = [];    // missing ã‚’æœ‰åŠ¹ã«ã™ã‚‹
     Scripts.setCallMissing(this);
   }
 
   /*------------------------------
-   * ƒtƒ@ƒCƒiƒ‰ƒCƒU
+   * ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
    ------------------------------*/
   function finalize {
     if (_dict !== void) {
@@ -1616,7 +1616,7 @@ class KListItem
   }
 
   /*------------------------------
-   * ”wŒiƒJƒ‰[
+   * èƒŒæ™¯ã‚«ãƒ©ãƒ¼
    ------------------------------*/
   property backgroundColor {
     getter {
@@ -1635,7 +1635,7 @@ class KListItem
   }
 
   /*------------------------------
-   * ‹Œd—l‚ÆŒİŠ·«‚ğ•Û‚Â‚½‚ß‚¾‚¯‚Ìƒ_ƒ~[ƒvƒƒpƒeƒB
+   * æ—§ä»•æ§˜ã¨äº’æ›æ€§ã‚’ä¿ã¤ãŸã‚ã ã‘ã®ãƒ€ãƒŸãƒ¼ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
    ------------------------------*/
   property layer {
     getter {
@@ -1644,9 +1644,9 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒNƒ‰ƒXƒcƒŠ[
+   * ã‚¯ãƒ©ã‚¹ãƒ„ãƒªãƒ¼
    *
-   * @return ©•ª©g‚Ì‘®‚·‚éƒNƒ‰ƒXƒcƒŠ[‚ğ”z—ñ‚Å•Ô‚·
+   * @return è‡ªåˆ†è‡ªèº«ã®å±ã™ã‚‹ã‚¯ãƒ©ã‚¹ãƒ„ãƒªãƒ¼ã‚’é…åˆ—ã§è¿”ã™
    ------------------------------*/
   property classTrees {
     getter {
@@ -1655,9 +1655,9 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒNƒ‰ƒX–¼
+   * ã‚¯ãƒ©ã‚¹å
    *
-   * @return ©•ª©g‚ÌƒNƒ‰ƒX–¼‚ğ•Ô‚·
+   * @return è‡ªåˆ†è‡ªèº«ã®ã‚¯ãƒ©ã‚¹åã‚’è¿”ã™
    ------------------------------*/
   property className {
     getter {
@@ -1666,10 +1666,10 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹‚ªƒŠƒl[ƒ€‰Â”\‚©‚Ç‚¤‚©
+   * ãƒ©ãƒ™ãƒ«ãŒãƒªãƒãƒ¼ãƒ å¯èƒ½ã‹ã©ã†ã‹
    * 
-   * @param v ƒŠƒl[ƒ€‰Â”\H
-   * @return ƒŠƒl[ƒ€‰Â”\H
+   * @param v ãƒªãƒãƒ¼ãƒ å¯èƒ½ï¼Ÿ
+   * @return ãƒªãƒãƒ¼ãƒ å¯èƒ½ï¼Ÿ
    ------------------------------*/
   property labelEditable {
     getter {
@@ -1682,13 +1682,13 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹‚ÌƒeƒLƒXƒgƒ^ƒCƒv
+   * ãƒ©ãƒ™ãƒ«ã®ãƒ†ã‚­ã‚¹ãƒˆã‚¿ã‚¤ãƒ—
    *
-   * ƒŠƒl[ƒ€‚Éİ’è‰Â”\‚È ƒeƒLƒXƒg‚Ìƒ^ƒCƒv‚ğ
-   * TEXT_ANY, TEXT_DIGIT, TEXT_SYMBOL ‚Ì‚¢‚¸‚ê‚©‚æ‚èİ’è‚·‚é
+   * ãƒªãƒãƒ¼ãƒ æ™‚ã«è¨­å®šå¯èƒ½ãª ãƒ†ã‚­ã‚¹ãƒˆã®ã‚¿ã‚¤ãƒ—ã‚’
+   * TEXT_ANY, TEXT_DIGIT, TEXT_SYMBOL ã®ã„ãšã‚Œã‹ã‚ˆã‚Šè¨­å®šã™ã‚‹
    * 
-   * @param v ƒeƒLƒXƒgƒ^ƒCƒv
-   * @return ƒeƒLƒXƒgƒ^ƒCƒv
+   * @param v ãƒ†ã‚­ã‚¹ãƒˆã‚¿ã‚¤ãƒ—
+   * @return ãƒ†ã‚­ã‚¹ãƒˆã‚¿ã‚¤ãƒ—
    ------------------------------*/
   property labelTextType {
     getter {
@@ -1701,12 +1701,12 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹‚ÌÅ¬•¶š”
+   * ãƒ©ãƒ™ãƒ«ã®æœ€å°æ–‡å­—æ•°
    *
-   * ƒŠƒl[ƒ€‚Éİ’è‰Â”\‚Èƒ‰ƒxƒ‹‚ÌÅ¬•¶š”‚ğİ’è‚·‚é
+   * ãƒªãƒãƒ¼ãƒ æ™‚ã«è¨­å®šå¯èƒ½ãªãƒ©ãƒ™ãƒ«ã®æœ€å°æ–‡å­—æ•°ã‚’è¨­å®šã™ã‚‹
    * 
-   * @param v Å¬•¶š”
-   * @return Å¬•¶š”
+   * @param v æœ€å°æ–‡å­—æ•°
+   * @return æœ€å°æ–‡å­—æ•°
    ------------------------------*/
   property minLabelWidth {
     getter {
@@ -1719,12 +1719,12 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒAƒCƒeƒ€‚Ìc•
+   * ã‚¢ã‚¤ãƒ†ãƒ ã®ç¸¦å¹…
    *
-   * w’è‚µ‚È‚¢‚ÆAMList ‚Ì fontHeight ‚Æ spaceVertical ‚©‚ç©“®İ’è‚³‚ê‚é
+   * æŒ‡å®šã—ãªã„ã¨ã€MList ã® fontHeight ã¨ spaceVertical ã‹ã‚‰è‡ªå‹•è¨­å®šã•ã‚Œã‚‹
    *
-   * @param v c•
-   * @return c•
+   * @param v ç¸¦å¹…
+   * @return ç¸¦å¹…
    ------------------------------*/
   property size {
     getter {
@@ -1747,10 +1747,10 @@ class KListItem
   }
 
   /**------------------------------
-   * ‰üs“ü‚èƒeƒLƒXƒg‚ğİ’è‚µ‚½ê‡‚ÌsŠÔ
+   * æ”¹è¡Œå…¥ã‚Šãƒ†ã‚­ã‚¹ãƒˆã‚’è¨­å®šã—ãŸå ´åˆã®è¡Œé–“
    * 
-   * @param value sŠÔ
-   * @return sŠÔ
+   * @param value è¡Œé–“
+   * @return è¡Œé–“
    ------------------------------*/
   property lineSpacing {
     getter {
@@ -1768,10 +1768,10 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹
+   * ãƒ©ãƒ™ãƒ«
    * 
-   * @param value ƒ‰ƒxƒ‹
-   * @return ƒ‰ƒxƒ‹
+   * @param value ãƒ©ãƒ™ãƒ«
+   * @return ãƒ©ãƒ™ãƒ«
    ------------------------------*/
   property label {
     getter {
@@ -1789,10 +1789,10 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒtƒHƒ“ƒgƒJƒ‰[
+   * ãƒ•ã‚©ãƒ³ãƒˆã‚«ãƒ©ãƒ¼
    * 
-   * @param value ƒJƒ‰[
-   * @return ƒJƒ‰[
+   * @param value ã‚«ãƒ©ãƒ¼
+   * @return ã‚«ãƒ©ãƒ¼
    ------------------------------*/
   property fontColor {
     getter {
@@ -1809,10 +1809,10 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒtƒHƒ“ƒgƒ{[ƒ‹ƒh
+   * ãƒ•ã‚©ãƒ³ãƒˆãƒœãƒ¼ãƒ«ãƒ‰
    * 
-   * @param value ƒ{[ƒ‹ƒh
-   * @return ƒ{[ƒ‹ƒh
+   * @param value ãƒœãƒ¼ãƒ«ãƒ‰
+   * @return ãƒœãƒ¼ãƒ«ãƒ‰
    ------------------------------*/
   property fontBold {
     getter {
@@ -1830,9 +1830,9 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒqƒ“ƒg
+   * ãƒ’ãƒ³ãƒˆ
    *
-   * @param value ƒqƒ“ƒg
+   * @param value ãƒ’ãƒ³ãƒˆ
    ------------------------------*/
   property hint {
     getter {
@@ -1844,9 +1844,9 @@ class KListItem
   }
   
   /**------------------------------
-   * ƒXƒe[ƒ^ƒX
+   * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
    *
-   * @param value ƒXƒe[ƒ^ƒX
+   * @param value ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
    ------------------------------*/
   property status {
     getter {
@@ -1858,14 +1858,14 @@ class KListItem
   }
   
   /**------------------------------
-   * ƒAƒCƒRƒ“
+   * ã‚¢ã‚¤ã‚³ãƒ³
    *
-   * ƒ‰ƒxƒ‹‚Ì‘O•û‚É•`‰æ‚³‚ê‚éƒAƒCƒRƒ“‚ğİ’è‚·‚éB
-   * void‚ğİ’è‚·‚é‚ÆƒAƒCƒRƒ“‚ÍÁ‹‚³‚ê‚éB
-   * ƒAƒCƒRƒ“‚ªƒNƒŠƒbƒN‚³‚ê‚é‚Æ onIconClick() ‚ªŒÄ‚Î‚ê‚éB
+   * ãƒ©ãƒ™ãƒ«ã®å‰æ–¹ã«æç”»ã•ã‚Œã‚‹ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®šã™ã‚‹ã€‚
+   * voidã‚’è¨­å®šã™ã‚‹ã¨ã‚¢ã‚¤ã‚³ãƒ³ã¯æ¶ˆå»ã•ã‚Œã‚‹ã€‚
+   * ã‚¢ã‚¤ã‚³ãƒ³ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚Œã‚‹ã¨ onIconClick() ãŒå‘¼ã°ã‚Œã‚‹ã€‚
    *
-   * @param value ƒAƒCƒRƒ“ƒtƒ@ƒCƒ‹–¼
-   * @return ƒAƒCƒRƒ“ƒtƒ@ƒCƒ‹–¼
+   * @param value ã‚¢ã‚¤ã‚³ãƒ³ãƒ•ã‚¡ã‚¤ãƒ«å
+   * @return ã‚¢ã‚¤ã‚³ãƒ³ãƒ•ã‚¡ã‚¤ãƒ«å
    ------------------------------*/
   property icon {
     getter {
@@ -1880,15 +1880,15 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒAƒCƒRƒ“ƒŠƒXƒg
+   * ã‚¢ã‚¤ã‚³ãƒ³ãƒªã‚¹ãƒˆ
    *
-   * ƒ‰ƒxƒ‹‚Ì‘O•û‚É•`‰æ‚³‚ê‚éƒAƒCƒRƒ“‚ğ•¡”İ’è‚·‚éB
-   * İ’è‚µ‚½ƒAƒCƒRƒ“‚Í¶‚©‚ç‡”Ô‚É•À‚ñ‚Å•\¦‚³‚ê‚éB
-   * ƒAƒCƒRƒ“‚ªƒNƒŠƒbƒN‚³‚ê‚é‚Æ onIconClick() ‚ªŒÄ‚Î‚ê‚éB
-   * onIconClick‚Ìˆø”‚Å‚Ç‚ÌƒAƒCƒRƒ“‚ª‰Ÿ‚³‚ê‚½‚©‚ğ”»•Ê‚Å‚«‚éB
+   * ãƒ©ãƒ™ãƒ«ã®å‰æ–¹ã«æç”»ã•ã‚Œã‚‹ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¤‡æ•°è¨­å®šã™ã‚‹ã€‚
+   * è¨­å®šã—ãŸã‚¢ã‚¤ã‚³ãƒ³ã¯å·¦ã‹ã‚‰é †ç•ªã«ä¸¦ã‚“ã§è¡¨ç¤ºã•ã‚Œã‚‹ã€‚
+   * ã‚¢ã‚¤ã‚³ãƒ³ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚Œã‚‹ã¨ onIconClick() ãŒå‘¼ã°ã‚Œã‚‹ã€‚
+   * onIconClickã®å¼•æ•°ã§ã©ã®ã‚¢ã‚¤ã‚³ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã‹ã‚’åˆ¤åˆ¥ã§ãã‚‹ã€‚
    *
-   * @param value ƒAƒCƒRƒ“ƒtƒ@ƒCƒ‹–¼”z—ñ
-   * @return ƒAƒCƒRƒ“ƒtƒ@ƒCƒ‹–¼”z—ñ
+   * @param value ã‚¢ã‚¤ã‚³ãƒ³ãƒ•ã‚¡ã‚¤ãƒ«åé…åˆ—
+   * @return ã‚¢ã‚¤ã‚³ãƒ³ãƒ•ã‚¡ã‚¤ãƒ«åé…åˆ—
    ------------------------------*/
   property icons {
     getter {
@@ -1938,25 +1938,25 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒAƒCƒRƒ“‚ª‰Ÿ‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã‚¢ã‚¤ã‚³ãƒ³ãŒæŠ¼ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param iconIndex ƒAƒCƒRƒ“ƒCƒ“ƒfƒbƒNƒX
+   * @param iconIndex ã‚¢ã‚¤ã‚³ãƒ³ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function onIconClick(iconIndex) {
     focus();
     root.focus();
   } 
 
-  // ‘S‘I‘ğó‘Ô‚ğƒŠƒZƒbƒg
+  // å…¨é¸æŠçŠ¶æ…‹ã‚’ãƒªã‚»ãƒƒãƒˆ
   function clearAllSelection() {
     selected = false;
     for (var i = 0; i < childList.count; i++)
       childList[i].clearAllSelection();
   }
 
-  // ‘I‘ğó‘Ô
-  // multipleSelection‚ªƒIƒt‚Ìê‡‚ÍAfocused‚Æselected‚Íí‚Éˆê’v‚·‚éB
-  // ‚»‚¤‚Å‚È‚¢ê‡‚Í focused ƒvƒƒpƒeƒB‚Ì’l‚ª”½‰f‚³‚ê‚éB
+  // é¸æŠçŠ¶æ…‹
+  // multipleSelectionãŒã‚ªãƒ•ã®å ´åˆã¯ã€focusedã¨selectedã¯å¸¸ã«ä¸€è‡´ã™ã‚‹ã€‚
+  // ãã†ã§ãªã„å ´åˆã¯ focused ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å€¤ãŒåæ˜ ã•ã‚Œã‚‹ã€‚
   property selected {
     getter {
       if (! multipleSelection)
@@ -1998,9 +1998,9 @@ class KListItem
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğ’Ç‰Á‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ ã™ã‚‹
    *
-   * @param item ƒAƒCƒeƒ€
+   * @param item ã‚¢ã‚¤ãƒ†ãƒ 
    ------------------------------*/
   function add(item) {
     if (item instanceof "KWidget") {
@@ -2015,10 +2015,10 @@ class KListItem
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğ‘}“ü‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒ¿å…¥ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @param item ƒAƒCƒeƒ€
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @param item ã‚¢ã‚¤ãƒ†ãƒ 
    ------------------------------*/
   function insert(index, item) {
     if (item instanceof "KWidget") {
@@ -2033,10 +2033,10 @@ class KListItem
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğíœ‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’å‰Šé™¤ã™ã‚‹
    * 
-   * @param item ƒAƒCƒeƒ€
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param item ã‚¢ã‚¤ãƒ†ãƒ 
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(item, doInvalidate = true) {
     if (item instanceof "KWidget") {
@@ -2082,9 +2082,9 @@ class KListItem
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğ‘S‚Äíœ‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’å…¨ã¦å‰Šé™¤ã™ã‚‹
    *
-   * @param doInvalidate æ‚èœ‚¢‚½qƒEƒBƒWƒFƒbƒg‚ğ–³Œø‰»‚·‚é‚©
+   * @param doInvalidate å–ã‚Šé™¤ã„ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ç„¡åŠ¹åŒ–ã™ã‚‹ã‹
    ------------------------------*/
   function removeAll(doInvalidate = true)
   {
@@ -2110,18 +2110,18 @@ class KListItem
   }
 
   /**------------------------------
-   * ©•ª©g‚ğíœ‚·‚é
+   * è‡ªåˆ†è‡ªèº«ã‚’å‰Šé™¤ã™ã‚‹
    *
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function removeSelf(doInvalidate = true) {
     asyncCaller.call(parent.remove, this, doInvalidate);
   }
 
   /**------------------------------
-   * q‚¿‚©‚Ç‚¤‚©”»’è‚·‚é
+   * å­æŒã¡ã‹ã©ã†ã‹åˆ¤å®šã™ã‚‹
    *
-   * @return q‚¿H
+   * @return å­æŒã¡ï¼Ÿ
    ------------------------------*/
   property hasChild {
     getter {
@@ -2130,9 +2130,9 @@ class KListItem
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğƒJƒEƒ“ƒg‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹
    * 
-   * @return qƒAƒCƒeƒ€”
+   * @return å­ã‚¢ã‚¤ãƒ†ãƒ æ•°
    ------------------------------*/
   property childCount {
     getter {
@@ -2141,16 +2141,16 @@ class KListItem
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğQÆ‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’å‚ç…§ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @return qƒAƒCƒeƒ€
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @return å­ã‚¢ã‚¤ãƒ†ãƒ 
    ------------------------------*/
   function childAt(index) {
     return childList[index];
   }
 
-  // ‚Ğ‚Æ‚Â‘O‚ÌƒAƒCƒeƒ€
+  // ã²ã¨ã¤å‰ã®ã‚¢ã‚¤ãƒ†ãƒ 
   property prevSibling {
     getter {
       if (parent === void)
@@ -2162,7 +2162,7 @@ class KListItem
     }
   }
 
-  // ‚Ğ‚Æ‚ÂŒã‚ÌƒAƒCƒeƒ€
+  // ã²ã¨ã¤å¾Œã®ã‚¢ã‚¤ãƒ†ãƒ 
   property nextSibling {
     getter {
       if (parent === void)
@@ -2174,7 +2174,7 @@ class KListItem
     }
   }
 
-  // ‚Ğ‚Æ‚Â‘O‚Ì•`‰æƒAƒCƒeƒ€
+  // ã²ã¨ã¤å‰ã®æç”»ã‚¢ã‚¤ãƒ†ãƒ 
   property prevDrawItem {
     getter {
       if (root === void)
@@ -2186,7 +2186,7 @@ class KListItem
     }
   }
 
-  // ‚Ğ‚Æ‚ÂŒã‚Ì•`‰æƒAƒCƒeƒ€
+  // ã²ã¨ã¤å¾Œã®æç”»ã‚¢ã‚¤ãƒ†ãƒ 
   property nextDrawItem {
     getter {
       if (root === void)
@@ -2198,7 +2198,7 @@ class KListItem
     }
   }
 
-  // ‚Ğ‚Æ‚Â‘O‚ÌƒtƒH[ƒJƒX‰Â”\‚È•`‰æƒAƒCƒeƒ€
+  // ã²ã¨ã¤å‰ã®ãƒ•ã‚©ãƒ¼ã‚«ã‚¹å¯èƒ½ãªæç”»ã‚¢ã‚¤ãƒ†ãƒ 
   property prevFocusableDrawItem {
     getter {
       if (root === void)
@@ -2215,7 +2215,7 @@ class KListItem
     }
   }
 
-  // ‚Ğ‚Æ‚ÂŒã‚ÌƒtƒH[ƒJƒX‰Â”\‚È•`‰æƒAƒCƒeƒ€
+  // ã²ã¨ã¤å¾Œã®ãƒ•ã‚©ãƒ¼ã‚«ã‚¹å¯èƒ½ãªæç”»ã‚¢ã‚¤ãƒ†ãƒ 
   property nextFocusableDrawItem {
     getter {
       if (root === void)
@@ -2233,7 +2233,7 @@ class KListItem
   }
 
   /**------------------------------
-   * openó‘Ô‚ğ«‘‚É‹L˜^‚·‚éH
+   * opençŠ¶æ…‹ã‚’è¾æ›¸ã«è¨˜éŒ²ã™ã‚‹ï¼Ÿ
    ------------------------------*/
   property isRecordOpenedToDictionary {
     getter {
@@ -2245,7 +2245,7 @@ class KListItem
   }
 
   /**------------------------------
-   * ‰i‘±‰»«‘‚ğƒoƒCƒ“ƒh‚·‚é
+   * æ°¸ç¶šåŒ–è¾æ›¸ã‚’ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    ------------------------------*/
   function bindPersistentDictionary(dict) {
     if (_isAvoidDictionaryRegistration)
@@ -2263,7 +2263,7 @@ class KListItem
     }
   }
 
-  // ©•ª‚ÌŸ‚ÌˆÊ’u‚ÉD&D‚Å‘}“ü‰Â”\‚ÈŠK‘w‚ÌƒŠƒXƒg
+  // è‡ªåˆ†ã®æ¬¡ã®ä½ç½®ã«D&Dã§æŒ¿å…¥å¯èƒ½ãªéšå±¤ã®ãƒªã‚¹ãƒˆ
   function getChildPacketInsertionHierarchyList(packet) {
     var result = [];
     var item = this;
@@ -2282,9 +2282,9 @@ class KListItem
   }
 
   /**------------------------------
-   * q‘·ƒAƒCƒeƒ€‚©‚ç“Á’è‚Ì–¼‘O‚ğ‚Á‚½qƒEƒBƒWƒFƒbƒg‚ğ‘{‚·
+   * å­å­«ã‚¢ã‚¤ãƒ†ãƒ ã‹ã‚‰ç‰¹å®šã®åå‰ã‚’æŒã£ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æœã™
    * 
-   * @param name –¼‘O
+   * @param name åå‰
    ------------------------------*/
   function find(name) {
     if (this.name === name)
@@ -2299,13 +2299,13 @@ class KListItem
   }
 
   /**------------------------------
-   * q‘·ƒAƒCƒeƒ€‚©‚ç“Á’è‚Ì–¼‘O‚ğ‚Á‚½qƒEƒBƒWƒFƒbƒg‚ğ‘{‚µ‚Ü‚·
+   * å­å­«ã‚¢ã‚¤ãƒ†ãƒ ã‹ã‚‰ç‰¹å®šã®åå‰ã‚’æŒã£ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æœã—ã¾ã™
    *
-   * findŠÖ”‚ğŒo—R‚¹‚¸‚ÉAƒIƒuƒWƒFƒNƒg‚ÌƒvƒƒpƒeƒBˆµ‚¢‚Å–¼‘O‚ğw’è‚µ‚Ä
-   * q‘·ƒAƒCƒeƒ€’†‚ÌƒEƒBƒWƒFƒbƒg‚ğQÆ‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B
+   * findé–¢æ•°ã‚’çµŒç”±ã›ãšã«ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£æ‰±ã„ã§åå‰ã‚’æŒ‡å®šã—ã¦
+   * å­å­«ã‚¢ã‚¤ãƒ†ãƒ ä¸­ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å‚ç…§ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚
    *
-   * ƒpƒtƒH[ƒ}ƒ“ƒX‚Ì“s‡‚ÅAƒOƒ[ƒoƒ‹‚É“¯–¼‚ÌƒVƒ“ƒ{ƒ‹‚ª‘¶İ‚·‚éê‡‚Í
-   * —Dæ“I‚É‚»‚¿‚ç‚ğŒ©‚És‚­‚Æ‚¢‚¤‹““®‚ğ‚·‚é‚Ì‚Å’ˆÓB
+   * ãƒ‘ãƒ•ã‚©ãƒ¼ãƒãƒ³ã‚¹ã®éƒ½åˆã§ã€ã‚°ãƒ­ãƒ¼ãƒãƒ«ã«åŒåã®ã‚·ãƒ³ãƒœãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯
+   * å„ªå…ˆçš„ã«ãã¡ã‚‰ã‚’è¦‹ã«è¡Œãã¨ã„ã†æŒ™å‹•ã‚’ã™ã‚‹ã®ã§æ³¨æ„ã€‚
    ------------------------------*/
   function missing(get_or_set, name, value) {
     if (! get_or_set) {
@@ -2332,12 +2332,12 @@ class KListItem
   }
 
   /**------------------------------
-   * ©•ª©g‚ÌƒCƒ“ƒfƒbƒNƒX
+   * è‡ªåˆ†è‡ªèº«ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    * 
-   * ƒŠƒXƒg‚Ì‰½”Ô–Ú‚É‚¢‚é‚©B
+   * ãƒªã‚¹ãƒˆã®ä½•ç•ªç›®ã«ã„ã‚‹ã‹ã€‚
    *
-   * @param value ƒCƒ“ƒfƒbƒNƒX
-   * @return ƒCƒ“ƒfƒbƒNƒX
+   * @param value ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @return ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   property index {
     getter {
@@ -2355,7 +2355,7 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒtƒH[ƒJƒX‰Â”\H
+   * ãƒ•ã‚©ãƒ¼ã‚«ã‚¹å¯èƒ½ï¼Ÿ
    ------------------------------*/
   property focusable {
     getter {
@@ -2366,7 +2366,7 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒ‰ƒCƒgƒNƒŠƒbƒN‰Â”\H
+   * ãƒ©ã‚¤ãƒˆã‚¯ãƒªãƒƒã‚¯å¯èƒ½ï¼Ÿ
    ------------------------------*/
   property rightClickable {
     getter {
@@ -2377,7 +2377,7 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒL[ƒ_ƒEƒ“‰Â”\H
+   * ã‚­ãƒ¼ãƒ€ã‚¦ãƒ³å¯èƒ½ï¼Ÿ
    ------------------------------*/
   property keyDownAvailable {
     getter {
@@ -2388,7 +2388,7 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒAƒCƒRƒ“ƒNƒŠƒbƒN‰Â”\H
+   * ã‚¢ã‚¤ã‚³ãƒ³ã‚¯ãƒªãƒƒã‚¯å¯èƒ½ï¼Ÿ
    ------------------------------*/
   property iconClickable {
     getter {
@@ -2399,7 +2399,7 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒhƒ‰ƒbƒO‰Â”\H
+   * ãƒ‰ãƒ©ãƒƒã‚°å¯èƒ½ï¼Ÿ
    ------------------------------*/
   property draggable {
     getter {
@@ -2410,7 +2410,7 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒhƒƒbƒv‰Â”\H
+   * ãƒ‰ãƒ­ãƒƒãƒ—å¯èƒ½ï¼Ÿ
    ------------------------------*/
   property droppable {
     getter {
@@ -2421,7 +2421,7 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒhƒƒbƒv‰Â”\H
+   * ãƒ‰ãƒ­ãƒƒãƒ—å¯èƒ½ï¼Ÿ
    ------------------------------*/
   property droppable {
     getter {
@@ -2432,7 +2432,7 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒAƒCƒeƒ€‚ğuƒtƒH[ƒJƒXvó‘Ô‚É‚·‚é
+   * ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã€Œãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã€çŠ¶æ…‹ã«ã™ã‚‹
    ------------------------------*/
   function focus {
     root.focusItem(this);
@@ -2440,8 +2440,8 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒtƒH[ƒJƒX‚³‚ê‚Ä‚¢‚é‚©H
-   * @return ƒtƒH[ƒJƒX‚³‚ê‚Ä‚¢‚é‚©H
+   * ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã•ã‚Œã¦ã„ã‚‹ã‹ï¼Ÿ
+   * @return ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã•ã‚Œã¦ã„ã‚‹ã‹ï¼Ÿ
    ------------------------------*/
   property focused {
     getter {
@@ -2451,42 +2451,42 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒAƒCƒeƒ€‚ªƒtƒH[ƒJƒXó‘Ô‚É‚È‚Á‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
-   * ƒfƒtƒHƒ‹ƒg“®ì‚Å‚ÍA‹Œd—lŒİŠ·‚Ì‚½‚ßAonSelect() ‚ğŒÄ‚ÔB
+   * ã‚¢ã‚¤ãƒ†ãƒ ãŒãƒ•ã‚©ãƒ¼ã‚«ã‚¹çŠ¶æ…‹ã«ãªã£ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå‹•ä½œã§ã¯ã€æ—§ä»•æ§˜äº’æ›ã®ãŸã‚ã€onSelect() ã‚’å‘¼ã¶ã€‚
    ------------------------------*/
   function onFocus {
     onSelect();
   }
 
   /**------------------------------
-   * ƒAƒCƒeƒ€‚ª”ñƒtƒH[ƒJƒXó‘Ô‚É‚È‚Á‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
-   * ƒfƒtƒHƒ‹ƒg“®ì‚Å‚ÍA‹Œd—lŒİŠ·‚Ì‚½‚ßAonDeselect() ‚ğŒÄ‚ÔB
+   * ã‚¢ã‚¤ãƒ†ãƒ ãŒéãƒ•ã‚©ãƒ¼ã‚«ã‚¹çŠ¶æ…‹ã«ãªã£ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå‹•ä½œã§ã¯ã€æ—§ä»•æ§˜äº’æ›ã®ãŸã‚ã€onDeselect() ã‚’å‘¼ã¶ã€‚
    ------------------------------*/
   function onBlur {
     onDeselect();
   }
 
   /**------------------------------
-   * (©•ª‚ğŠÜ‚Ş)q‘·ƒAƒCƒeƒ€‚ªƒtƒH[ƒJƒXó‘Ô‚É‚È‚Á‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
-   * ƒfƒtƒHƒ‹ƒg“®ì‚Å‚ÍA‹Œd—lŒİŠ·‚Ì‚½‚ßAonDesecndantSelect() ‚ğŒÄ‚ÔB
+   * (è‡ªåˆ†ã‚’å«ã‚€)å­å­«ã‚¢ã‚¤ãƒ†ãƒ ãŒãƒ•ã‚©ãƒ¼ã‚«ã‚¹çŠ¶æ…‹ã«ãªã£ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå‹•ä½œã§ã¯ã€æ—§ä»•æ§˜äº’æ›ã®ãŸã‚ã€onDesecndantSelect() ã‚’å‘¼ã¶ã€‚
    ------------------------------*/
   function onDescendantFocus {
     onDescendantSelect();
   }
 
   /**------------------------------
-   * (©•ª‚ğŠÜ‚Ş)q‘·ƒAƒCƒeƒ€‚ªƒtƒH[ƒJƒXó‘Ô‚É‚È‚Á‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
-   * ƒfƒtƒHƒ‹ƒg“®ì‚Å‚ÍA‹Œd—lŒİŠ·‚Ì‚½‚ßAonDesecndantDeselect() ‚ğŒÄ‚ÔB
+   * (è‡ªåˆ†ã‚’å«ã‚€)å­å­«ã‚¢ã‚¤ãƒ†ãƒ ãŒãƒ•ã‚©ãƒ¼ã‚«ã‚¹çŠ¶æ…‹ã«ãªã£ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå‹•ä½œã§ã¯ã€æ—§ä»•æ§˜äº’æ›ã®ãŸã‚ã€onDesecndantDeselect() ã‚’å‘¼ã¶ã€‚
    ------------------------------*/
   function onDescendantBlur {
     onDescendantDeselect();
   }
 
   /**------------------------------
-   * q‚¿‚Ì‚ÌƒgƒOƒ‹ó‘Ô‚ğ•ÏX‚·‚é
+   * å­æŒã¡ã®æ™‚ã®ãƒˆã‚°ãƒ«çŠ¶æ…‹ã‚’å¤‰æ›´ã™ã‚‹
    *
-   * @param o ŠJ•Â
-   * @return ŠJ•Â
+   * @param o é–‹é–‰
+   * @return é–‹é–‰
    ------------------------------*/
   property opened {
     getter {
@@ -2503,7 +2503,7 @@ class KListItem
   }
 
   /**------------------------------
-   * q‘·ƒAƒCƒeƒ€‚ğ‚Ü‚Æ‚ß‚ÄŠJ‚­
+   * å­å­«ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã¾ã¨ã‚ã¦é–‹ã
    *------------------------------*/
   function openDescendants {
     var i, desc = descendants;
@@ -2516,8 +2516,8 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒ†[ƒU[‚É’l‚ğ“ü—Í‚³‚¹‚Äƒ‰ƒxƒ‹‚ğƒŠƒl[ƒ€‚·‚é
-   * (F2‚ğ‰Ÿ‚µ‚½‚Æ“¯—l‚Ì“®ì)
+   * ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«å€¤ã‚’å…¥åŠ›ã•ã›ã¦ãƒ©ãƒ™ãƒ«ã‚’ãƒªãƒãƒ¼ãƒ ã™ã‚‹
+   * (F2ã‚’æŠ¼ã—ãŸæ™‚ã¨åŒæ§˜ã®å‹•ä½œ)
    *------------------------------*/
   function renameAsUserInput {
     focus();
@@ -2525,12 +2525,12 @@ class KListItem
   }    
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹‚ğƒŠƒl[ƒ€‚·‚é
+   * ãƒ©ãƒ™ãƒ«ã‚’ãƒªãƒãƒ¼ãƒ ã™ã‚‹
    * 
-   * ˆø” label‚ğw’è‚·‚é‚ÆAƒ‰ƒxƒ‹•ÏXŒã‚É onRename ŠÖ”‚ªŒÄ‚Î‚ê‚éB
-   * (ƒ‰ƒxƒ‹•ÏXŒã‚ÉƒtƒbƒN‚ğ‚©‚¯‚éd‘g)
+   * å¼•æ•° labelã‚’æŒ‡å®šã™ã‚‹ã¨ã€ãƒ©ãƒ™ãƒ«å¤‰æ›´å¾Œã« onRename é–¢æ•°ãŒå‘¼ã°ã‚Œã‚‹ã€‚
+   * (ãƒ©ãƒ™ãƒ«å¤‰æ›´å¾Œã«ãƒ•ãƒƒã‚¯ã‚’ã‹ã‘ã‚‹ä»•çµ„)
    * 
-   * @param label ƒŠƒl[ƒ€‚·‚éƒ‰ƒxƒ‹
+   * @param label ãƒªãƒãƒ¼ãƒ ã™ã‚‹ãƒ©ãƒ™ãƒ«
    ------------------------------*/
   function rename(label) {
     var oldLabel = this.label;
@@ -2539,33 +2539,33 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹‚ÉƒŠƒl[ƒ€‹–‰Â‚ğ—^‚¦‚é‚©”»’è‚·‚é
+   * ãƒ©ãƒ™ãƒ«ã«ãƒªãƒãƒ¼ãƒ è¨±å¯ã‚’ä¸ãˆã‚‹ã‹åˆ¤å®šã™ã‚‹
    *
-   * renameAsUserInput ‚ğg‚Á‚½ƒŠƒl[ƒ€‚ÉA
-   * w’è‚³‚ê‚½–¼‘O‚ğó‚¯“ü‚ê‚Ä‚¢‚¢‚©‚Ç‚¤‚©‚ğ”»’è‚·‚é
-   * ƒ†[ƒU[’è‹`ŠÖ”B
-   * ƒfƒtƒHƒ‹ƒg‚ÌÀ‘•‚Å‚Íí‚Étrue‚ğ•Ô‚·
+   * renameAsUserInput ã‚’ä½¿ã£ãŸãƒªãƒãƒ¼ãƒ æ™‚ã«ã€
+   * æŒ‡å®šã•ã‚ŒãŸåå‰ã‚’å—ã‘å…¥ã‚Œã¦ã„ã„ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹
+   * ãƒ¦ãƒ¼ã‚¶ãƒ¼å®šç¾©é–¢æ•°ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å®Ÿè£…ã§ã¯å¸¸ã«trueã‚’è¿”ã™
    *
-   * @param label ”»’è‚·‚éƒ‰ƒxƒ‹
-   * @return ó‚¯“ü‚ê‚é‚È‚çtrue‚ğA‹‘”Û‚·‚é‚È‚çfalse‚ğ•Ô‚·B
+   * @param label åˆ¤å®šã™ã‚‹ãƒ©ãƒ™ãƒ«
+   * @return å—ã‘å…¥ã‚Œã‚‹ãªã‚‰trueã‚’ã€æ‹’å¦ã™ã‚‹ãªã‚‰falseã‚’è¿”ã™ã€‚
    ------------------------------*/
   function isAcceptRename(label) {
     return true;
   }
 
   /**------------------------------
-   * ƒŠƒl[ƒ€‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ãƒªãƒãƒ¼ãƒ æ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    * 
-   * @param oldLabl ‹Œƒ‰ƒxƒ‹
-   * @param newLabel Vƒ‰ƒxƒ‹
+   * @param oldLabl æ—§ãƒ©ãƒ™ãƒ«
+   * @param newLabel æ–°ãƒ©ãƒ™ãƒ«
    ------------------------------*/
   function onRename(oldLabel, newLabel)
   {
   }
 
   /*------------------------------
-   * ŠeíƒEƒBƒWƒFƒbƒgƒCƒxƒ“ƒgƒtƒbƒNŠÖ”B
-   * ˆø”‚ÌÚ×‚Í KWidget‚ğQÆ‚³‚ê‚½‚µ
+   * å„ç¨®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚¤ãƒ™ãƒ³ãƒˆãƒ•ãƒƒã‚¯é–¢æ•°ã€‚
+   * å¼•æ•°ã®è©³ç´°ã¯ KWidgetã‚’å‚ç…§ã•ã‚ŒãŸã—
    ------------------------------*/
   function defaultKeyDownFunc(key, shift) {
     if (key == VK_DOWN
@@ -2607,7 +2607,7 @@ class KListItem
     }
   }
 
-  // ƒL[”½‰
+  // ã‚­ãƒ¼åå¿œ
   function onKeyPress(key) {
     switch (key) {
     case '+': {
@@ -2626,12 +2626,12 @@ class KListItem
     }
   }
 
-  // ƒL[ƒ_ƒEƒ“
+  // ã‚­ãƒ¼ãƒ€ã‚¦ãƒ³
   function onKeyDown(key, shift) {
     defaultKeyDownFunc(...);
   }
 
-  // ƒ}ƒEƒXƒ_ƒEƒ“
+  // ãƒã‚¦ã‚¹ãƒ€ã‚¦ãƒ³
   function onMouseDown(x, y, button, shift) {
     if (button == mbLeft
         && hasChild
@@ -2658,74 +2658,74 @@ class KListItem
     }
   }
   
-  // ƒ}ƒEƒXƒ€[ƒu
+  // ãƒã‚¦ã‚¹ãƒ ãƒ¼ãƒ–
   function onMouseMove(x, y, button, shift) {
   }
 
-  // ƒ}ƒEƒXƒAƒbƒv
+  // ãƒã‚¦ã‚¹ã‚¢ãƒƒãƒ—
   function onMouseUp(x, y, button, shift) {
   }
 
-  // ƒ}ƒEƒXƒGƒ“ƒ^[
+  // ãƒã‚¦ã‚¹ã‚¨ãƒ³ã‚¿ãƒ¼
   function onMouseEnter() {
   }
 
-  // ƒ}ƒEƒXƒŠ[ƒu
+  // ãƒã‚¦ã‚¹ãƒªãƒ¼ãƒ–
   function onMouseLeave() {
   }
 
-  // ‰EƒNƒŠƒbƒN
+  // å³ã‚¯ãƒªãƒƒã‚¯
   function onRightClick(x, y, shift) {
   }
 
-  // ¶ƒNƒŠƒbƒN
+  // å·¦ã‚¯ãƒªãƒƒã‚¯
   function onClick(x, y) {
   }
 
-  // ƒhƒ‰ƒbƒOƒGƒ“ƒ^[
+  // ãƒ‰ãƒ©ãƒƒã‚°ã‚¨ãƒ³ã‚¿ãƒ¼
   function onDragEnter(x, y, shift) {
   }
 
-  // ƒhƒ‰ƒbƒOƒ€[ƒu
+  // ãƒ‰ãƒ©ãƒƒã‚°ãƒ ãƒ¼ãƒ–
   function onDragMove(x, y, shift) {
   }
 
-  // ƒhƒ‰ƒbƒOƒŠ[ƒu
+  // ãƒ‰ãƒ©ãƒƒã‚°ãƒªãƒ¼ãƒ–
   function onDragLeave(x, y, shift) {
   }
 
-  // ƒpƒPƒbƒg‚Ìƒhƒ‰ƒbƒOŠJn
+  // ãƒ‘ã‚±ãƒƒãƒˆã®ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
   function beginDragPacket(packet) {
     root.beginDragPacket(packet);
   }
 
-  // ƒpƒPƒbƒg‚Ìó‚¯“ü‚ê”»’è
+  // ãƒ‘ã‚±ãƒƒãƒˆã®å—ã‘å…¥ã‚Œåˆ¤å®š
   function isPacketAcceptable(packet) {
     return false;
   }
 
-  // ƒpƒPƒbƒgN“ü
+  // ãƒ‘ã‚±ãƒƒãƒˆä¾µå…¥
   function onPacketEnter(x, y, packet, shift) {
-    // ”wŒiF‚ğ•ÏX
+    // èƒŒæ™¯è‰²ã‚’å¤‰æ›´
   }
 
-  // ƒpƒPƒbƒgƒ€[ƒu
+  // ãƒ‘ã‚±ãƒƒãƒˆãƒ ãƒ¼ãƒ–
   function onPacketMove(x, y, packet, shift) {
   }
 
-  // ƒpƒPƒbƒg—£’E
+  // ãƒ‘ã‚±ãƒƒãƒˆé›¢è„±
   function onPacketLeave(x, y, packet, shift) {
   }
 
-  // ƒpƒPƒbƒgƒhƒƒbƒv
+  // ãƒ‘ã‚±ãƒƒãƒˆãƒ‰ãƒ­ãƒƒãƒ—
   function onPacketDrop(x, y, packet, shift) {
   }
 
-  // ƒpƒPƒbƒgƒLƒƒƒ“ƒZƒ‹
+  // ãƒ‘ã‚±ãƒƒãƒˆã‚­ãƒ£ãƒ³ã‚»ãƒ«
   function onPacketCancel(packet) {
   }
 
-  // qƒpƒPƒbƒgó‚¯“ü‚ê‰Â”\
+  // å­ãƒ‘ã‚±ãƒƒãƒˆå—ã‘å…¥ã‚Œå¯èƒ½
   function isChildPacketAcceptable(index, packet) {
     return false;
   }
@@ -2739,15 +2739,15 @@ class KListItem
   function onChildPacketLeave(index, x, y, packet, shift) {
   }
 
-  // qƒpƒPƒbƒgƒhƒƒbƒv
+  // å­ãƒ‘ã‚±ãƒƒãƒˆãƒ‰ãƒ­ãƒƒãƒ—
   function onChildPacketDrop(index, x, y, packet, shift) {
   }
 
   /*------------------------------
-   * ƒtƒbƒNŠÖ”‚±‚±‚Ü‚Å
+   * ãƒ•ãƒƒã‚¯é–¢æ•°ã“ã“ã¾ã§
    ------------------------------*/
 
-  // ƒAƒCƒeƒ€‚Ì‰Â‹
+  // ã‚¢ã‚¤ãƒ†ãƒ ã®å¯è¦–
   property visible {
     getter {
       return _visible;
@@ -2764,17 +2764,17 @@ class KListItem
     }
   }
 
-  // ƒgƒOƒ‹‚Ì•\¦‚É—v‚·‚é•
-  // ˆÊ’uİ’è
+  // ãƒˆã‚°ãƒ«ã®è¡¨ç¤ºã«è¦ã™ã‚‹å¹…
+  // ä½ç½®è¨­å®š
   function locate(x, y) {
     left = x;
     top = y;
   }
 
   function calcLabelSize() {
-   // ‰üs‚Å•ªŠ„
-    var lines = label.split(/\r\n|\r|\n/);
-    // ƒTƒCƒY‚ğŒvZ‚µ‚Ä•Ô‚·
+   // æ”¹è¡Œã§åˆ†å‰²
+    var lines = label.split(/Â¥rÂ¥n|Â¥r|Â¥n/);
+    // ã‚µã‚¤ã‚ºã‚’è¨ˆç®—ã—ã¦è¿”ã™
     var tw = 0, th = 0;
     var linseSpacing;
     for(var i=0; i<lines.count; i++) {
@@ -2833,7 +2833,7 @@ class KListItem
     return inToggle(x, y) || inIcon(x, y) || inLabel(x, y);
   }
 
-  // ƒAƒCƒRƒ“ƒCƒ“ƒfƒbƒNƒX‚ğ“Á’è
+  // ã‚¢ã‚¤ã‚³ãƒ³ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’ç‰¹å®š
   function iconIndexAt(x) {
     x -= left;
     x -= toggleWidth + 2;
@@ -2852,7 +2852,7 @@ class KListItem
       opened = ! opened;
   }
   
-  // ‘cæƒAƒCƒeƒ€ˆê——
+  // ç¥–å…ˆã‚¢ã‚¤ãƒ†ãƒ ä¸€è¦§
   property ancestors {
     getter {
       var a, item;
@@ -2866,7 +2866,7 @@ class KListItem
     }
   }
 
-  // ‘cæ‚Å‚ ‚é‚©‚Ç‚¤‚©”»’è
+  // ç¥–å…ˆã§ã‚ã‚‹ã‹ã©ã†ã‹åˆ¤å®š
   function isAncestorOf(item) {
     for (; ! item.isRoot; item = item.parent) {
       if (item == this)
@@ -2875,12 +2875,12 @@ class KListItem
     return false;
   }
 
-  // q‘·‚Å‚ ‚é‚©‚Ç‚¤‚©”»’è
+  // å­å­«ã§ã‚ã‚‹ã‹ã©ã†ã‹åˆ¤å®š
   function isDescendantOf(item) {
     return item.isAncestorOf(this);
   }
 
-  // q‘·ƒAƒCƒeƒ€ˆê——
+  // å­å­«ã‚¢ã‚¤ãƒ†ãƒ ä¸€è¦§
   property descendants {
     getter {
       var i, num, child, item;
@@ -2916,7 +2916,7 @@ class KListItem
     }
   }
 
-  // ƒ‹[ƒgƒAƒCƒeƒ€‚ğQÆ‚·‚é
+  // ãƒ«ãƒ¼ãƒˆã‚¢ã‚¤ãƒ†ãƒ ã‚’å‚ç…§ã™ã‚‹
   property root {
     getter {
       if (_root === void
@@ -2926,14 +2926,14 @@ class KListItem
     }
   }
 
-  // window‚ğQÆ‚·‚é
+  // windowã‚’å‚ç…§ã™ã‚‹
   property window {
     getter {
       return root.window;
     }
   }
 
-  // ƒ}ƒ‹ƒ`ƒZƒŒƒ“ƒNƒVƒ‡ƒ“H
+  // ãƒãƒ«ãƒã‚»ãƒ¬ãƒ³ã‚¯ã‚·ãƒ§ãƒ³ï¼Ÿ
   property multipleSelection {
     getter {
       if (root)
@@ -2949,21 +2949,21 @@ class KListItem
     }
   }
 
-  // Ä”z’u‚ğ—v‹
+  // å†é…ç½®ã‚’è¦æ±‚
   function requireRelocate {
     if (root) {
       root.requireRelocate();
     }
   }
 
-  // Ä\’z‚ğ—v‹
+  // å†æ§‹ç¯‰ã‚’è¦æ±‚
   function requireReconstruct {
     if (root) {
       root.requireReconstruct();
     }
   }
 
-  // ƒAƒCƒRƒ“ƒŒƒCƒ„
+  // ã‚¢ã‚¤ã‚³ãƒ³ãƒ¬ã‚¤ãƒ¤
   function iconLayerAt(index) {
     var layer = _icon[index];
     if (layer instanceof "Layer")
@@ -2984,7 +2984,7 @@ class KListItem
     root.font.bold = _fontBold;
 //    root.drawText(left + toggleWidth + iconWidth, top + int((height - size) / 2 + root.spaceVertical / 2), label, fontColor,
 //                  opacity, true, 2048, WIN_WHITE, 2.5);
-    var lines = label.split(/\r\n|\r|\n/);
+    var lines = label.split(/Â¥rÂ¥n|Â¥r|Â¥n/);
     var rect = labelRect;
     for (var i = 0; i < lines.count; i++) {
       var text = lines[i];
@@ -3009,7 +3009,7 @@ class KListItem
     }
   }
 
-  // ƒ‰ƒxƒ‹‹éŒ`
+  // ãƒ©ãƒ™ãƒ«çŸ©å½¢
   property labelRect {
     getter {
       var hmargin = height - labelSize.height;
@@ -3019,13 +3019,13 @@ class KListItem
   }
 
   /**------------------------------
-   * u’lv‚ª•Ï‚í‚Á‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã€Œå€¤ã€ãŒå¤‰ã‚ã£ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * u’lv‚ğ‚ÂƒEƒBƒWƒFƒbƒg‚ÅA’l‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚Ü‚·B
-   * ƒfƒtƒHƒ‹ƒg‚Å‚ÍAparent ‚Ì onChildValueModified‚ğŒÄ‚Ô‚æ‚¤‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·B
+   * ã€Œå€¤ã€ã‚’æŒã¤ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã§ã€å€¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã¾ã™ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã€parent ã® onChildValueModifiedã‚’å‘¼ã¶ã‚ˆã†ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™ã€‚
    *
-   * @param newValue V‹K‚Ì’l
-   * @param oldValue •ÏX‘O‚Ì’l
+   * @param newValue æ–°è¦ã®å€¤
+   * @param oldValue å¤‰æ›´å‰ã®å€¤
    ------------------------------*/
   function onValueModified(newValue, oldValue) {
     if (parent !== void)
@@ -3033,15 +3033,15 @@ class KListItem
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚Ìu’lv‚ª•Ï‚í‚Á‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã€Œå€¤ã€ãŒå¤‰ã‚ã£ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * qƒEƒBƒWƒFƒbƒg‚Ìu’lv’l‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚Ü‚·B
-   * ƒfƒtƒHƒ‹ƒg‚Å‚ÍA‚³‚ç‚É parent ‚Ì onChildValueModified‚ğŒÄ‚Ô‚æ‚¤‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·B
-   * ‚Ç‚±‚©‚ÌƒEƒBƒWƒFƒbƒg‚ªŠÖ”‚ğƒI[ƒo[ƒ‰ƒCƒh‚µ‚Äˆ—‚ğs‚í‚È‚¢ŒÀ‚èA
-   * ’l•ÏX‚Ì’Ê’m‚Í KWindow ‚Ü‚Å“Í‚«‚Ü‚·B
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã€Œå€¤ã€å€¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã¾ã™ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã€ã•ã‚‰ã« parent ã® onChildValueModifiedã‚’å‘¼ã¶ã‚ˆã†ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™ã€‚
+   * ã©ã“ã‹ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãŒé–¢æ•°ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¦å‡¦ç†ã‚’è¡Œã‚ãªã„é™ã‚Šã€
+   * å€¤å¤‰æ›´ã®é€šçŸ¥ã¯ KWindow ã¾ã§å±Šãã¾ã™ã€‚
    *
-   * @param newValue V‹K‚Ì’l
-   * @param oldValue •ÏX‘O‚Ì’l
+   * @param newValue æ–°è¦ã®å€¤
+   * @param oldValue å¤‰æ›´å‰ã®å€¤
    ------------------------------*/
   function onChildValueModified(child, newValue, oldValue) {
     if (parent !== void)
@@ -3049,7 +3049,7 @@ class KListItem
   }
 
   /**------------------------------
-   * ƒm[ƒh‚Ì—LŒøA–³Œø‚ÌØ‚è‘Ö‚¦
+   * ãƒãƒ¼ãƒ‰ã®æœ‰åŠ¹ã€ç„¡åŠ¹ã®åˆ‡ã‚Šæ›¿ãˆ
    ------------------------------*/
   property enabled {
     getter {
@@ -3099,7 +3099,7 @@ class KListItem
   }
 
   /**------------------------------
-   * ‹Œd—l‚Æ‚ÌŒİŠ·«‚Ì‚½‚ß‚Ìƒ_ƒ~[ŠÖ”ŒQ
+   * æ—§ä»•æ§˜ã¨ã®äº’æ›æ€§ã®ãŸã‚ã®ãƒ€ãƒŸãƒ¼é–¢æ•°ç¾¤
    ------------------------------*/
   function select {
     focus();
@@ -3119,7 +3119,7 @@ class KListItem
 };
 
 /**----------------------------------------------------------------------
- * ƒEƒBƒWƒFƒbƒgƒzƒ‹ƒ_[ƒtƒŒ[ƒ€
+ * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ›ãƒ«ãƒ€ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ 
  ----------------------------------------------------------------------*/
 class KWidgetHolderFrame extends KWidget
 {
@@ -3132,9 +3132,9 @@ class KWidgetHolderFrame extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ”z’u‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’é…ç½®ã™ã‚‹
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function add(child) {
     this.child = child;
@@ -3143,10 +3143,10 @@ class KWidgetHolderFrame extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğíœ‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å‰Šé™¤ã™ã‚‹
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(child, doInvalidate = true) {
     this.child = void;
@@ -3158,7 +3158,7 @@ class KWidgetHolderFrame extends KWidget
 
 
   /*------------------------------
-   * ŠeíƒtƒbƒNŠÖ”
+   * å„ç¨®ãƒ•ãƒƒã‚¯é–¢æ•°
    ------------------------------*/
   function onChildMinMaxSizeModified {
     invalidateLayout();
@@ -3212,7 +3212,7 @@ class KWidgetHolderFrame extends KWidget
 };
 
 /**----------------------------------------------------------------------
- * ƒEƒBƒWƒFƒbƒgƒzƒ‹ƒ_[ƒŠƒXƒgƒAƒCƒeƒ€
+ * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ›ãƒ«ãƒ€ãƒ¼ãƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ 
  ----------------------------------------------------------------------*/
 class KWidgetHolderListItem extends KListItem
 { 
@@ -3257,7 +3257,7 @@ class KWidgetHolderListItem extends KListItem
   }
 
   /**------------------------------
-   * ƒtƒH[ƒJƒX‰Â”\H
+   * ãƒ•ã‚©ãƒ¼ã‚«ã‚¹å¯èƒ½ï¼Ÿ
    ------------------------------*/
   property focusable {
     getter {
@@ -3322,7 +3322,7 @@ class KWidgetHolderListItem extends KListItem
   }
 
   /**------------------------------
-   * ‰i‘±‰»«‘‚ğƒoƒCƒ“ƒh‚·‚é
+   * æ°¸ç¶šåŒ–è¾æ›¸ã‚’ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    ------------------------------*/
   function bindPersistentDictionary(dict) {
     if (_isAvoidDictionaryRegistration)

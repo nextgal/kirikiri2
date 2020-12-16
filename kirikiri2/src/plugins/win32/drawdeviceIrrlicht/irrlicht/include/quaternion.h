@@ -98,8 +98,8 @@ class quaternion
 		/** Axis must be unit length.
 		The quaternion representing the rotation is
 		q = cos(A/2)+sin(A/2)*(x*i+y*j+z*k).
-		\param angle Rotation Angle in radians.
-		\param axis Rotation axis. */
+		¥param angle Rotation Angle in radians.
+		¥param axis Rotation axis. */
 		void fromAngleAxis (f32 angle, const vector3df& axis);
 
 		//! Fills an angle (radians) around an axis (unit vector)

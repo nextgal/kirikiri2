@@ -24,7 +24,7 @@ CDummyTransformationSceneNode::CDummyTransformationSceneNode(
 
 
 //! destructor
-CDummyTransformationSceneNode::~CDummyTransformationSceneNode()
+CDummyTransformationSceneNode::‾CDummyTransformationSceneNode()
 {
 }
 

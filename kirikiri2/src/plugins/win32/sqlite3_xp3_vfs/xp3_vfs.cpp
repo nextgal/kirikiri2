@@ -1,9 +1,9 @@
 /****************************************************************************/
 /*! @file
-@brief ‹g—¢‹g—¢‚ÌXP3 —p VFS
+@brief å‰é‡Œå‰é‡Œã®XP3 ç”¨ VFS
 
-“Ç‚İæ‚èê—p‚ÅAƒƒbƒN‚È‚Ç‚àƒTƒ|[ƒg‚µ‚Ä‚¢‚È‚¢
-‚¢‚­‚Â‚©‚Ìƒƒ\ƒbƒh‚Í SQLite ‚Ì os_win.c ‚©‚ç—¬—p‚µ‚Ä‚¢‚é
+èª­ã¿å–ã‚Šå°‚ç”¨ã§ã€ãƒ­ãƒƒã‚¯ãªã©ã‚‚ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ãªã„
+ã„ãã¤ã‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ SQLite ã® os_win.c ã‹ã‚‰æµç”¨ã—ã¦ã„ã‚‹
 
 -----------------------------------------------------------------------------
 	Copyright (C) 2008 T.Imoto <http://www.kaede-software.com>
@@ -25,7 +25,7 @@
 #endif
 
 //--------------------------------------------------------------------------------------------------
-// ƒ†[ƒeƒBƒŠƒeƒB
+// ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£
 //--------------------------------------------------------------------------------------------------
 static int sqlite3_os_type = 0;
 int isNT()
@@ -45,7 +45,7 @@ bool utf8ToUtf16( const char* source, std::wstring& output )
 	std::vector<wchar_t> outbuf( len+1, 0 );
 	int	ret = ::MultiByteToWideChar( CP_UTF8, 0, source, -1, &(outbuf[0]), len );
 	if( ret ) {
-		outbuf[ret] = L'\0';
+		outbuf[ret] = L'Â¥0';
 		output.assign( &(outbuf[0]) );
 		return true;
 	}
@@ -57,7 +57,7 @@ bool utf16ToMbs( const wchar_t* source, std::string& output )
 	std::vector<char> outbuf( len+1, 0 );
 	int	ret = ::WideCharToMultiByte( CP_ACP, 0, source, -1, &(outbuf[0]), len, NULL, NULL );
 	if( ret ) {
-		outbuf[ret] = L'\0';
+		outbuf[ret] = L'Â¥0';
 		output.assign( &(outbuf[0]) );
 		return true;
 	}
@@ -75,7 +75,7 @@ bool utf8ToMbs( const char* source, std::string& output )
 }
 
 //--------------------------------------------------------------------------------------------------
-// ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX
+// ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹
 //--------------------------------------------------------------------------------------------------
 struct xp3File
 {
@@ -121,7 +121,7 @@ static int xp3Read( sqlite3_file *id, void *pBuf, int iAmt, sqlite3_int64 iOfst 
 	return SQLITE_IOERR_READ;
 }
 
-// ‚½‚Ô‚ñAƒA[ƒJƒCƒu‚Ì‚Í¸”s‚·‚é‚¾‚ë‚¤‚¯‚ÇAˆê‰‘‚¢‚Ä‚¨‚­
+// ãŸã¶ã‚“ã€ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã®æ™‚ã¯å¤±æ•—ã™ã‚‹ã ã‚ã†ã‘ã©ã€ä¸€å¿œæ›¸ã„ã¦ãŠã
 static int xp3Write( sqlite3_file *id, const void *pBuf, int iAmt, sqlite3_int64 iOfst )
 {
 	xp3File*	file = (xp3File*)id;
@@ -152,9 +152,9 @@ static int xp3Write( sqlite3_file *id, const void *pBuf, int iAmt, sqlite3_int64
 	return SQLITE_IOERR_WRITE;
 }
 
-// ƒtƒ@ƒCƒ‹ƒTƒCƒY‚ğ•ÏX‚·‚é
-// ‚½‚Ô‚ñA‹@”\‚µ‚È‚¢
-// SetSize ‚Í E_NOTIMPL ‚ª•Ô‚Á‚Ä‚­‚é‚Í‚¸
+// ãƒ•ã‚¡ã‚¤ãƒ«ã‚µã‚¤ã‚ºã‚’å¤‰æ›´ã™ã‚‹
+// ãŸã¶ã‚“ã€æ©Ÿèƒ½ã—ãªã„
+// SetSize ã¯ E_NOTIMPL ãŒè¿”ã£ã¦ãã‚‹ã¯ãš
 static int xp3Truncate( sqlite3_file *id, sqlite3_int64 size )
 {
 	xp3File*	file = (xp3File*)id;
@@ -173,11 +173,11 @@ static int xp3Truncate( sqlite3_file *id, sqlite3_int64 size )
 	return SQLITE_IOERR_TRUNCATE;
 }
 
-// –¢‘‚«‚İ‚Ìƒf[ƒ^‚ğ‘‚«‚Ş
+// æœªæ›¸ãè¾¼ã¿ã®ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
 static int xp3Sync(sqlite3_file *id, int flags)
 {
-	// ŠY“–‚·‚é‚Ì‚ªŒ©“–‚½‚ç‚È‚¢‚Ì‚ÅA‰½‚à‚µ‚È‚¢
-	// ƒnƒ“ƒhƒ‹”Å‚Í FlushFileBuffers ‚ğg‚¤‚İ‚½‚¢
+	// è©²å½“ã™ã‚‹ã®ãŒè¦‹å½“ãŸã‚‰ãªã„ã®ã§ã€ä½•ã‚‚ã—ãªã„
+	// ãƒãƒ³ãƒ‰ãƒ«ç‰ˆã¯ FlushFileBuffers ã‚’ä½¿ã†ã¿ãŸã„
 	return SQLITE_OK;
 }
 
@@ -198,8 +198,8 @@ static int xp3FileSize(sqlite3_file *id, sqlite3_int64 *pSize)
 	return SQLITE_IOERR_FSTAT;
 }
 
-// IStream::LockRegion/UnlockRegion‚ğg‚¦‚ÎÀŒ»‚Å‚«‚é‚Æv‚¤‚ªA
-// ‹g—¢‹g—¢‚Å‚ÍÀ‘•‚³‚ê‚Ä‚¢‚È‚¢‚Ì‚ÅA‰½‚à‚µ‚È‚¢
+// IStream::LockRegion/UnlockRegionã‚’ä½¿ãˆã°å®Ÿç¾ã§ãã‚‹ã¨æ€ã†ãŒã€
+// å‰é‡Œå‰é‡Œã§ã¯å®Ÿè£…ã•ã‚Œã¦ã„ãªã„ã®ã§ã€ä½•ã‚‚ã—ãªã„
 static int xp3Lock(sqlite3_file *id, int locktype)
 {
 	return SQLITE_OK;
@@ -207,13 +207,13 @@ static int xp3Lock(sqlite3_file *id, int locktype)
 
 static int xp3CheckReservedLock(sqlite3_file *id, int *pResOut)
 {
-	// ‚¢‚Â‚àƒƒbƒN‚µ‚Ä‚¢‚È‚¢
+	// ã„ã¤ã‚‚ãƒ­ãƒƒã‚¯ã—ã¦ã„ãªã„
 	return 0;
 }
 
 static int xp3Unlock(sqlite3_file *id, int locktype)
 {
-	// ‚¢‚Â‚àƒƒbƒN‚µ‚Ä‚¢‚È‚¢
+	// ã„ã¤ã‚‚ãƒ­ãƒƒã‚¯ã—ã¦ã„ãªã„
 	return SQLITE_OK;
 }
 
@@ -252,7 +252,7 @@ static const sqlite3_io_methods xp3IoMethod = {
 };
 
 //--------------------------------------------------------------------------------------------------
-// VFS ŠÖ”
+// VFS é–¢æ•°
 //--------------------------------------------------------------------------------------------------
 static int xp3Open( sqlite3_vfs *vfs, const char *zName, sqlite3_file *id, int flags, int *pOutFlags )
 {
@@ -262,7 +262,7 @@ static int xp3Open( sqlite3_vfs *vfs, const char *zName, sqlite3_file *id, int f
 		return SQLITE_NOMEM;
 
 	if( flags & (SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE | SQLITE_OPEN_DELETEONCLOSE) ) {
-		// ‘‚«‚İƒAƒNƒZƒX‚â¶¬A•Â‚¶‚½‚Éíœ‚·‚é‚È‚Ç‚Ío—ˆ‚È‚¢
+		// æ›¸ãè¾¼ã¿ã‚¢ã‚¯ã‚»ã‚¹ã‚„ç”Ÿæˆã€é–‰ã˜ãŸæ™‚ã«å‰Šé™¤ã™ã‚‹ãªã©ã¯å‡ºæ¥ãªã„
 		return SQLITE_READONLY;
 	}
 
@@ -314,14 +314,14 @@ static int xp3Access( sqlite3_vfs *vfs, const char *zFilename, int flags, int *p
 	return SQLITE_OK;
 }
 
-// XP3“à‚Å‚Íƒtƒ‹ƒpƒX‚ğ•Ô‚³‚¸A‚»‚Ì‚Ü‚Ü•Ô‚·
-// ƒpƒbƒ`‚È‚Ç‚ğ“–‚Ä‚ÄA‚»‚¿‚ç‘¤‚ğ“Ç‚Ş•K—v‚ªo‚é‰Â”\«‚à‚ ‚é‚Ì‚ÅAƒtƒ‹ƒpƒX‚Å“Ç‚Ş‚Ì‚Í‘Ã“–‚Å‚Í‚È‚¢‚Æv‚í‚ê‚é
+// XP3å†…ã§ã¯ãƒ•ãƒ«ãƒ‘ã‚¹ã‚’è¿”ã•ãšã€ãã®ã¾ã¾è¿”ã™
+// ãƒ‘ãƒƒãƒãªã©ã‚’å½“ã¦ã¦ã€ãã¡ã‚‰å´ã‚’èª­ã‚€å¿…è¦ãŒå‡ºã‚‹å¯èƒ½æ€§ã‚‚ã‚ã‚‹ã®ã§ã€ãƒ•ãƒ«ãƒ‘ã‚¹ã§èª­ã‚€ã®ã¯å¦¥å½“ã§ã¯ãªã„ã¨æ€ã‚ã‚Œã‚‹
 static int xp3FullPathname( sqlite3_vfs *vfs, const char *zRelative, int nFull, char *zFull )
 {
 	sqlite3_snprintf(nFull, zFull, "%s", zRelative);
 	return SQLITE_OK;
 }
-// DLL ‚Í XP3 “à‚Å‚Í‚È‚¢‚à‚Ì‚Æ‚·‚é
+// DLL ã¯ XP3 å†…ã§ã¯ãªã„ã‚‚ã®ã¨ã™ã‚‹
 static void *xp3DlOpen(sqlite3_vfs *pVfs, const char *zFilename)
 {
 	HANDLE h;

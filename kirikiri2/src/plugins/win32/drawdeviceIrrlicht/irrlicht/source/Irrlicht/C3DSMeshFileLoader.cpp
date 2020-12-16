@@ -116,7 +116,7 @@ C3DSMeshFileLoader::C3DSMeshFileLoader(io::IFileSystem* fs, video::IVideoDriver*
 
 
 //! destructor
-C3DSMeshFileLoader::~C3DSMeshFileLoader()
+C3DSMeshFileLoader::‾C3DSMeshFileLoader()
 {
 	cleanUp();
 
@@ -142,7 +142,7 @@ bool C3DSMeshFileLoader::isALoadableFileExtension(const c8* filename) const
 
 
 //! creates/loads an animated mesh from the file.
-//! \return Pointer to the created mesh. Returns 0 if loading failed.
+//! ¥return Pointer to the created mesh. Returns 0 if loading failed.
 //! If you no longer need the mesh, you should call IAnimatedMesh::drop().
 //! See IReferenceCounted::drop() for more information.
 IAnimatedMesh* C3DSMeshFileLoader::createMesh(io::IReadFile* file)
@@ -1020,7 +1020,7 @@ core::stringc C3DSMeshFileLoader::getTextureFileName(const core::stringc& textur
 	idx = model.findLast('/');
 
 	if (idx == -1)
-		idx = model.findLast('\\');
+		idx = model.findLast('¥¥');
 
 	if (idx == -1)
 		return core::stringc();

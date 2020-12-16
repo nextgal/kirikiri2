@@ -47,7 +47,7 @@ struct grammar
     };
 
     grammar() {}
-    ~grammar() { impl::grammar_destruct(this); }
+    ‾grammar() { impl::grammar_destruct(this); }
 
     template <typename ScannerT>
     typename parser_result<self_t, ScannerT>::type

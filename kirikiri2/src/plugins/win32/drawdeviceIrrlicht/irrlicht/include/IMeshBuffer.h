@@ -63,52 +63,52 @@ namespace scene
 	public:
 
 		//! Destructor
-		virtual ~IMeshBuffer() { }
+		virtual ‾IMeshBuffer() { }
 
 		//! Get the material of this meshbuffer
-		/** \return Material of this buffer. */
+		/** ¥return Material of this buffer. */
 		virtual video::SMaterial& getMaterial() = 0;
 
 		//! Get the material of this meshbuffer
-		/** \return Material of this buffer. */
+		/** ¥return Material of this buffer. */
 		virtual const video::SMaterial& getMaterial() const = 0;
 
 		//! Get type of vertex data which is stored in this meshbuffer.
-		/** \return Vertex type of this buffer. */
+		/** ¥return Vertex type of this buffer. */
 		virtual video::E_VERTEX_TYPE getVertexType() const = 0;
 
 		//! Get access to vertex data. The data is an array of vertices.
 		/** Which vertex type is used can be determined by getVertexType().
-		\return Pointer to array of vertices. */
+		¥return Pointer to array of vertices. */
 		virtual const void* getVertices() const = 0;
 
 		//! Get access to vertex data. The data is an array of vertices.
 		/** Which vertex type is used can be determined by getVertexType().
-		\return Pointer to array of vertices. */
+		¥return Pointer to array of vertices. */
 		virtual void* getVertices() = 0;
 
 		//! Get amount of vertices in meshbuffer.
-		/** \return Number of vertices in this buffer. */
+		/** ¥return Number of vertices in this buffer. */
 		virtual u32 getVertexCount() const = 0;
 
 		//! Get access to Indices.
-		/** \return Pointer to indices array. */
+		/** ¥return Pointer to indices array. */
 		virtual const u16* getIndices() const = 0;
 
 		//! Get access to Indices.
-		/** \return Pointer to indices array. */
+		/** ¥return Pointer to indices array. */
 		virtual u16* getIndices() = 0;
 
 		//! Get amount of indices in this meshbuffer.
-		/** \return Number of indices in this buffer. */
+		/** ¥return Number of indices in this buffer. */
 		virtual u32 getIndexCount() const = 0;
 
 		//! Get the axis aligned bounding box of this meshbuffer.
-		/** \return Axis aligned bounding box of this buffer. */
+		/** ¥return Axis aligned bounding box of this buffer. */
 		virtual const core::aabbox3df& getBoundingBox() const = 0;
 
 		//! Set axis aligned bounding box
-		/** \param box User defined axis aligned bounding box to use
+		/** ¥param box User defined axis aligned bounding box to use
 		for this buffer. */
 		virtual void setBoundingBox(const core::aabbox3df& box) = 0;
 
@@ -117,15 +117,15 @@ namespace scene
 
 		//! Append the vertices and indices to the current buffer
 		/** Only works for compatible vertex types.
-		\param vertices Pointer to a vertex array.
-		\param numVertices Number of vertices in the array.
-		\param indices Pointer to index array.
-		\param numIndices Number of indices in array. */
+		¥param vertices Pointer to a vertex array.
+		¥param numVertices Number of vertices in the array.
+		¥param indices Pointer to index array.
+		¥param numIndices Number of indices in array. */
 		virtual void append(const void* const vertices, u32 numVertices, const u16* const indices, u32 numIndices) = 0;
 
 		//! Append the meshbuffer to the current buffer
 		/** Only works for compatible vertex types
-		\param other Buffer to append to this one. */
+		¥param other Buffer to append to this one. */
 		virtual void append(const IMeshBuffer* const other) = 0;
 	};
 

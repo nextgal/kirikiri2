@@ -74,7 +74,7 @@ namespace boost {
       class BOOST_SIGNALS_DECL call_notification {
       public:
         call_notification(const shared_ptr<signal_base_impl>&);
-        ~call_notification();
+        ‾call_notification();
         
         shared_ptr<signal_base_impl> impl;
       };
@@ -96,7 +96,7 @@ namespace boost {
             base->flags.clearing = true;
           }
 
-          ~temporarily_set_clearing()
+          ‾temporarily_set_clearing()
           {
             base->flags.clearing = false;
           }
@@ -108,7 +108,7 @@ namespace boost {
         friend class temporarily_set_clearing;
 
         signal_base_impl(const compare_type&);
-        ~signal_base_impl();
+        ‾signal_base_impl();
 
         // Disconnect all slots connected to this signal
         void disconnect_all_slots();
@@ -163,7 +163,7 @@ namespace boost {
           impl.reset(new signal_base_impl(comp));
         }
 
-        ~signal_base();
+        ‾signal_base();
 
       public:
         // Disconnect all slots connected to this signal

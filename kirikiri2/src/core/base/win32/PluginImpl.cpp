@@ -234,7 +234,7 @@ struct tTVPPlugin
 	std::vector<ttstr> SupportedExts;
 
 	tTVPPlugin(const ttstr & name, ITSSStorageProvider *storageprovider);
-	~tTVPPlugin();
+	‾tTVPPlugin();
 
 	bool Uninit();
 };
@@ -373,7 +373,7 @@ tTVPPlugin::tTVPPlugin(const ttstr & name, ITSSStorageProvider *storageprovider)
 	}
 }
 //---------------------------------------------------------------------------
-tTVPPlugin::~tTVPPlugin()
+tTVPPlugin::‾tTVPPlugin()
 {
 }
 //---------------------------------------------------------------------------
@@ -532,15 +532,15 @@ void TVPLoadPluigins(void)
 	// Plugin load order is to be decided using its name;
 	// aaa.tpm is to be loaded before aab.tpm (sorted by ASCII order)
 
-	// search plugins from path: (exepath), (exepath)\system, (exepath)\plugin
+	// search plugins from path: (exepath), (exepath)¥system, (exepath)¥plugin
 	std::vector<tTVPFoundPlugin> list;
 
 	AnsiString exepath =
 		IncludeTrailingBackslash(ExtractFileDir(ParamStr(0)));
 
 	TVPSearchPluginsAt(list, exepath);
-	TVPSearchPluginsAt(list, exepath + "system\\");
-	TVPSearchPluginsAt(list, exepath + "plugin\\");
+	TVPSearchPluginsAt(list, exepath + "system¥¥");
+	TVPSearchPluginsAt(list, exepath + "plugin¥¥");
 
 	// sort by filename
 	std::sort(list.begin(), list.end());
@@ -898,7 +898,7 @@ bool TVPGetFileVersionOf(const char * module_filename, tjs_int &major, tjs_int &
 			{
 				if(GetFileVersionInfo(filename, 0, size, (void*)VersionInfo))
 				{
-					if(VerQueryValue((void*)VersionInfo, "\\", (void**)(&FixedFileInfo),
+					if(VerQueryValue((void*)VersionInfo, "¥¥", (void**)(&FixedFileInfo),
 						&dum))
 					{
 						major   = FixedFileInfo->dwFileVersionMS >> 16;

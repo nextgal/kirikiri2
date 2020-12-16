@@ -61,7 +61,7 @@
 /* print nastygram and leave */
 local void quit(char *why)
 {
-    fprintf(stderr, "fitblk abort: %s\n", why);
+    fprintf(stderr, "fitblk abort: %s¥n", why);
     exit(1);
 }
 
@@ -171,7 +171,7 @@ int main(int argc, char **argv)
         assert(ret != Z_STREAM_ERROR);
         free(blk);
         fprintf(stderr,
-                "%u bytes unused out of %u requested (all input)\n",
+                "%u bytes unused out of %u requested (all input)¥n",
                 size - have, size);
         return 0;
     }
@@ -227,7 +227,7 @@ int main(int argc, char **argv)
     assert(ret != Z_STREAM_ERROR);
     free(blk);
     fprintf(stderr,
-            "%u bytes unused out of %u requested (%lu input)\n",
+            "%u bytes unused out of %u requested (%lu input)¥n",
             size - have, size, def.total_in);
     return 0;
 }

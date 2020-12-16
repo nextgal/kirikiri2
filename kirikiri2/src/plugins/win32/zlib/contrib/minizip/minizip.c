@@ -101,10 +101,10 @@ uLong filetime(f, tmzip, dt)
 
     strncpy(name, f,MAXFILENAME-1);
     /* strncpy doesnt append the trailing NULL, of the string is too long. */
-    name[ MAXFILENAME ] = '\0';
+    name[ MAXFILENAME ] = '¥0';
 
     if (name[len - 1] == '/')
-      name[len - 1] = '\0';
+      name[len - 1] = '¥0';
     /* not all systems allow stat'ing a file with / appended */
     if (stat(name,&s)==0)
     {
@@ -152,19 +152,19 @@ int check_exist_file(filename)
 
 void do_banner()
 {
-    printf("MiniZip 1.1, demo of zLib + MiniZip64 package, written by Gilles Vollant\n");
-    printf("more info on MiniZip at http://www.winimage.com/zLibDll/minizip.html\n\n");
+    printf("MiniZip 1.1, demo of zLib + MiniZip64 package, written by Gilles Vollant¥n");
+    printf("more info on MiniZip at http://www.winimage.com/zLibDll/minizip.html¥n¥n");
 }
 
 void do_help()
 {
-    printf("Usage : minizip [-o] [-a] [-0 to -9] [-p password] [-j] file.zip [files_to_add]\n\n" \
-           "  -o  Overwrite existing file.zip\n" \
-           "  -a  Append to existing file.zip\n" \
-           "  -0  Store only\n" \
-           "  -1  Compress faster\n" \
-           "  -9  Compress better\n\n" \
-           "  -j  exclude path. store only the file name.\n\n");
+    printf("Usage : minizip [-o] [-a] [-0 to -9] [-p password] [-j] file.zip [files_to_add]¥n¥n" ¥
+           "  -o  Overwrite existing file.zip¥n" ¥
+           "  -a  Append to existing file.zip¥n" ¥
+           "  -0  Store only¥n" ¥
+           "  -1  Compress faster¥n" ¥
+           "  -9  Compress better¥n¥n" ¥
+           "  -j  exclude path. store only the file name.¥n¥n");
 }
 
 /* calculate the CRC32 of a file,
@@ -189,7 +189,7 @@ int getFileCrc(const char* filenameinzip,void*buf,unsigned long size_buf,unsigne
             if (size_read < size_buf)
                 if (feof(fin)==0)
             {
-                printf("error in reading %s\n",filenameinzip);
+                printf("error in reading %s¥n",filenameinzip);
                 err = ZIP_ERRNO;
             }
 
@@ -203,7 +203,7 @@ int getFileCrc(const char* filenameinzip,void*buf,unsigned long size_buf,unsigne
         fclose(fin);
 
     *result_crc=calculate_crc;
-    printf("file %s crc %lx\n", filenameinzip, calculate_crc);
+    printf("file %s crc %lx¥n", filenameinzip, calculate_crc);
     return err;
 }
 
@@ -219,7 +219,7 @@ int isLargeFile(const char* filename)
 
     pos = ftello64(pFile);
 
-                printf("File : %s is %lld bytes\n", filename, pos);
+                printf("File : %s is %lld bytes¥n", filename, pos);
 
     if(pos >= 0xffffffff)
      largeFile = 1;
@@ -261,7 +261,7 @@ int main(argc,argv)
             {
                 const char *p=argv[i]+1;
 
-                while ((*p)!='\0')
+                while ((*p)!='¥0')
                 {
                     char c=*(p++);;
                     if ((c=='o') || (c=='O'))
@@ -294,7 +294,7 @@ int main(argc,argv)
     buf = (void*)malloc(size_buf);
     if (buf==NULL)
     {
-        printf("Error allocating memory\n");
+        printf("Error allocating memory¥n");
         return ZIP_INTERNALERROR;
     }
 
@@ -310,7 +310,7 @@ int main(argc,argv)
         zipok = 1 ;
         strncpy(filename_try, argv[zipfilenamearg],MAXFILENAME-1);
         /* strncpy doesnt append the trailing NULL, of the string is too long. */
-        filename_try[ MAXFILENAME ] = '\0';
+        filename_try[ MAXFILENAME ] = '¥0';
 
         len=(int)strlen(filename_try);
         for (i=0;i<len;i++)
@@ -367,11 +367,11 @@ int main(argc,argv)
 
         if (zf == NULL)
         {
-            printf("error opening %s\n",filename_try);
+            printf("error opening %s¥n",filename_try);
             err= ZIP_ERRNO;
         }
         else
-            printf("creating %s\n",filename_try);
+            printf("creating %s¥n",filename_try);
 
         for (i=zipfilenamearg+1;(i<argc) && (err==ZIP_OK);i++)
         {
@@ -411,7 +411,7 @@ int main(argc,argv)
                                                          /* The path name saved, should not include a leading slash. */
                /*if it did, windows/xp and dynazip couldn't read the zip file. */
                  savefilenameinzip = filenameinzip;
-                 while( savefilenameinzip[0] == '\\' || savefilenameinzip[0] == '/' )
+                 while( savefilenameinzip[0] == '¥¥' || savefilenameinzip[0] == '/' )
                  {
                      savefilenameinzip++;
                  }
@@ -423,7 +423,7 @@ int main(argc,argv)
                      const char *lastslash = 0;
                      for( tmpptr = savefilenameinzip; *tmpptr; tmpptr++)
                      {
-                         if( *tmpptr == '\\' || *tmpptr == '/')
+                         if( *tmpptr == '¥¥' || *tmpptr == '/')
                          {
                              lastslash = tmpptr;
                          }
@@ -444,14 +444,14 @@ int main(argc,argv)
                                  password,crcFile, zip64);
 
                 if (err != ZIP_OK)
-                    printf("error in opening %s in zipfile\n",filenameinzip);
+                    printf("error in opening %s in zipfile¥n",filenameinzip);
                 else
                 {
                     fin = fopen64(filenameinzip,"rb");
                     if (fin==NULL)
                     {
                         err=ZIP_ERRNO;
-                        printf("error in opening %s for reading\n",filenameinzip);
+                        printf("error in opening %s for reading¥n",filenameinzip);
                     }
                 }
 
@@ -463,7 +463,7 @@ int main(argc,argv)
                         if (size_read < size_buf)
                             if (feof(fin)==0)
                         {
-                            printf("error in reading %s\n",filenameinzip);
+                            printf("error in reading %s¥n",filenameinzip);
                             err = ZIP_ERRNO;
                         }
 
@@ -472,7 +472,7 @@ int main(argc,argv)
                             err = zipWriteInFileInZip (zf,buf,size_read);
                             if (err<0)
                             {
-                                printf("error in writing %s in the zipfile\n",
+                                printf("error in writing %s in the zipfile¥n",
                                                  filenameinzip);
                             }
 
@@ -488,14 +488,14 @@ int main(argc,argv)
                 {
                     err = zipCloseFileInZip(zf);
                     if (err!=ZIP_OK)
-                        printf("error in closing %s in the zipfile\n",
+                        printf("error in closing %s in the zipfile¥n",
                                     filenameinzip);
                 }
             }
         }
         errclose = zipClose(zf,NULL);
         if (errclose != ZIP_OK)
-            printf("error in closing %s\n",filename_try);
+            printf("error in closing %s¥n",filename_try);
     }
     else
     {

@@ -1,6 +1,6 @@
 /****************************************************************************/
 /*! @file
-@brief DirectShow��HRESULT�����b�Z�[�W�ɕς����O�N���X
+@brief DirectShowのHRESULTをメッセージに変える例外クラス
 
 -----------------------------------------------------------------------------
 	Copyright (C) 2004 T.Imoto <http://www.kaede-software.com>
@@ -18,10 +18,10 @@
 #include "tp_stub.h"
 
 //----------------------------------------------------------------------------
-//! @brief DirectShow��HRESULT�����b�Z�[�W�ɕς����O�N���X
+//! @brief DirectShowのHRESULTをメッセージに変える例外クラス
 //! 
-//! ������̏����������܂߂ɍs���̂ŁA�g�p���̓G���[���݂̂Ɍ���A
-//! �G���[������if���̒��ŃC���X�^���X������悤�ɂ��������悢�B
+//! 文字列の初期化をこまめに行うので、使用時はエラー時のみに限り、
+//! エラー処理のif文の中でインスタンス化するようにした方がよい。
 //----------------------------------------------------------------------------
 class DShowException
 {
@@ -33,7 +33,7 @@ public:
 	DShowException(const DShowException& right) throw( );
 	DShowException( HRESULT hr ) throw( );
 	DShowException& operator=(const DShowException& right) throw( );
-	virtual ~DShowException() throw( );
+	virtual ‾DShowException() throw( );
 	virtual const TCHAR *what( ) const throw( );
 	void SetHResult( HRESULT hr ) throw( );
 };

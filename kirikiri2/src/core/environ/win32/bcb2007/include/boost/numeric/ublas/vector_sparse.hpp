@@ -59,7 +59,7 @@ namespace boost { namespace numeric { namespace ublas {
                 d_ = *it;
         }
         BOOST_UBLAS_INLINE
-        ~sparse_vector_element () {
+        ‾sparse_vector_element () {
             if (! it_)
                 it_ = (*this) ().find_element (i_);
             BOOST_UBLAS_CHECK (it_, internal_logic ());

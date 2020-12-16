@@ -2093,7 +2093,7 @@ void __fastcall TTVPWindowForm::TabMenuItemClick(TObject *Sender)
 	// tab pressed
 	WORD key = VK_TAB;
 	FormKeyDown(this, key, TShiftState());
-	char keychar = '\t';
+	char keychar = '¥t';
 	FormKeyPress(this, keychar);
 }
 //---------------------------------------------------------------------------

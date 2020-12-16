@@ -75,18 +75,18 @@ void __fastcall TProjectSettingForm::BrowseExeButtonClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TProjectSettingForm::BrowseProjectFolderButtonClick(TObject *Sender)
 {
-	WideString Root="ƒfƒXƒNƒgƒbƒv";
+	WideString Root="ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—";
 	AnsiString	directory( ProjectFolder );
-	if( SelectDirectory("ƒvƒƒWƒFƒNƒgƒtƒHƒ‹ƒ_‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", Root, directory) ) {
+	if( SelectDirectory("ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆãƒ•ã‚©ãƒ«ãƒ€ã‚’é¸æŠã—ã¦ãã ã•ã„", Root, directory) ) {
 		ProjectFolder = directory;
 	}
 }
 //---------------------------------------------------------------------------
 void __fastcall TProjectSettingForm::BrowseWorkingFolderButtonClick(TObject *Sender)
 {
-	WideString Root="ƒfƒXƒNƒgƒbƒv";
+	WideString Root="ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—";
 	AnsiString	directory( WorkingFolder );
-	if( SelectDirectory("ì‹ÆƒtƒHƒ‹ƒ_‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", Root, directory) ) {
+	if( SelectDirectory("ä½œæ¥­ãƒ•ã‚©ãƒ«ãƒ€ã‚’é¸æŠã—ã¦ãã ã•ã„", Root, directory) ) {
 		WorkingFolder = directory;
 	}
 }

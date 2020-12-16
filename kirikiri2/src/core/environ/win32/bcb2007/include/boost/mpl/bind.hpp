@@ -42,7 +42,7 @@
 
 #include "boost/mpl/aux_/config/use_preprocessed.hpp"
 
-#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) && \
+#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) && ¥
     !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   if defined(BOOST_MPL_NO_UNNAMED_PLACEHOLDER_SUPPORT)
@@ -72,42 +72,42 @@ namespace boost {
 namespace mpl {
 
 // local macros, #undef-ined at the end of the header
-#   define AUX_APPLY(args) \
-    BOOST_MPL_AUX_APPLY(BOOST_MPL_METAFUNCTION_MAX_ARITY, args) \
+#   define AUX_APPLY(args) ¥
+    BOOST_MPL_AUX_APPLY(BOOST_MPL_METAFUNCTION_MAX_ARITY, args) ¥
     /**/
 
-#   define AUX_BIND_PARAMS(param) \
-    BOOST_MPL_PP_PARAMS( \
-          BOOST_MPL_METAFUNCTION_MAX_ARITY \
-        , param \
-        ) \
+#   define AUX_BIND_PARAMS(param) ¥
+    BOOST_MPL_PP_PARAMS( ¥
+          BOOST_MPL_METAFUNCTION_MAX_ARITY ¥
+        , param ¥
+        ) ¥
     /**/
 
-#   define AUX_BIND_DEFAULT_PARAMS(param, value) \
-    BOOST_MPL_PP_DEFAULT_PARAMS( \
-          BOOST_MPL_METAFUNCTION_MAX_ARITY \
-        , param \
-        , value \
-        ) \
+#   define AUX_BIND_DEFAULT_PARAMS(param, value) ¥
+    BOOST_MPL_PP_DEFAULT_PARAMS( ¥
+          BOOST_MPL_METAFUNCTION_MAX_ARITY ¥
+        , param ¥
+        , value ¥
+        ) ¥
     /**/
 
-#   define AUX_BIND_N_PARAMS(n, param) \
-    BOOST_PP_COMMA_IF(n) \
-    BOOST_MPL_PP_PARAMS(n, param) \
+#   define AUX_BIND_N_PARAMS(n, param) ¥
+    BOOST_PP_COMMA_IF(n) ¥
+    BOOST_MPL_PP_PARAMS(n, param) ¥
     /**/
 
-#   define AUX_BIND_N_SPEC_PARAMS(n, param, def) \
-    BOOST_PP_COMMA_IF(n) \
-    BOOST_MPL_PP_PARTIAL_SPEC_PARAMS(n, param, def) \
+#   define AUX_BIND_N_SPEC_PARAMS(n, param, def) ¥
+    BOOST_PP_COMMA_IF(n) ¥
+    BOOST_MPL_PP_PARTIAL_SPEC_PARAMS(n, param, def) ¥
     /**/
 
 #if !defined(BOOST_NO_DEFAULT_TEMPLATE_PARAMETERS_IN_NESTED_TEMPLATES)
-#   define AUX_BIND_NESTED_DEFAULT_PARAMS(param, value) \
-    AUX_BIND_DEFAULT_PARAMS(param, value) \
+#   define AUX_BIND_NESTED_DEFAULT_PARAMS(param, value) ¥
+    AUX_BIND_DEFAULT_PARAMS(param, value) ¥
     /**/
 #else
-#   define AUX_BIND_NESTED_DEFAULT_PARAMS(param, value) \
-    AUX_BIND_PARAMS(param) \
+#   define AUX_BIND_NESTED_DEFAULT_PARAMS(param, value) ¥
+    AUX_BIND_PARAMS(param) ¥
     /**/
 #endif
 
@@ -336,12 +336,12 @@ BOOST_MPL_AUX_ARITY_SPEC(
 BOOST_MPL_AUX_ARITY_SPEC(2,bind1st)
 BOOST_MPL_AUX_ARITY_SPEC(2,bind2nd)
 
-#define BOOST_PP_ITERATION_PARAMS_1 \
+#define BOOST_PP_ITERATION_PARAMS_1 ¥
     (3,(0, BOOST_MPL_METAFUNCTION_MAX_ARITY, "boost/mpl/bind.hpp"))
 #include BOOST_PP_ITERATE()
 
 // real C++ version is already taken care of
-#if defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) \
+#if defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) ¥
  && !defined(BOOST_MPL_NO_BIND_TEMPLATE)
 
 namespace aux {

@@ -5,10 +5,10 @@
 namespace psd {
 
   // --------------------------------------------------------------------------
-  // ƒ†[ƒeƒBƒŠƒeƒB
+  // ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£
   // --------------------------------------------------------------------------
 
-  // 4ƒoƒCƒgƒL[ or stringƒ^ƒCƒv‚ÌIDŽæ“¾—pƒ†[ƒeƒBƒŠƒeƒB
+  // 4ãƒã‚¤ãƒˆã‚­ãƒ¼ or stringã‚¿ã‚¤ãƒ—ã®IDå–å¾—ç”¨ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£
   static void readId(IteratorBase *data, std::string &id)
   {
     int idSize = data->getInt32();
@@ -17,11 +17,11 @@ namespace psd {
     }
     std::vector<char> buf(idSize+1);
     data->getData(&buf[0], idSize);
-    buf[idSize] = '\0';
+    buf[idSize] = 'Â¥0';
     id.assign(&buf[0]);
   }
 
-  // ƒ^ƒCƒv‚É‚µ‚½‚ª‚Á‚ÄƒAƒCƒeƒ€Žæ“¾‚ðƒfƒBƒXƒpƒbƒ`
+  // ã‚¿ã‚¤ãƒ—ã«ã—ãŸãŒã£ã¦ã‚¢ã‚¤ãƒ†ãƒ å–å¾—ã‚’ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒ
   static DescriptorItem *readItem(IteratorBase *data)
   {
     DescriptorItem *item = 0;
@@ -41,8 +41,8 @@ namespace psd {
     case 'GlbC': item = new DescriptorClass(type);   break;
     case 'alis': item = new DescriptorAlias();       break;
     case 'tdta':
-      // undocumented ‚È‚¤‚¦AƒTƒCƒYî•ñ‚à‚È‚­ƒXƒLƒbƒv‚Å‚«‚È‚¢‚Ì‚Å
-      // ‚±‚ê‚ªo‚Ä‚«‚½‚ç‚±‚êˆÈã‚Íƒp[ƒX‚Å‚«‚È‚¢
+      // undocumented ãªã†ãˆã€ã‚µã‚¤ã‚ºæƒ…å ±ã‚‚ãªãã‚¹ã‚­ãƒƒãƒ—ã§ããªã„ã®ã§
+      // ã“ã‚ŒãŒå‡ºã¦ããŸã‚‰ã“ã‚Œä»¥ä¸Šã¯ãƒ‘ãƒ¼ã‚¹ã§ããªã„
       // item = new DescriptorRawData(data);
       break;
     default:
@@ -55,7 +55,7 @@ namespace psd {
   }
 
   // --------------------------------------------------------------------------
-  // ƒ[ƒ_
+  // ãƒ­ãƒ¼ãƒ€
   // --------------------------------------------------------------------------
   bool
   Descriptor::load(IteratorBase *data)
@@ -71,7 +71,7 @@ namespace psd {
       if (item && item->isValid) {
         itemMap[key] = item;
       } else {
-        // ‰ðŽß•s”\‚ªo‚Ä‚«‚½‚ç\‘¢ãƒXƒLƒbƒv‚Å‚«‚È‚¢‚Ì‚Å‚±‚±‚ÅI—¹‚·‚é
+        // è§£é‡ˆä¸èƒ½ãŒå‡ºã¦ããŸã‚‰æ§‹é€ ä¸Šã‚¹ã‚­ãƒƒãƒ—ã§ããªã„ã®ã§ã“ã“ã§çµ‚äº†ã™ã‚‹
         if (item) {
           delete item;
         }
@@ -121,7 +121,7 @@ namespace psd {
       if (item && item->isValid) {
         items.push_back(item);
       } else {
-        // ‰ðŽß•s”\‚ªo‚Ä‚«‚½‚ç\‘¢ãƒXƒLƒbƒv‚Å‚«‚È‚¢‚Ì‚Å‚±‚±‚ÅI—¹‚·‚é
+        // è§£é‡ˆä¸èƒ½ãŒå‡ºã¦ããŸã‚‰æ§‹é€ ä¸Šã‚¹ã‚­ãƒƒãƒ—ã§ããªã„ã®ã§ã“ã“ã§çµ‚äº†ã™ã‚‹
         if (item->isValid) {
           delete item;
         }
@@ -194,13 +194,13 @@ namespace psd {
     int size = data->getInt32();
     std::vector<char> buf(size+1);
     data->getData(&buf[0], size);
-    buf[size] = '\0';
+    buf[size] = 'Â¥0';
     alias.assign(&buf[0]);
     return true;
   }
 
   // --------------------------------------------------------------------------
-  // ƒŠƒtƒ@ƒŒƒ“ƒX
+  // ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹
   // --------------------------------------------------------------------------
 
   bool

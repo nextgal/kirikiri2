@@ -133,7 +133,7 @@ COpenGLTexture::COpenGLTexture(const core::dimension2d<s32>& size,
 	// check the status
 	if (!checkFBOStatus(Driver))
 	{
-		printf("FBO=%u, Color=%u, Depth=%u, Stencil=%u\n",
+		printf("FBO=%u, Color=%u, Depth=%u, Stencil=%u¥n",
 			ColorFrameBuffer, TextureName, DepthRenderBuffer, StencilRenderBuffer);
 		if (ColorFrameBuffer)
 			Driver->extGlDeleteFramebuffers(1, &ColorFrameBuffer);
@@ -151,7 +151,7 @@ COpenGLTexture::COpenGLTexture(const core::dimension2d<s32>& size,
 
 
 //! destructor
-COpenGLTexture::~COpenGLTexture()
+COpenGLTexture::‾COpenGLTexture()
 {
 	if (ColorFrameBuffer)
 		Driver->extGlDeleteFramebuffers(1, &ColorFrameBuffer);

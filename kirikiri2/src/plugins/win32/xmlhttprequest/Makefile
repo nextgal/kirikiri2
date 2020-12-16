@@ -6,7 +6,7 @@ CXXFLAGS=-D_MT -Wall -mno-cygwin -O2 -I$(BOOST_INCLUDE_DIR) -I..
 LIBS=-lboost_regex-gcc-mt-1_33_1 -lws2_32
 
 $(TARGET): $(OBJS)
-	dllwrap --add-stdcall-alias --driver-name g++ -mno-cygwin --target=i386-mingw32 -L$(BOOST_LIB_DIR) \
+	dllwrap --add-stdcall-alias --driver-name g++ -mno-cygwin --target=i386-mingw32 -L$(BOOST_LIB_DIR) ¥
 		-o $@ $(OBJS) $(LIBS)
 	strip $@
 

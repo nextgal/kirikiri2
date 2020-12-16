@@ -26,14 +26,14 @@ struct is_polymorphic_imp1
    {
       d1();
 #  if !defined(__GNUC__) // this raises warnings with some classes, and buys nothing with GCC
-      ~d1()throw();
+      ‾d1()throw();
 #  endif 
       char padding[256];
    };
    struct d2 : public ncvT
    {
       d2();
-      virtual ~d2()throw();
+      virtual ‾d2()throw();
 #  ifndef BOOST_MSVC
       // for some reason this messes up VC++ when T has virtual bases:
       virtual void foo();

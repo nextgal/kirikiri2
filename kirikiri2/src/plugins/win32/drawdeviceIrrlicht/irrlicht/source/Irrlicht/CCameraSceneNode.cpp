@@ -47,7 +47,7 @@ CCameraSceneNode::CCameraSceneNode(ISceneNode* parent, ISceneManager* mgr, s32 i
 
 
 //! destructor
-CCameraSceneNode::~CCameraSceneNode()
+CCameraSceneNode::‾CCameraSceneNode()
 {
 }
 
@@ -69,7 +69,7 @@ bool CCameraSceneNode::isInputReceiverEnabled() const
 
 //! Sets the projection matrix of the camera. The core::matrix4 class has some methods
 //! to build a projection matrix. e.g: core::matrix4::buildProjectionMatrixPerspectiveFovLH
-//! \param projection: The new projection matrix of the camera. 
+//! ¥param projection: The new projection matrix of the camera. 
 void CCameraSceneNode::setProjectionMatrix(const core::matrix4& projection)
 {
 	ViewArea.Matrices [ video::ETS_PROJECTION ] = projection;
@@ -79,7 +79,7 @@ void CCameraSceneNode::setProjectionMatrix(const core::matrix4& projection)
 
 
 //! Gets the current projection matrix of the camera
-//! \return Returns the current projection matrix of the camera.
+//! ¥return Returns the current projection matrix of the camera.
 const core::matrix4& CCameraSceneNode::getProjectionMatrix() const
 {
 	return ViewArea.Matrices [ video::ETS_PROJECTION ];
@@ -88,7 +88,7 @@ const core::matrix4& CCameraSceneNode::getProjectionMatrix() const
 
 
 //! Gets the current view matrix of the camera
-//! \return Returns the current view matrix of the camera.
+//! ¥return Returns the current view matrix of the camera.
 const core::matrix4& CCameraSceneNode::getViewMatrix() const
 {
 	return ViewArea.Matrices [ video::ETS_VIEW ];
@@ -109,7 +109,7 @@ bool CCameraSceneNode::OnEvent(const SEvent& event)
 
 
 //! sets the look at target of the camera
-//! \param pos: Look at target of the camera.
+//! ¥param pos: Look at target of the camera.
 void CCameraSceneNode::setTarget(const core::vector3df& pos)
 {
 	Target = pos;
@@ -118,7 +118,7 @@ void CCameraSceneNode::setTarget(const core::vector3df& pos)
 
 
 //! Gets the current look at target of the camera
-//! \return Returns the current look at target of the camera
+//! ¥return Returns the current look at target of the camera
 core::vector3df CCameraSceneNode::getTarget() const
 {
 	return Target;
@@ -127,7 +127,7 @@ core::vector3df CCameraSceneNode::getTarget() const
 
 
 //! sets the up vector of the camera
-//! \param pos: New upvector of the camera.
+//! ¥param pos: New upvector of the camera.
 void CCameraSceneNode::setUpVector(const core::vector3df& pos)
 {
 	UpVector = pos;
@@ -136,7 +136,7 @@ void CCameraSceneNode::setUpVector(const core::vector3df& pos)
 
 
 //! Gets the up vector of the camera.
-//! \return Returns the up vector of the camera.
+//! ¥return Returns the up vector of the camera.
 core::vector3df CCameraSceneNode::getUpVector() const
 {
 	return UpVector;

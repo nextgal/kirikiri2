@@ -41,7 +41,7 @@ namespace BOOST_SIGNALS_NAMESPACE {
   protected:
     trackable() : connected_signals(), dying(false) {}
     trackable(const trackable&) : connected_signals(), dying(false) {}
-    ~trackable();
+    ‾trackable();
 
     trackable& operator=(const trackable&)
     {

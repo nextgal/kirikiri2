@@ -1,4 +1,4 @@
-// グローバル変数
+// 繧ｰ繝ｭ繝ｼ繝舌Ν螟画焚
 gname <- "global";
 
 class PropertyTest extends Object {
@@ -19,15 +19,15 @@ class PropertyTest extends Object {
 
 	function test() {
 
-		// プロパティを参照
+		// 繝励Ο繝代ユ繧｣繧貞盾辣ｧ
 		name  = "name";
 		print("name:" + name);
 		
-		// グローバル変数を参照
+		// 繧ｰ繝ｭ繝ｼ繝舌Ν螟画焚繧貞盾辣ｧ
 		gname = "gname";
 		print("gname:" + gname);
 
-		// 存在しない変数を参照
+		// 蟄伜惠縺励↑縺�螟画焚繧貞盾辣ｧ
 		try {
 			xname = "aaaa";
 		} catch(e) {

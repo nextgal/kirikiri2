@@ -144,26 +144,26 @@ EXTERN_C const IID IID_IRendererBufferAccess;
 #ifdef COBJMACROS
 
 
-#define IRendererBufferAccess_QueryInterface(This,riid,ppvObject)	\
+#define IRendererBufferAccess_QueryInterface(This,riid,ppvObject)	¥
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
 
-#define IRendererBufferAccess_AddRef(This)	\
+#define IRendererBufferAccess_AddRef(This)	¥
     (This)->lpVtbl -> AddRef(This)
 
-#define IRendererBufferAccess_Release(This)	\
+#define IRendererBufferAccess_Release(This)	¥
     (This)->lpVtbl -> Release(This)
 
 
-#define IRendererBufferAccess_SetFrontBuffer(This,buff,size)	\
+#define IRendererBufferAccess_SetFrontBuffer(This,buff,size)	¥
     (This)->lpVtbl -> SetFrontBuffer(This,buff,size)
 
-#define IRendererBufferAccess_SetBackBuffer(This,buff,size)	\
+#define IRendererBufferAccess_SetBackBuffer(This,buff,size)	¥
     (This)->lpVtbl -> SetBackBuffer(This,buff,size)
 
-#define IRendererBufferAccess_GetFrontBuffer(This,buff,size)	\
+#define IRendererBufferAccess_GetFrontBuffer(This,buff,size)	¥
     (This)->lpVtbl -> GetFrontBuffer(This,buff,size)
 
-#define IRendererBufferAccess_GetBackBuffer(This,buff,size)	\
+#define IRendererBufferAccess_GetBackBuffer(This,buff,size)	¥
     (This)->lpVtbl -> GetBackBuffer(This,buff,size)
 
 #endif /* COBJMACROS */

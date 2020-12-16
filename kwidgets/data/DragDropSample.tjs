@@ -4,29 +4,29 @@
 
 
 /*----------------------------------------------------------------------
- * ƒ{ƒbƒNƒX
+ * ãƒœãƒƒã‚¯ã‚¹
  * 
- * ƒ{[ƒ‹‚ðˆêŒÂŠÜ‚ñ‚¾uƒ{ƒbƒNƒXv
+ * ãƒœãƒ¼ãƒ«ã‚’ä¸€å€‹å«ã‚“ã ã€Œãƒœãƒƒã‚¯ã‚¹ã€
  *
- * ‘¼‚Ìƒ{ƒbƒNƒX‚Éƒ{[ƒ‹‚ð‚c•‚c‚Å‚«‚éB
+ * ä»–ã®ãƒœãƒƒã‚¯ã‚¹ã«ãƒœãƒ¼ãƒ«ã‚’ï¼¤ï¼†ï¼¤ã§ãã‚‹ã€‚
  *
- * ŠO•”ƒtƒ@ƒCƒ‹‚ð explorer ‚©‚ç‚c•‚c‚·‚é‚ÆA
- * ‚»‚Ìƒ{ƒbƒNƒX‚Éƒ{[ƒ‹‚ªˆêŒÂ‘‚¦‚éB
+ * å¤–éƒ¨ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ explorer ã‹ã‚‰ï¼¤ï¼†ï¼¤ã™ã‚‹ã¨ã€
+ * ãã®ãƒœãƒƒã‚¯ã‚¹ã«ãƒœãƒ¼ãƒ«ãŒä¸€å€‹å¢—ãˆã‚‹ã€‚
  ----------------------------------------------------------------------*/
 class Box extends KWidget
 {
   var ball;
 
   //------------------------------
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   //------------------------------
   function Box(window, cm = 1, rm = 1) {
-    // ƒEƒBƒWƒFƒbƒg‰Šú‰»
+    // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆåˆæœŸåŒ–
     super.KWidget(window, "");
     setMinMaxSize(30, 30, 200 * cm, 200 * rm);
 
-    // ƒ{ƒbƒNƒX‚Ì’†‚É•\Ž¦‚·‚éƒ{[ƒ‹‚ÌƒŒƒCƒ„‚ðì¬B
-    // ‰Šúó‘Ô‚Å‚Í”ñ•\Ž¦
+    // ãƒœãƒƒã‚¯ã‚¹ã®ä¸­ã«è¡¨ç¤ºã™ã‚‹ãƒœãƒ¼ãƒ«ã®ãƒ¬ã‚¤ãƒ¤ã‚’ä½œæˆã€‚
+    // åˆæœŸçŠ¶æ…‹ã§ã¯éžè¡¨ç¤º
     ball = new global.KWidget(window);
     ball.loadImages("ball");
     ball.setFixedSizeToImageSize();
@@ -36,20 +36,20 @@ class Box extends KWidget
   }
 
   //------------------------------
-  // ƒTƒCƒY•ÏX’Ê’m
+  // ã‚µã‚¤ã‚ºå¤‰æ›´é€šçŸ¥
   //------------------------------
   function onSizeModified(w, h) {
-    // ƒ{ƒbƒNƒX‚ÌÄ•`‰æ
+    // ãƒœãƒƒã‚¯ã‚¹ã®å†æç”»
     fillRect(0, 0, w, h, 0xFFFF0000);
     fillRect(2, 2, w - 4, h - 4, 0xFFFFFFFF);
-    // ƒ{[ƒ‹‚ª•\Ž¦ó‘Ô‚È‚çAƒ{ƒbƒNƒX“à‚ÉŽû‚Ü‚é‚æ‚¤‚ÉÄ”z’u
+    // ãƒœãƒ¼ãƒ«ãŒè¡¨ç¤ºçŠ¶æ…‹ãªã‚‰ã€ãƒœãƒƒã‚¯ã‚¹å†…ã«åŽã¾ã‚‹ã‚ˆã†ã«å†é…ç½®
     if (ball.visible)
       locateBall(ball.left + ball.width / 2,
 		 ball.top + ball.height / 2);
   }
 
   //------------------------------
-  // ƒ{[ƒ‹‚ªƒ{ƒbƒNƒX“à‚ÉŽû‚Ü‚é‚æ‚¤‚É”z’u‚·‚é
+  // ãƒœãƒ¼ãƒ«ãŒãƒœãƒƒã‚¯ã‚¹å†…ã«åŽã¾ã‚‹ã‚ˆã†ã«é…ç½®ã™ã‚‹
   //------------------------------
   function locateBall(x, y) {
     x = int(Math.max(2, Math.min(width - ball.width - 4, x - ball.width / 2)));
@@ -58,110 +58,110 @@ class Box extends KWidget
   }
 
   //------------------------------
-  // ƒtƒ@ƒCƒ‹ƒhƒƒbƒv’Ê’m
+  // ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‰ãƒ­ãƒƒãƒ—é€šçŸ¥
   //------------------------------
   function onFileDrop(x, y) {
-    // ƒ{[ƒ‹‚ª”ñ•\Ž¦‚È‚çA•\Ž¦ó‘Ô‚É‚·‚é
-    // (ƒtƒ@ƒCƒ‹ƒhƒƒbƒv‚ÅV‹Kƒ{[ƒ‹‚ð’Ç‰Á)
+    // ãƒœãƒ¼ãƒ«ãŒéžè¡¨ç¤ºãªã‚‰ã€è¡¨ç¤ºçŠ¶æ…‹ã«ã™ã‚‹
+    // (ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‰ãƒ­ãƒƒãƒ—ã§æ–°è¦ãƒœãƒ¼ãƒ«ã‚’è¿½åŠ )
     if (! ball.visible) {
-      // ƒ{[ƒ‹•\Ž¦
+      // ãƒœãƒ¼ãƒ«è¡¨ç¤º
       ball.visible = true;
       ball.opacity = 255;
-      // ƒJ[ƒ\ƒ‹ˆÊ’u‚É”z’u
+      // ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã«é…ç½®
       locateBall(x, y);
     }
   }
 
   //------------------------------
-  // ƒhƒ‰ƒbƒOŠJŽn’Ê’m
+  // ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹é€šçŸ¥
   //------------------------------
   function onDragEnter(x, y) {
-    // ƒhƒ‰ƒbƒOŠJŽn‚µ‚½À•W‚ªƒ{[ƒ‹‚Ì’†‚É‚ ‚ê‚ÎA
-    // ƒpƒPƒbƒg‚Ìƒhƒ‰ƒbƒOŠJŽn
+    // ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹ã—ãŸåº§æ¨™ãŒãƒœãƒ¼ãƒ«ã®ä¸­ã«ã‚ã‚Œã°ã€
+    // ãƒ‘ã‚±ãƒƒãƒˆã®ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
     if (ball.visible
 	&& x >= ball.left
 	&& x < ball.left + ball.width
 	&& y >= ball.top
 	&& y < ball.top + ball.height) {
-      // ƒ{[ƒ‹‚ð”ñ•\Ž¦ó‘Ô‚É‚·‚é
+      // ãƒœãƒ¼ãƒ«ã‚’éžè¡¨ç¤ºçŠ¶æ…‹ã«ã™ã‚‹
       ball.visible = false;
-      // –¼‘O‚ª"box"Aˆø”‚ÉŽ©•ªŽ©g‚Ö‚ÌƒŠƒtƒ@ƒŒƒ“ƒX‚ðŠi”[‚µ‚½
-      // ƒpƒPƒbƒg‚ðƒhƒ‰ƒbƒOŠJŽn‚·‚é
+      // åå‰ãŒ"box"ã€å¼•æ•°ã«è‡ªåˆ†è‡ªèº«ã¸ã®ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã‚’æ ¼ç´ã—ãŸ
+      // ãƒ‘ã‚±ãƒƒãƒˆã‚’ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹ã™ã‚‹
       beginDragPacket(new KPacket("box", this));
     }
   }
 
   //------------------------------
-  // ƒ{[ƒ‹‚ª”ñ•\Ž¦‚ÌŽž‚ÉŒÀ‚èA
-  // –¼‘O‚ªuboxv‚ÌƒpƒPƒbƒg‚ðŽó‚¯•t‚¯‚é
+  // ãƒœãƒ¼ãƒ«ãŒéžè¡¨ç¤ºã®æ™‚ã«é™ã‚Šã€
+  // åå‰ãŒã€Œboxã€ã®ãƒ‘ã‚±ãƒƒãƒˆã‚’å—ã‘ä»˜ã‘ã‚‹
   //------------------------------
   function isPacketAcceptable(packet) {
     return packet.name == "box" && ! ball.visible;
   }
 
   //------------------------------
-  // ƒpƒPƒbƒgN“ü
+  // ãƒ‘ã‚±ãƒƒãƒˆä¾µå…¥
   //------------------------------
   function onPacketEnter(x, y) {
-    // ƒ{[ƒ‹‚ð“§–¾“x128‚Å•\Ž¦
+    // ãƒœãƒ¼ãƒ«ã‚’é€æ˜Žåº¦128ã§è¡¨ç¤º
     ball.visible = true;
     ball.opacity = 128;
-    // ƒ{[ƒ‹‚ðƒ}ƒEƒXÀ•W‚É•\Ž¦
+    // ãƒœãƒ¼ãƒ«ã‚’ãƒžã‚¦ã‚¹åº§æ¨™ã«è¡¨ç¤º
     locateBall(x, y);
   }
 
   //------------------------------
-  // ƒpƒPƒbƒgˆÚ“®
+  // ãƒ‘ã‚±ãƒƒãƒˆç§»å‹•
   //------------------------------
   function onPacketMove(x, y) {
-    // ƒ{[ƒ‹‚ðƒ}ƒEƒXÀ•W‚É•\Ž¦
+    // ãƒœãƒ¼ãƒ«ã‚’ãƒžã‚¦ã‚¹åº§æ¨™ã«è¡¨ç¤º
     locateBall(x, y);
   }
 
   //------------------------------
-  // ƒpƒPƒbƒg—£’E
+  // ãƒ‘ã‚±ãƒƒãƒˆé›¢è„±
   //------------------------------
   function onPacketLeave(x, y) {
-    // ƒ{[ƒ‹‚ð”ñ•\Ž¦‚É
+    // ãƒœãƒ¼ãƒ«ã‚’éžè¡¨ç¤ºã«
     ball.visible = false;
   }
 
   //------------------------------
-  // ƒpƒPƒbƒg‚ªƒhƒƒbƒv
+  // ãƒ‘ã‚±ãƒƒãƒˆãŒãƒ‰ãƒ­ãƒƒãƒ—
   //------------------------------
   function onPacketDrop(x, y) {
-    // ƒ{[ƒ‹‚ð•\Ž¦ó‘Ô‚ÅŠm’è
+    // ãƒœãƒ¼ãƒ«ã‚’è¡¨ç¤ºçŠ¶æ…‹ã§ç¢ºå®š
     ball.visible = true;
     ball.opacity = 255;
-    // ƒ{[ƒ‹‚ðƒ}ƒEƒXÀ•W‚É•\Ž¦
+    // ãƒœãƒ¼ãƒ«ã‚’ãƒžã‚¦ã‚¹åº§æ¨™ã«è¡¨ç¤º
     locateBall(x, y);
   }
 
   //------------------------------
-  // ƒpƒPƒbƒg‚ªƒLƒƒƒ“ƒZƒ‹
+  // ãƒ‘ã‚±ãƒƒãƒˆãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«
   //------------------------------
   function onPacketCancel {
-    // ƒ{[ƒ‹‚ð•\Ž¦ó‘Ô‚ÅŠm’è
+    // ãƒœãƒ¼ãƒ«ã‚’è¡¨ç¤ºçŠ¶æ…‹ã§ç¢ºå®š
     ball.visible = true;
     ball.opacity = 255;
   }
 };
 
-// ƒ{ƒbƒNƒXƒEƒBƒ“ƒhƒE
+// ãƒœãƒƒã‚¯ã‚¹ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
 class DragDropSample extends KWindow {
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   function DragDropSample(name) {
     super.KWindow(name);
 
-    // ƒEƒBƒ“ƒhƒE‰ŠúÝ’è
-    caption = "ƒhƒ‰ƒbƒO•ƒhƒƒbƒvƒTƒ“ƒvƒ‹";
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦åˆæœŸè¨­å®š
+    caption = "ãƒ‰ãƒ©ãƒƒã‚°ï¼†ãƒ‰ãƒ­ãƒƒãƒ—ã‚µãƒ³ãƒ—ãƒ«";
     imeMode = imDontCare;
 
-    // ƒEƒBƒ“ƒhƒE“à‚ÌƒEƒBƒWƒFƒbƒg‚Ì‰Šú’l‚ðÝ’è
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦å†…ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®åˆæœŸå€¤ã‚’è¨­å®š
     defaultSpace = 2;
     defaultMargin = 3;
 
-    // ƒ{[ƒ‹‚ðì¬A”z’u
+    // ãƒœãƒ¼ãƒ«ã‚’ä½œæˆã€é…ç½®
     var ballGrid = new KGridLayout(this, "ballgrid");
     ballGrid.add(0, 0, new Box(this));
     ballGrid.add(0, 1, new Box(this));
@@ -181,15 +181,15 @@ class DragDropSample extends KWindow {
     defaultMargin = 0;
     defaultAlignHorizontal = ALIGN_RIGHT;
 
-    // ƒOƒŠƒbƒh‚ðì¬Aƒ{[ƒ‹ƒOƒŠƒbƒh‚ÆƒŠƒTƒCƒYƒnƒ“ƒhƒ‹‚ð”z’u
+    // ã‚°ãƒªãƒƒãƒ‰ã‚’ä½œæˆã€ãƒœãƒ¼ãƒ«ã‚°ãƒªãƒƒãƒ‰ã¨ãƒªã‚µã‚¤ã‚ºãƒãƒ³ãƒ‰ãƒ«ã‚’é…ç½®
     var grid = new KGridLayout(this);
     grid.add(0, 0, ballGrid);
     grid.add(0, 1, new KWindowResizeHandle(this, 20, 20));
 
-    // ƒOƒŠƒbƒh‚ð”z’u
+    // ã‚°ãƒªãƒƒãƒ‰ã‚’é…ç½®
     primaryWidget.add(grid);
 
-    // ‰i‘±‰»Ž«‘‚Ìì¬
+    // æ°¸ç¶šåŒ–è¾žæ›¸ã®ä½œæˆ
     var dict = new KPersistentDictionary(System.dataPath + name + "_dict.txt");
     add(dict);
     bindPersistentDictionary(dict);
@@ -197,17 +197,17 @@ class DragDropSample extends KWindow {
 }
 
 //----------------------------------------------------------------------
-// ƒTƒ“ƒvƒ‹•\Ž¦E”ñ•\Ž¦‚ÌØ‚è‘Ö‚¦
+// ã‚µãƒ³ãƒ—ãƒ«è¡¨ç¤ºãƒ»éžè¡¨ç¤ºã®åˆ‡ã‚Šæ›¿ãˆ
 global.dragDropSample = [];
 
 function showDragDropSample
 {
   if (dragDropSample.count == 0) {
-    // ƒEƒBƒ“ƒhƒE‚ð3‚Âì¬
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’3ã¤ä½œæˆ
     dragDropSample.add(new DragDropSample("dragdrop1"));
     dragDropSample.add(new DragDropSample("dragdrop2"));
     dragDropSample.add(new DragDropSample("dragdrop3"));
-    // Å‰‚Ì1ŒÂ‚Ìƒ{[ƒ‹‚ð•\Ž¦‚·‚é
+    // æœ€åˆã®1å€‹ã®ãƒœãƒ¼ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹
     dragDropSample[0].ballgrid.childAt(0, 0).ball.visible = true;
     dragDropSample[0].ballgrid.childAt(0, 0).locateBall(0, 0);
   }

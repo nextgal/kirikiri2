@@ -79,7 +79,7 @@ class pool_allocator
     { new (ptr) T(t); }
     static void destroy(const pointer ptr)
     {
-      ptr->~T();
+      ptr->‾T();
       (void) ptr; // avoid unused variable warning
     }
 
@@ -162,7 +162,7 @@ class fast_pool_allocator
     { new (ptr) T(t); }
     void destroy(const pointer ptr)
     {
-      ptr->~T();
+      ptr->‾T();
       (void) ptr; // avoid unused variable warning
     }
 

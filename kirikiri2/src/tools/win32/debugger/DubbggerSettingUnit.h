@@ -10,9 +10,9 @@
 //---------------------------------------------------------------------------
 class TDubbggerSettingForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
-private:	// ƒ†[ƒU[éŒ¾
-public:		// ƒ†[ƒU[éŒ¾
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TDubbggerSettingForm(TComponent* Owner);
 };
 //---------------------------------------------------------------------------

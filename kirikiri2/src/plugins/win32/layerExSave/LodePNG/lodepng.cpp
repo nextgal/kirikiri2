@@ -93,34 +93,34 @@ It makes the error handling code shorter and more readable.
 
 Example: if(!uivector_resizev(&frequencies_ll, 286, 0)) ERROR_BREAK(83);
 */
-#define CERROR_BREAK(errorvar, code)\
-{\
-  errorvar = code;\
-  break;\
+#define CERROR_BREAK(errorvar, code)¥
+{¥
+  errorvar = code;¥
+  break;¥
 }
 
 /*version of CERROR_BREAK that assumes the common case where the error variable is named "error"*/
 #define ERROR_BREAK(code) CERROR_BREAK(error, code)
 
 /*Set error var to the error code, and return it.*/
-#define CERROR_RETURN_ERROR(errorvar, code)\
-{\
-  errorvar = code;\
-  return code;\
+#define CERROR_RETURN_ERROR(errorvar, code)¥
+{¥
+  errorvar = code;¥
+  return code;¥
 }
 
 /*Try the code, if it returns error, also return the error.*/
-#define CERROR_TRY_RETURN(call)\
-{\
-  unsigned error = call;\
-  if(error) return error;\
+#define CERROR_TRY_RETURN(call)¥
+{¥
+  unsigned error = call;¥
+  if(error) return error;¥
 }
 
 /*Set error var to the error code, and return from the void function.*/
-#define CERROR_RETURN(errorvar, code)\
-{\
-  errorvar = code;\
-  return;\
+#define CERROR_RETURN(errorvar, code)¥
+{¥
+  errorvar = code;¥
+  return;¥
 }
 
 /*
@@ -418,13 +418,13 @@ unsigned lodepng_save_file(const unsigned char* buffer, size_t buffersize, const
 #ifdef LODEPNG_COMPILE_ZLIB
 #ifdef LODEPNG_COMPILE_ENCODER
 /*TODO: this ignores potential out of memory errors*/
-#define addBitToStream(/*size_t**/ bitpointer, /*ucvector**/ bitstream, /*unsigned char*/ bit)\
-{\
-  /*add a new byte at the end*/\
-  if(((*bitpointer) & 7) == 0) ucvector_push_back(bitstream, (unsigned char)0);\
-  /*earlier bit of huffman code is in a lesser significant bit of an earlier byte*/\
-  (bitstream->data[bitstream->size - 1]) |= (bit << ((*bitpointer) & 0x7));\
-  ++(*bitpointer);\
+#define addBitToStream(/*size_t**/ bitpointer, /*ucvector**/ bitstream, /*unsigned char*/ bit)¥
+{¥
+  /*add a new byte at the end*/¥
+  if(((*bitpointer) & 7) == 0) ucvector_push_back(bitstream, (unsigned char)0);¥
+  /*earlier bit of huffman code is in a lesser significant bit of an earlier byte*/¥
+  (bitstream->data[bitstream->size - 1]) |= (bit << ((*bitpointer) & 0x7));¥
+  ++(*bitpointer);¥
 }
 
 static void addBitsToStream(size_t* bitpointer, ucvector* bitstream, unsigned value, size_t nbits)
@@ -2409,7 +2409,7 @@ static void setBitOfReversedStream0(size_t* bitpointer, unsigned char* bitstream
 static void setBitOfReversedStream(size_t* bitpointer, unsigned char* bitstream, unsigned char bit)
 {
   /*the current bit in bitstream may be 0 or 1 for this to work*/
-  if(bit == 0) bitstream[(*bitpointer) >> 3] &=  (unsigned char)(~(1 << (7 - ((*bitpointer) & 0x7))));
+  if(bit == 0) bitstream[(*bitpointer) >> 3] &=  (unsigned char)(‾(1 << (7 - ((*bitpointer) & 0x7))));
   else         bitstream[(*bitpointer) >> 3] |=  (1 << (7 - ((*bitpointer) & 0x7)));
   ++(*bitpointer);
 }
@@ -6089,7 +6089,7 @@ State::State(const State& other)
   lodepng_state_copy(this, &other);
 }
 
-State::~State()
+State::‾State()
 {
   lodepng_state_cleanup(this);
 }

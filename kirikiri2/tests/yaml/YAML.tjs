@@ -1,27 +1,27 @@
 /**
- * YAML ‚à‚Ç‚«ƒp[ƒT
+ * YAML ã‚‚ã©ããƒ‘ãƒ¼ã‚µ
  *
  * example:
  *   var yaml = [].load('hoge.yaml');
  *   var obj = YAML.parse(yaml);
  *
- * å‚È§ŒÀ:
- * - ƒCƒ“ƒfƒ“ƒg‚Éƒ^ƒu‚Íg‚¦‚Ü‚¹‚ñB
- * - •¡”s‚ÌƒXƒJƒ‰[‚É‚Í–¢‘Î‰‚Å‚·B
- * - ƒtƒ[ƒXƒ^ƒCƒ‹‚É‚Í–¢‘Î‰‚Å‚·B
- * - ƒm[ƒh‚ÌƒGƒCƒŠƒAƒX‚É‚Í–¢‘Î‰‚Å‚·B
+ * ä¸»ãªåˆ¶é™:
+ * - ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã«ã‚¿ãƒ–ã¯ä½¿ãˆã¾ã›ã‚“ã€‚
+ * - è¤‡æ•°è¡Œã®ã‚¹ã‚«ãƒ©ãƒ¼ã«ã¯æœªå¯¾å¿œã§ã™ã€‚
+ * - ãƒ•ãƒ­ãƒ¼ã‚¹ã‚¿ã‚¤ãƒ«ã«ã¯æœªå¯¾å¿œã§ã™ã€‚
+ * - ãƒãƒ¼ãƒ‰ã®ã‚¨ã‚¤ãƒªã‚¢ã‚¹ã«ã¯æœªå¯¾å¿œã§ã™ã€‚
  *
  * Written by Kouhei Yanagita.
  */
 class YAML {
     /**
-     * YAML ‚ğƒp[ƒX‚µAƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·B
-     * @param str_or_array ƒp[ƒX‚·‚é YAML •¶š—ñA‚Ü‚½‚Í•¶š—ñ‚ğ 1 s‚²‚Æ‚Éû‚ß‚½”z—ñB
+     * YAML ã‚’ãƒ‘ãƒ¼ã‚¹ã—ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™ã€‚
+     * @param str_or_array ãƒ‘ãƒ¼ã‚¹ã™ã‚‹ YAML æ–‡å­—åˆ—ã€ã¾ãŸã¯æ–‡å­—åˆ—ã‚’ 1 è¡Œã”ã¨ã«åã‚ãŸé…åˆ—ã€‚
      */
     function parse(str_or_array) {
         var lines;
         if (str_or_array instanceof 'String') {
-            lines = str_or_array.split(/\r?\n/);
+            lines = str_or_array.split(/Â¥r?Â¥n/);
         }
         else {
             lines = str_or_array;
@@ -31,8 +31,8 @@ class YAML {
 
         var a = [];
         for (var i = 0; i < lines.count; ++i) {
-            var s = lines[i].replace(/\r?\n/, '');
-            if (/\S/.test(s)) {
+            var s = lines[i].replace(/Â¥r?Â¥n/, '');
+            if (/Â¥S/.test(s)) {
                 a.add(s);
             }
         }
@@ -56,7 +56,7 @@ class YAML {
     function _removeEmptyLines(lines) {
         var result = [];
         for (var i = 0; i < lines.count; ++i) {
-            if (!/\A\s*(#.*)?\z/.test(lines[i])) {
+            if (!/Â¥AÂ¥s*(#.*)?Â¥z/.test(lines[i])) {
                 result.add(lines[i]);
             }
         }
@@ -65,14 +65,14 @@ class YAML {
 
 
     /*
-     * “à•”‚Åg‚¤ƒp[ƒT
+     * å†…éƒ¨ã§ä½¿ã†ãƒ‘ãƒ¼ã‚µ
      */
     class TopParser {
         function parseLines(lines) {
             lines = _skipEmptyLines(lines);
     
             var parser;
-            if (/\A-( |\z)/.test(lines[0])) {
+            if (/Â¥A-( |Â¥z)/.test(lines[0])) {
                 parser = new YAML.SequenceParser();
             }
             else if (_isMapKeyLine(lines[0])) {
@@ -88,7 +88,7 @@ class YAML {
         function _skipEmptyLines(lines) {
             var first = 0;
             for (var i = 0; i < lines.count; ++i) {
-                if (!/\A\s*(#.*)?\z/.test(lines[i])) {
+                if (!/Â¥AÂ¥s*(#.*)?Â¥z/.test(lines[i])) {
                     first = i;
                     break;
                 }
@@ -124,20 +124,20 @@ class YAML {
         function isKeyLine(line) {
             var key_row = _getToColon(line);
             var after_colon = line.substr(key_row.length);
-            return /\A:(\s*(#.*)?\z|\s+[^#])/.test(after_colon);
+            return /Â¥A:(Â¥s*(#.*)?Â¥z|Â¥s+[^#])/.test(after_colon);
         }
 
         function _getToColon(line) {
             var r;
             switch (line[0]) {
             case "'":
-                r = /\A'((''|[^'])*)'/; //';
+                r = /Â¥A'((''|[^'])*)'/; //';
                 break;
             case '"':
-                r = /\A"((\\"|[^"])*)"/; //";
+                r = /Â¥A"((Â¥Â¥"|[^"])*)"/; //";
                 break;
             default:
-                r = /\A[^:]+/;
+                r = /Â¥A[^:]+/;
             }
 
             return r.match(line)[0];
@@ -150,26 +150,26 @@ class YAML {
 
             var after_colon = lines[0].substr(key_row.length);
             if (after_colon[0] != ':') {
-                throw new Exception('Parse error: ƒ}ƒbƒv‚ÌƒL[‚ªƒRƒƒ“‚ÅI‚í‚Á‚Ä‚¢‚Ü‚¹‚ñ: ' + lines[0]);
+                throw new Exception('Parse error: ãƒãƒƒãƒ—ã®ã‚­ãƒ¼ãŒã‚³ãƒ­ãƒ³ã§çµ‚ã‚ã£ã¦ã„ã¾ã›ã‚“: ' + lines[0]);
             }
 
             var m;
             var indent;
             var value_beginning_index;
-            if ((m = /\A:\s*(#.*)?\z/.match(after_colon)).count > 0) {
+            if ((m = /Â¥A:Â¥s*(#.*)?Â¥z/.match(after_colon)).count > 0) {
                 if (lines.count == 1) {
                     return [void, key, void];
                 }
 
                 value_beginning_index = 1;
-                var m = /\A\s+/.match(lines[value_beginning_index]);
+                var m = /Â¥AÂ¥s+/.match(lines[value_beginning_index]);
                 if (m.count == 0) {
-                    throw new Exception('Parse error: ƒ}ƒbƒv‚ÌƒL[‚Æ•Ê‚Ìs‚É‘‚©‚ê‚½’l‚ªƒCƒ“ƒfƒ“ƒg‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ: ' +
+                    throw new Exception('Parse error: ãƒãƒƒãƒ—ã®ã‚­ãƒ¼ã¨åˆ¥ã®è¡Œã«æ›¸ã‹ã‚ŒãŸå€¤ãŒã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã•ã‚Œã¦ã„ã¾ã›ã‚“: ' +
                                         lines[value_beginning_index]);
                 }
                 indent = m[0].length;
             }
-            else if ((m = /\A(:\s+)[^#]/.match(after_colon)).count > 0) {
+            else if ((m = /Â¥A(:Â¥s+)[^#]/.match(after_colon)).count > 0) {
                 value_beginning_index = 0;
                 indent = key_row.length + m[1].length;
             }
@@ -198,7 +198,7 @@ class YAML {
         function _calcPairLastIndex(lines, value_beginning_index, indent) {
             var last = lines.count;
             for (var i = value_beginning_index + 1; i < lines.count; ++i) {
-                if (lines[i].substr(0, indent) != ' '.repeat(indent) && /\S/.test(lines[i])) {
+                if (lines[i].substr(0, indent) != ' '.repeat(indent) && /Â¥S/.test(lines[i])) {
                     last = i;
                     break;
                 }
@@ -224,7 +224,7 @@ class YAML {
         function _getNextValue(lines) {
             var last = lines.count;
             for (var i = 1; i < lines.count; ++i) {
-                if (/\A\S/.test(lines[i])) {
+                if (/Â¥AÂ¥S/.test(lines[i])) {
                     last = i;
                     break;
                 }
@@ -239,33 +239,33 @@ class YAML {
                 remaining_lines.add(lines[i]);
             }
     
-            var m = /\A(-\s+)\S/.match(one_elem_lines[0]);
+            var m = /Â¥A(-Â¥s+)Â¥S/.match(one_elem_lines[0]);
             var indent;
             var beg;
             if (m.count > 0) {
-                // ’l‚ª - ‚Æ“¯‚¶s
+                // å€¤ãŒ - ã¨åŒã˜è¡Œ
                 // - hoge
                 indent = m[1].length;
                 beg = 0;
             }
             else {
-                var m = /\A(\s+)\S/.match(one_elem_lines[1]);
+                var m = /Â¥A(Â¥s+)Â¥S/.match(one_elem_lines[1]);
                 if (m.count > 0) {
-                    // ’l‚ª - ‚ÌŸ‚Ìs
+                    // å€¤ãŒ - ã®æ¬¡ã®è¡Œ
                     // -
                     //   hoge
                     indent = m[1].length;
                     beg = 1;
                 }
                 else {
-                    throw new Exception("Parse error: `-' ‚ÌŸ‚Ìs‚É’l‚ª‚ ‚è‚Ü‚¹‚ñ");
+                    throw new Exception("Parse error: `-' ã®æ¬¡ã®è¡Œã«å€¤ãŒã‚ã‚Šã¾ã›ã‚“");
                 }
             }
 
             for (var i = beg + 1; i < one_elem_lines.count; ++i) {
                 var s = one_elem_lines[i];
                 if (s.substr(0, indent) + ' '.repeat(indent - s.length) != ' '.repeat(indent)) {
-                    throw new Exception('Parse error: ƒV[ƒPƒ“ƒX‚Ì’l‚Ì’†‚ÅƒCƒ“ƒfƒ“ƒg‚ª‰º‚ª‚Á‚Ä‚¢‚Ü‚·: ' + s);
+                    throw new Exception('Parse error: ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®å€¤ã®ä¸­ã§ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆãŒä¸‹ãŒã£ã¦ã„ã¾ã™: ' + s);
                 }
             }
     
@@ -287,26 +287,26 @@ class YAML {
                 return _getDoubleQuoted(s);
             }
             else {
-                s = s.replace(/\s*(#.*)?\z/, '');
-                if (/\A[-+]?(0[0-7]*|[1-9]\d*|0x[\da-f]+)\z/i.test(s)) {
+                s = s.replace(/Â¥s*(#.*)?Â¥z/, '');
+                if (/Â¥A[-+]?(0[0-7]*|[1-9]Â¥d*|0x[Â¥da-f]+)Â¥z/i.test(s)) {
                     return (int)s;
                 }
-                else if (/\A[-+]?\d*\.\d+(e[-+]\d+?)?\z/i.test(s)) {
+                else if (/Â¥A[-+]?Â¥d*Â¥.Â¥d+(e[-+]Â¥d+?)?Â¥z/i.test(s)) {
                     return (real)s;
                 }
-                else if (/\A[-+]?\.(inf|Inf|INF)\z/.test(s)) {
+                else if (/Â¥A[-+]?Â¥.(inf|Inf|INF)Â¥z/.test(s)) {
                     return s[0] == '-' ? -Infinity : Infinity;
                 }
-                else if (/\A\.(nan|NaN|NAN)\z/.test(s)) {
+                else if (/Â¥AÂ¥.(nan|NaN|NAN)Â¥z/.test(s)) {
                     return NaN;
                 }
-                else if (/\A(y|Y|Yes|YES|true|True|TRUE|on|On|ON)\z/.test(s)) {
+                else if (/Â¥A(y|Y|Yes|YES|true|True|TRUE|on|On|ON)Â¥z/.test(s)) {
                     return true;
                 }
-                else if (/\A(n|N|No|NO|false|False|FALSE|off|Off|OFF)\z/.test(s)) {
+                else if (/Â¥A(n|N|No|NO|false|False|FALSE|off|Off|OFF)Â¥z/.test(s)) {
                     return false;
                 }
-                else if (/\A(~|null|Null|NULL)\z/.test(s)) {
+                else if (/Â¥A(â€¾|null|Null|NULL)Â¥z/.test(s)) {
                     return void;
                 }
                 else {
@@ -316,33 +316,33 @@ class YAML {
         }
         
         function _getSingleQuoted(str) {
-            var r = /\A'((''|[^'])*)'/.exec(str); //';
+            var r = /Â¥A'((''|[^'])*)'/.exec(str); //';
             var matched = r[1];
             var remainder = str.substr(matched.length + 2).replace(/#.*/, '');
-            if (/\S/.test(remainder)) {
-                throw new Exception('Parse error: ƒVƒ“ƒOƒ‹ƒNƒI[ƒg•¶š—ñ‚ÌƒNƒI[ƒg‚ª‚¨‚©‚µ‚¢‚Å‚·: ' + str + '(' + remainder + ')');
+            if (/Â¥S/.test(remainder)) {
+                throw new Exception('Parse error: ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚ªãƒ¼ãƒˆæ–‡å­—åˆ—ã®ã‚¯ã‚ªãƒ¼ãƒˆãŒãŠã‹ã—ã„ã§ã™: ' + str + '(' + remainder + ')');
             }
             return matched.replace(/''/g, "'");
         }
     
         function _getDoubleQuoted(str) {
-            var r = /\A"((\\"|[^"])*)"/.exec(str); //';
+            var r = /Â¥A"((Â¥Â¥"|[^"])*)"/.exec(str); //';
             var matched = r[1];
             var remainder = str.substr(matched.length + 2).replace(/#.*/, '');
-            if (/\S/.test(remainder)) {
-                throw new Exception('Parse error: ƒ_ƒuƒ‹ƒNƒI[ƒg•¶š—ñ‚ÌƒNƒI[ƒg‚ª‚¨‚©‚µ‚¢‚Å‚·: ' + str + '(' + remainder + ')');
+            if (/Â¥S/.test(remainder)) {
+                throw new Exception('Parse error: ãƒ€ãƒ–ãƒ«ã‚¯ã‚ªãƒ¼ãƒˆæ–‡å­—åˆ—ã®ã‚¯ã‚ªãƒ¼ãƒˆãŒãŠã‹ã—ã„ã§ã™: ' + str + '(' + remainder + ')');
             }
             return _processEscapeSequences(matched);
         }
     
         function _processEscapeSequences(str) {
-            var r = /\\(?:(0.*)|(a)|(b)|(t)|(n)|(v)|(f)|(r)|(e)|(")|(x(?:[0-9a-fA-F]{2}))|(u(?:[0-9a-fA-F]{4}))|(\\))/g; // ";
+            var r = /Â¥Â¥(?:(0.*)|(a)|(b)|(t)|(n)|(v)|(f)|(r)|(e)|(")|(x(?:[0-9a-fA-F]{2}))|(u(?:[0-9a-fA-F]{4}))|(Â¥Â¥))/g; // ";
 
             return str.replace(r, function(m) {
-                    var replacement = ['', '\a', '\b', '\t', '\n', '\v', '\f', '\r', '\x1b', '"',
-                                       function(s) { return ('"\\' + s + '"')!; },
-                                       function(s) { return ('"\\x' + s.substr(1) + '"')!; },
-                                       '\\'];
+                    var replacement = ['', 'Â¥a', 'Â¥b', 'Â¥t', 'Â¥n', 'Â¥v', 'Â¥f', 'Â¥r', 'Â¥x1b', '"',
+                                       function(s) { return ('"Â¥Â¥' + s + '"')!; },
+                                       function(s) { return ('"Â¥Â¥x' + s.substr(1) + '"')!; },
+                                       'Â¥Â¥'];
                     for (var i = 0; i < replacement.count; ++i) {
                         if (m[i+1].length > 0) {
                             if (replacement[i] instanceof 'String') {

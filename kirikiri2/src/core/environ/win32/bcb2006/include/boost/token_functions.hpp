@@ -59,9 +59,9 @@ namespace boost{
   // separated value (csv) list.It is separated into fields by a comma or 
   // other character. If the delimiting character is inside quotes, then it is
   // counted as a regular character.To allow for embedded quotes in a field,
-  // there can be escape sequences using the \ much like C. 
+  // there can be escape sequences using the ¥ much like C. 
   // The role of the comma, the quotation mark, and the escape 
-  // character (backslash \), can be assigned to other characters.
+  // character (backslash ¥), can be assigned to other characters.
 
   struct escaped_list_error : public std::runtime_error{
     escaped_list_error(const std::string& what):std::runtime_error(what) { }
@@ -110,7 +110,7 @@ namespace boost{
       if (++next == end)
         throw escaped_list_error(std::string("cannot end with escape"));
       if (Traits::eq(*next,'n')) {
-        tok+='\n';
+        tok+='¥n';
         return;
       }
       else if (is_quote(*next)) {
@@ -131,8 +131,8 @@ namespace boost{
 
     public:
     
-    explicit escaped_list_separator(Char  e = '\\',
-                                    Char c = ',',Char  q = '\"')
+    explicit escaped_list_separator(Char  e = '¥¥',
+                                    Char c = ',',Char  q = '¥"')
       : escape_(1,e), c_(1,c), quote_(1,q), last_(false) { }
     
     escaped_list_separator(string_type e, string_type c, string_type q)

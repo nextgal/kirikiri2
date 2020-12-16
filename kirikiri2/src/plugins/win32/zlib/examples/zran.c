@@ -356,12 +356,12 @@ int main(int argc, char **argv)
 
     /* open input file */
     if (argc != 2) {
-        fprintf(stderr, "usage: zran file.gz\n");
+        fprintf(stderr, "usage: zran file.gz¥n");
         return 1;
     }
     in = fopen(argv[1], "rb");
     if (in == NULL) {
-        fprintf(stderr, "zran: could not open %s for reading\n", argv[1]);
+        fprintf(stderr, "zran: could not open %s for reading¥n", argv[1]);
         return 1;
     }
 
@@ -371,30 +371,30 @@ int main(int argc, char **argv)
         fclose(in);
         switch (len) {
         case Z_MEM_ERROR:
-            fprintf(stderr, "zran: out of memory\n");
+            fprintf(stderr, "zran: out of memory¥n");
             break;
         case Z_DATA_ERROR:
-            fprintf(stderr, "zran: compressed data error in %s\n", argv[1]);
+            fprintf(stderr, "zran: compressed data error in %s¥n", argv[1]);
             break;
         case Z_ERRNO:
-            fprintf(stderr, "zran: read error on %s\n", argv[1]);
+            fprintf(stderr, "zran: read error on %s¥n", argv[1]);
             break;
         default:
-            fprintf(stderr, "zran: error %d while building index\n", len);
+            fprintf(stderr, "zran: error %d while building index¥n", len);
         }
         return 1;
     }
-    fprintf(stderr, "zran: built index with %d access points\n", len);
+    fprintf(stderr, "zran: built index with %d access points¥n", len);
 
     /* use index by reading some bytes from an arbitrary offset */
     offset = (index->list[index->have - 1].out << 1) / 3;
     len = extract(in, index, offset, buf, CHUNK);
     if (len < 0)
-        fprintf(stderr, "zran: extraction failed: %s error\n",
+        fprintf(stderr, "zran: extraction failed: %s error¥n",
                 len == Z_MEM_ERROR ? "out of memory" : "input corrupted");
     else {
         fwrite(buf, 1, len, stdout);
-        fprintf(stderr, "zran: extracted %d bytes at %llu\n", len, offset);
+        fprintf(stderr, "zran: extracted %d bytes at %llu¥n", len, offset);
     }
 
     /* clean up and exit */

@@ -16,10 +16,10 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\..\..\..\..\bin\win32\plugin"
+			OutputDirectory=".¥..¥..¥..¥..¥bin¥win32¥plugin"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults¥UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="1"
@@ -42,7 +42,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\..\..\..\..\bin\win32\plugin/squirrel.tlb"
+				TypeLibraryName=".¥..¥..¥..¥..¥bin¥win32¥plugin/squirrel.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -53,10 +53,10 @@
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				PrecompiledHeaderFile=".\Debug/squirrel.pch"
-				AssemblerListingLocation=".\Debug/"
-				ObjectFile=".\Debug/"
-				ProgramDataBaseFileName=".\Debug/"
+				PrecompiledHeaderFile=".¥Debug/squirrel.pch"
+				AssemblerListingLocation=".¥Debug/"
+				ObjectFile=".¥Debug/"
+				ProgramDataBaseFileName=".¥Debug/"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="4"
@@ -109,10 +109,10 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\..\..\..\bin\win32\plugin"
+			OutputDirectory=".¥..¥..¥..¥..¥bin¥win32¥plugin"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults¥UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="1"
@@ -136,7 +136,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\..\..\..\..\bin\win32\plugin/squirrel.tlb"
+				TypeLibraryName=".¥..¥..¥..¥..¥bin¥win32¥plugin/squirrel.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -225,27 +225,27 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\ncbind\ncbind.cpp"
+				RelativePath="..¥ncbind¥ncbind.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\sqfile.cpp"
+				RelativePath=".¥sqfile.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\sqstdio.cpp"
+				RelativePath=".¥sqstdio.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\sqtjsobj.cpp"
+				RelativePath=".¥sqtjsobj.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\sqwrapper.cpp"
+				RelativePath=".¥sqwrapper.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\tp_stub.cpp"
+				RelativePath="..¥tp_stub.cpp"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
@@ -272,11 +272,11 @@
 			Filter="h;hpp;hxx;hm;inl"
 			>
 			<File
-				RelativePath=".\sqtjsobj.h"
+				RelativePath=".¥sqtjsobj.h"
 				>
 			</File>
 			<File
-				RelativePath="..\tp_stub.h"
+				RelativePath="..¥tp_stub.h"
 				>
 			</File>
 		</Filter>

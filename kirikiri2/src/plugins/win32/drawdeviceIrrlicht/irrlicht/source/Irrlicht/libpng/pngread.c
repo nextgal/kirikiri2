@@ -45,7 +45,7 @@ png_create_read_struct_2(png_const_charp user_png_ver, png_voidp error_ptr,
 
    int i;
 
-   png_debug(1, "in png_create_read_struct\n");
+   png_debug(1, "in png_create_read_struct¥n");
 #ifdef PNG_USER_MEM_SUPPORTED
    png_ptr = (png_structp)png_create_struct_2(PNG_STRUCT_PNG,
       (png_malloc_ptr)malloc_fn, (png_voidp)mem_ptr);
@@ -257,7 +257,7 @@ png_read_init_3(png_structpp ptr_ptr, png_const_charp user_png_ver,
      }
    } while (png_libpng_ver[i++]);
 
-   png_debug(1, "in png_read_init_3\n");
+   png_debug(1, "in png_read_init_3¥n");
 
 #ifdef PNG_SETJMP_SUPPORTED
    /* save jump buffer and error functions */
@@ -321,7 +321,7 @@ void PNGAPI
 png_read_info(png_structp png_ptr, png_infop info_ptr)
 {
    if(png_ptr == NULL) return;
-   png_debug(1, "in png_read_info\n");
+   png_debug(1, "in png_read_info¥n");
    /* If we haven't checked all of the PNG signature bytes, do so now. */
    if (png_ptr->sig_bytes < 8)
    {
@@ -411,7 +411,7 @@ png_read_info(png_structp png_ptr, png_infop info_ptr)
       png_reset_crc(png_ptr);
       png_crc_read(png_ptr, png_ptr->chunk_name, 4);
 
-      png_debug2(0, "Reading %s chunk, length=%lu.\n", png_ptr->chunk_name,
+      png_debug2(0, "Reading %s chunk, length=%lu.¥n", png_ptr->chunk_name,
          length);
 
       /* This should be a binary subdivision search or a hash for
@@ -536,7 +536,7 @@ png_read_info(png_structp png_ptr, png_infop info_ptr)
 void PNGAPI
 png_read_update_info(png_structp png_ptr, png_infop info_ptr)
 {
-   png_debug(1, "in png_read_update_info\n");
+   png_debug(1, "in png_read_update_info¥n");
    if(png_ptr == NULL) return;
    if (!(png_ptr->flags & PNG_FLAG_ROW_INIT))
       png_read_start_row(png_ptr);
@@ -555,7 +555,7 @@ png_read_update_info(png_structp png_ptr, png_infop info_ptr)
 void PNGAPI
 png_start_read_image(png_structp png_ptr)
 {
-   png_debug(1, "in png_start_read_image\n");
+   png_debug(1, "in png_start_read_image¥n");
    if(png_ptr == NULL) return;
    if (!(png_ptr->flags & PNG_FLAG_ROW_INIT))
       png_read_start_row(png_ptr);
@@ -573,7 +573,7 @@ png_read_row(png_structp png_ptr, png_bytep row, png_bytep dsp_row)
 #endif
    int ret;
    if(png_ptr == NULL) return;
-   png_debug2(1, "in png_read_row (row %lu, pass %d)\n",
+   png_debug2(1, "in png_read_row (row %lu, pass %d)¥n",
       png_ptr->row_number, png_ptr->pass);
    if (!(png_ptr->flags & PNG_FLAG_ROW_INIT))
       png_read_start_row(png_ptr);
@@ -830,7 +830,7 @@ png_read_rows(png_structp png_ptr, png_bytepp row,
    png_bytepp rp;
    png_bytepp dp;
 
-   png_debug(1, "in png_read_rows\n");
+   png_debug(1, "in png_read_rows¥n");
    if(png_ptr == NULL) return;
    rp = row;
    dp = display_row;
@@ -879,7 +879,7 @@ png_read_image(png_structp png_ptr, png_bytepp image)
    int pass, j;
    png_bytepp rp;
 
-   png_debug(1, "in png_read_image\n");
+   png_debug(1, "in png_read_image¥n");
    if(png_ptr == NULL) return;
 
 #ifdef PNG_READ_INTERLACING_SUPPORTED
@@ -918,7 +918,7 @@ png_read_end(png_structp png_ptr, png_infop info_ptr)
    png_byte chunk_length[4];
    png_uint_32 length;
 
-   png_debug(1, "in png_read_end\n");
+   png_debug(1, "in png_read_end¥n");
    if(png_ptr == NULL) return;
    png_crc_finish(png_ptr, 0); /* Finish off CRC from last IDAT chunk */
 
@@ -988,7 +988,7 @@ png_read_end(png_structp png_ptr, png_infop info_ptr)
       png_reset_crc(png_ptr);
       png_crc_read(png_ptr, png_ptr->chunk_name, 4);
 
-      png_debug1(0, "Reading %s chunk.\n", png_ptr->chunk_name);
+      png_debug1(0, "Reading %s chunk.¥n", png_ptr->chunk_name);
 
       if (!png_memcmp(png_ptr->chunk_name, png_IHDR, 4))
          png_handle_IHDR(png_ptr, info_ptr, length);
@@ -1104,7 +1104,7 @@ png_destroy_read_struct(png_structpp png_ptr_ptr, png_infopp info_ptr_ptr,
    png_voidp mem_ptr;
 #endif
 
-   png_debug(1, "in png_destroy_read_struct\n");
+   png_debug(1, "in png_destroy_read_struct¥n");
    if (png_ptr_ptr != NULL)
       png_ptr = *png_ptr_ptr;
 
@@ -1176,7 +1176,7 @@ png_read_destroy(png_structp png_ptr, png_infop info_ptr, png_infop end_info_ptr
    png_free_ptr free_fn;
 #endif
 
-   png_debug(1, "in png_read_destroy\n");
+   png_debug(1, "in png_read_destroy¥n");
    if (info_ptr != NULL)
       png_info_destroy(png_ptr, info_ptr);
 
@@ -1200,33 +1200,33 @@ png_read_destroy(png_structp png_ptr, png_infop info_ptr, png_infop end_info_ptr
 #ifdef PNG_FREE_ME_SUPPORTED
    if (png_ptr->free_me & PNG_FREE_PLTE)
       png_zfree(png_ptr, png_ptr->palette);
-   png_ptr->free_me &= ~PNG_FREE_PLTE;
+   png_ptr->free_me &= ‾PNG_FREE_PLTE;
 #else
    if (png_ptr->flags & PNG_FLAG_FREE_PLTE)
       png_zfree(png_ptr, png_ptr->palette);
-   png_ptr->flags &= ~PNG_FLAG_FREE_PLTE;
+   png_ptr->flags &= ‾PNG_FLAG_FREE_PLTE;
 #endif
-#if defined(PNG_tRNS_SUPPORTED) || \
+#if defined(PNG_tRNS_SUPPORTED) || ¥
     defined(PNG_READ_EXPAND_SUPPORTED) || defined(PNG_READ_BACKGROUND_SUPPORTED)
 #ifdef PNG_FREE_ME_SUPPORTED
    if (png_ptr->free_me & PNG_FREE_TRNS)
       png_free(png_ptr, png_ptr->trans);
-   png_ptr->free_me &= ~PNG_FREE_TRNS;
+   png_ptr->free_me &= ‾PNG_FREE_TRNS;
 #else
    if (png_ptr->flags & PNG_FLAG_FREE_TRNS)
       png_free(png_ptr, png_ptr->trans);
-   png_ptr->flags &= ~PNG_FLAG_FREE_TRNS;
+   png_ptr->flags &= ‾PNG_FLAG_FREE_TRNS;
 #endif
 #endif
 #if defined(PNG_READ_hIST_SUPPORTED)
 #ifdef PNG_FREE_ME_SUPPORTED
    if (png_ptr->free_me & PNG_FREE_HIST)
       png_free(png_ptr, png_ptr->hist);
-   png_ptr->free_me &= ~PNG_FREE_HIST;
+   png_ptr->free_me &= ‾PNG_FREE_HIST;
 #else
    if (png_ptr->flags & PNG_FLAG_FREE_HIST)
       png_free(png_ptr, png_ptr->hist);
-   png_ptr->flags &= ~PNG_FLAG_FREE_HIST;
+   png_ptr->flags &= ‾PNG_FLAG_FREE_HIST;
 #endif
 #endif
 #if defined(PNG_READ_GAMMA_SUPPORTED)

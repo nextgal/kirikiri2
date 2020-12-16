@@ -44,7 +44,7 @@ CMY3DMeshFileLoader::CMY3DMeshFileLoader(
 
 
 
-CMY3DMeshFileLoader::~CMY3DMeshFileLoader()
+CMY3DMeshFileLoader::‾CMY3DMeshFileLoader()
 {
 	if (Mesh)
 		Mesh->drop();

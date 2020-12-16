@@ -38,11 +38,11 @@ template< typename T > struct is_pointer_helper
     BOOST_STATIC_CONSTANT(bool, value = false);
 };
 
-#   define TT_AUX_BOOL_TRAIT_HELPER_PARTIAL_SPEC(helper,sp,result) \
-template< typename T > struct helper<sp> \
-{ \
-    BOOST_STATIC_CONSTANT(bool, value = result); \
-}; \
+#   define TT_AUX_BOOL_TRAIT_HELPER_PARTIAL_SPEC(helper,sp,result) ¥
+template< typename T > struct helper<sp> ¥
+{ ¥
+    BOOST_STATIC_CONSTANT(bool, value = result); ¥
+}; ¥
 /**/
 
 TT_AUX_BOOL_TRAIT_HELPER_PARTIAL_SPEC(is_pointer_helper,T*,true)

@@ -106,10 +106,10 @@ inline std::ostream&
 operator<<(std::ostream& o, tree_node<T> const& n)
 {
     static int depth = 0;
-    o << "\n";
+    o << "¥n";
     for (int i = 0; i <= depth; ++i)
     {
-        o << "\t";
+        o << "¥t";
     }
     o << "(depth = " << depth++ << " value = " << n.value;
     int c = 0;
@@ -218,12 +218,12 @@ template <typename IteratorT, typename ValueT>
 inline std::ostream&
 operator<<(std::ostream& o, node_iter_data<IteratorT, ValueT> const& n)
 {
-    o << "(id = " << n.id() << " text = \"";
+    o << "(id = " << n.id() << " text = ¥"";
     typedef
         typename BOOST_SPIRIT_IT_NS::iterator_traits<IteratorT>::value_type
         iterator_t;
     std::copy(n.begin(), n.end(), std::ostream_iterator<iterator_t>(o));
-    o << "\" is_root = " << n.is_root()
+    o << "¥" is_root = " << n.is_root()
         << " value = " << n.value() << ")";
     return o;
 }
@@ -324,12 +324,12 @@ template <typename IteratorT, typename ValueT>
 inline std::ostream&
 operator<<(std::ostream& o, node_val_data<IteratorT, ValueT> const& n)
 {
-    o << "(id = " << n.id() << " text = \"";
+    o << "(id = " << n.id() << " text = ¥"";
     typedef
         typename BOOST_SPIRIT_IT_NS::iterator_traits<IteratorT>::value_type
         iterator_t;
     std::copy(n.begin(), n.end(), std::ostream_iterator<iterator_t>(o));
-    o << "\" is_root = " << n.is_root()
+    o << "¥" is_root = " << n.is_root()
         << " value = " << n.value() << ")";
     return o;
 }
@@ -740,10 +740,10 @@ struct common_tree_match_policy
     {
 #if defined(BOOST_SPIRIT_DEBUG) && (BOOST_SPIRIT_DEBUG_FLAGS_NODES & BOOST_SPIRIT_DEBUG_FLAGS_TREES)
         BOOST_SPIRIT_DEBUG_OUT << "create_node.  creating node"
-            " text: \"";
+            " text: ¥"";
         for (Iterator1T it = first; it != last; ++it)
             BOOST_SPIRIT_DEBUG_OUT << *it;
-        BOOST_SPIRIT_DEBUG_OUT << "\"" << std::endl;
+        BOOST_SPIRIT_DEBUG_OUT << "¥"" << std::endl;
 #endif
         return match_t(length, /*val,*/
             tree_policy_t::create_node(length, first, last, true));

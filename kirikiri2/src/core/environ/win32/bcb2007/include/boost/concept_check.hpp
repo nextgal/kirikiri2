@@ -51,39 +51,39 @@ inline void function_requires(type<Concept>* = 0)
 #endif
 }
 
-#define BOOST_CLASS_REQUIRE(type_var, ns, concept) \
-  typedef void (ns::concept <type_var>::* func##type_var##concept)(); \
-  template <func##type_var##concept _Tp1> \
-  struct concept_checking_##type_var##concept { }; \
-  typedef concept_checking_##type_var##concept< \
-    BOOST_FPTR ns::concept<type_var>::constraints> \
+#define BOOST_CLASS_REQUIRE(type_var, ns, concept) ¥
+  typedef void (ns::concept <type_var>::* func##type_var##concept)(); ¥
+  template <func##type_var##concept _Tp1> ¥
+  struct concept_checking_##type_var##concept { }; ¥
+  typedef concept_checking_##type_var##concept< ¥
+    BOOST_FPTR ns::concept<type_var>::constraints> ¥
     concept_checking_typedef_##type_var##concept
 
-#define BOOST_CLASS_REQUIRE2(type_var1, type_var2, ns, concept) \
-  typedef void (ns::concept <type_var1,type_var2>::* \
-     func##type_var1##type_var2##concept)(); \
-  template <func##type_var1##type_var2##concept _Tp1> \
-  struct concept_checking_##type_var1##type_var2##concept { }; \
-  typedef concept_checking_##type_var1##type_var2##concept< \
-    BOOST_FPTR ns::concept<type_var1,type_var2>::constraints> \
+#define BOOST_CLASS_REQUIRE2(type_var1, type_var2, ns, concept) ¥
+  typedef void (ns::concept <type_var1,type_var2>::* ¥
+     func##type_var1##type_var2##concept)(); ¥
+  template <func##type_var1##type_var2##concept _Tp1> ¥
+  struct concept_checking_##type_var1##type_var2##concept { }; ¥
+  typedef concept_checking_##type_var1##type_var2##concept< ¥
+    BOOST_FPTR ns::concept<type_var1,type_var2>::constraints> ¥
     concept_checking_typedef_##type_var1##type_var2##concept
 
-#define BOOST_CLASS_REQUIRE3(tv1, tv2, tv3, ns, concept) \
-  typedef void (ns::concept <tv1,tv2,tv3>::* \
-     func##tv1##tv2##tv3##concept)(); \
-  template <func##tv1##tv2##tv3##concept _Tp1> \
-  struct concept_checking_##tv1##tv2##tv3##concept { }; \
-  typedef concept_checking_##tv1##tv2##tv3##concept< \
-    BOOST_FPTR ns::concept<tv1,tv2,tv3>::constraints> \
+#define BOOST_CLASS_REQUIRE3(tv1, tv2, tv3, ns, concept) ¥
+  typedef void (ns::concept <tv1,tv2,tv3>::* ¥
+     func##tv1##tv2##tv3##concept)(); ¥
+  template <func##tv1##tv2##tv3##concept _Tp1> ¥
+  struct concept_checking_##tv1##tv2##tv3##concept { }; ¥
+  typedef concept_checking_##tv1##tv2##tv3##concept< ¥
+    BOOST_FPTR ns::concept<tv1,tv2,tv3>::constraints> ¥
     concept_checking_typedef_##tv1##tv2##tv3##concept
 
-#define BOOST_CLASS_REQUIRE4(tv1, tv2, tv3, tv4, ns, concept) \
-  typedef void (ns::concept <tv1,tv2,tv3,tv4>::* \
-     func##tv1##tv2##tv3##tv4##concept)(); \
-  template <func##tv1##tv2##tv3##tv4##concept _Tp1> \
-  struct concept_checking_##tv1##tv2##tv3##tv4##concept { }; \
-  typedef concept_checking_##tv1##tv2##tv3##tv4##concept< \
-    BOOST_FPTR ns::concept<tv1,tv2,tv3,tv4>::constraints> \
+#define BOOST_CLASS_REQUIRE4(tv1, tv2, tv3, tv4, ns, concept) ¥
+  typedef void (ns::concept <tv1,tv2,tv3,tv4>::* ¥
+     func##tv1##tv2##tv3##tv4##concept)(); ¥
+  template <func##tv1##tv2##tv3##tv4##concept _Tp1> ¥
+  struct concept_checking_##tv1##tv2##tv3##tv4##concept { }; ¥
+  typedef concept_checking_##tv1##tv2##tv3##tv4##concept< ¥
+    BOOST_FPTR ns::concept<tv1,tv2,tv3,tv4>::constraints> ¥
     concept_checking_typedef_##tv1##tv2##tv3##tv4##concept
 
 // NOTE: The BOOST_CLASS_REQUIRES (with an 'S' at the end) is deprecated.
@@ -100,36 +100,36 @@ inline void function_requires(type<Concept>* = 0)
 
 #else
 
-#define BOOST_CLASS_REQUIRES(type_var, concept) \
-  typedef void (concept <type_var>::* func##type_var##concept)(); \
-  template <func##type_var##concept _Tp1> \
-  struct concept_checking_##type_var##concept { }; \
-  typedef concept_checking_##type_var##concept< \
-    BOOST_FPTR concept <type_var>::constraints> \
+#define BOOST_CLASS_REQUIRES(type_var, concept) ¥
+  typedef void (concept <type_var>::* func##type_var##concept)(); ¥
+  template <func##type_var##concept _Tp1> ¥
+  struct concept_checking_##type_var##concept { }; ¥
+  typedef concept_checking_##type_var##concept< ¥
+    BOOST_FPTR concept <type_var>::constraints> ¥
     concept_checking_typedef_##type_var##concept
 
-#define BOOST_CLASS_REQUIRES2(type_var1, type_var2, concept) \
-  typedef void (concept <type_var1,type_var2>::* func##type_var1##type_var2##concept)(); \
-  template <func##type_var1##type_var2##concept _Tp1> \
-  struct concept_checking_##type_var1##type_var2##concept { }; \
-  typedef concept_checking_##type_var1##type_var2##concept< \
-    BOOST_FPTR concept <type_var1,type_var2>::constraints> \
+#define BOOST_CLASS_REQUIRES2(type_var1, type_var2, concept) ¥
+  typedef void (concept <type_var1,type_var2>::* func##type_var1##type_var2##concept)(); ¥
+  template <func##type_var1##type_var2##concept _Tp1> ¥
+  struct concept_checking_##type_var1##type_var2##concept { }; ¥
+  typedef concept_checking_##type_var1##type_var2##concept< ¥
+    BOOST_FPTR concept <type_var1,type_var2>::constraints> ¥
     concept_checking_typedef_##type_var1##type_var2##concept
 
-#define BOOST_CLASS_REQUIRES3(type_var1, type_var2, type_var3, concept) \
-  typedef void (concept <type_var1,type_var2,type_var3>::* func##type_var1##type_var2##type_var3##concept)(); \
-  template <func##type_var1##type_var2##type_var3##concept _Tp1> \
-  struct concept_checking_##type_var1##type_var2##type_var3##concept { }; \
-  typedef concept_checking_##type_var1##type_var2##type_var3##concept< \
-    BOOST_FPTR concept <type_var1,type_var2,type_var3>::constraints>  \
+#define BOOST_CLASS_REQUIRES3(type_var1, type_var2, type_var3, concept) ¥
+  typedef void (concept <type_var1,type_var2,type_var3>::* func##type_var1##type_var2##type_var3##concept)(); ¥
+  template <func##type_var1##type_var2##type_var3##concept _Tp1> ¥
+  struct concept_checking_##type_var1##type_var2##type_var3##concept { }; ¥
+  typedef concept_checking_##type_var1##type_var2##type_var3##concept< ¥
+    BOOST_FPTR concept <type_var1,type_var2,type_var3>::constraints>  ¥
   concept_checking_typedef_##type_var1##type_var2##type_var3##concept
 
-#define BOOST_CLASS_REQUIRES4(type_var1, type_var2, type_var3, type_var4, concept) \
-  typedef void (concept <type_var1,type_var2,type_var3,type_var4>::* func##type_var1##type_var2##type_var3##type_var4##concept)(); \
-  template <func##type_var1##type_var2##type_var3##type_var4##concept _Tp1> \
-  struct concept_checking_##type_var1##type_var2##type_var3##type_var4##concept { }; \
-  typedef concept_checking_##type_var1##type_var2##type_var3##type_var4##concept< \
-    BOOST_FPTR concept <type_var1,type_var2,type_var3,type_var4>::constraints>  \
+#define BOOST_CLASS_REQUIRES4(type_var1, type_var2, type_var3, type_var4, concept) ¥
+  typedef void (concept <type_var1,type_var2,type_var3,type_var4>::* func##type_var1##type_var2##type_var3##type_var4##concept)(); ¥
+  template <func##type_var1##type_var2##type_var3##type_var4##concept _Tp1> ¥
+  struct concept_checking_##type_var1##type_var2##type_var3##type_var4##concept { }; ¥
+  typedef concept_checking_##type_var1##type_var2##type_var3##type_var4##concept< ¥
+    BOOST_FPTR concept <type_var1,type_var2,type_var3,type_var4>::constraints>  ¥
     concept_checking_typedef_##type_var1##type_var2##type_var3##type_var4##concept
 
 
@@ -330,26 +330,26 @@ struct require_same { typedef T type; };
     TT a, b;
   };
 
-#define BOOST_DEFINE_BINARY_PREDICATE_OP_CONSTRAINT(OP,NAME) \
-  template <class First, class Second> \
-  struct NAME { \
-    void constraints() { (void)constraints_(); } \
-    bool constraints_() {  \
-      return  a OP b; \
-    } \
-    First a; \
-    Second b; \
+#define BOOST_DEFINE_BINARY_PREDICATE_OP_CONSTRAINT(OP,NAME) ¥
+  template <class First, class Second> ¥
+  struct NAME { ¥
+    void constraints() { (void)constraints_(); } ¥
+    bool constraints_() {  ¥
+      return  a OP b; ¥
+    } ¥
+    First a; ¥
+    Second b; ¥
   }
 
-#define BOOST_DEFINE_BINARY_OPERATOR_CONSTRAINT(OP,NAME) \
-  template <class Ret, class First, class Second> \
-  struct NAME { \
-    void constraints() { (void)constraints_(); } \
-    Ret constraints_() {  \
-      return a OP b; \
-    } \
-    First a; \
-    Second b; \
+#define BOOST_DEFINE_BINARY_OPERATOR_CONSTRAINT(OP,NAME) ¥
+  template <class Ret, class First, class Second> ¥
+  struct NAME { ¥
+    void constraints() { (void)constraints_(); } ¥
+    Ret constraints_() {  ¥
+      return a OP b; ¥
+    } ¥
+    First a; ¥
+    Second b; ¥
   }
 
   BOOST_DEFINE_BINARY_PREDICATE_OP_CONSTRAINT(==, EqualOpConcept);

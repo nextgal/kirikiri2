@@ -1,44 +1,44 @@
-Title: binaryStream �v���O�C��
+Title: binaryStream プラグイン
 Author: miahmie
 
-������͉����H
+●これは何か？
 
-�o�C�i���t�@�C�����������߂̃v���O�C���ł��B
+バイナリファイルを扱うためのプラグインです。
 
-���f�o�b�O�s���̂��߁C����ɖ�肪����\��������܂��B
-
-
-���g����
-
-manual.tjs ���Q�Ƃ��Ă��������B
+※デバッグ不足のため，動作に問題がある可能性があります。
 
 
-���R���p�C���ɂ���
+●使い方
 
-�t���̃v���W�F�N�g�t�@�C�����g�p����ꍇ�C
-
-..\tp_stub.*
-..\ncbind
-..\zlib
-
-���K�v�ł��B�܂��CDLL�̏o�͐��
-
-..\..\..\..\bin\win32\plugin
-
-�ƂȂ�܂��B
-��ƃR�s�[�� https://sv.kikyou.info/svn/kirikiri2/trunk/kirikiri2 ����
-�`�F�b�N�A�E�g���Ă���ꍇ�͖�肠��܂���B
+manual.tjs を参照してください。
 
 
-���T���v���X�N���v�g�ɂ���
+●コンパイルについて
 
-XP3�̃A�[�J�C�u���t�@�C�����ꗗ�����͂Ŏ擾����T���v��
-xp3index.tjs ���Q�l�ɂ��Ă��������B�i�v�ǉ��v���O�C��memfile.dll�j
-# ���������̂͋g���g���{�̂���A�[�J�C�u�̃t�@�C�����ꗗ���擾�ł���悤��
-# �g������̂��Ó����Ǝv���܂����C�����܂ŃT���v���Ƃ������Ƃ�...
+付属のプロジェクトファイルを使用する場合，
+
+..¥tp_stub.*
+..¥ncbind
+..¥zlib
+
+が必要です。また，DLLの出力先は
+
+..¥..¥..¥..¥bin¥win32¥plugin
+
+となります。
+作業コピーを https://sv.kikyou.info/svn/kirikiri2/trunk/kirikiri2 から
+チェックアウトしてある場合は問題ありません。
 
 
-�����C�Z���X
+●サンプルスクリプトについて
 
-���̃v���O�C���̃��C�Z���X�͋g���g���{�̂ɏ������Ă��������B
+XP3のアーカイブ内ファイル名一覧を自力で取得するサンプル
+xp3index.tjs を参考にしてください。（要追加プラグインmemfile.dll）
+# こういうのは吉里吉里本体からアーカイブのファイル名一覧を取得できるように
+# 拡張するのが妥当かと思いますが，あくまでサンプルということで...
+
+
+●ライセンス
+
+このプラグインのライセンスは吉里吉里本体に準拠してください。
 

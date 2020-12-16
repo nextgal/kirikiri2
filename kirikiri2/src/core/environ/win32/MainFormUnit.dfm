@@ -1,4 +1,4 @@
-object TVPMainForm: TTVPMainForm
+ï»¿object TVPMainForm: TTVPMainForm
   Left = 599
   Top = 10
   HorzScrollBar.Visible = False
@@ -6,7 +6,7 @@ object TVPMainForm: TTVPMainForm
   VertScrollBar.Visible = False
   AutoSize = True
   BorderStyle = bsToolWindow
-  Caption = '‹g—¢‹g—¢ Control'
+  Caption = 'å‰é‡Œå‰é‡Œ Control'
   ClientHeight = 22
   ClientWidth = 131
   Color = clBtnFace
@@ -14,7 +14,7 @@ object TVPMainForm: TTVPMainForm
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   PopupMenu = PopupMenu
@@ -39,8 +39,8 @@ object TVPMainForm: TTVPMainForm
     object ShowScriptEditorButton: TToolButton
       Left = 0
       Top = 0
-      Hint = 'ƒXƒNƒŠƒvƒgƒGƒfƒBƒ^ ‚ğ•\¦'
-      Caption = 'ƒXƒNƒŠƒvƒgƒGƒfƒBƒ^'
+      Hint = 'ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ ã‚’è¡¨ç¤º'
+      Caption = 'ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ‡ã‚£ã‚¿'
       ImageIndex = 2
       ParentShowHint = False
       ShowHint = True
@@ -49,8 +49,8 @@ object TVPMainForm: TTVPMainForm
     object ShowWatchButton: TToolButton
       Left = 23
       Top = 0
-      Hint = 'ŠÄ‹®‚ğ•\¦'
-      Caption = 'ŠÄ‹®'
+      Hint = 'ç›£è¦–å¼ã‚’è¡¨ç¤º'
+      Caption = 'ç›£è¦–å¼'
       ImageIndex = 14
       ParentShowHint = False
       ShowHint = True
@@ -59,8 +59,8 @@ object TVPMainForm: TTVPMainForm
     object ShowConsoleButton: TToolButton
       Left = 46
       Top = 0
-      Hint = 'ƒRƒ“ƒ\[ƒ‹‚ğ•\¦'
-      Caption = 'ƒRƒ“ƒ\[ƒ‹'
+      Hint = 'ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‚’è¡¨ç¤º'
+      Caption = 'ã‚³ãƒ³ã‚½ãƒ¼ãƒ«'
       ImageIndex = 13
       ParentShowHint = False
       ShowHint = True
@@ -77,9 +77,9 @@ object TVPMainForm: TTVPMainForm
     object EventButton: TToolButton
       Left = 77
       Top = 0
-      Hint = 'ƒCƒxƒ“ƒg”­¶'
+      Hint = 'ã‚¤ãƒ™ãƒ³ãƒˆç™ºç”Ÿ'
       AllowAllUp = True
-      Caption = 'ƒCƒxƒ“ƒg”­¶'
+      Caption = 'ã‚¤ãƒ™ãƒ³ãƒˆç™ºç”Ÿ'
       Down = True
       ImageIndex = 23
       ParentShowHint = False
@@ -98,8 +98,8 @@ object TVPMainForm: TTVPMainForm
     object ExitButton: TToolButton
       Left = 108
       Top = 0
-      Hint = 'I—¹'
-      Caption = 'I—¹'
+      Hint = 'çµ‚äº†'
+      Caption = 'çµ‚äº†'
       ImageIndex = 21
       ParentShowHint = False
       ShowHint = True
@@ -586,29 +586,29 @@ object TVPMainForm: TTVPMainForm
     Left = 64
     Top = 8
     object ShowControllerMenuItem: TMenuItem
-      Caption = 'ƒRƒ“ƒgƒ[ƒ‰(&Z)'
+      Caption = 'ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©(&Z)'
       ShortCut = 8304
       Visible = False
       OnClick = ShowControllerMenuItemClick
     end
     object ShowScriptEditorMenuItem: TMenuItem
-      Caption = 'ƒXƒNƒŠƒvƒgƒGƒfƒBƒ^(&E)'
-      Hint = 'ƒXƒNƒŠƒvƒgƒGƒfƒBƒ^‚ğ•\¦'
+      Caption = 'ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ‡ã‚£ã‚¿(&E)'
+      Hint = 'ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ã‚’è¡¨ç¤º'
       ImageIndex = 2
       RadioItem = True
       ShortCut = 8305
       OnClick = ShowScriptEditorButtonClick
     end
     object ShowWatchMenuItem: TMenuItem
-      Caption = 'ŠÄ‹®(&W)'
-      Hint = 'ŠÄ‹®‚ğ•\¦'
+      Caption = 'ç›£è¦–å¼(&W)'
+      Hint = 'ç›£è¦–å¼ã‚’è¡¨ç¤º'
       ImageIndex = 14
       ShortCut = 8306
       OnClick = ShowWatchButtonClick
     end
     object ShowConsoleMenuItem: TMenuItem
-      Caption = 'ƒRƒ“ƒ\[ƒ‹(&D)'
-      Hint = 'ƒRƒ“ƒ\[ƒ‹‚ğ•\¦'
+      Caption = 'ã‚³ãƒ³ã‚½ãƒ¼ãƒ«(&D)'
+      Hint = 'ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‚’è¡¨ç¤º'
       ImageIndex = 13
       ShortCut = 8307
       OnClick = ShowConsoleButtonClick
@@ -617,8 +617,8 @@ object TVPMainForm: TTVPMainForm
       Caption = '-'
     end
     object ShowOnTopMenuItem: TMenuItem
-      Caption = 'í‚Éè‘O‚É•\¦(&F)'
-      Hint = 'í‚Éè‘O‚É•\¦(&F)'
+      Caption = 'å¸¸ã«æ‰‹å‰ã«è¡¨ç¤º(&F)'
+      Hint = 'å¸¸ã«æ‰‹å‰ã«è¡¨ç¤º(&F)'
       ImageIndex = 10
       OnClick = ShowOnTopMenuItemClick
     end
@@ -626,9 +626,9 @@ object TVPMainForm: TTVPMainForm
       Caption = '-'
     end
     object EnableEventMenuItem: TMenuItem
-      Caption = 'ƒCƒxƒ“ƒg‚Ì”­¶(&I)'
+      Caption = 'ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç”Ÿ(&I)'
       Checked = True
-      Hint = 'ƒCƒxƒ“ƒg‚Ì”­¶'
+      Hint = 'ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç”Ÿ'
       ImageIndex = 23
       OnClick = EnableEventMenuItemClick
     end
@@ -636,26 +636,26 @@ object TVPMainForm: TTVPMainForm
       Caption = '-'
     end
     object DumpMenuItem: TMenuItem
-      Caption = 'TJS ƒ_ƒ“ƒv(&L)'
-      Hint = 'TJS ‚Ìƒ_ƒ“ƒv'
+      Caption = 'TJS ãƒ€ãƒ³ãƒ—(&L)'
+      Hint = 'TJS ã®ãƒ€ãƒ³ãƒ—'
       OnClick = DumpMenuItemClick
     end
     object CreateMessageMapFileMenuItem: TMenuItem
-      Caption = 'ƒƒbƒZ[ƒWƒ}ƒbƒvƒtƒ@ƒCƒ‹‚Ìì¬(&M)'
-      Hint = 'ƒƒbƒZ[ƒWƒ}ƒbƒvƒtƒ@ƒCƒ‹‚ğì¬'
+      Caption = 'ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆ(&M)'
+      Hint = 'ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆ'
       OnClick = CreateMessageMapFileMenuItemClick
     end
     object RestartScriptEngineMenuItem: TMenuItem
-      Caption = 'ƒXƒNƒŠƒvƒgƒGƒ“ƒWƒ“‚ÌÄ‹N“®(&R)'
-      Hint = 'ƒXƒNƒŠƒvƒgƒGƒ“ƒWƒ“‚ğÄ‹N“®‚µ‚Ü‚·'
+      Caption = 'ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ³ã‚¸ãƒ³ã®å†èµ·å‹•(&R)'
+      Hint = 'ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ³ã‚¸ãƒ³ã‚’å†èµ·å‹•ã—ã¾ã™'
       OnClick = RestartScriptEngineMenuItemClick
     end
     object N2: TMenuItem
       Caption = '-'
     end
     object ExitMenuItem: TMenuItem
-      Caption = 'I—¹(&X)'
-      Hint = 'I—¹'
+      Caption = 'çµ‚äº†(&X)'
+      Hint = 'çµ‚äº†'
       ImageIndex = 21
       OnClick = ExitButtonClick
     end
@@ -680,9 +680,9 @@ object TVPMainForm: TTVPMainForm
   end
   object MessageMapFileSaveDialog: TSaveDialog
     DefaultExt = 'tjs'
-    Filter = 'tjsƒXƒNƒŠƒvƒg(*.tjs)|*.tjs|‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹(*.*)|*.*'
+    Filter = 'tjsã‚¹ã‚¯ãƒªãƒ—ãƒˆ(*.tjs)|*.tjs|ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«(*.*)|*.*'
     Options = [ofOverwritePrompt, ofNoChangeDir, ofPathMustExist, ofNoReadOnlyReturn, ofEnableSizing]
-    Title = 'ƒƒbƒZ[ƒWƒ}ƒbƒvƒtƒ@ƒCƒ‹‚Ìì¬'
+    Title = 'ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆ'
     Left = 112
   end
 end

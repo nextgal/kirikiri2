@@ -33,7 +33,7 @@ namespace boost { namespace spirit {
 //      after examining only a few characters. Hash tables always examine an
 //      entire key when searching.
 //
-//      For details see http://www.cs.princeton.edu/~rs/strings/.
+//      For details see http://www.cs.princeton.edu/‾rs/strings/.
 //
 //      *** This is a low level class and is
 //          not meant for public consumption ***
@@ -48,7 +48,7 @@ namespace boost { namespace spirit {
         , right(0)
         { middle.link = 0; }
 
-        ~tst_node()
+        ‾tst_node()
         {
             delete left;
             delete right;
@@ -111,7 +111,7 @@ namespace boost { namespace spirit {
         tst(tst const& other)
         : root(other.root ? other.root->clone() : 0) {}
 
-        ~tst()
+        ‾tst()
         { delete root; }
 
         tst&

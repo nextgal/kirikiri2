@@ -141,7 +141,7 @@ CGUITabControl::CGUITabControl(IGUIEnvironment* environment,
 
 
 //! destructor
-CGUITabControl::~CGUITabControl()
+CGUITabControl::‾CGUITabControl()
 {
 	for (u32 i=0; i<Tabs.size(); ++i)
 	{

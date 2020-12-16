@@ -85,7 +85,7 @@ static tjs_uint32 TVP_INLINE_FUNC TVPSaturatedAdd(tjs_uint32 a, tjs_uint32 b)
 
 static tjs_uint32 TVP_INLINE_FUNC TVPAddAlphaBlend_n_a(tjs_uint32 dest, tjs_uint32 src)
 {
-	tjs_uint32 sopa = (~src) >> 24;
+	tjs_uint32 sopa = (‾src) >> 24;
 	return TVPSaturatedAdd((((dest & 0xff00ff)*sopa >> 8) & 0xff00ff) + 
 		(((dest & 0xff00)*sopa >> 8) & 0xff00), src);
 }
@@ -473,7 +473,7 @@ TVP_GL_FUNC_EXTERN_DECL(void, TVPUninitTVPGL, ());
 /* some utilities */
 /*[*/
 #define TVP_RGB2COLOR(r,g,b) ((((r)<<16) + ((g)<<8) + (b)) | 0xff000000)
-#define TVP_RGBA2COLOR(r,g,b,a) \
+#define TVP_RGBA2COLOR(r,g,b,a) ¥
 	(((a)<<24) +  (((r)<<16) + ((g)<<8) + (b)))
 /*]*/
 

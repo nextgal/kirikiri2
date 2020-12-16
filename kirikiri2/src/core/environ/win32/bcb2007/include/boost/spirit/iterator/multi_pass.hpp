@@ -167,7 +167,7 @@ class illegal_backtracking : public std::exception
 public:
 
     illegal_backtracking() throw() {}
-    ~illegal_backtracking() throw() {}
+    ‾illegal_backtracking() throw() {}
 
     virtual const char*
     what() const throw()
@@ -801,7 +801,7 @@ class multi_pass
         multi_pass();
         explicit multi_pass(InputT input);
 
-        ~multi_pass();
+        ‾multi_pass();
 
         multi_pass(multi_pass const&);
         multi_pass& operator=(multi_pass const&);
@@ -868,7 +868,7 @@ template
 >
 inline
 multi_pass<InputT, InputPolicy, OwnershipPolicy, CheckingPolicy, StoragePolicy>::
-~multi_pass()
+‾multi_pass()
 {
     if (OP::release())
     {

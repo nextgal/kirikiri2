@@ -58,7 +58,7 @@ function ok(expected, yaml) {
         Debug.message('.');
     }
     else {
-        Debug.message('Failed:\n' + yaml);
+        Debug.message('Failed:¥n' + yaml);
     }
 }
 
@@ -73,21 +73,21 @@ ok(Infinity, '.inf');
 ok(-Infinity, '-.inf');
 ok(true, 'true');
 ok(false, 'false');
-ok([void, true, false], '- ~\n- y\n- n');
-ok(['hoge', 'fuga'], "- hoge\n- fuga");
+ok([void, true, false], '- ‾¥n- y¥n- n');
+ok(['hoge', 'fuga'], "- hoge¥n- fuga");
 ok(%['hoge' => 'fuga'], "hoge: fuga");
-ok([%['hoge' => 'fuga'], %['foo' => 'bar']], "- hoge: fuga\n- foo: bar");
-ok(%['hoge' => ['foo', 'bar']], "hoge: - foo\n      - bar");
-ok(%['hoge' => ['foo', 'bar']], "\n\nhoge: - foo\n\n\n      - bar");
-ok(['foo', 'bar'], "- foo\n\n\n- bar");
-ok(['foo', 'bar'], "- foo    \n\n\n- bar  ");
-ok(['foo', 'bar'], "- foo\n                         \n- bar");
-ok(['foo'], "-\n  foo");
-ok(['foo'], "-    \n  foo");
-ok(['foo', 'bar'], "-\n   foo\n-  bar");
-ok([['foo', 'bar', 'hoge']], "-\n  - foo\n  - bar\n  - hoge");
-ok([[['foo']]],"- \n  - \n    - foo");
-ok([[['foo', 'bar']]],"- - - foo\n    - bar");
+ok([%['hoge' => 'fuga'], %['foo' => 'bar']], "- hoge: fuga¥n- foo: bar");
+ok(%['hoge' => ['foo', 'bar']], "hoge: - foo¥n      - bar");
+ok(%['hoge' => ['foo', 'bar']], "¥n¥nhoge: - foo¥n¥n¥n      - bar");
+ok(['foo', 'bar'], "- foo¥n¥n¥n- bar");
+ok(['foo', 'bar'], "- foo    ¥n¥n¥n- bar  ");
+ok(['foo', 'bar'], "- foo¥n                         ¥n- bar");
+ok(['foo'], "-¥n  foo");
+ok(['foo'], "-    ¥n  foo");
+ok(['foo', 'bar'], "-¥n   foo¥n-  bar");
+ok([['foo', 'bar', 'hoge']], "-¥n  - foo¥n  - bar¥n  - hoge");
+ok([[['foo']]],"- ¥n  - ¥n    - foo");
+ok([[['foo', 'bar']]],"- - - foo¥n    - bar");
 ok([['hoge', 'fuga', ['foo', %['aaa' => 'bbb', 'ccc' => 'ddd']], 'eee'], 'zzz'],"
 -
   - hoge
@@ -102,27 +102,27 @@ ok([['hoge', 'fuga', ['foo', %['aaa' => 'bbb', 'ccc' => 'ddd']], 'eee'], 'zzz'],
 ok("I've", '"' + "I've" + '"');
 ok("I've", "'I''ve'");
 ok("a'b'c''", "'a''b''c'''''");
-ok("\\n", "'\\n'");
-ok('hoge"fuga', '\'hoge"fuga\'');
-ok('hoge"fuga', '"hoge\\"fuga"');
+ok("¥¥n", "'¥¥n'");
+ok('hoge"fuga', '¥'hoge"fuga¥'');
+ok('hoge"fuga', '"hoge¥¥"fuga"');
 ok(['hoge'], "- hoge # comment");
-ok('newline\n', '"newline\\n"');
-ok('hoge\\n', "'hoge\\n'");
-ok('\\', '"\\\\"');
-ok(' ', '"\\x20"');
-ok(' \n!', '"\\x20\\n\\u0021"');
-ok('\\xzz', '"\\xzz"');
-ok('\\n', '"\\\\n"');
+ok('newline¥n', '"newline¥¥n"');
+ok('hoge¥¥n', "'hoge¥¥n'");
+ok('¥¥', '"¥¥¥¥"');
+ok(' ', '"¥¥x20"');
+ok(' ¥n!', '"¥¥x20¥¥n¥¥u0021"');
+ok('¥¥xzz', '"¥¥xzz"');
+ok('¥¥n', '"¥¥¥¥n"');
 ok('a: b', '"a: b"');
 ok('- a', '"- a"');
 
-ok(["a'b'c''", "hoge\nfuga"], "- 'a''b''c'''''\n- \"hoge\\nfuga\"");
-ok(%["a'b'c''" => "hoge\nfuga"], "'a''b''c''''': \"hoge\\nfuga\"");
+ok(["a'b'c''", "hoge¥nfuga"], "- 'a''b''c'''''¥n- ¥"hoge¥¥nfuga¥"");
+ok(%["a'b'c''" => "hoge¥nfuga"], "'a''b''c''''': ¥"hoge¥¥nfuga¥"");
 
 ok(%['hoge' => 'http://example.com'], "hoge: http://example.com");
 ok(%['hoge' => 'http://example2.com'], "hoge: http://example2.com # foobar");
 ok(%['1st' => '2nd'], "1st: 2nd");
-ok(['1st', '2nd', 3], "- 1st\n- 2nd\n- 3");
+ok(['1st', '2nd', 3], "- 1st¥n- 2nd¥n- 3");
 ok(%['hoge' => 'fuga', 'foo' => 'bar'], '
 hoge:
   fuga
@@ -149,25 +149,25 @@ foo:
     z: w
 ');
 
-ok(%['times' => %['��' => %['prefix' => '01'], '�[' => %['prefix' => '02', 'lightColor' => 0xc0ff6010]],
-     'stages' => %['���H' => %['image' => 'bg01_TIME']], 'defaultTime' => '��'],
+ok(%['times' => %['昼' => %['prefix' => '01'], '夕' => %['prefix' => '02', 'lightColor' => 0xc0ff6010]],
+     'stages' => %['道路' => %['image' => 'bg01_TIME']], 'defaultTime' => '昼'],
 '
-# ���ԏ��
+# 時間情報
 times:
-  ��:
+  昼:
     prefix: "01"
-  �[:
+  夕:
     prefix: "02"
     lightColor: 0xc0ff6010
     
-# �ꏊ���
+# 場所情報
 stages:
-  "���H":
+  "道路":
     image: bg01_TIME
 
-defaultTime: ��
+defaultTime: 昼
 ');
 
-ok(%['times' => %['��' => %['prefix' => '01'], '�[' => %['prefix' => '02', 'lightColor' => 0xc0ff6010]],
-     'stages' => %['���H' => %['image' => 'bg01_TIME']], 'defaultTime' => '��'],
+ok(%['times' => %['昼' => %['prefix' => '01'], '夕' => %['prefix' => '02', 'lightColor' => 0xc0ff6010]],
+     'stages' => %['道路' => %['image' => 'bg01_TIME']], 'defaultTime' => '昼'],
    [].load('test.yaml'));

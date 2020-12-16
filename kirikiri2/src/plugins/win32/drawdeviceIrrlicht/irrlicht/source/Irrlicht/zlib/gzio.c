@@ -31,7 +31,7 @@ struct internal_state {int dummy;}; /* for buggy compilers */
 #endif
 
 #ifdef __MVS__
-#  pragma map (fdopen , "\174\174FDOPEN")
+#  pragma map (fdopen , "¥174¥174FDOPEN")
    FILE *fdopen(int, const char *);
 #endif
 
@@ -130,7 +130,7 @@ local gzFile gz_open (path, mode, fd)
     }
     strcpy(s->path, path); /* do this early for debugging */
 
-    s->mode = '\0';
+    s->mode = '¥0';
     do {
         if (*p == 'r') s->mode = 'r';
         if (*p == 'w' || *p == 'a') s->mode = 'w';
@@ -146,7 +146,7 @@ local gzFile gz_open (path, mode, fd)
             *m++ = *p; /* copy the mode */
         }
     } while (*p++ && m != fmode + sizeof(fmode));
-    if (s->mode == '\0') return destroy(s), (gzFile)Z_NULL;
+    if (s->mode == '¥0') return destroy(s), (gzFile)Z_NULL;
 
     if (s->mode == 'w') {
 #ifdef NO_GZCOMPRESS
@@ -545,8 +545,8 @@ char * ZEXPORT gzgets(file, buf, len)
     char *b = buf;
     if (buf == Z_NULL || len <= 0) return Z_NULL;
 
-    while (--len > 0 && gzread(file, buf, 1) == 1 && *buf++ != '\n') ;
-    *buf = '\0';
+    while (--len > 0 && gzread(file, buf, 1) == 1 && *buf++ != '¥n') ;
+    *buf = '¥0';
     return b == buf && len > 0 ? Z_NULL : b;
 }
 
@@ -1000,7 +1000,7 @@ const char * ZEXPORT gzerror (file, errnum)
 
     m = (char*)(*errnum == Z_ERRNO ? zstrerror(errno) : s->stream.msg);
 
-    if (m == NULL || *m == '\0') m = (char*)ERR_MSG(s->z_err);
+    if (m == NULL || *m == '¥0') m = (char*)ERR_MSG(s->z_err);
 
     TRYFREE(s->msg);
     s->msg = (char*)ALLOC(strlen(s->path) + strlen(m) + 3);

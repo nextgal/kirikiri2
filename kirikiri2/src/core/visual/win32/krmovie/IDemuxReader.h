@@ -2,7 +2,7 @@
 /*! @file
 @brief Demux Reader
 
-�t�@�C������f�[�^��ǂݍ��ރf�}���`�v���N�T�p�̃C���^�[�t�F�C�X
+ファイルからデータを読み込むデマルチプレクサ用のインターフェイス
 -----------------------------------------------------------------------------
 	Copyright (C) 2005 T.Imoto <http://www.kaede-software.com>
 -----------------------------------------------------------------------------
@@ -23,12 +23,12 @@
 #include <wmdxva.h>
 
 //----------------------------------------------------------------------------
-//! @brief Demux�̏o�̓X�g���[�� �C���^�[�t�F�C�X
+//! @brief Demuxの出力ストリーム インターフェイス
 //----------------------------------------------------------------------------
 struct IOutputStream
 {
 	IOutputStream(){}
-	virtual ~IOutputStream(){}
+	virtual ‾IOutputStream(){}
 	virtual HRESULT GetMediaType( int iPosition, CMediaType *pmt ) = 0;
 	virtual HRESULT SetMediaType( const CMediaType *pmt ) = 0;
 	virtual HRESULT GetNeedBufferSize( long &buffers, long &bufsize ) = 0;
@@ -40,12 +40,12 @@ struct IOutputStream
 	virtual bool IsDXVASubtype( const AM_MEDIA_TYPE *pmt ) { return false; }
 };
 //----------------------------------------------------------------------------
-//! @brief Demux Reader �C���^�[�t�F�C�X
+//! @brief Demux Reader インターフェイス
 //----------------------------------------------------------------------------
 struct IDemuxReader
 {
 	IDemuxReader(){}
-	virtual ~IDemuxReader(){}
+	virtual ‾IDemuxReader(){}
 
 	virtual int GetNumberOfOutput(void) = 0;
 	virtual IOutputStream* GetOutputStream( int num ) = 0;

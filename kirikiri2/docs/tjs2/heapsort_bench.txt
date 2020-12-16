@@ -1,6 +1,6 @@
 // This is a heapsort sample for TJS2 script engine.
 // The original is at The Great Computer Language Shootout
-// http://www.bagley.org/~doug/shootout/
+// http://www.bagley.org/‾doug/shootout/
 
 var start = System.getTickCount();
 

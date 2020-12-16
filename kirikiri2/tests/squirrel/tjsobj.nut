@@ -1,6 +1,6 @@
-print("�I�u�W�F�N�g�Q�Ƃ̃e�X�g");
+print("オブジェクト参照のテスト");
 
-// �g���g���N���X�̃o�C���h
+// 吉里吉里クラスのバインド
 Layer <- createTJSClass("Layer");
 layer <- Layer(::krkr.win, ::krkr.win.base);
 layer.setSize(100,100);
@@ -13,5 +13,5 @@ print("layer visible:" + layer.visible);
 System <- createTJSClass("System");
 
 print("type:" + typeof System);
-print("tick�l:" + System.getTickCount());
-print("���s�t�@�C���̃p�X:" + System.getExePath());
+print("tick値:" + System.getTickCount());
+print("実行ファイルのパス:" + System.getExePath());

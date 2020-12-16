@@ -4,39 +4,39 @@
 
 
 /*----------------------------------------------------------------------
- * ƒTƒ€ƒlƒCƒ‹
+ * ã‚µãƒ ãƒã‚¤ãƒ«
  ----------------------------------------------------------------------*/
 class Thumbnail extends KWidget
 {
   var cachePath;
 
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   function Thumbnail(window, filename, width) {
     super.KWidget(window);
 
-    // ƒpƒX‚Æ•‚©‚çAƒLƒƒƒbƒVƒ…‚ÌƒpƒX‚ğŒˆ‚ß‚é
+    // ãƒ‘ã‚¹ã¨å¹…ã‹ã‚‰ã€ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã®ãƒ‘ã‚¹ã‚’æ±ºã‚ã‚‹
     cachePath = "%scache/%s%d.bmp".sprintf(System.dataPath, filename, width);
-    // ƒLƒƒƒbƒVƒ…‚Í‚ ‚éH
+    // ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã¯ã‚ã‚‹ï¼Ÿ
     if (Storages.isExistentStorage(cachePath)) {
-      // ƒLƒƒƒbƒVƒ…‚ª‚ ‚ê‚Î‚»‚ê‚ğƒ[ƒh
+      // ã‚­ãƒ£ãƒƒã‚·ãƒ¥ãŒã‚ã‚Œã°ãã‚Œã‚’ãƒ­ãƒ¼ãƒ‰
       loadImages(cachePath);
       setFixedSizeToImageSize();
 
     } else {
-      // ƒLƒƒƒbƒVƒ…‚ª–³‚©‚Á‚½‚çA‚Ü‚¸ˆêƒŒƒCƒ„‚É‰æ‘œ‚ğƒ[ƒh
+      // ã‚­ãƒ£ãƒƒã‚·ãƒ¥ãŒç„¡ã‹ã£ãŸã‚‰ã€ã¾ãšä¸€æ™‚ãƒ¬ã‚¤ãƒ¤ã«ç”»åƒã‚’ãƒ­ãƒ¼ãƒ‰
       var tmpLayer = new global.Layer(window, this);
       tmpLayer.loadImages(filename);
       tmpLayer.setSizeToImageSize();
-      // ƒEƒBƒWƒFƒbƒg‚ÌƒTƒCƒY‚ğŒˆ’è
+      // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã‚µã‚¤ã‚ºã‚’æ±ºå®š
       setFixedSize(width, tmpLayer.height * width / tmpLayer.width);
       setSize(minWidth, minHeight);
-      // ˆêƒŒƒCƒ„‚©‚ç‰æ‘œ‚ğk¬‚µ‚Â‚ÂƒRƒs[
+      // ä¸€æ™‚ãƒ¬ã‚¤ãƒ¤ã‹ã‚‰ç”»åƒã‚’ç¸®å°ã—ã¤ã¤ã‚³ãƒ”ãƒ¼
       stretchCopy(0, 0, width, height,
                   tmpLayer, 0, 0, tmpLayer.width, tmpLayer.height,
                   stFastLinear);
-      // ˆêƒŒƒCƒ„Á‹
+      // ä¸€æ™‚ãƒ¬ã‚¤ãƒ¤æ¶ˆå»
       invalidate tmpLayer;
-      // ƒLƒƒƒbƒVƒ…‚É‰æ‘œ‚ğ•Û‘¶
+      // ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«ç”»åƒã‚’ä¿å­˜
       saveLayerImage(cachePath, "bmp24");
     }
     margin = 5;
@@ -46,23 +46,23 @@ class Thumbnail extends KWidget
 
   
 /*----------------------------------------------------------------------
- * ƒXƒpƒCƒ‰ƒ‹ƒTƒ“ƒvƒ‹
+ * ã‚¹ãƒ‘ã‚¤ãƒ©ãƒ«ã‚µãƒ³ãƒ—ãƒ«
  ----------------------------------------------------------------------*/
 class SpiralSample extends KWindow
 {
   function SpiralSample {
     super.KWindow("spiralsample_window");
 
-    // ƒEƒBƒ“ƒhƒE‰Šúİ’è
-    caption = 'ƒXƒpƒCƒ‰ƒ‹ƒTƒ“ƒvƒ‹';
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦åˆæœŸè¨­å®š
+    caption = 'ã‚¹ãƒ‘ã‚¤ãƒ©ãƒ«ã‚µãƒ³ãƒ—ãƒ«';
     borderStyle = bsDialog;
 
-    // ƒEƒBƒWƒFƒbƒg‚ğì¬A”z’u
+    // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ä½œæˆã€é…ç½®
     var tabs, scroll, spiral, thumbnail;
 
     tabs = new KTabLayout(this);
     tabs.onTabSelected = function(index) {
-      // ƒ^ƒu‚ğ‘I‘ğ‚³‚ê‚½‚çƒXƒNƒ[ƒ‹ƒŒƒCƒAƒEƒg‚ğƒtƒH[ƒJƒX‚·‚é‚æ‚¤‚ÉƒtƒbƒN
+      // ã‚¿ãƒ–ã‚’é¸æŠã•ã‚ŒãŸã‚‰ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã™ã‚‹ã‚ˆã†ã«ãƒ•ãƒƒã‚¯
       var child = childAt(index);
       child.focus();
     } incontextof(tabs);
@@ -79,7 +79,7 @@ class SpiralSample extends KWindow
             spiral.add(new Thumbnail(this, "cg05", 50));
           }
       scroll.add(spiral);
-    tabs.add("¬ƒTƒ€ƒlƒCƒ‹", scroll);
+    tabs.add("å°ã‚µãƒ ãƒã‚¤ãƒ«", scroll);
 
       scroll = new KScrollLayout(this, false, true);
       scroll.margin = 10;
@@ -93,7 +93,7 @@ class SpiralSample extends KWindow
             spiral.add(new Thumbnail(this, "cg05", 100));
           }
       scroll.add(spiral);
-    tabs.add("’†ƒTƒ€ƒlƒCƒ‹", scroll);
+    tabs.add("ä¸­ã‚µãƒ ãƒã‚¤ãƒ«", scroll);
 
       scroll = new KScrollLayout(this, false, true);
       scroll.margin = 10;
@@ -107,7 +107,7 @@ class SpiralSample extends KWindow
             spiral.add(new Thumbnail(this, "cg05", 200));
           }
       scroll.add(spiral);
-    tabs.add("‘åƒTƒ€ƒlƒCƒ‹", scroll);
+    tabs.add("å¤§ã‚µãƒ ãƒã‚¤ãƒ«", scroll);
 
       scroll = new KScrollLayout(this, false, true);
       scroll.margin = 10;
@@ -121,7 +121,7 @@ class SpiralSample extends KWindow
             spiral.add(new Thumbnail(this, "cg05", 200));
           }
       scroll.add(spiral);
-    tabs.add("¬İ", scroll);
+    tabs.add("æ··åœ¨", scroll);
 
     var grid = new KGridLayout(this);
     grid.add(0, 0, tabs);
@@ -131,10 +131,10 @@ class SpiralSample extends KWindow
 
     primaryWidget.add(grid);
 
-    // ƒtƒH[ƒJƒX‚ğ—^‚¦‚é
+    // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’ä¸ãˆã‚‹
     tabs.childAt(0).focus();
 
-    // ‰i‘±‰»«‘‚Ìì¬
+    // æ°¸ç¶šåŒ–è¾æ›¸ã®ä½œæˆ
     var dict = new KPersistentDictionary(System.dataPath + "spriralsample_dict.txt");
     add(dict);
     bindPersistentDictionary(dict);
@@ -142,7 +142,7 @@ class SpiralSample extends KWindow
 }
 
 //----------------------------------------------------------------------
-// ƒTƒ“ƒvƒ‹•\¦E”ñ•\¦‚ÌØ‚è‘Ö‚¦
+// ã‚µãƒ³ãƒ—ãƒ«è¡¨ç¤ºãƒ»éè¡¨ç¤ºã®åˆ‡ã‚Šæ›¿ãˆ
 global.spiralSample = void;
 
 function showSpiralSample

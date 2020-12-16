@@ -69,7 +69,7 @@ namespace os
 	void Printer::print(const c8* message)
 	{
 		c8* tmp = new c8[strlen(message) + 2];
-		sprintf(tmp, "%s\n", message);
+		sprintf(tmp, "%s¥n", message);
 		OutputDebugString(tmp);
 		printf(tmp);
 		delete [] tmp;
@@ -139,7 +139,7 @@ namespace os
 	//! prints a debuginfo string
 	void Printer::print(const c8* message)
 	{
-		printf("%s\n", message);
+		printf("%s¥n", message);
 	}
 
 	void Timer::initTimer()

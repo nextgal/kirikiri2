@@ -68,19 +68,19 @@ namespace boost {
 
 #ifdef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
   // See examples/edge_property.cpp for how to use this.
-#define BOOST_INSTALL_PROPERTY(KIND, NAME) \
-  template <> struct property_kind<KIND##_##NAME##_t> { \
-    typedef KIND##_property_tag type; \
+#define BOOST_INSTALL_PROPERTY(KIND, NAME) ¥
+  template <> struct property_kind<KIND##_##NAME##_t> { ¥
+    typedef KIND##_property_tag type; ¥
   }
 #else
-#define BOOST_INSTALL_PROPERTY(KIND, NAME) \
-  template <> struct property_kind<KIND##_##NAME##_t> { \
-    typedef KIND##_property_tag type; \
+#define BOOST_INSTALL_PROPERTY(KIND, NAME) ¥
+  template <> struct property_kind<KIND##_##NAME##_t> { ¥
+    typedef KIND##_property_tag type; ¥
   }
 #endif
 
-#define BOOST_DEF_PROPERTY(KIND, NAME) \
-  enum KIND##_##NAME##_t { KIND##_##NAME }; \
+#define BOOST_DEF_PROPERTY(KIND, NAME) ¥
+  enum KIND##_##NAME##_t { KIND##_##NAME }; ¥
   BOOST_INSTALL_PROPERTY(KIND, NAME)
 
   BOOST_DEF_PROPERTY(vertex, all);

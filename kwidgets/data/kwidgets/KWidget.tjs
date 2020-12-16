@@ -7,27 +7,27 @@ global._dragging_packet_ = void;
 
 
 /**----------------------------------------------------------------------
- * ƒEƒBƒWƒFƒbƒgŠÖ˜AƒOƒ[ƒoƒ‹•Ï”
+ * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆé–¢é€£ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
  ----------------------------------------------------------------------*/
 
-/// ƒfƒtƒHƒ‹ƒg‚ÌƒtƒHƒ“ƒgƒtƒFƒCƒX
+/// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚§ã‚¤ã‚¹
 global.defaultFontFace = "MS UI Gothic";
-/// ƒfƒtƒHƒ‹ƒg‚ÌƒtƒHƒ“ƒgƒwƒCƒg
+/// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚©ãƒ³ãƒˆãƒ˜ã‚¤ãƒˆ
 global.defaultFontHeight = 14;
-/// ƒfƒtƒHƒ‹ƒg‚ÌƒtƒHƒ“ƒgƒJƒ‰[
+/// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚©ãƒ³ãƒˆã‚«ãƒ©ãƒ¼
 global.defaultFontColor = 0x00000000;
-/// ƒfƒtƒHƒ‹ƒg‚Ìƒ}[ƒWƒ“
+/// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒãƒ¼ã‚¸ãƒ³
 global.defaultMarginLeft = 0;
 global.defaultMarginTop = 0;
 global.defaultMarginRight = 0;
 global.defaultMarginBottom = 0;
-/// ƒfƒtƒHƒ‹ƒg‚ÌƒXƒy[ƒX
+/// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¹ãƒšãƒ¼ã‚¹
 global.defaultSpaceVertical = 0;
 global.defaultSpaceHorizontal = 0;
-/// ƒfƒtƒHƒ‹ƒg‚ÌƒAƒ‰ƒCƒƒ“ƒg
+/// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
 global.defaultAlignHorizontal = ALIGN_LEFT;
 global.defaultAlignVertical = ALIGN_TOP;
-/// ƒfƒtƒHƒ‹ƒg‚ÌƒtƒH[ƒJƒX”\
+/// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚©ãƒ¼ã‚«ã‚¹èƒ½
 global.defaultFocusable = false;
 
 property defaultMargin {
@@ -56,19 +56,19 @@ property defaultSpace {
 
 
 /*------------------------------
- * ƒhƒ‰ƒbƒO—pƒpƒPƒbƒg
+ * ãƒ‰ãƒ©ãƒƒã‚°ç”¨ãƒ‘ã‚±ãƒƒãƒˆ
  ------------------------------*/
 class KPacket
 {
   var name, arg;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * ƒhƒ‰ƒbƒO—pƒpƒPƒbƒg‚ğì‚é
+   * ãƒ‰ãƒ©ãƒƒã‚°ç”¨ãƒ‘ã‚±ãƒƒãƒˆã‚’ä½œã‚‹
    *
-   * @param name –¼‘O
-   * @param arg ˆø”
+   * @param name åå‰
+   * @param arg å¼•æ•°
    ------------------------------*/
   function KPacket(name, arg) {
     this.name = name;
@@ -78,49 +78,49 @@ class KPacket
 
 
 /**----------------------------------------------------------------------
- * ƒEƒBƒWƒFƒbƒgŠî’êƒNƒ‰ƒX
+ * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆåŸºåº•ã‚¯ãƒ©ã‚¹
  ----------------------------------------------------------------------*/
 class KWidget extends Layer
 {
-  // ƒEƒBƒWƒFƒbƒg‚ÌÅ¬ƒTƒCƒY
+  // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®æœ€å°ã‚µã‚¤ã‚º
   var _minWidth, _minHeight;
-  // ƒEƒBƒWƒFƒbƒg‚ÌÅ‘åƒTƒCƒY
+  // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®æœ€å¤§ã‚µã‚¤ã‚º
   var _maxWidth, _maxHeight;
-  // ƒEƒBƒWƒFƒbƒg‚Ìã‰º¶‰E‚Ìƒ}[ƒWƒ“
+  // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ä¸Šä¸‹å·¦å³ã®ãƒãƒ¼ã‚¸ãƒ³
   var _marginLeft, _marginTop, _marginRight, _marginBottom;
-  // ƒEƒBƒWƒFƒbƒg‚ÌƒAƒ‰ƒCƒƒ“ƒg
+  // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
   var _alignHorizontal, _alignVertical;
-  // ƒXƒy[ƒX
+  // ã‚¹ãƒšãƒ¼ã‚¹
   var _spaceHorizontal, _spaceVertical;
-  // ƒtƒHƒ“ƒgƒJƒ‰[
+  // ãƒ•ã‚©ãƒ³ãƒˆã‚«ãƒ©ãƒ¼
   var _fontColor;
-  // nameƒvƒƒpƒeƒB‚ğã‘‚«
+  // nameãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’ä¸Šæ›¸ã
   var _name;
-  // «‘“o˜^‚ğ”ğ‚¯‚é‚©‚Ç‚¤‚©
+  // è¾æ›¸ç™»éŒ²ã‚’é¿ã‘ã‚‹ã‹ã©ã†ã‹
   var _isAvoidDictionaryRegistration = false;
-  // ‚c•‚c
+  // ï¼¤ï¼†ï¼¤
   var isReadyToDrag, isDragging;
   var myDraggingPacket;
   var mouseDownX, mouseDownY;
   var curDragTarget, curDragTargetAcceptPacket;
   var dragEnabledShiftMask;
   var cursorOrig;
-  // ƒXƒe[ƒ^ƒXŠÖ˜A
+  // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹é–¢é€£
   var _status;
   var _inStatus;
-  // ƒEƒBƒWƒFƒbƒg
+  // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
   var _nameCache = %[];
-  // •s’è’l
+  // ä¸å®šå€¤
   var _indeterminate = false;
   var indeterminateLayer = void;
-  // ƒhƒ‰ƒbƒOè‡’l
+  // ãƒ‰ãƒ©ãƒƒã‚°é–¾å€¤
   var mouseDragThreshold = 4;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param win ƒEƒBƒWƒFƒbƒg‚Ì‘®‚·‚éƒEƒBƒ“ƒhƒE
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®å±ã™ã‚‹ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param name åå‰
    ------------------------------*/
   function KWidget(win, name = "", primary = false) {
     if (primary)
@@ -128,52 +128,52 @@ class KWidget extends Layer
     else
       super.Layer(win, win.primaryWidget.widgetDepot);
 
-    // –¼‘O‚ğİ’è
+    // åå‰ã‚’è¨­å®š
     _name = name;
-    // Å¬EÅ‘åƒTƒCƒY‚ğb’èƒTƒCƒY‚ÉŒˆ’è
+    // æœ€å°ãƒ»æœ€å¤§ã‚µã‚¤ã‚ºã‚’æš«å®šã‚µã‚¤ã‚ºã«æ±ºå®š
     _minWidth = _maxWidth = width;
     _minHeight = _maxHeight = height;
-    // ƒ}[ƒWƒ“‚ğb’è’l‚ÉŒˆ’è
+    // ãƒãƒ¼ã‚¸ãƒ³ã‚’æš«å®šå€¤ã«æ±ºå®š
     _marginLeft = win.defaultMarginLeft;
     _marginTop = win.defaultMarginTop;
     _marginRight = win.defaultMarginRight;
     _marginBottom = win.defaultMarginBottom;
-    // ƒAƒ‰ƒCƒ“ƒƒ“ƒg‚ğb’è’l‚ÉŒˆ’è
+    // ã‚¢ãƒ©ã‚¤ãƒ³ãƒ¡ãƒ³ãƒˆã‚’æš«å®šå€¤ã«æ±ºå®š
     _alignVertical = win.defaultAlignVertical;
     _alignHorizontal = win.defaultAlignHorizontal;
-    // ƒXƒy[ƒX‚ğb’è’l‚ÉŒˆ’è
+    // ã‚¹ãƒšãƒ¼ã‚¹ã‚’æš«å®šå€¤ã«æ±ºå®š
     _spaceHorizontal = win.defaultSpaceHorizontal;
     _spaceVertical = win.defaultSpaceVertical;
-    // ƒfƒtƒHƒ‹ƒg‚ÌƒtƒHƒ“ƒg‚ğŒˆ’è
+    // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚©ãƒ³ãƒˆã‚’æ±ºå®š
     font.face = win.defaultFontFace;
     font.height = win.defaultFontHeight;
     _fontColor = win.defaultFontColor;
-    // ‰Â‹
+    // å¯è¦–
     visible = true;
-    // ƒhƒ‰ƒbƒO‰Šú‰»
+    // ãƒ‰ãƒ©ãƒƒã‚°åˆæœŸåŒ–
     isDragging = isReadyToDrag = false;
     curDragTargetAcceptPacket = false;
     dragEnabledShiftMask = 0;
-    // ƒXƒe[ƒ^ƒX‰Šú‰»
+    // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹åˆæœŸåŒ–
     _status = "";
     _inStatus = false;
-    // missing ‚ğ—LŒø‚É‚·‚é
+    // missing ã‚’æœ‰åŠ¹ã«ã™ã‚‹
     Scripts.setCallMissing(this);
   }
 
   /**------------------------------
-   * ƒfƒXƒgƒ‰ƒNƒ^
+   * ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    * 
-   * ©“®“I‚ÉA©•ª‚ª•Û‚µ‚Ä‚¢‚éqƒŒƒCƒ„[‚ğ‘S‚Äinvalidate‚·‚éB
+   * è‡ªå‹•çš„ã«ã€è‡ªåˆ†ãŒä¿æŒã—ã¦ã„ã‚‹å­ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å…¨ã¦invalidateã™ã‚‹ã€‚
    ------------------------------*/
   function finalize {
-    // qƒŒƒCƒ„[‚ğ‘S‚Ä”jŠü‚·‚é
+    // å­ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å…¨ã¦ç ´æ£„ã™ã‚‹
     discardArray(children);
     super.finalize(...);
   }
 
   /**------------------------------
-   * nameƒvƒƒpƒeƒB‚ğ•¶š—ñˆÈŠO‚àó‚¯æ‚é‚æ‚¤‚É•ÏX
+   * nameãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’æ–‡å­—åˆ—ä»¥å¤–ã‚‚å—ã‘å–ã‚‹ã‚ˆã†ã«å¤‰æ›´
    ------------------------------*/
   property name {
     getter {
@@ -185,9 +185,9 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * •s’è’l
+   * ä¸å®šå€¤
    *
-   * value‚Ì’l‚ª•s’è‚Å‚ ‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é
+   * valueã®å€¤ãŒä¸å®šã§ã‚ã‚‹ã‹ã©ã†ã‹ã‚’è¨­å®šã™ã‚‹
    ------------------------------*/
   property indeterminate {
     getter {
@@ -212,14 +212,14 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ƒXƒe[ƒ^ƒX
+   * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
    *
-   * ƒXƒe[ƒ^ƒXƒo[‚É•\¦‚·‚éƒXƒe[ƒ^ƒX•¶š—ñ‚ğİ’è‚µ‚Ü‚·B
-   * ƒEƒBƒ“ƒhƒE‚ÉKStatusBar‚ª“o˜^‚³‚ê‚Ä‚¢‚ê‚ÎAƒEƒBƒWƒFƒbƒg‚É
-   * ƒ}ƒEƒX‚ªN“ü‚µ‚½‚ÉA©“®“I‚ÉƒXƒe[ƒ^ƒX•¶š—ñ‚ª•\¦‚³‚ê‚Ü‚·B
+   * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼ã«è¡¨ç¤ºã™ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ–‡å­—åˆ—ã‚’è¨­å®šã—ã¾ã™ã€‚
+   * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«KStatusBarãŒç™»éŒ²ã•ã‚Œã¦ã„ã‚Œã°ã€ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã«
+   * ãƒã‚¦ã‚¹ãŒä¾µå…¥ã—ãŸæ™‚ã«ã€è‡ªå‹•çš„ã«ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ–‡å­—åˆ—ãŒè¡¨ç¤ºã•ã‚Œã¾ã™ã€‚
    *
-   * @param v ƒXƒe[ƒ^ƒX
-   * @return ƒXƒe[ƒ^ƒX
+   * @param v ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
+   * @return ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
    ------------------------------*/
   property status {
     getter {
@@ -238,9 +238,9 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ƒNƒ‰ƒXƒcƒŠ[
+   * ã‚¯ãƒ©ã‚¹ãƒ„ãƒªãƒ¼
    *
-   * @return ©•ª©g‚Ì‘®‚·‚éƒNƒ‰ƒXƒcƒŠ[‚ğ”z—ñ‚Å•Ô‚·
+   * @return è‡ªåˆ†è‡ªèº«ã®å±ã™ã‚‹ã‚¯ãƒ©ã‚¹ãƒ„ãƒªãƒ¼ã‚’é…åˆ—ã§è¿”ã™
    ------------------------------*/
   property classTrees {
     getter {
@@ -249,9 +249,9 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ƒNƒ‰ƒX–¼
+   * ã‚¯ãƒ©ã‚¹å
    *
-   * @return ©•ª©g‚ÌƒNƒ‰ƒX–¼‚ğ•Ô‚·
+   * @return è‡ªåˆ†è‡ªèº«ã®ã‚¯ãƒ©ã‚¹åã‚’è¿”ã™
    ------------------------------*/
   property className {
     getter {
@@ -260,9 +260,9 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * eƒEƒBƒWƒFƒbƒgB
+   * è¦ªã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã€‚
    *
-   * @return ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„‚È‚çwindow‚ğA‚»‚êˆÈŠO‚ÌƒŒƒCƒ„‚È‚çparent‚ğ•Ô‚·
+   * @return ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤ãªã‚‰windowã‚’ã€ãã‚Œä»¥å¤–ã®ãƒ¬ã‚¤ãƒ¤ãªã‚‰parentã‚’è¿”ã™
    ------------------------------*/
   property parentWidget {
     getter {
@@ -274,9 +274,9 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒgƒfƒ|ƒbƒg
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ‡ãƒãƒƒãƒˆ
    *
-   * add‚·‚é‘O‚ÌƒEƒBƒWƒFƒbƒg‚ğŠi”[‚·‚éeƒŒƒCƒ„BƒEƒBƒWƒFƒbƒg‚Ìˆê•ÛŠÇŠ
+   * addã™ã‚‹å‰ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æ ¼ç´ã™ã‚‹è¦ªãƒ¬ã‚¤ãƒ¤ã€‚ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ä¸€æ™‚ä¿ç®¡æ‰€
    ------------------------------*/
   property widgetDepot {
     getter {
@@ -285,7 +285,7 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒgƒcƒŠ[‚Ì’†‚É‘¶İ‚·‚é‚©‚Ç‚¤‚©
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ„ãƒªãƒ¼ã®ä¸­ã«å­˜åœ¨ã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   property isInWidgetTree {
     getter {
@@ -297,7 +297,7 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ‘cæƒEƒBƒWƒFƒbƒg‚Ìˆê——
+   * ç¥–å…ˆã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ä¸€è¦§
    ------------------------------*/
   property ancestors {
     getter {
@@ -312,7 +312,7 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * q‘·ƒEƒBƒWƒFƒbƒg‚Ìˆê——
+   * å­å­«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ä¸€è¦§
    ------------------------------*/
   property descendants {
     getter {
@@ -331,7 +331,7 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * q‘·ƒEƒBƒWƒFƒbƒg‚©‚ç“Á’è‚Ì–¼‘O‚ğ‚Á‚½qƒEƒBƒWƒFƒbƒg‚ğ‘{‚·
+   * å­å­«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‹ã‚‰ç‰¹å®šã®åå‰ã‚’æŒã£ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æœã™
    ------------------------------*/
   function find(name) {
     if (this.name === name)
@@ -348,13 +348,13 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒgƒcƒŠ[‚©‚ç“Á’è‚Ì–¼‘O‚ğ‚Á‚½qƒEƒBƒWƒFƒbƒg‚ğ‘{‚µ‚Ü‚·
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ„ãƒªãƒ¼ã‹ã‚‰ç‰¹å®šã®åå‰ã‚’æŒã£ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æœã—ã¾ã™
    *
-   * findŠÖ”‚ğŒo—R‚¹‚¸‚ÉAƒIƒuƒWƒFƒNƒg‚ÌƒvƒƒpƒeƒBˆµ‚¢‚Å–¼‘O‚ğw’è‚µ‚Ä
-   * ƒEƒBƒWƒFƒbƒgƒcƒŠ[’†‚ÌƒEƒBƒWƒFƒbƒg‚ğQÆ‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B
+   * findé–¢æ•°ã‚’çµŒç”±ã›ãšã«ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£æ‰±ã„ã§åå‰ã‚’æŒ‡å®šã—ã¦
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ„ãƒªãƒ¼ä¸­ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å‚ç…§ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚
    *
-   * ƒpƒtƒH[ƒ}ƒ“ƒX‚Ì“s‡‚ÅAƒOƒ[ƒoƒ‹‚É“¯–¼‚ÌƒVƒ“ƒ{ƒ‹‚ª‘¶İ‚·‚éê‡‚Í
-   * —Dæ“I‚É‚»‚¿‚ç‚ğŒ©‚És‚­‚Æ‚¢‚¤‹““®‚ğ‚·‚é‚Ì‚Å’ˆÓB
+   * ãƒ‘ãƒ•ã‚©ãƒ¼ãƒãƒ³ã‚¹ã®éƒ½åˆã§ã€ã‚°ãƒ­ãƒ¼ãƒãƒ«ã«åŒåã®ã‚·ãƒ³ãƒœãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯
+   * å„ªå…ˆçš„ã«ãã¡ã‚‰ã‚’è¦‹ã«è¡Œãã¨ã„ã†æŒ™å‹•ã‚’ã™ã‚‹ã®ã§æ³¨æ„ã€‚
    ------------------------------*/
   function missing(get_or_set, name, value) {
     if (! get_or_set) {
@@ -381,12 +381,12 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * w’èˆÊ’u‚ÌƒEƒBƒWƒFƒbƒg‚ğæ“¾
+   * æŒ‡å®šä½ç½®ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å–å¾—
    *
-   * @param x æ“¾‚µ‚½‚¢ƒEƒBƒWƒFƒbƒg‚ÌˆÊ’u‚Ì x À•W‚ğ•\¦À•Wã‚ÅƒsƒNƒZƒ‹’PˆÊ‚Åw’è‚µ‚Ü‚·B
-   * @param y æ“¾‚µ‚½‚¢ƒEƒBƒWƒFƒbƒg‚ÌˆÊ’u‚Ì y À•W‚ğ•\¦À•Wã‚ÅƒsƒNƒZƒ‹’PˆÊ‚Åw’è‚µ‚Ü‚·B
-   * @param exclude_self @ƒEƒBƒWƒFƒbƒg‚ÌŒŸõ‚©‚ç©•ª©g‚ğœŠO‚·‚é‚©‚Ç‚¤‚©‚ğw’è‚µ‚Ü‚·B 
-   * @param get_disabled @–³Œø‚É‚È‚Á‚Ä‚¢‚éƒEƒBƒWƒFƒbƒg‚ÌƒIƒuƒWƒFƒNƒg‚ğ“¾‚é‚©‚Ç‚¤‚©‚ğw’è‚µ‚Ü‚·B 
+   * @param x å–å¾—ã—ãŸã„ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ä½ç½®ã® x åº§æ¨™ã‚’è¡¨ç¤ºåº§æ¨™ä¸Šã§ãƒ”ã‚¯ã‚»ãƒ«å˜ä½ã§æŒ‡å®šã—ã¾ã™ã€‚
+   * @param y å–å¾—ã—ãŸã„ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ä½ç½®ã® y åº§æ¨™ã‚’è¡¨ç¤ºåº§æ¨™ä¸Šã§ãƒ”ã‚¯ã‚»ãƒ«å˜ä½ã§æŒ‡å®šã—ã¾ã™ã€‚
+   * @param exclude_self ã€€ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®æ¤œç´¢ã‹ã‚‰è‡ªåˆ†è‡ªèº«ã‚’é™¤å¤–ã™ã‚‹ã‹ã©ã†ã‹ã‚’æŒ‡å®šã—ã¾ã™ã€‚ 
+   * @param get_disabled ã€€ç„¡åŠ¹ã«ãªã£ã¦ã„ã‚‹ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å¾—ã‚‹ã‹ã©ã†ã‹ã‚’æŒ‡å®šã—ã¾ã™ã€‚ 
    ------------------------------*/
   function getWidgetAt(x, y, exclude_self = false, get_disabled = false) {
     for (var targetLayer = getLayerAt(x, y, exclude_self, get_disabled);
@@ -403,9 +403,9 @@ class KWidget extends Layer
   }
 
   /*----------------------------------------------------------------------
-   * parentƒvƒƒpƒeƒB‚ÌŠg’£
+   * parentãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®æ‹¡å¼µ
    *
-   * parent‚ªXV‚³‚ê‚½‚ÉAonParentModified‚ªŒÄ‚Î‚ê‚é‚æ‚¤‚É‚·‚é
+   * parentãŒæ›´æ–°ã•ã‚ŒãŸæ™‚ã«ã€onParentModifiedãŒå‘¼ã°ã‚Œã‚‹ã‚ˆã†ã«ã™ã‚‹
    ----------------------------------------------------------------------*/
   property parent {
     getter {
@@ -420,18 +420,18 @@ class KWidget extends Layer
   }
 
   /**----------------------------------------------------------------------
-   * parent‚ªXV‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éŠÖ”
+   * parentãŒæ›´æ–°ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹é–¢æ•°
    *
-   * @param p V‚µ‚­parent‚É‚È‚Á‚½ƒEƒBƒWƒFƒbƒgBremove‚³‚ê‚Ädepots‚«‚É‚È‚Á‚½‚Ívoid‚ªİ’è‚³‚ê‚ÄŒÄ‚Î‚ê‚é
+   * @param p æ–°ã—ãparentã«ãªã£ãŸã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã€‚removeã•ã‚Œã¦depotè¡Œãã«ãªã£ãŸæ™‚ã¯voidãŒè¨­å®šã•ã‚Œã¦å‘¼ã°ã‚Œã‚‹
    */
   function onParentModified(parent) {
   }
 
   /**------------------------------
-   * ‰i‘±‰»«‘‚ÌƒoƒCƒ“ƒh‚ğ”ğ‚¯‚é‚©‚Ç‚¤‚©
+   * æ°¸ç¶šåŒ–è¾æ›¸ã®ãƒã‚¤ãƒ³ãƒ‰ã‚’é¿ã‘ã‚‹ã‹ã©ã†ã‹
    *
-   * @param v ‰i‘±‰»«‘‚ÌƒoƒCƒ“ƒh‚ğ”ğ‚¯‚é‚©‚Ç‚¤‚©
-   * @return ‰i‘±‰»«‘‚ÌƒoƒCƒ“ƒh‚ğ”ğ‚¯‚é‚©‚Ç‚¤‚©
+   * @param v æ°¸ç¶šåŒ–è¾æ›¸ã®ãƒã‚¤ãƒ³ãƒ‰ã‚’é¿ã‘ã‚‹ã‹ã©ã†ã‹
+   * @return æ°¸ç¶šåŒ–è¾æ›¸ã®ãƒã‚¤ãƒ³ãƒ‰ã‚’é¿ã‘ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   property isAvoidDictionaryRegistration {
     getter {
@@ -443,13 +443,13 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ‰i‘±‰»«‘‚ğƒoƒCƒ“ƒh‚·‚é
+   * æ°¸ç¶šåŒ–è¾æ›¸ã‚’ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    *
-   * ƒEƒBƒWƒFƒbƒg‚ğ KPersistentDictionary ƒNƒ‰ƒX‚ÌƒIƒuƒWƒFƒNƒg‚ÉƒoƒCƒ“ƒh‚µ‚Ü‚·B
-   * ƒfƒtƒHƒ‹ƒg‚Å‚ÍA‘S‚Ä‚ÌqƒEƒBƒWƒFƒbƒg‚ğ’Tõ‚µA‚»‚ê‚ç‚Ì
-   * ƒEƒBƒWƒFƒbƒg‚Ì bindPersistentDictionary ‚ğÄ‹A“I‚ÉŒÄ‚Ño‚·‚Æ‚¢‚¤“®ì‚ğ‚µ‚Ü‚·B
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ KPersistentDictionary ã‚¯ãƒ©ã‚¹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ãƒã‚¤ãƒ³ãƒ‰ã—ã¾ã™ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã€å…¨ã¦ã®å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æ¢ç´¢ã—ã€ãã‚Œã‚‰ã®
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã® bindPersistentDictionary ã‚’å†å¸°çš„ã«å‘¼ã³å‡ºã™ã¨ã„ã†å‹•ä½œã‚’ã—ã¾ã™ã€‚
    *
-   * @param dict ƒoƒCƒ“ƒh‚·‚é«‘
+   * @param dict ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹è¾æ›¸
    ------------------------------*/
   function bindPersistentDictionary(dict) {
     if (_isAvoidDictionaryRegistration)
@@ -463,10 +463,10 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * Å¬•
+   * æœ€å°å¹…
    *
-   * @return Å¬•
-   * @param w Å¬•
+   * @return æœ€å°å¹…
+   * @param w æœ€å°å¹…
    ------------------------------*/
   property minWidth {
     getter {
@@ -479,10 +479,10 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * Å¬‚‚³
+   * æœ€å°é«˜ã•
    *
-   * @return Å¬‚‚³
-   * @param w Å¬‚‚³
+   * @return æœ€å°é«˜ã•
+   * @param w æœ€å°é«˜ã•
    ------------------------------*/
   property minHeight {
     getter {
@@ -495,20 +495,20 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * Å¬ƒTƒCƒYİ’è
+   * æœ€å°ã‚µã‚¤ã‚ºè¨­å®š
    *
-   * @param w Å¬•
-   * @param h Å¬‚‚³
+   * @param w æœ€å°å¹…
+   * @param h æœ€å°é«˜ã•
    ------------------------------*/
   function setMinSize(w, h) {
     setMinMaxSize(w, h, _maxWidth, _maxHeight);
   }
 
   /**------------------------------
-   * Å‘å•
+   * æœ€å¤§å¹…
    *
-   * @return Å‘å•
-   * @param h Å‘å•
+   * @return æœ€å¤§å¹…
+   * @param h æœ€å¤§å¹…
    ------------------------------*/
   property maxWidth {
     getter {
@@ -521,10 +521,10 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * Å‘å‚‚³
+   * æœ€å¤§é«˜ã•
    *
-   * @return Å‘å‚‚³
-   * @param h Å‘å‚‚³
+   * @return æœ€å¤§é«˜ã•
+   * @param h æœ€å¤§é«˜ã•
    ------------------------------*/
   property maxHeight {
     getter {
@@ -537,87 +537,87 @@ class KWidget extends Layer
   }
 
   /*------------------------------
-   * Å‘åƒTƒCƒYİ’è
+   * æœ€å¤§ã‚µã‚¤ã‚ºè¨­å®š
    *
-   * @param w Å‘å•
-   * @param h Å‘å‚‚³
+   * @param w æœ€å¤§å¹…
+   * @param h æœ€å¤§é«˜ã•
    */
   function setMaxSize(w, h) {
     setMinMaxSize(_minWidth, _minHeight, w, h);
   }
 
   /**------------------------------
-   * Å‘åƒTƒCƒY‚ÆÅ¬ƒTƒCƒY‚ğA“¯‚É“¯‚¶’l‚Éİ’è
+   * æœ€å¤§ã‚µã‚¤ã‚ºã¨æœ€å°ã‚µã‚¤ã‚ºã‚’ã€åŒæ™‚ã«åŒã˜å€¤ã«è¨­å®š
    *
-   * @param w •
-   * @param h ‚‚³
+   * @param w å¹…
+   * @param h é«˜ã•
    ------------------------------*/
   function setFixedSize(w, h) {
     setMinMaxSize(w, h, w, h);
   }
 
   /**------------------------------
-   * Å‘åƒTƒCƒY‚ÆÅ¬ƒTƒCƒY‚ğAƒCƒ[ƒWƒTƒCƒY‚Éİ’è
+   * æœ€å¤§ã‚µã‚¤ã‚ºã¨æœ€å°ã‚µã‚¤ã‚ºã‚’ã€ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚µã‚¤ã‚ºã«è¨­å®š
    *
-   * @param w •
-   * @param h ‚‚³
+   * @param w å¹…
+   * @param h é«˜ã•
    ------------------------------*/
   function setFixedSizeToImageSize() {
     setMinMaxSize(imageWidth, imageHeight, imageWidth, imageHeight);
   }
 
   /*------------------------------
-   * Å‘åƒTƒCƒY‚ÆÅ¬ƒTƒCƒY‚ğ“¯İ’è
+   * æœ€å¤§ã‚µã‚¤ã‚ºã¨æœ€å°ã‚µã‚¤ã‚ºã‚’åŒæ™‚è¨­å®š
    *
-   * @param minW Å¬•
-   * @param minH Å¬‚‚³
-   * @param maxW Å‘å•
-   * @param maxH Å‘å‚‚³
+   * @param minW æœ€å°å¹…
+   * @param minH æœ€å°é«˜ã•
+   * @param maxW æœ€å¤§å¹…
+   * @param maxH æœ€å¤§é«˜ã•
    ------------------------------*/
   function setMinMaxSize(minW, minH, maxW, maxH) {
-    // •ÏX‚ª‚ ‚Á‚½‚Ì‚İˆ—
+    // å¤‰æ›´ãŒã‚ã£ãŸæ™‚ã®ã¿å‡¦ç†
     if (_minWidth == minW
         && _minHeight == minH
         && _maxWidth == maxW
         && _maxHeight == maxH)
       return;
 
-    // min‚Æmax‚Ì‹t“]‚ğƒ`ƒFƒbƒN
+    // minã¨maxã®é€†è»¢ã‚’ãƒã‚§ãƒƒã‚¯
     if (minW > maxW || minH > maxH)
       throw new Exception("%s: minmax size mismatch(minW:%d,minH:%d,maxW:%d,maxH:%d".sprintf(className, minW,minH,maxW,maxH));
 
-    // ‹ŒƒTƒCƒY‚ğ‹L˜^
+    // æ—§ã‚µã‚¤ã‚ºã‚’è¨˜éŒ²
     var oldMinWidth, oldMinHeight, oldMaxWidth, oldMaxHeight;
     oldMinWidth = _minWidth;
     oldMinHeight = _minHeight;
     oldMaxWidth = _maxWidth;
     oldMaxHeight = _maxHeight;
       
-    // ƒTƒCƒY‚ğXV
+    // ã‚µã‚¤ã‚ºã‚’æ›´æ–°
     _minWidth = minW;
     _minHeight = minH;
     _maxWidth = maxW;
     _maxHeight = maxH;
-    // ƒTƒCƒY•ÏX‚ğe‚É’Ê’m
+    // ã‚µã‚¤ã‚ºå¤‰æ›´ã‚’è¦ªã«é€šçŸ¥
     if (isInWidgetTree)
       parentWidget.onChildMinMaxSizeModified(this,
                                              _minWidth, _minHeight, _maxWidth, _maxHeight,
                                              oldMinWidth, oldMinHeight, oldMaxWidth, oldMaxHeight);
-    // ƒTƒCƒY•ÏX
+    // ã‚µã‚¤ã‚ºå¤‰æ›´
     invalidateSize();
   }
 
   /**----------------------------------------------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ÌÅ¬ƒTƒCƒYAÅ‘åƒTƒCƒY‚ÌXV‚É”º‚Á‚ÄŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®æœ€å°ã‚µã‚¤ã‚ºã€æœ€å¤§ã‚µã‚¤ã‚ºã®æ›´æ–°ã«ä¼´ã£ã¦å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param child Å¬EÅ‘åƒTƒCƒY‚ÌXV‚³‚ê‚½qƒEƒBƒWƒFƒbƒg
-   * @param newMinWidth V‹KÅ¬•
-   * @param newMinHeight V‹KÅ¬‚‚³
-   * @param newMaxWidth V‹KÅ‘å•
-   * @param oldMinWidth •ÏX‘O‚ÌÅ¬•
-   * @param oldMinHeight •ÏX‘O‚ÌÅ¬‚‚³
-   * @param oldMaxWidth •ÏX‘O‚ÌÅ‘å•
-   * @param oldMaxHeight •ÏX‘O‚ÌÅ‘å‚‚³
+   * @param child æœ€å°ãƒ»æœ€å¤§ã‚µã‚¤ã‚ºã®æ›´æ–°ã•ã‚ŒãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param newMinWidth æ–°è¦æœ€å°å¹…
+   * @param newMinHeight æ–°è¦æœ€å°é«˜ã•
+   * @param newMaxWidth æ–°è¦æœ€å¤§å¹…
+   * @param oldMinWidth å¤‰æ›´å‰ã®æœ€å°å¹…
+   * @param oldMinHeight å¤‰æ›´å‰ã®æœ€å°é«˜ã•
+   * @param oldMaxWidth å¤‰æ›´å‰ã®æœ€å¤§å¹…
+   * @param oldMaxHeight å¤‰æ›´å‰ã®æœ€å¤§é«˜ã•
    ----------------------------------------------------------------------*/
   function onChildMinMaxSizeModified(child,
                                      newMinWidth, newMinHeight, newMaxWidth, newMaxHeight,
@@ -625,54 +625,54 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚ÌÅ‘å/Å¬ƒTƒCƒY‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚êA
-   * ÀÛ‚ÌƒTƒCƒY‚ª•ÏX‚³‚ê‚½‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éŠÖ”B
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®æœ€å¤§/æœ€å°ã‚µã‚¤ã‚ºãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã€
+   * å®Ÿéš›ã®ã‚µã‚¤ã‚ºãŒå¤‰æ›´ã•ã‚ŒãŸã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹é–¢æ•°ã€‚
    * 
-   * ÀÛ‚ÌƒTƒCƒY‚ª•ÏX‚³‚ê‚Ä‚¢‚½ê‡AonSizeModified() ‚ªŒÄ‚Î‚ê‚é
+   * å®Ÿéš›ã®ã‚µã‚¤ã‚ºãŒå¤‰æ›´ã•ã‚Œã¦ã„ãŸå ´åˆã€onSizeModified() ãŒå‘¼ã°ã‚Œã‚‹
    ------------------------------*/
   function invalidateSize {
-    // ƒTƒCƒY‚ğ•ÏX‚·‚é
+    // ã‚µã‚¤ã‚ºã‚’å¤‰æ›´ã™ã‚‹
     setSize(width, height);
   }
 
   function setSize(newWidth, newHeight) {
-    // Å¬ƒTƒCƒY‚ÆÅ‘åƒTƒCƒY‚ğŒ³‚ÉŒ»İ‚ÌƒTƒCƒY‚ğŠÛ‚ß‚İ
+    // æœ€å°ã‚µã‚¤ã‚ºã¨æœ€å¤§ã‚µã‚¤ã‚ºã‚’å…ƒã«ç¾åœ¨ã®ã‚µã‚¤ã‚ºã‚’ä¸¸ã‚è¾¼ã¿
     newWidth = int(Math.min(_maxWidth, Math.max(_minWidth, newWidth)));
     newHeight = int(Math.min(_maxHeight, Math.max(_minHeight, newHeight)));
 
-    // ƒTƒCƒY‚ª•ÏX‚³‚ê‚½‚Ì‚İˆ—‚ğs‚¤
+    // ã‚µã‚¤ã‚ºãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã®ã¿å‡¦ç†ã‚’è¡Œã†
     if (newWidth == width
         && newHeight == height)
       return;
 
-    // ÀÛ‚ÉƒTƒCƒY‚ğ•ÏX‚·‚é
+    // å®Ÿéš›ã«ã‚µã‚¤ã‚ºã‚’å¤‰æ›´ã™ã‚‹
     var oldWidth, oldHeight;
     oldWidth = width;
     oldHeight = height;
     super.setSize(newWidth, newHeight);
    
-    // ƒTƒCƒY‚Ì•ÏX‚ğA©•ª©g‚É’Ê’m‚·‚é
+    // ã‚µã‚¤ã‚ºã®å¤‰æ›´ã‚’ã€è‡ªåˆ†è‡ªèº«ã«é€šçŸ¥ã™ã‚‹
     onSizeModified(newWidth, newHeight, oldWidth, oldHeight);
   }
 
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚ÌÅ¬ƒTƒCƒYAÅ‘åƒTƒCƒY‚ÌXV‚É”º‚Á‚Ä
-   * ƒEƒBƒWƒFƒbƒg©g‚ÌƒTƒCƒY‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”B
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®æœ€å°ã‚µã‚¤ã‚ºã€æœ€å¤§ã‚µã‚¤ã‚ºã®æ›´æ–°ã«ä¼´ã£ã¦
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆè‡ªèº«ã®ã‚µã‚¤ã‚ºãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°ã€‚
    *
-   * @param newWidth V‹K•
-   * @param newHeight V‹K‚‚³
-   * @param oldWidth •ÏX‘O‚Ì•
-   * @paarm oldHeight •ÏX‘O‚Ì•
+   * @param newWidth æ–°è¦å¹…
+   * @param newHeight æ–°è¦é«˜ã•
+   * @param oldWidth å¤‰æ›´å‰ã®å¹…
+   * @paarm oldHeight å¤‰æ›´å‰ã®å¹…
    ------------------------------*/
   function onSizeModified(newWidth, newHeight, oldWidth, oldHeight) {
   }
 
   /**------------------------------
-   * …•½•ûŒü‚Ì‹æØƒXƒy[ƒX‚Ì‘å‚«‚³‚ğw’è‚µ‚Ü‚·
+   * æ°´å¹³æ–¹å‘ã®åŒºåˆ‡ã‚¹ãƒšãƒ¼ã‚¹ã®å¤§ãã•ã‚’æŒ‡å®šã—ã¾ã™
    *
-   * @param space ƒXƒy[ƒX
-   * @return ƒXƒy[ƒX
+   * @param space ã‚¹ãƒšãƒ¼ã‚¹
+   * @return ã‚¹ãƒšãƒ¼ã‚¹
    ------------------------------*/
   property spaceHorizontal {
     getter {
@@ -688,10 +688,10 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ‚’¼•ûŒü‚Ì‹æØƒXƒy[ƒX‚Ì‘å‚«‚³‚ğw’è‚µ‚Ü‚·
+   * å‚ç›´æ–¹å‘ã®åŒºåˆ‡ã‚¹ãƒšãƒ¼ã‚¹ã®å¤§ãã•ã‚’æŒ‡å®šã—ã¾ã™
    *
-   * @param space ƒXƒy[ƒX
-   * @return ƒXƒy[ƒX
+   * @param space ã‚¹ãƒšãƒ¼ã‚¹
+   * @return ã‚¹ãƒšãƒ¼ã‚¹
    ------------------------------*/
   property spaceVertical {
     getter {
@@ -707,9 +707,9 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * …•½‚Æ‚’¼•ûŒü‚Ì‹æØƒXƒy[ƒX‚Ì‘å‚«‚³‚ğ‚Ü‚Æ‚¦‚Äw’è‚µ‚Ü‚·
+   * æ°´å¹³ã¨å‚ç›´æ–¹å‘ã®åŒºåˆ‡ã‚¹ãƒšãƒ¼ã‚¹ã®å¤§ãã•ã‚’ã¾ã¨ãˆã¦æŒ‡å®šã—ã¾ã™
    *
-   * @param space ƒXƒy[ƒX
+   * @param space ã‚¹ãƒšãƒ¼ã‚¹
    ------------------------------*/
   property space {
     setter(s) {
@@ -725,19 +725,19 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ƒXƒy[ƒX‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã‚¹ãƒšãƒ¼ã‚¹ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param newSpaceHorizontal V‹K…•½ƒXƒy[ƒX
-   * @param newSpaceVertical V‹K‚’¼ƒXƒy[ƒX
-   * @param oldSpaceHorizontal •ÏX‘O‚Ì…•½ƒXƒy[ƒX
-   * @param newSpaceVertical •ÏX‘O‚Ì‚’¼ƒXƒy[ƒX
+   * @param newSpaceHorizontal æ–°è¦æ°´å¹³ã‚¹ãƒšãƒ¼ã‚¹
+   * @param newSpaceVertical æ–°è¦å‚ç›´ã‚¹ãƒšãƒ¼ã‚¹
+   * @param oldSpaceHorizontal å¤‰æ›´å‰ã®æ°´å¹³ã‚¹ãƒšãƒ¼ã‚¹
+   * @param newSpaceVertical å¤‰æ›´å‰ã®å‚ç›´ã‚¹ãƒšãƒ¼ã‚¹
    ------------------------------*/
   function onSpaceModified(newSpaceHorizontal, newSpaceVertical,
                           oldSpaceHorizontal, oldSpaceVertical) {
   }
 
   /**----------------------------------------------------------------------
-   * ƒ}[ƒWƒ“‚ğŠÜ‚ß‚½•(“Ç‚İo‚µê—p)
+   * ãƒãƒ¼ã‚¸ãƒ³ã‚’å«ã‚ãŸå¹…(èª­ã¿å‡ºã—å°‚ç”¨)
    *
    * @return width + marginLeft + marginRight
    ----------------------------------------------------------------------*/
@@ -748,7 +748,7 @@ class KWidget extends Layer
   }
 
   /**----------------------------------------------------------------------
-   * ƒ}[ƒWƒ“‚ğŠÜ‚ß‚½‚‚³(“Ç‚İo‚µê—p)
+   * ãƒãƒ¼ã‚¸ãƒ³ã‚’å«ã‚ãŸé«˜ã•(èª­ã¿å‡ºã—å°‚ç”¨)
    *
    * @return height + marginTop + marginBottom
    ----------------------------------------------------------------------*/
@@ -759,7 +759,7 @@ class KWidget extends Layer
   }
 
   /**----------------------------------------------------------------------
-   * ‰¡•ûŒüƒ}[ƒWƒ“‚Ì‡Œv(“Ç‚İo‚µê—p)
+   * æ¨ªæ–¹å‘ãƒãƒ¼ã‚¸ãƒ³ã®åˆè¨ˆ(èª­ã¿å‡ºã—å°‚ç”¨)
    *
    * @return marginLeft + marginRight
    ----------------------------------------------------------------------*/
@@ -770,7 +770,7 @@ class KWidget extends Layer
   }
 
   /**----------------------------------------------------------------------
-   * c•ûŒüƒ}[ƒWƒ“‚Ì‡Œv(“Ç‚İo‚µê—p)
+   * ç¸¦æ–¹å‘ãƒãƒ¼ã‚¸ãƒ³ã®åˆè¨ˆ(èª­ã¿å‡ºã—å°‚ç”¨)
    *
    * @return marginTop + marginBottom
    ----------------------------------------------------------------------*/
@@ -781,12 +781,12 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ¶ƒ}[ƒWƒ“
+   * å·¦ãƒãƒ¼ã‚¸ãƒ³
    *
-   * ƒŒƒCƒAƒEƒg‚ÉAƒEƒBƒWƒFƒbƒg‚Ì¶‘¤‚É‚Ç‚ê‚¾‚¯‚Ìƒ}[ƒWƒ“‚ğ‹ó‚¯‚é‚©İ’è‚µ‚Ü‚·B
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆæ™‚ã«ã€ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®å·¦å´ã«ã©ã‚Œã ã‘ã®ãƒãƒ¼ã‚¸ãƒ³ã‚’ç©ºã‘ã‚‹ã‹è¨­å®šã—ã¾ã™ã€‚
    *
-   * @return ¶ƒ}[ƒWƒ“
-   * @param l ¶ƒ}[ƒWƒ“
+   * @return å·¦ãƒãƒ¼ã‚¸ãƒ³
+   * @param l å·¦ãƒãƒ¼ã‚¸ãƒ³
    ------------------------------*/
   property marginLeft {
     getter {
@@ -794,21 +794,21 @@ class KWidget extends Layer
     }
 
     setter(l) {
-      // ƒ}[ƒWƒ“‚Ì’l‚ª•ÏX‚³‚ê‚½‚Ì‚İˆ—‚·‚é
+      // ãƒãƒ¼ã‚¸ãƒ³ã®å€¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã®ã¿å‡¦ç†ã™ã‚‹
       if (_marginLeft == l)
         return;
-      // ƒ}[ƒWƒ“‚ğXV‚·‚é
+      // ãƒãƒ¼ã‚¸ãƒ³ã‚’æ›´æ–°ã™ã‚‹
       invalidateMargin(l, _marginTop, _marginRight, _marginBottom);
     }
   }
 
   /**------------------------------
-   * ãƒ}[ƒWƒ“
+   * ä¸Šãƒãƒ¼ã‚¸ãƒ³
    *
-   * ƒŒƒCƒAƒEƒg‚ÉAƒEƒBƒWƒFƒbƒg‚Ìã‘¤‚É‚Ç‚ê‚¾‚¯‚Ìƒ}[ƒWƒ“‚ğ‹ó‚¯‚é‚©İ’è‚µ‚Ü‚·B
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆæ™‚ã«ã€ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ä¸Šå´ã«ã©ã‚Œã ã‘ã®ãƒãƒ¼ã‚¸ãƒ³ã‚’ç©ºã‘ã‚‹ã‹è¨­å®šã—ã¾ã™ã€‚
    *
-   * @return ãƒ}[ƒWƒ“
-   * @param t ãƒ}[ƒWƒ“
+   * @return ä¸Šãƒãƒ¼ã‚¸ãƒ³
+   * @param t ä¸Šãƒãƒ¼ã‚¸ãƒ³
    ------------------------------*/
   property marginTop {
     getter {
@@ -816,21 +816,21 @@ class KWidget extends Layer
     }
 
     setter(t) {
-      // ƒ}[ƒWƒ“‚Ì’l‚ª•ÏX‚³‚ê‚½‚Ì‚İˆ—‚·‚é
+      // ãƒãƒ¼ã‚¸ãƒ³ã®å€¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã®ã¿å‡¦ç†ã™ã‚‹
       if (_marginTop == t)
         return;
-      // ƒ}[ƒWƒ“‚ğXV‚·‚é
+      // ãƒãƒ¼ã‚¸ãƒ³ã‚’æ›´æ–°ã™ã‚‹
       invalidateMargin(_marginLeft, t, _marginRight, _marginBottom);
     }
   }
 
   /**------------------------------
-   * ‰Eƒ}[ƒWƒ“
+   * å³ãƒãƒ¼ã‚¸ãƒ³
    *
-   * ƒŒƒCƒAƒEƒg‚ÉAƒEƒBƒWƒFƒbƒg‚Ì‰E‘¤‚É‚Ç‚ê‚¾‚¯‚Ìƒ}[ƒWƒ“‚ğ‹ó‚¯‚é‚©İ’è‚µ‚Ü‚·B
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆæ™‚ã«ã€ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®å³å´ã«ã©ã‚Œã ã‘ã®ãƒãƒ¼ã‚¸ãƒ³ã‚’ç©ºã‘ã‚‹ã‹è¨­å®šã—ã¾ã™ã€‚
    *
-   * @return ‰Eƒ}[ƒWƒ“
-   * @param r ‰Eƒ}[ƒWƒ“
+   * @return å³ãƒãƒ¼ã‚¸ãƒ³
+   * @param r å³ãƒãƒ¼ã‚¸ãƒ³
    ------------------------------*/
   property marginRight {
     getter {
@@ -838,21 +838,21 @@ class KWidget extends Layer
     }
 
     setter(r) {
-      // ƒ}[ƒWƒ“‚Ì’l‚ª•ÏX‚³‚ê‚½‚Ì‚İˆ—‚·‚é
+      // ãƒãƒ¼ã‚¸ãƒ³ã®å€¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã®ã¿å‡¦ç†ã™ã‚‹
       if (_marginRight == r)
         return;
-      // ƒ}[ƒWƒ“‚ğXV‚·‚é
+      // ãƒãƒ¼ã‚¸ãƒ³ã‚’æ›´æ–°ã™ã‚‹
       invalidateMargin(_marginLeft, _marginTop, r, _marginBottom);
     }
   }
 
   /**------------------------------
-   * ‰ºƒ}[ƒWƒ“
+   * ä¸‹ãƒãƒ¼ã‚¸ãƒ³
    *
-   * ƒŒƒCƒAƒEƒg‚ÉAƒEƒBƒWƒFƒbƒg‚Ì‰º‘¤‚É‚Ç‚ê‚¾‚¯‚Ìƒ}[ƒWƒ“‚ğ‹ó‚¯‚é‚©İ’è‚µ‚Ü‚·B
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆæ™‚ã«ã€ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ä¸‹å´ã«ã©ã‚Œã ã‘ã®ãƒãƒ¼ã‚¸ãƒ³ã‚’ç©ºã‘ã‚‹ã‹è¨­å®šã—ã¾ã™ã€‚
    *
-   * @return ‰ºƒ}[ƒWƒ“
-   * @param b ‰ºƒ}[ƒWƒ“
+   * @return ä¸‹ãƒãƒ¼ã‚¸ãƒ³
+   * @param b ä¸‹ãƒãƒ¼ã‚¸ãƒ³
    ------------------------------*/
   property marginBottom {
     getter {
@@ -860,32 +860,32 @@ class KWidget extends Layer
     }
 
     setter(b) {
-      // ƒ}[ƒWƒ“‚Ì’l‚ª•ÏX‚³‚ê‚½‚Ì‚İˆ—‚·‚é
+      // ãƒãƒ¼ã‚¸ãƒ³ã®å€¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã®ã¿å‡¦ç†ã™ã‚‹
       if (_marginBottom == b)
         return;
-      // ƒ}[ƒWƒ“‚ğXV‚·‚é
+      // ãƒãƒ¼ã‚¸ãƒ³ã‚’æ›´æ–°ã™ã‚‹
       invalidateMargin(_marginLeft, _marginTop, _marginRight, b);
     }
   }
 
   /**------------------------------
-   * ƒ}[ƒWƒ“‚Ìİ’è
+   * ãƒãƒ¼ã‚¸ãƒ³ã®è¨­å®š
    *
-   * ƒ}[ƒWƒ“‚ğ‚Ü‚Æ‚ß‚Äİ’è‚µ‚Ü‚·B
+   * ãƒãƒ¼ã‚¸ãƒ³ã‚’ã¾ã¨ã‚ã¦è¨­å®šã—ã¾ã™ã€‚
    *
-   * ˆø”‚ğ1‚Â‚¾‚¯w’è‚µ‚½ê‡Aã‰º¶‰E‘S‚Ä‚Ìƒ}[ƒWƒ“‚ğ“¯‚¶’l‚Éİ’è‚µ‚Ü‚·B
+   * å¼•æ•°ã‚’1ã¤ã ã‘æŒ‡å®šã—ãŸå ´åˆã€ä¸Šä¸‹å·¦å³å…¨ã¦ã®ãƒãƒ¼ã‚¸ãƒ³ã‚’åŒã˜å€¤ã«è¨­å®šã—ã¾ã™ã€‚
    *
-   * ˆø”‚ğ2‚Â‚¾‚¯w’è‚µ‚½ê‡A‘æˆêˆø”‚ğ¶‰Eƒ}[ƒWƒ“A‘æ“ñˆø”‚ğã‰ºƒ}[ƒWƒ“‚Éİ’è‚µ‚Ü‚·B
+   * å¼•æ•°ã‚’2ã¤ã ã‘æŒ‡å®šã—ãŸå ´åˆã€ç¬¬ä¸€å¼•æ•°ã‚’å·¦å³ãƒãƒ¼ã‚¸ãƒ³ã€ç¬¬äºŒå¼•æ•°ã‚’ä¸Šä¸‹ãƒãƒ¼ã‚¸ãƒ³ã«è¨­å®šã—ã¾ã™ã€‚
    *
-   * ˆø”‚ğ4‚Â‘S‚Äw’è‚µ‚½ê‡A‚»‚ê‚¼‚ê‚Ìƒ}[ƒWƒ“‚ğŒÂ•Ê‚Éİ’è‚µ‚Ü‚·B
+   * å¼•æ•°ã‚’4ã¤å…¨ã¦æŒ‡å®šã—ãŸå ´åˆã€ãã‚Œãã‚Œã®ãƒãƒ¼ã‚¸ãƒ³ã‚’å€‹åˆ¥ã«è¨­å®šã—ã¾ã™ã€‚
    *
-   * @param l ¶ƒ}[ƒWƒ“
-   * @param t ãƒ}[ƒWƒ“
-   * @param r ‰Eƒ}[ƒWƒ“
-   * @param b ‰ºƒ}[ƒWƒ“
+   * @param l å·¦ãƒãƒ¼ã‚¸ãƒ³
+   * @param t ä¸Šãƒãƒ¼ã‚¸ãƒ³
+   * @param r å³ãƒãƒ¼ã‚¸ãƒ³
+   * @param b ä¸‹ãƒãƒ¼ã‚¸ãƒ³
    ------------------------------*/
   function setMargin(l, t = void, r = void, b = void) {
-    // ˆø”“WŠJ
+    // å¼•æ•°å±•é–‹
     if (t === void) {
       t = r = b = l;
     } else if (r === void) {
@@ -893,56 +893,56 @@ class KWidget extends Layer
       b = t;
     }
 
-    // •ÏX‚ª‚ ‚Á‚½‚Ì‚İˆ—
+    // å¤‰æ›´ãŒã‚ã£ãŸæ™‚ã®ã¿å‡¦ç†
     if (_marginLeft == l
         && _marginTop == t
         && _marginRight == r
         && _marginBottom == b)
       return;
 
-    // ƒ}[ƒWƒ“•ÏX
+    // ãƒãƒ¼ã‚¸ãƒ³å¤‰æ›´
     invalidateMargin(l, t, r, b);
   }
 
   /**------------------------------
-   * ƒ}[ƒWƒ“‚Ìİ’è
+   * ãƒãƒ¼ã‚¸ãƒ³ã®è¨­å®š
    *
-   * ã‰º¶‰E‘S‚Ä‚Ìƒ}[ƒWƒ“‚ğ‚Ü‚Æ‚ß‚Äİ’è‚µ‚Ü‚·B
+   * ä¸Šä¸‹å·¦å³å…¨ã¦ã®ãƒãƒ¼ã‚¸ãƒ³ã‚’ã¾ã¨ã‚ã¦è¨­å®šã—ã¾ã™ã€‚
    *
-   * @param m ƒ}[ƒWƒ“
+   * @param m ãƒãƒ¼ã‚¸ãƒ³
    ------------------------------*/
   property margin {
     setter(m) {
-      // •ÏX‚ª‚ ‚Á‚½‚Ì‚İˆ—
+      // å¤‰æ›´ãŒã‚ã£ãŸæ™‚ã®ã¿å‡¦ç†
       if (_marginLeft == m
           && _marginTop == m
           && _marginRight == m
           && _marginBottom == m)
         return;
 
-      // ƒ}[ƒWƒ“•ÏX
+      // ãƒãƒ¼ã‚¸ãƒ³å¤‰æ›´
       invalidateMargin(m, m, m, m);
     }
   }
   
   /*------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚Ìƒ}[ƒWƒ“‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éŠÖ”B
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ãƒãƒ¼ã‚¸ãƒ³ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹é–¢æ•°ã€‚
    *
-   * e‚Ì onChildMarginModified() ‚ªŒÄ‚Î‚ê‚é
+   * è¦ªã® onChildMarginModified() ãŒå‘¼ã°ã‚Œã‚‹
    ------------------------------*/
   function invalidateMargin(newMarginLeft, newMarginTop, newMarginRight, newMarginBottom) {
-    // ˆÈ‘O‚Ìƒ}[ƒWƒ“‚ğ‹L˜^
+    // ä»¥å‰ã®ãƒãƒ¼ã‚¸ãƒ³ã‚’è¨˜éŒ²
     var oldMarginLeft, oldMarginTop, oldMarginRight, oldMarginBottom;
     oldMarginLeft = _marginLeft;
     oldMarginTop = _marginTop;
     oldMarginRight = _marginRight;
     oldMarginBottom = _marginBottom;
-    // ƒ}[ƒWƒ“‚ğXV
+    // ãƒãƒ¼ã‚¸ãƒ³ã‚’æ›´æ–°
     _marginLeft = newMarginLeft;
     _marginTop = newMarginTop;
     _marginRight = newMarginRight;
     _marginBottom = newMarginBottom;
-    // e‚É’Ê’m‚·‚é
+    // è¦ªã«é€šçŸ¥ã™ã‚‹
     if (isInWidgetTree)
       parentWidget.onChildMarginModified(this,
                                          newMarginLeft, newMarginTop, newMarginRight, newMarginBottom,
@@ -950,17 +950,17 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚Ìƒ}[ƒWƒ“‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ãƒãƒ¼ã‚¸ãƒ³ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param child ƒ}[ƒWƒ“‚Ì•ÏX‚³‚ê‚½qƒEƒBƒWƒFƒbƒg
-   * @param newMarginLeft   V‹K¶ƒ}[ƒWƒ“
-   * @param newMarginTop    V‹Kãƒ}[ƒWƒ“
-   * @param newMarginRight  V‹K‰Eƒ}[ƒWƒ“
-   * @param newMarginBottom V‹K‰ºƒ}[ƒWƒ“
-   * @param oldMarginLeft   •ÏX‘O‚Ì¶ƒ}[ƒWƒ“
-   * @param oldMarginTop    •ÏX‘O‚Ìãƒ}[ƒWƒ“
-   * @param oldMarginRight  •ÏX‘O‚Ì‰Eƒ}[ƒWƒ“
-   * @param oldMarginBottom •ÏX‘O‚Ì‰ºƒ}[ƒWƒ“
+   * @param child ãƒãƒ¼ã‚¸ãƒ³ã®å¤‰æ›´ã•ã‚ŒãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param newMarginLeft   æ–°è¦å·¦ãƒãƒ¼ã‚¸ãƒ³
+   * @param newMarginTop    æ–°è¦ä¸Šãƒãƒ¼ã‚¸ãƒ³
+   * @param newMarginRight  æ–°è¦å³ãƒãƒ¼ã‚¸ãƒ³
+   * @param newMarginBottom æ–°è¦ä¸‹ãƒãƒ¼ã‚¸ãƒ³
+   * @param oldMarginLeft   å¤‰æ›´å‰ã®å·¦ãƒãƒ¼ã‚¸ãƒ³
+   * @param oldMarginTop    å¤‰æ›´å‰ã®ä¸Šãƒãƒ¼ã‚¸ãƒ³
+   * @param oldMarginRight  å¤‰æ›´å‰ã®å³ãƒãƒ¼ã‚¸ãƒ³
+   * @param oldMarginBottom å¤‰æ›´å‰ã®ä¸‹ãƒãƒ¼ã‚¸ãƒ³
    *------------------------------*/
   function onChildMarginModified(child,
                                  newMarginLeft, newMarginTop, newMarginRight, newMarginBottom,
@@ -968,85 +968,85 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * …•½ƒAƒ‰ƒCƒƒ“ƒg
+   * æ°´å¹³ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
    *
-   * ƒŒƒCƒAƒEƒg‚ÌŠÖŒW‚ÅƒEƒBƒWƒFƒbƒg‚ª–{—ˆ‚ÌƒTƒCƒY‚æ‚è‘å‚«‚¢—Ìˆæ‚É”z’u‚³‚ê‚é‚±‚Æ‚É
-   * ‚È‚Á‚½‚ÉAƒEƒBƒWƒFƒbƒg‚ğ¶‰E‚Ì‚Ç‚¿‚ç‚ÉŠñ‚¹‚é‚©‚ğİ’è‚µ‚Ü‚·B
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®é–¢ä¿‚ã§ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãŒæœ¬æ¥ã®ã‚µã‚¤ã‚ºã‚ˆã‚Šå¤§ãã„é ˜åŸŸã«é…ç½®ã•ã‚Œã‚‹ã“ã¨ã«
+   * ãªã£ãŸæ™‚ã«ã€ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å·¦å³ã®ã©ã¡ã‚‰ã«å¯„ã›ã‚‹ã‹ã‚’è¨­å®šã—ã¾ã™ã€‚
    * 
-   * ALIGN_LEFT, ALIGN_CENTER, ALIGN_RIGHT ‚Ì‚¢‚¸‚ê‚©‚Ì’l‚ğİ’è‚Å‚«‚Ü‚·B
+   * ALIGN_LEFT, ALIGN_CENTER, ALIGN_RIGHT ã®ã„ãšã‚Œã‹ã®å€¤ã‚’è¨­å®šã§ãã¾ã™ã€‚
    *
-   * @return …•½ƒAƒ‰ƒCƒƒ“ƒg
-   * @param align …•½ƒAƒ‰ƒCƒƒ“
+   * @return æ°´å¹³ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
+   * @param align æ°´å¹³ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³
    ------------------------------*/
   property alignHorizontal {
     getter {
       return _alignHorizontal;
     }
     setter(align) {
-      // •ÏX‚ª‚ ‚Á‚½‚Ì‚İXV
+      // å¤‰æ›´ãŒã‚ã£ãŸæ™‚ã®ã¿æ›´æ–°
       if (_alignHorizontal == align)
         return;
-      // XV
+      // æ›´æ–°
       invalidateAlign(align, _alignVertical);
     }
   }
 
 
   /**------------------------------
-   * ‚’¼ƒAƒ‰ƒCƒƒ“ƒg
+   * å‚ç›´ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
    *
-   * ƒŒƒCƒAƒEƒg‚ÌŠÖŒW‚ÅƒEƒBƒWƒFƒbƒg‚ª–{—ˆ‚ÌƒTƒCƒY‚æ‚è‘å‚«‚¢—Ìˆæ‚É”z’u‚³‚ê‚é‚±‚Æ‚É
-   * ‚È‚Á‚½‚ÉAƒEƒBƒWƒFƒbƒg‚ğã‰º‚Ì‚Ç‚¿‚ç‚ÉŠñ‚¹‚é‚©‚ğİ’è‚µ‚Ü‚·B
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®é–¢ä¿‚ã§ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãŒæœ¬æ¥ã®ã‚µã‚¤ã‚ºã‚ˆã‚Šå¤§ãã„é ˜åŸŸã«é…ç½®ã•ã‚Œã‚‹ã“ã¨ã«
+   * ãªã£ãŸæ™‚ã«ã€ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ä¸Šä¸‹ã®ã©ã¡ã‚‰ã«å¯„ã›ã‚‹ã‹ã‚’è¨­å®šã—ã¾ã™ã€‚
    * 
-   * ALIGN_TOP, ALIGN_CENTER, ALIGN_BOTTOM ‚Ì‚¢‚¸‚ê‚©‚Ì’l‚ğİ’è‚Å‚«‚Ü‚·B
+   * ALIGN_TOP, ALIGN_CENTER, ALIGN_BOTTOM ã®ã„ãšã‚Œã‹ã®å€¤ã‚’è¨­å®šã§ãã¾ã™ã€‚
    *
-   * @return ‚’¼ƒAƒ‰ƒCƒƒ“ƒg
-   * @param align ‚’¼ƒAƒ‰ƒCƒƒ“
+   * @return å‚ç›´ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
+   * @param align å‚ç›´ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³
    ------------------------------*/
   property alignVertical {
     getter {
       return _alignVertical;
     }
     setter(align) {
-      // •ÏX‚ª‚ ‚Á‚½‚Ì‚İXV
+      // å¤‰æ›´ãŒã‚ã£ãŸæ™‚ã®ã¿æ›´æ–°
       if (_alignVertical == align)
         return;
-      // XV
+      // æ›´æ–°
       invalidateAlign(_alignHorizontal, align);
     }
   }
 
   /**------------------------------
-   * ƒAƒ‰ƒCƒƒ“ƒg‚Ìİ’è
+   * ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆã®è¨­å®š
    *
-   * ƒAƒ‰ƒCƒƒ“ƒg‚ğ‚Ü‚Æ‚ß‚Äİ’è‚µ‚Ü‚·B
+   * ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆã‚’ã¾ã¨ã‚ã¦è¨­å®šã—ã¾ã™ã€‚
    *
-   * @param h …•½ƒAƒ‰ƒCƒƒ“ƒg
-   * @param v ‚’¼ƒAƒ‰ƒCƒƒ“ƒg
+   * @param h æ°´å¹³ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
+   * @param v å‚ç›´ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
    ------------------------------*/
   function setAlign(h, v) {
-    // •ÏX‚ª‚ ‚Á‚½‚Ì‚İXV
+    // å¤‰æ›´ãŒã‚ã£ãŸæ™‚ã®ã¿æ›´æ–°
     if (h == _alignHorizontal
         && v == _alignVertical)
       return;
-    // XV
+    // æ›´æ–°
     invalidateAlign(h, v);
   }
 
   /*------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚ÌƒAƒ‰ƒCƒƒ“ƒg‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éŠÖ”B
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹é–¢æ•°ã€‚
    *
-   * e‚Ì onChildMarginModified() ‚ªŒÄ‚Î‚ê‚é
+   * è¦ªã® onChildMarginModified() ãŒå‘¼ã°ã‚Œã‚‹
    ------------------------------*/
   function invalidateAlign(newAlignHorizontal, newAlignVertical) {
-    // ŒÃ‚¢’l‚ğ•Û‘¶
+    // å¤ã„å€¤ã‚’ä¿å­˜
     var oldAlignHorizontal, oldAlignVertical;
     oldAlignHorizontal = _alignHorizontal;
     oldAlignVertical = _alignVertical;
-    // XV
+    // æ›´æ–°
     _alignHorizontal = newAlignHorizontal;
     _alignVertical = newAlignVertical;
-    // ƒtƒbƒNŠÖ”‚ğŒÄ‚Ô
+    // ãƒ•ãƒƒã‚¯é–¢æ•°ã‚’å‘¼ã¶
     if (isInWidgetTree) 
       parentWidget.onChildAlignModified(this,
                                         newAlignHorizontal, newAlignVertical,
@@ -1054,13 +1054,13 @@ class KWidget extends Layer
    }
 
   /*------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ÌƒAƒ‰ƒCƒƒ“ƒg‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param child ƒAƒ‰ƒCƒƒ“ƒg‚Ì•ÏX‚³‚ê‚½qƒEƒBƒWƒFƒbƒg
-   * @param newAlignHorizontal V‹K…•½ƒAƒ‰ƒCƒƒ“ƒg
-   * @param newAlignVertical V‹K‚’¼ƒAƒ‰ƒCƒƒ“ƒg
-   * @param oldAlignHorizontal •ÏX‘O‚Ì…•½ƒAƒ‰ƒCƒƒ“ƒg
-   * @param oldAlignVertical •ÏX‘O‚Ì‚’¼ƒAƒ‰ƒCƒƒ“ƒg
+   * @param child ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆã®å¤‰æ›´ã•ã‚ŒãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param newAlignHorizontal æ–°è¦æ°´å¹³ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
+   * @param newAlignVertical æ–°è¦å‚ç›´ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
+   * @param oldAlignHorizontal å¤‰æ›´å‰ã®æ°´å¹³ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
+   * @param oldAlignVertical å¤‰æ›´å‰ã®å‚ç›´ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
    ------------------------------*/
   function onChildAlignModified(child,
                                 newAlignHorizontal, newAlignVertical,
@@ -1068,112 +1068,112 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ƒtƒHƒ“ƒgƒtƒFƒCƒX
+   * ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚§ã‚¤ã‚¹
    *
-   * ƒtƒHƒ“ƒgƒtƒFƒCƒX‚ªXV‚³‚ê‚é‚Æ onFontFaceModified ŠÖ”‚ªŒÄ‚Î‚ê‚Ü‚·B
+   * ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚§ã‚¤ã‚¹ãŒæ›´æ–°ã•ã‚Œã‚‹ã¨ onFontFaceModified é–¢æ•°ãŒå‘¼ã°ã‚Œã¾ã™ã€‚
    *
-   * @param newFace V‹KƒtƒFƒCƒX
-   * @return ƒtƒFƒCƒX
+   * @param newFace æ–°è¦ãƒ•ã‚§ã‚¤ã‚¹
+   * @return ãƒ•ã‚§ã‚¤ã‚¹
    ------------------------------*/
   property fontFace {
     getter {
       return font.face;
     }
     setter(newFace) {
-      // XV‚ª‚ ‚é‚¾‚¯ˆ—
+      // æ›´æ–°ãŒã‚ã‚‹æ™‚ã ã‘å‡¦ç†
       if (font.face == newFace)
         return;
-      // XV
+      // æ›´æ–°
       var oldFace = font.face;
       font.face = newFace;
-      // ƒtƒbƒNŠÖ”ŒÄ‚Ño‚µ
+      // ãƒ•ãƒƒã‚¯é–¢æ•°å‘¼ã³å‡ºã—
       onFontFaceModified(newFace, oldFace);
     }
   }
 
   /*------------------------------
-   * ƒtƒHƒ“ƒgƒtƒFƒCƒX‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚§ã‚¤ã‚¹ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    * 
-   * @param newFontFace V‹KƒtƒHƒ“ƒgƒtƒFƒCƒX
-   * @param oldFontFace •ÏX‘O‚ÌƒtƒHƒ“ƒgƒtƒFƒCƒX
+   * @param newFontFace æ–°è¦ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚§ã‚¤ã‚¹
+   * @param oldFontFace å¤‰æ›´å‰ã®ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚§ã‚¤ã‚¹
    *------------------------------*/
   function onFontFaceModified(newFontFace, oldFontFace) {
   }
 
   /**------------------------------
-   * ƒtƒHƒ“ƒgƒwƒCƒg
+   * ãƒ•ã‚©ãƒ³ãƒˆãƒ˜ã‚¤ãƒˆ
    *
-   * ƒtƒHƒ“ƒgƒwƒCƒg‚ªXV‚³‚ê‚é‚Æ onFontHeightModified ŠÖ”‚ªŒÄ‚Î‚ê‚Ü‚·B
+   * ãƒ•ã‚©ãƒ³ãƒˆãƒ˜ã‚¤ãƒˆãŒæ›´æ–°ã•ã‚Œã‚‹ã¨ onFontHeightModified é–¢æ•°ãŒå‘¼ã°ã‚Œã¾ã™ã€‚
    *
-   * @param newHeight V‹KƒwƒCƒg
-   * @return ƒwƒCƒg
+   * @param newHeight æ–°è¦ãƒ˜ã‚¤ãƒˆ
+   * @return ãƒ˜ã‚¤ãƒˆ
    ------------------------------*/
   property fontHeight {
     getter {
       return font.height;
     }
     setter(newHeight) {
-      // XV‚ª‚ ‚é‚¾‚¯ˆ—
+      // æ›´æ–°ãŒã‚ã‚‹æ™‚ã ã‘å‡¦ç†
       if (font.height == newHeight)
         return;
-      // XV
+      // æ›´æ–°
       var oldHeight = font.height;
       font.height = newHeight;
-      // ƒtƒbƒNŠÖ”ŒÄ‚Ño‚µ
+      // ãƒ•ãƒƒã‚¯é–¢æ•°å‘¼ã³å‡ºã—
       onFontHeightModified(newHeight, oldHeight);
     }
   }
 
   /*------------------------------
-   * ƒtƒHƒ“ƒgƒwƒCƒg‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ãƒ•ã‚©ãƒ³ãƒˆãƒ˜ã‚¤ãƒˆãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    * 
-   * @param newFontHeight V‹KƒtƒHƒ“ƒgƒwƒCƒg
-   * @param oldFontHeight •ÏX‘O‚ÌƒtƒHƒ“ƒgƒwƒCƒg
+   * @param newFontHeight æ–°è¦ãƒ•ã‚©ãƒ³ãƒˆãƒ˜ã‚¤ãƒˆ
+   * @param oldFontHeight å¤‰æ›´å‰ã®ãƒ•ã‚©ãƒ³ãƒˆãƒ˜ã‚¤ãƒˆ
    *------------------------------*/
   function onFontHeightModified(newFontHeight, oldFontHeight) {
   }
 
   /**------------------------------
-   * ƒtƒHƒ“ƒgƒJƒ‰[
+   * ãƒ•ã‚©ãƒ³ãƒˆã‚«ãƒ©ãƒ¼
    *
-   * ƒtƒHƒ“ƒgƒJƒ‰[‚ªXV‚³‚ê‚é‚Æ onFontColorModified ŠÖ”‚ªŒÄ‚Î‚ê‚Ü‚·B
+   * ãƒ•ã‚©ãƒ³ãƒˆã‚«ãƒ©ãƒ¼ãŒæ›´æ–°ã•ã‚Œã‚‹ã¨ onFontColorModified é–¢æ•°ãŒå‘¼ã°ã‚Œã¾ã™ã€‚
    *
-   * @param color V‹KƒJƒ‰[
-   * @return ƒJƒ‰[
+   * @param color æ–°è¦ã‚«ãƒ©ãƒ¼
+   * @return ã‚«ãƒ©ãƒ¼
    ------------------------------*/
   property fontColor {
     getter {
       return _fontColor;
     }
     setter(color) {
-      // XV‚ª‚ ‚é‚¾‚¯ˆ—
+      // æ›´æ–°ãŒã‚ã‚‹æ™‚ã ã‘å‡¦ç†
       if (color == _fontColor)
         return;
-      // XV
+      // æ›´æ–°
       var oldFontColor = _fontColor;
       _fontColor = color;
-      // ƒtƒbƒNŠÖ”ŒÄ‚Ño‚µ
+      // ãƒ•ãƒƒã‚¯é–¢æ•°å‘¼ã³å‡ºã—
       onFontColorModified(color, oldFontColor);
     }
   }    
 
   /**------------------------------
-   * ƒtƒHƒ“ƒgƒJƒ‰[‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ãƒ•ã‚©ãƒ³ãƒˆã‚«ãƒ©ãƒ¼ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param newFontColor V‹KƒtƒHƒ“ƒgƒJƒ‰[
-   * @param oldFontColor •ÏX‘O‚ÌƒtƒHƒ“ƒgƒJƒ‰[
+   * @param newFontColor æ–°è¦ãƒ•ã‚©ãƒ³ãƒˆã‚«ãƒ©ãƒ¼
+   * @param oldFontColor å¤‰æ›´å‰ã®ãƒ•ã‚©ãƒ³ãƒˆã‚«ãƒ©ãƒ¼
    ------------------------------*/
   function onFontColorModified(newFontColor, oldFontColor) {
   }
 
   /**------------------------------
-   * u’lv‚ª•Ï‚í‚Á‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã€Œå€¤ã€ãŒå¤‰ã‚ã£ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * u’lv‚ğ‚ÂƒEƒBƒWƒFƒbƒg‚ÅA’l‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚Ü‚·B
-   * ƒfƒtƒHƒ‹ƒg‚Å‚ÍAparent ‚Ì onChildValueModified‚ğŒÄ‚Ô‚æ‚¤‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·B
+   * ã€Œå€¤ã€ã‚’æŒã¤ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã§ã€å€¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã¾ã™ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã€parent ã® onChildValueModifiedã‚’å‘¼ã¶ã‚ˆã†ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™ã€‚
    *
-   * @param newValue V‹K‚Ì’l
-   * @param oldValue •ÏX‘O‚Ì’l
+   * @param newValue æ–°è¦ã®å€¤
+   * @param oldValue å¤‰æ›´å‰ã®å€¤
    ------------------------------*/
   function onValueModified(newValue, oldValue) {
     indeterminate = false;
@@ -1182,15 +1182,15 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚Ìu’lv‚ª•Ï‚í‚Á‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã€Œå€¤ã€ãŒå¤‰ã‚ã£ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * qƒEƒBƒWƒFƒbƒg‚Ìu’lv’l‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚Ü‚·B
-   * ƒfƒtƒHƒ‹ƒg‚Å‚ÍA‚³‚ç‚É parent ‚Ì onChildValueModified‚ğŒÄ‚Ô‚æ‚¤‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·B
-   * ‚Ç‚±‚©‚ÌƒEƒBƒWƒFƒbƒg‚ªŠÖ”‚ğƒI[ƒo[ƒ‰ƒCƒh‚µ‚Äˆ—‚ğs‚í‚È‚¢ŒÀ‚èA
-   * ’l•ÏX‚Ì’Ê’m‚Í KWindow ‚Ü‚Å“Í‚«‚Ü‚·B
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã€Œå€¤ã€å€¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã¾ã™ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã€ã•ã‚‰ã« parent ã® onChildValueModifiedã‚’å‘¼ã¶ã‚ˆã†ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™ã€‚
+   * ã©ã“ã‹ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãŒé–¢æ•°ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¦å‡¦ç†ã‚’è¡Œã‚ãªã„é™ã‚Šã€
+   * å€¤å¤‰æ›´ã®é€šçŸ¥ã¯ KWindow ã¾ã§å±Šãã¾ã™ã€‚
    *
-   * @param newValue V‹K‚Ì’l
-   * @param oldValue •ÏX‘O‚Ì’l
+   * @param newValue æ–°è¦ã®å€¤
+   * @param oldValue å¤‰æ›´å‰ã®å€¤
    ------------------------------*/
   function onChildValueModified(child, newValue, oldValue) {
     if (isInWidgetTree)
@@ -1198,13 +1198,13 @@ class KWidget extends Layer
   }
 
   /*------------------------------
-   * ‚Ö‚Á‚±‚ñ‚¾ƒtƒŒ[ƒ€‚ğ•`‚­
+   * ã¸ã£ã“ã‚“ã ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æã
    *
-   * @param x ƒtƒŒ[ƒ€‚Ì¶’[
-   * @param y ƒtƒŒ[ƒ€‚Ìã’[
-   * @param w ƒtƒŒ[ƒ€‚Ì•
-   * @param h ƒtƒŒ[ƒ€‚Ì‚‚³
-   * @param boxColor “h‚è’×‚·ƒtƒŒ[ƒ€‚Ì’n‚ÌF
+   * @param x ãƒ•ãƒ¬ãƒ¼ãƒ ã®å·¦ç«¯
+   * @param y ãƒ•ãƒ¬ãƒ¼ãƒ ã®ä¸Šç«¯
+   * @param w ãƒ•ãƒ¬ãƒ¼ãƒ ã®å¹…
+   * @param h ãƒ•ãƒ¬ãƒ¼ãƒ ã®é«˜ã•
+   * @param boxColor å¡—ã‚Šæ½°ã™ãƒ•ãƒ¬ãƒ¼ãƒ ã®åœ°ã®è‰²
    ------------------------------*/
   function drawSunkenFrame(x, y, w, h, boxColor = WIN_BG) {
     fillRect(x + 0, y + 0, w - 1, 1, WIN_DARKEN1);
@@ -1219,22 +1219,22 @@ class KWidget extends Layer
   }
 
   /*------------------------------
-   * ‚Ö‚Á‚±‚ñ‚¾ƒtƒŒ[ƒ€‚ÅƒŒƒCƒ„‘S‘Ì‚ğ“h‚è’×‚·
+   * ã¸ã£ã“ã‚“ã ãƒ•ãƒ¬ãƒ¼ãƒ ã§ãƒ¬ã‚¤ãƒ¤å…¨ä½“ã‚’å¡—ã‚Šæ½°ã™
    *
-   * @param boxColor “h‚è’×‚·ƒtƒŒ[ƒ€‚Ì’n‚ÌF
+   * @param boxColor å¡—ã‚Šæ½°ã™ãƒ•ãƒ¬ãƒ¼ãƒ ã®åœ°ã®è‰²
    ------------------------------*/
   function fillSunkenFrame(boxColor = WIN_BG) {
     drawSunkenFrame(0, 0, width, height, boxColor);
   }
 
   /*------------------------------
-   * o‚Á‚Ï‚Á‚½ƒtƒŒ[ƒ€‚ğ•`‚­
+   * å‡ºã£ã±ã£ãŸãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æã
    *
-   * @param x ƒtƒŒ[ƒ€‚Ì¶’[
-   * @param y ƒtƒŒ[ƒ€‚Ìã’[
-   * @param w ƒtƒŒ[ƒ€‚Ì•
-   * @param h ƒtƒŒ[ƒ€‚Ì‚‚³
-   * @param boxColor “h‚è’×‚·ƒtƒŒ[ƒ€‚Ì’n‚ÌF
+   * @param x ãƒ•ãƒ¬ãƒ¼ãƒ ã®å·¦ç«¯
+   * @param y ãƒ•ãƒ¬ãƒ¼ãƒ ã®ä¸Šç«¯
+   * @param w ãƒ•ãƒ¬ãƒ¼ãƒ ã®å¹…
+   * @param h ãƒ•ãƒ¬ãƒ¼ãƒ ã®é«˜ã•
+   * @param boxColor å¡—ã‚Šæ½°ã™ãƒ•ãƒ¬ãƒ¼ãƒ ã®åœ°ã®è‰²
    ------------------------------*/
   function drawRaisedFrame(x, y, w, h, boxColor = WIN_BG) {
     fillRect(x + 0, y + 0, w - 1, 1, WIN_LIGHTEN2);
@@ -1249,22 +1249,22 @@ class KWidget extends Layer
   }
 
   /*------------------------------
-   * o‚Á‚Ï‚Á‚½ƒtƒŒ[ƒ€‚ÅƒŒƒCƒ„‘S‘Ì‚ğ“h‚è’×‚·
+   * å‡ºã£ã±ã£ãŸãƒ•ãƒ¬ãƒ¼ãƒ ã§ãƒ¬ã‚¤ãƒ¤å…¨ä½“ã‚’å¡—ã‚Šæ½°ã™
    *
-   * @param boxColor “h‚è’×‚·ƒtƒŒ[ƒ€‚Ì’n‚ÌF
+   * @param boxColor å¡—ã‚Šæ½°ã™ãƒ•ãƒ¬ãƒ¼ãƒ ã®åœ°ã®è‰²
    ------------------------------*/
   function fillRaisedFrame(boxColor = WIN_BG) {
     drawRaisedFrame(0, 0, width, height, boxColor);
   }
 
   /*------------------------------
-   * •½’R‚ÈƒtƒŒ[ƒ€‚ğ•`‚­
+   * å¹³å¦ãªãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æã
    *
-   * @param x ƒtƒŒ[ƒ€‚Ì¶’[
-   * @param y ƒtƒŒ[ƒ€‚Ìã’[
-   * @param w ƒtƒŒ[ƒ€‚Ì•
-   * @param h ƒtƒŒ[ƒ€‚Ì‚‚³
-   * @param boxColor “h‚è’×‚·ƒtƒŒ[ƒ€‚Ì’n‚ÌF
+   * @param x ãƒ•ãƒ¬ãƒ¼ãƒ ã®å·¦ç«¯
+   * @param y ãƒ•ãƒ¬ãƒ¼ãƒ ã®ä¸Šç«¯
+   * @param w ãƒ•ãƒ¬ãƒ¼ãƒ ã®å¹…
+   * @param h ãƒ•ãƒ¬ãƒ¼ãƒ ã®é«˜ã•
+   * @param boxColor å¡—ã‚Šæ½°ã™ãƒ•ãƒ¬ãƒ¼ãƒ ã®åœ°ã®è‰²
    ------------------------------*/
   function drawFlattenFrame(x, y, w, h, boxColor = WIN_BG) {
     fillRect(x, y, 1, h, WIN_DARKEN1);
@@ -1275,23 +1275,23 @@ class KWidget extends Layer
   }
 
   /*------------------------------
-   * •½’R‚ÈƒtƒŒ[ƒ€‚ÅƒŒƒCƒ„‘S‘Ì‚ğ“h‚è’×‚·
+   * å¹³å¦ãªãƒ•ãƒ¬ãƒ¼ãƒ ã§ãƒ¬ã‚¤ãƒ¤å…¨ä½“ã‚’å¡—ã‚Šæ½°ã™
    *
-   * @param boxColor “h‚è’×‚·ƒtƒŒ[ƒ€‚Ì’n‚ÌF
+   * @param boxColor å¡—ã‚Šæ½°ã™ãƒ•ãƒ¬ãƒ¼ãƒ ã®åœ°ã®è‰²
    ------------------------------*/
   function fillFlattenFrame(boxColor = WIN_BG) {
     drawFlattenFrame(0, 0, width, height, boxColor);
   }
 
   /*------------------------------
-   * ƒtƒŒ[ƒ€‚ğ•`‚­
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æã
    *
-   * @param type ƒ^ƒCƒv
-   * @param x ƒtƒŒ[ƒ€‚Ì¶’[
-   * @param y ƒtƒŒ[ƒ€‚Ìã’[
-   * @param w ƒtƒŒ[ƒ€‚Ì•
-   * @param h ƒtƒŒ[ƒ€‚Ì‚‚³
-   * @param boxColor “h‚è’×‚·ƒtƒŒ[ƒ€‚Ì’n‚ÌF
+   * @param type ã‚¿ã‚¤ãƒ—
+   * @param x ãƒ•ãƒ¬ãƒ¼ãƒ ã®å·¦ç«¯
+   * @param y ãƒ•ãƒ¬ãƒ¼ãƒ ã®ä¸Šç«¯
+   * @param w ãƒ•ãƒ¬ãƒ¼ãƒ ã®å¹…
+   * @param h ãƒ•ãƒ¬ãƒ¼ãƒ ã®é«˜ã•
+   * @param boxColor å¡—ã‚Šæ½°ã™ãƒ•ãƒ¬ãƒ¼ãƒ ã®åœ°ã®è‰²
    ------------------------------*/
   function drawFrame(type, x, y, w, h, boxColor = WIN_BG) {
     switch (type) {
@@ -1308,10 +1308,10 @@ class KWidget extends Layer
   }
 
   /*------------------------------
-   * ƒtƒŒ[ƒ€‚ÅƒŒƒCƒ„‘S‘Ì‚ğ“h‚è’×‚·
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã§ãƒ¬ã‚¤ãƒ¤å…¨ä½“ã‚’å¡—ã‚Šæ½°ã™
    *
-   * @param type ƒ^ƒCƒv
-   * @param boxColor “h‚è’×‚·ƒtƒŒ[ƒ€‚Ì’n‚ÌF
+   * @param type ã‚¿ã‚¤ãƒ—
+   * @param boxColor å¡—ã‚Šæ½°ã™ãƒ•ãƒ¬ãƒ¼ãƒ ã®åœ°ã®è‰²
    ------------------------------*/
   function fillFrame(type, boxColor = WIN_BG) {
     switch (type) {
@@ -1328,17 +1328,17 @@ class KWidget extends Layer
   }
 
   /*------------------------------
-   * ƒ`ƒFƒbƒJ[–Í—l‚ğ•`‚­
+   * ãƒã‚§ãƒƒã‚«ãƒ¼æ¨¡æ§˜ã‚’æã
    *
-   * @param l ƒ`ƒFƒbƒJ[‚Ì¶’[
-   * @param t ƒ`ƒFƒbƒJ[‚Ìã’[
-   * @param w ƒ`ƒFƒbƒJ[‚Ì•
-   * @param h ƒ`ƒFƒbƒJ[‚Ì‚‚³
-   * @param csize ƒ`ƒFƒbƒJ[ƒTƒCƒY
-   * @param color1 ƒJƒ‰[1
-   * @param color2 ƒJƒ‰[2
-   * @param sx ƒVƒtƒgX
-   * @param sy ƒVƒtƒgY
+   * @param l ãƒã‚§ãƒƒã‚«ãƒ¼ã®å·¦ç«¯
+   * @param t ãƒã‚§ãƒƒã‚«ãƒ¼ã®ä¸Šç«¯
+   * @param w ãƒã‚§ãƒƒã‚«ãƒ¼ã®å¹…
+   * @param h ãƒã‚§ãƒƒã‚«ãƒ¼ã®é«˜ã•
+   * @param csize ãƒã‚§ãƒƒã‚«ãƒ¼ã‚µã‚¤ã‚º
+   * @param color1 ã‚«ãƒ©ãƒ¼1
+   * @param color2 ã‚«ãƒ©ãƒ¼2
+   * @param sx ã‚·ãƒ•ãƒˆX
+   * @param sy ã‚·ãƒ•ãƒˆY
    ------------------------------*/
   function drawChecker(l, t, w, h, csize, color1 = 0xFFFFFFFF, color2 = 0xFFC0C0C0, sx = 0, sy = 0) {
     var srcLayer = new global.Layer(window, this);
@@ -1354,11 +1354,11 @@ class KWidget extends Layer
   }
 
   /*------------------------------
-   * ƒ`ƒFƒbƒJ[–Í—l‚Å‘S‘Ì‚ğ“h‚è’×‚·
+   * ãƒã‚§ãƒƒã‚«ãƒ¼æ¨¡æ§˜ã§å…¨ä½“ã‚’å¡—ã‚Šæ½°ã™
    *
-   * @param csize ƒ`ƒFƒbƒJ[ƒTƒCƒY
-   * @param color1 ƒJƒ‰[1
-   * @param color2 ƒJƒ‰[2
+   * @param csize ãƒã‚§ãƒƒã‚«ãƒ¼ã‚µã‚¤ã‚º
+   * @param color1 ã‚«ãƒ©ãƒ¼1
+   * @param color2 ã‚«ãƒ©ãƒ¼2
 
    ------------------------------*/
   function fillChecker(csize, color1 = 0xFFFFFFFF, color2 = 0xFFC0C0C0) {
@@ -1366,7 +1366,7 @@ class KWidget extends Layer
   }
    
   /*------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚ğ”z’u‚·‚é
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’é…ç½®ã™ã‚‹
    ------------------------------*/
   function locateChild(x, y, w, h, child) {
     switch (child.alignHorizontal) {
@@ -1399,17 +1399,17 @@ class KWidget extends Layer
   }
 
   /*------------------------------
-   * ŠO•”‚©‚çƒtƒ@ƒCƒ‹‚ªƒhƒƒbƒv‚³‚ê‚½
+   * å¤–éƒ¨ã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«ãŒãƒ‰ãƒ­ãƒƒãƒ—ã•ã‚ŒãŸ
    *
-   * ƒfƒtƒHƒ‹ƒg“®ì‚Å‚ÍAe‚ÌonFileDrop‚ğŒÄ‚ÔB
-   * ‡‚®‚è‚ÉAq‚©‚çe‚ÖƒƒbƒZ[ƒW‚ªƒ`ƒF[ƒ“‚³‚êA
-   * ‚Ç‚±‚©‚ÌƒEƒBƒWƒFƒbƒg‚ªŠÖ”‚ğƒI[ƒo[ƒ‰ƒCƒh‚µ‚Ä
-   * ˆ—‚ğs‚¤‚Ü‚Åƒ`ƒF[ƒ“‚ª‘±‚­
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå‹•ä½œã§ã¯ã€è¦ªã®onFileDropã‚’å‘¼ã¶ã€‚
+   * é †ãã‚Šã«ã€å­ã‹ã‚‰è¦ªã¸ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒãƒã‚§ãƒ¼ãƒ³ã•ã‚Œã€
+   * ã©ã“ã‹ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãŒé–¢æ•°ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¦
+   * å‡¦ç†ã‚’è¡Œã†ã¾ã§ãƒã‚§ãƒ¼ãƒ³ãŒç¶šã
    *
-   * @param x ƒtƒ@ƒCƒ‹‚ªƒhƒƒbƒv‚³‚ê‚½‚Ìƒ}ƒEƒX‚ÌXÀ•W
-   * @param y ƒtƒ@ƒCƒ‹‚ªƒhƒƒbƒv‚³‚ê‚½‚Ìƒ}ƒEƒX‚ÌYÀ•W
-   * @param files ƒhƒƒbƒv‚³‚ê‚½ƒtƒ@ƒCƒ‹–¼‚ªŠi”[‚³‚ê‚½”z—ñ(Array)ƒIƒuƒWƒFƒNƒg‚Å‚·B
-   * @param shift ƒL[‚ª‰Ÿ‚³‚ê‚½‚É“¯‚É‰Ÿ‚³‚ê‚Ä‚¢‚½ƒVƒtƒgŒn‚ÌƒL[‚Ìó‘Ô‚Å‚·B
+   * @param x ãƒ•ã‚¡ã‚¤ãƒ«ãŒãƒ‰ãƒ­ãƒƒãƒ—ã•ã‚ŒãŸæ™‚ã®ãƒã‚¦ã‚¹ã®Xåº§æ¨™
+   * @param y ãƒ•ã‚¡ã‚¤ãƒ«ãŒãƒ‰ãƒ­ãƒƒãƒ—ã•ã‚ŒãŸæ™‚ã®ãƒã‚¦ã‚¹ã®Yåº§æ¨™
+   * @param files ãƒ‰ãƒ­ãƒƒãƒ—ã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«åãŒæ ¼ç´ã•ã‚ŒãŸé…åˆ—(Array)ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã§ã™ã€‚
+   * @param shift ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸæ™‚ã«åŒæ™‚ã«æŠ¼ã•ã‚Œã¦ã„ãŸã‚·ãƒ•ãƒˆç³»ã®ã‚­ãƒ¼ã®çŠ¶æ…‹ã§ã™ã€‚
    ------------------------------*/
   function onFileDrop(x, y, files, shift) {
     if (parent)
@@ -1420,10 +1420,10 @@ class KWidget extends Layer
   }
 
   /*------------------------------
-   * ƒ}ƒEƒXƒzƒC[ƒ‹ƒCƒxƒ“ƒg
+   * ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«ã‚¤ãƒ™ãƒ³ãƒˆ
    * 
-   * ©•ª©g‚ÅƒzƒC[ƒ‹‚ğƒgƒ‰ƒbƒv‚µ‚È‚¢‚ÍA
-   * ƒzƒC[ƒ‹ƒCƒxƒ“ƒg‚Íe‚Ö’Ê’m‚³‚ê‚é
+   * è‡ªåˆ†è‡ªèº«ã§ãƒ›ã‚¤ãƒ¼ãƒ«ã‚’ãƒˆãƒ©ãƒƒãƒ—ã—ãªã„æ™‚ã¯ã€
+   * ãƒ›ã‚¤ãƒ¼ãƒ«ã‚¤ãƒ™ãƒ³ãƒˆã¯è¦ªã¸é€šçŸ¥ã•ã‚Œã‚‹
    ------------------------------*/
   function onMouseWheel(shift, delta, x, y) {
     if (parent)
@@ -1431,48 +1431,48 @@ class KWidget extends Layer
   }
 
   /*------------------------------
-   * ƒ}ƒEƒXŠÖ˜AƒCƒxƒ“ƒgB
+   * ãƒã‚¦ã‚¹é–¢é€£ã‚¤ãƒ™ãƒ³ãƒˆã€‚
    *
-   * ‚c•‚cŠÖ˜A‚Ì§Œä‚ğs‚¤
+   * ï¼¤ï¼†ï¼¤é–¢é€£ã®åˆ¶å¾¡ã‚’è¡Œã†
    ------------------------------*/
   function onMouseDown(x, y, button, shift) {
-    // ¶ƒNƒŠƒbƒN‚Åƒhƒ‰ƒbƒO€”õŠJn
+    // å·¦ã‚¯ãƒªãƒƒã‚¯ã§ãƒ‰ãƒ©ãƒƒã‚°æº–å‚™é–‹å§‹
     if (button == mbLeft
         && (! dragEnabledShiftMask || (shift & dragEnabledShiftMask))) {
-      // ƒhƒ‰ƒbƒO’†‚ÉƒEƒBƒWƒFƒbƒg‚ªƒXƒNƒ[ƒ‹‚·‚é–‚ğl—¶‚µ‚Ä
-      // Šî€À•W‚ÍprimaryLayer‚©‚çæ“¾‚·‚é
+      // ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãŒã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã™ã‚‹äº‹ã‚’è€ƒæ…®ã—ã¦
+      // åŸºæº–åº§æ¨™ã¯primaryLayerã‹ã‚‰å–å¾—ã™ã‚‹
       mouseDownX = window.primaryLayer.cursorX;
       mouseDownY = window.primaryLayer.cursorY;
-      // ƒhƒ‰ƒbƒO€”õŠJn
+      // ãƒ‰ãƒ©ãƒƒã‚°æº–å‚™é–‹å§‹
       isReadyToDrag = true;
     } else if (button == mbRight
                && ! isDragging) {
-      // ‰EƒNƒŠƒbƒN‚È‚ç onRightClick ‚ğŒÄ‚Ô
+      // å³ã‚¯ãƒªãƒƒã‚¯ãªã‚‰ onRightClick ã‚’å‘¼ã¶
       onRightClick(x, y, shift);
     }
   }
 
   function onMouseMove(x, y, shift) {
-    // ƒhƒ‰ƒbƒO’†‚È‚ç onDragMove ‚ğŒÄ‚Ño‚·
+    // ãƒ‰ãƒ©ãƒƒã‚°ä¸­ãªã‚‰ onDragMove ã‚’å‘¼ã³å‡ºã™
     if (isDragging) {
       onDragMove(x, y, shift);
     }
-    // ƒhƒ‰ƒbƒO€”õ‚ªo—ˆ‚Ä‚¨‚èA4ƒhƒbƒgˆÈãƒ}ƒEƒX‚ª“®‚¢‚½‚ç
-    // ƒhƒ‰ƒbƒOŠJn
+    // ãƒ‰ãƒ©ãƒƒã‚°æº–å‚™ãŒå‡ºæ¥ã¦ãŠã‚Šã€4ãƒ‰ãƒƒãƒˆä»¥ä¸Šãƒã‚¦ã‚¹ãŒå‹•ã„ãŸã‚‰
+    // ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
     if (isReadyToDrag) {
       if (Math.abs(window.primaryLayer.cursorX - mouseDownX) > mouseDragThreshold
           || Math.abs(window.primaryLayer.cursorY - mouseDownY) > mouseDragThreshold) {
         isReadyToDrag = false;
         isDragging = true;
-        // ƒEƒBƒWƒFƒbƒgƒ[ƒJƒ‹‚Ìƒhƒ‰ƒbƒOŠJn‚ğ’Ê’m
+        // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ­ãƒ¼ã‚«ãƒ«ã®ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹ã‚’é€šçŸ¥
         onDragEnter(x + mouseDownX - window.primaryLayer.cursorX,
                     y + mouseDownY - window.primaryLayer.cursorY,
                     shift);
       }
     }
-    // ƒpƒPƒbƒg‚Ìƒhƒ‰ƒbƒO’†‚Ìˆ—
+    // ãƒ‘ã‚±ãƒƒãƒˆã®ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã®å‡¦ç†
     if (myDraggingPacket) {
-      // ƒAƒNƒeƒBƒu‚ÈƒEƒBƒ“ƒhƒE‚æ‚èAƒ^[ƒQƒbƒgƒEƒBƒWƒFƒbƒg‚ğ“Á’è
+      // ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚ˆã‚Šã€ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ç‰¹å®š
       var dragTarget = void;
       for (var i = 0;
            i < _existentWindowList.count; 
@@ -1486,8 +1486,8 @@ class KWidget extends Layer
           break;
       }
 
-      // ƒ^[ƒQƒbƒgƒEƒBƒWƒFƒbƒg‚ªŒp‘±‚µ‚Ä‚¢‚½‚ç
-      // onPacketMove‚ğ’Ê’m
+      // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãŒç¶™ç¶šã—ã¦ã„ãŸã‚‰
+      // onPacketMoveã‚’é€šçŸ¥
       if (dragTarget == curDragTarget) {
         if (curDragTargetAcceptPacket)
           curDragTarget.onPacketMove
@@ -1496,9 +1496,9 @@ class KWidget extends Layer
              _dragging_packet_,
              shift);
       } else {
-        // ƒ^[ƒQƒbƒgƒEƒBƒWƒFƒbƒg‚ª•ÏX‚³‚ê‚½‚Ìˆ—
+        // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã®å‡¦ç†
         if (curDragTargetAcceptPacket) {
-          // ’¼‘O‚Ìƒ^[ƒQƒbƒg‚É onPacketLeave ‚ğ’Ê’m
+          // ç›´å‰ã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã« onPacketLeave ã‚’é€šçŸ¥
           curDragTarget.onPacketLeave
             (curDragTarget.cursorX,
              curDragTarget.cursorY,
@@ -1506,8 +1506,8 @@ class KWidget extends Layer
              shift);
         }
         curDragTarget = dragTarget;
-        // V‹Kƒ^[ƒQƒbƒg‚ªƒpƒPƒbƒg‚ğó‚¯“ü‚ê‚é‚È‚ç
-        // onPacketEnter‚ğ’Ê’m
+        // æ–°è¦ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãŒãƒ‘ã‚±ãƒƒãƒˆã‚’å—ã‘å…¥ã‚Œã‚‹ãªã‚‰
+        // onPacketEnterã‚’é€šçŸ¥
         if (curDragTarget !== void
             && curDragTarget.isPacketAcceptable(_dragging_packet_)) {
           curDragTargetAcceptPacket = true;
@@ -1525,15 +1525,15 @@ class KWidget extends Layer
 
   function onMouseUp(x, y, button, shift) {
     if (button == mbLeft) {
-      // ƒhƒ‰ƒbƒO’†‚Å‚ ‚ê‚ÎAƒhƒ‰ƒbƒO‚ÌI—¹‚ğ’Ê’m
+      // ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã§ã‚ã‚Œã°ã€ãƒ‰ãƒ©ãƒƒã‚°ã®çµ‚äº†ã‚’é€šçŸ¥
       if (isDragging) {
         onDragLeave(x, y, shift);
       }
       
       isReadyToDrag = isDragging = false;
     
-      // ƒpƒPƒbƒg‚Ìƒhƒ‰ƒbƒO’†‚Å‚ ‚ê‚Î
-      // ƒ^[ƒQƒbƒg‚ÉƒpƒPƒbƒg‚Ìƒhƒƒbƒv‚ğ’Ê’m
+      // ãƒ‘ã‚±ãƒƒãƒˆã®ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã§ã‚ã‚Œã°
+      // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã«ãƒ‘ã‚±ãƒƒãƒˆã®ãƒ‰ãƒ­ãƒƒãƒ—ã‚’é€šçŸ¥
       if (myDraggingPacket) {
         if (curDragTargetAcceptPacket
             && curDragTarget.isPacketConfirmed(curDragTarget.cursorX,
@@ -1561,7 +1561,7 @@ class KWidget extends Layer
   }
 
   function onMouseEnter {
-    // ƒXƒe[ƒ^ƒXƒo[‚ÉƒXƒe[ƒ^ƒX‚ğİ’è
+    // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼ã«ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’è¨­å®š
     var s = status;
     _inStatus = true;
     if (window.statusBar !== void) {
@@ -1570,7 +1570,7 @@ class KWidget extends Layer
   }
 
   function onMouseLeave {
-    // ƒXƒe[ƒ^ƒXƒo[‚ÌƒXƒe[ƒ^ƒX‚ğƒNƒŠƒA
+    // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’ã‚¯ãƒªã‚¢
     if (_inStatus) {
       _inStatus = false;
       if (window.statusBar !== void)
@@ -1579,51 +1579,51 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ƒ}ƒEƒX‚ª‰EƒNƒŠƒbƒN‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
+   * ãƒã‚¦ã‚¹ãŒå³ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
    *
-   * @param x XÀ•W
-   * @param y YÀ•W
-   * @param shift ƒVƒtƒgƒL[
+   * @param x Xåº§æ¨™
+   * @param y Yåº§æ¨™
+   * @param shift ã‚·ãƒ•ãƒˆã‚­ãƒ¼
    ------------------------------*/
   function onRightClick(x, y, shift) {
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒg“à‚Å‚Ìƒhƒ‰ƒbƒO‚ÌŠJn‚Ì’Ê’m
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆå†…ã§ã®ãƒ‰ãƒ©ãƒƒã‚°ã®é–‹å§‹ã®é€šçŸ¥
    *
-   * @param x XÀ•W
-   * @param y YÀ•W
-   * @param shift ƒVƒtƒgƒL[
+   * @param x Xåº§æ¨™
+   * @param y Yåº§æ¨™
+   * @param shift ã‚·ãƒ•ãƒˆã‚­ãƒ¼
    ------------------------------*/
   function onDragEnter(x, y, shift) {
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒg“à‚Å‚Ìƒhƒ‰ƒbƒO’†‚Ìƒ}ƒEƒXˆÚ“®‚Ì’Ê’m
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆå†…ã§ã®ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã®ãƒã‚¦ã‚¹ç§»å‹•ã®é€šçŸ¥
    *
-   * @param x XÀ•W
-   * @param y YÀ•W
-   * @param shift ƒVƒtƒgƒL[
+   * @param x Xåº§æ¨™
+   * @param y Yåº§æ¨™
+   * @param shift ã‚·ãƒ•ãƒˆã‚­ãƒ¼
    ------------------------------*/
   function onDragMove(x, y, shift) {
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒg“à‚Å‚Ìƒhƒ‰ƒbƒO‚ÌI—¹‚Ì’Ê’m
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆå†…ã§ã®ãƒ‰ãƒ©ãƒƒã‚°ã®çµ‚äº†ã®é€šçŸ¥
    *
-   * @param x XÀ•W
-   * @param y YÀ•W
-   * @param shift ƒVƒtƒgƒL[
+   * @param x Xåº§æ¨™
+   * @param y Yåº§æ¨™
+   * @param shift ã‚·ãƒ•ãƒˆã‚­ãƒ¼
    ------------------------------*/
   function onDragLeave(x, y, shift) {
   }
 
   /**------------------------------
-   * ƒpƒPƒbƒg‚Ìƒhƒ‰ƒbƒOŠJn
+   * ãƒ‘ã‚±ãƒƒãƒˆã®ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
    *
-   * ‘¼‚ÌƒEƒBƒWƒFƒbƒg‚Ö‚ÌƒpƒPƒbƒg‚Ìƒhƒ‰ƒbƒO‚ğŠJn‚·‚é
+   * ä»–ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã¸ã®ãƒ‘ã‚±ãƒƒãƒˆã®ãƒ‰ãƒ©ãƒƒã‚°ã‚’é–‹å§‹ã™ã‚‹
    *
-   * @param packet ƒpƒPƒbƒg
+   * @param packet ãƒ‘ã‚±ãƒƒãƒˆ
    ------------------------------*/
   function beginDragPacket(packet) {
     _dragging_packet_ = packet;
@@ -1634,88 +1634,88 @@ class KWidget extends Layer
   }
 
   /**------------------------------
-   * ©•ª©g‚ª“Á’è‚ÌƒpƒPƒbƒg‚ğó‚¯“ü‚ê‚ç‚ê‚é‚©‚Ç‚¤‚©”»’è‚·‚é
+   * è‡ªåˆ†è‡ªèº«ãŒç‰¹å®šã®ãƒ‘ã‚±ãƒƒãƒˆã‚’å—ã‘å…¥ã‚Œã‚‰ã‚Œã‚‹ã‹ã©ã†ã‹åˆ¤å®šã™ã‚‹
    *
-   * @param packet ƒhƒ‰ƒbƒO’†‚ÌƒpƒPƒbƒg
-   * @return ƒpƒPƒbƒg‚ğó‚¯“ü‚ê‰Â”\‚©‚Ç‚¤‚©
+   * @param packet ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã®ãƒ‘ã‚±ãƒƒãƒˆ
+   * @return ãƒ‘ã‚±ãƒƒãƒˆã‚’å—ã‘å…¥ã‚Œå¯èƒ½ã‹ã©ã†ã‹
    ------------------------------*/
   function isPacketAcceptable(packet) {
     return false;
   }
 
   /**------------------------------
-   * ÅI“I‚ÉƒpƒPƒbƒg‚ğó‚¯“ü‚ê‚é‚©‚Ç‚¤‚©”»’è‚·‚é
+   * æœ€çµ‚çš„ã«ãƒ‘ã‚±ãƒƒãƒˆã‚’å—ã‘å…¥ã‚Œã‚‹ã‹ã©ã†ã‹åˆ¤å®šã™ã‚‹
    *
-   * @param packet ƒhƒ‰ƒbƒO’†‚ÌƒpƒPƒbƒg
-   * @return ƒpƒPƒbƒg‚ğó‚¯“ü‚ê‚é‚©‚Ç‚¤‚©
+   * @param packet ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã®ãƒ‘ã‚±ãƒƒãƒˆ
+   * @return ãƒ‘ã‚±ãƒƒãƒˆã‚’å—ã‘å…¥ã‚Œã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function isPacketConfirmed(x, y, packet, shift) {
     return true;
   }
 
   /**------------------------------
-   * ƒpƒPƒbƒg‚ÌN“ü‚ğ’Ê’m
+   * ãƒ‘ã‚±ãƒƒãƒˆã®ä¾µå…¥ã‚’é€šçŸ¥
    *
-   * @param x XÀ•W
-   * @param y YÀ•W
-   * @param packet ƒpƒPƒbƒg
-   * @param shift ƒVƒtƒg
+   * @param x Xåº§æ¨™
+   * @param y Yåº§æ¨™
+   * @param packet ãƒ‘ã‚±ãƒƒãƒˆ
+   * @param shift ã‚·ãƒ•ãƒˆ
    ------------------------------*/
   function onPacketEnter(x, y, packet, shift) {
   }
 
   /**------------------------------
-   * ƒpƒPƒbƒg‚ÌˆÚ“®‚ğ’Ê’m
+   * ãƒ‘ã‚±ãƒƒãƒˆã®ç§»å‹•ã‚’é€šçŸ¥
    *
-   * @param x XÀ•W
-   * @param y YÀ•W
-   * @param packet ƒpƒPƒbƒg
-   * @param shift ƒVƒtƒg
+   * @param x Xåº§æ¨™
+   * @param y Yåº§æ¨™
+   * @param packet ãƒ‘ã‚±ãƒƒãƒˆ
+   * @param shift ã‚·ãƒ•ãƒˆ
    ------------------------------*/
   function onPacketMove(x, y, packet, shift) {
   }
 
   /**------------------------------
-   * ƒpƒPƒbƒg‚Ì—£’E‚ğ’Ê’m
+   * ãƒ‘ã‚±ãƒƒãƒˆã®é›¢è„±ã‚’é€šçŸ¥
    *
-   * @param x XÀ•W
-   * @param y YÀ•W
-   * @param packet ƒpƒPƒbƒg
-   * @param shift ƒVƒtƒg
+   * @param x Xåº§æ¨™
+   * @param y Yåº§æ¨™
+   * @param packet ãƒ‘ã‚±ãƒƒãƒˆ
+   * @param shift ã‚·ãƒ•ãƒˆ
    ------------------------------*/
   function onPacketLeave(x, y, packet, shift) {
   }
 
   /**------------------------------
-   * ƒpƒPƒbƒg‚Ìƒhƒƒbƒv‚ğ’Ê’m
+   * ãƒ‘ã‚±ãƒƒãƒˆã®ãƒ‰ãƒ­ãƒƒãƒ—ã‚’é€šçŸ¥
    *
-   * @param x XÀ•W
-   * @param y YÀ•W
-   * @param packet ƒpƒPƒbƒg
-   * @param shift ƒVƒtƒg
+   * @param x Xåº§æ¨™
+   * @param y Yåº§æ¨™
+   * @param packet ãƒ‘ã‚±ãƒƒãƒˆ
+   * @param shift ã‚·ãƒ•ãƒˆ
    ------------------------------*/
   function onPacketDrop(x, y, packet, shift) {
   }
 
   /*------------------------------
-   * ƒpƒPƒbƒg‚ªƒhƒƒbƒv‚³‚ê‚È‚©‚Á‚½–‚ğ’Ê’m
+   * ãƒ‘ã‚±ãƒƒãƒˆãŒãƒ‰ãƒ­ãƒƒãƒ—ã•ã‚Œãªã‹ã£ãŸäº‹ã‚’é€šçŸ¥
    *
-   * @packet ƒpƒPƒbƒg
+   * @packet ãƒ‘ã‚±ãƒƒãƒˆ
    ------------------------------*/
   function onPacketCancel(packet) {
   }
 
   /**------------------------------
-   * ‹–ì‚É’–Ú‚·‚é
+   * è¦–é‡ã«æ³¨ç›®ã™ã‚‹
    *
-   * ƒEƒBƒWƒFƒbƒg‚Ì‘S‘Ì‘œ‚ğ•\¦‚µ‚È‚¢ƒŒƒCƒAƒEƒg‚É‚¨‚¢‚ÄA
-   * qƒEƒBƒWƒFƒbƒg‚Ì”CˆÓ‚Ì”ÍˆÍ‚ğ•\¦‚³‚¹‚é‚½‚ß‚ÉŒÄ‚Ño‚·B
-   * ‚½‚¾‚¿‚É parent ‚Ì onChildNoticeRect ‚ªŒÄ‚Ño‚³‚ê‚éB
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®å…¨ä½“åƒã‚’è¡¨ç¤ºã—ãªã„ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã«ãŠã„ã¦ã€
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ä»»æ„ã®ç¯„å›²ã‚’è¡¨ç¤ºã•ã›ã‚‹ãŸã‚ã«å‘¼ã³å‡ºã™ã€‚
+   * ãŸã ã¡ã« parent ã® onChildNoticeRect ãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚
    *
-   * @param l ‹éŒ`¶ãXÀ•W
-   * @param t ‹éŒ`¶ãYÀ•W
-   * @param w ‹éŒ`•
-   * @param h ‹éŒ`‚‚³
+   * @param l çŸ©å½¢å·¦ä¸ŠXåº§æ¨™
+   * @param t çŸ©å½¢å·¦ä¸ŠYåº§æ¨™
+   * @param w çŸ©å½¢å¹…
+   * @param h çŸ©å½¢é«˜ã•
 n   ------------------------------*/
   function noticeRect(l, t, w, h) {
     if (isInWidgetTree)
@@ -1723,13 +1723,13 @@ n   ------------------------------*/
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚Ì‹–ì‚É’–Ú‚·‚é‚æ‚¤’Ê’m
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®è¦–é‡ã«æ³¨ç›®ã™ã‚‹ã‚ˆã†é€šçŸ¥
    *
-   * @child qƒEƒBƒWƒFƒbƒg
-   * @param l ‹éŒ`¶ãXÀ•W
-   * @param t ‹éŒ`¶ãYÀ•W
-   * @param w ‹éŒ`•
-   * @param h ‹éŒ`‚‚³
+   * @child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param l çŸ©å½¢å·¦ä¸ŠXåº§æ¨™
+   * @param t çŸ©å½¢å·¦ä¸ŠYåº§æ¨™
+   * @param w çŸ©å½¢å¹…
+   * @param h çŸ©å½¢é«˜ã•
    ------------------------------*/
   function onChildNoticeRect(child, l, t, w, h) {
     if (isInWidgetTree
@@ -1738,9 +1738,9 @@ n   ------------------------------*/
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚Ì‹‹éŒ`
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®è¦–çŸ©å½¢
    *
-   * @return ‹‹éŒ`
+   * @return è¦–çŸ©å½¢
    ------------------------------*/
   property viewingRect {
     getter {
@@ -1771,9 +1771,9 @@ n   ------------------------------*/
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚Ì‹‹éŒ`(ƒEƒBƒ“ƒhƒEÀ•WŒn)
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®è¦–çŸ©å½¢(ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦åº§æ¨™ç³»)
    *
-   * @return ‹‹éŒ`
+   * @return è¦–çŸ©å½¢
    ------------------------------*/
   property globalViewingRect {
     getter {
@@ -1796,18 +1796,18 @@ n   ------------------------------*/
   }
 
   /**------------------------------
-   * ‹‹éŒ`‚ªXV‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒR[ƒ‹ƒoƒbƒN
+   * è¦–çŸ©å½¢ãŒæ›´æ–°ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
    *
-   * @param vleft ‹éŒ`¶’[
-   * @param vtop ‹éŒ`‰E’[
-   * @param vwidth ‹éŒ`•
-   * @param vheight ‹éŒ`‚‚³
+   * @param vleft çŸ©å½¢å·¦ç«¯
+   * @param vtop çŸ©å½¢å³ç«¯
+   * @param vwidth çŸ©å½¢å¹…
+   * @param vheight çŸ©å½¢é«˜ã•
    *
-   * ‹‹éŒ`‚ªXV‚³‚ê‚½ƒ^ƒCƒ~ƒ“ƒO‚ÅŒÄ‚Î‚ê‚éƒR[ƒ‹ƒoƒbƒNŠÖ”B
-   * í‚ÉŒÄ‚Ño‚³‚ê‚é‚í‚¯‚Å‚Í‚È‚­A“Á’è‚ÌWidget‚Ìq‚Æ‚µ‚Ä“o˜^
-   * ‚µ‚Ä‚¢‚é‚É‚Ì‚İŒÄ‚Ño‚³‚ê‚éB
+   * è¦–çŸ©å½¢ãŒæ›´æ–°ã•ã‚ŒãŸã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§å‘¼ã°ã‚Œã‚‹ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯é–¢æ•°ã€‚
+   * å¸¸ã«å‘¼ã³å‡ºã•ã‚Œã‚‹ã‚ã‘ã§ã¯ãªãã€ç‰¹å®šã®Widgetã®å­ã¨ã—ã¦ç™»éŒ²
+   * ã—ã¦ã„ã‚‹æ™‚ã«ã®ã¿å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚
    *
-   * ‚±‚ÌƒR[ƒ‹ƒoƒbƒN‚ğ”­¶‚³‚¹‚éWidget‚Ìˆê——‚ÍˆÈ‰º‚Ì’Ê‚è
+   * ã“ã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯ã‚’ç™ºç”Ÿã•ã›ã‚‹Widgetã®ä¸€è¦§ã¯ä»¥ä¸‹ã®é€šã‚Š
    * - KScrollLayout
    * - KRelativeLayout
    ------------------------------*/
@@ -1835,29 +1835,29 @@ n   ------------------------------*/
 
 
 /**----------------------------------------------------------------------
- * ’l‚¿ƒEƒBƒWƒFƒbƒg
+ * å€¤æŒã¡ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
  ----------------------------------------------------------------------*/
 class KValueWidget extends KWidget
 {
-  // «‘
+  // è¾æ›¸
   var dict;
 
   /*------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * ƒvƒƒpƒeƒBuvaluev‚ğ‚ÂƒEƒBƒWƒFƒbƒg‚Ì‘Ì‚Å‚·B
-   * bindPersistentDictionary() ‚ğŒÄ‚ñ‚ÅƒvƒƒpƒeƒB‚Æ
-   * ƒoƒCƒ“ƒh‚·‚é‚±‚Æ‚ÅAvalue‚Ì’l‚ğ‰i‘±‰»‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B
+   * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€Œvalueã€ã‚’æŒã¤ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ç·ç§°ã§ã™ã€‚
+   * bindPersistentDictionary() ã‚’å‘¼ã‚“ã§ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã¨
+   * ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹ã“ã¨ã§ã€valueã®å€¤ã‚’æ°¸ç¶šåŒ–ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param name –¼‘OBƒ†ƒj[ƒN‚È–¼‘O‚ğw’è‚µ‚È‚¢‚Æ‰i‘±‰»‚Ís‚È‚í‚ê‚Ü‚¹‚ñB
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param name åå‰ã€‚ãƒ¦ãƒ‹ãƒ¼ã‚¯ãªåå‰ã‚’æŒ‡å®šã—ãªã„ã¨æ°¸ç¶šåŒ–ã¯è¡Œãªã‚ã‚Œã¾ã›ã‚“ã€‚
    ------------------------------*/
   function KValueWidget(win, name) {
     super.KWidget(win, name);
   }
 
   /*------------------------------
-   * ƒtƒ@ƒCƒiƒ‰ƒCƒU
+   * ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
    ------------------------------*/
   function finalize {
     if (dict) {
@@ -1867,9 +1867,9 @@ class KValueWidget extends KWidget
   }
 
   /**------------------------------
-   * ƒCƒxƒ“ƒg‚ğ”­¶‚³‚¹‹­§“I‚ÉŒ»İ‚Ì’l‚ğ’Ê’m‚·‚éB
+   * ã‚¤ãƒ™ãƒ³ãƒˆã‚’ç™ºç”Ÿã•ã›å¼·åˆ¶çš„ã«ç¾åœ¨ã®å€¤ã‚’é€šçŸ¥ã™ã‚‹ã€‚
    *
-   * Œ»İ‚Ì’l‚Å onValueModified‚ğŒÄ‚Ñ‚Ü‚·B
+   * ç¾åœ¨ã®å€¤ã§ onValueModifiedã‚’å‘¼ã³ã¾ã™ã€‚
    ------------------------------*/
   function invalidateValue {
     if (nodeEnabled)
@@ -1877,7 +1877,7 @@ class KValueWidget extends KWidget
   }
 
   /*------------------------------
-   * ‰i‘±‰»«‘‚ğ’l‚ÉƒoƒCƒ“ƒh‚·‚é
+   * æ°¸ç¶šåŒ–è¾æ›¸ã‚’å€¤ã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    ------------------------------*/
   function bindPersistentDictionary(dict) {
     if (_isAvoidDictionaryRegistration)

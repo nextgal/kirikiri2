@@ -1,6 +1,6 @@
 // Boost Lambda Library  lambda_functor_base.hpp -----------------------------
 //
-// Copyright (C) 1999, 2000 Jaakko J�rvi (jaakko.jarvi@cs.utu.fi)
+// Copyright (C) 1999, 2000 Jaakko J舐vi (jaakko.jarvi@cs.utu.fi)
 //
 // Permission to copy, use, sell and distribute this software is granted
 // provided this copyright notice appears in all copies. 
@@ -361,30 +361,30 @@ public:
 #endif  
   
   
-#define BOOST_LAMBDA_LAMBDA_FUNCTOR_BASE_FIRST_PART(ARITY)             \
-template<class Act, class Args>                                        \
-class lambda_functor_base<action<ARITY, Act>, Args>                    \
-{                                                                      \
-public:                                                                \
-  Args args;                                                           \
-                                                                       \
-  explicit lambda_functor_base(const Args& a) : args(a) {}             \
-                                                                       \
-  template<class SigArgs> struct sig {                                 \
-    typedef typename                                                   \
-    detail::deduce_non_ref_argument_types<Args, SigArgs>::type rets_t; \
-  public:                                                              \
-    typedef typename                                                   \
-      return_type_N_prot<Act, rets_t>::type type;                      \
-  };                                                                   \
-                                                                       \
-                                                                       \
-  template<class RET, CALL_TEMPLATE_ARGS>                              \
-  RET call(CALL_FORMAL_ARGS) const {                                   \
-    using boost::tuples::get;                                          \
-    using detail::constify_rvals;                                      \
-    using detail::r_select;                                            \
-    using detail::element_or_null;                                     \
+#define BOOST_LAMBDA_LAMBDA_FUNCTOR_BASE_FIRST_PART(ARITY)             ¥
+template<class Act, class Args>                                        ¥
+class lambda_functor_base<action<ARITY, Act>, Args>                    ¥
+{                                                                      ¥
+public:                                                                ¥
+  Args args;                                                           ¥
+                                                                       ¥
+  explicit lambda_functor_base(const Args& a) : args(a) {}             ¥
+                                                                       ¥
+  template<class SigArgs> struct sig {                                 ¥
+    typedef typename                                                   ¥
+    detail::deduce_non_ref_argument_types<Args, SigArgs>::type rets_t; ¥
+  public:                                                              ¥
+    typedef typename                                                   ¥
+      return_type_N_prot<Act, rets_t>::type type;                      ¥
+  };                                                                   ¥
+                                                                       ¥
+                                                                       ¥
+  template<class RET, CALL_TEMPLATE_ARGS>                              ¥
+  RET call(CALL_FORMAL_ARGS) const {                                   ¥
+    using boost::tuples::get;                                          ¥
+    using detail::constify_rvals;                                      ¥
+    using detail::r_select;                                            ¥
+    using detail::element_or_null;                                     ¥
     using detail::deduce_argument_types;                                
 
 BOOST_LAMBDA_LAMBDA_FUNCTOR_BASE_FIRST_PART(1)

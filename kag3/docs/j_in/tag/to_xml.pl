@@ -1,29 +1,29 @@
-# tags.database.tml �� XML �ɕϊ�����
-# perl �X�N���v�g
+# tags.database.tml を XML に変換する
+# perl スクリプト
 
-# ���߂����������Ȃ̂Œ���
+# 解釈がいい加減なので注意
 use Jcode;
 
-# �܂��̓t�@�C�����݂�����܂�
+# まずはファイル一個よみこんぢまえ
 
 open FH,"tags.database.tml";
 @all=<FH>;
 $all=join('',@all);
 
 
-# �s���ƍs���̋󔒕������폜���A�s��A��
+# 行頭と行末の空白文字を削除し、行を連結
 sub cliptext
 {
 	$kdata=$_[0];
-	$kdata=~ s/^\s*(.+)\s*$/$1/gm;
-	$kdata=~ s/\n//g;
-	$kdata=~ s/\s*$//g;
+	$kdata=‾ s/^¥s*(.+)¥s*$/$1/gm;
+	$kdata=‾ s/¥n//g;
+	$kdata=‾ s/¥s*$//g;
 	return $kdata;
 }
 
-# �^�O����
-# tml �ł͓������O�̃^�O������q�ɂȂ邱�Ƃ͂Ȃ��̂�
-# ����������͂͂��Ȃ�
+# タグ分解
+# tml では同じ名前のタグが入れ子になることはないので
+# そういう解析はしない
 
 sub taganalysis
 {
@@ -31,11 +31,11 @@ sub taganalysis
 	$tag=$_[1];
 	local(@contents);
 	@contents=();
-	while($data =~ m/(\<$tag[^\>]+\>)/i)
+	while($data =‾ m/(¥<$tag[^¥>]+¥>)/i)
 	{
 		$taginfo=$1;
 		$data2=$';
-		$data2=~ /\<\/$tag\>/;
+		$data2=‾ /¥<¥/$tag¥>/;
 		$content=$`;
 		push(@contents,$taginfo.$content);
 		$data=$';
@@ -48,102 +48,102 @@ sub taganalysis
 
 foreach $tagcontent (@tags)
 {
-	# tag ���܂����
-	$tagcontent=~ /\<tag name\=[\'\"]([^\'\"]+)[\'\"]\>/i;
+	# tag をまた解析
+	$tagcontent=‾ /¥<tag name¥=[¥'¥"]([^¥'¥"]+)[¥'¥"]¥>/i;
 
 	$tagname=$1;
 	$tagcontent=$';
 
-	# shortinfo �̎擾
+	# shortinfo の取得
 	$temp=$tagcontent;
-	$temp=~ /\<shortinfo\>/i;
+	$temp=‾ /¥<shortinfo¥>/i;
 	$temp=$';
-	$temp=~ /\<\/shortinfo\>/i;
+	$temp=‾ /¥<¥/shortinfo¥>/i;
 	$shortinfo=$`;
 
-	# shortinfo �̊i�[
+	# shortinfo の格納
 	$tagdata{$tagname}{"shortinfo"}=&cliptext($shortinfo);
 
 
-	# remarks �̎擾
+	# remarks の取得
 	$temp=$tagcontent;
-	$temp=~ /\<remarks\>/i;
+	$temp=‾ /¥<remarks¥>/i;
 	$temp=$';
-	$temp=~ /\<\/remarks\>/i;
+	$temp=‾ /¥<¥/remarks¥>/i;
 	$remarks=$`;
 
 
-	# remarks �̊i�[
+	# remarks の格納
 	$tagdata{$tagname}{"remarks"}=&cliptext($remarks);
 
-	# example �̎擾
+	# example の取得
 	$temp=$tagcontent;
-	if($temp=~ /\<example\>/i)
+	if($temp=‾ /¥<example¥>/i)
 	{
 		$temp=$';
-		$temp=~ /\<\/example\>/i;
+		$temp=‾ /¥<¥/example¥>/i;
 		$example=$`;
 
-		# example �̊i�[
+		# example の格納
 		$tagdata{$tagname}{"example"}=&cliptext($example);
 	}
 
 
-	# attribs �̎擾
+	# attribs の取得
 	$temp=$tagcontent;
-	if($temp=~ /\<attribs\>/i)
+	if($temp=‾ /¥<attribs¥>/i)
 	{
 		$temp=$';
-		$temp=~ /\<\/attribs\>/i;
+		$temp=‾ /¥<¥/attribs¥>/i;
 		$attribscontent=$`;
 
-		# attrib �̕���
+		# attrib の分解
 		$no=0;
 		@attribs=&taganalysis($attribscontent,"attrib");
 		foreach $attribscontent (@attribs)
 		{
-			# attrib ���O�̎擾
-			$attribscontent=~ /\<attrib name\=[\'\"]([^\'\"]+)[\'\"]/i;
-			@attribnames=split(/\,/,$1);
+			# attrib 名前の取得
+			$attribscontent=‾ /¥<attrib name¥=[¥'¥"]([^¥'¥"]+)[¥'¥"]/i;
+			@attribnames=split(/¥,/,$1);
 
 
-			# shortinfo �̎擾
+			# shortinfo の取得
 			$attribshortinfo="";
 			$temp=$attribscontent;
-			$temp=~ /\<shortinfo\>/i;
+			$temp=‾ /¥<shortinfo¥>/i;
 			$temp=$';
-			$temp=~ /\<\/shortinfo\>/i;
+			$temp=‾ /¥<¥/shortinfo¥>/i;
 			$attribshortinfo=$`;
 
-			# required �̎擾
+			# required の取得
 			$attribrequired="";
 			$temp=$attribscontent;
-			$temp=~ /\<required\>/i;
+			$temp=‾ /¥<required¥>/i;
 			$temp=$';
-			$temp=~ /\<\/required\>/i;
+			$temp=‾ /¥<¥/required¥>/i;
 			$attribrequired=$`;
 
-			# format �̎擾
+			# format の取得
 			$attribformat="";
 			$temp=$attribscontent;
-			$temp=~ /\<format\>/i;
+			$temp=‾ /¥<format¥>/i;
 			$temp=$';
-			$temp=~ /\<\/format\>/i;
+			$temp=‾ /¥<¥/format¥>/i;
 			$attribformat=$`;
 
-			# info �̎擾
+			# info の取得
 			$attribinfo="";
 			$temp=$attribscontent;
-			$temp=~ /\<info\>/i;
+			$temp=‾ /¥<info¥>/i;
 			$temp=$';
-			$temp=~ /\<\/info\>/i;
+			$temp=‾ /¥<¥/info¥>/i;
 			$attribinfo=$`;
 
-	#		print "shortinfo:",$attribshortinfo,"\n";
-	#		print "required:",$attribrequired,"\n";
-	#		print "info:",$attribinfo,"\n";
+	#		print "shortinfo:",$attribshortinfo,"¥n";
+	#		print "required:",$attribrequired,"¥n";
+	#		print "info:",$attribinfo,"¥n";
 
-			# �f�[�^�̊i�[
+			# データの格納
 			foreach $attribname(@attribnames)
 			{
 
@@ -171,27 +171,27 @@ foreach $tagcontent (@tags)
 
 
 
-# �f�[�^�̓f���o��
+# データの吐き出し
 
 
 sub xml
 {
 	my($text);
 	$text = $_[0];
-	$text =~ s/<ref.*?>/<ref>/g;
-	$text =~ s/<br>/<br \/>/gi;
-;#	$text =~ s/&/&amp;/g;
-;#	$text =~ s/</&lt;/g;
-;#	$text =~ s/>/&gt;/g;
-;#	$text =~ s/ /&nbsp;/g;
-;#	$text =~ s/\t/&nbsp;&nbsp;&nbsp;&nbsp;/g;
-	$text =~ s/\'/&apos;/g;
-	$text =~ s/\"/&quot;/g;
-	$text =~ s/&lt;BR&gt;/<br \/>/g;
-	$text =~ s/&lt;ref&gt;/<ref>/g;
-	$text =~ s/&lt;\/ref&gt;/<\/ref>/g;
-	$text =~ s/&lt;TT&gt;/<scenario>/g;
-	$text =~ s/&lt;\/TT&gt;/<\/scenario>/g;
+	$text =‾ s/<ref.*?>/<ref>/g;
+	$text =‾ s/<br>/<br ¥/>/gi;
+;#	$text =‾ s/&/&amp;/g;
+;#	$text =‾ s/</&lt;/g;
+;#	$text =‾ s/>/&gt;/g;
+;#	$text =‾ s/ /&nbsp;/g;
+;#	$text =‾ s/¥t/&nbsp;&nbsp;&nbsp;&nbsp;/g;
+	$text =‾ s/¥'/&apos;/g;
+	$text =‾ s/¥"/&quot;/g;
+	$text =‾ s/&lt;BR&gt;/<br ¥/>/g;
+	$text =‾ s/&lt;ref&gt;/<ref>/g;
+	$text =‾ s/&lt;¥/ref&gt;/<¥/ref>/g;
+	$text =‾ s/&lt;TT&gt;/<scenario>/g;
+	$text =‾ s/&lt;¥/TT&gt;/<¥/scenario>/g;
 	return $text;
 }
 
@@ -202,16 +202,16 @@ sub xml
 
 for($i=0;$i<=$#h_tagdata;$i+=2)
 {
-	$od = "\t<tag id=\"tag_" .$h_tagdata[$i] . "\">\n";
-	$od.="\t\t<tagname>".$h_tagdata[$i]."</tagname>\n";
+	$od = "¥t<tag id=¥"tag_" .$h_tagdata[$i] . "¥">¥n";
+	$od.="¥t¥t<tagname>".$h_tagdata[$i]."</tagname>¥n";
 
-	$od.="\t\t<tagshortinfo>" . &xml($h_tagdata[$i+1]{"shortinfo"}) . "</tagshortinfo>\n";
+	$od.="¥t¥t<tagshortinfo>" . &xml($h_tagdata[$i+1]{"shortinfo"}) . "</tagshortinfo>¥n";
 
-	$od.="\t\t<tagremarks>" . &xml($h_tagdata[$i+1]{"remarks"}) . "</tagremarks>\n";
+	$od.="¥t¥t<tagremarks>" . &xml($h_tagdata[$i+1]{"remarks"}) . "</tagremarks>¥n";
 
 	if($h_tagdata[$i+1]{"example"} ne "")
 	{
-		$od.="\t\t<tagexample>" . &xml($h_tagdata[$i+1]{"example"}) . "</tagexample>\n";
+		$od.="¥t¥t<tagexample>" . &xml($h_tagdata[$i+1]{"example"}) . "</tagexample>¥n";
 	}
 
 	if($h_tagdata[$i+1]{"attribs_data_0"} ne "")
@@ -227,13 +227,13 @@ for($i=0;$i<=$#h_tagdata;$i+=2)
 		
 			%data=split(/__SPLIT__/,$h_tagdata[$i+1]{"attribs_data_".$no});
 			
-			$od.="\t\t<attr id=\"attr_".  $h_tagdata[$i] . "_" . $data{"nam__e"} ."\">\n";
-			$od.="\t\t\t<attrname>" . &xml($data{"nam__e"})."</attrname>\n";
-			$od.="\t\t\t<attrshortinfo>".&xml($data{"shortinfo"})."</attrshortinfo>\n";
-			$od.="\t\t\t<attrrequired>".&xml($data{"required"})."</attrrequired>\n";
-			$od.="\t\t\t<attrformat>".&xml($data{"format"})."</attrformat>\n";
-			$od.="\t\t\t<attrinfo>" . &xml($data{"info"})."</attrinfo>\n";
-			$od.="\t\t</attr>\n";
+			$od.="¥t¥t<attr id=¥"attr_".  $h_tagdata[$i] . "_" . $data{"nam__e"} ."¥">¥n";
+			$od.="¥t¥t¥t<attrname>" . &xml($data{"nam__e"})."</attrname>¥n";
+			$od.="¥t¥t¥t<attrshortinfo>".&xml($data{"shortinfo"})."</attrshortinfo>¥n";
+			$od.="¥t¥t¥t<attrrequired>".&xml($data{"required"})."</attrrequired>¥n";
+			$od.="¥t¥t¥t<attrformat>".&xml($data{"format"})."</attrformat>¥n";
+			$od.="¥t¥t¥t<attrinfo>" . &xml($data{"info"})."</attrinfo>¥n";
+			$od.="¥t¥t</attr>¥n";
 			
 			$no++;
 			
@@ -241,21 +241,21 @@ for($i=0;$i<=$#h_tagdata;$i+=2)
 		}
 	}
 
-	$od.="\t</tag>\n";
+	$od.="¥t</tag>¥n";
 
 	push(@outdata,$od);
 }
 
 
-$od = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n";
-$od .="<tdb>\n";
+$od = "<?xml version=¥"1.0¥" encoding=¥"utf-8¥" ?>¥n";
+$od .="<tdb>¥n";
 foreach $data (sort @outdata)
 {
 	$od .= $data;
 }
-$od .= "</tdb>\n";
+$od .= "</tdb>¥n";
 
 
-Jcode::convert( \$od, "utf8");
+Jcode::convert( ¥$od, "utf8");
 
 print $od;

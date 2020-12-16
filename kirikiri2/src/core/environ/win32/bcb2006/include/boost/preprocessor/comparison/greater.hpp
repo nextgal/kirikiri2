@@ -20,7 +20,7 @@
 #
 # /* BOOST_PP_GREATER */
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
 #    define BOOST_PP_GREATER(x, y) BOOST_PP_LESS(y, x)
 # else
 #    define BOOST_PP_GREATER(x, y) BOOST_PP_GREATER_I(x, y)
@@ -29,7 +29,7 @@
 #
 # /* BOOST_PP_GREATER_D */
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
 #    define BOOST_PP_GREATER_D(d, x, y) BOOST_PP_LESS_D(d, y, x)
 # else
 #    define BOOST_PP_GREATER_D(d, x, y) BOOST_PP_GREATER_D_I(d, x, y)

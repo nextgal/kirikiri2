@@ -1,5 +1,5 @@
 [wait time=200]
-*start|ÉXÉ^Å[Ég
+*start|„Çπ„Çø„Éº„Éà
 [cm]
 try saving and loading at stopping with [emb exp="'[p]'"].
 [if exp="false"]

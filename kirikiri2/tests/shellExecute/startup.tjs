@@ -10,16 +10,16 @@ function ToString(dic, level = 0, add = 2) {
 		ret += " ".repeat(level) + key + ": ";
 		if (typeof val === "Object") {
 			if (val instanceof "Array") {
-				ret += "[ " + val.join(", ") + " ]\n";
+				ret += "[ " + val.join(", ") + " ]¥n";
 				continue;
 			} else if (val instanceof "Dictionary") {
-				ret += "%[\n" + ToString(val, level + add, add);
-				ret += " ".repeat(level) + "]\n";
+				ret += "%[¥n" + ToString(val, level + add, add);
+				ret += " ".repeat(level) + "]¥n";
 				continue;
 			}
 		}
 		val = "void" if (val === void);
-		ret += val + "\n";
+		ret += val + "¥n";
 	}
 	return ret;
 }
@@ -31,7 +31,7 @@ class TestWindow extends Window {
 		menu.add(new MenuItem(this, "console"));
 		menu.add(new MenuItem(this, "bgconsole"));
 		menu.add(new MenuItem(this, "sigint"));
-		caption = "shellExecute.dll�e�X�g";
+		caption = "shellExecute.dllテスト";
 		innerSunken = false;
 		setInnerSize(320, 1);
 		visible = true;
@@ -51,7 +51,7 @@ class TestWindow extends Window {
 				var file = Storages.getPlacedPath("console.bat");
 				var ret = System.commandExecute("cmd.exe", @'/c "${Storages.getLocalName(file)}"');
 				Debug.console.visible = true;
-				Debug.message("\n"+ToString(ret));
+				Debug.message("¥n"+ToString(ret));
 				break;
 			case "bgconsole":
 				var file = Storages.getPlacedPath("loop.bat");

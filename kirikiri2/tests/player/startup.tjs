@@ -9,7 +9,7 @@ class MyWindow extends Window
 	var visoptions;
 	var lastdrawntime;
 
-	var mag = 2; // �\���̊g�嗦
+	var mag = 2; // 表示の拡大率
 
 	function MyWindow()
 	{
@@ -51,14 +51,14 @@ class MyWindow extends Window
 	{
 		lastdrawntime = time;
 		drawDigit(x + (9*5+2), y, time % 10);
-		time \= 10;
+		time ¥= 10;
 		drawDigit(x + (9*4+2), y, time % 6);
-		time \= 6;
+		time ¥= 6;
 		drawDigit(x + (9*3+2), y, 11);
 		drawDigit(x + (9*2+2), y, time % 10);
-		time \= 10;
+		time ¥= 10;
 		drawDigit(x + (9+2), y, time >= 1 ? time % 10 : 10);
-		time \= 10;
+		time ¥= 10;
 		drawDigit(x + (0+2), y, time >= 1 ? time % 10 : 10);
 	}
 
@@ -68,7 +68,7 @@ class MyWindow extends Window
 		{
 			if(ev.target === vistimer)
 			{
-				var curtime = buf.position \ 1000;
+				var curtime = buf.position ¥ 1000;
 				if(lastdrawntime != curtime) drawTime(3, 4, lastdrawntime = curtime);
 				drawFFTGraph(primlayer, buf, 78*mag, 0*mag, 64*mag, 20*mag, visoptions);
 			}
@@ -78,7 +78,7 @@ class MyWindow extends Window
 			try
 			{
 				buf.open(ev.files[0]);
-				drawTime(3, 4, lastdrawntime = buf.position \ 1000);
+				drawTime(3, 4, lastdrawntime = buf.position ¥ 1000);
 				buf.play();
 			}
 			catch(e)
@@ -114,13 +114,13 @@ with(Plugins)
 //	.link("../wuvorbis/binary/wuvorbis.dll");
 	.link("fftgraph.dll");
 
-//	.link("c:\\pwork\\wuvorbis_tremor.dll");
-	.link("c:\\pwork\\kbmad.kpi");
-	.link("c:\\pwork\\kbmac.kpi");
-//	.link("c:\\pwork\\kbmod.kpi");
-//	.link("c:\\pwork\\wump3.dll");
-//	.link("c:\\pwork\\kbdshow.kpi");
-//	.link("c:\\pwork\\kbmio.kpi");
+//	.link("c:¥¥pwork¥¥wuvorbis_tremor.dll");
+	.link("c:¥¥pwork¥¥kbmad.kpi");
+	.link("c:¥¥pwork¥¥kbmac.kpi");
+//	.link("c:¥¥pwork¥¥kbmod.kpi");
+//	.link("c:¥¥pwork¥¥wump3.dll");
+//	.link("c:¥¥pwork¥¥kbdshow.kpi");
+//	.link("c:¥¥pwork¥¥kbmio.kpi");
 }
 
 var a = new MyWindow();

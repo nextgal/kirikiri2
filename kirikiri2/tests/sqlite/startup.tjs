@@ -24,9 +24,9 @@ if (!db.exec("select count(*) from test")) {
 	dm("db is exist");
 }
 
-// ˆø”Žw’è (‘æ“ñˆø”‚Íƒtƒ@ƒ“ƒNƒVƒ‡ƒ“, ‘æŽOˆø”ˆÈ~‚Íƒpƒ‰ƒ[ƒ^)
+// å¼•æ•°æŒ‡å®š (ç¬¬äºŒå¼•æ•°ã¯ãƒ•ã‚¡ãƒ³ã‚¯ã‚·ãƒ§ãƒ³, ç¬¬ä¸‰å¼•æ•°ä»¥é™ã¯ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿)
 dm("count:" + db.execValue("select count(*) from test"));
-dm("db.exec ‚Å select");
+dm("db.exec ã§ select");
 db.exec("select name,param from test where param>?", [0], func);
 
 dm("--------------------------------------------------------");

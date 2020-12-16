@@ -21,7 +21,7 @@ bool tTJSByteCodeLoader::IsTJS2ByteCode( const tjs_uint8* buff )
 	// TJS2
 	int tag = read4byte( buff );
 	if( tag != FILE_TAG_LE ) return false;
-	// 100'\0'
+	// 100'Â¥0'
 	int ver = read4byte( &(buff[4]) );
 	if( ver != VER_TAG_LE ) return false;
 	return true;
@@ -36,7 +36,7 @@ tTJSScriptBlock* tTJSByteCodeLoader::ReadByteCode( tTJS* owner, const tjs_char* 
 	// TJS2
 	int tag = read4byte( databuff );
 	if( tag != FILE_TAG_LE ) return NULL;
-	// 100'\0'
+	// 100'Â¥0'
 	int ver = read4byte( &(databuff[4]) );
 	if( ver != VER_TAG_LE ) return NULL;
 
@@ -49,7 +49,7 @@ tTJSScriptBlock* tTJSByteCodeLoader::ReadByteCode( tTJS* owner, const tjs_char* 
 	size = read4byte( &(databuff[16]) );
 	ReadDataArea( databuff, 20, size );
 
-	int offset = 12 + size; // ‚±‚ê‚ªƒf[ƒ^ƒGƒŠƒAŒã‚ÌˆÊ’u
+	int offset = 12 + size; // ã“ã‚ŒãŒãƒ‡ãƒ¼ã‚¿ã‚¨ãƒªã‚¢å¾Œã®ä½ç½®
 	// OBJS
 	tag = read4byte( &(databuff[offset]) );
 	offset+=4;
@@ -138,7 +138,7 @@ void tTJSByteCodeLoader::ReadDataArea( const tjs_uint8* buff, int offset, size_t
 		for( int i = 0; i < count; i++ ) {
 			int len = read4byte( &(buff[offset]) );
 			offset += 4;
-			tTJSVariantOctet* octet = new tTJSVariantOctet( &(buff[offset]), len ); // ƒf[ƒ^‚ÍƒRƒs[‚³‚ê‚é
+			tTJSVariantOctet* octet = new tTJSVariantOctet( &(buff[offset]), len ); // ãƒ‡ãƒ¼ã‚¿ã¯ã‚³ãƒ”ãƒ¼ã•ã‚Œã‚‹
 			OctetArray.push_back( octet );
 			offset += (( len + 3 ) >> 2) << 2;
 		}
@@ -196,7 +196,7 @@ void tTJSByteCodeLoader::ReadObjects( tTJSScriptBlock* block, const tjs_uint8* b
 		int count = read4byte( &(buff[offset]) );
 		offset += 4;
 
-		// ƒfƒoƒbƒO—p‚Ìƒ\[ƒXˆÊ’u‚ğ“Ç‚İ‚Ş
+		// ãƒ‡ãƒãƒƒã‚°ç”¨ã®ã‚½ãƒ¼ã‚¹ä½ç½®ã‚’èª­ã¿è¾¼ã‚€
 		tTJSInterCodeContext::tSourcePos* srcPos = NULL;
 		tjs_int srcPosArraySize = 0;
 		if( count > 0 ) {
@@ -358,7 +358,7 @@ void tTJSByteCodeLoader::ReadObjects( tTJSScriptBlock* block, const tjs_uint8* b
 #define TJS_OFFSET_VM_REG_ADDR( x ) ( (x) = TJS_TO_VM_REG_ADDR(x) )
 #define TJS_OFFSET_VM_CODE_ADDR( x ) ( (x) = TJS_TO_VM_CODE_ADDR(x) )
 /**
- * ƒoƒCƒgƒR[ƒh’†‚ÌƒAƒhƒŒƒX‚Í”z—ñ‚ÌƒCƒ“ƒfƒbƒNƒX‚ğw‚µ‚Ä‚¢‚é‚Ì‚ÅA‚»‚ê‚ğƒAƒhƒŒƒX‚É•ÏŠ·‚·‚é
+ * ãƒã‚¤ãƒˆã‚³ãƒ¼ãƒ‰ä¸­ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã¯é…åˆ—ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æŒ‡ã—ã¦ã„ã‚‹ã®ã§ã€ãã‚Œã‚’ã‚¢ãƒ‰ãƒ¬ã‚¹ã«å¤‰æ›ã™ã‚‹
  */
 void tTJSByteCodeLoader::TranslateCodeAddress( tTJSScriptBlock* block, tjs_int32* code, const tjs_int32 codeSize )
 {
@@ -374,11 +374,11 @@ void tTJSByteCodeLoader::TranslateCodeAddress( tTJSScriptBlock* block, tjs_int32
 			size = 3;
 			break;
 
-#define OP2_DISASM(c) \
-	case c: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		size = 3; \
+#define OP2_DISASM(c) Â¥
+	case c: Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); Â¥
+		size = 3; Â¥
 		break
 
 		OP2_DISASM(VM_CP);
@@ -389,31 +389,31 @@ void tTJSByteCodeLoader::TranslateCodeAddress( tTJSScriptBlock* block, tjs_int32
 		OP2_DISASM(VM_CHKINS);
 #undef OP2_DISASM
 
-#define OP2_DISASM(c) \
-	case c: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		size = 3; \
-		break; \
-	case c+1: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+3]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+4]); \
-		size = 5; \
-		break; \
-	case c+2: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+3]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+4]); \
-		size = 5; \
-		break; \
-	case c+3: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+3]); \
-		size = 4; \
+#define OP2_DISASM(c) Â¥
+	case c: Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); Â¥
+		size = 3; Â¥
+		break; Â¥
+	case c+1: Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+3]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+4]); Â¥
+		size = 5; Â¥
+		break; Â¥
+	case c+2: Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+3]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+4]); Â¥
+		size = 5; Â¥
+		break; Â¥
+	case c+3: Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+3]); Â¥
+		size = 4; Â¥
 		break
 
 		OP2_DISASM(VM_LOR);
@@ -460,27 +460,27 @@ void tTJSByteCodeLoader::TranslateCodeAddress( tTJSScriptBlock* block, tjs_int32
 			size = 3;
 			break;
 
-#define OP1_DISASM(c) \
-	case c: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		size = 2; \
-		break; \
-	case c+1: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+3]); \
-		size = 4; \
-		break; \
-	case c+2: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+3]); \
-		size = 4; \
-		break; \
-	case c+3: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		size = 3; \
+#define OP1_DISASM(c) Â¥
+	case c: Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); Â¥
+		size = 2; Â¥
+		break; Â¥
+	case c+1: Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+3]); Â¥
+		size = 4; Â¥
+		break; Â¥
+	case c+2: Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+3]); Â¥
+		size = 4; Â¥
+		break; Â¥
+	case c+3: Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); Â¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); Â¥
+		size = 3; Â¥
 		break
 
 		OP1_DISASM(VM_INC);

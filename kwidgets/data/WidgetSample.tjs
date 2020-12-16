@@ -3,36 +3,36 @@
 //
 
 /*----------------------------------------------------------------------
- * ƒ^ƒOƒeƒLƒXƒgƒGƒfƒBƒbƒgƒTƒ“ƒvƒ‹
+ * ã‚¿ã‚°ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ãƒƒãƒˆã‚µãƒ³ãƒ—ãƒ«
  ----------------------------------------------------------------------*/
 class TagTextEdit extends KTagTextEdit
 {
   // tagPat
   var tagStr;
-  // valueƒvƒƒpƒeƒB‚ğã‘‚«
+  // valueãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’ä¸Šæ›¸ã
   var valueOld;
 
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   function TagTextEdit {
     super.KTagTextEdit(...);
 
-    // ƒ^ƒO•¶š‚Ìİ’è
+    // ã‚¿ã‚°æ–‡å­—ã®è¨­å®š
     tagStr = "@";
-    // valueƒvƒƒpƒeƒB‚ğ‚Â‚¯‚©‚¦‚é
+    // valueãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’ã¤ã‘ã‹ãˆã‚‹
     valueOld = &value;
     &value = &valueNew;
   }
 
-  // valueƒvƒƒpƒeƒB‚Ì’u‚«Š·‚¦
+  // valueãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®ç½®ãæ›ãˆ
   property valueNew {
     setter(v) {
-      // ’l‚©‚çƒ^ƒO‚ğæ‚è”`‚¢‚Ä‚Ü‚¸•¶š‚Æ‚µ‚Äİ’è
+      // å€¤ã‹ã‚‰ã‚¿ã‚°ã‚’å–ã‚Šè¦—ã„ã¦ã¾ãšæ–‡å­—ã¨ã—ã¦è¨­å®š
       valueOld = v.replace(new RegExp(tagStr, "g"), "");
-      // ‰üs‚Å•ªŠ„‚µ‚Ä”z—ñ‚ÉŠi”[
+      // æ”¹è¡Œã§åˆ†å‰²ã—ã¦é…åˆ—ã«æ ¼ç´
       var text = v.split(linefeedPat);
-      // ƒ^ƒO‚ğ‚ ‚ç‚í‚·³‹K•\Œ»
+      // ã‚¿ã‚°ã‚’ã‚ã‚‰ã‚ã™æ­£è¦è¡¨ç¾
       var tagPat = new RegExp(tagStr);
-      // ‘O‚©‚ç‡‚ÉAƒ^ƒO‚ğŒŸo‚µ‚Ä‘}“ü‚µ‚Ä‚¢‚­
+      // å‰ã‹ã‚‰é †ã«ã€ã‚¿ã‚°ã‚’æ¤œå‡ºã—ã¦æŒ¿å…¥ã—ã¦ã„ã
       for (var row = 0; row < text.count; row++) {
 	var str = text[row];
 	var col = 0;
@@ -45,88 +45,88 @@ class TagTextEdit extends KTagTextEdit
     }
 
     getter {
-      // ƒeƒLƒXƒg‚Ì’l‚ğ‰üs‚Å•ªŠ„‚µ‚Ä”z—ñ‚ÉŠi”[
+      // ãƒ†ã‚­ã‚¹ãƒˆã®å€¤ã‚’æ”¹è¡Œã§åˆ†å‰²ã—ã¦é…åˆ—ã«æ ¼ç´
       var text = valueOld.split(linefeedPat);
-      // Œã‚ë‚©‚ç‡‚ÉAƒ^ƒO‚ÌˆÊ’u‚É•¶š—ñ‚ğ‘}“ü
+      // å¾Œã‚ã‹ã‚‰é †ã«ã€ã‚¿ã‚°ã®ä½ç½®ã«æ–‡å­—åˆ—ã‚’æŒ¿å…¥
       for (var index = tagCount - 1; index >= 0; index--) {
 	var tag = tagAt(index);
 	text[tag.row] = text[tag.row].substr(0, tag.col) + tagStr + text[tag.row].substr(tag.col);
       }
-      // Ä‚ÑƒeƒLƒXƒg‚ğ‚Â‚È‚¬‡‚í‚¹‚Ä•Ô‚·
-      return text.join("\r\n");
+      // å†ã³ãƒ†ã‚­ã‚¹ãƒˆã‚’ã¤ãªãåˆã‚ã›ã¦è¿”ã™
+      return text.join("Â¥rÂ¥n");
     }
   }
 
-  // ƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[‚ÌŠg’£
+  // ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®æ‹¡å¼µ
   function buildContextMenu {
     var menu = super.buildContextMenu();
     menu.addSeparator();
-    menu.addItem("ƒ^ƒO‚ğ‘}“ü‚·‚é", "", ! isTagOnPointer, this.insertTagAtPointer);
-    menu.addItem("ƒ^ƒO‚ğíœ‚·‚é", "", isTagOnPointer, this.deleteTagAtPointer);
+    menu.addItem("ã‚¿ã‚°ã‚’æŒ¿å…¥ã™ã‚‹", "", ! isTagOnPointer, this.insertTagAtPointer);
+    menu.addItem("ã‚¿ã‚°ã‚’å‰Šé™¤ã™ã‚‹", "", isTagOnPointer, this.deleteTagAtPointer);
     return menu;
   }
 
-  // ƒ|ƒCƒ“ƒ^‚ªƒ^ƒO‚ğƒ|ƒCƒ“ƒg‚µ‚½‚ÉŒÄ‚Î‚ê‚é
+  // ãƒã‚¤ãƒ³ã‚¿ãŒã‚¿ã‚°ã‚’ãƒã‚¤ãƒ³ãƒˆã—ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
   function onTagPointAt(index) {
-    Debug.message("ƒ^ƒOƒ|ƒCƒ“ƒg", index);
+    Debug.message("ã‚¿ã‚°ãƒã‚¤ãƒ³ãƒˆ", index);
   }
 
-  // ƒ|ƒCƒ“ƒ^‚É”ä‚×‚Äˆê”Ô¬‚³‚¢ƒ^ƒO(ƒJƒŒƒ“ƒgƒ^ƒO)‚ª•Ï‚í‚Á‚½‚ÉŒÄ‚Î‚ê‚é
+  // ãƒã‚¤ãƒ³ã‚¿ã«æ¯”ã¹ã¦ä¸€ç•ªå°ã•ã„ã‚¿ã‚°(ã‚«ãƒ¬ãƒ³ãƒˆã‚¿ã‚°)ãŒå¤‰ã‚ã£ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
   function onTagRegionAt(index) {
-    Debug.message("ƒ^ƒOƒŠ[ƒWƒ‡ƒ“", index);
+    Debug.message("ã‚¿ã‚°ãƒªãƒ¼ã‚¸ãƒ§ãƒ³", index);
   }
 
-  // ƒ^ƒO‚ª‘}“ü‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
+  // ã‚¿ã‚°ãŒæŒ¿å…¥ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
   function onTagInsertAt(index) {
-    Debug.message("ƒ^ƒO‘}“ü", index);
+    Debug.message("ã‚¿ã‚°æŒ¿å…¥", index);
   }
 
-  // ƒ^ƒO‚ªíœ‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
+  // ã‚¿ã‚°ãŒå‰Šé™¤ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
   function onTagDeleteAt(index) {
-    Debug.message("ƒ^ƒOíœ", index);
+    Debug.message("ã‚¿ã‚°å‰Šé™¤", index);
   }
 }
 
 
 
 /*----------------------------------------------------------------------
- * ƒEƒBƒWƒFƒbƒgƒTƒ“ƒvƒ‹
+ * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚µãƒ³ãƒ—ãƒ«
  ----------------------------------------------------------------------*/
 class WidgetSample extends KWindow
 {
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   function WidgetSample() {
     super.KWindow("widgetsample_window");
 
-    // ƒEƒBƒ“ƒhƒE‰Šúİ’è
-    caption = 'ƒEƒBƒWƒFƒbƒgƒTƒ“ƒvƒ‹';
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦åˆæœŸè¨­å®š
+    caption = 'ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚µãƒ³ãƒ—ãƒ«';
     imeMode = imDontCare;
     borderStyle = bsSingle;
     alwaysSetToMinSize = true;
 
-    // ƒEƒBƒ“ƒhƒE“à‚ÌƒEƒBƒWƒFƒbƒg‚Ì‰Šú’l‚ğİ’è
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦å†…ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®åˆæœŸå€¤ã‚’è¨­å®š
     defaultSpace = 4;
     defaultMargin = 6;
     defaultAlignHorizontal = ALIGN_CENTER;
     defaultAlignVertical = ALIGN_CENTER;
     defaultFocusable = true;
 
-    // ƒƒjƒ…[‚ğì¬A”z’u
-    menu.addItem("ƒƒjƒ…[", "menuTop");
-    menuTop.addItem("ƒAƒNƒVƒ‡ƒ“1", "menuAction1");
-    menuTop.addItem("ƒAƒNƒVƒ‡ƒ“2", "menuAction2");
+    // ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’ä½œæˆã€é…ç½®
+    menu.addItem("ãƒ¡ãƒ‹ãƒ¥ãƒ¼", "menuTop");
+    menuTop.addItem("ã‚¢ã‚¯ã‚·ãƒ§ãƒ³1", "menuAction1");
+    menuTop.addItem("ã‚¢ã‚¯ã‚·ãƒ§ãƒ³2", "menuAction2");
     menuTop.addSeparator();
-    menuTop.addToggleItem("ƒgƒOƒ‹1", false, "menuToggle1");
-    menuTop.addToggleItem("ƒgƒOƒ‹2", true, "menuToggle2");
+    menuTop.addToggleItem("ãƒˆã‚°ãƒ«1", false, "menuToggle1");
+    menuTop.addToggleItem("ãƒˆã‚°ãƒ«2", true, "menuToggle2");
     menuTop.addSeparator();
-    menuTop.addItem("“ü‚êqƒƒjƒ…[", "menuNest");
-    menuNest.addRadioItem("ƒ‰ƒWƒI‚»‚Ì1", 1, "menuRadio");
-    menuNest.addRadioItem("ƒ‰ƒWƒI‚»‚Ì2", 2, "menuRadio");
-    menuNest.addRadioItem("ƒ‰ƒWƒI‚»‚Ì3", 3, "menuRadio");
+    menuTop.addItem("å…¥ã‚Œå­ãƒ¡ãƒ‹ãƒ¥ãƒ¼", "menuNest");
+    menuNest.addRadioItem("ãƒ©ã‚¸ã‚ªãã®1", 1, "menuRadio");
+    menuNest.addRadioItem("ãƒ©ã‚¸ã‚ªãã®2", 2, "menuRadio");
+    menuNest.addRadioItem("ãƒ©ã‚¸ã‚ªãã®3", 3, "menuRadio");
     menuTop.addSeparator();
-    menuTop.addItem("ƒJƒXƒ^ƒ€ƒ_ƒCƒAƒƒO", "customDialogTest");
+    menuTop.addItem("ã‚«ã‚¹ã‚¿ãƒ ãƒ€ã‚¤ã‚¢ãƒ­ã‚°", "customDialogTest");
 
-    menu.addItem("ƒY[ƒ€", "zoomRoot");
+    menu.addItem("ã‚ºãƒ¼ãƒ ", "zoomRoot");
     zoomRoot.addRadioItem("50%", 50, "zoom");
     zoomRoot.addRadioItem("60%", 60, "zoom");
     zoomRoot.addRadioItem("70%", 70, "zoom");
@@ -145,100 +145,100 @@ class WidgetSample extends KWindow
     menuToggle1.shortcut = "Ctrl+3";
     menuToggle2.shortcut = "Ctrl+4";
 
-    // ƒEƒBƒWƒFƒbƒg‚ğì¬A”z’u
+    // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ä½œæˆã€é…ç½®
     var tabs, tabGrid, widgetFrame, widgetGrid, scroll, colorGrid;
     tabs = new KTabLayout(this, FRAME_RAISED, "tabs");
 
-    // ƒ{ƒ^ƒ“‚ÌƒTƒ“ƒvƒ‹
+    // ãƒœã‚¿ãƒ³ã®ã‚µãƒ³ãƒ—ãƒ«
     tabGrid = new KGridLayout(this);
-      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ƒm[ƒ}ƒ‹ƒ{ƒ^ƒ“");
+      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ãƒãƒ¼ãƒãƒ«ãƒœã‚¿ãƒ³");
         widgetGrid = new KGridLayout(this);
-          widgetGrid.add(0, 0, new KTextButton(this, "ƒ{ƒ^ƒ“", "textbutton"));
+          widgetGrid.add(0, 0, new KTextButton(this, "ãƒœã‚¿ãƒ³", "textbutton"));
           widgetGrid.add(1, 0, new KImageButton(this, "gotta_mail", "imagebutton"));
       widgetFrame.add(widgetGrid);
     tabGrid.add(0, 0, widgetFrame);
-      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ƒgƒOƒ‹ƒ{ƒ^ƒ“");
+      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ãƒˆã‚°ãƒ«ãƒœã‚¿ãƒ³");
         widgetGrid = new KGridLayout(this);
-         widgetGrid.add(0, 0, new KTextToggleButton(this, "ƒ{ƒ^ƒ“", "texttogglebutton"));
+         widgetGrid.add(0, 0, new KTextToggleButton(this, "ãƒœã‚¿ãƒ³", "texttogglebutton"));
          widgetGrid.add(1, 0, new KImageToggleButton(this, "gotta_mail", "imagetogglebutton"));
       widgetFrame.add(widgetGrid);
     tabGrid.add(0, 1, widgetFrame);
 
-    tabs.add("ƒ{ƒ^ƒ“", tabGrid);
+    tabs.add("ãƒœã‚¿ãƒ³", tabGrid);
 
-    // ƒ‰ƒWƒIƒ{ƒ^ƒ“‚ÌƒTƒ“ƒvƒ‹
+    // ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ã®ã‚µãƒ³ãƒ—ãƒ«
     tabGrid = new KGridLayout(this);
-      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ƒ‰ƒWƒIƒ{ƒ^ƒ“");
+      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³");
        widgetGrid = new KRadioLayout(this, "radio1");
-         widgetGrid.add(0, 0, new KRadioButton(this, "€–Ú1", 1));
-         widgetGrid.add(1, 0, new KRadioButton(this, "€–Ú2", 2));
-         widgetGrid.add(0, 1, new KRadioButton(this, "€–Ú3", 3));
-         widgetGrid.add(1, 1, new KRadioButton(this, "€–Ú4", 4));
+         widgetGrid.add(0, 0, new KRadioButton(this, "é …ç›®1", 1));
+         widgetGrid.add(1, 0, new KRadioButton(this, "é …ç›®2", 2));
+         widgetGrid.add(0, 1, new KRadioButton(this, "é …ç›®3", 3));
+         widgetGrid.add(1, 1, new KRadioButton(this, "é …ç›®4", 4));
        widgetFrame.add(widgetGrid);
     tabGrid.add(0, 0, widgetFrame);
-      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ˆÙí¬‡");
+      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ç•°ç¨®æ··åˆ");
         widgetGrid = new KRadioLayout(this, "radio2");
-          widgetGrid.add(0, 0, new KRadioButton(this, "€–Ú1", 1));
-          widgetGrid.add(1, 0, new KCheckBox(this, "€–Ú2", 2));
-          widgetGrid.add(0, 1, new KTextToggleButton(this, "€–Ú3", 3));
+          widgetGrid.add(0, 0, new KRadioButton(this, "é …ç›®1", 1));
+          widgetGrid.add(1, 0, new KCheckBox(this, "é …ç›®2", 2));
+          widgetGrid.add(0, 1, new KTextToggleButton(this, "é …ç›®3", 3));
           widgetGrid.add(1, 1, new KImageToggleButton(this, "gotta_mail", 4));
       widgetFrame.add(widgetGrid);
     tabGrid.add(0, 1, widgetFrame);
   
-    tabs.add("ƒ‰ƒWƒIƒ{ƒ^ƒ“", tabGrid);
+    tabs.add("ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³", tabGrid);
 
-    // ƒXƒ‰ƒCƒ_[‚ÌƒTƒ“ƒvƒ‹
+    // ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®ã‚µãƒ³ãƒ—ãƒ«
     tabGrid = new KGridLayout(this);
-      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ƒXƒ‰ƒCƒ_[");
+      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼");
         widgetGrid = new KGridLayout(this);
-          widgetGrid.add(0, 0, new KTextLabel(this, "0`100"));
+          widgetGrid.add(0, 0, new KTextLabel(this, "0ã€œ100"));
           widgetGrid.add(1, 0, new KSlider(this, SLIDER_ADAPTIVE_WIDTH, 20, 0, 100, 1, "slider1"));
-          widgetGrid.add(0, 1, new KTextLabel(this, "-1000`1000"));
+          widgetGrid.add(0, 1, new KTextLabel(this, "-1000ã€œ1000"));
           widgetGrid.add(1, 1, new KSlider(this, 200, 20, -1000, 1000, 1, "slider2"));
-          widgetGrid.add(0, 2, new KTextLabel(this, "24`34"));
+          widgetGrid.add(0, 2, new KTextLabel(this, "24ã€œ34"));
           widgetGrid.add(1, 2, new KSlider(this, 200, 20, 24, 34, 1, "slider3"));
       widgetFrame.add(widgetGrid);
     tabGrid.add(0, 0, widgetFrame);
-      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ƒeƒLƒXƒgƒXƒ‰ƒCƒ_[");
+      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ãƒ†ã‚­ã‚¹ãƒˆã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼");
         widgetGrid = new KGridLayout(this);
-          widgetGrid.add(0, 0, new KTextLabel(this, "0`10(0.1‚İ)"));
+          widgetGrid.add(0, 0, new KTextLabel(this, "0ã€œ10(0.1åˆ»ã¿)"));
           widgetGrid.add(1, 0, new KTextInputSlider(this, SLIDER_ADAPTIVE_WIDTH, 20, 0, 10, 0.1, "textinputslider"));
       widgetFrame.add(widgetGrid);
     tabGrid.add(0, 1, widgetFrame);
     
-    tabs.add("ƒXƒ‰ƒCƒ_[", tabGrid);
+    tabs.add("ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼", tabGrid);
 
-    // ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚ÌƒTƒ“ƒvƒ‹
+    // ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã®ã‚µãƒ³ãƒ—ãƒ«
     tabGrid = new KGridLayout(this);
-      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ƒRƒ“ƒ{ƒ{ƒbƒNƒX");
+      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹");
         widgetGrid = new KGridLayout(this);
         widgetGrid.add(0, 0, new KComboBox(this, 200, 20, COMBO_STYLE_DROPDOWN, "combobox1"));
         widgetGrid.add(0, 1, new KComboBox(this, 200, 20, COMBO_STYLE_DROPDOWNLIST, "combobox2"));
       widgetFrame.add(widgetGrid);
     tabGrid.add(0, 0, widgetFrame);
 
-    tabs.add("ƒRƒ“ƒ{ƒ{ƒbƒNƒX", tabGrid);
+    tabs.add("ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹", tabGrid);
 
-    // ƒeƒLƒXƒg“ü—Í‚ÌƒTƒ“ƒvƒ‹
+    // ãƒ†ã‚­ã‚¹ãƒˆå…¥åŠ›ã®ã‚µãƒ³ãƒ—ãƒ«
     tabGrid = new KGridLayout(this);
-      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ƒeƒLƒXƒgƒCƒ“ƒvƒbƒg");
+      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ãƒ†ã‚­ã‚¹ãƒˆã‚¤ãƒ³ãƒ—ãƒƒãƒˆ");
         widgetGrid = new KGridLayout(this);
-          widgetGrid.add(0, 0, new KTextLabel(this, "‰p”š‚Ì‚İ"));
+          widgetGrid.add(0, 0, new KTextLabel(this, "è‹±æ•°å­—ã®ã¿"));
           widgetGrid.add(1, 0, new KTextInput(this, 100, 20, TEXT_SYMBOL, "textinput1"));
-          widgetGrid.add(0, 1, new KTextLabel(this, "®”‚Ì‚İ"));
+          widgetGrid.add(0, 1, new KTextLabel(this, "æ•´æ•°ã®ã¿"));
           widgetGrid.add(1, 1, new KTextInput(this, 100, 20, TEXT_DIGIT, "textinput2"));
-          widgetGrid.add(0, 3, new KTextLabel(this, "­”‚Ì‚İ"));
+          widgetGrid.add(0, 3, new KTextLabel(this, "å°‘æ•°ã®ã¿"));
           widgetGrid.add(1, 3, new KTextInput(this, 100, 20, TEXT_REAL, "textinput3"));
-          widgetGrid.add(0, 4, new KTextLabel(this, "‚È‚ñ‚Å‚à"));
+          widgetGrid.add(0, 4, new KTextLabel(this, "ãªã‚“ã§ã‚‚"));
           widgetGrid.add(1, 4, new KTextInput(this, 100, 20, TEXT_ANY, "textinput4"));
       widgetFrame.add(widgetGrid);
     tabGrid.add(0, 0, widgetFrame);
-      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ƒeƒLƒXƒgƒGƒfƒBƒbƒg");
+      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ãƒƒãƒˆ");
         widgetGrid = new KGridLayout(this);
         widgetGrid.margin = 0;
 	  var radioGrid = new KRadioLayout(this, "textedit_keybind");
-	  radioGrid.add(0, 0, new KCheckBox(this, "WINƒoƒCƒ“ƒh", "windows_bind"));
-	  radioGrid.add(1, 0, new KCheckBox(this, "emacsƒoƒCƒ“ƒh", "emacs_bind"));
+	  radioGrid.add(0, 0, new KCheckBox(this, "WINãƒã‚¤ãƒ³ãƒ‰", "windows_bind"));
+	  radioGrid.add(1, 0, new KCheckBox(this, "emacsãƒã‚¤ãƒ³ãƒ‰", "emacs_bind"));
 	  radioGrid.onValueModified = function(value) {
 	    switch (value) {
 	      case "windows_bind": window.textedit.bindWindowsKeyMap(); break;
@@ -253,11 +253,11 @@ class WidgetSample extends KWindow
       widgetFrame.add(widgetGrid);
     tabGrid.add(0, 1, widgetFrame);
 
-    tabs.add("ƒeƒLƒXƒg", tabGrid);
+    tabs.add("ãƒ†ã‚­ã‚¹ãƒˆ", tabGrid);
 
-    // ƒJƒ‰[ƒ{ƒbƒNƒX‚ÌƒTƒ“ƒvƒ‹
+    // ã‚«ãƒ©ãƒ¼ãƒœãƒƒã‚¯ã‚¹ã®ã‚µãƒ³ãƒ—ãƒ«
     tabGrid = new KGridLayout(this);
-      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ƒJƒ‰[(ƒ¿–³‚µ)");
+      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ã‚«ãƒ©ãƒ¼(Î±ç„¡ã—)");
         colorGrid = new KGridLayout(this);
         colorGrid.space = 5;
         for (var y = 0; y < 5; y++) 
@@ -273,7 +273,7 @@ class WidgetSample extends KWindow
           }
       widgetFrame.add(colorGrid);
     tabGrid.add(0, 0, widgetFrame);
-      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ƒJƒ‰[(ƒ¿—L‚è)");
+      widgetFrame = new KFrameLayout(this, FRAME_FLATTEN, "ã‚«ãƒ©ãƒ¼(Î±æœ‰ã‚Š)");
         colorGrid = new KGridLayout(this);
         colorGrid.space = 5;
         for (var y = 0; y < 5; y++) 
@@ -291,7 +291,7 @@ class WidgetSample extends KWindow
       widgetFrame.add(colorGrid);
     tabGrid.add(0, 1, widgetFrame);
 
-    tabs.add("ƒJƒ‰[", tabGrid);
+    tabs.add("ã‚«ãƒ©ãƒ¼", tabGrid);
 
     defaultMargin = 0;
     defaultSpace = 0;
@@ -301,93 +301,93 @@ class WidgetSample extends KWindow
     rootGrid.add(0, 2, new KStatusBar(this));
     statusBar.margin = 3;
       
-    // ƒvƒ‰ƒCƒ}ƒŠƒEƒBƒWƒFƒbƒg‚Éƒ^ƒu‚ğ“o˜^
+    // ãƒ—ãƒ©ã‚¤ãƒãƒªã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã«ã‚¿ãƒ–ã‚’ç™»éŒ²
     primaryWidget.add(rootGrid);
 
-    // ƒEƒBƒWƒFƒbƒg‚Ì‰Šúİ’è
-    // ’l‚¿ƒEƒBƒWƒFƒbƒg‚Í“o˜^‚µ‚½–¼‘O‚Å’¼ÚQÆ‚Å‚«‚é
+    // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®åˆæœŸè¨­å®š
+    // å€¤æŒã¡ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã¯ç™»éŒ²ã—ãŸåå‰ã§ç›´æ¥å‚ç…§ã§ãã‚‹
     radio1.value = 1;
     radio2.value = 1;
     textedit_keybind.value = "windows_bind";
     textedit_keybind.windows_bind.focusable = false;
     textedit_keybind.emacs_bind.focusable = false;
 
-    combobox1.add("ƒhƒƒbƒvƒ_ƒEƒ“ƒRƒ“ƒ{‚Ì‚¢‚¿", "combo11");
-    combobox1.add("ƒhƒƒbƒvƒ_ƒEƒ“ƒRƒ“ƒ{‚Ì‚É",   "combo12");
-    combobox1.add("ƒhƒƒbƒvƒ_ƒEƒ“ƒRƒ“ƒ{‚Ì‚³‚ñ", "combo13");
-    combobox1.add("ƒhƒƒbƒvƒ_ƒEƒ“ƒRƒ“ƒ{‚Ì‚æ‚ñ", "combo14");
-    combobox1.add("ƒhƒƒbƒvƒ_ƒEƒ“ƒRƒ“ƒ{‚Ì‚²",   "combo15");
-    combobox1.caption = "ƒhƒƒbƒvƒ_ƒEƒ“ƒRƒ“ƒ{“ü—Í";
+    combobox1.add("ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ã‚³ãƒ³ãƒœã®ã„ã¡", "combo11");
+    combobox1.add("ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ã‚³ãƒ³ãƒœã®ã«",   "combo12");
+    combobox1.add("ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ã‚³ãƒ³ãƒœã®ã•ã‚“", "combo13");
+    combobox1.add("ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ã‚³ãƒ³ãƒœã®ã‚ˆã‚“", "combo14");
+    combobox1.add("ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ã‚³ãƒ³ãƒœã®ã”",   "combo15");
+    combobox1.caption = "ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ã‚³ãƒ³ãƒœå…¥åŠ›";
 
-    combobox2.add("ƒhƒƒbƒvƒ_ƒEƒ“ƒŠƒXƒg‚Ì‚¢‚¿", "combo21");
-    combobox2.add("ƒhƒƒbƒvƒ_ƒEƒ“ƒŠƒXƒg‚Ì‚É",   "combo22");
-    combobox2.add("ƒhƒƒbƒvƒ_ƒEƒ“ƒŠƒXƒg‚Ì‚³‚ñ", "combo23");
-    combobox2.add("ƒhƒƒbƒvƒ_ƒEƒ“ƒŠƒXƒg‚Ì‚æ‚ñ", "combo24");
-    combobox2.add("ƒhƒƒbƒvƒ_ƒEƒ“ƒŠƒXƒg‚Ì‚²",   "combo25");
+    combobox2.add("ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒªã‚¹ãƒˆã®ã„ã¡", "combo21");
+    combobox2.add("ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒªã‚¹ãƒˆã®ã«",   "combo22");
+    combobox2.add("ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒªã‚¹ãƒˆã®ã•ã‚“", "combo23");
+    combobox2.add("ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒªã‚¹ãƒˆã®ã‚ˆã‚“", "combo24");
+    combobox2.add("ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒªã‚¹ãƒˆã®ã”",   "combo25");
     combobox2.value = "combo22";
 
-    // ƒXƒe[ƒ^ƒXƒo[‚Ìİ’è
-    statusBar.defaultLabel = "ƒXƒe[ƒ^ƒXƒo[";
-    textbutton.status = "ƒeƒLƒXƒgƒ{ƒ^ƒ“";
-    imagebutton.status = "ƒCƒ[ƒWƒ{ƒ^ƒ“";
-    texttogglebutton.status = "ƒeƒLƒXƒgƒgƒOƒ‹ƒ{ƒ^ƒ“";
-    imagetogglebutton.status = "ƒCƒ[ƒWƒgƒOƒ‹ƒ{ƒ^ƒ“";
-    radio1.status = "ƒ‰ƒWƒIƒ{ƒ^ƒ“1";
-    radio2.status = "ƒ‰ƒWƒIƒ{ƒ^ƒ“2";
-    slider1.status = "ƒXƒ‰ƒCƒ_[1";
-    slider2.status = "ƒXƒ‰ƒCƒ_[2";
-    slider3.status = "ƒXƒ‰ƒCƒ_[3";
-    textinputslider.status = "ƒeƒLƒXƒgƒCƒ“ƒvƒbƒgƒXƒ‰ƒCƒ_[";
-    combobox1.status = "ƒRƒ“ƒ{ƒ{ƒbƒNƒX1";
-    combobox2.status = "ƒRƒ“ƒ{ƒ{ƒbƒNƒX2";
-    textinput1.status = "ƒeƒLƒXƒgƒCƒ“ƒvƒbƒg(‰p”š)";
-    textinput2.status = "ƒeƒLƒXƒgƒCƒ“ƒvƒbƒg(®”‚Ì‚İ)";
-    textinput3.status = "ƒeƒLƒXƒgƒCƒ“ƒvƒbƒg(­”‚Ì‚İ)";
-    textinput4.status = "ƒeƒLƒXƒgƒCƒ“ƒvƒbƒg(‚È‚ñ‚Å‚à)";
-    textedit.status = "ƒeƒLƒXƒgƒGƒfƒBƒbƒg";
+    // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼ã®è¨­å®š
+    statusBar.defaultLabel = "ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼";
+    textbutton.status = "ãƒ†ã‚­ã‚¹ãƒˆãƒœã‚¿ãƒ³";
+    imagebutton.status = "ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒœã‚¿ãƒ³";
+    texttogglebutton.status = "ãƒ†ã‚­ã‚¹ãƒˆãƒˆã‚°ãƒ«ãƒœã‚¿ãƒ³";
+    imagetogglebutton.status = "ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒˆã‚°ãƒ«ãƒœã‚¿ãƒ³";
+    radio1.status = "ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³1";
+    radio2.status = "ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³2";
+    slider1.status = "ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼1";
+    slider2.status = "ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼2";
+    slider3.status = "ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼3";
+    textinputslider.status = "ãƒ†ã‚­ã‚¹ãƒˆã‚¤ãƒ³ãƒ—ãƒƒãƒˆã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼";
+    combobox1.status = "ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹1";
+    combobox2.status = "ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹2";
+    textinput1.status = "ãƒ†ã‚­ã‚¹ãƒˆã‚¤ãƒ³ãƒ—ãƒƒãƒˆ(è‹±æ•°å­—)";
+    textinput2.status = "ãƒ†ã‚­ã‚¹ãƒˆã‚¤ãƒ³ãƒ—ãƒƒãƒˆ(æ•´æ•°ã®ã¿)";
+    textinput3.status = "ãƒ†ã‚­ã‚¹ãƒˆã‚¤ãƒ³ãƒ—ãƒƒãƒˆ(å°‘æ•°ã®ã¿)";
+    textinput4.status = "ãƒ†ã‚­ã‚¹ãƒˆã‚¤ãƒ³ãƒ—ãƒƒãƒˆ(ãªã‚“ã§ã‚‚)";
+    textedit.status = "ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ãƒƒãƒˆ";
 
-    // ‰i‘±‰»«‘‚Ìì¬
+    // æ°¸ç¶šåŒ–è¾æ›¸ã®ä½œæˆ
     var dict = new KPersistentDictionary(System.dataPath + "widgetsample_dict.txt");
-    // ƒEƒBƒ“ƒhƒE‚ÌŠÇ—ƒIƒuƒWƒFƒNƒg‚É«‘‚ğ’Ç‰Á‚µ‚ÄA
-    // finalize‚É©“®“I‚É“à—e‚ªƒZ[ƒu‚³‚ê‚é‚æ‚¤‚É‚·‚éB
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç®¡ç†ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«è¾æ›¸ã‚’è¿½åŠ ã—ã¦ã€
+    // finalizeæ™‚ã«è‡ªå‹•çš„ã«å†…å®¹ãŒã‚»ãƒ¼ãƒ–ã•ã‚Œã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚
     add(dict);
-    // ƒEƒBƒ“ƒhƒE“à‚Ì–¼‘O‚ğ‚Á‚Ä‚¢‚éƒEƒBƒWƒFƒbƒg‚Æ«‘‚ğƒoƒCƒ“ƒh‚·‚éB
-    // ‚±‚ê‚É‚æ‚èAƒAƒvƒŠI—¹‚ÌƒEƒBƒWƒFƒbƒg‚Ì’l‚ªŸ‰ñ‹N“®‚É‚¿‰z‚³‚ê‚éB
-    // ƒEƒBƒ“ƒhƒE©g‚ÌƒTƒCƒY‚ÆÀ•W‚à«‘‚É‹L˜^‚³‚ê‚éB
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦å†…ã®åå‰ã‚’æŒã£ã¦ã„ã‚‹ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã¨è¾æ›¸ã‚’ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹ã€‚
+    // ã“ã‚Œã«ã‚ˆã‚Šã€ã‚¢ãƒ—ãƒªçµ‚äº†æ™‚ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®å€¤ãŒæ¬¡å›èµ·å‹•æ™‚ã«æŒã¡è¶Šã•ã‚Œã‚‹ã€‚
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦è‡ªèº«ã®ã‚µã‚¤ã‚ºã¨åº§æ¨™ã‚‚è¾æ›¸ã«è¨˜éŒ²ã•ã‚Œã‚‹ã€‚
     bindPersistentDictionary(dict);
 
-    // ƒeƒLƒXƒgƒGƒfƒBƒbƒg‚ÌƒoƒCƒ“ƒh‚Ì‰Šú’l‚ğ”½‰f‚³‚¹‚é
+    // ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ãƒƒãƒˆã®ãƒã‚¤ãƒ³ãƒ‰ã®åˆæœŸå€¤ã‚’åæ˜ ã•ã›ã‚‹
     textedit_keybind.invalidateValue();
 
-    // ƒY[ƒ€‚Ì‰Šú’l‚ğ”½‰f‚³‚¹‚é
+    // ã‚ºãƒ¼ãƒ ã®åˆæœŸå€¤ã‚’åæ˜ ã•ã›ã‚‹
     zoom.invalidateValue();
   }
 
-  // ƒEƒBƒWƒFƒbƒg‚Ì’l‚ªXV‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+  // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®å€¤ãŒæ›´æ–°ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
   function onChildValueModified(child, value) {
     switch (child.name) {
     default: {
-      // XV‚Ì‚ ‚Á‚½ƒEƒBƒWƒFƒbƒg‚Ì–¼‘O‚Æ’l‚ğ•\¦B
+      // æ›´æ–°ã®ã‚ã£ãŸã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®åå‰ã¨å€¤ã‚’è¡¨ç¤ºã€‚
       Debug.message("child value modified", child.name, typeof(value), value);
       break;
     }
-      // ƒY[ƒ€•ÏX
+      // ã‚ºãƒ¼ãƒ å¤‰æ›´
     case "zoom":
       setZoom(value, 100);
       break;
 
-      // ƒvƒŒ[ƒ“ƒ_ƒCƒAƒƒOƒeƒXƒg
+      // ãƒ—ãƒ¬ãƒ¼ãƒ³ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒ†ã‚¹ãƒˆ
     case "customDialogTest":
       queryCustomDialog(this, dict, 
                        %[ 
                          name: "test_dialog",
                          caption: "Test Dialog",
-                         widgetList: [ %[ name: "check", label: "ƒ`ƒFƒbƒNƒ{ƒbƒNƒX", type: DIALOG_WIDGET_TYPE_CHECKBOX,  defaultValue: true ],
-                                       %[ name: "int",   label: "®”“ü—Í",         type: DIALOG_WIDGET_TYPE_TEXTINPUT, textType: TEXT_DIGIT ],
-                                       %[ name: "real",  label: "¬”“ü—Í",         type: DIALOG_WIDGET_TYPE_TEXTINPUT, textType: TEXT_REAL, defaultValue: 0.5 ],
-                                       %[ name: "str",   label: "•¶š“ü—Í",         type: DIALOG_WIDGET_TYPE_TEXTINPUT, textType: TEXT_ANY ],
-                                       %[ name: "text",  label: "ƒeƒLƒXƒg",         type: DIALOG_WIDGET_TYPE_TEXTAREA,   defaultValue: "‚Ù‚°\n‚à‚°" ],
-                                       %[ name: "list",  label: "ƒŠƒXƒg",           type: DIALOG_WIDGET_TYPE_DROPDOWNLIST, listItems: [ "€–Ú1", [ "€–Ú2", 2 ], [ "€–Ú3", 3 ] ], defaultValue: 2]
+                         widgetList: [ %[ name: "check", label: "ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹", type: DIALOG_WIDGET_TYPE_CHECKBOX,  defaultValue: true ],
+                                       %[ name: "int",   label: "æ•´æ•°å…¥åŠ›",         type: DIALOG_WIDGET_TYPE_TEXTINPUT, textType: TEXT_DIGIT ],
+                                       %[ name: "real",  label: "å°æ•°å…¥åŠ›",         type: DIALOG_WIDGET_TYPE_TEXTINPUT, textType: TEXT_REAL, defaultValue: 0.5 ],
+                                       %[ name: "str",   label: "æ–‡å­—å…¥åŠ›",         type: DIALOG_WIDGET_TYPE_TEXTINPUT, textType: TEXT_ANY ],
+                                       %[ name: "text",  label: "ãƒ†ã‚­ã‚¹ãƒˆ",         type: DIALOG_WIDGET_TYPE_TEXTAREA,   defaultValue: "ã»ã’Â¥nã‚‚ã’" ],
+                                       %[ name: "list",  label: "ãƒªã‚¹ãƒˆ",           type: DIALOG_WIDGET_TYPE_DROPDOWNLIST, listItems: [ "é …ç›®1", [ "é …ç›®2", 2 ], [ "é …ç›®3", 3 ] ], defaultValue: 2]
                                        ]
                           ]);
       break;
@@ -396,7 +396,7 @@ class WidgetSample extends KWindow
 };
 
 //----------------------------------------------------------------------
-// ƒTƒ“ƒvƒ‹•\¦E”ñ•\¦‚ÌØ‚è‘Ö‚¦
+// ã‚µãƒ³ãƒ—ãƒ«è¡¨ç¤ºãƒ»éè¡¨ç¤ºã®åˆ‡ã‚Šæ›¿ãˆ
 global.widgetSample = void;
 
 function showWidgetSample

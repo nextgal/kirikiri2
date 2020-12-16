@@ -17,8 +17,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\bin"
-			IntermediateDirectory="obj\Release"
+			OutputDirectory="..¥bin"
+			IntermediateDirectory="obj¥Release"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\ncbind;..\.."
+				AdditionalIncludeDirectories="..¥..¥ncbind;..¥.."
 				PreprocessorDefinitions="NDEBUG"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -48,7 +48,7 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="false"
-				ProgramDataBaseFileName="$(OutDir)\layerExLongExposure.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥layerExLongExposure.pdb"
 				DebugInformationFormat="0"
 			/>
 			<Tool
@@ -57,14 +57,14 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG"
-				AdditionalIncludeDirectories="..\..\ncbind;..\.."
+				AdditionalIncludeDirectories="..¥..¥ncbind;..¥.."
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)\layerExLongExposure.dll"
+				OutputFile="$(OutDir)¥layerExLongExposure.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
 				GenerateManifest="false"
@@ -72,7 +72,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary="..\bin\layerExLongExposure.lib"
+				ImportLibrary="..¥bin¥layerExLongExposure.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -102,8 +102,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\bin"
-			IntermediateDirectory="obj\Debug"
+			OutputDirectory="..¥bin"
+			IntermediateDirectory="obj¥Debug"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -125,7 +125,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\ncbind;..\.."
+				AdditionalIncludeDirectories="..¥..¥ncbind;..¥.."
 				PreprocessorDefinitions="_DEBUG"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -133,7 +133,7 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="false"
-				ProgramDataBaseFileName="$(OutDir)\layerExLongExposure-d.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥layerExLongExposure-d.pdb"
 				DebugInformationFormat="4"
 			/>
 			<Tool
@@ -142,21 +142,21 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG"
-				AdditionalIncludeDirectories="..\..\ncbind;..\.."
+				AdditionalIncludeDirectories="..¥..¥ncbind;..¥.."
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)\layerExLongExposure-d.dll"
+				OutputFile="$(OutDir)¥layerExLongExposure-d.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
 				GenerateManifest="false"
 				GenerateDebugInformation="true"
-				ProgramDataBaseFileName="$(OutDir)\layerExLongExposure-d.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥layerExLongExposure-d.pdb"
 				SubSystem="2"
-				ImportLibrary="..\bin\layerExLongExposure-d.lib"
+				ImportLibrary="..¥bin¥layerExLongExposure-d.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -193,20 +193,20 @@
 			Filter=""
 			>
 			<File
-				RelativePath="..\..\ncbind\ncbind.cpp"
+				RelativePath="..¥..¥ncbind¥ncbind.cpp"
 				>
 			</File>
 		</Filter>
 		<File
-			RelativePath="..\..\tp_stub.cpp"
+			RelativePath="..¥..¥tp_stub.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\tp_stub.h"
+			RelativePath="..¥..¥tp_stub.h"
 			>
 		</File>
 		<File
-			RelativePath="..\Main.cpp"
+			RelativePath="..¥Main.cpp"
 			>
 		</File>
 	</Files>

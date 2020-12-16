@@ -34,7 +34,7 @@ CSceneNodeAnimatorTexture::CSceneNodeAnimatorTexture(const core::array<video::IT
 
 
 //! destructor
-CSceneNodeAnimatorTexture::~CSceneNodeAnimatorTexture()
+CSceneNodeAnimatorTexture::‾CSceneNodeAnimatorTexture()
 {
 	clearTextures();
 }

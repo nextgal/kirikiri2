@@ -215,7 +215,7 @@ public:
 		// Dispatch1 and Dispatch2 are to be set by subsequent call of SetObjects
 	};
 
-	virtual ~tTJSObjectProxy()
+	virtual ‾tTJSObjectProxy()
 	{
 		if(Dispatch1) Dispatch1->Release();
 		if(Dispatch2) Dispatch2->Release();
@@ -567,7 +567,7 @@ class tTJSVariantArrayStack
 
 public:
 	tTJSVariantArrayStack();
-	~tTJSVariantArrayStack();
+	‾tTJSVariantArrayStack();
 
 	tTJSVariant * Allocate(tjs_int num);
 
@@ -586,7 +586,7 @@ tTJSVariantArrayStack::tTJSVariantArrayStack()
 	CompactVariantArrayMagic = TJSCompactVariantArrayMagic;
 }
 //---------------------------------------------------------------------------
-tTJSVariantArrayStack::~tTJSVariantArrayStack()
+tTJSVariantArrayStack::‾tTJSVariantArrayStack()
 {
 	OperationDisabledCount++;
 	tjs_int i;
@@ -879,7 +879,7 @@ void tTJSInterCodeContext::ExecuteAsFunction(iTJSDispatch2 *objthis,
 		catch(...)
 		{
 #ifdef ENABLE_DEBUGGER
-			// ���ɖ߂�
+			// 元に戻す
 			DebuggerScopeKey = oldkey;
 			DebuggerRegisterArea = oldra;
 #endif	// ENABLE_DEBUGGER
@@ -893,7 +893,7 @@ void tTJSInterCodeContext::ExecuteAsFunction(iTJSDispatch2 *objthis,
 		}
 
 #ifdef ENABLE_DEBUGGER
-		// ���ɖ߂�
+		// 元に戻す
 		DebuggerScopeKey = oldkey;
 		DebuggerRegisterArea = oldra;
 #endif	// ENABLE_DEBUGGER
@@ -1171,22 +1171,22 @@ tjs_int tTJSInterCodeContext::ExecuteCode(tTJSVariant *ra_org, tjs_int startip,
 				code += 3;
 				break;
 
-#define TJS_DEF_VM_P(vmcode, rope) \
-			case VM_##vmcode: \
-				TJS_GET_VM_REG(ra, code[1]).rope(TJS_GET_VM_REG(ra, code[2])); \
-				code += 3; \
-				break; \
-			case VM_##vmcode##PD: \
-				OperatePropertyDirect(ra, code, TJS_OP_##vmcode); \
-				code += 5; \
-				break; \
-			case VM_##vmcode##PI: \
-				OperatePropertyIndirect(ra, code, TJS_OP_##vmcode); \
-				code += 5; \
-				break; \
-			case VM_##vmcode##P: \
-				OperateProperty(ra, code, TJS_OP_##vmcode); \
-				code += 4; \
+#define TJS_DEF_VM_P(vmcode, rope) ¥
+			case VM_##vmcode: ¥
+				TJS_GET_VM_REG(ra, code[1]).rope(TJS_GET_VM_REG(ra, code[2])); ¥
+				code += 3; ¥
+				break; ¥
+			case VM_##vmcode##PD: ¥
+				OperatePropertyDirect(ra, code, TJS_OP_##vmcode); ¥
+				code += 5; ¥
+				break; ¥
+			case VM_##vmcode##PI: ¥
+				OperatePropertyIndirect(ra, code, TJS_OP_##vmcode); ¥
+				code += 5; ¥
+				break; ¥
+			case VM_##vmcode##P: ¥
+				OperateProperty(ra, code, TJS_OP_##vmcode); ¥
+				code += 4; ¥
 				break
 
 				TJS_DEF_VM_P(LOR, logicalorequal);
@@ -2216,122 +2216,122 @@ void tTJSInterCodeContext::TypeOfMemberIndirect(tTJSVariant *ra,
 // -2 for expanding array to argument
 #define TJS_PASS_ARGS_PREPARED_ARRAY_COUNT 20
 
-#define TJS_BEGIN_FUNC_CALL_ARGS(_code)                                   \
-	tTJSVariant ** pass_args;                                             \
-	tTJSVariant *pass_args_p[TJS_PASS_ARGS_PREPARED_ARRAY_COUNT];         \
-	tTJSVariant * pass_args_v = NULL;                                     \
-	tjs_int code_size;                                                    \
-	bool alloc_args = false;                                              \
-	try                                                                   \
-	{                                                                     \
-		tjs_int pass_args_count = (_code)[0];                             \
-		if(pass_args_count == -1)                                         \
-		{                                                                 \
-			/* omitting args; pass intact aguments from the caller */     \
-			pass_args = args;                                             \
-			pass_args_count = numargs;                                    \
-			code_size = 1;                                                \
-		}                                                                 \
-		else if(pass_args_count == -2)                                    \
-		{                                                                 \
-			tjs_int args_v_count = 0;                                     \
-			/* count total argument count */                              \
-			pass_args_count = 0;                                          \
-			tjs_int arg_written_count = (_code)[1];                       \
-			code_size = arg_written_count * 2 + 2;                        \
-			for(tjs_int i = 0; i < arg_written_count; i++)                \
-			{                                                             \
-				switch((_code)[i*2+2])                                    \
-				{                                                         \
-				case fatNormal:                                           \
-					pass_args_count ++;                                   \
-					break;                                                \
-				case fatExpand:                                           \
-					args_v_count +=                                       \
-						TJSGetArrayElementCount(                          \
-							TJS_GET_VM_REG(ra, (_code)[i*2+1+2]).         \
-								AsObjectNoAddRef());                      \
-					break;                                                \
-				case fatUnnamedExpand:                                    \
-					pass_args_count +=                                    \
-						(numargs > FuncDeclUnnamedArgArrayBase)?          \
-							(numargs - FuncDeclUnnamedArgArrayBase) : 0;  \
-					break;                                                \
-				}                                                         \
-			}                                                             \
-			pass_args_count += args_v_count;                              \
-			/* allocate temporary variant array for Array object */       \
-			pass_args_v = new tTJSVariant[args_v_count];                  \
-			/* allocate pointer array */                                  \
-			if(pass_args_count < TJS_PASS_ARGS_PREPARED_ARRAY_COUNT)      \
-				pass_args = pass_args_p;                                  \
-			else                                                          \
-				pass_args = new tTJSVariant * [pass_args_count],          \
-					alloc_args = true;                                    \
-			/* create pointer array to pass to callee function */         \
-			args_v_count = 0;                                             \
-			pass_args_count = 0;                                          \
-			for(tjs_int i = 0; i < arg_written_count; i++)                \
-			{                                                             \
-				switch((_code)[i*2+2])                                    \
-				{                                                         \
-				case fatNormal:                                           \
-					pass_args[pass_args_count++] =                        \
-						TJS_GET_VM_REG_ADDR(ra, (_code)[i*2+1+2]);        \
-					break;                                                \
-				case fatExpand:                                           \
-				  {                                                       \
-					tjs_int count = TJSCopyArrayElementTo(                \
-						TJS_GET_VM_REG(ra, (_code)[i*2+1+2]).             \
-								AsObjectNoAddRef(),                       \
-								pass_args_v + args_v_count, 0, -1);       \
-					for(tjs_int j = 0; j < count; j++)                    \
-						pass_args[pass_args_count++] =                    \
-							pass_args_v + j + args_v_count;               \
-	                                                                      \
-					args_v_count += count;                                \
-	                                                                      \
-					break;                                                \
-				  }                                                       \
-				case fatUnnamedExpand:                                    \
-				  {                                                       \
-					tjs_int count =                                       \
-						(numargs > FuncDeclUnnamedArgArrayBase)?          \
-							(numargs - FuncDeclUnnamedArgArrayBase) : 0;  \
-					for(tjs_int j = 0; j < count; j++)                    \
-						pass_args[pass_args_count++] =                    \
-							args[FuncDeclUnnamedArgArrayBase + j];        \
-					break;                                                \
-				  }                                                       \
-				}                                                         \
-			}                                                             \
-		}                                                                 \
-		else if(pass_args_count <= TJS_PASS_ARGS_PREPARED_ARRAY_COUNT)    \
-		{                                                                 \
-			code_size = pass_args_count + 1;                              \
-			pass_args = pass_args_p;                                      \
-			for(tjs_int i = 0; i < pass_args_count; i++)                  \
-				pass_args[i] = TJS_GET_VM_REG_ADDR(ra, (_code)[1+i]);     \
-		}                                                                 \
-		else                                                              \
-		{                                                                 \
-			code_size = pass_args_count + 1;                              \
-			pass_args = new tTJSVariant * [pass_args_count];              \
-			alloc_args = true;                                            \
-			for(tjs_int i = 0; i < pass_args_count; i++)                  \
-				pass_args[i] = TJS_GET_VM_REG_ADDR(ra, (_code)[1+i]);     \
+#define TJS_BEGIN_FUNC_CALL_ARGS(_code)                                   ¥
+	tTJSVariant ** pass_args;                                             ¥
+	tTJSVariant *pass_args_p[TJS_PASS_ARGS_PREPARED_ARRAY_COUNT];         ¥
+	tTJSVariant * pass_args_v = NULL;                                     ¥
+	tjs_int code_size;                                                    ¥
+	bool alloc_args = false;                                              ¥
+	try                                                                   ¥
+	{                                                                     ¥
+		tjs_int pass_args_count = (_code)[0];                             ¥
+		if(pass_args_count == -1)                                         ¥
+		{                                                                 ¥
+			/* omitting args; pass intact aguments from the caller */     ¥
+			pass_args = args;                                             ¥
+			pass_args_count = numargs;                                    ¥
+			code_size = 1;                                                ¥
+		}                                                                 ¥
+		else if(pass_args_count == -2)                                    ¥
+		{                                                                 ¥
+			tjs_int args_v_count = 0;                                     ¥
+			/* count total argument count */                              ¥
+			pass_args_count = 0;                                          ¥
+			tjs_int arg_written_count = (_code)[1];                       ¥
+			code_size = arg_written_count * 2 + 2;                        ¥
+			for(tjs_int i = 0; i < arg_written_count; i++)                ¥
+			{                                                             ¥
+				switch((_code)[i*2+2])                                    ¥
+				{                                                         ¥
+				case fatNormal:                                           ¥
+					pass_args_count ++;                                   ¥
+					break;                                                ¥
+				case fatExpand:                                           ¥
+					args_v_count +=                                       ¥
+						TJSGetArrayElementCount(                          ¥
+							TJS_GET_VM_REG(ra, (_code)[i*2+1+2]).         ¥
+								AsObjectNoAddRef());                      ¥
+					break;                                                ¥
+				case fatUnnamedExpand:                                    ¥
+					pass_args_count +=                                    ¥
+						(numargs > FuncDeclUnnamedArgArrayBase)?          ¥
+							(numargs - FuncDeclUnnamedArgArrayBase) : 0;  ¥
+					break;                                                ¥
+				}                                                         ¥
+			}                                                             ¥
+			pass_args_count += args_v_count;                              ¥
+			/* allocate temporary variant array for Array object */       ¥
+			pass_args_v = new tTJSVariant[args_v_count];                  ¥
+			/* allocate pointer array */                                  ¥
+			if(pass_args_count < TJS_PASS_ARGS_PREPARED_ARRAY_COUNT)      ¥
+				pass_args = pass_args_p;                                  ¥
+			else                                                          ¥
+				pass_args = new tTJSVariant * [pass_args_count],          ¥
+					alloc_args = true;                                    ¥
+			/* create pointer array to pass to callee function */         ¥
+			args_v_count = 0;                                             ¥
+			pass_args_count = 0;                                          ¥
+			for(tjs_int i = 0; i < arg_written_count; i++)                ¥
+			{                                                             ¥
+				switch((_code)[i*2+2])                                    ¥
+				{                                                         ¥
+				case fatNormal:                                           ¥
+					pass_args[pass_args_count++] =                        ¥
+						TJS_GET_VM_REG_ADDR(ra, (_code)[i*2+1+2]);        ¥
+					break;                                                ¥
+				case fatExpand:                                           ¥
+				  {                                                       ¥
+					tjs_int count = TJSCopyArrayElementTo(                ¥
+						TJS_GET_VM_REG(ra, (_code)[i*2+1+2]).             ¥
+								AsObjectNoAddRef(),                       ¥
+								pass_args_v + args_v_count, 0, -1);       ¥
+					for(tjs_int j = 0; j < count; j++)                    ¥
+						pass_args[pass_args_count++] =                    ¥
+							pass_args_v + j + args_v_count;               ¥
+	                                                                      ¥
+					args_v_count += count;                                ¥
+	                                                                      ¥
+					break;                                                ¥
+				  }                                                       ¥
+				case fatUnnamedExpand:                                    ¥
+				  {                                                       ¥
+					tjs_int count =                                       ¥
+						(numargs > FuncDeclUnnamedArgArrayBase)?          ¥
+							(numargs - FuncDeclUnnamedArgArrayBase) : 0;  ¥
+					for(tjs_int j = 0; j < count; j++)                    ¥
+						pass_args[pass_args_count++] =                    ¥
+							args[FuncDeclUnnamedArgArrayBase + j];        ¥
+					break;                                                ¥
+				  }                                                       ¥
+				}                                                         ¥
+			}                                                             ¥
+		}                                                                 ¥
+		else if(pass_args_count <= TJS_PASS_ARGS_PREPARED_ARRAY_COUNT)    ¥
+		{                                                                 ¥
+			code_size = pass_args_count + 1;                              ¥
+			pass_args = pass_args_p;                                      ¥
+			for(tjs_int i = 0; i < pass_args_count; i++)                  ¥
+				pass_args[i] = TJS_GET_VM_REG_ADDR(ra, (_code)[1+i]);     ¥
+		}                                                                 ¥
+		else                                                              ¥
+		{                                                                 ¥
+			code_size = pass_args_count + 1;                              ¥
+			pass_args = new tTJSVariant * [pass_args_count];              ¥
+			alloc_args = true;                                            ¥
+			for(tjs_int i = 0; i < pass_args_count; i++)                  ¥
+				pass_args[i] = TJS_GET_VM_REG_ADDR(ra, (_code)[1+i]);     ¥
 		}
 
 
-#define TJS_END_FUNC_CALL_ARGS                                            \
-	}                                                                     \
-	catch(...)                                                            \
-	{                                                                     \
-		if(alloc_args) delete [] pass_args;                               \
-		if(pass_args_v) delete [] pass_args_v;                            \
-		throw;                                                            \
-	}                                                                     \
-	if(alloc_args) delete [] pass_args;                                   \
+#define TJS_END_FUNC_CALL_ARGS                                            ¥
+	}                                                                     ¥
+	catch(...)                                                            ¥
+	{                                                                     ¥
+		if(alloc_args) delete [] pass_args;                               ¥
+		if(pass_args_v) delete [] pass_args_v;                            ¥
+		throw;                                                            ¥
+	}                                                                     ¥
+	if(alloc_args) delete [] pass_args;                                   ¥
 	if(pass_args_v) delete [] pass_args_v;
 //---------------------------------------------------------------------------
 tjs_int tTJSInterCodeContext::CallFunction(tTJSVariant *ra,
@@ -2780,14 +2780,14 @@ void tTJSInterCodeContext::ProcessStringFunction(const tjs_char *member,
 
 		tjs_int w_len = s_len;
 		const tjs_char *src = s + s_len - 1;
-		/*  s/\s+$//;  */
+		/*  s/¥s+$//;  */
 		while (w_len > 0 && *src > 0x00 && *src <= 0x20)
 		{
 			w_len--;
 			src--;
 		}
 		src = s;
-		/*  s/^\s+//;  */
+		/*  s/^¥s+//;  */
 		while (w_len > 0 && *src > 0x00 && *src <= 0x20)
 		{
 			w_len--;
@@ -3012,22 +3012,22 @@ void tTJSInterCodeContext::RegisterObjectMember(iTJSDispatch2 * dest)
 		&tTJSVariantClosure(&callback, (iTJSDispatch2*)NULL), this);
 }
 //---------------------------------------------------------------------------
-#define TJS_DO_SUPERCLASS_PROXY_BEGIN \
-		std::vector<tjs_int> &pointer = SuperClassGetter->SuperClassGetterPointer; \
-		if(pointer.size() != 0) \
-		{ \
-			std::vector<tjs_int>::iterator i; \
-			for(i = pointer.end()-1; \
-				i >=pointer.begin(); i--) \
-			{ \
-				tTJSVariant res; \
-				SuperClassGetter->ExecuteAsFunction(NULL, NULL, 0, &res, *i); \
+#define TJS_DO_SUPERCLASS_PROXY_BEGIN ¥
+		std::vector<tjs_int> &pointer = SuperClassGetter->SuperClassGetterPointer; ¥
+		if(pointer.size() != 0) ¥
+		{ ¥
+			std::vector<tjs_int>::iterator i; ¥
+			for(i = pointer.end()-1; ¥
+				i >=pointer.begin(); i--) ¥
+			{ ¥
+				tTJSVariant res; ¥
+				SuperClassGetter->ExecuteAsFunction(NULL, NULL, 0, &res, *i); ¥
 				tTJSVariantClosure clo = res.AsObjectClosureNoAddRef();
 
 
-#define TJS_DO_SUPERCLASS_PROXY_END \
-				if(hr != TJS_E_MEMBERNOTFOUND) break; \
-			} \
+#define TJS_DO_SUPERCLASS_PROXY_END ¥
+				if(hr != TJS_E_MEMBERNOTFOUND) break; ¥
+			} ¥
 		}
 
 tjs_error TJS_INTF_METHOD  tTJSInterCodeContext::FuncCall(
@@ -3141,7 +3141,7 @@ tjs_error TJS_INTF_METHOD  tTJSInterCodeContext::PropSet(tjs_uint32 flag,
 	if(membername != NULL && ContextType == ctClass && SuperClassGetter)
 	{
 		tjs_uint32 pseudo_flag =
-			(flag & TJS_IGNOREPROP) ? flag : (flag &~ TJS_MEMBERENSURE);
+			(flag & TJS_IGNOREPROP) ? flag : (flag &‾ TJS_MEMBERENSURE);
 			// member ensuring is temporarily disabled unless TJS_IGNOREPROP
 
 		hr = inherited::PropSet(pseudo_flag, membername, hint, param,
@@ -3359,7 +3359,7 @@ tjs_error TJS_INTF_METHOD
 	if(membername != NULL && ContextType == ctClass && SuperClassGetter)
 	{
 		tjs_uint32 pseudo_flag =
-			(flag & TJS_IGNOREPROP) ? flag : (flag &~ TJS_MEMBERENSURE);
+			(flag & TJS_IGNOREPROP) ? flag : (flag &‾ TJS_MEMBERENSURE);
 
 		tjs_error hr = inherited::Operation(pseudo_flag, membername, hint,
 			result, param, objthis);

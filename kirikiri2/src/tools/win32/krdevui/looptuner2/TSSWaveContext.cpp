@@ -52,7 +52,7 @@ __fastcall TTSSWaveContext::TTSSWaveContext(AnsiString dllname)
 	FHandle = LoadLibrary(dllname.c_str());
 	if(FHandle == NULL)
 	{
-		throw Exception(dllname + "��ǂݍ��ނ��Ƃ��ł��܂���");
+		throw Exception(dllname + "を読み込むことができません");
 	}
 
 	FGetModuleInstance =(GetModuleInstanceProc)
@@ -69,11 +69,11 @@ __fastcall TTSSWaveContext::TTSSWaveContext(AnsiString dllname)
 	{
 		FreeLibrary(FHandle);
 		FHandle = NULL;
-		throw Exception("�O�� DLL "+dllname+" �͎g�p�ł��܂���");
+		throw Exception("外部 DLL "+dllname+" は使用できません");
 	}
 }
 //---------------------------------------------------------------------------
-__fastcall TTSSWaveContext::~TTSSWaveContext()
+__fastcall TTSSWaveContext::‾TTSSWaveContext()
 {
 	if(FDecoder) FDecoder->Release();
 	if(FModule) FModule->Release();
@@ -91,7 +91,7 @@ bool __fastcall TTSSWaveContext::Start(AnsiString filename)
 	hr = FModule->GetMediaInstance(WideString(filename).c_bstr(), &decoder);
 	if(FAILED(hr))
 	{
-		throw Exception(filename + " �͊J�����Ƃ��ł��܂���");
+		throw Exception(filename + " は開くことができません");
 	}
 
 	hr = decoder->QueryInterface(IID_ITSSWaveDecoder, (void**)&FDecoder);
@@ -99,7 +99,7 @@ bool __fastcall TTSSWaveContext::Start(AnsiString filename)
 	{
 		decoder->Release();
 		FDecoder = NULL;
-		throw Exception(filename + " �̃��f�B�A�E�^�C�v�͈������Ƃ��ł��܂���");
+		throw Exception(filename + " のメディア・タイプは扱うことができません");
 	}
 
 	decoder->Release();
@@ -108,24 +108,24 @@ bool __fastcall TTSSWaveContext::Start(AnsiString filename)
 	FDecoder->GetFormat(&format);
 	if(format.dwBitsPerSample != 16)
 	{
-		throw Exception(filename + " �� 16bit PCM �ɕϊ��ł��Ȃ����߈������Ƃ��ł��܂���");
+		throw Exception(filename + " は 16bit PCM に変換できないため扱うことができません");
 	}
 	if(format.dwChannels > 8)
 	{
-		throw Exception(filename + " �� 9�`���l���ȏ゠�邽�߈������Ƃ��ł��܂���");
+		throw Exception(filename + " は 9チャネル以上あるため扱うことができません");
 	}
 	if(format.ui64TotalSamples == 0)
 	{
-		throw Exception(filename + " �� ���T���v�������s�����A�[���̂��߈������Ƃ��ł��܂���");
+		throw Exception(filename + " は 総サンプル数が不明か、ゼロのため扱うことができません");
 	}
 	if(format.ui64TotalSamples >= 0x10000000ui64)
 	{
-		throw Exception(filename + " �� �傫�����邽�߁A�������Ƃ��ł��܂���");
+		throw Exception(filename + " は 大きすぎるため、扱うことができません");
 	}
 	FChannels = format.dwChannels;
 	FFrequency = format.dwSamplesPerSec;
 	FBitsPerSample = 16;
-	FSpeakerConfig = 0; // �����_�ł͏�� 0 (�Ȃɂ��K�i�����邩��)
+	FSpeakerConfig = 0; // 現時点では常に 0 (なにか規格をつくるかも)
 	FTotalSamples = (int)format.ui64TotalSamples;
 
 	FGranuleSize = FChannels * sizeof(__int16);

@@ -40,7 +40,7 @@ symbols<T, CharT, SetT>::symbols(symbols const& other)
 
 //////////////////////////////////
 template <typename T, typename CharT, typename SetT>
-inline symbols<T, CharT, SetT>::~symbols()
+inline symbols<T, CharT, SetT>::‾symbols()
 {}
 
 //////////////////////////////////

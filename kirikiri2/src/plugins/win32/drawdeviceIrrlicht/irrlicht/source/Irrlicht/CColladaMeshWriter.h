@@ -27,7 +27,7 @@ class CColladaMeshWriter : public IMeshWriter
 public:
 
 	CColladaMeshWriter(video::IVideoDriver* driver, io::IFileSystem* fs);
-	virtual ~CColladaMeshWriter();
+	virtual ‾CColladaMeshWriter();
 
 	//! Returns the type of the mesh writer
 	virtual EMESH_WRITER_TYPE getType() const;

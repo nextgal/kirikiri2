@@ -1,23 +1,23 @@
 ;@position vertical=true
-[image storage="_24_3" page=fore layer=base]\
+[image storage="_24_3" page=fore layer=base]楼
 *first
-[cm]\
-慖戰巿僥僗僩
+[cm]楼
+閬告姙鑲€儐銈广儓
 
-[link target=*sel1]慖戰巿侾[endlink]
-[link target=*sel2]慖戰巿俀[endlink] [link target=*sel2]慖戰巿俀[endlink]
-[link target=*sel2]慖戰巿俀[endlink] [link target=*sel2]慖[font size=40]戰[resetfont]巿俀[endlink]
-[link exp="kag.restoreBookMark(0,true)"]瀤侽傪偨偳傞[endlink]
+[link target=*sel1]閬告姙鑲紤[endlink]
+[link target=*sel2]閬告姙鑲紥[endlink] [link target=*sel2]閬告姙鑲紥[endlink]
+[link target=*sel2]閬告姙鑲紥[endlink] [link target=*sel2]閬竅font size=40]鎶瀃resetfont]鑲紥[endlink]
+[link exp="kag.restoreBookMark(0,true)"]鏍烇紣銈掋仧銇┿倠[endlink]
 [s]
 
 *sel1
-[cm]\
-慖戰巿侾偑慖戰偝傟傑偟偨丅[l]\
-[jump target=*first]\
+[cm]楼
+閬告姙鑲紤銇岄伕鎶炪仌銈屻伨銇椼仧銆俒l]楼
+[jump target=*first]楼
 
 *sel2
-[cm]\
-慖戰巿俀偑慖戰偝傟傑偟偨丅[l]\
-[jump target=*first]\
+[cm]楼
+閬告姙鑲紥銇岄伕鎶炪仌銈屻伨銇椼仧銆俒l]楼
+[jump target=*first]楼
 
 

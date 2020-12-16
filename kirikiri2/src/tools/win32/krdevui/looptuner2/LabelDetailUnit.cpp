@@ -68,12 +68,12 @@ void __fastcall TLabelDetailForm::FormCloseQuery(TObject *Sender,
 		EditLabelAttribFrame->SetLabelInfo(FLabel);
 		if(FLabel.Name.c_str()[0] == ':' && !tTVPWaveLoopManager::GetLabelExpression(FLabel.Name))
 		{
-			Application->MessageBox("���̕��@���Ԉ���Ă��܂�", "�G���[", MB_OK|MB_ICONEXCLAMATION);
+			Application->MessageBox("式の文法が間違っています", "エラー", MB_OK|MB_ICONEXCLAMATION);
 			CanClose = false;
 		}
 		if(FLabel.Name.AnsiPos("'") != 0)
 		{
-			Application->MessageBox("���x�����ɃA�|�X�g���t�B�[ (') ���܂߂鎖�͂ł��܂���", "�G���[", MB_OK|MB_ICONEXCLAMATION);
+			Application->MessageBox("ラベル名にアポストロフィー (') を含める事はできません", "エラー", MB_OK|MB_ICONEXCLAMATION);
 			CanClose = false;
 		}
 	}

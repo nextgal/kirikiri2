@@ -482,21 +482,21 @@ void zerr(int ret)
     switch (ret) {
     case Z_ERRNO:
         if (ferror(stdin))
-            fputs("error reading stdin\n", stderr);
+            fputs("error reading stdin¥n", stderr);
         if (ferror(stdout))
-            fputs("error writing stdout\n", stderr);
+            fputs("error writing stdout¥n", stderr);
         break;
     case Z_STREAM_ERROR:
-        fputs("invalid compression level\n", stderr);
+        fputs("invalid compression level¥n", stderr);
         break;
     case Z_DATA_ERROR:
-        fputs("invalid or incomplete deflate data\n", stderr);
+        fputs("invalid or incomplete deflate data¥n", stderr);
         break;
     case Z_MEM_ERROR:
-        fputs("out of memory\n", stderr);
+        fputs("out of memory¥n", stderr);
         break;
     case Z_VERSION_ERROR:
-        fputs("zlib version mismatch!\n", stderr);
+        fputs("zlib version mismatch!¥n", stderr);
     }
 }
 </b></pre><!-- -->
@@ -534,7 +534,7 @@ int main(int argc, char **argv)
 
     /* otherwise, report usage */
     else {
-        fputs("zpipe usage: zpipe [-d] &lt; source &gt; dest\n", stderr);
+        fputs("zpipe usage: zpipe [-d] &lt; source &gt; dest¥n", stderr);
         return 1;
     }
 }

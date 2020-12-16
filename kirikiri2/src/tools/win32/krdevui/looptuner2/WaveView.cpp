@@ -19,21 +19,21 @@
 //---------------------------------------------------------------------------
 // constants
 //---------------------------------------------------------------------------
-const AnsiString C_NEW_LABEL_BASE_NAME = "ƒ‰ƒxƒ‹";
+const AnsiString C_NEW_LABEL_BASE_NAME = "ãƒ©ãƒ™ãƒ«";
 const AnsiString C_LINK_HINT =
-	"ƒŠƒ“ƒNŒ³: %s\n"	// link from
-	"ƒŠƒ“ƒNæ: %s\n"	// link to
-	"‹——£ : %s\n"		// distance
-	"ðŒ : %s"   		// condition
+	"ãƒªãƒ³ã‚¯å…ƒ: %sÂ¥n"	// link from
+	"ãƒªãƒ³ã‚¯å…ˆ: %sÂ¥n"	// link to
+	"è·é›¢ : %sÂ¥n"		// distance
+	"æ¡ä»¶ : %s"   		// condition
 	;
 const AnsiString C_LINK_COND_CODES[] = {
-	"ðŒ–³‚µ",
-	"%d ”Ô‚Ìƒtƒ‰ƒO‚ª %d ‚Æ“¯‚¶‚Æ‚«",
-	"%d ”Ô‚Ìƒtƒ‰ƒO‚ª %d ‚Å‚È‚¢‚Æ‚«",
-	"%d ”Ô‚Ìƒtƒ‰ƒO‚ª %d ‚æ‚è‘å‚«‚¢‚Æ‚«",
-	"%d ”Ô‚Ìƒtƒ‰ƒO‚ª %d ˆÈã‚Ì‚Æ‚«",
-	"%d ”Ô‚Ìƒtƒ‰ƒO‚ª %d ‚æ‚è¬‚³‚¢‚Æ‚«",
-	"%d ”Ô‚Ìƒtƒ‰ƒO‚ª %d ˆÈ‰º‚Ì‚Æ‚«"
+	"æ¡ä»¶ç„¡ã—",
+	"%d ç•ªã®ãƒ•ãƒ©ã‚°ãŒ %d ã¨åŒã˜ã¨ã",
+	"%d ç•ªã®ãƒ•ãƒ©ã‚°ãŒ %d ã§ãªã„ã¨ã",
+	"%d ç•ªã®ãƒ•ãƒ©ã‚°ãŒ %d ã‚ˆã‚Šå¤§ãã„ã¨ã",
+	"%d ç•ªã®ãƒ•ãƒ©ã‚°ãŒ %d ä»¥ä¸Šã®ã¨ã",
+	"%d ç•ªã®ãƒ•ãƒ©ã‚°ãŒ %d ã‚ˆã‚Šå°ã•ã„ã¨ã",
+	"%d ç•ªã®ãƒ•ãƒ©ã‚°ãŒ %d ä»¥ä¸‹ã®ã¨ã"
 };
 //---------------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ __fastcall TWaveView::TWaveView(Classes::TComponent* AOwner) :
 	ClearAll();
 }
 //---------------------------------------------------------------------------
-__fastcall TWaveView::~TWaveView()
+__fastcall TWaveView::â€¾TWaveView()
 {
 	delete DragScrollTimer;
 	delete FBlinkTimer;
@@ -788,7 +788,7 @@ void __fastcall TWaveView::GetPositionStringAt(int vx, int vy,
 	int head_size = GetHeadSize();
 	int foot_size = GetFootSize();
 
-	int one_height = ((ClientHeight - head_size - foot_size) / FReader->Channels) & ~1;
+	int one_height = ((ClientHeight - head_size - foot_size) / FReader->Channels) & â€¾1;
 
 	int ch = (vy - head_size) / one_height;
 
@@ -989,7 +989,7 @@ void __fastcall TWaveView::DrawWave(int start, bool clear)
 	int head_size = GetHeadSize();
 	int foot_size = GetFootSize();
 	int bottom_limit = ClientHeight - foot_size;
-	int one_height = ((ClientHeight - head_size - foot_size) / FReader->Channels) & ~1;
+	int one_height = ((ClientHeight - head_size - foot_size) / FReader->Channels) & â€¾1;
 	int one_height_half = one_height >> 1;
 	int one_client_height = one_height - 2; // 2 : padding margin
 
@@ -1017,7 +1017,7 @@ void __fastcall TWaveView::DrawWave(int start, bool clear)
 	if(vr < dest_right) dest_right = vr;
 
 	// clear the background
-	#define		CONV_Y(v, ch) ((((v) * one_client_height) / -65536) + \
+	#define		CONV_Y(v, ch) ((((v) * one_client_height) / -65536) + Â¥
 							one_height_half + (ch) * one_height + head_size)
 
 	if(clear)

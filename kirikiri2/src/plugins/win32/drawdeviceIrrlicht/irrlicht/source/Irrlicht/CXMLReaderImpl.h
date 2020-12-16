@@ -58,14 +58,14 @@ public:
     	
 
 	//! Destructor
-	virtual ~CXMLReaderImpl()
+	virtual ‾CXMLReaderImpl()
 	{
 		delete [] TextData;
 	}
 
 
 	//! Reads forward to the next xml node. 
-	//! \return Returns false, if there was no further node. 
+	//! ¥return Returns false, if there was no further node. 
 	virtual bool read()
 	{
 		// if not end reached, parse the node
@@ -357,7 +357,7 @@ private:
 
 					// read the attribute value
 					// check for quotes and single quotes, thx to murphy
-					while( (*P != L'\"') && (*P != L'\'') && *P) 
+					while( (*P != L'¥"') && (*P != L'¥'') && *P) 
 						++P;
 
 					if (!*P) // malformatted xml file
@@ -629,10 +629,10 @@ private:
 
 
 	//! converts the text file into the desired format.
-	//! \param source: begin of the text (without byte order mark)
-	//! \param pointerToStore: pointer to text data block which can be
+	//! ¥param source: begin of the text (without byte order mark)
+	//! ¥param pointerToStore: pointer to text data block which can be
 	//! stored or deleted based on the nesessary conversion.
-	//! \param sizeWithoutHeader: Text size in characters without header
+	//! ¥param sizeWithoutHeader: Text size in characters without header
 	template<class src_char_type>
 	void convertTextData(src_char_type* source, char* pointerToStore, int sizeWithoutHeader)
 	{
@@ -711,7 +711,7 @@ private:
 	//! returns true if a character is whitespace
 	inline bool isWhiteSpace(char_type c)
 	{
-		return (c==' ' || c=='\t' || c=='\n' || c=='\r');
+		return (c==' ' || c=='¥t' || c=='¥n' || c=='¥r');
 	}
 
 
@@ -725,7 +725,7 @@ private:
 		SpecialCharacters.push_back("&amp;");
 		SpecialCharacters.push_back("<lt;");
 		SpecialCharacters.push_back(">gt;");
-		SpecialCharacters.push_back("\"quot;");
+		SpecialCharacters.push_back("¥"quot;");
 		SpecialCharacters.push_back("'apos;");
 		
 	}

@@ -1,6 +1,6 @@
 //
-// JScript による記述
-// って TJS と全然かわらんけど^^;
+// JScript 縺ｫ繧医ｋ險倩ｿｰ
+// 縺｣縺ｦ TJS 縺ｨ蜈ｨ辟ｶ縺九ｏ繧峨ｓ縺代←^^;
 //
 var win = new Window();
 win.setInnerSize(400,400);

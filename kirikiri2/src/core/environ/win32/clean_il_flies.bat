@@ -1,2 +1,2 @@
-del intermediate\tvpwin32*.*
+del intermediate¥tvpwin32*.*
 pause

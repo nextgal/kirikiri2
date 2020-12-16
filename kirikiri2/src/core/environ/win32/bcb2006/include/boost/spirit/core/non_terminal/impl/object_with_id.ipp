@@ -78,7 +78,7 @@ namespace boost { namespace spirit {
                 base_t::operator=(other);
                 return *this;
             }
-            ~object_with_id() { base_t::release_object_id(id); }
+            ‾object_with_id() { base_t::release_object_id(id); }
             object_id get_object_id() const { return id; }
 
         private:

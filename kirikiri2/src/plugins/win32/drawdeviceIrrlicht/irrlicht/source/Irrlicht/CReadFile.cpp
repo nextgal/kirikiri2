@@ -26,7 +26,7 @@ CReadFile::CReadFile(const c8* fileName)
 
 
 
-CReadFile::~CReadFile()
+CReadFile::‾CReadFile()
 {
 	if (File) {
 		File->Release();

@@ -78,7 +78,7 @@ class tTVPKeyRepeatEmulator
 
 public:
 	tTVPKeyRepeatEmulator();
-	~tTVPKeyRepeatEmulator();
+	‾tTVPKeyRepeatEmulator();
 
 	void Down();
 	void Up();
@@ -102,7 +102,7 @@ protected:
 public:
 	tTVPDirectInputDevice();
 
-	virtual ~tTVPDirectInputDevice();
+	virtual ‾tTVPDirectInputDevice();
 
 	void SetCooperativeLevel(HWND window);
 		// set cooperatice level to the Device.
@@ -118,7 +118,7 @@ class tTVPWheelDirectInputDevice : public tTVPDirectInputDevice
 {
 public:
 	tTVPWheelDirectInputDevice(HWND window);
-	~tTVPWheelDirectInputDevice();
+	‾tTVPWheelDirectInputDevice();
 
 	tjs_int GetWheelDelta();
 };
@@ -144,7 +144,7 @@ class tTVPPadDirectInputDevice : public tTVPDirectInputDevice
 
 public:
 	tTVPPadDirectInputDevice(HWND window);
-	~tTVPPadDirectInputDevice();
+	‾tTVPPadDirectInputDevice();
 
 private:
 	static bool CALLBACK EnumJoySticksCallback(

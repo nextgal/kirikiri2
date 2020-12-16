@@ -1,18 +1,18 @@
 @if exp="typeof(global.gvolume_object) == 'undefined'"
 @iscript
 
-// ‰¹—Êİ’èƒƒjƒ…[ƒvƒ‰ƒOƒCƒ“
+// éŸ³é‡è¨­å®šãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
 
 class GVolumePlugin extends KAGPlugin
 {
-	var window; // ƒEƒBƒ“ƒhƒE‚Ö‚ÌQÆ
-	var volumeMenu; // u‰¹—Ê(&O)vƒƒjƒ…[
+	var window; // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¸ã®å‚ç…§
+	var volumeMenu; // ã€ŒéŸ³é‡(&O)ã€ãƒ¡ãƒ‹ãƒ¥ãƒ¼
 
-	var menuInsertPoint = 3; // ƒƒjƒ…[‘}“üˆÊ’u
+	var menuInsertPoint = 3; // ãƒ¡ãƒ‹ãƒ¥ãƒ¼æŒ¿å…¥ä½ç½®
 	var insertToRoot = false;
-		// ª true ‚Éİ’è‚·‚é‚Æ gvolmenu ƒ^ƒO‚Å‘}“ü‚·‚é‰¹—Ê‚Ìƒƒjƒ…[‚ªA
-		// ƒƒjƒ…[ƒo[‚É’¼Ú•À‚Ñ‚Ü‚·B‘}“üˆÊ’u‚Í menuInsertPoint ‚Å
-		// w’è‚Å‚«‚Ü‚·B
+		// â†‘ true ã«è¨­å®šã™ã‚‹ã¨ gvolmenu ã‚¿ã‚°ã§æŒ¿å…¥ã™ã‚‹éŸ³é‡ã®ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãŒã€
+		// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼ã«ç›´æ¥ä¸¦ã³ã¾ã™ã€‚æŒ¿å…¥ä½ç½®ã¯ menuInsertPoint ã§
+		// æŒ‡å®šã§ãã¾ã™ã€‚
 
 	function GVolumePlugin(window)
 	{
@@ -21,11 +21,11 @@ class GVolumePlugin extends KAGPlugin
 
 		if(!insertToRoot)
 		{
-			// u‰¹—Êvƒƒjƒ…[ƒAƒCƒeƒ€‚Ìì¬
-			window.menu.insert(volumeMenu = new KAGMenuItem(window, "‰¹—Ê(&O)", 0, void, false),
+			// ã€ŒéŸ³é‡ã€ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ ã®ä½œæˆ
+			window.menu.insert(volumeMenu = new KAGMenuItem(window, "éŸ³é‡(&O)", 0, void, false),
 				menuInsertPoint);
-				// ‚±‚±‚ÅAwindow.menu ‚Íƒƒjƒ…[‚Ì‘}“üæAÅŒã‚Ì 3 ‚Íƒƒjƒ…[‚Ì‘}“üˆÊ’u
-			volumeMenu.stopRecur = true; // ‚±‚Ìƒƒjƒ…[‚Ìæ‚ÌÄ‹AŒŸõ‚ğs‚í‚¹‚È‚¢
+				// ã“ã“ã§ã€window.menu ã¯ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®æŒ¿å…¥å…ˆã€æœ€å¾Œã® 3 ã¯ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®æŒ¿å…¥ä½ç½®
+			volumeMenu.stopRecur = true; // ã“ã®ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®å…ˆã®å†å¸°æ¤œç´¢ã‚’è¡Œã‚ã›ãªã„
 		}
 
 	}
@@ -37,11 +37,11 @@ class GVolumePlugin extends KAGPlugin
 
 	function createMenu(name, control)
 	{
-		// ‰¹—Ê’²ßƒƒjƒ…[‚ğì¬‚·‚é
-		// name = ƒƒjƒ…[–¼
-		// control = ƒRƒ“ƒgƒ[ƒ‹æ ('bgm' ‚Ü‚½‚Í Œø‰Ê‰¹”Ô† 0 ` )
+		// éŸ³é‡èª¿ç¯€ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’ä½œæˆã™ã‚‹
+		// name = ãƒ¡ãƒ‹ãƒ¥ãƒ¼å
+		// control = ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«å…ˆ ('bgm' ã¾ãŸã¯ åŠ¹æœéŸ³ç•ªå· 0 ã€œ )
 		var menu = new KAGMenuItem(window, name, 0, void, false);
-		var currentvol; // Œ»İ‚Ìƒ{ƒŠƒ…[ƒ€
+		var currentvol; // ç¾åœ¨ã®ãƒœãƒªãƒ¥ãƒ¼ãƒ 
 		if(control == 'bgm')
 		{
 			// BGM
@@ -50,8 +50,8 @@ class GVolumePlugin extends KAGPlugin
 		}
 		else
 		{
-			// Œø‰Ê‰¹‚Í ',' ‚Å‹æØ‚Á‚Ä•¡”w’è‚Å‚«‚é‚ª
-			// ‚±‚±‚Å‰¹—Ê‚ğ“¾‚é‚Ì‚ÍÅ‰‚Ìƒoƒbƒtƒ@‚Ì‚İ
+			// åŠ¹æœéŸ³ã¯ ',' ã§åŒºåˆ‡ã£ã¦è¤‡æ•°æŒ‡å®šã§ãã‚‹ãŒ
+			// ã“ã“ã§éŸ³é‡ã‚’å¾—ã‚‹ã®ã¯æœ€åˆã®ãƒãƒƒãƒ•ã‚¡ã®ã¿
 			var buffers = [].split(',', control);
 			currentvol = int(window.se[+(buffers[0])].volume2 / 1000);
 			menu.control = buffers;
@@ -63,11 +63,11 @@ class GVolumePlugin extends KAGPlugin
 		else
 			window.menu.insert(menu, menuInsertPoint);
 
-		menu.stopRecur = true; // ‚±‚Ìƒƒjƒ…[‚Ìæ‚ÌÄ‹AŒŸõ‚ğs‚í‚¹‚È‚¢
+		menu.stopRecur = true; // ã“ã®ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®å…ˆã®å†å¸°æ¤œç´¢ã‚’è¡Œã‚ã›ãªã„
 		var checked = false;
 		for(var i = 100; i >= 0; i-=5)
 		{
-			var name = i ? (i + "%" ) : "ƒ~ƒ…[ƒg(&M)";
+			var name = i ? (i + "%" ) : "ãƒŸãƒ¥ãƒ¼ãƒˆ(&M)";
 			var submenu = new KAGMenuItem(window, name, 1, onMenuClick, false);
 			menu.add(submenu);
 			submenu.control = control;
@@ -78,15 +78,15 @@ class GVolumePlugin extends KAGPlugin
 
 	function onMenuClick(menu)
 	{
-		// ƒƒjƒ…[‚ª‘I‘ğ‚³‚ê‚½
+		// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãŒé¸æŠã•ã‚ŒãŸ
 		if(menu.control === 'bgm')
 		{
-			// bgm ‚Ì‰¹—Ê‚ğİ’è
+			// bgm ã®éŸ³é‡ã‚’è¨­å®š
 			window.bgm.setOptions(%[gvolume:menu.volume]);
 		}
 		else
 		{
-			// Œø‰Ê‰¹‚Ì‰¹—Ê‚ğİ’è
+			// åŠ¹æœéŸ³ã®éŸ³é‡ã‚’è¨­å®š
 			var buffers = menu.parent.control;
 			dm(buffers);
 			for(var i = buffers.count - 1; i >= 0; i--)
@@ -99,7 +99,7 @@ class GVolumePlugin extends KAGPlugin
 }
 
 kag.addPlugin(global.gvolume_object = new GVolumePlugin(kag));
-	// ƒvƒ‰ƒOƒCƒ“ƒIƒuƒWƒFƒNƒg‚ğì¬‚µA“o˜^‚·‚é
+	// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã€ç™»éŒ²ã™ã‚‹
 
 @endscript
 @endif

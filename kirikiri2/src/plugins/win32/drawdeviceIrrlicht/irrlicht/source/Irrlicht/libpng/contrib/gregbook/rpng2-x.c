@@ -103,10 +103,10 @@
  * only happen with alpha (which could easily be avoided with
  * "ush acopy = (alpha);") */
 
-#define alpha_composite(composite, fg, alpha, bg) {               \
-    ush temp = ((ush)(fg)*(ush)(alpha) +                          \
-                (ush)(bg)*(ush)(255 - (ush)(alpha)) + (ush)128);  \
-    (composite) = (uch)((temp + (temp >> 8)) >> 8);               \
+#define alpha_composite(composite, fg, alpha, bg) {               ¥
+    ush temp = ((ush)(fg)*(ush)(alpha) +                          ¥
+                (ush)(bg)*(ush)(255 - (ush)(alpha)) + (ush)128);  ¥
+    (composite) = (uch)((temp + (temp >> 8)) >> 8);               ¥
 }
 
 
@@ -205,7 +205,7 @@ static struct background_pattern {
     {1,    10,0,  7,0},         /* diamonds:  red vs. medium blue */
     {1,     4,0,  5,0},         /* diamonds:  gold vs. yellow */
     {1,     3,0,  0,0},         /* diamonds:  medium green vs. black */
-    {2,    16, 100,  20,   0},  /* radial:  ~hard radial color-beams */
+    {2,    16, 100,  20,   0},  /* radial:  ‾hard radial color-beams */
     {2,    18, 100,  10,   2},  /* radial:  soft, curved radial color-beams */
     {2,    16, 256, 100, 250},  /* radial:  very tight spiral */
     {2, 10000, 256,  11,   0}   /* radial:  dipole-moire' (almost fractal) */
@@ -388,28 +388,28 @@ int main(int argc, char **argv)
     if (!filename) {
         ++error;
     } else if (!(infile = fopen(filename, "rb"))) {
-        fprintf(stderr, PROGNAME ":  can't open PNG file [%s]\n", filename);
+        fprintf(stderr, PROGNAME ":  can't open PNG file [%s]¥n", filename);
         ++error;
     } else {
         incount = fread(inbuf, 1, INBUFSIZE, infile);
         if (incount < 8 || !readpng2_check_sig(inbuf, 8)) {
             fprintf(stderr, PROGNAME
-              ":  [%s] is not a PNG file: incorrect signature\n",
+              ":  [%s] is not a PNG file: incorrect signature¥n",
               filename);
             ++error;
         } else if ((rc = readpng2_init(&rpng2_info)) != 0) {
             switch (rc) {
                 case 2:
                     fprintf(stderr, PROGNAME
-                      ":  [%s] has bad IHDR (libpng longjmp)\n",
+                      ":  [%s] has bad IHDR (libpng longjmp)¥n",
                       filename);
                     break;
                 case 4:
-                    fprintf(stderr, PROGNAME ":  insufficient memory\n");
+                    fprintf(stderr, PROGNAME ":  insufficient memory¥n");
                     break;
                 default:
                     fprintf(stderr, PROGNAME
-                      ":  unknown readpng2_init() error\n");
+                      ":  unknown readpng2_init() error¥n");
                     break;
             }
             ++error;
@@ -417,7 +417,7 @@ int main(int argc, char **argv)
             display = XOpenDisplay(displayname);
             if (!display) {
                 readpng2_cleanup(&rpng2_info);
-                fprintf(stderr, PROGNAME ":  can't open X display [%s]\n",
+                fprintf(stderr, PROGNAME ":  can't open X display [%s]¥n",
                   displayname? displayname : "default");
                 ++error;
             }
@@ -430,36 +430,36 @@ int main(int argc, char **argv)
     /* usage screen */
 
     if (error) {
-        fprintf(stderr, "\n%s %s:  %s\n\n", PROGNAME, VERSION, appname);
+        fprintf(stderr, "¥n%s %s:  %s¥n¥n", PROGNAME, VERSION, appname);
         readpng2_version_info();
-        fprintf(stderr, "\n"
-          "Usage:  %s [-display xdpy] [-gamma exp] [-bgcolor bg | -bgpat pat]\n"
+        fprintf(stderr, "¥n"
+          "Usage:  %s [-display xdpy] [-gamma exp] [-bgcolor bg | -bgpat pat]¥n"
 #if (defined(__i386__) || defined(_M_IX86))
-          "        %*s [[-nommxfilters] [-nommxcombine] [-nommxinterlace] | -nommx]\n"
+          "        %*s [[-nommxfilters] [-nommxcombine] [-nommxinterlace] | -nommx]¥n"
 #endif
-          "        %*s [-usleep dur | -timing] [-pause] file.png\n\n"
-          "    xdpy\tname of the target X display (e.g., ``hostname:0'')\n"
-          "    exp \ttransfer-function exponent (``gamma'') of the display\n"
-          "\t\t  system in floating-point format (e.g., ``%.1f''); equal\n"
-          "\t\t  to the product of the lookup-table exponent (varies)\n"
-          "\t\t  and the CRT exponent (usually 2.2); must be positive\n"
-          "    bg  \tdesired background color in 7-character hex RGB format\n"
-          "\t\t  (e.g., ``#ff7700'' for orange:  same as HTML colors);\n"
-          "\t\t  used with transparent images; overrides -bgpat\n"
-          "    pat \tdesired background pattern number (1-%d); used with\n"
-          "\t\t  transparent images; overrides -bgcolor\n"
+          "        %*s [-usleep dur | -timing] [-pause] file.png¥n¥n"
+          "    xdpy¥tname of the target X display (e.g., ``hostname:0'')¥n"
+          "    exp ¥ttransfer-function exponent (``gamma'') of the display¥n"
+          "¥t¥t  system in floating-point format (e.g., ``%.1f''); equal¥n"
+          "¥t¥t  to the product of the lookup-table exponent (varies)¥n"
+          "¥t¥t  and the CRT exponent (usually 2.2); must be positive¥n"
+          "    bg  ¥tdesired background color in 7-character hex RGB format¥n"
+          "¥t¥t  (e.g., ``#ff7700'' for orange:  same as HTML colors);¥n"
+          "¥t¥t  used with transparent images; overrides -bgpat¥n"
+          "    pat ¥tdesired background pattern number (1-%d); used with¥n"
+          "¥t¥t  transparent images; overrides -bgcolor¥n"
 #if (defined(__i386__) || defined(_M_IX86))
-          "    -nommx*\tdisable optimized MMX routines for decoding row filters,\n"
-          "\t\t  combining rows, and expanding interlacing, respectively\n"
+          "    -nommx*¥tdisable optimized MMX routines for decoding row filters,¥n"
+          "¥t¥t  combining rows, and expanding interlacing, respectively¥n"
 #endif
-          "    dur \tduration in microseconds to wait after displaying each\n"
-          "\t\t  row (for demo purposes)\n"
-          "    -timing\tenables delay for every block read, to simulate modem\n"
-          "\t\t  download of image (~36 Kbps)\n"
-          "    -pause\tpauses after displaying each pass until key pressed\n"
-          "\nPress Q, Esc or mouse button 1 (within image window, after image\n"
-          "is displayed) to quit.\n"
-          "\n", PROGNAME,
+          "    dur ¥tduration in microseconds to wait after displaying each¥n"
+          "¥t¥t  row (for demo purposes)¥n"
+          "    -timing¥tenables delay for every block read, to simulate modem¥n"
+          "¥t¥t  download of image (‾36 Kbps)¥n"
+          "    -pause¥tpauses after displaying each pass until key pressed¥n"
+          "¥nPress Q, Esc or mouse button 1 (within image window, after image¥n"
+          "is displayed) to quit.¥n"
+          "¥n", PROGNAME,
 #if (defined(__i386__) || defined(_M_IX86))
           strlen(PROGNAME), " ",
 #endif
@@ -506,10 +506,10 @@ int main(int argc, char **argv)
      * modem. */
 
     for (;;) {
-        Trace((stderr, "about to call readpng2_decode_data()\n"))
+        Trace((stderr, "about to call readpng2_decode_data()¥n"))
         if (readpng2_decode_data(&rpng2_info, inbuf, incount))
             ++error;
-        Trace((stderr, "done with readpng2_decode_data()\n"))
+        Trace((stderr, "done with readpng2_decode_data()¥n"))
         if (error || feof(infile) || rpng2_info.done)
             break;
         if (timing)
@@ -521,11 +521,11 @@ int main(int argc, char **argv)
     /* clean up PNG stuff and report any decoding errors */
 
     fclose(infile);
-    Trace((stderr, "about to call readpng2_cleanup()\n"))
+    Trace((stderr, "about to call readpng2_cleanup()¥n"))
     readpng2_cleanup(&rpng2_info);
 
     if (error) {
-        fprintf(stderr, PROGNAME ":  libpng error while decoding PNG image\n");
+        fprintf(stderr, PROGNAME ":  libpng error while decoding PNG image¥n");
         exit(3);
     }
 
@@ -541,7 +541,7 @@ int main(int argc, char **argv)
 
     /* we're done:  clean up all image and X resources and go away */
 
-    Trace((stderr, "about to call rpng2_x_cleanup()\n"))
+    Trace((stderr, "about to call rpng2_x_cleanup()¥n"))
     rpng2_x_cleanup();
 
     return 0;
@@ -560,10 +560,10 @@ static void rpng2_x_init(void)
     ulg i;
     ulg rowbytes = rpng2_info.rowbytes;
 
-    Trace((stderr, "beginning rpng2_x_init()\n"))
-    Trace((stderr, "  rowbytes = %ld\n", rpng2_info.rowbytes))
-    Trace((stderr, "  width  = %ld\n", rpng2_info.width))
-    Trace((stderr, "  height = %ld\n", rpng2_info.height))
+    Trace((stderr, "beginning rpng2_x_init()¥n"))
+    Trace((stderr, "  rowbytes = %ld¥n", rpng2_info.rowbytes))
+    Trace((stderr, "  width  = %ld¥n", rpng2_info.width))
+    Trace((stderr, "  height = %ld¥n", rpng2_info.height))
 
     rpng2_info.image_data = (uch *)malloc(rowbytes * rpng2_info.height);
     if (!rpng2_info.image_data) {
@@ -594,7 +594,7 @@ static void rpng2_x_init(void)
          * If we/it segfault instead, seems like a libpng bug... */
 
         /* we're here via libpng callback, so if window fails, clean and bail */
-printf("readpng2_cleanup.\n");
+printf("readpng2_cleanup.¥n");
         readpng2_cleanup(&rpng2_info);
         rpng2_x_cleanup();
         exit(2);
@@ -626,7 +626,7 @@ static int rpng2_x_create_window(void)
     XWMHints *wm_hints;
 
 
-    Trace((stderr, "beginning rpng2_x_create_window()\n"))
+    Trace((stderr, "beginning rpng2_x_create_window()¥n"))
 
     screen = DefaultScreen(display);
     depth = DisplayPlanes(display, screen);
@@ -639,7 +639,7 @@ static int rpng2_x_create_window(void)
     if (depth != 16 && depth != 24 && depth != 32) {
         int visuals_matched = 0;
 
-        Trace((stderr, "default depth is %d:  checking other visuals\n",
+        Trace((stderr, "default depth is %d:  checking other visuals¥n",
           depth))
 
         /* 24-bit first */
@@ -650,10 +650,10 @@ static int rpng2_x_create_window(void)
         if (visuals_matched == 0) {
 /* GRR:  add 15-, 16- and 32-bit TrueColor visuals (also DirectColor?) */
             fprintf(stderr, "default screen depth %d not supported, and no"
-              " 24-bit visuals found\n", depth);
+              " 24-bit visuals found¥n", depth);
             return 2;
         }
-        Trace((stderr, "XGetVisualInfo() returned %d 24-bit visuals\n",
+        Trace((stderr, "XGetVisualInfo() returned %d 24-bit visuals¥n",
           visuals_matched))
         visual = visual_list[0].visual;
         depth = visual_list[0].depth;
@@ -677,7 +677,7 @@ static int rpng2_x_create_window(void)
     if (depth == 8 || need_colormap) {
         colormap = XCreateColormap(display, root, visual, AllocNone);
         if (!colormap) {
-            fprintf(stderr, "XCreateColormap() failed\n");
+            fprintf(stderr, "XCreateColormap() failed¥n");
             return 2;
         }
         have_colormap = TRUE;
@@ -694,7 +694,7 @@ static int rpng2_x_create_window(void)
         BShift = rpng2_x_msb(BMask) - 7;
     }
     if (depth >= 15 && (RShift < 0 || GShift < 0 || BShift < 0)) {
-        fprintf(stderr, "rpng2 internal logic error:  negative X shift(s)!\n");
+        fprintf(stderr, "rpng2 internal logic error:  negative X shift(s)!¥n");
         return 2;
     }
 
@@ -716,7 +716,7 @@ static int rpng2_x_create_window(void)
       rpng2_info.height, 0, depth, InputOutput, visual, attrmask, &attr);
 
     if (window == None) {
-        fprintf(stderr, "XCreateWindow() failed\n");
+        fprintf(stderr, "XCreateWindow() failed¥n");
         return 2;
     } else
         have_window = TRUE;
@@ -780,7 +780,7 @@ static int rpng2_x_create_window(void)
     }
 
     if (!xdata) {
-        fprintf(stderr, PROGNAME ":  unable to allocate image memory\n");
+        fprintf(stderr, PROGNAME ":  unable to allocate image memory¥n");
         return 4;
     }
 
@@ -788,7 +788,7 @@ static int rpng2_x_create_window(void)
       (char *)xdata, rpng2_info.width, rpng2_info.height, pad, 0);
 
     if (!ximage) {
-        fprintf(stderr, PROGNAME ":  XCreateImage() failed\n");
+        fprintf(stderr, PROGNAME ":  XCreateImage() failed¥n");
         free(xdata);
         return 3;
     }
@@ -872,7 +872,7 @@ static int rpng2_x_load_bg_image(void)
     bg_data = (uch *)malloc(bg_rowbytes * rpng2_info.height);
     if (!bg_data) {
         fprintf(stderr, PROGNAME
-          ":  unable to allocate memory for background image\n");
+          ":  unable to allocate memory for background image¥n");
         bg_image = 0;
         return 1;
     }
@@ -1058,7 +1058,7 @@ static int rpng2_x_load_bg_image(void)
                 }
             }
         }
-        fprintf(stderr, "done.\n");
+        fprintf(stderr, "done.¥n");
         fflush(stderr);
     }
 
@@ -1143,7 +1143,7 @@ static void rpng2_x_display_row(ulg row)
     row and not bother with the records-keeping.
   ---------------------------------------------------------------------------*/
 
-    Trace((stderr, "beginning rpng2_x_display_row()\n"))
+    Trace((stderr, "beginning rpng2_x_display_row()¥n"))
 
     if (rpng2_info.pass != prevpass) {
         if (pause_after_pass && rpng2_info.pass > 0) {
@@ -1151,7 +1151,7 @@ static void rpng2_x_display_row(ulg row)
             KeySym k;
 
             fprintf(stderr,
-              "%s:  end of pass %d of 7; click in image window to continue\n",
+              "%s:  end of pass %d of 7; click in image window to continue¥n",
               PROGNAME, prevpass + 1);
             do
                 XNextEvent(display, &e);
@@ -1160,7 +1160,7 @@ static void rpng2_x_display_row(ulg row)
                    ((k = XLookupKeysym(&e.xkey, 0)) == XK_q
                     || k == XK_Escape) )) ;
         }
-        fprintf(stderr, "%s:  pass %d of 7\r", PROGNAME, rpng2_info.pass + 1);
+        fprintf(stderr, "%s:  pass %d of 7¥r", PROGNAME, rpng2_info.pass + 1);
         fflush(stderr);
         prevpass = rpng2_info.pass;
     }
@@ -1336,7 +1336,7 @@ static void rpng2_x_display_row(ulg row)
 
 static void rpng2_x_finish_display(void)
 {
-    Trace((stderr, "beginning rpng2_x_finish_display()\n"))
+    Trace((stderr, "beginning rpng2_x_finish_display()¥n"))
 
     /* last row has already been displayed by rpng2_x_display_row(), so we
      * have nothing to do here except set a flag and let the user know that
@@ -1344,7 +1344,7 @@ static void rpng2_x_finish_display(void)
 
     rpng2_info.done = TRUE;
     printf(
-      "Done.  Press Q, Esc or mouse button 1 (within image window) to quit.\n");
+      "Done.  Press Q, Esc or mouse button 1 (within image window) to quit.¥n");
     fflush(stdout);
 }
 

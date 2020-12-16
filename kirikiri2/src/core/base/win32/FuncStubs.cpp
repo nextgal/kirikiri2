@@ -73,7 +73,7 @@ static void __stdcall TVP_Stub_2acb76a1f86e34afc5fe934d406c6c4c(tTJSVariant * _t
 }
 static void __stdcall TVP_Stub_3a4d914ca7d24989c236ad223c002d49(tTJSVariant * _this)
 {
-	_this->~tTJSVariant();
+	_this->‾tTJSVariant();
 }
 static tTJSVariantType __stdcall TVP_Stub_8fca7d3a123df1eacf228ba89f6a02ff(tTJSVariant * _this)
 {
@@ -429,7 +429,7 @@ static tTJSVariant __stdcall TVP_Stub_1db54b61f00bf931452218c4a39e79ef(tTJSVaria
 }
 static tTJSVariant __stdcall TVP_Stub_9d0edd8f51f155767301017bd3d256da(tTJSVariant * _this)
 {
-	return _this->operator ~();
+	return _this->operator ‾();
 }
 static tTJSVariant __stdcall TVP_Stub_8f744c5aa8df5471939b960bc759f12b(tTJSVariant * _this, const tTJSVariant & rhs)
 {
@@ -481,7 +481,7 @@ static void __stdcall TVP_Stub_a98d712ca19a49afe07d0a7c5d064cef(tTJSVariantOctet
 }
 static void __stdcall TVP_Stub_08aef69683bcfe2a5c63d4c7866de8e9(tTJSVariantOctet * _this)
 {
-	_this->~tTJSVariantOctet();
+	_this->‾tTJSVariantOctet();
 }
 static void __stdcall TVP_Stub_dbc9bc2e27068c8426b1c6a7f89424e0(tTJSVariantOctet * _this)
 {
@@ -545,7 +545,7 @@ static void __stdcall TVP_Stub_72a67e9c52fd27dbb66eded47efeea74(tTJSString * _th
 }
 static void __stdcall TVP_Stub_fb13e41bda53e4e59403e3e14effccd6(tTJSString * _this)
 {
-	_this->~tTJSString();
+	_this->‾tTJSString();
 }
 static tTJSString & __stdcall TVP_Stub_9a5c710e620e47f105752453ad5d6ab1(tTJSString * _this, const tTJSString & rhs)
 {

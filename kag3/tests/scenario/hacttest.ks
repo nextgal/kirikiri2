@@ -2,13 +2,13 @@
 @iscript
 function stopAllVoices()
 {
-	// 2 ` 6 ‚Ì‚·‚×‚Ä‚ÌŒø‰Ê‰¹‚ð’âŽ~‚·‚é
+	// 2 ã€œ 6 ã®ã™ã¹ã¦ã®åŠ¹æžœéŸ³ã‚’åœæ­¢ã™ã‚‹
 	for(var i = 0; i <= 2; i++) kag.se[i].stop();
 }
 function playVoice(buf, storage)
 {
-	// Œø‰Ê‰¹ƒoƒbƒtƒ@ buf ‚É‚Ä storage ‚ðÄ¶‚·‚é
-	// KAG ‚ªƒXƒLƒbƒvˆ—’†‚Ìê‡‚Íˆ—‚ðs‚í‚È‚¢
+	// åŠ¹æžœéŸ³ãƒãƒƒãƒ•ã‚¡ buf ã«ã¦ storage ã‚’å†ç”Ÿã™ã‚‹
+	// KAG ãŒã‚¹ã‚­ãƒƒãƒ—å‡¦ç†ä¸­ã®å ´åˆã¯å‡¦ç†ã‚’è¡Œã‚ãªã„
 	if(!kag.skipMode)
 	{
 		stopAllVoices();
@@ -17,7 +17,7 @@ function playVoice(buf, storage)
 }
 function createHistoryActionExp(buf, storage)
 {
-	// ƒƒbƒZ[ƒW—š—ð‚ðƒNƒŠƒbƒN‚µ‚½‚Æ‚«‚ÉŽÀs‚·‚é TJS Ž®‚ð¶¬‚·‚é
+	// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å±¥æ­´ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã¨ãã«å®Ÿè¡Œã™ã‚‹ TJS å¼ã‚’ç”Ÿæˆã™ã‚‹
 	return "stopAllVoices(), kag.se[" + buf  +"].play(%[ storage : '" + storage + "' ])";
 }
 @endscript
@@ -35,19 +35,19 @@ function createHistoryActionExp(buf, storage)
 @waitvoices cond="kag.autoMode"
 @eval exp="stopAllVoices()"
 @endmacro
-*start|Å‰
+*start|æœ€åˆ
 @cm
-[pv b=0 s=musicbox]‚Ù‚°[l][sv][r]
-[pv b=1 s=musicbox]‚Ù‚°‚ç[l][sv][r]
-[pv b=2 s=musicbox]‚Ù‚°‚à‚°[p][sv]
-*start2|ŽŸ
+[pv b=0 s=musicbox]ã»ã’[l][sv][r]
+[pv b=1 s=musicbox]ã»ã’ã‚‰[l][sv][r]
+[pv b=2 s=musicbox]ã»ã’ã‚‚ã’[p][sv]
+*start2|æ¬¡
 @cm
-[pv b=0 s=musicbox.ogg]‚Ù‚°[l][sv][r]
-[pv b=1 s=musicbox.ogg]‚Ù‚°‚ç[l][sv][r]
-[pv b=2 s=musicbox.ogg]‚Ù‚°‚à‚°[p][sv]
+[pv b=0 s=musicbox.ogg]ã»ã’[l][sv][r]
+[pv b=1 s=musicbox.ogg]ã»ã’ã‚‰[l][sv][r]
+[pv b=2 s=musicbox.ogg]ã»ã’ã‚‚ã’[p][sv]
 [s]
 
 *test
-‚Ù‚°‚ç
+ã»ã’ã‚‰
 [s]
 

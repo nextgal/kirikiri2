@@ -29,10 +29,10 @@ public:
 
 	//! Gets kerning values (distance between letters) for the font. If no parameters are provided,
 	/** the global kerning distance is returned.
-	\param thisLetter: If this parameter is provided, the left side kerning for this letter is added
+	¥param thisLetter: If this parameter is provided, the left side kerning for this letter is added
 	to the global kerning value. For example, a space might only be one pixel wide, but it may
 	be displayed as several pixels.
-	\param previousLetter: If provided, kerning is calculated for both letters and added to the global
+	¥param previousLetter: If provided, kerning is calculated for both letters and added to the global
 	kerning value. For example, EGFT_BITMAP will add the right kerning value of previousLetter to the
 	left side kerning value of thisLetter, then add the global value.
 	*/

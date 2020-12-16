@@ -58,8 +58,8 @@ namespace xml {
         encode(str, '&', "&amp;", 3);
         encode(str, '<', "&lt;", 2);
         encode(str, '>', "&gt;", 2);
-        encode(str, '\r', "\\r", 1);
-        encode(str, '\n', "\\n", 1);
+        encode(str, '¥r', "¥¥r", 1);
+        encode(str, '¥n', "¥¥n", 1);
         return str;
     }
 
@@ -95,7 +95,7 @@ namespace xml {
     {
         if (0 == attr.key.size())
             return ostrm;
-        ostrm << " " << encode(attr.key) << "=\"" << encode(attr.value) << "\"";
+        ostrm << " " << encode(attr.key) << "=¥"" << encode(attr.value) << "¥"";
         return ostrm;
     }
 
@@ -108,7 +108,7 @@ namespace xml {
         {
             if (incr_indent) ++get_indent();
         }
-        ~element()
+        ‾element()
         {
             if (incr_indent) --get_indent();
         }
@@ -140,18 +140,18 @@ namespace xml {
         element(ostrm_), tag(tag_)
         {
             output_space();
-            ostrm << "<" << tag_ << attr << ">\n";
+            ostrm << "<" << tag_ << attr << ">¥n";
         }
         node (std::ostream &ostrm_, char const *tag_) :
         element(ostrm_), tag(tag_)
         {
             output_space();
-            ostrm << "<" << tag_ << ">\n";
+            ostrm << "<" << tag_ << ">¥n";
         }
-        ~node()
+        ‾node()
         {
             output_space();
-            ostrm << "</" << tag << ">\n";
+            ostrm << "</" << tag << ">¥n";
         }
 
     private:
@@ -166,7 +166,7 @@ namespace xml {
         {
             output_space();
             ostrm << "<" << tag << ">" << encode(text)
-            << "</" << tag << ">\n";
+            << "</" << tag << ">¥n";
         }
 
         text (std::ostream &ostrm, char const *tag, char const *text,
@@ -175,7 +175,7 @@ namespace xml {
         {
             output_space();
             ostrm << "<" << tag << attr << ">" << encode(text)
-            << "</" << tag << ">\n";
+            << "</" << tag << ">¥n";
         }
 
         text (std::ostream &ostrm, char const *tag, char const *text,
@@ -184,7 +184,7 @@ namespace xml {
         {
             output_space();
             ostrm << "<" << tag << attr1 << attr2 << ">" << encode(text)
-            << "</" << tag << ">\n";
+            << "</" << tag << ">¥n";
         }
     };
 
@@ -195,10 +195,10 @@ namespace xml {
         comment (std::ostream &ostrm, char const *comment) :
             element(ostrm, false)
         {
-            if ('\0' != comment[0])
+            if ('¥0' != comment[0])
             {
                 output_space();
-                ostrm << "<!-- " << encode(comment) << " -->\n";
+                ostrm << "<!-- " << encode(comment) << " -->¥n";
             }
         }
     };
@@ -210,20 +210,20 @@ namespace xml {
         document (std::ostream &ostrm) : element(ostrm)
         {
             get_indent() = -1;
-            ostrm << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n";
+            ostrm << "<?xml version=¥"1.0¥" encoding=¥"ISO-8859-1¥"?>¥n";
         }
 
         document (std::ostream &ostrm, char const *mainnode, char const *dtd) :
             element(ostrm)
         {
             get_indent() = -1;
-            ostrm << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n";
+            ostrm << "<?xml version=¥"1.0¥" encoding=¥"ISO-8859-1¥"?>¥n";
 
             output_space();
-            ostrm << "<!DOCTYPE " << mainnode << " SYSTEM \"" << dtd
-            << "\">\n";
+            ostrm << "<!DOCTYPE " << mainnode << " SYSTEM ¥"" << dtd
+            << "¥">¥n";
         }
-        ~document()
+        ‾document()
         {
             BOOST_SPIRIT_ASSERT(-1 == get_indent());
         }

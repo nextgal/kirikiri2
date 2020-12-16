@@ -103,7 +103,7 @@
  * on non-Mac platforms.
  */
 #ifndef MACOS
-#if (defined(__MWERKS__) && defined(macintosh)) || defined(applec) || \
+#if (defined(__MWERKS__) && defined(macintosh)) || defined(applec) || ¥
     defined(THINK_C) || defined(__SC__) || defined(TARGET_OS_MAC)
 #define MACOS
 #endif
@@ -285,11 +285,11 @@
 #define PNG_USE_PNGVCRD                // .... ummm ....
 
 
-#if !defined(PNG_READ_TRANSFORMS_NOT_SUPPORTED) && \
+#if !defined(PNG_READ_TRANSFORMS_NOT_SUPPORTED) && ¥
     !defined(PNG_NO_READ_TRANSFORMS)
 #define PNG_READ_TRANSFORMS_SUPPORTED
 #endif
-#if !defined(PNG_WRITE_TRANSFORMS_NOT_SUPPORTED) && \
+#if !defined(PNG_WRITE_TRANSFORMS_NOT_SUPPORTED) && ¥
     !defined(PNG_NO_WRITE_TRANSFORMS)
 #define PNG_WRITE_TRANSFORMS_SUPPORTED
 #endif
@@ -351,7 +351,7 @@
 #endif
 #endif /* PNG_READ_TRANSFORMS_SUPPORTED */
 
-#if !defined(PNG_NO_PROGRESSIVE_READ) && \
+#if !defined(PNG_NO_PROGRESSIVE_READ) && ¥
  !defined(PNG_PROGRESSIVE_READ_NOT_SUPPORTED) /* if you don't do progressive   */
 #define PNG_PROGRESSIVE_READ_SUPPORTED       /* reading.  This is not talking */
 #endif                               /* about interlacing capability!  You'll */
@@ -439,7 +439,7 @@
 #define PNG_EASY_ACCESS_SUPPORTED
 #endif
 
-#if defined(PNG_USE_PNGVCRD) || defined(PNG_USE_PNGGCCRD) && \
+#if defined(PNG_USE_PNGVCRD) || defined(PNG_USE_PNGGCCRD) && ¥
   !defined(PNG_NO_ASSEMBLER_CODE)
 #define PNG_ASSEMBLER_CODE_SUPPORTED
 #endif
@@ -493,11 +493,11 @@
  * a bit smaller.
  */
 
-#if !defined(PNG_READ_ANCILLARY_CHUNKS_NOT_SUPPORTED) && \
+#if !defined(PNG_READ_ANCILLARY_CHUNKS_NOT_SUPPORTED) && ¥
     !defined(PNG_NO_READ_ANCILLARY_CHUNKS)
 #define PNG_READ_ANCILLARY_CHUNKS_SUPPORTED
 #endif
-#if !defined(PNG_WRITE_ANCILLARY_CHUNKS_NOT_SUPPORTED) && \
+#if !defined(PNG_WRITE_ANCILLARY_CHUNKS_NOT_SUPPORTED) && ¥
     !defined(PNG_NO_WRITE_ANCILLARY_CHUNKS)
 #define PNG_WRITE_ANCILLARY_CHUNKS_SUPPORTED
 #endif
@@ -597,7 +597,7 @@
 #ifndef PNG_NO_READ_OPT_PLTE
 #  define PNG_READ_OPT_PLTE_SUPPORTED /* only affects support of the */
 #endif                      /* optional PLTE chunk in RGB and RGBA images */
-#if defined(PNG_READ_iTXt_SUPPORTED) || defined(PNG_READ_tEXt_SUPPORTED) || \
+#if defined(PNG_READ_iTXt_SUPPORTED) || defined(PNG_READ_tEXt_SUPPORTED) || ¥
   defined(PNG_READ_zTXt_SUPPORTED)
 #  define PNG_READ_TEXT_SUPPORTED
 #  define PNG_TEXT_SUPPORTED
@@ -723,7 +723,7 @@
 #     endif
 #  endif
 #endif
-#if defined(PNG_WRITE_iTXt_SUPPORTED) || defined(PNG_WRITE_tEXt_SUPPORTED) || \
+#if defined(PNG_WRITE_iTXt_SUPPORTED) || defined(PNG_WRITE_tEXt_SUPPORTED) || ¥
   defined(PNG_WRITE_zTXt_SUPPORTED)
 #  define PNG_WRITE_TEXT_SUPPORTED
 #  ifndef PNG_TEXT_SUPPORTED
@@ -936,7 +936,7 @@ typedef z_stream FAR *  png_zstreamp;
 #ifdef PNG_SETJMP_SUPPORTED
 #   define png_jmpbuf(png_ptr) ((png_ptr)->jmpbuf)
 #else
-#   define png_jmpbuf(png_ptr) \
+#   define png_jmpbuf(png_ptr) ¥
     (LIBPNG_WAS_COMPILED_WITH__PNG_SETJMP_NOT_SUPPORTED)
 #endif
 

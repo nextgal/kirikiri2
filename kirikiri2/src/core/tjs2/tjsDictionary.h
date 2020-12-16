@@ -27,7 +27,7 @@ class tTJSDictionaryClass : public tTJSNativeClass
 
 public:
 	tTJSDictionaryClass();
-	~tTJSDictionaryClass();
+	‾tTJSDictionaryClass();
 
 public:
 	tjs_error TJS_INTF_METHOD
@@ -56,7 +56,7 @@ class tTJSDictionaryNI : public tTJSNativeInstance,
 public:
 
 	tTJSDictionaryNI();
-	~tTJSDictionaryNI();
+	‾tTJSDictionaryNI();
 
 	tjs_error TJS_INTF_METHOD Construct(tjs_int numparams, tTJSVariant **param,
 		iTJSDispatch2 *obj);
@@ -148,7 +148,7 @@ class tTJSDictionaryObject : public tTJSCustomObject
 public:
 	tTJSDictionaryObject();
 	tTJSDictionaryObject(tjs_int hashbits);
-	~tTJSDictionaryObject();
+	‾tTJSDictionaryObject();
 
 
 	tjs_error TJS_INTF_METHOD

@@ -2077,8 +2077,8 @@ SQLITE_API void sqlite3_free_table(char **result);
 ** is are "%q", "%Q", and "%z" options.
 **
 ** ^(The %q option works like %s in that it substitutes a nul-terminated
-** string from the argument list.  But %q also doubles every '\'' character.
-** %q is designed for use inside a string literal.)^  By doubling each '\''
+** string from the argument list.  But %q also doubles every '¥'' character.
+** %q is designed for use inside a string literal.)^  By doubling each '¥''
 ** character it escapes that character and allows it to be inserted into
 ** the string.
 **
@@ -2096,7 +2096,7 @@ SQLITE_API void sqlite3_free_table(char **result);
 **  sqlite3_free(zSQL);
 ** </pre></blockquote>
 **
-** Because the %q format string is used, the '\'' character in zText
+** Because the %q format string is used, the '¥'' character in zText
 ** is escaped and the SQL generated is as follows:
 **
 ** <blockquote><pre>
@@ -2921,7 +2921,7 @@ SQLITE_API int sqlite3_limit(sqlite3*, int id, int newVal);
 ** ^If the nByte argument is less than zero, then zSql is read up to the
 ** first zero terminator. ^If nByte is non-negative, then it is the maximum
 ** number of  bytes read from zSql.  ^When nByte is non-negative, the
-** zSql string ends at either the first '\000' or '\u0000' character or
+** zSql string ends at either the first '¥000' or '¥u0000' character or
 ** the nByte-th byte, whichever comes first. If the caller knows
 ** that the supplied string is nul-terminated, then there is a small
 ** performance advantage to be gained by passing an nByte parameter that

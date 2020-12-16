@@ -24,7 +24,7 @@
 #include "boost/config.hpp"
 #include "boost/mpl/aux_/config/use_preprocessed.hpp"
 
-#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) && \
+#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) && ¥
     !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER lambda_helper.hpp
@@ -43,7 +43,7 @@
 namespace boost {
 namespace mpl {
 
-#define BOOST_PP_ITERATION_PARAMS_1 \
+#define BOOST_PP_ITERATION_PARAMS_1 ¥
     (3, (1,BOOST_MPL_METAFUNCTION_MAX_ARITY, "boost/mpl/lambda_helper.hpp"))
 #include BOOST_PP_ITERATE()
 
@@ -58,9 +58,9 @@ namespace mpl {
 #else
 #define i BOOST_PP_FRAME_ITERATION(1)
 
-#define MPL_AUX_ARG_TYPEDEF(unused, i, T) \
-    typedef BOOST_PP_CAT(T, BOOST_PP_INC(i)) \
-        BOOST_PP_CAT(arg, BOOST_PP_INC(i)); \
+#define MPL_AUX_ARG_TYPEDEF(unused, i, T) ¥
+    typedef BOOST_PP_CAT(T, BOOST_PP_INC(i)) ¥
+        BOOST_PP_CAT(arg, BOOST_PP_INC(i)); ¥
 /**/
 
 template<

@@ -143,7 +143,7 @@ namespace boost { namespace numeric { namespace ublas {
             d_ = it->second;
         }
         BOOST_UBLAS_INLINE
-        ~sparse_storage_element () {
+        ‾sparse_storage_element () {
             if (! it_)
                 it_ = (*this) ().find (i_);
             BOOST_UBLAS_CHECK (it_ != (*this) ().end (), internal_logic ());
@@ -287,7 +287,7 @@ namespace boost { namespace numeric { namespace ublas {
             *this = a;
         }
         BOOST_UBLAS_INLINE
-        ~map_array () {
+        ‾map_array () {
             // Assuming std compliant allocator as requested during review.
             // if (! data_)
             //     throw std::bad_alloc ();
@@ -673,7 +673,7 @@ namespace boost { namespace numeric { namespace ublas {
             *this = a;
         }
         BOOST_UBLAS_INLINE
-        ~set_array () {
+        ‾set_array () {
             // Assuming std compliant allocator as requested during review.
             // if (! data_)
             //     throw std::bad_alloc ();

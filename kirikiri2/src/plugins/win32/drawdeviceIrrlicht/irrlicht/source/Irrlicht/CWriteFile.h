@@ -26,7 +26,7 @@ namespace io
 		CWriteFile(const wchar_t* fileName, bool append);
 		CWriteFile(const c8* fileName, bool append);
 
-		virtual ~CWriteFile();
+		virtual ‾CWriteFile();
 
 		//! Reads an amount of bytes from the file.
 		virtual s32 write(const void* buffer, u32 sizeToWrite);

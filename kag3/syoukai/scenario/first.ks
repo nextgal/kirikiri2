@@ -1,14 +1,14 @@
 @call storage="snow.ks"
-; �� �� plug-in ��ǂݍ���
+; ↑ 雪 plug-in を読み込む
 @wait time=200
 
 @eval exp="f.bg=''"
-; �����ݓǂݍ��܂�Ă���w�i���L�����Ă���
+; ↑現在読み込まれている背景を記憶している
 
-; �}�N�� changebg_and_clear �̒�`
+; マクロ changebg_and_clear の定義
 @macro name="changebg_and_clear"
 @if exp="mp.storage != f.bg"
-; �����ɓǂݍ��܂�Ă���w�i�Ɠ����Ȃ�ΐ؂�ւ������͍s��Ȃ�
+; ↑既に読み込まれている背景と同じならば切り替え処理は行わない
 @eval exp="f.bg = mp.storage"
 @backlay
 @layopt layer=message0 page=back visible=false
@@ -24,13 +24,13 @@
 @endif
 @endmacro
 
-; �}�N�� loadbg �̒�`
+; マクロ loadbg の定義
 @macro name="loadbg"
 @image * layer=base
 @eval exp="f.bg = mp.storage"
 @endmacro
 
-; �}�N�� start_select �̒�`
+; マクロ start_select の定義
 @macro name="start_select"
 @backlay
 @nowait
@@ -38,7 +38,7 @@
 @current page=back
 @endmacro
 
-; �}�N�� end_select �̒�`
+; マクロ end_select の定義
 @macro name="end_select"
 @trans method=crossfade time=400
 @wt
@@ -50,10 +50,10 @@
 @eval exp="System.touchImages(['_24_5', '_24_4', 'uni', '_24'], -2*1024*1024, 500)"
 @eval exp="System.touchImages(['_24_5', '_24_4', 'uni', '_24'], -2*1024*1024, 500)"
 
-*syokai_start|�g���g����KAG�̏Љ� - ���j���[
+*syokai_start|吉里吉里とKAGの紹介 - メニュー
 @startanchor
 
-; �w�i�ɉ摜��ǂݍ��݁A���b�Z�[�W���C���Ƀ��j���[��`��
+; 背景に画像を読み込み、メッセージレイヤにメニューを描画
 @backlay
 @loadbg storage="_24_5" page=back
 @current page=back
@@ -62,34 +62,34 @@
 @nowait
 @history output=false
 @style align=center
-[font size=40 color=0x00ffff]�g���g����KAG�̏Љ�[resetfont][r]
+[font size=40 color=0x00ffff]吉里吉里とKAGの紹介[resetfont][r]
 [r]
-[link target="*about_kirikiri"]�g���g���Ƃ�[endlink][r]
-[link target="*about_kag"]KAG�Ƃ�[endlink][r]
-[r]
-[r]
+[link target="*about_kirikiri"]吉里吉里とは[endlink][r]
+[link target="*about_kag"]KAGとは[endlink][r]
 [r]
 [r]
 [r]
 [r]
 [r]
-[link exp="kag.shutdown()" color=0xff0000 hint="�g���g��/KAG�̏Љ���I�����܂�"]�I��[endlink]
+[r]
+[r]
+[link exp="kag.shutdown()" color=0xff0000 hint="吉里吉里/KAGの紹介を終了します"]終了[endlink]
 @endnowait
 @history output=true
 @current page=fore
 
-; ���b�Z�[�W���C���̃g�����W�V����
+; メッセージレイヤのトランジション
 @trans method=crossfade time=800
 @wt
 
-; �ʉߋL�^
+; 通過記録
 @record
 
-; �I�������I�������܂Œ�~
+; 選択肢が選択されるまで停止
 @s
 
 *to_syokai_start
-; syokai_start �ɖ߂�
+; syokai_start に戻る
 @backlay
 @layopt layer=message0 page=back visible=false
 @trans method=crossfade time=300
@@ -97,87 +97,87 @@
 @jump target=*syokai_start
 
 
-*about_kirikiri|�g���g���Ƃ�
+*about_kirikiri|吉里吉里とは
 @changebg_and_clear storage="_24_4"
-�@�g���g���́ATJS�Ƃ����X�N���v�g������g���Ă��낢��Ȏ������邽�߂̃\�t�g�E�F�A�ł��B[l][r]
-�@TJS��Java��JavaScript�𑫂��ĂR�Ŋ������悤�Ȍ���ŁAC��C++�ɔ�ׂ�ΏK�����₷�����ꂾ�Ǝv���܂��B[l][r]
-�@�g���g���ł͂���TJS�Ŗ{�̂𐧌䂷�邱�Ƃɂ��A���܂��܂ȃA�v���P�[�V�������쐬���邱�Ƃ��ł��܂��B[l][r]
-�@���Ƀ}���`���f�B�A�n�̋@�\�������A��r�I�ÓI�ȕ\����p����Q�c�Q�[���ɓK���Ă��܂��B[p]
+　吉里吉里は、TJSというスクリプト言語を使っていろいろな事をするためのソフトウェアです。[l][r]
+　TJSはJavaとJavaScriptを足して３で割ったような言語で、CやC++に比べれば習得しやすい言語だと思います。[l][r]
+　吉里吉里ではこのTJSで本体を制御することにより、さまざまなアプリケーションを作成することができます。[l][r]
+　特にマルチメディア系の機能が強く、比較的静的な表現を用いる２Ｄゲームに適しています。[p]
 *about_kirikiri2|
 @cm
-�@�g���g���́A���C���ƌĂ΂���ʂ��������d�ˍ��킹�ĉ�ʂ��\�����܂��B[l]���C���̓A���t�@�u�����h�ɂ��d�ˍ��킹���\�ŁA�K�w�\�����̂邱�Ƃ��ł��܂��B[l][r]
-�@���C���ɂ͕W����PNG/JPEG/ERI/BMP��ǂݍ��݉\�ŁASusie-plugin�œǂݍ��݉\�Ȍ`�����g�����邱�Ƃ��ł��܂��B[l][r]
-�@�`��͂��܂蕡�G�Ȃ��Ƃ͂ł��܂��񂪁A��������`�̕`���A���`�G�C���A�X�\�ȕ����\���A�摜�̊g��k����ό`���s�������ł��܂��B[l][r]
-�@AVI/MPEG��SWF(Macromedia Flash)�����[�r�[�Ƃ��čĐ������邱�Ƃ��ł��܂��B[p]
+　吉里吉里は、レイヤと呼ばれる画面を何枚も重ね合わせて画面を構成します。[l]レイヤはアルファブレンドによる重ね合わせが可能で、階層構造を採ることもできます。[l][r]
+　レイヤには標準でPNG/JPEG/ERI/BMPを読み込み可能で、Susie-pluginで読み込み可能な形式を拡張することもできます。[l][r]
+　描画はあまり複雑なことはできませんが、半透明矩形の描画やアンチエイリアス可能な文字表示、画像の拡大縮小や変形を行う事ができます。[l][r]
+　AVI/MPEGやSWF(Macromedia Flash)をムービーとして再生させることができます。[p]
 *about_kirikiri3|
 @cm
-�@�g���g���ł�CD-DA�AMIDI�V�[�P���X�f�[�^�APCM���Đ������邱�Ƃ��ł��A���ꂼ�ꉹ�ʒ��߂��\�ł��B[l]PCM�͖����k��.WAV�t�@�C���̂ق��A�v���O�C���ōĐ��\�Ȍ`�����g���ł��AOggVorbis���Đ����邱�Ƃ��ł��܂��B[l][r]
-�@PCM�͕����𓯎��ɍĐ����邱�Ƃ��ł��܂��B[l]CD-DA��MIDI�V�[�P���X�f�[�^�ł��������낤�Ǝv���Ε��������Đ��ł��܂��B[p]
+　吉里吉里ではCD-DA、MIDIシーケンスデータ、PCMを再生させることができ、それぞれ音量調節が可能です。[l]PCMは無圧縮の.WAVファイルのほか、プラグインで再生可能な形式を拡張でき、OggVorbisも再生することができます。[l][r]
+　PCMは複数を同時に再生することができます。[l]CD-DAやMIDIシーケンスデータでも無理矢理やろうと思えば複数同時再生できます。[p]
 *about_kirikiri4
 @cm
-�@���̑��A���Ӄc�[���Ƃ��āA
-�����̃t�@�C������ɂ܂Ƃ߂���A�P�̂Ŏ��s�\�ȃt�@�C�����쐬���邱�Ƃ��ł���[font color=0xffff00]Releaser[resetfont]�A[l]
-�g���g���{�̂̐ݒ���s��[font color=0xffff00]�g���g���ݒ�[resetfont]�A[l]
-����ґ��Ńt�H���g��p�ӂ��A�v���[�����Ƀt�H���g���C���X�g�[������Ė����Ă��g����悤�ɂ���[font color=0xffff00]�����_�����O�ς݃t�H���g�쐬�c�[��[resetfont]�A[l]
-�����x���������摜�t�H�[�}�b�g�Ԃ̑��ݕϊ����s��[font color=0xffff00]���߉摜�t�H�[�}�b�g�R���o�[�^[resetfont]������܂��B[l]
+　その他、周辺ツールとして、
+複数のファイルを一つにまとめたり、単体で実行可能なファイルを作成することができる[font color=0xffff00]Releaser[resetfont]、[l]
+吉里吉里本体の設定を行う[font color=0xffff00]吉里吉里設定[resetfont]、[l]
+制作者側でフォントを用意し、プレーヤ側にフォントがインストールされて無くても使えるようにする[font color=0xffff00]レンダリング済みフォント作成ツール[resetfont]、[l]
+透明度を持った画像フォーマット間の相互変換を行う[font color=0xffff00]透過画像フォーマットコンバータ[resetfont]があります。[l]
 [r]
 [r]
 @start_select
-[link target=*to_syokai_start]���j���[�ɖ߂�[endlink]
+[link target=*to_syokai_start]メニューに戻る[endlink]
 @end_select
 [s]
 
-*about_kag|KAG�Ƃ�
+*about_kag|KAGとは
 @changebg_and_clear storage="_24_4"
-�@KAG�́A�r�W���A���m�x����T�E���h�m�x���̂悤�ȃm�x���n�Q�[����A�I������I��ŃX�g�[���[���i�ނ悤�ȕ����x�[�X�̃A�h�x���`���[�Q�[�����쐬���邽�߂̃L�b�g�ł��B[l][r]
-�@KAG�͋g���g�����Q�[���G���W���Ƃ��ē��삳���邽�߂̃X�N���v�g�ŁA���ꎩ�̂�TJS�X�N���v�g�ŏ�����Ă��܂��B[l]KAG�p�̃X�N���v�g�́u�V�i���I�v�ƌĂ΂�ATJS�X�N���v�g�Ƃ͂܂��ʂ̂��̂ł��B[l]TJS�X�N���v�g�̓v���O���~���O�̒m�������Ȃ�K�v�ɂȂ�܂����A�V�i���I�͂��ȒP�ŋL�q���₷�����̂ł��B[l][r]
-�@KAG�͋g���g���̏�ɐ��藧�V�X�e���Ȃ̂ŁA�g���g���̋@�\�̂قƂ�ǂ�KAG�Ŏg�p�ł��܂��B[p]
+　KAGは、ビジ○アルノベルやサウンドノベルのようなノベル系ゲームや、選択肢を選んでストーリーが進むような文字ベースのアドベンチャーゲームを作成するためのキットです。[l][r]
+　KAGは吉里吉里をゲームエンジンとして動作させるためのスクリプトで、それ自体はTJSスクリプトで書かれています。[l]KAG用のスクリプトは「シナリオ」と呼ばれ、TJSスクリプトとはまた別のものです。[l]TJSスクリプトはプログラミングの知識がかなり必要になりますが、シナリオはより簡単で記述しやすいものです。[l][r]
+　KAGは吉里吉里の上に成り立つシステムなので、吉里吉里の機能のほとんどはKAGで使用できます。[p]
 *about_kag3|
 @cm
-�@KAG�̕����\���́A�����̒ʂ�̃A���`�G�C���A�X�����\���ɉ����A[l][r]
-[font size=60]�傫�ȕ���[resetfont]��\��������A[l][r]
-[ruby text="��"]��[ruby text="��"]�r[ruby text="��"]��[ruby text="��"]�U[ruby text="��"]��[ruby text="��"]��[ruby text="��"]��A[l][font shadow=false edge=true edgecolor=0xff0000]����蕶���ɂ�����[resetfont]�A[l][r]
-[style align=center]�Z���^�����O���Ă݂���[r]
-[style align=right]�E�l�߂��Ă݂���[r][resetstyle]
+　KAGの文字表示は、ご覧の通りのアンチエイリアス文字表示に加え、[l][r]
+[font size=60]大きな文字[resetfont]を表示したり、[l][r]
+[ruby text="る"]ル[ruby text="び"]ビ[ruby text="を"]を[ruby text="ふ"]振[ruby text="っ"]っ[ruby text="た"]た[ruby text="り"]り、[l][font shadow=false edge=true edgecolor=0xff0000]縁取り文字にしたり[resetfont]、[l][r]
+[style align=center]センタリングしてみたり[r]
+[style align=right]右詰めしてみたり[r][resetstyle]
 [l]
-[graph storage="ExQuestion.png" alt="!?"]�̂悤�ȓ���L����\�����Ă݂���A[l][r]
-�ƁA���낢��ł��܂��B[p]
+[graph storage="ExQuestion.png" alt="!?"]のような特殊記号を表示してみたり、[l][r]
+と、いろいろできます。[p]
 *about_kag4|
 @position vertical=true
-�@�܂��A�c�����\�������邱�Ƃ��ł��܂��B[l][r]
-�@�c�����ł��������ƑS�������@�\���g�p���邱�Ƃ��ł��܂��B[p]
+　また、縦書き表示をすることもできます。[l][r]
+　縦書きでも横書きと全く同じ機能を使用することができます。[p]
 @layopt layer=message0 visible=false
 @layopt layer=message1 visible=true
 @current layer=message1
 @position frame=messageframe left=20 top=280 marginl=16 margint=16 marginr=0 marginb=16 draggable=true vertical=false
-�@���̂悤�Ƀ��b�Z�[�W�g�̒��Ƀ��b�Z�[�W��\�������邱�Ƃ��ł��܂��B[l]�A�h�x���`���[�Q�[���ŗǂ�����^�C�v�ł��B[p]
+　このようにメッセージ枠の中にメッセージを表示させることもできます。[l]アドベンチャーゲームで良くあるタイプです。[p]
 @layopt layer=message1 visible=false
 @layopt layer=message0 visible=true
 @current layer=message0
 @position vertical=false
 *about_kag5|
 @cm
-�@�����G�͂��̂悤��(��������炸[ruby text="�E"]��[ruby text="�E"]�ɂł��݂܂���)
+　立ち絵はこのように(あいかわらず[ruby text="・"]う[ruby text="・"]にですみません)
 @backlay
 @image storage=uni page=back layer=0 visible=true opacity=255
 @trans method=crossfade time=1000
 @wt
-�A���t�@�u�����h�ɂ��d�ˍ��킹���\�ł��B[l][r]
-�@���̂悤��
+アルファブレンドによる重ね合わせが可能です。[l][r]
+　このように
 @backlay
 @layopt page=back layer=0 opacity=128
 @trans method=crossfade time=1000
 @wt
-�����\�����邱�Ƃ��ł��܂��B[l][r]
-�@�W���̏�ԂłR�܂ŏd�ˍ��킹�ĕ\���ł��܂��B[p]
+薄く表示することもできます。[l][r]
+　標準の状態で３つまで重ね合わせて表示できます。[p]
 @backlay
 @layopt page=back layer=0 visible=false
 @trans method=crossfade time=300
 @wt
 *about_kag6|
 @cm
-�@�g�����W�V����(��ʐ؂�ւ�)�ɂ͕W���łR�̎�ނ�����܂��B[l][r]
-�@��͒P���ȃN���X�t�F�[�h�A[l]
+　トランジション(画面切り替え)には標準で３つの種類があります。[l][r]
+　一つは単純なクロスフェード、[l]
 @backlay
 @layopt page=back layer=message0 visible=false
 @trans method=crossfade time=300
@@ -195,7 +195,7 @@
 @trans method=crossfade time=300
 @wt
 [l][r]
-�@������̓X�N���[�����ʂ��o�����Ƃ̂ł���X�N���[���g�����W�V�����A[l]
+　もう一つはスクロール効果を出すことのできるスクロールトランジション、[l]
 @backlay
 @layopt page=back layer=message0 visible=false
 @trans method=crossfade time=300
@@ -213,11 +213,11 @@
 @trans method=crossfade time=300
 @wt
 [l][r]
-�@�����čŌ�͐���҂����R�Ƀp�^�[�����쐬�ł��郆�j�o�[�T���g�����W�V�����ł��B[l][r]
-�@���j�o�[�T���g�����W�V�����̓��[���摜�ƌĂ΂��O���[�X�P�[���̉摜��p�ӂ��A���̉摜�̈Â��Ƃ��납���葁���؂�ւ����n�܂���̂ł��B[l][r]
-�@���Ƃ��΁A[l]
+　そして最後は制作者が自由にパターンを作成できるユニバーサルトランジションです。[l][r]
+　ユニバーサルトランジションはルール画像と呼ばれるグレースケールの画像を用意し、その画像の暗いところからより早く切り替えが始まるものです。[l][r]
+　たとえば、[l]
 @image layer=base page=fore storage="trans1"
-���̂悤�ȃ��[���摜�ł���΁E�E�E[l]
+このようなルール画像であれば・・・[l]
 @backlay
 @layopt page=back layer=message0 visible=false
 @image storage="_24_4" page=back layer=base
@@ -236,9 +236,9 @@
 @trans method=crossfade time=300
 @wt
 [r]
-�@���Ƃ��΁A[l]
+　たとえば、[l]
 @image layer=base page=fore storage="nami"
-���̂悤�ȃ��[���摜�ł���΁E�E�E[l]
+このようなルール画像であれば・・・[l]
 @backlay
 @layopt page=back layer=message0 visible=false
 @image storage="_24_4" page=back layer=base
@@ -257,34 +257,34 @@
 @trans method=crossfade time=300
 @wt
 [r]
-�@�Ƃ��������ŁA���낢���邱�Ƃ��ł��܂��B[p]
-*about_kag7|KAG�Ƃ�
+　という感じで、いろいろ作ることができます。[p]
+*about_kag7|KAGとは
 @cm
-�@BGM�Ƃ��Ă�CD-DA�AMIDI�APCM�̂����ꂩ���g�p�ł��܂��B[l]���ʉ��ɂ�PCM���g�p�ł��܂��B[l]��������t�F�[�h�Ȃǂ̉��ʐ��䂪�ł��܂��B[l][r]
-�@PCM�͕W���Ŗ����k��.WAV���Đ��ł��܂��B[l]�܂��A�v���O�C���ōĐ��\�Ȍ`�����g���ł��AOggVorbis���Đ��ł��܂��B[l][r]
-�@���[�r�[��AVI/MPEG/SWF���Đ��ł��܂��B[p]
+　BGMとしてはCD-DA、MIDI、PCMのいずれかを使用できます。[l]効果音にはPCMを使用できます。[l]いずれもフェードなどの音量制御ができます。[l][r]
+　PCMは標準で無圧縮の.WAVを再生できます。[l]また、プラグインで再生可能な形式を拡張でき、OggVorbisも再生できます。[l][r]
+　ムービーはAVI/MPEG/SWFを再生できます。[p]
 *about_kag8|
 @cm
-�@KAG�̕ϐ��͕�����ł����l�ł�����邱�Ƃ��ł��A�ϐ��̐��͖������A������̒������������A���l�͐��������łȂ��������������Ƃ��ł��܂��B[l]�����KAG�̕ϐ��̎d�l�Ƃ������AKAG�̃x�[�X�ƂȂ��Ă���TJS�̎d�l�ł��B[l][r]
-�@�ϐ��ɂ̓Q�[���ϐ��ƃV�X�e���ϐ��̂Q��ނ����āA�Q�[���ϐ��͞x�ƂƂ��ɓǂݍ��܂ꂽ��ۑ����ꂽ�肵�܂����A�V�X�e���ϐ��͞x�Ƃ͊֌W�Ȃ��A��ɓ������e��ۂ��Ƃ��ł�����̂ł��B[l][r]
-�@�ϐ����g������������܂��E�E�E[p]
+　KAGの変数は文字列でも数値でも入れることができ、変数の数は無制限、文字列の長さも無制限、数値は整数だけでなく実数も扱うことができます。[l]これはKAGの変数の仕様というか、KAGのベースとなっているTJSの仕様です。[l][r]
+　変数にはゲーム変数とシステム変数の２種類あって、ゲーム変数は栞とともに読み込まれたり保存されたりしますが、システム変数は栞とは関係なく、常に同じ内容を保つことができるものです。[l][r]
+　変数を使った例を示します・・・[p]
 @eval exp="f.v1 = intrandom(1, 9)"
 @eval exp="f.v2 = intrandom(1, 9)"
 @eval exp="f.ans = f.v1 * f.v2"
 @eval exp="f.input = ''"
-*about_kag_var_0|�v�Z���
+*about_kag_var_0|計算問題
 @cm
-�@�v�Z���ł��B[emb exp="f.v1"] �~ [emb exp="f.v2"] �́H[r]
-[font size=20](���̓��͗��ɓ��͂�����A�悱�́uOK�v���N���b�N���Ă�������)[resetfont][r]
+　計算問題です。[emb exp="f.v1"] × [emb exp="f.v2"] は？[r]
+[font size=20](下の入力欄に入力したら、よこの「OK」をクリックしてください)[resetfont][r]
 [r]
 @start_select
-�@[edit name="f.input" length=200 opacity=80 bgcolor=0x000000 color=0xffffff] [link target=*about_kag_var_1]�@�@�@OK�@�@�@[endlink][r]
+　[edit name="f.input" length=200 opacity=80 bgcolor=0x000000 color=0xffffff] [link target=*about_kag_var_1]　　　OK　　　[endlink][r]
 [r]
-�@[link target=*about_kag_9]�ʓ|�Ȃ̂łƂ΂�[endlink]
+　[link target=*about_kag_9]面倒なのでとばす[endlink]
 @end_select
 @eval exp="kag.fore.messages[0].links[0].object.focus()"
-; �����͗��Ƀt�H�[�J�X��ݒ肷��
-; �u�V�X�e�� - �O�ɖ߂�v�ł��̈ʒu�ɖ߂��悤�ɂ����ŒʉߋL�^���s��
+; ↑入力欄にフォーカスを設定する
+; 「システム - 前に戻る」でこの位置に戻れるようにここで通過記録を行う
 @record
 [s]
 
@@ -292,34 +292,34 @@
 @commit
 @jump cond="str2num(f.input) == f.ans" target=*about_kag_var_correct
 @cm
-�@�s�����I[l][r]
-�@������x���͂��Ă��������B[p]
+　不正解！[l][r]
+　もう一度入力してください。[p]
 @jump target=*about_kag_var_0
 
 *about_kag_var_correct
 @cm
-�@�����ł��I[p]
+　正解です！[p]
 @jump target=*about_kag_9
 
 *about_kag_9|
 @cm
 @snowinit forevisible=true backvisible=false
-�@KAG�̑傫�ȓ����Ƃ��āA���̍����g�����ƃJ�X�^�}�C�Y�����������܂��B[l]KAG�����ł͎����ł��Ȃ��悤�ȋ@�\���ATJS���g���Ē��ڋg���g���𐧌䂷��΂��낢��Ȏ����ł��܂��B[l][r]
-�@���Ƃ��΁AKAG�p�v���O�C���Ƃ��āu��v��\��������v���O�C����ǂݍ��߂΁A���̂悤�ɐ��\�������邱�Ƃ��ł��܂��B[l]�ق��ɂ��g�����W�V�����̎�ނ𑝂₷�v���O�C���Ȃǂ�����܂��B[l][r]
-�@�܂��AKAG���̂��̂�TJS�X�N���v�g�ŏ�����Ă��邽�߁A�X�N���v�g��ύX����΋��X�ɂ킽���ē�����J�X�^�}�C�Y���鎖���ł��܂��B[p]
+　KAGの大きな特徴として、その高い拡張性とカスタマイズ性が挙げられます。[l]KAGだけでは実現できないような機能も、TJSを使って直接吉里吉里を制御すればいろいろな事ができます。[l][r]
+　たとえば、KAG用プラグインとして「雪」を表示させるプラグインを読み込めば、このように雪を表示させることができます。[l]ほかにもトランジションの種類を増やすプラグインなどがあります。[l][r]
+　また、KAGそのものがTJSスクリプトで書かれているため、スクリプトを変更すれば隅々にわたって動作をカスタマイズする事ができます。[p]
 @backlay
 @snowopt backvisible=false
 @trans method=crossfade time=1000
 @wt
 @snowuninit
-*about_kag_fin|KAG�̏Љ���܂�
+*about_kag_fin|KAGの紹介おしまい
 @cm
-�@KAG�̏Љ�͂���ł����܂��ł��B[l][r]
-�@�݂Ȃ��������g���g��/KAG���g���Ă��΂炵���Q�[��������Ă��������B[l][r]
+　KAGの紹介はこれでおしまいです。[l][r]
+　みなさんも是非吉里吉里/KAGを使ってすばらしいゲームを作ってください。[l][r]
 [r]
 @start_select
-[link exp="System.shellExecute('http://kikyou.info/tvp/')" hint="�_�E�����[�h�y�[�W���J���܂�"]�g���g���_�E�����[�h�y�[�W[endlink][r]
+[link exp="System.shellExecute('http://kikyou.info/tvp/')" hint="ダウンロードページを開きます"]吉里吉里ダウンロードページ[endlink][r]
 [r]
-[link target=*to_syokai_start]���j���[�ɖ߂�[endlink]
+[link target=*to_syokai_start]メニューに戻る[endlink]
 @end_select
 [s]

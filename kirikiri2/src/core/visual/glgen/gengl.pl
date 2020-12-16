@@ -6,7 +6,7 @@
 $gpl = <<EOF;
 
 	TVP2 ( T Visual Presenter 2 )  A script authoring tool
-	Copyright (C) 2000-2009 W.Dee <dee\@kikyou.info> and contributors
+	Copyright (C) 2000-2009 W.Dee <dee¥@kikyou.info> and contributors
 
 	See details of license at "license.txt"
 
@@ -35,7 +35,7 @@ sub format_function
 {
 	local($a, $b);
 	$a = $_[0];
-	$a =~ s/\n//g;
+	$a =‾ s/¥n//g;
 	push (@function_list, $a);
 }
 
@@ -45,7 +45,7 @@ sub get_function_list
 	local($content, $ret);
 	$content = &get_file_content($_[0]);
 	$ret = '';
-	$content =~ s/\/\*export\*\/(.*?)\{/&format_function($1)/seg;
+	$content =‾ s/¥/¥*export¥*¥/(.*?)¥{/&format_function($1)/seg;
 }
 
 ;#-----------------------------------------------------------------
@@ -99,7 +99,7 @@ EOF
 	for($i = 0; $i<$unroll_times; $i++)
 	{
 		$con = $content;
-		$con =~ s/\{ofs\}/($times-$i)/g;
+		$con =‾ s/¥{ofs¥}/($times-$i)/g;
 		print FC $con;
 	}
 
@@ -112,7 +112,7 @@ EOF
 EOF
 
 	$con = $content;
-	$con =~ s/\{ofs\}/$times/g;
+	$con =‾ s/¥{ofs¥}/$times/g;
 	print FC $con;
 
   	print FC <<EOF;
@@ -141,7 +141,7 @@ EOF
 	for($i = 0; $i<$unroll_times; $i++)
 	{
 		$con = $content;
-		$con =~ s/\{ofs\}/(___index+$i)/g;
+		$con =‾ s/¥{ofs¥}/(___index+$i)/g;
 		print FC $con;
 	}
 
@@ -156,7 +156,7 @@ EOF
 EOF
 
 		$con = $content;
-		$con =~ s/\{ofs\}/___index/g;
+		$con =‾ s/¥{ofs¥}/___index/g;
 		print FC $con;
 
   		print FC <<EOF;
@@ -189,20 +189,20 @@ EOF
 	{
 		local($j);
 		$con = $content;
-		$con =~ s/\{ofs\}/(___index+($i*2))/g;
+		$con =‾ s/¥{ofs¥}/(___index+($i*2))/g;
 		$con2 = $content2;
-		$con2 =~ s/\{ofs\}/(___index+($i*2+1))/g;
-		$con =~ s/\n//g;
-		$con2 =~ s/\n//g;
+		$con2 =‾ s/¥{ofs¥}/(___index+($i*2+1))/g;
+		$con =‾ s/¥n//g;
+		$con2 =‾ s/¥n//g;
 		@cont = split(/;;/, $con);
 		@cont2 = split(/;;/, $con2);
 
 		for($j = 0; $j <= $#cont; $j++)
 		{
 			print FC $cont[$j];
-			print FC ";\n";
+			print FC ";¥n";
 			print FC $cont2[$j];
-			print FC ";\n";
+			print FC ";¥n";
 		}
 	}
 
@@ -217,7 +217,7 @@ EOF
 EOF
 
 	$con = $content;
-	$con =~ s/\{ofs\}/___index/g;
+	$con =‾ s/¥{ofs¥}/___index/g;
 	print FC $con;
 
   	print FC <<EOF;
@@ -242,7 +242,7 @@ sub label_expand
 {
 	local($content);
 	$content = $_[0];
-	$serial += ($content =~ s/\{(\d+)\}/&_label_expand($1)/eg);
+	$serial += ($content =‾ s/¥{(¥d+)¥}/&_label_expand($1)/eg);
 	return $content;
 }
 
@@ -272,7 +272,7 @@ sub adds_expand
 	local($content, $mul);
 	$content = $_[0];
 	$mul = $_[1];
-	$content =~ s/\{(.+?),(\d+)\}/&_adds_expand($1, $2, $mul)/eg;
+	$content =‾ s/¥{(.+?),(¥d+)¥}/&_adds_expand($1, $2, $mul)/eg;
 	return $content;
 }
 
@@ -411,7 +411,7 @@ static tjs_uint32 TVP_INLINE_FUNC TVPSaturatedAdd(tjs_uint32 a, tjs_uint32 b)
 
 static tjs_uint32 TVP_INLINE_FUNC TVPAddAlphaBlend_n_a(tjs_uint32 dest, tjs_uint32 src)
 {
-	tjs_uint32 sopa = (~src) >> 24;
+	tjs_uint32 sopa = (‾src) >> 24;
 	return TVPSaturatedAdd((((dest & 0xff00ff)*sopa >> 8) & 0xff00ff) + 
 		(((dest & 0xff00)*sopa >> 8) & 0xff00), src);
 }
@@ -4040,8 +4040,8 @@ EOF
 
 $content = <<EOF;
 {
-s = ~*src;
-s = ~ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (  ( s & *dest ) + ( ((s ^ *dest)>>1) & 0x7f7f7f7f)  ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
@@ -4071,8 +4071,8 @@ EOF
 
 $content = <<EOF;
 {
-s = ~*src;
-s = 0xff000000 | ~ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = 0xff000000 | ‾ (( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (  ( s & *dest ) + ( ((s ^ *dest)>>1) & 0x7f7f7f7f)  ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
@@ -4163,8 +4163,8 @@ EOF
 
 $content = <<EOF;
 {
-s = ~*src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (*dest & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((*dest & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -4197,8 +4197,8 @@ EOF
 
 $content = <<EOF;
 {
-s = ~*src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾*src;
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (*dest & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((*dest & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -4231,13 +4231,13 @@ EOF
 
 $content = <<EOF;
 {
-tmp2 = ~*src;
+tmp2 = ‾*src;
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3;
 dest++;
 src++;
@@ -4264,13 +4264,13 @@ EOF
 
 $content = <<EOF;
 {
-tmp2 = ~*src;
+tmp2 = ‾*src;
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3 + (*dest & 0xff000000);
 dest++;
 src++;
@@ -4296,14 +4296,14 @@ EOF
 
 $content = <<EOF;
 {
-tmp2 = ~ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
+tmp2 = ‾ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (*src&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3;
 dest++;
 src++;
@@ -4329,14 +4329,14 @@ EOF
 
 $content = <<EOF;
 {
-tmp2 = ~ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
+tmp2 = ‾ (( ((*src&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (*src&0xff00ff) * opa >> 8)&0xff00ff) );
 tmp = (*dest & 0xff) * TVPRecipTable256[tmp2 & 0xff] >> 8;
-tmp3 = (tmp | ((tjs_int32)~(tmp - 0x100) >> 31)) & 0xff;
+tmp3 = (tmp | ((tjs_int32)‾(tmp - 0x100) >> 31)) & 0xff;
 tmp = ((*dest & 0xff00)>>8) * TVPRecipTable256[(tmp2 & 0xff00)>>8];
-tmp3 |= (tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00;
+tmp3 |= (tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00;
 tmp = ((*dest & 0xff0000)>>16) * TVPRecipTable256[(tmp2 & 0xff0000)>>16];
-tmp3 |= ((tmp | ((tjs_int32)~(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
+tmp3 |= ((tmp | ((tjs_int32)‾(tmp - 0x10000) >> 31)) & 0xff00 ) << 8;
 *dest= tmp3 + (*dest & 0xff000000);
 dest++;
 src++;
@@ -4364,7 +4364,7 @@ EOF
 
 $content = <<EOF;
 {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= (*dest ^ *src) & tmp;
@@ -4392,7 +4392,7 @@ EOF
 
 $content = <<EOF;
 {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= ((*dest ^ *src) & tmp) & 0xffffff;
@@ -4420,7 +4420,7 @@ EOF
 
 $content = <<EOF;
 {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ ((*dest ^ *src) & tmp);
@@ -4454,7 +4454,7 @@ EOF
 
 $content = <<EOF;
 {
-m_src = ~*src;
+m_src = ‾*src;
 tmp = ((m_src & *dest) + (((m_src ^ *dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ (((*dest ^ *src) & tmp) & 0xffffff);
@@ -4489,7 +4489,7 @@ EOF
 
 $content = <<EOF;
 {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= (*dest ^ *src) & tmp;
@@ -4517,7 +4517,7 @@ EOF
 
 $content = <<EOF;
 {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 *dest ^= ((*dest ^ *src) & tmp) & 0xffffff;
@@ -4546,7 +4546,7 @@ EOF
 
 $content = <<EOF;
 {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ ((*dest ^ *src) & tmp);
@@ -4581,7 +4581,7 @@ EOF
 
 $content = <<EOF;
 {
-m_dest = ~*dest;
+m_dest = ‾*dest;
 tmp = ((*src & m_dest) + (((*src ^ m_dest) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 tmp = (tmp << 1) - (tmp >> 7);
 tmp = *dest ^ (((*dest ^ *src) & tmp) & 0xffffff);
@@ -4616,13 +4616,13 @@ EOF
 
 $content = <<EOF;
 {
-s = ~*src;
-d = ~*dest;
+s = ‾*src;
+d = ‾*dest;
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp;
+*dest = ‾tmp;
 dest++;
 src++;
 }
@@ -4648,13 +4648,13 @@ EOF
 
 $content = <<EOF;
 {
-s = ~*src;
-d = ~*dest;
+s = ‾*src;
+d = ‾*dest;
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp ^ (d & 0xff000000);
+*dest = ‾tmp ^ (d & 0xff000000);
 dest++;
 src++;
 }
@@ -4680,9 +4680,9 @@ EOF
 
 $content = <<EOF;
 {
-d = ~*dest;
+d = ‾*dest;
 s = *src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
@@ -4715,15 +4715,15 @@ EOF
 
 $content = <<EOF;
 {
-d = ~*dest;
+d = ‾*dest;
 s = *src;
-s = ~( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
+s = ‾( ( ((s&0x00ff00)  * opa >> 8)&0x00ff00) +
 	(( (s&0xff00ff) * opa >> 8)&0xff00ff));
 tmp  = (d & 0xff) * (s & 0xff) & 0xff00;
 tmp |= ((d & 0xff00) >> 8) * (s & 0xff00) & 0xff0000;
 tmp |= ((d & 0xff0000) >> 16) * (s & 0xff0000) & 0xff000000;
 tmp >>= 8;
-*dest = ~tmp ^ (d & 0xff000000);
+*dest = ‾tmp ^ (d & 0xff000000);
 dest++;
 src++;
 }
@@ -6160,7 +6160,7 @@ TVP_GL_FUNC_DECL(void, TVPBLExpand4BitTo8BitPal_c, (tjs_uint8 *dest, const tjs_u
 	tjs_uint8 *d=dest, *dlim;
 	tjs_uint8 b;
 
-	dlim = dest + (len & ~1);
+	dlim = dest + (len & ‾1);
 	while(d < dlim)
 	{
 		b = *(buf++);
@@ -6184,7 +6184,7 @@ TVP_GL_FUNC_DECL(void, TVPBLExpand4BitTo8Bit_c, (tjs_uint8 *dest, const tjs_uint
 	tjs_uint8 *d=dest, *dlim;
 	tjs_uint8 b;
 
-	dlim = dest + (len & ~1);
+	dlim = dest + (len & ‾1);
 	while(d < dlim)
 	{
 		b = *(buf++);
@@ -6209,7 +6209,7 @@ TVP_GL_FUNC_DECL(void, TVPBLExpand4BitTo32BitPal_c, (tjs_uint32 *dest, const tjs
 	tjs_uint32 *d=dest, *dlim;
 	tjs_uint8 b;
 
-	dlim = dest + (len & ~1);
+	dlim = dest + (len & ‾1);
 	while(d < dlim)
 	{
 		b = *(buf++);
@@ -6815,9 +6815,9 @@ print FC <<EOF;
 #if TJS_HOST_IS_BIG_ENDIAN
 	#define TVP_TLG6_BYTEOF(a, x) (((tjs_uint8*)(a))[(x)])
 
-	#define TVP_TLG6_FETCH_32BITS(addr) ((tjs_uint32)TVP_TLG6_BYTEOF((addr), 0) +  \\
-									((tjs_uint32)TVP_TLG6_BYTEOF((addr), 1) << 8) + \\
-									((tjs_uint32)TVP_TLG6_BYTEOF((addr), 2) << 16) + \\
+	#define TVP_TLG6_FETCH_32BITS(addr) ((tjs_uint32)TVP_TLG6_BYTEOF((addr), 0) +  ¥¥
+									((tjs_uint32)TVP_TLG6_BYTEOF((addr), 1) << 8) + ¥¥
+									((tjs_uint32)TVP_TLG6_BYTEOF((addr), 2) << 16) + ¥¥
 									((tjs_uint32)TVP_TLG6_BYTEOF((addr), 3) << 24) )
 #else
 	#define TVP_TLG6_FETCH_32BITS(addr) (*(tjs_uint32*)addr)
@@ -7070,7 +7070,7 @@ TVP_GL_FUNC_DECL(void, TVPTLG6DecodeGolombValues_c, (tjs_int8 *pixelbuf, tjs_int
 
 
 static TVP_INLINE_FUNC tjs_uint32 make_gt_mask(tjs_uint32 a, tjs_uint32 b){
-	tjs_uint32 tmp2 = ~b;
+	tjs_uint32 tmp2 = ‾b;
 	tjs_uint32 tmp = ((a & tmp2) + (((a ^ tmp2) >> 1) & 0x7f7f7f7f) ) & 0x80808080;
 	tmp = ((tmp >> 7) + 0x7f7f7f7f) ^ 0x7f7f7f7f;
 	return tmp;
@@ -7088,45 +7088,45 @@ static TVP_INLINE_FUNC tjs_uint32 med2(tjs_uint32 a, tjs_uint32 b, tjs_uint32 c)
 	tjs_uint32 bb = a_xor_b_and_aa_gt_bb ^ b;
 	tjs_uint32 n = make_gt_mask(c, bb);
 	tjs_uint32 nn = make_gt_mask(aa, c);
-	tjs_uint32 m = ~(n | nn);
+	tjs_uint32 m = ‾(n | nn);
 	return (n & aa) | (nn & bb) | ((bb & m) - (c & m) + (aa & m));
 }
 static TVP_INLINE_FUNC tjs_uint32 med(tjs_uint32 a, tjs_uint32 b, tjs_uint32 c, tjs_uint32 v){
 	return packed_bytes_add(med2(a, b, c), v);
 }
 
-#define TLG6_AVG_PACKED(x, y) ((((x) & (y)) + ((((x) ^ (y)) & 0xfefefefe) >> 1)) +\\
+#define TLG6_AVG_PACKED(x, y) ((((x) & (y)) + ((((x) ^ (y)) & 0xfefefefe) >> 1)) +¥¥
 			(((x)^(y))&0x01010101))
 
 static TVP_INLINE_FUNC tjs_uint32 avg(tjs_uint32 a, tjs_uint32 b, tjs_uint32 c, tjs_uint32 v){
 	return packed_bytes_add(TLG6_AVG_PACKED(a, b), v);
 }
 
-#define TVP_TLG6_DO_CHROMA_DECODE_PROTO(B, G, R, A, POST_INCREMENT) do \\
-			{ \\
-				tjs_uint32 u = *prevline; \\
-				p = med(p, u, up, \\
-					(0xff0000 & ((R)<<16)) + (0xff00 & ((G)<<8)) + (0xff & (B)) + ((A) << 24) ); \\
-				up = u; \\
-				*curline = p; \\
-				curline ++; \\
-				prevline ++; \\
-				POST_INCREMENT \\
+#define TVP_TLG6_DO_CHROMA_DECODE_PROTO(B, G, R, A, POST_INCREMENT) do ¥¥
+			{ ¥¥
+				tjs_uint32 u = *prevline; ¥¥
+				p = med(p, u, up, ¥¥
+					(0xff0000 & ((R)<<16)) + (0xff00 & ((G)<<8)) + (0xff & (B)) + ((A) << 24) ); ¥¥
+				up = u; ¥¥
+				*curline = p; ¥¥
+				curline ++; ¥¥
+				prevline ++; ¥¥
+				POST_INCREMENT ¥¥
 			} while(--w);
-#define TVP_TLG6_DO_CHROMA_DECODE_PROTO2(B, G, R, A, POST_INCREMENT) do \\
-			{ \\
-				tjs_uint32 u = *prevline; \\
-				p = avg(p, u, up, \\
-					(0xff0000 & ((R)<<16)) + (0xff00 & ((G)<<8)) + (0xff & (B)) + ((A) << 24) ); \\
-				up = u; \\
-				*curline = p; \\
-				curline ++; \\
-				prevline ++; \\
-				POST_INCREMENT \\
+#define TVP_TLG6_DO_CHROMA_DECODE_PROTO2(B, G, R, A, POST_INCREMENT) do ¥¥
+			{ ¥¥
+				tjs_uint32 u = *prevline; ¥¥
+				p = avg(p, u, up, ¥¥
+					(0xff0000 & ((R)<<16)) + (0xff00 & ((G)<<8)) + (0xff & (B)) + ((A) << 24) ); ¥¥
+				up = u; ¥¥
+				*curline = p; ¥¥
+				curline ++; ¥¥
+				prevline ++; ¥¥
+				POST_INCREMENT ¥¥
 			} while(--w);
-#define TVP_TLG6_DO_CHROMA_DECODE(N, R, G, B) case (N<<1): \\
-	TVP_TLG6_DO_CHROMA_DECODE_PROTO(R, G, B, IA, {in+=step;}) break; \\
-	case (N<<1)+1: \\
+#define TVP_TLG6_DO_CHROMA_DECODE(N, R, G, B) case (N<<1): ¥¥
+	TVP_TLG6_DO_CHROMA_DECODE_PROTO(R, G, B, IA, {in+=step;}) break; ¥¥
+	case (N<<1)+1: ¥¥
 	TVP_TLG6_DO_CHROMA_DECODE_PROTO2(R, G, B, IA, {in+=step;}) break;
 
 /*export*/
@@ -7216,40 +7216,40 @@ open PSC, "tvpps.c" or die;
 $exportlist = '';
 while($line = <PSC>)
 {
-	if($line =~ /^\#define\s+TVPPS_FUNC_NORM\s+(\w+)/)
+	if($line =‾ /^¥#define¥s+TVPPS_FUNC_NORM¥s+(¥w+)/)
 	{
 		;# normal function
-		$exportlist .= "/*export*/\n";
-		$exportlist .= "TVP_GL_FUNC_DECL(void, $1, (tjs_uint32 *dest, const tjs_uint32 *src, tjs_int len))\n{}\n";
+		$exportlist .= "/*export*/¥n";
+		$exportlist .= "TVP_GL_FUNC_DECL(void, $1, (tjs_uint32 *dest, const tjs_uint32 *src, tjs_int len))¥n{}¥n";
 	}
-	elsif($line =~ /^\#define\s+TVPPS_FUNC_O\s+(\w+)/)
+	elsif($line =‾ /^¥#define¥s+TVPPS_FUNC_O¥s+(¥w+)/)
 	{
 		;# with opacity 
-		$exportlist .= "/*export*/\n";
-		$exportlist .= "TVP_GL_FUNC_DECL(void, $1, (tjs_uint32 *dest, const tjs_uint32 *src, tjs_int len, tjs_int opa))\n{}\n";
+		$exportlist .= "/*export*/¥n";
+		$exportlist .= "TVP_GL_FUNC_DECL(void, $1, (tjs_uint32 *dest, const tjs_uint32 *src, tjs_int len, tjs_int opa))¥n{}¥n";
 	}
-	elsif($line =~ /^\#define\s+TVPPS_FUNC_HDA\s+(\w+)/)
+	elsif($line =‾ /^¥#define¥s+TVPPS_FUNC_HDA¥s+(¥w+)/)
 	{
 		;# with hda
-		$exportlist .= "/*export*/\n";
-		$exportlist .= "TVP_GL_FUNC_DECL(void, $1, (tjs_uint32 *dest, const tjs_uint32 *src, tjs_int len))\n{}\n";
+		$exportlist .= "/*export*/¥n";
+		$exportlist .= "TVP_GL_FUNC_DECL(void, $1, (tjs_uint32 *dest, const tjs_uint32 *src, tjs_int len))¥n{}¥n";
 	}
-	elsif($line =~ /^\#define\s+TVPPS_FUNC_HDA_O\s+(\w+)/)
+	elsif($line =‾ /^¥#define¥s+TVPPS_FUNC_HDA_O¥s+(¥w+)/)
 	{
 		;# with hda opacity
-		$exportlist .= "/*export*/\n";
-		$exportlist .= "TVP_GL_FUNC_DECL(void, $1, (tjs_uint32 *dest, const tjs_uint32 *src, tjs_int len, tjs_int opa))\n{}\n";
+		$exportlist .= "/*export*/¥n";
+		$exportlist .= "TVP_GL_FUNC_DECL(void, $1, (tjs_uint32 *dest, const tjs_uint32 *src, tjs_int len, tjs_int opa))¥n{}¥n";
 	}
 
 	print FC $line;
 }
 
-print FC "\n\n";
-print FC "#if 0\n";
-print FC "/* dummy definitions to be checked in gengl.pl */\n";
-print FC "$exportlist\n";
-print FC "#endif\n";
-print FC "\n\n";
+print FC "¥n¥n";
+print FC "#if 0¥n";
+print FC "/* dummy definitions to be checked in gengl.pl */¥n";
+print FC "$exportlist¥n";
+print FC "#endif¥n";
+print FC "¥n¥n";
 
 ;#-----------------------------------------------------------------
 
@@ -7269,8 +7269,8 @@ open FC, ">>tvpgl.c";
 foreach $each (@function_list)
 {
 	$temp = $each;
-	$temp =~ s/TVP_GL_FUNC_DECL\((.*?)\s*\,\s*(.*?)_c\s*\,/TVP_GL_FUNC_PTR_DECL\($1\, $2\, /;
-	print FC "$temp;\n";
+	$temp =‾ s/TVP_GL_FUNC_DECL¥((.*?)¥s*¥,¥s*(.*?)_c¥s*¥,/TVP_GL_FUNC_PTR_DECL¥($1¥, $2¥, /;
+	print FC "$temp;¥n";
 }
 
 
@@ -7286,8 +7286,8 @@ EOF
 foreach $each (@function_list)
 {
 	$temp = $each;
-	$temp =~ /TVP_GL_FUNC_DECL\((.*?)\s*\,\s*(.*?)_c\s*\,/;
-	print FC "\t${2} = ${2}_c;\n";
+	$temp =‾ /TVP_GL_FUNC_DECL¥((.*?)¥s*¥,¥s*(.*?)_c¥s*¥,/;
+	print FC "¥t${2} = ${2}_c;¥n";
 }
 
 print FC <<EOF;
@@ -7305,15 +7305,15 @@ TVP_GL_FUNC_DECL(void, TVPUninitTVPGL, ())
 EOF
 close FC;
 ;#-----------------------------------------------------------------
-print FH "/* begin function list */\n";
+print FH "/* begin function list */¥n";
 
 foreach $each (@function_list)
 {
 	$temp = $each;
-	$temp =~ s/TVP_GL_FUNC_DECL\((.*?)\s*\,\s*(.*?)_c\s*\,/TVP_GL_FUNC_PTR_EXTERN_DECL\($1\, $2\, /;
-	print FH "$temp;\n";
+	$temp =‾ s/TVP_GL_FUNC_DECL¥((.*?)¥s*¥,¥s*(.*?)_c¥s*¥,/TVP_GL_FUNC_PTR_EXTERN_DECL¥($1¥, $2¥, /;
+	print FH "$temp;¥n";
 }
-print FH "/* end function list */\n";
+print FH "/* end function list */¥n";
 
 print FH <<EOF;
 
@@ -7327,7 +7327,7 @@ TVP_GL_FUNC_EXTERN_DECL(void, TVPUninitTVPGL, ());
 /* some utilities */
 /*[*/
 #define TVP_RGB2COLOR(r,g,b) ((((r)<<16) + ((g)<<8) + (b)) | 0xff000000)
-#define TVP_RGBA2COLOR(r,g,b,a) \\
+#define TVP_RGBA2COLOR(r,g,b,a) ¥¥
 	(((a)<<24) +  (((r)<<16) + ((g)<<8) + (b)))
 /*]*/
 
@@ -7338,7 +7338,7 @@ EOF
 <<COMMENT;
 open FE, ">tvpgl_exporter.cpp";
 
-print FE "/*\n$gpl\n*/\n";
+print FE "/*¥n$gpl¥n*/¥n";
 
 print FE <<EOF;
 
@@ -7358,8 +7358,8 @@ $count = 0;
 foreach $each (@function_list)
 {
 	$temp = $each;
-	$temp =~ /TVP_GL_FUNC_DECL\((.*?)\s*\,\s*(.*?)_c\s*\,/;
-	print FE "\tTVPAddExportFunction(TJS_W(\"$2\"),  (void*)$2);\n";
+	$temp =‾ /TVP_GL_FUNC_DECL¥((.*?)¥s*¥,¥s*(.*?)_c¥s*¥,/;
+	print FE "¥tTVPAddExportFunction(TJS_W(¥"$2¥"),  (void*)$2);¥n";
 	$count ++;
 }
 
@@ -7371,7 +7371,7 @@ EOF
 close FE;
 
 open FE, ">tvpgl_exporter.h";
-print FE "/*\n$gpl\n*/\n";
+print FE "/*¥n$gpl¥n*/¥n";
 
 print FE <<EOF;
 

@@ -196,7 +196,7 @@ class pool: protected simple_segregated_storage<
     :list(0, 0), requested_size(nrequested_size), next_size(nnext_size)
     { }
 
-    ~pool() { purge_memory(); }
+    ‾pool() { purge_memory(); }
 
     // Releases memory blocks that don't have chunks allocated
     // pre: lists are ordered

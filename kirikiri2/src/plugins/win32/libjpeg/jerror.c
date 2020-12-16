@@ -108,7 +108,7 @@ output_message (j_common_ptr cinfo)
 	     MB_OK | MB_ICONERROR);
 #else
   /* Send it to stderr, adding a newline */
-  fprintf(stderr, "%s\n", buffer);
+  fprintf(stderr, "%s¥n", buffer);
 #endif
 }
 
@@ -149,7 +149,7 @@ emit_message (j_common_ptr cinfo, int msg_level)
 /*
  * Format a message string for the most recent JPEG error or message.
  * The message is stored into buffer, which should be at least JMSG_LENGTH_MAX
- * characters.  Note that no '\n' character is added to the string.
+ * characters.  Note that no '¥n' character is added to the string.
  * Few applications should need to override this method.
  */
 
@@ -181,7 +181,7 @@ format_message (j_common_ptr cinfo, char * buffer)
   /* Check for string parameter, as indicated by %s in the message text */
   isstring = FALSE;
   msgptr = msgtext;
-  while ((ch = *msgptr++) != '\0') {
+  while ((ch = *msgptr++) != '¥0') {
     if (ch == '%') {
       if (*msgptr == 's') isstring = TRUE;
       break;

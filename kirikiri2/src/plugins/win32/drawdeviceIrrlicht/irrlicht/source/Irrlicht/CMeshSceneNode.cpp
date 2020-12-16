@@ -35,7 +35,7 @@ CMeshSceneNode::CMeshSceneNode(IMesh* mesh, ISceneNode* parent, ISceneManager* m
 
 
 //! destructor
-CMeshSceneNode::~CMeshSceneNode()
+CMeshSceneNode::‾CMeshSceneNode()
 {
 	if (Mesh)
 		Mesh->drop();

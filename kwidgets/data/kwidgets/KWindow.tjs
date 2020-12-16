@@ -3,76 +3,76 @@
 //
 
 
-// Œ»İƒJ[ƒ\ƒ‹‚Ìæ‚Á‚Ä‚¢‚éƒEƒBƒ“ƒhƒE
+// ç¾åœ¨ã‚«ãƒ¼ã‚½ãƒ«ã®ä¹—ã£ã¦ã„ã‚‹ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
 global._existentWindowList = [];
 
 /**----------------------------------------------------------------------
- * ƒEƒBƒWƒFƒbƒg‚ğŠi”[‚·‚éƒEƒBƒ“ƒhƒE
+ * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æ ¼ç´ã™ã‚‹ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
  ----------------------------------------------------------------------*/
 class KWindow extends Window
 {
-  /// ƒfƒtƒHƒ‹ƒg‚ÌƒtƒHƒ“ƒgƒtƒFƒCƒX
+  /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚§ã‚¤ã‚¹
   var defaultFontFace;
-  /// ƒfƒtƒHƒ‹ƒg‚ÌƒtƒHƒ“ƒgƒwƒCƒg
+  /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚©ãƒ³ãƒˆãƒ˜ã‚¤ãƒˆ
   var defaultFontHeight;
-  /// ƒfƒtƒHƒ‹ƒg‚ÌƒtƒHƒ“ƒgƒJƒ‰[
+  /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚©ãƒ³ãƒˆã‚«ãƒ©ãƒ¼
   var defaultFontColor;
-  /// ƒfƒtƒHƒ‹ƒg‚Ìƒ}[ƒWƒ“
+  /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒãƒ¼ã‚¸ãƒ³
   var defaultMarginLeft;
   var defaultMarginTop;
   var defaultMarginRight;
   var defaultMarginBottom;
-  /// ƒfƒtƒHƒ‹ƒg‚ÌƒXƒy[ƒX
+  /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¹ãƒšãƒ¼ã‚¹
   var defaultSpaceVertical;
   var defaultSpaceHorizontal;
-  /// ƒfƒtƒHƒ‹ƒg‚ÌƒAƒ‰ƒCƒƒ“ƒg
+  /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
   var defaultAlignVertical;
   var defaultAlignHorizontal;
-  /// ƒfƒtƒHƒ‹ƒg‚ÌƒtƒH[ƒJƒX”\
+  /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚©ãƒ¼ã‚«ã‚¹èƒ½
   var defaultFocusable;
-  /// –¼‘O
+  /// åå‰
   var name;
-  /// «‘
+  /// è¾æ›¸
   var dict;
-  /// ƒEƒBƒ“ƒhƒE‚ÌÅ‘åEÅ¬ƒTƒCƒY
+  /// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æœ€å¤§ãƒ»æœ€å°ã‚µã‚¤ã‚º
   var innerMinWidth, innerMinHeight, innerMaxWidth, innerMaxHeight;
-  // í‚ÉÅ¬ƒTƒCƒY‚ğæ‚é
+  // å¸¸ã«æœ€å°ã‚µã‚¤ã‚ºã‚’å–ã‚‹
   var _alwaysSetToMinSize = false;
-  // ƒXƒe[ƒ^ƒXƒo[
+  // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼
   var _statusBar = void;
-  // 1“x‚Å‚àinvalidateÀs‚³‚ê‚½
+  // 1åº¦ã§ã‚‚invalidateå®Ÿè¡Œã•ã‚ŒãŸ
   var onceResize = false;
-  // ƒEƒBƒWƒFƒbƒg
+  // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
   var _nameCache = %[];
-  // checked‰æ‘œ
+  // checkedç”»åƒ
   var menuCheckedLayer;
-  // mainƒEƒBƒ“ƒhƒE‚©H
+  // mainã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‹ï¼Ÿ
   var isMain = false;
-  // V‹KƒEƒBƒ“ƒhƒE‚ğ‘S‚Ä’¼Œn‚Ìq‚É‚·‚é‚©H
+  // æ–°è¦ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’å…¨ã¦ç›´ç³»ã®å­ã«ã™ã‚‹ã‹ï¼Ÿ
   var _createNewWindowAsChild = true;
-  // ‰Šú•\¦H
+  // åˆæœŸè¡¨ç¤ºï¼Ÿ
   var firstVisible = true;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * ƒEƒBƒWƒFƒbƒg‚ğŠi”[‚·‚é‚½‚ß‚Ìê—pƒEƒBƒ“ƒhƒE‚Å‚·B
-   * KWindow‚ÍƒRƒ“ƒXƒgƒ‰ƒNƒg‚ÉA©“®“I‚Éê—p‚Ì KPrimaryWidget ‚ğ
-   * ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„‚Æ‚µ‚Änew‚µA“o˜^‚µ‚Ü‚·B
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æ ¼ç´ã™ã‚‹ãŸã‚ã®å°‚ç”¨ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã§ã™ã€‚
+   * KWindowã¯ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ãƒˆæ™‚ã«ã€è‡ªå‹•çš„ã«å°‚ç”¨ã® KPrimaryWidget ã‚’
+   * ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤ã¨ã—ã¦newã—ã€ç™»éŒ²ã—ã¾ã™ã€‚
    *
-   * @param name –¼‘O
+   * @param name åå‰
    ------------------------------*/
   function KWindow(name, parentWindow = null) {
     _existentWindowList.insert(0, this);
 
     if (k_kirikiriz) {
-      // ‹g—¢‹g—¢Z‚Å‚Í‘¶İ‚µ‚È‚¢ƒvƒƒpƒeƒB[‚ğƒ_ƒ~[‘Î‰
+      // å‰é‡Œå‰é‡ŒZã§ã¯å­˜åœ¨ã—ãªã„ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ¼ã‚’ãƒ€ãƒŸãƒ¼å¯¾å¿œ
       this.innerSunken = false;
       this.showScrollBars = true;
-      // ‹g—¢‹g—¢Z‚Å‚Íƒqƒ“ƒg‚Í“Æ©À‘•‚ª•K—v
+      // å‰é‡Œå‰é‡ŒZã§ã¯ãƒ’ãƒ³ãƒˆã¯ç‹¬è‡ªå®Ÿè£…ãŒå¿…è¦
       this.hintLayer = void;
 
-      // ƒƒCƒ“ƒEƒBƒ“ƒhƒEˆÈŠO‚ÌƒEƒBƒ“ƒhƒE‚ğ‘S‚Ä’¼Œn‚Ìq‚É‚·‚é‚©‚Ç‚¤‚©
+      // ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ä»¥å¤–ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’å…¨ã¦ç›´ç³»ã®å­ã«ã™ã‚‹ã‹ã©ã†ã‹
       if (parentWindow == null
           && global.Window.mainWindow != null
           && global.Window.mainWindow.createNewWindowAsChild)
@@ -84,22 +84,22 @@ class KWindow extends Window
     }
 
     isMain = (mainWindow === this);
-    // ©•ª©g‚ªƒƒCƒ“ƒEƒBƒ“ƒhƒE‚Å‚È‚©‚Á‚½‚çAƒƒCƒ“ƒEƒBƒ“ƒhƒE‚ÌŠÇ—ƒIƒuƒWƒFƒNƒg‚É‚·‚éB
+    // è‡ªåˆ†è‡ªèº«ãŒãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã§ãªã‹ã£ãŸã‚‰ã€ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç®¡ç†ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã™ã‚‹ã€‚
     if (! isMain)
       mainWindow.add(this);
 
-    // –¼‘O
+    // åå‰
     this.name = name;
 
-    // ‚Æ‚è‚ ‚¦‚¸Å¬‚É
+    // ã¨ã‚Šã‚ãˆãšæœ€å°ã«
     setSize(0, 0);
 
-    // ƒXƒNƒ[ƒ‹ƒo[–³‚µ
+    // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ç„¡ã—
     showScrollBars = false;
-    // ‚Ö‚±‚İ–³‚µ
+    // ã¸ã“ã¿ç„¡ã—
     innerSunken = false;
 
-    // ƒEƒBƒWƒFƒbƒg‚Ì‰Šú’l‚ğAƒOƒ[ƒoƒ‹İ’è‚©‚çƒRƒs‚éB
+    // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®åˆæœŸå€¤ã‚’ã€ã‚°ãƒ­ãƒ¼ãƒãƒ«è¨­å®šã‹ã‚‰ã‚³ãƒ”ã‚‹ã€‚
     defaultFontFace = global.defaultFontFace;
     defaultFontHeight = global.defaultFontHeight;
     defaultFontColor = global.defaultFontColor;
@@ -113,10 +113,10 @@ class KWindow extends Window
     defaultAlignVertical = global.defaultAlignVertical;
     defaultFocusable = global.defaultFocusable;
 
-    // windowExƒvƒ‰ƒOƒCƒ“‚ÌƒCƒxƒ“ƒg‚ğ—LŒø‚É‚·‚é
+    // windowExãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ã‚¤ãƒ™ãƒ³ãƒˆã‚’æœ‰åŠ¹ã«ã™ã‚‹
     registerExEvent();
 
-    // ƒƒjƒ…[‚É×H
+    // ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã«ç´°å·¥
     menu.find = function(name) {
       for (var i = 0; i < children.count; i++) {
         var child = children[i];
@@ -130,7 +130,7 @@ class KWindow extends Window
     } incontextof(menu);
 
     menu.finalize = function  {
-      // qƒŒƒCƒ„[‚ğ‘S‚Ä”jŠü‚·‚é
+      // å­ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å…¨ã¦ç ´æ£„ã™ã‚‹
       discardArray(children);
     } incontextof(menu);
 
@@ -180,19 +180,19 @@ class KWindow extends Window
       }
     } incontextof(menu);
 
-    // ƒvƒ‰ƒCƒ}ƒŠƒEƒBƒWƒFƒbƒg‚ğì‚é
+    // ãƒ—ãƒ©ã‚¤ãƒãƒªã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ä½œã‚‹
     add(new KPrimaryWidget(this));
 
-    // ƒƒjƒ…[—pƒ`ƒFƒbƒNƒ}[ƒN
+    // ãƒ¡ãƒ‹ãƒ¥ãƒ¼ç”¨ãƒã‚§ãƒƒã‚¯ãƒãƒ¼ã‚¯
     menuCheckedLayer = new Layer(this, primaryLayer);
     menuCheckedLayer.loadImages("k_checked");
     menuCheckedLayer.setSizeToImageSize();
 
-    // missing ‚ğ—LŒø‚É‚·‚é
+    // missing ã‚’æœ‰åŠ¹ã«ã™ã‚‹
     Scripts.setCallMissing(this);
 
     if (k_kirikiriz) {
-      // ƒqƒ“ƒgƒŒƒCƒ„‚ğ—pˆÓ
+      // ãƒ’ãƒ³ãƒˆãƒ¬ã‚¤ãƒ¤ã‚’ç”¨æ„
       hintLayer = new Layer(this, primaryLayer);
       hintLayer.visible = false;
       hintLayer.ignoreHintSensing = true;
@@ -254,9 +254,9 @@ class KWindow extends Window
   }
 
   /**------------------------------
-   * ƒNƒ‰ƒXƒcƒŠ[
+   * ã‚¯ãƒ©ã‚¹ãƒ„ãƒªãƒ¼
    *
-   * @return ©•ª©g‚Ì‘®‚·‚éƒNƒ‰ƒXƒcƒŠ[‚ğ”z—ñ‚Å•Ô‚·
+   * @return è‡ªåˆ†è‡ªèº«ã®å±ã™ã‚‹ã‚¯ãƒ©ã‚¹ãƒ„ãƒªãƒ¼ã‚’é…åˆ—ã§è¿”ã™
    ------------------------------*/
   property classTrees {
     getter {
@@ -265,9 +265,9 @@ class KWindow extends Window
   }
 
   /**------------------------------
-   * ƒNƒ‰ƒX–¼
+   * ã‚¯ãƒ©ã‚¹å
    *
-   * @return ©•ª©g‚ÌƒNƒ‰ƒX–¼‚ğ•Ô‚·
+   * @return è‡ªåˆ†è‡ªèº«ã®ã‚¯ãƒ©ã‚¹åã‚’è¿”ã™
    ------------------------------*/
   property className {
     getter {
@@ -276,9 +276,9 @@ class KWindow extends Window
   }
 
   /**------------------------------
-   * ƒvƒ‰ƒCƒ}ƒŠƒEƒBƒWƒFƒbƒg‚ğQÆ‚µ‚Ü‚·BprimaryLayer‚Æ“¯‚¶’l‚ª•Ô‚è‚Ü‚·B
+   * ãƒ—ãƒ©ã‚¤ãƒãƒªã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å‚ç…§ã—ã¾ã™ã€‚primaryLayerã¨åŒã˜å€¤ãŒè¿”ã‚Šã¾ã™ã€‚
    * 
-   * @return ƒvƒ‰ƒCƒ}ƒŠƒEƒBƒWƒFƒbƒg
+   * @return ãƒ—ãƒ©ã‚¤ãƒãƒªã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   property primaryWidget {
     getter {
@@ -287,10 +287,10 @@ class KWindow extends Window
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒgƒcƒŠ[‚©‚ç“Á’è‚Ì–¼‘O‚ğ‚Á‚½qƒEƒBƒWƒFƒbƒg‚ğ‘{‚µ‚Ü‚·
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ„ãƒªãƒ¼ã‹ã‚‰ç‰¹å®šã®åå‰ã‚’æŒã£ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æœã—ã¾ã™
    *
-   * @param name ŒŸõ‚·‚éƒEƒBƒWƒFƒbƒg‚Ì–¼‘O
-   * @return –¼‘O‚Ìˆê’v‚µ‚½ƒEƒBƒWƒFƒbƒg
+   * @param name æ¤œç´¢ã™ã‚‹ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®åå‰
+   * @return åå‰ã®ä¸€è‡´ã—ãŸã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function find(name) {
     var widget;
@@ -302,13 +302,13 @@ class KWindow extends Window
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒgƒcƒŠ[‚©‚ç“Á’è‚Ì–¼‘O‚ğ‚Á‚½qƒEƒBƒWƒFƒbƒg‚ğ‘{‚µ‚Ü‚·
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ„ãƒªãƒ¼ã‹ã‚‰ç‰¹å®šã®åå‰ã‚’æŒã£ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æœã—ã¾ã™
    *
-   * findŠÖ”‚ğŒo—R‚¹‚¸‚ÉAƒIƒuƒWƒFƒNƒg‚ÌƒvƒƒpƒeƒBˆµ‚¢‚Å–¼‘O‚ğw’è‚µ‚Ä
-   * ƒEƒBƒWƒFƒbƒgƒcƒŠ[’†‚ÌƒEƒBƒWƒFƒbƒg‚ğQÆ‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B
+   * findé–¢æ•°ã‚’çµŒç”±ã›ãšã«ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£æ‰±ã„ã§åå‰ã‚’æŒ‡å®šã—ã¦
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ„ãƒªãƒ¼ä¸­ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å‚ç…§ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚
    *
-   * ƒpƒtƒH[ƒ}ƒ“ƒX‚Ì“s‡‚ÅAƒOƒ[ƒoƒ‹‚É“¯–¼‚ÌƒVƒ“ƒ{ƒ‹‚ª‘¶İ‚·‚éê‡‚Í
-   * —Dæ“I‚É‚»‚¿‚ç‚ğŒ©‚És‚­‚Æ‚¢‚¤‹““®‚ğ‚·‚é‚Ì‚Å’ˆÓB
+   * ãƒ‘ãƒ•ã‚©ãƒ¼ãƒãƒ³ã‚¹ã®éƒ½åˆã§ã€ã‚°ãƒ­ãƒ¼ãƒãƒ«ã«åŒåã®ã‚·ãƒ³ãƒœãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯
+   * å„ªå…ˆçš„ã«ãã¡ã‚‰ã‚’è¦‹ã«è¡Œãã¨ã„ã†æŒ™å‹•ã‚’ã™ã‚‹ã®ã§æ³¨æ„ã€‚
    ------------------------------*/
   function missing(get_or_set, name, value) {
     if (! get_or_set) {
@@ -334,24 +334,24 @@ class KWindow extends Window
     return false;
   }
 
-  // ƒ_ƒ~[
+  // ãƒ€ãƒŸãƒ¼
   function action {
   }
 
   /**------------------------------
-   * ƒvƒƒpƒeƒB‚ğƒoƒCƒ“ƒh‚·‚é
+   * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    *
-   * ƒcƒŠ[“à‚ÌƒEƒBƒWƒFƒbƒg‚ğ KProperty ƒNƒ‰ƒX‚ÌƒIƒuƒWƒFƒNƒg‚ÉƒoƒCƒ“ƒh‚µ‚Ü‚·B
+   * ãƒ„ãƒªãƒ¼å†…ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ KProperty ã‚¯ãƒ©ã‚¹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ãƒã‚¤ãƒ³ãƒ‰ã—ã¾ã™ã€‚
    *
-   * @param ƒoƒCƒ“ƒh‚·‚éƒvƒƒpƒeƒB
+   * @param ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
    ------------------------------*/
   function bindPersistentDictionary(dict) {
-    // ƒEƒBƒWƒFƒbƒg‚ğƒoƒCƒ“ƒh
+    // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ãƒã‚¤ãƒ³ãƒ‰
     primaryWidget.bindPersistentDictionary(dict);
-    // ƒƒjƒ…[‚ğƒoƒCƒ“ƒh
+    // ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’ãƒã‚¤ãƒ³ãƒ‰
     menu.bindPersistentDictionary(dict);
 
-    // name‚ªw’è‚³‚ê‚Ä‚½‚çƒEƒBƒ“ƒhƒE‚àƒoƒCƒ“ƒh
+    // nameãŒæŒ‡å®šã•ã‚Œã¦ãŸã‚‰ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚‚ãƒã‚¤ãƒ³ãƒ‰
     if (name != "") {
       this.dict = dict;
       width = dict.init(name + "_width", width);
@@ -362,17 +362,17 @@ class KWindow extends Window
   }
 
   /**------------------------------
-   * ƒvƒ‰ƒCƒ}ƒŠƒEƒBƒWƒFƒbƒg‚Ìƒ}[ƒWƒ“‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ãƒ—ãƒ©ã‚¤ãƒãƒªã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ãƒãƒ¼ã‚¸ãƒ³ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param child ƒ}[ƒWƒ“‚Ì•ÏX‚³‚ê‚½qƒEƒBƒWƒFƒbƒg
-   * @param newMarginLeft   V‹K¶ƒ}[ƒWƒ“
-   * @param newMarginTop    V‹Kãƒ}[ƒWƒ“
-   * @param newMarginRight  V‹K‰Eƒ}[ƒWƒ“
-   * @param newMarginBottom V‹K‰ºƒ}[ƒWƒ“
-   * @param oldMarginLeft   •ÏX‘O‚Ì¶ƒ}[ƒWƒ“
-   * @param oldMarginTop    •ÏX‘O‚Ìãƒ}[ƒWƒ“
-   * @param oldMarginRight  •ÏX‘O‚Ì‰Eƒ}[ƒWƒ“
-   * @param oldMarginBottom •ÏX‘O‚Ì‰ºƒ}[ƒWƒ“
+   * @param child ãƒãƒ¼ã‚¸ãƒ³ã®å¤‰æ›´ã•ã‚ŒãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param newMarginLeft   æ–°è¦å·¦ãƒãƒ¼ã‚¸ãƒ³
+   * @param newMarginTop    æ–°è¦ä¸Šãƒãƒ¼ã‚¸ãƒ³
+   * @param newMarginRight  æ–°è¦å³ãƒãƒ¼ã‚¸ãƒ³
+   * @param newMarginBottom æ–°è¦ä¸‹ãƒãƒ¼ã‚¸ãƒ³
+   * @param oldMarginLeft   å¤‰æ›´å‰ã®å·¦ãƒãƒ¼ã‚¸ãƒ³
+   * @param oldMarginTop    å¤‰æ›´å‰ã®ä¸Šãƒãƒ¼ã‚¸ãƒ³
+   * @param oldMarginRight  å¤‰æ›´å‰ã®å³ãƒãƒ¼ã‚¸ãƒ³
+   * @param oldMarginBottom å¤‰æ›´å‰ã®ä¸‹ãƒãƒ¼ã‚¸ãƒ³
    *------------------------------*/
   function onChildMarginModified(child,
                                  newMarginLeft, newMarginTop, newMarginRight, newMarginBottom,
@@ -380,13 +380,13 @@ class KWindow extends Window
   }
 
   /*------------------------------
-   * ƒvƒ‰ƒCƒ}ƒŠƒEƒBƒWƒFƒbƒg‚ÌƒAƒ‰ƒCƒƒ“ƒg‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ãƒ—ãƒ©ã‚¤ãƒãƒªã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param child ƒAƒ‰ƒCƒƒ“ƒg‚Ì•ÏX‚³‚ê‚½qƒEƒBƒWƒFƒbƒg
-   * @param newAlignHorizontal V‹K…•½ƒAƒ‰ƒCƒƒ“ƒg
-   * @param newAlignVertical V‹K‚’¼ƒAƒ‰ƒCƒƒ“ƒg
-   * @param oldAlignHorizontal •ÏX‘O‚Ì…•½ƒAƒ‰ƒCƒƒ“ƒg
-   * @param oldAlignVertical •ÏX‘O‚Ì‚’¼ƒAƒ‰ƒCƒƒ“ƒg
+   * @param child ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆã®å¤‰æ›´ã•ã‚ŒãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param newAlignHorizontal æ–°è¦æ°´å¹³ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
+   * @param newAlignVertical æ–°è¦å‚ç›´ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
+   * @param oldAlignHorizontal å¤‰æ›´å‰ã®æ°´å¹³ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
+   * @param oldAlignVertical å¤‰æ›´å‰ã®å‚ç›´ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
    ------------------------------*/
   function onChildAlignModified(child,
                                 newAlignHorizontal, newAlignVertical,
@@ -394,16 +394,16 @@ class KWindow extends Window
   }
 
   /**----------------------------------------------------------------------
-   * ƒvƒ‰ƒCƒ}ƒŠƒEƒBƒWƒFƒbƒg‚ÌÅ¬ƒTƒCƒYAÅ‘åƒTƒCƒY‚ÌXV‚É”º‚Á‚ÄŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ãƒ—ãƒ©ã‚¤ãƒãƒªã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®æœ€å°ã‚µã‚¤ã‚ºã€æœ€å¤§ã‚µã‚¤ã‚ºã®æ›´æ–°ã«ä¼´ã£ã¦å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param child Å¬EÅ‘åƒTƒCƒY‚ÌXV‚³‚ê‚½qƒEƒBƒWƒFƒbƒg
-   * @param newMinWidth V‹KÅ¬•
-   * @param newMinHeight V‹KÅ¬‚‚³
-   * @param newMaxWidth V‹KÅ‘å•
-   * @param oldMinWidth •ÏX‘O‚ÌÅ¬•
-   * @param oldMinHeight •ÏX‘O‚ÌÅ¬‚‚³
-   * @param oldMaxWidth •ÏX‘O‚ÌÅ‘å•
-   * @param oldMaxHeight •ÏX‘O‚ÌÅ‘å‚‚³
+   * @param child æœ€å°ãƒ»æœ€å¤§ã‚µã‚¤ã‚ºã®æ›´æ–°ã•ã‚ŒãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param newMinWidth æ–°è¦æœ€å°å¹…
+   * @param newMinHeight æ–°è¦æœ€å°é«˜ã•
+   * @param newMaxWidth æ–°è¦æœ€å¤§å¹…
+   * @param oldMinWidth å¤‰æ›´å‰ã®æœ€å°å¹…
+   * @param oldMinHeight å¤‰æ›´å‰ã®æœ€å°é«˜ã•
+   * @param oldMaxWidth å¤‰æ›´å‰ã®æœ€å¤§å¹…
+   * @param oldMaxHeight å¤‰æ›´å‰ã®æœ€å¤§é«˜ã•
    ----------------------------------------------------------------------*/
   function onChildMinMaxSizeModified(child,
                                      newMinWidth, newMinHeight, newMaxWidth, newMaxHeight,
@@ -412,27 +412,27 @@ class KWindow extends Window
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚Ìu’lv‚ª•Ï‚í‚Á‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã€Œå€¤ã€ãŒå¤‰ã‚ã£ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * ƒEƒBƒWƒFƒbƒg‚Ìu’lv’l‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚Ü‚·B
-   * ƒEƒBƒWƒFƒbƒg©g‚ÌonValueChanged‚ğƒI[ƒo[ƒ‰ƒCƒh‚·‚é‚©A
-   * ƒEƒBƒWƒFƒbƒg‚Ì‚¢‚¸‚ê‚©‚Ì‘cæ‚ÌonChildValueModified‚ğƒI[ƒo[ƒ‰ƒCƒh
-   * ‚·‚é‚ÆAƒEƒBƒ“ƒhƒE‚Ü‚Å’Ê’m‚Í“Í‚«‚Ü‚¹‚ñB
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã€Œå€¤ã€å€¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã¾ã™ã€‚
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆè‡ªèº«ã®onValueChangedã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã™ã‚‹ã‹ã€
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ã„ãšã‚Œã‹ã®ç¥–å…ˆã®onChildValueModifiedã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+   * ã™ã‚‹ã¨ã€ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¾ã§é€šçŸ¥ã¯å±Šãã¾ã›ã‚“ã€‚
    *
-   * @param child ’l‚Ì•ÏX‚³‚ê‚½qƒEƒBƒWƒFƒbƒg
-   * @param newValue V‹K‚Ì’l
-   * @param oldValue •ÏX‘O‚Ì’l
+   * @param child å€¤ã®å¤‰æ›´ã•ã‚ŒãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param newValue æ–°è¦ã®å€¤
+   * @param oldValue å¤‰æ›´å‰ã®å€¤
    ------------------------------*/
   function onChildValueModified(child, newValue, oldValue) {
   }
 
   /**----------------------------------------------------------------------
-   * ƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY‚ğí‚ÉÅ¬‚Éİ’è‚·‚é‚©‚Ç‚¤‚©
+   * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚ºã‚’å¸¸ã«æœ€å°ã«è¨­å®šã™ã‚‹ã‹ã©ã†ã‹
    *
-   * ’l‚ğ^‚Éİ’è‚·‚é‚ÆAƒEƒBƒ“ƒhƒE‚Íí‚Éæ‚è‚¤‚éÅ¬ƒTƒCƒY‚ğæ‚é‚æ‚¤‚É‚È‚éB
+   * å€¤ã‚’çœŸã«è¨­å®šã™ã‚‹ã¨ã€ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¯å¸¸ã«å–ã‚Šã†ã‚‹æœ€å°ã‚µã‚¤ã‚ºã‚’å–ã‚‹ã‚ˆã†ã«ãªã‚‹ã€‚
    *
-   * @param v ƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY‚ğí‚ÉÅ¬‚Éİ’è‚·‚é‚©‚Ç‚¤‚©
-   * @return ƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY‚ğí‚ÉÅ¬‚Éİ’è‚·‚é‚©‚Ç‚¤‚©
+   * @param v ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚ºã‚’å¸¸ã«æœ€å°ã«è¨­å®šã™ã‚‹ã‹ã©ã†ã‹
+   * @return ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚ºã‚’å¸¸ã«æœ€å°ã«è¨­å®šã™ã‚‹ã‹ã©ã†ã‹
    ----------------------------------------------------------------------*/
   property alwaysSetToMinSize {
     getter {
@@ -454,7 +454,7 @@ class KWindow extends Window
   }
 
   function setMinMaxSize(minWidth, minHeight, maxWidth, maxHeight) {
-    // min‚Æmax‚Ì‹t“]‚ğƒ`ƒFƒbƒN
+    // minã¨maxã®é€†è»¢ã‚’ãƒã‚§ãƒƒã‚¯
     if (minWidth > maxWidth || minHeight > maxHeight)
       throw new Exception("KWindow: minmax size mismatch(minW:%d,minH:%d,maxW:%d,maxH:%d)".sprintf(minWidth,minHeight,maxWidth,maxHeight));
 
@@ -482,9 +482,9 @@ class KWindow extends Window
   }
 
   /*------------------------------
-   * ƒtƒ@ƒCƒ‹ƒhƒƒbƒvB
+   * ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‰ãƒ­ãƒƒãƒ—ã€‚
    *
-   * ƒhƒƒbƒvî•ñ‚ğƒŒƒCƒ„‚É“]‘—‚·‚é
+   * ãƒ‰ãƒ­ãƒƒãƒ—æƒ…å ±ã‚’ãƒ¬ã‚¤ãƒ¤ã«è»¢é€ã™ã‚‹
    ------------------------------*/
   function onFileDrop(files) {
     var shift = 0;
@@ -505,7 +505,7 @@ class KWindow extends Window
   }
 
   /**------------------------------
-   * ƒXƒe[ƒ^ƒXƒo[‚ğQÆ‚·‚é
+   * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼ã‚’å‚ç…§ã™ã‚‹
    ------------------------------*/
   property statusBar {
     getter {
@@ -530,7 +530,7 @@ class KWindow extends Window
   }
 
   /**------------------------------
-   * ƒqƒ“ƒg‚ğ•\¦‚·‚é
+   * ãƒ’ãƒ³ãƒˆã‚’è¡¨ç¤ºã™ã‚‹
    ------------------------------*/
   function onHintChanged(text,x,y,isshow) {
     if( isshow ) {
@@ -560,8 +560,8 @@ class KWindow extends Window
   }
 
   /**------------------------------
-   * ƒfƒBƒXƒvƒŒƒC‚Éû‚Ü‚é‚æ‚¤‚ÉƒTƒCƒY’²®‚·‚é
-   * windowExƒvƒ‰ƒOƒCƒ“‚ğƒŠƒ“ƒN‚µ‚Ä‚é‚Ì‚İ‹@”\‚·‚é
+   * ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã«åã¾ã‚‹ã‚ˆã†ã«ã‚µã‚¤ã‚ºèª¿æ•´ã™ã‚‹
+   * windowExãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’ãƒªãƒ³ã‚¯ã—ã¦ã‚‹æ™‚ã®ã¿æ©Ÿèƒ½ã™ã‚‹
    ------------------------------*/
   function inscribeIntoDisplay {
     if (typeof(System.getMonitorInfo) == "undefined")

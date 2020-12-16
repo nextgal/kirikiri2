@@ -26,16 +26,16 @@ bool TVPCheckCmdDescription(void);
 bool TVPCheckAbout(void);
 void TVPOnError();
 //---------------------------------------------------------------------------
-USEFORM("..\HaltWarnFormUnit.cpp", TVPHaltWarnForm);
-USEFORM("..\..\..\utils\win32\ConsoleFormUnit.cpp", TVPConsoleForm);
-USEFORM("..\..\..\utils\win32\PadFormUnit.cpp", TVPPadForm);
-USEFORM("..\MainFormUnit.cpp", TVPMainForm);
-USEFORM("..\WatchFormUnit.cpp", TVPWatchForm);
-USEFORM("..\..\..\visual\win32\WindowFormUnit.cpp", TVPWindowForm);
-USEFORM("..\..\..\visual\win32\MenuContainerFormUnit.cpp", TVPMenuContainerForm);
-USEFORM("..\..\..\visual\win32\FontSelectFormUnit.cpp", TVPFontSelectForm);
-USEFORM("..\VersionFormUnit.cpp", TVPVersionForm);
-USEFORM("..\..\..\..\tools\win32\krdevui\ConfMainFrameUnit.cpp", ConfMainFrame); /* TFrame: File Type */
+USEFORM("..¥HaltWarnFormUnit.cpp", TVPHaltWarnForm);
+USEFORM("..¥..¥..¥utils¥win32¥ConsoleFormUnit.cpp", TVPConsoleForm);
+USEFORM("..¥..¥..¥utils¥win32¥PadFormUnit.cpp", TVPPadForm);
+USEFORM("..¥MainFormUnit.cpp", TVPMainForm);
+USEFORM("..¥WatchFormUnit.cpp", TVPWatchForm);
+USEFORM("..¥..¥..¥visual¥win32¥WindowFormUnit.cpp", TVPWindowForm);
+USEFORM("..¥..¥..¥visual¥win32¥MenuContainerFormUnit.cpp", TVPMenuContainerForm);
+USEFORM("..¥..¥..¥visual¥win32¥FontSelectFormUnit.cpp", TVPFontSelectForm);
+USEFORM("..¥VersionFormUnit.cpp", TVPVersionForm);
+USEFORM("..¥..¥..¥..¥tools¥win32¥krdevui¥ConfMainFrameUnit.cpp", ConfMainFrame); /* TFrame: File Type */
 //---------------------------------------------------------------------------
 #ifdef TVP_SUPPORT_ERI
 #	pragma link "../../../../Lib/liberina.lib"
@@ -70,7 +70,7 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 		if(TVPCheckAbout()) return 0; // version information dialog box;
 
-		Application->Title = "�g���g��";
+		Application->Title = "吉里吉里";
 		Application->CreateForm(__classid(TTVPMainForm), &TVPMainForm);
 		TVPLoadPluigins(); // load plugin module *.tpm
 		if(TVPProjectDirSelected) TVPInitializeStartupScript();

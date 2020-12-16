@@ -28,7 +28,7 @@ class singleton: private T
 {
 private:
     singleton();
-    ~singleton();
+    ‾singleton();
 
 public:
     static T &instance();
@@ -40,7 +40,7 @@ inline singleton<T>::singleton()
 {   /* no-op */ }
 
 template<class T>
-inline singleton<T>::~singleton()
+inline singleton<T>::‾singleton()
 {   /* no-op */ }
 
 

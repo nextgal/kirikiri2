@@ -83,48 +83,48 @@ extern bool TVPProcessUnhandledException(eTJS &e);
 //---------------------------------------------------------------------------
 // unhandled exception handler related macros
 //---------------------------------------------------------------------------
-#define TVP_CATCH_AND_SHOW_SCRIPT_EXCEPTION(origin) \
-	catch(eTJSScriptException &e) \
-	{ \
-		TVPBeforeProcessUnhandledException(); \
-		e.AddTrace(ttstr(origin)); \
-		if(!TVPProcessUnhandledException(e)) \
-			TVPShowScriptException(e); \
-	} \
-	catch(eTJSScriptError &e) \
-	{ \
-		TVPBeforeProcessUnhandledException(); \
-		e.AddTrace(ttstr(origin)); \
-		if(!TVPProcessUnhandledException(e)) \
-			TVPShowScriptException(e); \
-	} \
-	catch(eTJS &e) \
-	{ \
-		TVPBeforeProcessUnhandledException(); \
-		if(!TVPProcessUnhandledException(e)) \
-			TVPShowScriptException(e); \
-	} \
-	catch(...) \
-	{ \
-		TVPBeforeProcessUnhandledException(); \
-		throw; \
+#define TVP_CATCH_AND_SHOW_SCRIPT_EXCEPTION(origin) ¥
+	catch(eTJSScriptException &e) ¥
+	{ ¥
+		TVPBeforeProcessUnhandledException(); ¥
+		e.AddTrace(ttstr(origin)); ¥
+		if(!TVPProcessUnhandledException(e)) ¥
+			TVPShowScriptException(e); ¥
+	} ¥
+	catch(eTJSScriptError &e) ¥
+	{ ¥
+		TVPBeforeProcessUnhandledException(); ¥
+		e.AddTrace(ttstr(origin)); ¥
+		if(!TVPProcessUnhandledException(e)) ¥
+			TVPShowScriptException(e); ¥
+	} ¥
+	catch(eTJS &e) ¥
+	{ ¥
+		TVPBeforeProcessUnhandledException(); ¥
+		if(!TVPProcessUnhandledException(e)) ¥
+			TVPShowScriptException(e); ¥
+	} ¥
+	catch(...) ¥
+	{ ¥
+		TVPBeforeProcessUnhandledException(); ¥
+		throw; ¥
 	}
-#define TVP_CATCH_AND_SHOW_SCRIPT_EXCEPTION_FORCE_SHOW_EXCEPTION(origin) \
-	catch(eTJSScriptError &e) \
-	{ \
-		TVPBeforeProcessUnhandledException(); \
-		e.AddTrace(ttstr(origin)); \
-		TVPShowScriptException(e); \
-	} \
-	catch(eTJS &e) \
-	{ \
-		TVPBeforeProcessUnhandledException(); \
-		TVPShowScriptException(e); \
-	} \
-	catch(...) \
-	{ \
-		TVPBeforeProcessUnhandledException(); \
-		throw; \
+#define TVP_CATCH_AND_SHOW_SCRIPT_EXCEPTION_FORCE_SHOW_EXCEPTION(origin) ¥
+	catch(eTJSScriptError &e) ¥
+	{ ¥
+		TVPBeforeProcessUnhandledException(); ¥
+		e.AddTrace(ttstr(origin)); ¥
+		TVPShowScriptException(e); ¥
+	} ¥
+	catch(eTJS &e) ¥
+	{ ¥
+		TVPBeforeProcessUnhandledException(); ¥
+		TVPShowScriptException(e); ¥
+	} ¥
+	catch(...) ¥
+	{ ¥
+		TVPBeforeProcessUnhandledException(); ¥
+		throw; ¥
 	}
 //---------------------------------------------------------------------------
 

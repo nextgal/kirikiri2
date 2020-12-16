@@ -20,7 +20,7 @@
 //---------------------------------------------------------------------------
 class TRelFolderSelectorForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TShellTreeView *ShellTreeView;
 	TButton *OKButton;
 	TButton *CancelButton;
@@ -33,8 +33,8 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall ShellTreeViewChange(TObject *Sender, TTreeNode *Node);
 	void __fastcall SelectMenuItemClick(TObject *Sender);
 	void __fastcall FormDestroy(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
-public:		// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TRelFolderSelectorForm(TComponent* Owner);
 };
 //---------------------------------------------------------------------------

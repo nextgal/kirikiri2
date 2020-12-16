@@ -3,14 +3,14 @@ object FontMakerForm: TFontMakerForm
   Top = 100
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = 'ƒŒƒ“ƒ_ƒŠƒ“ƒOÏ‚İƒtƒHƒ“ƒgƒf[ƒ^ì¬'
+  Caption = 'ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°æ¸ˆã¿ãƒ•ã‚©ãƒ³ãƒˆãƒ‡ãƒ¼ã‚¿ä½œæˆ'
   ClientHeight = 257
   ClientWidth = 395
   Color = clBtnFace
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   Icon.Data = {
     0000010005003030000001002000A8250000560000002020000001002000A810
@@ -608,14 +608,14 @@ object FontMakerForm: TFontMakerForm
     Top = 8
     Width = 377
     Height = 137
-    Caption = 'ƒtƒHƒ“ƒg(&F)'
+    Caption = 'ãƒ•ã‚©ãƒ³ãƒˆ(&F)'
     TabOrder = 0
     object Label1: TLabel
       Left = 8
       Top = 20
       Width = 76
       Height = 12
-      Caption = 'ƒtƒHƒ“ƒg–¼(&N) : '
+      Caption = 'ãƒ•ã‚©ãƒ³ãƒˆå(&N) : '
       FocusControl = FontSelectComboBox
     end
     object Label2: TLabel
@@ -623,14 +623,14 @@ object FontMakerForm: TFontMakerForm
       Top = 68
       Width = 108
       Height = 12
-      Caption = 'ƒTƒCƒY(•¶š‚‚³)(&S) :'
+      Caption = 'ã‚µã‚¤ã‚º(æ–‡å­—é«˜ã•)(&S) :'
     end
     object Label3: TLabel
       Left = 200
       Top = 68
       Width = 43
       Height = 12
-      Caption = 'ƒsƒNƒZƒ‹'
+      Caption = 'ãƒ”ã‚¯ã‚»ãƒ«'
     end
     object FontSelectComboBox: TComboBox
       Left = 88
@@ -669,7 +669,7 @@ object FontMakerForm: TFontMakerForm
       Top = 88
       Width = 81
       Height = 17
-      Caption = '‘¾š(&B)'
+      Caption = 'å¤ªå­—(&B)'
       TabOrder = 5
       OnClick = BoldCheckBoxClick
     end
@@ -678,7 +678,7 @@ object FontMakerForm: TFontMakerForm
       Top = 64
       Width = 105
       Height = 20
-      Caption = 'ƒTƒ“ƒvƒ‹‚ğ•\¦(&V)'
+      Caption = 'ã‚µãƒ³ãƒ—ãƒ«ã‚’è¡¨ç¤º(&V)'
       TabOrder = 7
       OnClick = ShowSampleButtonClick
     end
@@ -687,7 +687,7 @@ object FontMakerForm: TFontMakerForm
       Top = 104
       Width = 233
       Height = 17
-      Caption = 'ƒtƒHƒ“ƒg“à‚Ì‚·‚×‚Ä‚Ì•¶š‚ğŠÜ‚ß‚é(&U)'
+      Caption = 'ãƒ•ã‚©ãƒ³ãƒˆå†…ã®ã™ã¹ã¦ã®æ–‡å­—ã‚’å«ã‚ã‚‹(&U)'
       Enabled = False
       TabOrder = 6
       OnClick = IncludeAllFontCharsCheckBoxClick
@@ -697,7 +697,7 @@ object FontMakerForm: TFontMakerForm
       Top = 88
       Width = 145
       Height = 17
-      Caption = 'ƒAƒ“ƒ`ƒGƒCƒŠƒAƒX(&A)'
+      Caption = 'ã‚¢ãƒ³ãƒã‚¨ã‚¤ãƒªã‚¢ã‚¹(&A)'
       Checked = True
       State = cbChecked
       TabOrder = 4
@@ -708,7 +708,7 @@ object FontMakerForm: TFontMakerForm
       Top = 40
       Width = 265
       Height = 17
-      Caption = '‚·‚×‚Ä‚Ì TrueType ƒtƒHƒ“ƒg‚ğ•\¦(&T)'
+      Caption = 'ã™ã¹ã¦ã® TrueType ãƒ•ã‚©ãƒ³ãƒˆã‚’è¡¨ç¤º(&T)'
       TabOrder = 1
       OnClick = ShowAllFontsCheckBoxClick
     end
@@ -717,7 +717,7 @@ object FontMakerForm: TFontMakerForm
       Top = 104
       Width = 121
       Height = 17
-      Caption = 'ŠOš‚ğŠÜ‚ß‚é(&P)'
+      Caption = 'å¤–å­—ã‚’å«ã‚ã‚‹(&P)'
       Checked = True
       State = cbChecked
       TabOrder = 8
@@ -729,7 +729,7 @@ object FontMakerForm: TFontMakerForm
     Top = 152
     Width = 377
     Height = 65
-    Caption = 'o—Íƒtƒ@ƒCƒ‹(&O)'
+    Caption = 'å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«(&O)'
     TabOrder = 1
     object OutputEdit: TEdit
       Left = 8
@@ -743,7 +743,7 @@ object FontMakerForm: TFontMakerForm
       Top = 26
       Width = 75
       Height = 20
-      Caption = 'QÆ(&R) ...'
+      Caption = 'å‚ç…§(&R) ...'
       TabOrder = 1
       OnClick = OutputRefButtonClick
     end
@@ -753,7 +753,7 @@ object FontMakerForm: TFontMakerForm
     Top = 224
     Width = 75
     Height = 25
-    Caption = 'ì¬(&G) ...'
+    Caption = 'ä½œæˆ(&G) ...'
     Default = True
     TabOrder = 2
     OnClick = CreateButtonClick
@@ -763,15 +763,15 @@ object FontMakerForm: TFontMakerForm
     Top = 224
     Width = 75
     Height = 25
-    Caption = '•Â‚¶‚é(&C)'
+    Caption = 'é–‰ã˜ã‚‹(&C)'
     TabOrder = 3
     OnClick = CancelButtonClick
   end
   object SaveDialog: TSaveDialog
     DefaultExt = 'tft'
-    Filter = '‹g—¢‹g—¢ pre-rendered font (*.tft)|*.tft'
+    Filter = 'å‰é‡Œå‰é‡Œ pre-rendered font (*.tft)|*.tft'
     Options = [ofOverwritePrompt, ofHideReadOnly, ofPathMustExist, ofEnableSizing]
-    Title = 'o—Íƒtƒ@ƒCƒ‹ ...'
+    Title = 'å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ« ...'
     Left = 320
     Top = 144
   end

@@ -31,7 +31,7 @@
 class DebuggeeCheckThread;
 class TScriptDebuggerForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TPanel *MainPanel;
 	TPanel *LogPanel;
 	TMemo *LogMemo;
@@ -106,7 +106,7 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall FileTreeViewCustomDrawItem(TCustomTreeView *Sender,
           TTreeNode *Node, TCustomDrawState State, bool &DefaultDraw);
 	void __fastcall OverWriteActionExecute(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	std::map<std::wstring,std::string>	files_;
 //	std::vector<AnsiString>				append_ext_;
 	std::list<AnsiString>				file_list_;
@@ -184,18 +184,18 @@ private:	// ƒ†[ƒU[éŒ¾
 	int __fastcall GetWithAddFileIconIndex( const std::string& ext );
 
 	static const int DEBUGGER_COMM_AREA_MAX = 1024 * 1024;
-	// ˆÈ‰º‚Ì‚æ‚¤‚È\‘¢‚ÅAƒuƒŒ[ƒN‚©‚ç•œ‹AŒã‚ÉƒfƒoƒbƒK‚©‚çã‚Ì—Ìˆæ‚É‘‚«‚Ü‚ê‚éB
-	// —Ìˆæ‚ğ’´‚¦‚È‚¢‚æ‚¤‚É‚·‚é‚Ì‚ÍƒfƒoƒbƒK‚ÌÓ”C
+	// ä»¥ä¸‹ã®ã‚ˆã†ãªæ§‹é€ ã§ã€ãƒ–ãƒ¬ãƒ¼ã‚¯ã‹ã‚‰å¾©å¸°å¾Œã«ãƒ‡ãƒãƒƒã‚¬ã‹ã‚‰ä¸Šã®é ˜åŸŸã«æ›¸ãè¾¼ã¾ã‚Œã‚‹ã€‚
+	// é ˜åŸŸã‚’è¶…ãˆãªã„ã‚ˆã†ã«ã™ã‚‹ã®ã¯ãƒ‡ãƒãƒƒã‚¬ã®è²¬ä»»
 	struct DebuggerCommand {
 		int		command_;
-		int		next_offset_;	//!< ‚±‚ÌƒRƒ}ƒ“ƒh‚Ìæ“ª‚©‚çŸ‚Ìƒf[ƒ^‚Ü‚Å‚ÌƒIƒtƒZƒbƒg(ƒAƒ‰ƒCƒƒ“ƒg‚µ‚Ä‚¨‚­‚±‚Æ)
-		int		size_;			//!< data ‚ÌƒTƒCƒY
+		int		next_offset_;	//!< ã“ã®ã‚³ãƒãƒ³ãƒ‰ã®å…ˆé ­ã‹ã‚‰æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ã¾ã§ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆ(ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆã—ã¦ãŠãã“ã¨)
+		int		size_;			//!< data ã®ã‚µã‚¤ã‚º
 		char	data_[1];
 	};
 	struct DebuggerCommandException {
 		int		command_;
-		int		next_offset_;	//!< ‚±‚ÌƒRƒ}ƒ“ƒh‚Ìæ“ª‚©‚çŸ‚Ìƒf[ƒ^‚Ü‚Å‚ÌƒIƒtƒZƒbƒg(ƒAƒ‰ƒCƒƒ“ƒg‚µ‚Ä‚¨‚­‚±‚Æ)
-		int		size_;			//!< data ‚ÌƒTƒCƒY
+		int		next_offset_;	//!< ã“ã®ã‚³ãƒãƒ³ãƒ‰ã®å…ˆé ­ã‹ã‚‰æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ã¾ã§ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆ(ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆã—ã¦ãŠãã“ã¨)
+		int		size_;			//!< data ã®ã‚µã‚¤ã‚º
 		int		flag_;
 		DebuggerCommandException( int flag )
 		: command_(DBGEV_GER_EXCEPTION_FLG), next_offset_(sizeof(DebuggerCommandException)), size_(sizeof(int)), flag_(flag)
@@ -203,8 +203,8 @@ private:	// ƒ†[ƒU[éŒ¾
 	};
 	struct DebuggerCommandMinimum {
 		int		command_;
-		int		next_offset_;	//!< ‚±‚ÌƒRƒ}ƒ“ƒh‚Ìæ“ª‚©‚çŸ‚Ìƒf[ƒ^‚Ü‚Å‚ÌƒIƒtƒZƒbƒg(ƒAƒ‰ƒCƒƒ“ƒg‚µ‚Ä‚¨‚­‚±‚Æ)
-		int		size_;			//!< data ‚ÌƒTƒCƒY
+		int		next_offset_;	//!< ã“ã®ã‚³ãƒãƒ³ãƒ‰ã®å…ˆé ­ã‹ã‚‰æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ã¾ã§ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆ(ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆã—ã¦ãŠãã“ã¨)
+		int		size_;			//!< data ã®ã‚µã‚¤ã‚º
 
 		DebuggerCommandMinimum( int command, int offset, int size = 0 )
 		 : command_(command), next_offset_(offset), size_(size)
@@ -247,18 +247,18 @@ private:	// ƒ†[ƒU[éŒ¾
 	AnsiString __fastcall GetApplicationFileName();
 	AnsiString __fastcall GetApplicationFolderName();
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TScriptDebuggerForm(TComponent* Owner);
-	virtual __fastcall ~TScriptDebuggerForm();
+	virtual __fastcall â€¾TScriptDebuggerForm();
 	virtual void __fastcall Dispatch(void *Message);
 
-	//! ƒfƒoƒbƒM‹N“®ˆø”
+	//! ãƒ‡ãƒãƒƒã‚®èµ·å‹•å¼•æ•°
 	__property AnsiString DebuggeeCommandLine  = { read=GetDebuggeeCommandLine };
-	//! ƒfƒoƒbƒMƒ[ƒNƒtƒHƒ‹ƒ_
+	//! ãƒ‡ãƒãƒƒã‚®ãƒ¯ãƒ¼ã‚¯ãƒ•ã‚©ãƒ«ãƒ€
 	__property AnsiString DebuggeeWorkingFolder  = { read=debuggee_working_folder_ };
-    //! ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒtƒ@ƒCƒ‹–¼
+    //! ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ•ã‚¡ã‚¤ãƒ«å
     __property AnsiString ApplicationFileName  = { read=GetApplicationFileName };
-    //! ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒtƒHƒ‹ƒ_–¼
+    //! ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ•ã‚©ãƒ«ãƒ€å
     __property AnsiString ApplicationFolderName  = { read=GetApplicationFolderName};
 
 	__property bool IsRequestBreak = { read=is_request_break_, write=is_request_break_ };
@@ -272,7 +272,7 @@ public:		// ƒ†[ƒU[éŒ¾
 	void* __fastcall GetDebugeeAreaAddr() { return debuggee_comm_area_addr_; }
 	int __fastcall GetDebugeeAreaSize() { return debuggee_comm_area_size_; }
 
-	//! ƒfƒoƒbƒMƒ`ƒFƒbƒNƒXƒŒƒbƒh‚©‚ç‚ÌI—¹’Ê’m‚ğó‚¯‚é
+	//! ãƒ‡ãƒãƒƒã‚®ãƒã‚§ãƒƒã‚¯ã‚¹ãƒ¬ãƒƒãƒ‰ã‹ã‚‰ã®çµ‚äº†é€šçŸ¥ã‚’å—ã‘ã‚‹
 	void __fastcall TarminateDebugeeCheckThread();
 	void __fastcall WakeupDebugee();
 	void __fastcall AppendDebugString( const AnsiString& log );

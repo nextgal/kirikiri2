@@ -64,7 +64,7 @@
 /* exit with an error (return a value to allow use in an expression) */
 local int bail(char *why1, char *why2)
 {
-    fprintf(stderr, "gzjoin error: %s%s, output incomplete\n", why1, why2);
+    fprintf(stderr, "gzjoin error: %s%s, output incomplete¥n", why1, why2);
     exit(1);
     return 0;
 }
@@ -136,8 +136,8 @@ local int bload(bin *in)
 }
 
 /* get a byte from the file, bail if end of file */
-#define bget(in) (in->left ? 0 : bload(in), \
-                  in->left ? (in->left--, *(in->next)++) : \
+#define bget(in) (in->left ? 0 : bload(in), ¥
+                  in->left ? (in->left--, *(in->next)++) : ¥
                     bail("unexpected end of file on ", in->name))
 
 /* get a four-byte little-endian unsigned integer from file */
@@ -263,7 +263,7 @@ local void zpull(z_streamp strm, bin *in)
 /* Write header for gzip file to out and initialize trailer. */
 local void gzinit(unsigned long *crc, unsigned long *tot, FILE *out)
 {
-    fwrite("\x1f\x8b\x08\0\0\0\0\0\0\xff", 1, 10, out);
+    fwrite("¥x1f¥x8b¥x08¥0¥0¥0¥0¥0¥0¥xff", 1, 10, out);
     *crc = crc32(0L, Z_NULL, 0);
     *tot = 0;
 }
@@ -311,7 +311,7 @@ local void gzcopy(char *name, int clr, unsigned long *crc, unsigned long *tot,
     start = strm.next_in;
     last = start[0] & 1;
     if (last && clr)
-        start[0] &= ~1;
+        start[0] &= ‾1;
     strm.avail_out = 0;
     for (;;) {
         /* if input used and output done, write used input and get more */
@@ -351,7 +351,7 @@ local void gzcopy(char *name, int clr, unsigned long *crc, unsigned long *tot,
                 pos = 0x100 >> pos;
                 last = strm.next_in[-1] & pos;
                 if (last && clr)
-                    strm.next_in[-1] &= ~pos;
+                    strm.next_in[-1] &= ‾pos;
             }
             else {
                 /* next last-block bit is in next unused byte */
@@ -364,7 +364,7 @@ local void gzcopy(char *name, int clr, unsigned long *crc, unsigned long *tot,
                 }
                 last = strm.next_in[0] & 1;
                 if (last && clr)
-                    strm.next_in[0] &= ~1;
+                    strm.next_in[0] &= ‾1;
             }
         }
     }
@@ -388,7 +388,7 @@ local void gzcopy(char *name, int clr, unsigned long *crc, unsigned long *tot,
             putc(last, out);
             if (pos == 1)
                 putc(0, out);               /* two more bits in block header */
-            fwrite("\0\0\xff\xff", 1, 4, out);
+            fwrite("¥0¥0¥xff¥xff", 1, 4, out);
         }
         else {
             /* even -- append 1, 2, or 3 empty fixed blocks */
@@ -433,7 +433,7 @@ int main(int argc, char **argv)
 
     /* show usage if no arguments */
     if (argc == 0) {
-        fputs("gzjoin usage: gzjoin f1.gz [f2.gz [f3.gz ...]] > fjoin.gz\n",
+        fputs("gzjoin usage: gzjoin f1.gz [f2.gz [f3.gz ...]] > fjoin.gz¥n",
               stderr);
         return 0;
     }

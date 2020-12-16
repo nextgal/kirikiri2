@@ -39,7 +39,7 @@ public:
     typedef detail::thread::scoped_lock<recursive_mutex> scoped_lock;
 
     recursive_mutex();
-    ~recursive_mutex();
+    ‾recursive_mutex();
 
 private:
 #if (defined(BOOST_HAS_WINTHREADS) || defined(BOOST_HAS_MPTASKS))
@@ -84,7 +84,7 @@ public:
         recursive_try_mutex> scoped_try_lock;
 
     recursive_try_mutex();
-    ~recursive_try_mutex();
+    ‾recursive_try_mutex();
 
 private:
 #if (defined(BOOST_HAS_WINTHREADS) || defined(BOOST_HAS_MPTASKS))
@@ -132,7 +132,7 @@ public:
         recursive_timed_mutex> scoped_timed_lock;
 
     recursive_timed_mutex();
-    ~recursive_timed_mutex();
+    ‾recursive_timed_mutex();
 
 private:
 #if (defined(BOOST_HAS_WINTHREADS) || defined(BOOST_HAS_MPTASKS))

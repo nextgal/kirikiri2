@@ -3,33 +3,33 @@
 //
 
 /**----------------------------------------------------------------------
- * ƒCƒ[ƒWƒ‰ƒxƒ‹
+ * ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ©ãƒ™ãƒ«
  ----------------------------------------------------------------------*/
 class KImageLabel extends KWidget
 {
   var _label;
 
   /*------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param label ƒCƒ[ƒW‚Ìƒtƒ@ƒCƒ‹–¼
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param label ã‚¤ãƒ¡ãƒ¼ã‚¸ã®ãƒ•ã‚¡ã‚¤ãƒ«å
+   * @param name åå‰
    ------------------------------*/
   function KImageLabel(win, label, name = "") {
-    // eƒNƒ‰ƒXŒÄ‚Ño‚µ
+    // è¦ªã‚¯ãƒ©ã‚¹å‘¼ã³å‡ºã—
     super.KWidget(win, name);
-    // ƒ}ƒEƒX‚Ì“–‚½‚è”»’è‚Í“§‰ß
+    // ãƒã‚¦ã‚¹ã®å½“ãŸã‚Šåˆ¤å®šã¯é€é
     hitThreshold = 256;
-    // ’l‚ğİ’è
+    // å€¤ã‚’è¨­å®š
     this.label = label;
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹‚Ì’l
+   * ãƒ©ãƒ™ãƒ«ã®å€¤
    *
-   * @return ƒ‰ƒxƒ‹‚Ì’l
-   * @param v V‹K‚Ìƒ‰ƒxƒ‹‚Ì’l
+   * @return ãƒ©ãƒ™ãƒ«ã®å€¤
+   * @param v æ–°è¦ã®ãƒ©ãƒ™ãƒ«ã®å€¤
    ------------------------------*/
   property label {
     getter {
@@ -37,30 +37,30 @@ class KImageLabel extends KWidget
     }
 
     setter(v) {
-      // ’l‚ğXV
+      // å€¤ã‚’æ›´æ–°
       _label = v;
-      // Ä•`‰æ
+      // å†æç”»
       drawContent();
     }
   }
 
-  // ƒ‰ƒxƒ‹‚Ì“à—e‚ğ•`‰æBƒTƒCƒY‚ğÄİ’è
+  // ãƒ©ãƒ™ãƒ«ã®å†…å®¹ã‚’æç”»ã€‚ã‚µã‚¤ã‚ºã‚’å†è¨­å®š
   function drawContent {
     if(label != "")
     {
-      // ƒCƒ[ƒW‚ğƒ[ƒh
+      // ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ãƒ­ãƒ¼ãƒ‰
       loadImages(_label);
-      // ƒTƒCƒY‚ğİ’è
+      // ã‚µã‚¤ã‚ºã‚’è¨­å®š
       setFixedSizeToImageSize();
     }
   }
 
-  // enabled==true‚È‚ç‚»‚Ì‚Ü‚Ü•\¦
+  // enabled==trueãªã‚‰ãã®ã¾ã¾è¡¨ç¤º
   function onNodeEnabled {
     opacity = 255;
   }
 
-  // enabled=false‚È‚ç”¼“§–¾‚Å•\¦
+  // enabled=falseãªã‚‰åŠé€æ˜ã§è¡¨ç¤º
   function onNodeDisabled {
     opacity = 64;
   }

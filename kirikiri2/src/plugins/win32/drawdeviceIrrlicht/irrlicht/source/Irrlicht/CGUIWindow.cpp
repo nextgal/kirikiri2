@@ -93,7 +93,7 @@ CGUIWindow::CGUIWindow(IGUIEnvironment* environment, IGUIElement* parent, s32 id
 
 
 //! destructor
-CGUIWindow::~CGUIWindow()
+CGUIWindow::‾CGUIWindow()
 {
 	if (MinButton)
 		MinButton->drop();

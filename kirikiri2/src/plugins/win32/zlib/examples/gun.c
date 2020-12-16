@@ -151,7 +151,7 @@ local int out(void *out_desc, unsigned char *buf, unsigned len)
 }
 
 /* next input byte macro for use inside lunpipe() and gunpipe() */
-#define NEXT() (have ? 0 : (have = in(indp, &next)), \
+#define NEXT() (have ? 0 : (have = in(indp, &next)), ¥
                 last = have ? (have--, (int)(*next++)) : -1)
 
 /* memory for gunpipe() and lunpipe() --
@@ -167,24 +167,24 @@ unsigned char match[65280 + 2];         /* buffer for reversed match or gzip
 /* throw out what's left in the current bits byte buffer (this is a vestigial
    aspect of the compressed data format derived from an implementation that
    made use of a special VAX machine instruction!) */
-#define FLUSHCODE() \
-    do { \
-        left = 0; \
-        rem = 0; \
-        if (chunk > have) { \
-            chunk -= have; \
-            have = 0; \
-            if (NEXT() == -1) \
-                break; \
-            chunk--; \
-            if (chunk > have) { \
-                chunk = have = 0; \
-                break; \
-            } \
-        } \
-        have -= chunk; \
-        next += chunk; \
-        chunk = 0; \
+#define FLUSHCODE() ¥
+    do { ¥
+        left = 0; ¥
+        rem = 0; ¥
+        if (chunk > have) { ¥
+            chunk -= have; ¥
+            have = 0; ¥
+            if (NEXT() == -1) ¥
+                break; ¥
+            chunk--; ¥
+            if (chunk > have) { ¥
+                chunk = have = 0; ¥
+                break; ¥
+            } ¥
+        } ¥
+        have -= chunk; ¥
+        next += chunk; ¥
+        chunk = 0; ¥
     } while (0)
 
 /* Decompress a compress (LZW) file from indp to outfile.  The compress magic
@@ -557,7 +557,7 @@ local int gunzip(z_stream *strm, char *inname, char *outname, int test)
     else {
         infile = open(inname, O_RDONLY, 0);
         if (infile == -1) {
-            fprintf(stderr, "gun cannot open %s\n", inname);
+            fprintf(stderr, "gun cannot open %s¥n", inname);
             return 0;
         }
     }
@@ -571,7 +571,7 @@ local int gunzip(z_stream *strm, char *inname, char *outname, int test)
         outfile = open(outname, O_CREAT | O_TRUNC | O_WRONLY, 0666);
         if (outfile == -1) {
             close(infile);
-            fprintf(stderr, "gun cannot create %s\n", outname);
+            fprintf(stderr, "gun cannot create %s¥n", outname);
             return 0;
         }
     }
@@ -591,35 +591,35 @@ local int gunzip(z_stream *strm, char *inname, char *outname, int test)
             unlink(inname);
         }
         if (ret == Z_ERRNO)
-            fprintf(stderr, "gun warning: trailing garbage ignored in %s\n",
+            fprintf(stderr, "gun warning: trailing garbage ignored in %s¥n",
                     inname);
         break;
     case Z_DATA_ERROR:
         if (outfile > 2) unlink(outname);
-        fprintf(stderr, "gun data error on %s: %s\n", inname, strm->msg);
+        fprintf(stderr, "gun data error on %s: %s¥n", inname, strm->msg);
         break;
     case Z_MEM_ERROR:
         if (outfile > 2) unlink(outname);
-        fprintf(stderr, "gun out of memory error--aborting\n");
+        fprintf(stderr, "gun out of memory error--aborting¥n");
         return 1;
     case Z_BUF_ERROR:
         if (outfile > 2) unlink(outname);
         if (strm->next_in != Z_NULL) {
-            fprintf(stderr, "gun write error on %s: %s\n",
+            fprintf(stderr, "gun write error on %s: %s¥n",
                     outname, strerror(errno));
         }
         else if (errno) {
-            fprintf(stderr, "gun read error on %s: %s\n",
+            fprintf(stderr, "gun read error on %s: %s¥n",
                     inname, strerror(errno));
         }
         else {
-            fprintf(stderr, "gun unexpected end of file on %s\n",
+            fprintf(stderr, "gun unexpected end of file on %s¥n",
                     inname);
         }
         break;
     default:
         if (outfile > 2) unlink(outname);
-        fprintf(stderr, "gun internal error--aborting\n");
+        fprintf(stderr, "gun internal error--aborting¥n");
         return 1;
     }
     return 0;
@@ -641,7 +641,7 @@ int main(int argc, char **argv)
     strm.opaque = Z_NULL;
     ret = inflateBackInit(&strm, 15, window);
     if (ret != Z_OK) {
-        fprintf(stderr, "gun out of memory error--aborting\n");
+        fprintf(stderr, "gun out of memory error--aborting¥n");
         return 1;
     }
 
@@ -650,9 +650,9 @@ int main(int argc, char **argv)
     argv++;
     test = 0;
     if (argc && strcmp(*argv, "-h") == 0) {
-        fprintf(stderr, "gun 1.6 (17 Jan 2010)\n");
-        fprintf(stderr, "Copyright (C) 2003-2010 Mark Adler\n");
-        fprintf(stderr, "usage: gun [-t] [file1.gz [file2.Z ...]]\n");
+        fprintf(stderr, "gun 1.6 (17 Jan 2010)¥n");
+        fprintf(stderr, "Copyright (C) 2003-2010 Mark Adler¥n");
+        fprintf(stderr, "usage: gun [-t] [file1.gz [file2.Z ...]]¥n");
         return 0;
     }
     if (argc && strcmp(*argv, "-t") == 0) {
@@ -675,13 +675,13 @@ int main(int argc, char **argv)
                     strcmp(*argv + len - 2, ".Z") == 0)
                     len -= 2;
                 else {
-                    fprintf(stderr, "gun error: no gz type on %s--skipping\n",
+                    fprintf(stderr, "gun error: no gz type on %s--skipping¥n",
                             *argv);
                     continue;
                 }
                 outname = malloc(len + 1);
                 if (outname == NULL) {
-                    fprintf(stderr, "gun out of memory error--aborting\n");
+                    fprintf(stderr, "gun out of memory error--aborting¥n");
                     ret = 1;
                     break;
                 }

@@ -20,17 +20,17 @@ namespace boost {
 namespace posix_time {
 
   //! Iterator over a defined time duration
-  /*! \ingroup time_basics
+  /*! ¥ingroup time_basics
    */
   typedef date_time::time_itr<ptime> time_iterator;
   //! A time clock that has a resolution of one second
-  /*! \ingroup time_basics
+  /*! ¥ingroup time_basics
    */
   typedef date_time::second_clock<ptime::date_type, ptime> second_clock;
 
 #ifdef BOOST_DATE_TIME_HAS_GETTIMEOFDAY_HIGH_PRECISION_CLOCK
   //! A time clock that has a resolution of one microsecond
-  /*! \ingroup time_basics
+  /*! ¥ingroup time_basics
    */
   typedef date_time::microsec_clock<ptime> microsec_clock;
 #endif

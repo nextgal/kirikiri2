@@ -52,7 +52,7 @@ tTJSVariantOctet::tTJSVariantOctet(const tTJSVariantOctet *o1,
 							o2->Length);
 }
 //---------------------------------------------------------------------------
-tTJSVariantOctet::~tTJSVariantOctet()
+tTJSVariantOctet::‾tTJSVariantOctet()
 {
 	delete [] Data;
 }
@@ -373,7 +373,7 @@ tTJSVariant::tTJSVariant(const tjs_uint8 ** src)
 	}
 }
 //---------------------------------------------------------------------------
-tTJSVariant::~tTJSVariant()
+tTJSVariant::‾tTJSVariant()
 {
 	Clear();
 }
@@ -1026,7 +1026,7 @@ void tTJSVariant::logicalnot()
 //---------------------------------------------------------------------------
 void tTJSVariant::bitnot()
 {
-	tjs_int64 res = ~AsInteger();
+	tjs_int64 res = ‾AsInteger();
 	ReleaseContent();
 	vt = tvtInteger;
 	Integer = res;

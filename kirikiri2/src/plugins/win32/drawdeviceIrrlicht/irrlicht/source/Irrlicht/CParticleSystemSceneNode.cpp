@@ -50,7 +50,7 @@ CParticleSystemSceneNode::CParticleSystemSceneNode(bool createDefaultEmitter,
 
 
 //! destructor
-CParticleSystemSceneNode::~CParticleSystemSceneNode()
+CParticleSystemSceneNode::‾CParticleSystemSceneNode()
 {
 	if (Emitter)
 		Emitter->drop();

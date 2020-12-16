@@ -82,14 +82,14 @@ distribution of libpng.  It is available in both tar.gz (UNIX style line
 endings) and zip (DOS style line endings) formats.
 
 If you are building libpng with MSVC, you can enter the
-libpng projects\visualc6 directory and follow the instructions in
-projects\visualc6\README.txt.
+libpng projects¥visualc6 directory and follow the instructions in
+projects¥visualc6¥README.txt.
 
 You can build libpng for WindowsCE by downloading and installing
-the projects\wince directory as instructed in the projects\wince.txt file, and
+the projects¥wince directory as instructed in the projects¥wince.txt file, and
 then following the instructions in the README* files.  Similarly, you can
-build libpng for Netware or Beos as instructed in projects\netware.txt
-or projects\beos.
+build libpng for Netware or Beos as instructed in projects¥netware.txt
+or projects¥beos.
 
 Else enter the zlib directory and follow the instructions in zlib/README,
 then come back here and run "configure" or choose the appropriate
@@ -166,7 +166,7 @@ include
 Copy the file (or files) that you need from the
 scripts directory into this directory, for example
 
-   MSDOS example: copy scripts\makefile.msc makefile
+   MSDOS example: copy scripts¥makefile.msc makefile
    UNIX example:    cp scripts/makefile.std makefile
 
 Read the makefile to see if you need to change any source or

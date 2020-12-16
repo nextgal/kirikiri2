@@ -19,8 +19,8 @@
 
 #include "boost/config.hpp"
 
-#if defined(__BORLANDC__) && (__BORLANDC__ <= 0x561 || !defined(BOOST_STRICT_CONFIG)) \
- || defined(__MWERKS__) && __MWERKS__ < 0x3001 \
+#if defined(__BORLANDC__) && (__BORLANDC__ <= 0x561 || !defined(BOOST_STRICT_CONFIG)) ¥
+ || defined(__MWERKS__) && __MWERKS__ < 0x3001 ¥
  && !defined(BOOST_MPL_BROKEN_OVERLOAD_RESOLUTION)
 #   define BOOST_MPL_BROKEN_OVERLOAD_RESOLUTION
 #endif

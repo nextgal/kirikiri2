@@ -141,7 +141,7 @@ public:
 
 
 	//! Destructor
-	~list()
+	‾list()
 	{
 		clear();
 	}
@@ -167,7 +167,7 @@ public:
 
 
 	//! Returns amount of elements in list.
-	/** \return Amount of elements in the list. */
+	/** ¥return Amount of elements in the list. */
 	u32 getSize() const
 	{
 		return Size;
@@ -192,7 +192,7 @@ public:
 
 
 	//! Checks for empty list.
-	/** \return True if the list is empty and false if not. */
+	/** ¥return True if the list is empty and false if not. */
 	bool empty() const
 	{
 		return (First == 0);
@@ -200,7 +200,7 @@ public:
 
 
 	//! Adds an element at the end of the list.
-	/** \param element Element to add to the list. */
+	/** ¥param element Element to add to the list. */
 	void push_back(const T& element)
 	{
 		SKListNode* node = new SKListNode;
@@ -221,7 +221,7 @@ public:
 
 
 	//! Adds an element at the begin of the list.
-	/** \param element: Element to add to the list. */
+	/** ¥param element: Element to add to the list. */
 	void push_front(const T& element)
 	{
 		SKListNode* node = new SKListNode;
@@ -244,7 +244,7 @@ public:
 
 
 	//! Gets first node.
-	/** \return A list iterator pointing to the beginning of the list. */
+	/** ¥return A list iterator pointing to the beginning of the list. */
 	Iterator begin()
 	{
 		return Iterator(First);
@@ -252,7 +252,7 @@ public:
 
 
 	//! Gets first node.
-	/** \return A const list iterator pointing to the beginning of the list. */
+	/** ¥return A const list iterator pointing to the beginning of the list. */
 	ConstIterator begin() const
 	{
 		return ConstIterator(First);
@@ -260,7 +260,7 @@ public:
 
 
 	//! Gets end node.
-	/** \return List iterator pointing to null. */
+	/** ¥return List iterator pointing to null. */
 	Iterator end()
 	{
 		return Iterator(0);
@@ -268,7 +268,7 @@ public:
 
 
 	//! Gets end node.
-	/** \return Const list iterator pointing to null. */
+	/** ¥return Const list iterator pointing to null. */
 	ConstIterator end() const
 	{
 		return ConstIterator(0);
@@ -276,7 +276,7 @@ public:
 
 
 	//! Gets last element.
-	/** \return List iterator pointing to the last element of the list. */
+	/** ¥return List iterator pointing to the last element of the list. */
 	Iterator getLast()
 	{
 		return Iterator(Last);
@@ -284,7 +284,7 @@ public:
 
 
 	//! Gets last element.
-	/** \return Const list iterator pointing to the last element of the list. */
+	/** ¥return Const list iterator pointing to the last element of the list. */
 	ConstIterator getLast() const
 	{
 		return ConstIterator(Last);
@@ -292,9 +292,9 @@ public:
 
 
 	//! Inserts an element after an element.
-	/** \param it Iterator pointing to element after which the new element
+	/** ¥param it Iterator pointing to element after which the new element
 	should be inserted.
-	\param element The new element to be inserted into the list.
+	¥param element The new element to be inserted into the list.
 	*/
 	void insert_after(const Iterator& it, const T& element)
 	{
@@ -316,9 +316,9 @@ public:
 
 
 	//! Inserts an element before an element.
-	/** \param it Iterator pointing to element before which the new element
+	/** ¥param it Iterator pointing to element before which the new element
 	should be inserted.
-	\param element The new element to be inserted into the list.
+	¥param element The new element to be inserted into the list.
 	*/
 	void insert_before(const Iterator& it, const T& element)
 	{
@@ -340,8 +340,8 @@ public:
 
 
 	//! Erases an element.
-	/** \param it Iterator pointing to the element which shall be erased.
-	\return Iterator pointing to next element. */
+	/** ¥param it Iterator pointing to the element which shall be erased.
+	¥return Iterator pointing to next element. */
 	Iterator erase(Iterator& it)
 	{
 		// suggest changing this to a const Iterator& and

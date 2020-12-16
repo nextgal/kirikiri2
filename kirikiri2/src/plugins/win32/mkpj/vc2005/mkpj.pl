@@ -8,28 +8,28 @@ use Cwd;
 use Win32::Guidgen;
 
 
-#defƒtƒ@ƒCƒ‹‚Ì’†g
+#defãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸­èº«
 $def_text = <<'END_OF_DEFFILE';
 EXPORTS
 	V2Link
 	V2Unlink
 END_OF_DEFFILE
 
-# ƒtƒ@ƒCƒ‹ƒ`ƒFƒbƒN
-if( !(-e "./project.ini") ) { die "Not found project.ini\n"; }
-if( !(-e "./project.pji") ) { die "Not found project.pji\n"; }
+# ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚§ãƒƒã‚¯
+if( !(-e "./project.ini") ) { die "Not found project.iniÂ¥n"; }
+if( !(-e "./project.pji") ) { die "Not found project.pjiÂ¥n"; }
 
 # Clean
-# VCŠÖŒW‚Ìƒtƒ@ƒCƒ‹‚ğÁ‚µ‚Ä‚µ‚Ü‚¤
+# VCé–¢ä¿‚ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¶ˆã—ã¦ã—ã¾ã†
 foreach(glob("*.ncb")){unlink($_);}
 foreach(glob("*.sln")){unlink($_);}
 foreach(glob("*.suo")){unlink($_);}
 foreach(glob("*.vcproj")){unlink($_);}
 foreach(glob("*.user")){unlink($_);}
 
-# INI ƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+# INI ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 %params;
-print "read ini\n";
+print "read iniÂ¥n";
 open(IN,"<project.ini") or die "Error! : ".$!;
 while(<IN>) {
 	chomp;
@@ -40,97 +40,97 @@ while(<IN>) {
 close(IN);
 
 
-# INI ƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İ‚ñ‚¾’l‚Ì—ñ‹“‚Æƒ`ƒFƒbƒN
+# INI ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿è¾¼ã‚“ã å€¤ã®åˆ—æŒ™ã¨ãƒã‚§ãƒƒã‚¯
 foreach $key ( keys %params ) {
-	print "name:$key : value:$params{$key}", "\n";
+	print "name:$key : value:$params{$key}", "Â¥n";
 }
 if( !defined($params{'Name'}) ) {
-	die "Error! : undefined Name value in ini file.\n";
+	die "Error! : undefined Name value in ini file.Â¥n";
 }
 
-#defƒtƒ@ƒCƒ‹‚Ì‘‚«o‚µ
+#defãƒ•ã‚¡ã‚¤ãƒ«ã®æ›¸ãå‡ºã—
 $def_file_name = $params{'Name'} . ".def";
 open(OUT,">$def_file_name") or die "Error! : ".$!;
 print OUT $def_text;
 close( OUT );
 
-# ƒ\[ƒXAƒwƒbƒ_[AƒŠƒ\[ƒX‚ğÀsƒfƒBƒŒƒNƒgƒŠˆÈ‰º‚©‚çŒŸõ‚·‚é
+# ã‚½ãƒ¼ã‚¹ã€ãƒ˜ãƒƒãƒ€ãƒ¼ã€ãƒªã‚½ãƒ¼ã‚¹ã‚’å®Ÿè¡Œãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä»¥ä¸‹ã‹ã‚‰æ¤œç´¢ã™ã‚‹
 @src_files = ();
 @header_files = ();
 @resource_files = ();
-find(\&list_src_files,'.');
-find(\&list_header_files,'.');
-find(\&list_resource_files,'.');
+find(Â¥&list_src_files,'.');
+find(Â¥&list_header_files,'.');
+find(Â¥&list_resource_files,'.');
 sub list_src_files {
-	if( -f $_ and $_ =~ /(cpp$)|(.c$)|(.cxx$)|(.rc$)|(.def$)|(.r$)|(.odl$)|(.idl$)|(.hpj$)|(.bat)/ ) {
+	if( -f $_ and $_ =â€¾ /(cpp$)|(.c$)|(.cxx$)|(.rc$)|(.def$)|(.r$)|(.odl$)|(.idl$)|(.hpj$)|(.bat)/ ) {
 		push( @src_files, $File::Find::name );
 	}
 }
 sub list_header_files {
-	if( -f $_ and $_ =~ /(.h$)|(.hpp$)|(.hxx$)|(.hm$)|(.inl$)/ ) {
+	if( -f $_ and $_ =â€¾ /(.h$)|(.hpp$)|(.hxx$)|(.hm$)|(.inl$)/ ) {
 		push( @header_files, $File::Find::name );
 	}
 }
 sub list_resource_files {
-	if( -f $_ and $_ =~ /(.ico$)|(.cur$)|(.bmp$)|(.dlg$)|(.rc2$)|(.rct$)|(.bin$)|(.rgs$)|(.gif$)|(.jpg$)|(.jpeg$)|(.jpe)/ ) {
+	if( -f $_ and $_ =â€¾ /(.ico$)|(.cur$)|(.bmp$)|(.dlg$)|(.rc2$)|(.rct$)|(.bin$)|(.rgs$)|(.gif$)|(.jpg$)|(.jpeg$)|(.jpe)/ ) {
 		push( @resource_files, $File::Find::name );
 	}
 }
 
-# ‘Š‘ÎƒpƒX‰»
+# ç›¸å¯¾ãƒ‘ã‚¹åŒ–
 $cwd = cwd();
 @rel_src_files = ();
 @rel_header_files = ();
 @rel_resource_files = ();
 foreach( @src_files ) {
-	s/$cwd/\./;
+	s/$cwd/Â¥./;
 	push( @rel_src_files, $_ );
 }
 foreach( @header_files ) {
-	s/$cwd/\./;
+	s/$cwd/Â¥./;
 	push( @rel_header_files, $_ );
 }
 foreach( @resource_files ) {
-	s/$cwd/\./;
+	s/$cwd/Â¥./;
 	push( @rel_resource_files, $_ );
 }
 
-# ƒwƒbƒ_[‚ÌƒpƒX‚©‚çƒCƒ“ƒNƒ‹[ƒhƒpƒX‚ğ’Šo
+# ãƒ˜ãƒƒãƒ€ãƒ¼ã®ãƒ‘ã‚¹ã‹ã‚‰ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãƒ‘ã‚¹ã‚’æŠ½å‡º
 %include_path;
 foreach( @header_files ) {
-	s/$cwd\///;
-	s/[^\/]+$//;
-	s/\/$//;
-	s/\//\\/g;
+	s/$cwdÂ¥///;
+	s/[^Â¥/]+$//;
+	s/Â¥/$//;
+	s/Â¥//Â¥Â¥/g;
 	if( $_ ne "" ) {
 		$include_path{$_} = 1;
 	}
 }
 
-# ƒCƒ“ƒNƒ‹[ƒhƒpƒX‚ğ•¶š—ñ‚É
+# ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãƒ‘ã‚¹ã‚’æ–‡å­—åˆ—ã«
 $include_path_str="";
 foreach $key ( keys( %include_path ) ) {
 	$include_path_str = $include_path_str . $key . ";";
 }
 
-# ƒ\[ƒXƒtƒ@ƒCƒ‹‚È‚Ç‚ğ•¶š—ñ‚É
+# ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãªã©ã‚’æ–‡å­—åˆ—ã«
 $src_files_str = "";
 $header_files_str = "";
 $resource_files_str = "";
 foreach( @rel_src_files ) {
-	s/\//\\/g;
-	$src_files_str = $src_files_str . "\n\t\t\t<File RelativePath=\"" .$_. "\" ></File>";
+	s/Â¥//Â¥Â¥/g;
+	$src_files_str = $src_files_str . "Â¥nÂ¥tÂ¥tÂ¥t<File RelativePath=Â¥"" .$_. "Â¥" ></File>";
 }
 foreach( @rel_header_files ) {
-	s/\//\\/g;
-	$header_files_str = $header_files_str . "\n\t\t\t<File RelativePath=\"" .$_. "\" ></File>";
+	s/Â¥//Â¥Â¥/g;
+	$header_files_str = $header_files_str . "Â¥nÂ¥tÂ¥tÂ¥t<File RelativePath=Â¥"" .$_. "Â¥" ></File>";
 }
 foreach( @rel_resource_files ) {
-	s/\//\\/g;
-	$resource_files_str = $resource_files_str . "\n\t\t\t<File RelativePath=\"" .$_. "\" ></File>";
+	s/Â¥//Â¥Â¥/g;
+	$resource_files_str = $resource_files_str . "Â¥nÂ¥tÂ¥tÂ¥t<File RelativePath=Â¥"" .$_. "Â¥" ></File>";
 }
 
-#vcprojƒtƒ@ƒCƒ‹‚Ì‘‚«o‚µ
+#vcprojãƒ•ã‚¡ã‚¤ãƒ«ã®æ›¸ãå‡ºã—
 $project_guid = Win32::Guidgen::create();
 $PROJECT_NAME = uc $params{'Name'};
 $ProjectName = $params{'Name'};
@@ -146,7 +146,7 @@ while(<IN>) {
 	s/%SOURCE_FILES%/$src_files_str/;
 	s/%HEADER_FILES%/$header_files_str/;
 	s/%RESOURCE_FILES%/$resource_files_str/;
-	print OUT $_."\n";
+	print OUT $_."Â¥n";
 }
 close(IN);
 close( OUT );

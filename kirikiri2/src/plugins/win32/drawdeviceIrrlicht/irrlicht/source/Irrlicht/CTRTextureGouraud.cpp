@@ -29,7 +29,7 @@ CTRTextureGouraud::CTRTextureGouraud(IZBuffer* zbuffer)
 
 
 //! destructor
-CTRTextureGouraud::~CTRTextureGouraud()
+CTRTextureGouraud::‾CTRTextureGouraud()
 {
 	if (RenderTarget)
 		RenderTarget->drop();

@@ -40,7 +40,7 @@ class BOOST_THREAD_DECL thread : private noncopyable
 public:
     thread();
     explicit thread(const function0<void>& threadfunc);
-    ~thread();
+    ‾thread();
 
     bool operator==(const thread& other) const;
     bool operator!=(const thread& other) const;
@@ -68,7 +68,7 @@ class BOOST_THREAD_DECL thread_group : private noncopyable
 {
 public:
     thread_group();
-    ~thread_group();
+    ‾thread_group();
 
     thread* create_thread(const function0<void>& threadfunc);
     void add_thread(thread* thrd);

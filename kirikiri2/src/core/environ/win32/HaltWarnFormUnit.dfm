@@ -1,4 +1,4 @@
-object TVPHaltWarnForm: TTVPHaltWarnForm
+ï»¿object TVPHaltWarnForm: TTVPHaltWarnForm
   Left = 53
   Top = 251
   BorderStyle = bsDialog
@@ -9,7 +9,7 @@ object TVPHaltWarnForm: TTVPHaltWarnForm
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
@@ -22,15 +22,15 @@ object TVPHaltWarnForm: TTVPHaltWarnForm
     Width = 383
     Height = 12
     Caption = 
-      '‚±‚ÌƒvƒƒOƒ‰ƒ€‚ÍAŒ»İƒCƒxƒ“ƒg”zM‚ª’â~‚µ‚Ä‚¢‚é‚©A‘Ò‹@ó‘Ô‚É‚ ' +
-      '‚é‚½‚ß'
+      'ã“ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã¯ã€ç¾åœ¨ã‚¤ãƒ™ãƒ³ãƒˆé…ä¿¡ãŒåœæ­¢ã—ã¦ã„ã‚‹ã‹ã€å¾…æ©ŸçŠ¶æ…‹ã«ã‚' +
+      'ã‚‹ãŸã‚'
   end
   object Label2: TLabel
     Left = 72
     Top = 32
     Width = 76
     Height = 12
-    Caption = '‰“š‚µ‚Ü‚¹‚ñB'
+    Caption = 'å¿œç­”ã—ã¾ã›ã‚“ã€‚'
   end
   object Label3: TLabel
     Left = 72
@@ -38,15 +38,15 @@ object TVPHaltWarnForm: TTVPHaltWarnForm
     Width = 384
     Height = 12
     Caption = 
-      'ƒvƒƒOƒ‰ƒ€‚ğI—¹‚·‚é‚É‚Í [‹­§I—¹] ƒ{ƒ^ƒ“‚ğA‘±s‚·‚é‚É‚Í [‘±s' +
-      '] ƒ{ƒ^ƒ“'
+      'ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’çµ‚äº†ã™ã‚‹ã«ã¯ [å¼·åˆ¶çµ‚äº†] ãƒœã‚¿ãƒ³ã‚’ã€ç¶šè¡Œã™ã‚‹ã«ã¯ [ç¶šè¡Œ' +
+      '] ãƒœã‚¿ãƒ³'
   end
   object Label4: TLabel
     Left = 72
     Top = 64
     Width = 100
     Height = 12
-    Caption = '‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B'
+    Caption = 'ã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚'
   end
   object IconPaintBox: TPaintBox
     Left = 16
@@ -60,7 +60,7 @@ object TVPHaltWarnForm: TTVPHaltWarnForm
     Top = 88
     Width = 91
     Height = 25
-    Caption = '‹­§I—¹(&E)'
+    Caption = 'å¼·åˆ¶çµ‚äº†(&E)'
     TabOrder = 0
     OnClick = ExitButtonClick
   end
@@ -70,7 +70,7 @@ object TVPHaltWarnForm: TTVPHaltWarnForm
     Width = 89
     Height = 25
     Cancel = True
-    Caption = '‘±s(&C)'
+    Caption = 'ç¶šè¡Œ(&C)'
     Default = True
     TabOrder = 1
     OnClick = ContinueButtonClick

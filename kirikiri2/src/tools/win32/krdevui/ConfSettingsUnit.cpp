@@ -93,7 +93,7 @@ bool __fastcall TConfSettingsForm::InitializeConfig(AnsiString filename)
 	}
 	catch(const Exception & e)
 	{
-		Application->MessageBox((SpecifiedFileIsNotKrKrLabel->Caption + "\r\n" + e.Message).c_str(),
+		Application->MessageBox((SpecifiedFileIsNotKrKrLabel->Caption + "¥r¥n" + e.Message).c_str(),
 			Caption.c_str(), MB_OK|MB_ICONSTOP);
 		return false;
 	}

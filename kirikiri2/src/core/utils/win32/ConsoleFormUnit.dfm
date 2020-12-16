@@ -1,4 +1,4 @@
-object TVPConsoleForm: TTVPConsoleForm
+ï»¿object TVPConsoleForm: TTVPConsoleForm
   Left = 63
   Top = 88
   Width = 515
@@ -7,7 +7,7 @@ object TVPConsoleForm: TTVPConsoleForm
   VertScrollBar.Visible = False
   ActiveControl = ExprComboBox
   BorderIcons = [biSystemMenu, biMaximize]
-  Caption = 'ƒRƒ“ƒ\[ƒ‹'
+  Caption = 'ã‚³ãƒ³ã‚½ãƒ¼ãƒ«'
   Color = clBtnFace
   Constraints.MinHeight = 100
   Constraints.MinWidth = 70
@@ -15,7 +15,7 @@ object TVPConsoleForm: TTVPConsoleForm
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   Position = poDefaultPosOnly
@@ -50,7 +50,7 @@ object TVPConsoleForm: TTVPConsoleForm
     Font.Charset = SHIFTJIS_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
-    Font.Name = '‚l‚r –¾’©'
+    Font.Name = 'ï¼­ï¼³ æ˜æœ'
     Font.Style = []
     ItemHeight = 12
     ParentFont = False
@@ -77,8 +77,8 @@ object TVPConsoleForm: TTVPConsoleForm
     object ExecButton: TToolButton
       Left = 0
       Top = 0
-      Hint = 'Às'
-      Caption = 'Às'
+      Hint = 'å®Ÿè¡Œ'
+      Caption = 'å®Ÿè¡Œ'
       ImageIndex = 0
       OnClick = ExecButtonClick
     end
@@ -94,7 +94,7 @@ object TVPConsoleForm: TTVPConsoleForm
     Font.Charset = SHIFTJIS_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
-    Font.Name = '‚l‚r –¾’©'
+    Font.Name = 'ï¼­ï¼³ æ˜æœ'
     Font.Style = []
     ParentFont = False
     TabOrder = 3
@@ -105,41 +105,41 @@ object TVPConsoleForm: TTVPConsoleForm
     Left = 24
     Top = 24
     object CopyMenuItem: TMenuItem
-      Caption = 'ƒRƒs[(&C)'
-      Hint = 'ƒRƒs['
+      Caption = 'ã‚³ãƒ”ãƒ¼(&C)'
+      Hint = 'ã‚³ãƒ”ãƒ¼'
       ImageIndex = 6
       OnClick = CopyMenuItemClick
     end
     object SelectAllMenuItem: TMenuItem
-      Caption = '‚·‚×‚Ä‘I‘ğ(&A)'
+      Caption = 'ã™ã¹ã¦é¸æŠ(&A)'
       OnClick = SelectAllMenuItemClick
     end
     object N1: TMenuItem
       Caption = '-'
     end
     object ShowControllerMenuItem: TMenuItem
-      Caption = 'ƒRƒ“ƒgƒ[ƒ‰(&Z)'
-      Hint = 'ƒRƒ“ƒgƒ[ƒ‰‚ğ•\¦'
+      Caption = 'ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©(&Z)'
+      Hint = 'ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ã‚’è¡¨ç¤º'
       ImageIndex = 28
       ShortCut = 8304
       OnClick = ShowControllerMenuItemClick
     end
     object ShowScriptEditorMenuItem: TMenuItem
-      Caption = 'ƒXƒNƒŠƒvƒgƒGƒfƒBƒ^(&E)'
-      Hint = 'ƒXƒNƒŠƒvƒgƒGƒfƒBƒ^‚ğ•\¦'
+      Caption = 'ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ‡ã‚£ã‚¿(&E)'
+      Hint = 'ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ã‚’è¡¨ç¤º'
       ImageIndex = 2
       ShortCut = 8305
       OnClick = ShowScriptEditorMenuItemClick
     end
     object ShowWatchMenuItem: TMenuItem
-      Caption = 'ŠÄ‹®(&W)'
-      Hint = 'ŠÄ‹®‚ğ•\¦'
+      Caption = 'ç›£è¦–å¼(&W)'
+      Hint = 'ç›£è¦–å¼ã‚’è¡¨ç¤º'
       ImageIndex = 14
       ShortCut = 8306
       OnClick = ShowWatchMenuItemClick
     end
     object ShowConsoleMenuItem: TMenuItem
-      Caption = 'ƒRƒ“ƒ\[ƒ‹(&D)'
+      Caption = 'ã‚³ãƒ³ã‚½ãƒ¼ãƒ«(&D)'
       ShortCut = 8307
       Visible = False
       OnClick = ShowConsoleMenuItemClick
@@ -148,7 +148,7 @@ object TVPConsoleForm: TTVPConsoleForm
       Caption = '-'
     end
     object ShowOnTopMenuItem: TMenuItem
-      Caption = 'í‚Éè‘O‚É•\¦(&F)'
+      Caption = 'å¸¸ã«æ‰‹å‰ã«è¡¨ç¤º(&F)'
       ImageIndex = 10
       OnClick = ShowOnTopMenuItemClick
     end
@@ -156,11 +156,11 @@ object TVPConsoleForm: TTVPConsoleForm
       Caption = '-'
     end
     object SelectFontMenuItem: TMenuItem
-      Caption = 'ƒtƒHƒ“ƒg(&N) ...'
+      Caption = 'ãƒ•ã‚©ãƒ³ãƒˆ(&N) ...'
       OnClick = SelectFontMenuItemClick
     end
     object AutoShowOnErrorMenuItem: TMenuItem
-      Caption = 'ƒGƒ‰[‚É©“®“I‚É•\¦‚·‚é(&V)'
+      Caption = 'ã‚¨ãƒ©ãƒ¼æ™‚ã«è‡ªå‹•çš„ã«è¡¨ç¤ºã™ã‚‹(&V)'
       OnClick = AutoShowOnErrorMenuItemClick
     end
     object ShowAboutMenuItem: TMenuItem
@@ -180,7 +180,7 @@ object TVPConsoleForm: TTVPConsoleForm
     Font.Charset = SHIFTJIS_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
-    Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+    Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
     Font.Style = []
     MinFontSize = 0
     MaxFontSize = 0

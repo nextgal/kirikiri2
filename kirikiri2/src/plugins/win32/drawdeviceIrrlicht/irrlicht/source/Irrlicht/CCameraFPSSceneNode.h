@@ -27,7 +27,7 @@ namespace scene
 			SKeyMap* keyMapArray, s32 keyMapSize, bool noVerticalMovement = false );
 
 		//! destructor
-		virtual ~CCameraFPSSceneNode();
+		virtual ‾CCameraFPSSceneNode();
 
 		//! It is possible to send mouse and key events to the camera. Most cameras
 		//! may ignore this input, but camera scene nodes which are created for 
@@ -42,7 +42,7 @@ namespace scene
 		virtual void OnAnimate(u32 timeMs);
 
 		//! sets the look at target of the camera
-		//! \param pos: Look at target of the camera.
+		//! ¥param pos: Look at target of the camera.
 		virtual void setTarget(const core::vector3df& pos);
 
 		//! Returns type of the scene node

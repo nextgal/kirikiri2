@@ -60,10 +60,10 @@ struct make_holder<N>
         // templated constructor.
         typedef typename mpl::begin<ArgList>::type iter0;
         
-#  define BOOST_PP_LOCAL_MACRO(n)               \
-    typedef typename mpl::apply0<iter##n>::type t##n;        \
-    typedef typename forward<t##n>::type f##n;  \
-    typedef typename mpl::next<iter##n>::type   \
+#  define BOOST_PP_LOCAL_MACRO(n)               ¥
+    typedef typename mpl::apply0<iter##n>::type t##n;        ¥
+    typedef typename forward<t##n>::type f##n;  ¥
+    typedef typename mpl::next<iter##n>::type   ¥
         BOOST_PP_CAT(iter,BOOST_PP_INC(n)); // Next iterator type
         
 #  define BOOST_PP_LOCAL_LIMITS (0, N-1)

@@ -1,7 +1,7 @@
 @call storage="rain.ks"
-@image layer=base page=fore storage=d:\temp\testbg02
-*start1|‰J‚Í”ñ•\¦
-‰J‚ğ‚Ó‚ç‚¹‚Ü‚·[l]
+@image layer=base page=fore storage=d:Â¥tempÂ¥testbg02
+*start1|é›¨ã¯éè¡¨ç¤º
+é›¨ã‚’ãµã‚‰ã›ã¾ã™[l]
 @backlay
 @raininit forevisible=false backvisible=true
 @trans method=crossfade time=2000
@@ -9,21 +9,21 @@
 ;
 ;@jump target=*test
 ;
-*start2|‰J‚Í•\¦’†
-‰J‚ğ•\¦’†‚Å‚·B[l]‚Ç‚ê‚Ç‚êB[l]‚Ç‚ê‚Ç‚êB[l]
-‚İ‚ã‚İ‚ã‚İ‚ã‚İ‚ã‚İ‚ã‚İ‚ã‚İ‚ã‚İ‚ã[l]
-”wŒi‚ğ“ü‚ê‘Ö‚¦‚Ü‚·[l]
+*start2|é›¨ã¯è¡¨ç¤ºä¸­
+é›¨ã‚’è¡¨ç¤ºä¸­ã§ã™ã€‚[l]ã©ã‚Œã©ã‚Œã€‚[l]ã©ã‚Œã©ã‚Œã€‚[l]
+ã¿ã‚…ã¿ã‚…ã¿ã‚…ã¿ã‚…ã¿ã‚…ã¿ã‚…ã¿ã‚…ã¿ã‚…[l]
+èƒŒæ™¯ã‚’å…¥ã‚Œæ›¿ãˆã¾ã™[l]
 @backlay
-@image layer=base page=back storage=d:\temp\testbg01
+@image layer=base page=back storage=d:Â¥tempÂ¥testbg01
 @trans method=crossfade time=2000
 @wt
 @l
 @backlay
-@image layer=base page=back storage=d:\temp\testbg02
+@image layer=base page=back storage=d:Â¥tempÂ¥testbg02
 @trans children=false method=crossfade time=2000
 @wt
 @l
-‰J‚ğ‚â‚Ü‚¹‚Ü‚·[l]
+é›¨ã‚’ã‚„ã¾ã›ã¾ã™[l]
 @backlay
 @rainopt backvisible=false
 @trans method=crossfade time=2000

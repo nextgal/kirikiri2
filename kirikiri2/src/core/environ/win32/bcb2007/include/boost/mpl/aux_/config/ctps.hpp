@@ -19,7 +19,7 @@
 
 #include "boost/config.hpp"
 
-#if defined(__BORLANDC__) && (__BORLANDC__ <= 0x561 || !defined(BOOST_STRICT_CONFIG)) \
+#if defined(__BORLANDC__) && (__BORLANDC__ <= 0x561 || !defined(BOOST_STRICT_CONFIG)) ¥
  && !defined(BOOST_NO_NON_TYPE_TEMPLATE_PARTIAL_SPECIALIZATION)
 #   define BOOST_NO_NON_TYPE_TEMPLATE_PARTIAL_SPECIALIZATION
 #endif

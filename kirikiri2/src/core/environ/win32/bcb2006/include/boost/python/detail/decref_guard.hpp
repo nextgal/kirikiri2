@@ -11,7 +11,7 @@ namespace boost { namespace python { namespace detail {
 struct decref_guard
 {
     decref_guard(PyObject* o) : obj(o) {}
-    ~decref_guard() { Py_XDECREF(obj); }
+    ‾decref_guard() { Py_XDECREF(obj); }
     void cancel() { obj = 0; }
  private:
     PyObject* obj;

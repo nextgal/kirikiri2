@@ -149,7 +149,7 @@ __fastcall TTVPConsoleForm::TTVPConsoleForm(TComponent* Owner)
 	AutoShowOnErrorMenuItem->Checked = TVPMainForm->GetAutoShowConsoleOnError();
 }
 //---------------------------------------------------------------------------
-__fastcall TTVPConsoleForm::~TTVPConsoleForm()
+__fastcall TTVPConsoleForm::‾TTVPConsoleForm()
 {
 	delete LogViewer, LogViewer = NULL;
 	TVPSetOnLog(NULL);

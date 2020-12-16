@@ -54,20 +54,20 @@ namespace boost {
   // The user will just have to create their own specializations for
   // other pointers types if the compiler does not have partial
   // specializations. Sorry!
-#define BOOST_SPECIALIZE_PROPERTY_TRAITS_PTR(TYPE) \
-  template <> \
-  struct property_traits<TYPE*> { \
-    typedef TYPE value_type; \
-    typedef value_type& reference; \
-    typedef std::ptrdiff_t key_type; \
-    typedef lvalue_property_map_tag   category; \
-  }; \
-  template <> \
-  struct property_traits<const TYPE*> { \
-    typedef TYPE value_type; \
-    typedef const value_type& reference; \
-    typedef std::ptrdiff_t key_type; \
-    typedef lvalue_property_map_tag   category; \
+#define BOOST_SPECIALIZE_PROPERTY_TRAITS_PTR(TYPE) ¥
+  template <> ¥
+  struct property_traits<TYPE*> { ¥
+    typedef TYPE value_type; ¥
+    typedef value_type& reference; ¥
+    typedef std::ptrdiff_t key_type; ¥
+    typedef lvalue_property_map_tag   category; ¥
+  }; ¥
+  template <> ¥
+  struct property_traits<const TYPE*> { ¥
+    typedef TYPE value_type; ¥
+    typedef const value_type& reference; ¥
+    typedef std::ptrdiff_t key_type; ¥
+    typedef lvalue_property_map_tag   category; ¥
   }
 
   BOOST_SPECIALIZE_PROPERTY_TRAITS_PTR(long);

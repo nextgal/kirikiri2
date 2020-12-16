@@ -51,15 +51,15 @@ namespace Detail
 
 #define UNROLL_EVAL_0(_M_) _M_
 #define UNROLL_EVAL(_A_,_B_,_C_) UNROLL_EVAL_0(_A_ ## _B_ _C_)
-#define UNROLL_FOREACH(_M1_, _M2_, _A1_, _A2_) \
-	_M1_(0, UNROLL_EVAL(_M2_, _0, _A1_), UNROLL_EVAL(_M2_, _0, _A2_)); \
-	_M1_(1, UNROLL_EVAL(_M2_, _1, _A1_), UNROLL_EVAL(_M2_, _1, _A2_)); \
-	_M1_(2, UNROLL_EVAL(_M2_, _2, _A1_), UNROLL_EVAL(_M2_, _2, _A2_)); \
-	_M1_(3, UNROLL_EVAL(_M2_, _3, _A1_), UNROLL_EVAL(_M2_, _3, _A2_)); \
-	_M1_(4, UNROLL_EVAL(_M2_, _4, _A1_), UNROLL_EVAL(_M2_, _4, _A2_)); \
-	_M1_(5, UNROLL_EVAL(_M2_, _5, _A1_), UNROLL_EVAL(_M2_, _5, _A2_)); \
-	_M1_(6, UNROLL_EVAL(_M2_, _6, _A1_), UNROLL_EVAL(_M2_, _6, _A2_)); \
-	_M1_(7, UNROLL_EVAL(_M2_, _7, _A1_), UNROLL_EVAL(_M2_, _7, _A2_)); \
+#define UNROLL_FOREACH(_M1_, _M2_, _A1_, _A2_) Â¥
+	_M1_(0, UNROLL_EVAL(_M2_, _0, _A1_), UNROLL_EVAL(_M2_, _0, _A2_)); Â¥
+	_M1_(1, UNROLL_EVAL(_M2_, _1, _A1_), UNROLL_EVAL(_M2_, _1, _A2_)); Â¥
+	_M1_(2, UNROLL_EVAL(_M2_, _2, _A1_), UNROLL_EVAL(_M2_, _2, _A2_)); Â¥
+	_M1_(3, UNROLL_EVAL(_M2_, _3, _A1_), UNROLL_EVAL(_M2_, _3, _A2_)); Â¥
+	_M1_(4, UNROLL_EVAL(_M2_, _4, _A1_), UNROLL_EVAL(_M2_, _4, _A2_)); Â¥
+	_M1_(5, UNROLL_EVAL(_M2_, _5, _A1_), UNROLL_EVAL(_M2_, _5, _A2_)); Â¥
+	_M1_(6, UNROLL_EVAL(_M2_, _6, _A1_), UNROLL_EVAL(_M2_, _6, _A2_)); Â¥
+	_M1_(7, UNROLL_EVAL(_M2_, _7, _A1_), UNROLL_EVAL(_M2_, _7, _A2_)); Â¥
 	_M1_(8, UNROLL_EVAL(_M2_, _8, _A1_), UNROLL_EVAL(_M2_, _8, _A2_))
 
 //--------------------------------------------------------------
@@ -94,8 +94,8 @@ struct MethodInvokerBase {
 
 template <typename FUNC> struct FactoryInvoker;
 
-#define DEF_SCF(CNT, ARGS, EXT) \
-	template <class C> struct FactoryInvoker<tjs_error (*) ARGS> : public MethodInvokerBase { enum { Count = CNT  }; typedef tjs_error (*Func) ARGS; typedef C Class; typedef C*& Inst; \
+#define DEF_SCF(CNT, ARGS, EXT) Â¥
+	template <class C> struct FactoryInvoker<tjs_error (*) ARGS> : public MethodInvokerBase { enum { Count = CNT  }; typedef tjs_error (*Func) ARGS; typedef C Class; typedef C*& Inst; Â¥
 		static inline tjs_error Invoke(const Func &func, Inst result, Num numparams, Vp *param, iTJSDispatch2 *objthis) { return func EXT; } }
 
 // factory(inst, args*)
@@ -116,8 +116,8 @@ UNROLL_FOREACH(DEF_SCF, UNROLL_ABMYZ, (iTJSDispatch2*, C*&, ARGTYPE, tjs_int, tT
 
 template <typename FUNC> struct MethodInvoker;
 
-#define DEF_SMI(CNT, ARGS, EXT, STATIC) \
-	template <> struct MethodInvoker<tjs_error (*) ARGS> : public MethodInvokerBase { enum { Count = CNT, Static = STATIC }; typedef tjs_error (*Func) ARGS; \
+#define DEF_SMI(CNT, ARGS, EXT, STATIC) Â¥
+	template <> struct MethodInvoker<tjs_error (*) ARGS> : public MethodInvokerBase { enum { Count = CNT, Static = STATIC }; typedef tjs_error (*Func) ARGS; Â¥
 		static inline tjs_error Invoke(const Func &func, Vp result, Num numparams, Vp *param, Dp objthis) { return func EXT; } }
 
 #define DEF_SMI_S(CNT, ARGS, EXT) DEF_SMI(CNT, ARGS, EXT, 1)
@@ -136,9 +136,9 @@ UNROLL_FOREACH(DEF_SMI_C, UNROLL_ABM, (iTJSDispatch2*, tTJSVariant*, ARGTYPE), (
 UNROLL_FOREACH(DEF_SMI_C, UNROLL_ABMYZ, (iTJSDispatch2*, tTJSVariant*, ARGTYPE, tjs_int, tTJSVariant**), (objthis, result, ARGREF, VARGNUM, VARGREF));
 
 
-#define DEF_SCM(CNT, ARGS, EXT) \
-	template <class C> struct MethodInvoker<tjs_error (C::*) ARGS> : public MethodInvokerBase { enum { Count = CNT, Static = 0 }; typedef tjs_error (C::*Func) ARGS; \
-		static inline tjs_error Invoke(const Func &func, Vp result, Num numparams, Vp *param, Dp objthis) { \
+#define DEF_SCM(CNT, ARGS, EXT) Â¥
+	template <class C> struct MethodInvoker<tjs_error (C::*) ARGS> : public MethodInvokerBase { enum { Count = CNT, Static = 0 }; typedef tjs_error (C::*Func) ARGS; Â¥
+		static inline tjs_error Invoke(const Func &func, Vp result, Num numparams, Vp *param, Dp objthis) { Â¥
 			C* self = 0; return (objthis && GetSelf(objthis, self)) ? ((self->*func) EXT) : TJS_E_NATIVECLASSCRASH; } }
 
 // instance->method(result, args*)
@@ -147,9 +147,9 @@ UNROLL_FOREACH(DEF_SCM, UNROLL_AM, (tTJSVariant*, ARGTYPE), (result, ARGREF));
 // instance->method(result, args*, optnum, optargs)
 UNROLL_FOREACH(DEF_SCM, UNROLL_AMYZ, (tTJSVariant*, ARGTYPE, tjs_int, tTJSVariant**), (result, ARGREF, VARGNUM, VARGREF));
 
-#define DEF_SCS(CNT, ARGS, EXT) \
-	template <class C> struct MethodInvoker<tjs_error (*) ARGS> : public MethodInvokerBase { enum { Count = CNT, Static = 0 }; typedef tjs_error (*Func) ARGS; \
-		static inline tjs_error Invoke(const Func &func, Vp result, Num numparams, Vp *param, Dp objthis) { \
+#define DEF_SCS(CNT, ARGS, EXT) Â¥
+	template <class C> struct MethodInvoker<tjs_error (*) ARGS> : public MethodInvokerBase { enum { Count = CNT, Static = 0 }; typedef tjs_error (*Func) ARGS; Â¥
+		static inline tjs_error Invoke(const Func &func, Vp result, Num numparams, Vp *param, Dp objthis) { Â¥
 			C* self = 0; return (objthis && GetSelf(objthis, self)) ? (func EXT) : TJS_E_NATIVECLASSCRASH; } }
 
 // method(instance, result, args*)
@@ -286,7 +286,7 @@ public:
 class FunctionInterface {
 public:
 	virtual tjs_error invoke(tjs_uint32 flag, tTJSVariant *result, tjs_int numparams, tTJSVariant **param, iTJSDispatch2 *objthis) = 0;
-	virtual ~FunctionInterface() {}
+	virtual â€¾FunctionInterface() {}
 };
 
 template <typename CB>
@@ -316,7 +316,7 @@ public:
 		if (autoStatic && MethodInvoker<T>::Static) _flag |= TJS_STATICMEMBER;
 		_function = static_cast<FunctionInterface*>(new FunctionCallback<T>(func));
 	}
-	~FunctionStore() {
+	â€¾FunctionStore() {
 		if (_function) delete _function;
 	}
 
@@ -340,12 +340,12 @@ public:
 class SetterInterface {
 public:
 	virtual tjs_error invoke(tjs_uint32 flag, const tTJSVariant *param, iTJSDispatch2 *objthis) = 0;
-	virtual ~SetterInterface() {}
+	virtual â€¾SetterInterface() {}
 };
 class GetterInterface {
 public:
 	virtual tjs_error invoke(tjs_uint32 flag, tTJSVariant *result, iTJSDispatch2 *objthis) = 0;
-	virtual ~GetterInterface() {}
+	virtual â€¾GetterInterface() {}
 };
 
 template <typename T> class SetterCallback;
@@ -354,8 +354,8 @@ template <typename T> class GetterCallback;
 #define SETTERARG (tjs_uint32 flag, const tTJSVariant *param, iTJSDispatch2 *objthis)
 #define GETTERARG (tjs_uint32 flag,      tTJSVariant *result, iTJSDispatch2 *objthis)
 
-#define DEF_SPCB(TAG, IVG, ARGS, EXT) \
-	template <> class TAG ## Callback<tjs_error (*) ARGS> : public TAG ## Interface { typedef tjs_error (*Callback) ARGS; const Callback _callback; \
+#define DEF_SPCB(TAG, IVG, ARGS, EXT) Â¥
+	template <> class TAG ## Callback<tjs_error (*) ARGS> : public TAG ## Interface { typedef tjs_error (*Callback) ARGS; const Callback _callback; Â¥
 	public: TAG ## Callback(const Callback &cb) : _callback(cb) {} /**/ tjs_error invoke IVG { return _callback EXT; } }
 
 DEF_SPCB(Setter, SETTERARG, (                const tTJSVariant*), (         param));
@@ -364,9 +364,9 @@ DEF_SPCB(Setter, SETTERARG, (iTJSDispatch2*, const tTJSVariant*), (objthis, para
 DEF_SPCB(Getter, GETTERARG, (                      tTJSVariant*), (         result));
 DEF_SPCB(Getter, GETTERARG, (iTJSDispatch2*,       tTJSVariant*), (objthis, result));
 
-#define DEF_SCCB(TAG, IVG, PRE1, ARGS, PRE2, EXT) \
-	template <class C> class TAG ## Callback<tjs_error (PRE1 *) ARGS> : public TAG ## Interface { typedef tjs_error (PRE1 *Callback) ARGS; const Callback _callback; \
-	public: TAG ## Callback(const Callback &cb) : _callback(cb) {} /**/ tjs_error invoke IVG { \
+#define DEF_SCCB(TAG, IVG, PRE1, ARGS, PRE2, EXT) Â¥
+	template <class C> class TAG ## Callback<tjs_error (PRE1 *) ARGS> : public TAG ## Interface { typedef tjs_error (PRE1 *Callback) ARGS; const Callback _callback; Â¥
+	public: TAG ## Callback(const Callback &cb) : _callback(cb) {} /**/ tjs_error invoke IVG { Â¥
 		C* self = 0; return (objthis && MethodInvokerBase::GetSelf(objthis, self)) ? ((PRE2 _callback) EXT) : TJS_E_NATIVECLASSCRASH; } }
 
 DEF_SCCB(Setter, SETTERARG, C::, (    const tTJSVariant*),        self->*, (param));
@@ -403,7 +403,7 @@ public:
 	PropertyStore(int getter_only, const GET& get) : _setter(0), _getter(0) {
 		_getter = static_cast<GetterInterface*>(new GetterCallback<GET>(get));
 	}
-	~PropertyStore() {
+	â€¾PropertyStore() {
 		if (_setter) delete _setter;
 		if (_getter) delete _getter;
 	}
@@ -444,7 +444,7 @@ protected:
 public:
 	template <typename T>
 	ConstantStore(const T &value) : _value(value) {}
-	~ConstantStore() {}
+	â€¾ConstantStore() {}
 
 	tjs_error TJS_INTF_METHOD PropSet(
 		tjs_uint32 flag, const tjs_char *membername, tjs_uint32 *hint,
@@ -473,7 +473,7 @@ public:
 
 class ClassEntryInterface {
 public:
-	virtual ~ClassEntryInterface() {}
+	virtual â€¾ClassEntryInterface() {}
 	virtual void release() { delete this; }
 	virtual tjs_error createNew(void **instance, tjs_int numparams, tTJSVariant **param, iTJSDispatch2 *objthis) = 0;
 	virtual tjs_error invalidate(void *instance) = 0;
@@ -590,7 +590,7 @@ public:
 	typedef InstanceWrapper<C> Wrapper;
 
 	ClassStore(tjs_int32 id, ClassEntryInterface *entry) : StoreUtil(StoreUtil::DEFAULT_FLAG|TJS_HIDDENMEMBER|TJS_STATICMEMBER), _id(id), _entry(entry) {}
-	~ClassStore() { if (_entry) _entry->release(); _entry = NULL; _Singleton = NULL; }
+	â€¾ClassStore() { if (_entry) _entry->release(); _entry = NULL; _Singleton = NULL; }
 
 	tjs_int32 getID() const { return _id; }
 	ClassEntryInterface* getEntry() const { return _entry; }
@@ -682,7 +682,7 @@ public:
 	}
 	BindUtil(iTJSDispatch2 *store, bool link) : _link(link), _error(false), _store(store), _context(0) {}
 
-	virtual ~BindUtil() {}
+	virtual â€¾BindUtil() {}
 
 	template <typename FUNC>
 	BindUtil& Function(const ttstr &key, const FUNC &func) {
@@ -691,11 +691,11 @@ public:
 		return *this;
 	}
 	/**
-	 * ƒvƒƒpƒeƒB‚ğ“o˜^
-	 * @param key “o˜^ƒvƒƒpƒeƒB–¼
-	 * @param get “o˜^‘ÎÛ‚ÌgetterŒ^‚ÌŠÖ”
-	 * @param set “o˜^‘ÎÛ‚ÌsetterŒ^‚ÌŠÖ”
-	 * ¦setter/getter‚Ç‚¿‚ç‚©‚ª–³‚¢ê‡‚Í 0 ‚ğw’è‚µ‚Ü‚·
+	 * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’ç™»éŒ²
+	 * @param key ç™»éŒ²ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å
+	 * @param get ç™»éŒ²å¯¾è±¡ã®getterå‹ã®é–¢æ•°
+	 * @param set ç™»éŒ²å¯¾è±¡ã®setterå‹ã®é–¢æ•°
+	 * â€»setter/getterã©ã¡ã‚‰ã‹ãŒç„¡ã„å ´åˆã¯ 0 ã‚’æŒ‡å®šã—ã¾ã™
 	 */
 	template <typename GET, typename SET>
 	BindUtil& Property(const ttstr &key, const GET &get, const SET &set) {
@@ -704,10 +704,10 @@ public:
 		return *this;
 	}
 	/**
-	 * ’è”‚ğ“o˜^
-	 * @param key “o˜^’è”–¼
-	 * @param value “o˜^‘ÎÛ‚Ì’l(tTJSVariant‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚É“n‚¹‚éŒ^)
-	 * ¦value‚ğ•Ô‚·getter‚Ì‚İ‚ÌƒvƒƒpƒeƒB‚ğ“o˜^‚µ‚Ü‚·
+	 * å®šæ•°ã‚’ç™»éŒ²
+	 * @param key ç™»éŒ²å®šæ•°å
+	 * @param value ç™»éŒ²å¯¾è±¡ã®å€¤(tTJSVariantã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«æ¸¡ã›ã‚‹å‹)
+	 * â€»valueã‚’è¿”ã™getterã®ã¿ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’ç™»éŒ²ã—ã¾ã™
 	 */
 	template <typename T>
 	BindUtil& Constant(const ttstr &key, const T &value) {
@@ -716,10 +716,10 @@ public:
 		return *this;
 	}
 	/**
-	 * tTJSVariant‚ğ“o˜^
-	 * @param key “o˜^–¼
-	 * @param value “o˜^‘ÎÛ‚Ì’l(tTJSVariant‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚É“n‚¹‚éŒ^)
-	 * @param flag PropSet‚É“n‚·ƒtƒ‰ƒO’l
+	 * tTJSVariantã‚’ç™»éŒ²
+	 * @param key ç™»éŒ²å
+	 * @param value ç™»éŒ²å¯¾è±¡ã®å€¤(tTJSVariantã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«æ¸¡ã›ã‚‹å‹)
+	 * @param flag PropSetã«æ¸¡ã™ãƒ•ãƒ©ã‚°å€¤
 	 */
 	template <typename T>
 	BindUtil& Variant(const ttstr &key, const T &value, tjs_uint32 flag = StoreUtil::DEFAULT_FLAG) {
@@ -734,9 +734,9 @@ public:
 		return *this;
 	}
 	/**
-	 * ƒNƒ‰ƒX‚ğ‚ğ“o˜^
-	 * @param key “o˜^ƒNƒ‰ƒX–¼
-	 * @param ctor “o˜^‘ÎÛ‚ÌfactoryŒ^‚ÌŠÖ”
+	 * ã‚¯ãƒ©ã‚¹ã‚’ã‚’ç™»éŒ²
+	 * @param key ç™»éŒ²ã‚¯ãƒ©ã‚¹å
+	 * @param ctor ç™»éŒ²å¯¾è±¡ã®factoryå‹ã®é–¢æ•°
 	 */
 	template <typename CTOR>
 	BindUtil& Class(const ttstr &key, const CTOR& ctor) {
@@ -750,10 +750,10 @@ public:
 		return *this;
 	}
 	/**
-	 * ƒNƒ‰ƒX‚ğ‚ğ“o˜^
-	 * @param key “o˜^ƒNƒ‰ƒX–¼
-	 * @param ctor “o˜^‘ÎÛ‚ÌfactoryŒ^‚ÌŠÖ”
-	 * @param dtor “o˜^‘ÎÛ‚ÌƒfƒXƒgƒ‰ƒNƒ^
+	 * ã‚¯ãƒ©ã‚¹ã‚’ã‚’ç™»éŒ²
+	 * @param key ç™»éŒ²ã‚¯ãƒ©ã‚¹å
+	 * @param ctor ç™»éŒ²å¯¾è±¡ã®factoryå‹ã®é–¢æ•°
+	 * @param dtor ç™»éŒ²å¯¾è±¡ã®ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 */
 	template <typename CTOR, typename DTOR>
 	BindUtil& Class(const ttstr &key, const CTOR& ctor, const DTOR &dtor) {
@@ -768,8 +768,8 @@ public:
 	}
 
 	/**
-	 * ˆÈ~‚ÌFunction/Property“o˜^ƒRƒ“ƒeƒLƒXƒg‚ğ•ÏX
-	 * @param context ƒRƒ“ƒeƒLƒXƒg
+	 * ä»¥é™ã®Function/Propertyç™»éŒ²ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‚’å¤‰æ›´
+	 * @param context ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
 	 */
 	BindUtil& SetContext(iTJSDispatch2 *context = NULL) {
 		_context = context;
@@ -777,18 +777,18 @@ public:
 	}
 
 	/**
-	 * ƒGƒ‰[ƒ`ƒFƒbƒN
-	 * ¡‚Ü‚Å‚Ì“o˜^^‰ğœ“®ì‚ÅƒGƒ‰[‚ª‚È‚©‚Á‚½‚©‚Ç‚¤‚©Šm”F
-	 * @return valid ƒGƒ‰[‚ª–³‚¢ê‡‚Ítrue
+	 * ã‚¨ãƒ©ãƒ¼ãƒã‚§ãƒƒã‚¯
+	 * ä»Šã¾ã§ã®ç™»éŒ²ï¼è§£é™¤å‹•ä½œã§ã‚¨ãƒ©ãƒ¼ãŒãªã‹ã£ãŸã‹ã©ã†ã‹ç¢ºèª
+	 * @return valid ã‚¨ãƒ©ãƒ¼ãŒç„¡ã„å ´åˆã¯true
 	 */
 	bool IsValid() const { return !_error; }
 
 
 	/**
-	 * iTJSDispatch2‚©‚ç”CˆÓ‚ÌƒNƒ‰ƒXƒCƒ“ƒXƒ^ƒ“ƒX‚Ì•ÏŠ·
-	 * @param obj •ÏŠ·‘ÎÛƒIƒuƒWƒFƒNƒg
-	 * @param instance •ÏŠ·‚µ‚½‚¢ƒNƒ‰ƒX‚ÌŒ^ƒ|ƒCƒ“ƒ^iƒ^ƒO—pƒ_ƒ~[j
-	 * @return ƒ|ƒCƒ“ƒ^
+	 * iTJSDispatch2ã‹ã‚‰ä»»æ„ã®ã‚¯ãƒ©ã‚¹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®å¤‰æ›
+	 * @param obj å¤‰æ›å¯¾è±¡ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	 * @param instance å¤‰æ›ã—ãŸã„ã‚¯ãƒ©ã‚¹ã®å‹ãƒã‚¤ãƒ³ã‚¿ï¼ˆã‚¿ã‚°ç”¨ãƒ€ãƒŸãƒ¼ï¼‰
+	 * @return ãƒã‚¤ãƒ³ã‚¿
 	 */
 	template <class C>
 	static C* GetInstance(iTJSDispatch2 *obj, C *instance) {
@@ -796,10 +796,10 @@ public:
 	}
 
 	/**
-	 * ”CˆÓŠK‘w‚É‚ ‚éƒIƒuƒWƒFƒNƒg‚ğæ“¾
-	 * @param base Šî“_ŠK‘wi"."‚Å‹æØ‚Á‚ÄŠK‘ww’è‰Â”\j
-	 * @param store Šî“_ƒIƒuƒWƒFƒNƒgiÈ—ªorNULL‚Ìê‡‚Íglobalj
-	 * @return ƒIƒuƒWƒFƒNƒg‚ª‚ ‚ê‚ÎiTJSDispatch2ƒ|ƒCƒ“ƒ^C‚È‚¯‚ê‚ÎNULL
+	 * ä»»æ„éšå±¤ã«ã‚ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—
+	 * @param base åŸºç‚¹éšå±¤ï¼ˆ"."ã§åŒºåˆ‡ã£ã¦éšå±¤æŒ‡å®šå¯èƒ½ï¼‰
+	 * @param store åŸºç‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆï¼ˆçœç•¥æ™‚orNULLã®å ´åˆã¯globalï¼‰
+	 * @return ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒã‚ã‚Œã°iTJSDispatch2ãƒã‚¤ãƒ³ã‚¿ï¼Œãªã‘ã‚Œã°NULL
 	 */
 	static inline iTJSDispatch2* GetObject(const ttstr &base, iTJSDispatch2 *root = 0) {
 		return StoreUtil::GetObject(base, root);
@@ -820,8 +820,8 @@ typedef Detail::BindUtil BindUtil;
 
 
 // util macro (for BindUtil::SetContext)
-#define SIMPLEBINDER_CUSTOM_CONTEXT_RESOLV(CLASS) \
-	template <> struct SimpleBinder::Detail::ClassInstanceResolver<CLASS>       { typedef CLASS Wrapper; }; \
+#define SIMPLEBINDER_CUSTOM_CONTEXT_RESOLV(CLASS) Â¥
+	template <> struct SimpleBinder::Detail::ClassInstanceResolver<CLASS>       { typedef CLASS Wrapper; }; Â¥
 	template <> struct SimpleBinder::Detail::ClassInstanceResolver<const CLASS> { typedef CLASS Wrapper; }
 // -> implement "CLASS* CLASS::GetInstance(iTJSDispatch2*)" static method.
 //    and this macro use before BindUtil using.

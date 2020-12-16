@@ -163,7 +163,7 @@ public:
     : ClosureT::tuple_t(init), save(clos.frame), frame(clos.frame)
     { clos.frame = this; }
 
-    ~closure_frame()
+    ‾closure_frame()
     { frame = save; }
 
 private:

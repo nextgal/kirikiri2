@@ -31,7 +31,7 @@ CIrrMeshWriter::CIrrMeshWriter(video::IVideoDriver* driver,
 }
 
 
-CIrrMeshWriter::~CIrrMeshWriter()
+CIrrMeshWriter::‾CIrrMeshWriter()
 {
 	if (VideoDriver)
 		VideoDriver->drop();

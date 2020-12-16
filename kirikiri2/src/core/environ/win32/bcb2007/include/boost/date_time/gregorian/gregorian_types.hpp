@@ -29,38 +29,38 @@ namespace boost {
  */
 namespace gregorian {
   //! Date periods for the gregorian system
-  /*!\ingroup date_basics
+  /*!¥ingroup date_basics
    */
   typedef date_time::period<date, date_duration> date_period;  
   //! A date generation object type
   typedef date_time::partial_date<date> partial_date;
   //! A clock to get the current day from the local computer
-  /*!\ingroup date_basics
+  /*!¥ingroup date_basics
    */
   typedef date_time::day_clock<date> day_clock;
 
   //! Base date_iterator type for gregorian types.
-  /*!\ingroup date_basics
+  /*!¥ingroup date_basics
    */
   typedef date_time::date_itr_base<date> date_iterator;
 
   //! A day level iterator
-  /*!\ingroup date_basics
+  /*!¥ingroup date_basics
    */
   typedef date_time::date_itr<date_time::day_functor<date>,
                               date> day_iterator;
   //! A week level iterator
-  /*!\ingroup date_basics
+  /*!¥ingroup date_basics
    */
   typedef date_time::date_itr<date_time::week_functor<date>,
                               date> week_iterator;
   //! A month level iterator
-  /*!\ingroup date_basics
+  /*!¥ingroup date_basics
    */
   typedef date_time::date_itr<date_time::month_functor<date>,
                               date> month_iterator;
   //! A year level iterator
-  /*!\ingroup date_basics
+  /*!¥ingroup date_basics
    */
   typedef date_time::date_itr<date_time::year_functor<date>,
                               date> year_iterator;

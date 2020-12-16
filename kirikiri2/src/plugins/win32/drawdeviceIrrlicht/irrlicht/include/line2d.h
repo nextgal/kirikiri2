@@ -49,29 +49,29 @@ class line2d
 		void setLine(const line2d<T>& line){start.set(line.start); end.set(line.end);}
 
 		//! Get length of line
-		/** \return Length of the line. */
+		/** ¥return Length of the line. */
 		f64 getLength() const { return start.getDistanceFrom(end); }
 
 		//! Get squared length of the line
-		/** \return Squared length of line. */
+		/** ¥return Squared length of line. */
 		T getLengthSQ() const { return start.getDistanceFromSQ(end); }
 
 		//! Get middle of the line
-		/** \return center of the line. */
+		/** ¥return center of the line. */
 		vector2d<T> getMiddle() const
 		{
 			return (start + end) * (T)0.5;
 		}
 
 		//! Get the vector of the line.
-		/** \return The vector of the line. */
+		/** ¥return The vector of the line. */
 		vector2d<T> getVector() const { return vector2d<T>(start.X - end.X, start.Y - end.Y); }
 
 		//! Tests if this line intersects with another line.
-		/** \param l: Other line to test intersection with.
-		\param out: If there is an intersection, the location of the
+		/** ¥param l: Other line to test intersection with.
+		¥param out: If there is an intersection, the location of the
 		intersection will be stored in this vector.
-		\return True if there is an intersection, false if not. */
+		¥return True if there is an intersection, false if not. */
 		bool intersectWith(const line2d<T>& l, vector2d<T>& out) const
 		{
 			bool found=false;
@@ -106,7 +106,7 @@ class line2d
 		}
 
 		//! Get unit vector of the line.
-		/** \return Unit vector of this line. */
+		/** ¥return Unit vector of this line. */
 		vector2d<T> getUnitVector() const
 		{
 			T len = (T)(1.0 / getLength());
@@ -114,8 +114,8 @@ class line2d
 		}
 
 		//! Get angle between this line and given line.
-		/** \param l Other line for test.
-		\return Angle in degrees. */
+		/** ¥param l Other line for test.
+		¥return Angle in degrees. */
 		f64 getAngleWith(const line2d<T>& l) const
 		{
 			vector2d<T> vect = getVector();
@@ -124,7 +124,7 @@ class line2d
 		}
 
 		//! Tells us if the given point lies to the left, right, or on the line.
-		/** \return 0 if the point is on the line
+		/** ¥return 0 if the point is on the line
 		<0 if to the left, or >0 if to the right. */
 		T getPointOrientation(const vector2d<T>& point) const
 		{
@@ -133,7 +133,7 @@ class line2d
 		}
 
 		//! Check if the given point is a member of the line
-		/** \return True if point is between start and end, else false. */
+		/** ¥return True if point is between start and end, else false. */
 		bool isPointOnLine(const vector2d<T>& point) const
 		{
 			T d = getPointOrientation(point);

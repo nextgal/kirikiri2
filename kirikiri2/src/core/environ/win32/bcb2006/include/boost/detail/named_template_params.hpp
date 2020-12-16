@@ -136,39 +136,39 @@ namespace boost {
     // applications of this macro must be placed in namespace
     // boost::detail.
 
-#define BOOST_NAMED_TEMPLATE_PARAM(TYPE) \
-    struct get_##TYPE##_from_named { \
-      template <class Base, class NamedParams, class Traits> \
-      struct select { \
-          typedef typename NamedParams::traits NamedTraits; \
-          typedef typename NamedTraits::TYPE TYPE; \
-          typedef typename resolve_default<TYPE, \
-            default_##TYPE, Base, NamedTraits>::type type; \
-      }; \
-    }; \
-    struct pass_thru_##TYPE { \
-      template <class Base, class Arg, class Traits> struct select { \
-          typedef typename resolve_default<Arg, \
-            default_##TYPE, Base, Traits>::type type; \
-      };\
-    }; \
-    template <int NamedParam> \
-    struct get_##TYPE##_dispatch { }; \
-    template <> struct get_##TYPE##_dispatch<1> { \
-      typedef get_##TYPE##_from_named type; \
-    }; \
-    template <> struct get_##TYPE##_dispatch<0> { \
-      typedef pass_thru_##TYPE type; \
-    }; \
-    template <class Base, class X, class Traits>  \
-    class get_##TYPE { \
-      enum { is_named = is_named_param_list<X>::value }; \
-      typedef typename get_##TYPE##_dispatch<is_named>::type Selector; \
-    public: \
-      typedef typename Selector::template select<Base, X, Traits>::type type; \
-    }; \
-    template <> struct default_generator<default_##TYPE> { \
-      typedef default_##TYPE type; \
+#define BOOST_NAMED_TEMPLATE_PARAM(TYPE) ¥
+    struct get_##TYPE##_from_named { ¥
+      template <class Base, class NamedParams, class Traits> ¥
+      struct select { ¥
+          typedef typename NamedParams::traits NamedTraits; ¥
+          typedef typename NamedTraits::TYPE TYPE; ¥
+          typedef typename resolve_default<TYPE, ¥
+            default_##TYPE, Base, NamedTraits>::type type; ¥
+      }; ¥
+    }; ¥
+    struct pass_thru_##TYPE { ¥
+      template <class Base, class Arg, class Traits> struct select { ¥
+          typedef typename resolve_default<Arg, ¥
+            default_##TYPE, Base, Traits>::type type; ¥
+      };¥
+    }; ¥
+    template <int NamedParam> ¥
+    struct get_##TYPE##_dispatch { }; ¥
+    template <> struct get_##TYPE##_dispatch<1> { ¥
+      typedef get_##TYPE##_from_named type; ¥
+    }; ¥
+    template <> struct get_##TYPE##_dispatch<0> { ¥
+      typedef pass_thru_##TYPE type; ¥
+    }; ¥
+    template <class Base, class X, class Traits>  ¥
+    class get_##TYPE { ¥
+      enum { is_named = is_named_param_list<X>::value }; ¥
+      typedef typename get_##TYPE##_dispatch<is_named>::type Selector; ¥
+    public: ¥
+      typedef typename Selector::template select<Base, X, Traits>::type type; ¥
+    }; ¥
+    template <> struct default_generator<default_##TYPE> { ¥
+      typedef default_##TYPE type; ¥
     }
 
     

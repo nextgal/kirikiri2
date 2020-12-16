@@ -90,7 +90,7 @@
 /* print an error message and terminate with extreme prejudice */
 local void bye(char *msg1, char *msg2)
 {
-    fprintf(stderr, "gzappend error: %s%s\n", msg1, msg2);
+    fprintf(stderr, "gzappend error: %s%s¥n", msg1, msg2);
     exit(1);
 }
 
@@ -193,7 +193,7 @@ local int readmore(file *in)
     return 0;
 }
 
-#define read1(in) (in->left == 0 ? readmore(in) : 0, \
+#define read1(in) (in->left == 0 ? readmore(in) : 0, ¥
                    in->left--, *(in->next)++)
 
 /* skip over n bytes of in */
@@ -203,7 +203,7 @@ local void skip(file *in, unsigned n)
 
     if (n > in->left) {
         n -= in->left;
-        bypass = n & ~((1U << in->size) - 1);
+        bypass = n & ‾((1U << in->size) - 1);
         if (bypass) {
             if (lseek(in->fd, (off_t)bypass, SEEK_CUR) == -1)
                 bye("seeking ", in->name);
@@ -347,7 +347,7 @@ local int gzscan(char *name, z_stream *strm, int level)
     /* if not at end of file, warn */
     if (gz.left || readin(&gz))
         fprintf(stderr,
-            "gzappend warning: junk at end of gzip file overwritten\n");
+            "gzappend warning: junk at end of gzip file overwritten¥n");
 
     /* clear last block bit */
     lseek(gz.fd, lastoff - (lastbit != 0), SEEK_SET);
@@ -394,7 +394,7 @@ local void gztack(char *name, int gd, z_stream *strm, int last)
     if (name != NULL) {
         fd = open(name, O_RDONLY, 0);
         if (fd == -1)
-            fprintf(stderr, "gzappend warning: %s not found, skipping ...\n",
+            fprintf(stderr, "gzappend warning: %s not found, skipping ...¥n",
                     name);
     }
 
@@ -409,7 +409,7 @@ local void gztack(char *name, int gd, z_stream *strm, int last)
         len = fd == -1 ? 0 : read(fd, in, CHUNK);
         if (len == -1) {
             fprintf(stderr,
-                    "gzappend warning: error reading %s, skipping rest ...\n",
+                    "gzappend warning: error reading %s, skipping rest ...¥n",
                     name);
             len = 0;
         }
@@ -471,9 +471,9 @@ int main(int argc, char **argv)
 
     /* provide usage if no arguments */
     if (*argv == NULL) {
-        printf("gzappend 1.1 (4 Nov 2003) Copyright (C) 2003 Mark Adler\n");
+        printf("gzappend 1.1 (4 Nov 2003) Copyright (C) 2003 Mark Adler¥n");
         printf(
-            "usage: gzappend [-level] file.gz [ addthis [ andthis ... ]]\n");
+            "usage: gzappend [-level] file.gz [ addthis [ andthis ... ]]¥n");
         return 0;
     }
 

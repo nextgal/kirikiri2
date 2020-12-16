@@ -1,3 +1,3 @@
-@cursor pointed=d:\winnt\cursors\wagtail.ani click=d:\winnt\cursors\raindrop.ani
-[link]�ق��ق�[endlink]�ق����ق�[l]�ق��ق��قق�[l]�ق��ق��ق����ق�[l]�ق��ق��قق�[l]�ق��ق��ق����ق�[l]�ق��ق��قق�[l]
+@cursor pointed=d:¥winnt¥cursors¥wagtail.ani click=d:¥winnt¥cursors¥raindrop.ani
+[link]ほがほげ[endlink]ほえｇほげ[l]ほげほげほほげ[l]ほがほげほえｇほげ[l]ほげほげほほげ[l]ほがほげほえｇほげ[l]ほげほげほほげ[l]
 

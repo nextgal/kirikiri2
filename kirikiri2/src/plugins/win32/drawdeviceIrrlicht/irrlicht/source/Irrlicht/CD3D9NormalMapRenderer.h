@@ -29,7 +29,7 @@ public:
 		IDirect3DDevice9* d3ddev, video::IVideoDriver* driver,
 		s32& outMaterialTypeNr, IMaterialRenderer* baseMaterial);
 
-	~CD3D9NormalMapRenderer();
+	‾CD3D9NormalMapRenderer();
 
 	//! Called by the engine when the vertex and/or pixel shader constants for an
 	//! material renderer should be set.

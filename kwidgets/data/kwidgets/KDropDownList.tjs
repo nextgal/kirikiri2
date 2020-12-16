@@ -1,12 +1,12 @@
 /*----------------------------------------------------------------------------/
-/	KComboBox—p‚Ìƒhƒƒbƒvƒ_ƒEƒ“ƒŠƒXƒg
+/	KComboBoxç”¨ã®ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒªã‚¹ãƒˆ
 /----------------------------------------------------------------------------*/
 
 var DROPDOWNLIST_SEPARATOR	= "--separator--";
 
 class KDropDownList extends Window
 {
-	var	dispCount	= 3;	// •\¦ó‘Ô‚É‚·‚é”
+	var	dispCount	= 3;	// è¡¨ç¤ºçŠ¶æ…‹ã«ã™ã‚‹æ•°
 	var	toExit;
 	var	selfunc, unselfunc;
 
@@ -119,8 +119,8 @@ class KDropDownList extends Window
 				x	+= baseLayer.window.left, y += baseLayer.window.top;
 			}
 		}
-		stayOnTop	= true; focusable	= false;	// ”ñ‘I‘ğAonPopupHide ‚ªŒÄ‚Î‚ê‚é‚æ‚¤‚É
-		trapKey	= true;	//	ƒL[‚Íó‚¯æ‚é
+		stayOnTop	= true; focusable	= false;	// éé¸æŠæ™‚ã€onPopupHide ãŒå‘¼ã°ã‚Œã‚‹ã‚ˆã†ã«
+		trapKey	= true;	//	ã‚­ãƒ¼ã¯å—ã‘å–ã‚‹
 		setPos(x, y);
 		focusable	= true;
 		visible	= true;
@@ -170,13 +170,13 @@ class KDropDownList extends Window
 
 	function onMouseWheel(shift, delta)
 	{
-		onScroll(scroll.position - delta \ 2);
+		onScroll(scroll.position - delta Â¥ 2);
 	}
 }
 
 class KDropDownListItem extends Layer
 {
-	var	_position	= 0;	// ‚‚³
+	var	_position	= 0;	// é«˜ã•
 
 	var	items;
 
@@ -202,7 +202,7 @@ class KDropDownListItem extends Layer
 
 	function onMouseMove(x, y)
 	{
-//		setCurItem((y + position) \ itemHeight);
+//		setCurItem((y + position) Â¥ itemHeight);
 		y	+= position;
 		var	t	= 0;
 		for(var i=0; i<items.count; i++)
@@ -262,7 +262,7 @@ class KDropDownListItem extends Layer
 	{
 		setter(v)
 		{
-			_value	= v;	//	ˆê‰Šo‚¦‚Ä‚¨‚­
+			_value	= v;	//	ä¸€å¿œè¦šãˆã¦ãŠã
 			if(v !== void)
 			{
 				for(var i=0; i<items.count; i++)
@@ -289,7 +289,7 @@ class KDropDownListItem extends Layer
 
 	function setCurItem(itemno)
 	{
-		// ”ÍˆÍŠO‚È‚ç‰½‚à‚µ‚È‚¢
+		// ç¯„å›²å¤–ãªã‚‰ä½•ã‚‚ã—ãªã„
 		if(itemno < 0 || itemno >= items.count)
 			return;
 
@@ -299,7 +299,7 @@ class KDropDownListItem extends Layer
 			_curItem	= itemno;
 			if(curItem !== void)
 			{
-				// ‘I‘ğ‚³‚ê‚½ƒAƒCƒeƒ€‚ª•\¦‚³‚ê‚é‚æ‚¤‚ÉˆÚ“®
+				// é¸æŠã•ã‚ŒãŸã‚¢ã‚¤ãƒ†ãƒ ãŒè¡¨ç¤ºã•ã‚Œã‚‹ã‚ˆã†ã«ç§»å‹•
 				var	y	= curItem * itemHeight;
 //				Debug.message(@"${curItem}: ${y} < ${position} / ${y} > ${position+height-itemHeight}");
 				if(y < position)
@@ -508,20 +508,20 @@ class KDropDownListScrollBar extends Layer
 
 	function drawButton(x, y, w, h, push = false, upper = true)
 	{
-		// F‚ğŒˆ’è
+		// è‰²ã‚’æ±ºå®š
 		var	ltc, rbc;
 		if(push)
 			ltc = rbc = barColor;
 		else
 			rbc = darkColor, ltc = lightColor;
 
-		// ƒx[ƒX•”•ª‚ğ•`‰æ
+		// ãƒ™ãƒ¼ã‚¹éƒ¨åˆ†ã‚’æç”»
 		drawMount(x, y, w, h, ltc, rbc, barColor);
 
-		// OŠpŒ`‚ğ•`‰æ
-		var	ah = (h - 2) \ 3, aw = (w - 2) / 4;
+		// ä¸‰è§’å½¢ã‚’æç”»
+		var	ah = (h - 2) Â¥ 3, aw = (w - 2) / 4;
 //		Debug.message(@"ah = ${ah}, aw = ${aw}");
-		var	c	= w \ 2 + 1, d = upper ? 0.99 : aw;
+		var	c	= w Â¥ 2 + 1, d = upper ? 0.99 : aw;
 //		Debug.message(@"c = ${c}, d = ${d}");
 		aw	/= ah;
 		var	mv = push ? 1 : 0;
@@ -537,7 +537,7 @@ class KDropDownListScrollBar extends Layer
 
 	property buttonHeight
 	{
-		getter	{ if(height > width * 2) { return width; } else { return height \ 2; } }
+		getter	{ if(height > width * 2) { return width; } else { return height Â¥ 2; } }
 	}
 
 	property barTop		{ getter { return width; } }

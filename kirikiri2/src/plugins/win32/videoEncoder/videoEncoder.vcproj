@@ -18,7 +18,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\..\..\..\bin\win32"
+			OutputDirectory="..ﾂ･..ﾂ･..ﾂ･..ﾂ･binﾂ･win32"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\tools\win32\krdevui\tpc;..;&quot;C:\WMSDK\WMFSDK9\include&quot;;"
+				AdditionalIncludeDirectories="..ﾂ･..ﾂ･..ﾂ･toolsﾂ･win32ﾂ･krdevuiﾂ･tpc;..;&quot;C:ﾂ･WMSDKﾂ･WMFSDK9ﾂ･include&quot;;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;VIDEOENCDER_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -63,7 +63,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="C:\WMSDK\WMFSDK9\lib"
+				AdditionalLibraryDirectories="C:ﾂ･WMSDKﾂ･WMFSDK9ﾂ･lib"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				RandomizedBaseAddress="1"
@@ -94,7 +94,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\..\..\bin\win32\plugin"
+			OutputDirectory="..ﾂ･..ﾂ･..ﾂ･..ﾂ･binﾂ･win32ﾂ･plugin"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -122,7 +122,7 @@
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
-				AdditionalIncludeDirectories="..\..\..\tools\win32\krdevui\tpc;..;&quot;C:\WMSDK\WMFSDK9\include&quot;;"
+				AdditionalIncludeDirectories="..ﾂ･..ﾂ･..ﾂ･toolsﾂ･win32ﾂ･krdevuiﾂ･tpc;..;&quot;C:ﾂ･WMSDKﾂ･WMFSDK9ﾂ･include&quot;;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;VIDEOENCDER_EXPORTS"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
@@ -142,7 +142,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="C:\WMSDK\WMFSDK9\lib"
+				AdditionalLibraryDirectories="C:ﾂ･WMSDKﾂ･WMFSDK9ﾂ･lib"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -178,71 +178,71 @@
 	</References>
 	<Files>
 		<Filter
-			Name="ソース ファイル"
+			Name="繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\DebugLog.cpp"
+				RelativePath=".ﾂ･DebugLog.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\DebugLog.h"
+				RelativePath=".ﾂ･DebugLog.h"
 				>
 			</File>
 			<File
-				RelativePath=".\DShowException.cpp"
+				RelativePath=".ﾂ･DShowException.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\DShowException.h"
+				RelativePath=".ﾂ･DShowException.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Main.cpp"
+				RelativePath=".ﾂ･Main.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\ncbind\ncbind.cpp"
+				RelativePath="..ﾂ･ncbindﾂ･ncbind.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\tp_stub.cpp"
+				RelativePath="..ﾂ･tp_stub.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\WMVEncoder.cpp"
+				RelativePath=".ﾂ･WMVEncoder.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\WMVEncoder.h"
+				RelativePath=".ﾂ･WMVEncoder.h"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="ヘッダー ファイル"
+			Name="繝倥ャ繝繝ｼ 繝輔ぃ繧､繝ｫ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\ncbind\ncb_foreach.h"
+				RelativePath="..ﾂ･ncbindﾂ･ncb_foreach.h"
 				>
 			</File>
 			<File
-				RelativePath="..\ncbind\ncb_invoke.hpp"
+				RelativePath="..ﾂ･ncbindﾂ･ncb_invoke.hpp"
 				>
 			</File>
 			<File
-				RelativePath="..\ncbind\ncbind.hpp"
+				RelativePath="..ﾂ･ncbindﾂ･ncbind.hpp"
 				>
 			</File>
 			<File
-				RelativePath="..\tp_stub.h"
+				RelativePath="..ﾂ･tp_stub.h"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="リソース ファイル"
+			Name="繝ｪ繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>

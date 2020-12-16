@@ -73,7 +73,7 @@ CCameraFPSSceneNode::CCameraFPSSceneNode(ISceneNode* parent, ISceneManager* mgr,
 
 
 //! destructor
-CCameraFPSSceneNode::~CCameraFPSSceneNode()
+CCameraFPSSceneNode::‾CCameraFPSSceneNode()
 {
 	if (CursorControl)
 		CursorControl->drop();
@@ -249,7 +249,7 @@ void CCameraFPSSceneNode::allKeysUp()
 
 
 //! sets the look at target of the camera
-//! \param pos: Look at target of the camera.
+//! ¥param pos: Look at target of the camera.
 void CCameraFPSSceneNode::setTarget(const core::vector3df& tgt)
 {
 	updateAbsolutePosition();

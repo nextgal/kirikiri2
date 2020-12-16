@@ -3,7 +3,7 @@ function do_exception
 	Debug.message("about to throw an exception");
 	var a = 3;
 	var b = 0;
-	var c = a \ b;
+	var c = a Â¥ b;
 }
 
 Plugins.link("wsh.dll");
@@ -11,23 +11,23 @@ Plugins.link("wsh.dll");
 Scripts.execStorageWSH("test2.js");
 Debug.message("jsfunc:" + jsfunc(1,2,3));
 
-// exec ‚Ìê‡‚Í‘æ“ñˆø”‚Åw’è
+// exec ã®å ´åˆã¯ç¬¬äºŒå¼•æ•°ã§æŒ‡å®š
 Scripts.exec('Debug.message(1,2,3,4,null);');
 Scripts.execWSH('Debug.message(1,2,3,4,null);', "JScript");
 
-// VBS —p‚É¶¬ŠÖ”
+// VBS ç”¨ã«ç”Ÿæˆé–¢æ•°
 function createWindow() {
 	Debug.message("call createWindow");
 	return new Window();
 }
 
-// VBS —p‚É¶¬ŠÖ”
+// VBS ç”¨ã«ç”Ÿæˆé–¢æ•°
 function createLayer(win, parent=null) {
     Debug.message("call createLayer:" + win + ":" + parent);
     return new Layer(win, parent);
 }
 
-// execStorage ‚Ìê‡‚ÍŠg’£q”»’èA‚Ü‚½‚Í‘æ“ñˆø”‚Åw’èBˆø”w’è‚ª—Dæ‚³‚ê‚Ü‚·B
+// execStorage ã®å ´åˆã¯æ‹¡å¼µå­åˆ¤å®šã€ã¾ãŸã¯ç¬¬äºŒå¼•æ•°ã§æŒ‡å®šã€‚å¼•æ•°æŒ‡å®šãŒå„ªå…ˆã•ã‚Œã¾ã™ã€‚
 Scripts.execStorage("test.tjs");
 Scripts.execStorageWSH("test.js");
 Scripts.execStorageWSH("test.vbs");

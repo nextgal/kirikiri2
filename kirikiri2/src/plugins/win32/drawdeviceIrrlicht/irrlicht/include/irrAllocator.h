@@ -26,7 +26,7 @@ class irrAllocator
 public:
 
 	//! Destructor
-	virtual ~irrAllocator() {}
+	virtual ‾irrAllocator() {}
 
 	//! Allocate memory for an array of objects
 	T* allocate(size_t cnt)
@@ -49,7 +49,7 @@ public:
 	//! Destruct an element
 	void destruct(T* ptr)
 	{
-		ptr->~T();
+		ptr->‾T();
 	}
 
 protected:
@@ -96,7 +96,7 @@ public:
 	//! Destruct an element
 	void destruct(T* ptr)
 	{
-		ptr->~T();
+		ptr->‾T();
 	}
 };
 

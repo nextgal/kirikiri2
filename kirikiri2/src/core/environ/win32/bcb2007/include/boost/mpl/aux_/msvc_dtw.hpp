@@ -19,12 +19,12 @@
 #include "boost/mpl/aux_/preprocessor/params.hpp"
 
 // local macros, #undef-ined at the end of the header
-#define AUX_DTW_PARAMS(param) \
-    BOOST_MPL_PP_PARAMS(BOOST_MPL_AUX_MSVC_DTW_ARITY, param) \
+#define AUX_DTW_PARAMS(param) ¥
+    BOOST_MPL_PP_PARAMS(BOOST_MPL_AUX_MSVC_DTW_ARITY, param) ¥
 /**/
 
-#define AUX_DTW_ORIGINAL_NAME \
-    BOOST_MPL_AUX_MSVC_DTW_ORIGINAL_NAME \
+#define AUX_DTW_ORIGINAL_NAME ¥
+    BOOST_MPL_AUX_MSVC_DTW_ORIGINAL_NAME ¥
 /**/
 
 // warning: not a well-formed C++

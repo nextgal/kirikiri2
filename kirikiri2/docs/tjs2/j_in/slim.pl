@@ -12,16 +12,16 @@ sub process
 	my $content = <FH>;
 	close FH;
 
-	$content =~ s/(<dl>\s*?)<r\/>/$1/sg;
-	$content =~ s/<r\/>(\s*?<\/dl>)/$1/sg;
+	$content =‾ s/(<dl>¥s*?)<r¥/>/$1/sg;
+	$content =‾ s/<r¥/>(¥s*?<¥/dl>)/$1/sg;
 
-	$content =~ s/(<\/dt>\s*?)<r\/>/$1/sg;
+	$content =‾ s/(<¥/dt>¥s*?)<r¥/>/$1/sg;
 
-	$content =~ s/<r\/>(\s*?)<\/dt>/$1<\/dt>/sg;
-	$content =~ s/<\/dd>(\s*?)<r\/>/<\/dd>$1/sg;
+	$content =‾ s/<r¥/>(¥s*?)<¥/dt>/$1<¥/dt>/sg;
+	$content =‾ s/<¥/dd>(¥s*?)<r¥/>/<¥/dd>$1/sg;
 
-	$content =~ s/<r\/>(\s*?)<\/dd>/$1<\/dd>/sg;
-	$content =~ s/<\/dd>(\s*?)<r\/>/<\/dd>$1/sg;
+	$content =‾ s/<r¥/>(¥s*?)<¥/dd>/$1<¥/dd>/sg;
+	$content =‾ s/<¥/dd>(¥s*?)<r¥/>/<¥/dd>$1/sg;
 
 	open FH, ">$fn";
 	print FH $content;
@@ -34,6 +34,6 @@ my @list;
 
 foreach my $each (@list)
 {
-	print $each, "\n";
+	print $each, "¥n";
 	&process($each);
 }

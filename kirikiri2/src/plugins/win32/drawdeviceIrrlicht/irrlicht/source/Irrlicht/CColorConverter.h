@@ -45,9 +45,9 @@ public:
 	//! functions for converting one image format to another efficiently
 	//! and hopefully correctly.
 	//!
-	//! \param sP pointer to source pixel data
-	//! \param sN number of source pixels to copy
-	//! \param dP pointer to destination data buffer. must be big enough
+	//! ¥param sP pointer to source pixel data
+	//! ¥param sN number of source pixels to copy
+	//! ¥param dP pointer to destination data buffer. must be big enough
 	//! to hold sN pixels in the output format.
 	static void convert_A1R5G5B5toR8G8B8(const void* sP, s32 sN, void* dP);
 	static void convert_A1R5G5B5toB8G8R8(const void* sP, s32 sN, void* dP);

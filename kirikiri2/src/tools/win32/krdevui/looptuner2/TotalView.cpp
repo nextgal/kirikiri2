@@ -30,9 +30,9 @@ const int CONTROL_WAVE_CENTER = 7;
 // MakeGradationPalette
 //---------------------------------------------------------------------------
 #define G_COLOR_BLEND_8(x, y, ratio)  (((x) * (ratio) + (y) * (255-(ratio))) / 255)
-#define G_BLEND_RGB(x, y, ratio) (\
-			(G_COLOR_BLEND_8(BYTEOF(x, 0), BYTEOF(y, 0), (ratio))    )+ \
-			(G_COLOR_BLEND_8(BYTEOF(x, 1), BYTEOF(y, 1), (ratio))<<8 )+ \
+#define G_BLEND_RGB(x, y, ratio) (¥
+			(G_COLOR_BLEND_8(BYTEOF(x, 0), BYTEOF(y, 0), (ratio))    )+ ¥
+			(G_COLOR_BLEND_8(BYTEOF(x, 1), BYTEOF(y, 1), (ratio))<<8 )+ ¥
 			(G_COLOR_BLEND_8(BYTEOF(x, 2), BYTEOF(y, 2), (ratio))<<16) )
 static void MakeGradationPalette(Graphics::TBitmap *bmp, TColor fromcolor, TColor tocolor)
 {
@@ -84,7 +84,7 @@ public:
 		Suspended = false;
 	}
 
-	__fastcall ~TThumbnailThread(void)
+	__fastcall ‾TThumbnailThread(void)
 	{
 		Priority = tpNormal;
 		Suspended = false;
@@ -182,7 +182,7 @@ __fastcall TTotalView::TTotalView(Classes::TComponent* AOwner) :
 	ResetAll();
 }
 //---------------------------------------------------------------------------
-__fastcall TTotalView::~TTotalView()
+__fastcall TTotalView::‾TTotalView()
 {
 	if(FThumbnailer) delete FThumbnailer;
 	if(WaveCache) delete WaveCache;

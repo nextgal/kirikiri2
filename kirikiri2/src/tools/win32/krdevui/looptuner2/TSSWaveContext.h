@@ -55,7 +55,7 @@ protected:
 
 public:
 	__fastcall TTSSWaveContext(AnsiString dllname);
-	__fastcall ~TTSSWaveContext();
+	__fastcall ‾TTSSWaveContext();
 
 	bool __fastcall Start(AnsiString filename);
 	int __fastcall Read(__int16 * dest, int destgranules);

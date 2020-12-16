@@ -71,10 +71,10 @@
  * only happen with alpha (which could easily be avoided with
  * "ush acopy = (alpha);") */
 
-#define alpha_composite(composite, fg, alpha, bg) {               \
-    ush temp = ((ush)(fg)*(ush)(alpha) +                          \
-                (ush)(bg)*(ush)(255 - (ush)(alpha)) + (ush)128);  \
-    (composite) = (uch)((temp + (temp >> 8)) >> 8);               \
+#define alpha_composite(composite, fg, alpha, bg) {               ¥
+    ush temp = ((ush)(fg)*(ush)(alpha) +                          ¥
+                (ush)(bg)*(ush)(255 - (ush)(alpha)) + (ush)128);  ¥
+    (composite) = (uch)((temp + (temp >> 8)) >> 8);               ¥
 }
 
 
@@ -202,15 +202,15 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
             while (*++p == ' ')
                 ;
         /* now p points at the first non-space after some spaces */
-        if (*p == '\0')
+        if (*p == '¥0')
             break;    /* nothing after the spaces:  done */
         argv[argc++] = q = p;
         while (*q && *q != ' ')
             ++q;
         /* now q points at a space or the end of the string */
-        if (*q == '\0')
+        if (*q == '¥0')
             break;    /* last argv already terminated; quit */
-        *q = '\0';    /* change space to terminator */
+        *q = '¥0';    /* change space to terminator */
         p = q + 1;
     }
     argv[argc] = NULL;   /* terminate the argv array itself */
@@ -250,27 +250,27 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
     if (!filename) {
         ++error;
     } else if (!(infile = fopen(filename, "rb"))) {
-        fprintf(stderr, PROGNAME ":  can't open PNG file [%s]\n", filename);
+        fprintf(stderr, PROGNAME ":  can't open PNG file [%s]¥n", filename);
         ++error;
     } else {
         if ((rc = readpng_init(infile, &image_width, &image_height)) != 0) {
             switch (rc) {
                 case 1:
                     fprintf(stderr, PROGNAME
-                      ":  [%s] is not a PNG file: incorrect signature\n",
+                      ":  [%s] is not a PNG file: incorrect signature¥n",
                       filename);
                     break;
                 case 2:
                     fprintf(stderr, PROGNAME
-                      ":  [%s] has bad IHDR (libpng longjmp)\n",
+                      ":  [%s] has bad IHDR (libpng longjmp)¥n",
                       filename);
                     break;
                 case 4:
-                    fprintf(stderr, PROGNAME ":  insufficient memory\n");
+                    fprintf(stderr, PROGNAME ":  insufficient memory¥n");
                     break;
                 default:
                     fprintf(stderr, PROGNAME
-                      ":  unknown readpng_init() error\n");
+                      ":  unknown readpng_init() error¥n");
                     break;
             }
             ++error;
@@ -285,28 +285,28 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
     if (error) {
         int ch;
 
-        fprintf(stderr, "\n%s %s:  %s\n\n", PROGNAME, VERSION, appname);
+        fprintf(stderr, "¥n%s %s:  %s¥n¥n", PROGNAME, VERSION, appname);
         readpng_version_info();
-        fprintf(stderr, "\n"
-          "Usage:  %s [-gamma exp] [-bgcolor bg] file.png\n"
-          "    exp \ttransfer-function exponent (``gamma'') of the display\n"
-          "\t\t  system in floating-point format (e.g., ``%.1f''); equal\n"
-          "\t\t  to the product of the lookup-table exponent (varies)\n"
-          "\t\t  and the CRT exponent (usually 2.2); must be positive\n"
-          "    bg  \tdesired background color in 7-character hex RGB format\n"
-          "\t\t  (e.g., ``#ff7700'' for orange:  same as HTML colors);\n"
-          "\t\t  used with transparent images\n"
-          "\nPress Q, Esc or mouse button 1 after image is displayed to quit.\n"
-          "Press Q or Esc to quit this usage screen.\n"
-          "\n", PROGNAME, default_display_exponent);
+        fprintf(stderr, "¥n"
+          "Usage:  %s [-gamma exp] [-bgcolor bg] file.png¥n"
+          "    exp ¥ttransfer-function exponent (``gamma'') of the display¥n"
+          "¥t¥t  system in floating-point format (e.g., ``%.1f''); equal¥n"
+          "¥t¥t  to the product of the lookup-table exponent (varies)¥n"
+          "¥t¥t  and the CRT exponent (usually 2.2); must be positive¥n"
+          "    bg  ¥tdesired background color in 7-character hex RGB format¥n"
+          "¥t¥t  (e.g., ``#ff7700'' for orange:  same as HTML colors);¥n"
+          "¥t¥t  used with transparent images¥n"
+          "¥nPress Q, Esc or mouse button 1 after image is displayed to quit.¥n"
+          "Press Q or Esc to quit this usage screen.¥n"
+          "¥n", PROGNAME, default_display_exponent);
         do
             ch = _getch();
         while (ch != 'q' && ch != 'Q' && ch != 0x1B);
         exit(1);
     } else {
-        fprintf(stderr, "\n%s %s:  %s\n", PROGNAME, VERSION, appname);
+        fprintf(stderr, "¥n%s %s:  %s¥n", PROGNAME, VERSION, appname);
         fprintf(stderr,
-          "\n   [console window:  closing this window will terminate %s]\n\n",
+          "¥n   [console window:  closing this window will terminate %s]¥n¥n",
           PROGNAME);
     }
 
@@ -330,7 +330,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
     else if (readpng_get_bgcolor(&bg_red, &bg_green, &bg_blue) > 1) {
         readpng_cleanup(TRUE);
         fprintf(stderr, PROGNAME
-          ":  libpng error while checking for background color\n");
+          ":  libpng error while checking for background color¥n");
         exit(2);
     }
 
@@ -344,10 +344,10 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
 
     /* decode the image, all at once */
 
-    Trace((stderr, "calling readpng_get_image()\n"))
+    Trace((stderr, "calling readpng_get_image()¥n"))
     image_data = readpng_get_image(display_exponent, &image_channels,
       &image_rowbytes);
-    Trace((stderr, "done with readpng_get_image()\n"))
+    Trace((stderr, "done with readpng_get_image()¥n"))
 
 
     /* done with PNG file, so clean up to minimize memory usage (but do NOT
@@ -357,25 +357,25 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
     fclose(infile);
 
     if (!image_data) {
-        fprintf(stderr, PROGNAME ":  unable to decode PNG image\n");
+        fprintf(stderr, PROGNAME ":  unable to decode PNG image¥n");
         exit(3);
     }
 
 
     /* display image (composite with background if requested) */
 
-    Trace((stderr, "calling rpng_win_display_image()\n"))
+    Trace((stderr, "calling rpng_win_display_image()¥n"))
     if (rpng_win_display_image()) {
         free(image_data);
         exit(4);
     }
-    Trace((stderr, "done with rpng_win_display_image()\n"))
+    Trace((stderr, "done with rpng_win_display_image()¥n"))
 
 
     /* wait for the user to tell us when to quit */
 
     printf(
-      "Done.  Press Q, Esc or mouse button 1 (within image window) to quit.\n");
+      "Done.  Press Q, Esc or mouse button 1 (within image window) to quit.¥n");
     fflush(stdout);
 
     while (GetMessage(&msg, NULL, 0, 0)) {
@@ -498,9 +498,9 @@ static int rpng_win_display_image()
     RECT rect;
 
 
-    Trace((stderr, "beginning display loop (image_channels == %d)\n",
+    Trace((stderr, "beginning display loop (image_channels == %d)¥n",
       image_channels))
-    Trace((stderr, "(width = %ld, rowbytes = %ld, wimage_rowbytes = %d)\n",
+    Trace((stderr, "(width = %ld, rowbytes = %ld, wimage_rowbytes = %d)¥n",
       image_width, image_rowbytes, wimage_rowbytes))
 
 
@@ -559,7 +559,7 @@ static int rpng_win_display_image()
         }
     }
 
-    Trace((stderr, "calling final image-flush routine\n"))
+    Trace((stderr, "calling final image-flush routine¥n"))
     if (lastrow < image_height) {
         rect.left = 0L;
         rect.top = (LONG)lastrow;

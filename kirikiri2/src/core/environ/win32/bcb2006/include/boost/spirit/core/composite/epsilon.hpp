@@ -72,7 +72,7 @@ private:
 
 template <typename CondT, bool positive>
 inline condition_parser<CondT, !positive>
-operator~(condition_parser<CondT, positive> const &p)
+operator‾(condition_parser<CondT, positive> const &p)
 {
     return p.negate();
 }
@@ -210,14 +210,14 @@ struct negated_empty_match_parser_gen
 //////////////////////////////
 template <typename SubjectT>
 inline /*struct*/ negated_empty_match_parser<SubjectT>
-operator ~(empty_match_parser<SubjectT> const &p)
+operator ‾(empty_match_parser<SubjectT> const &p)
 {
     return p.negate();
 }
 
 template <typename SubjectT>
 inline /*struct*/ empty_match_parser<SubjectT>
-operator ~(negated_empty_match_parser<SubjectT> const &p)
+operator ‾(negated_empty_match_parser<SubjectT> const &p)
 {
     return p.negate();
 }

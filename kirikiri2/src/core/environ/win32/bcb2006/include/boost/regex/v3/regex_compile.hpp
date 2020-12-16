@@ -122,13 +122,13 @@ reg_expression<charT, traits, Allocator>::reg_expression(const reg_expression<ch
    }
    else
    {
-      _flags = e.flags() & ~(regbase::use_except);
+      _flags = e.flags() & ‾(regbase::use_except);
       fail(e.error_code());
    }
 }
 
 template <class charT, class traits, class Allocator>
-reg_expression<charT, traits, Allocator>::~reg_expression()
+reg_expression<charT, traits, Allocator>::‾reg_expression()
 {
    if(pkmp)
       re_detail::kmp_free(pkmp, data.allocator());
@@ -280,7 +280,7 @@ void BOOST_REGEX_CALL reg_expression<charT, traits, Allocator>::parse_range(cons
       }
       else
       {
-         // back\ is OK now check the }
+         // back¥ is OK now check the }
          ++ptr;
          if((ptr == end) || (traits_inst.syntax_type((traits_size_type)(traits_uchar_type)*ptr) != traits_type::syntax_close_brace))
          {
@@ -307,27 +307,27 @@ charT BOOST_REGEX_CALL reg_expression<charT, traits, Allocator>::parse_escape(co
    switch(syntax)
    {
    case traits_type::syntax_a:
-      c = '\a';
+      c = '¥a';
       ++first;
       break;
    case traits_type::syntax_f:
-      c = '\f';
+      c = '¥f';
       ++first;
       break;
    case traits_type::syntax_n:
-      c = '\n';
+      c = '¥n';
       ++first;
       break;
    case traits_type::syntax_r:
-      c = '\r';
+      c = '¥r';
       ++first;
       break;
    case traits_type::syntax_t:
-      c = '\t';
+      c = '¥t';
       ++first;
       break;
    case traits_type::syntax_v:
-      c = '\v';
+      c = '¥v';
       ++first;
       break;
    case traits_type::syntax_x:
@@ -337,7 +337,7 @@ charT BOOST_REGEX_CALL reg_expression<charT, traits, Allocator>::parse_escape(co
          fail(REG_EESCAPE);
          break;
       }
-      // maybe have \x{ddd}
+      // maybe have ¥x{ddd}
       if(traits_inst.syntax_type((traits_size_type)(traits_uchar_type)(*first)) == traits_type::syntax_open_brace)
       {
          ++first;
@@ -575,7 +575,7 @@ bool BOOST_REGEX_CALL reg_expression<charT, traits, Allocator>::probe_start_null
          // backwards jump,
          // caused only by end of repeat section, we'll treat this
          // the same as a match, because the sub-expression has matched.
-         // this is only caused by NULL repeats as in "(a*)*" or "(\<)*"
+         // this is only caused by NULL repeats as in "(a*)*" or "(¥<)*"
          // these are really nonsensence and make the matching code much
          // harder, it would be nice to get rid of them altogether.
          if(node->next.p == terminal)
@@ -1027,7 +1027,7 @@ re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Alloca
          // delay throw to later:
          #ifdef __BORLANDC__
          boost::uint_fast32_t f = _flags;
-         _flags &= ~regbase::use_except;
+         _flags &= ‾regbase::use_except;
          #endif
          fail(REG_ERANGE);
          #ifdef __BORLANDC__
@@ -1100,7 +1100,7 @@ re_detail::re_syntax_base* BOOST_REGEX_CALL reg_expression<charT, traits, Alloca
          // delay throw to later:
          #ifdef __BORLANDC__
          boost::uint_fast32_t f = _flags;
-         _flags &= ~regbase::use_except;
+         _flags &= ‾regbase::use_except;
          #endif
          fail(REG_ERANGE);
          #ifdef __BORLANDC__
@@ -1513,7 +1513,7 @@ unsigned int BOOST_REGEX_CALL reg_expression<charT, traits, Allocator>::set_expr
                int i = traits_inst.toi((charT)c);
                if(i == 0)
                {
-                  // we can have \025 which means take char whose
+                  // we can have ¥025 which means take char whose
                   // code is 25 (octal), so parse string:
                   c = traits_inst.toi(ptr, end, -8);
                   --ptr;
@@ -2099,7 +2099,7 @@ void BOOST_REGEX_CALL reg_expression<charT, traits, Allocator>::fail(unsigned in
 #endif
    }
    else
-      _flags &= ~regbase::failbit;
+      _flags &= ‾regbase::failbit;
 }
 
 

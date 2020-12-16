@@ -1543,17 +1543,17 @@ ZEXTERN int ZEXPORT inflateBackInit_ OF((z_streamp strm, int windowBits,
                                          unsigned char FAR *window,
                                          const char *version,
                                          int stream_size));
-#define deflateInit(strm, level) \
+#define deflateInit(strm, level) ¥
         deflateInit_((strm), (level),       ZLIB_VERSION, sizeof(z_stream))
-#define inflateInit(strm) \
+#define inflateInit(strm) ¥
         inflateInit_((strm),                ZLIB_VERSION, sizeof(z_stream))
-#define deflateInit2(strm, level, method, windowBits, memLevel, strategy) \
-        deflateInit2_((strm),(level),(method),(windowBits),(memLevel),\
+#define deflateInit2(strm, level, method, windowBits, memLevel, strategy) ¥
+        deflateInit2_((strm),(level),(method),(windowBits),(memLevel),¥
                       (strategy),           ZLIB_VERSION, sizeof(z_stream))
-#define inflateInit2(strm, windowBits) \
+#define inflateInit2(strm, windowBits) ¥
         inflateInit2_((strm), (windowBits), ZLIB_VERSION, sizeof(z_stream))
-#define inflateBackInit(strm, windowBits, window) \
-        inflateBackInit_((strm), (windowBits), (window), \
+#define inflateBackInit(strm, windowBits, window) ¥
+        inflateBackInit_((strm), (windowBits), (window), ¥
                                             ZLIB_VERSION, sizeof(z_stream))
 
 /* provide 64-bit offset functions if _LARGEFILE64_SOURCE defined, and/or

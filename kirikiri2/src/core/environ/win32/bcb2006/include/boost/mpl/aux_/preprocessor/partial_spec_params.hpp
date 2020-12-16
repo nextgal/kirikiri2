@@ -23,13 +23,13 @@
 #include "boost/mpl/aux_/preprocessor/sub.hpp"
 #include "boost/preprocessor/comma_if.hpp"
 
-#define BOOST_MPL_PP_PARTIAL_SPEC_PARAMS(n, param, def) \
-BOOST_MPL_PP_PARAMS(n, param) \
-BOOST_PP_COMMA_IF(BOOST_MPL_PP_SUB(BOOST_MPL_METAFUNCTION_MAX_ARITY,n)) \
-BOOST_MPL_PP_ENUM( \
-      BOOST_MPL_PP_SUB(BOOST_MPL_METAFUNCTION_MAX_ARITY,n) \
-    , def \
-    ) \
+#define BOOST_MPL_PP_PARTIAL_SPEC_PARAMS(n, param, def) ¥
+BOOST_MPL_PP_PARAMS(n, param) ¥
+BOOST_PP_COMMA_IF(BOOST_MPL_PP_SUB(BOOST_MPL_METAFUNCTION_MAX_ARITY,n)) ¥
+BOOST_MPL_PP_ENUM( ¥
+      BOOST_MPL_PP_SUB(BOOST_MPL_METAFUNCTION_MAX_ARITY,n) ¥
+    , def ¥
+    ) ¥
 /**/
 
 #endif // BOOST_MPL_AUX_PREPROCESSOR_PARTIAL_SPEC_PARAMS_HPP_INCLUDED

@@ -28,7 +28,7 @@ class TFontPreviewBox : public TCustomControl
 
 public:
 	__fastcall TFontPreviewBox(TWinControl *Owner);
-	__fastcall ~TFontPreviewBox();
+	__fastcall â€¾TFontPreviewBox();
 
 
 protected:
@@ -56,7 +56,7 @@ public:
 //---------------------------------------------------------------------------
 class TFontPreviewForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TPanel *UpperPanel;
 	TComboBox *ZoomComboBox;
 	TButton *CloseButton;
@@ -70,13 +70,13 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
           TPoint &MousePos, bool &Handled);
 	void __fastcall FormMouseWheelUp(TObject *Sender, TShiftState Shift,
           TPoint &MousePos, bool &Handled);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	TFontPreviewBox * PreviewBox;
 	TCanvas *RefCanvas;
 	TCanvas *PrivRefCanvas; // for private (GAIJI) area
 	bool Antialiased;
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TFontPreviewForm(TComponent* Owner, TCanvas *refcanvas,
 		TCanvas *privrefcanvas);
 

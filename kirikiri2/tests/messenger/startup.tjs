@@ -6,7 +6,7 @@ var HEIGHT=480;
 
 class MyWindow extends Window
 {
-	//  ƒƒjƒ…
+	//  ãƒ¡ãƒ‹ãƒ¥
 	var sendmenu;
 	var execmenu;
 	var storemenu;
@@ -15,12 +15,12 @@ class MyWindow extends Window
 	
 	function MyWindow() {
 		super.Window();
-		caption = "MSG‘—óMƒeƒXƒg";
-		menu.add(sendmenu = new MenuItem(this, "‘—M(&S)"));
-		menu.add(execmenu = new MenuItem(this, "Às(&X)"));
-		menu.add(storemenu = new MenuItem(this, "HWNDo—Í(&H)"));
+		caption = "MSGé€å—ä¿¡ãƒ†ã‚¹ãƒˆ";
+		menu.add(sendmenu = new MenuItem(this, "é€ä¿¡(&S)"));
+		menu.add(execmenu = new MenuItem(this, "å®Ÿè¡Œ(&X)"));
+		menu.add(storemenu = new MenuItem(this, "HWNDå‡ºåŠ›(&H)"));
 		
-        // ƒx[ƒXƒŒƒCƒ„
+        // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
 		base = new Layer(this,null);
 		base.visible=true;
 		base.setSize(WIDTH,HEIGHT);
@@ -40,13 +40,13 @@ class MyWindow extends Window
 	}
 	
 	function onMyKeyDown(userdata, wparam, lparam) {
-		dm("HOOKƒL[‚ª‚¨‚³‚ê‚½:" + wparam + ":" + lparam);
-		// return true; ‚É‚·‚é‚ÆAonKeyDown ‚ÉƒCƒxƒ“ƒg‚ª’Ê‚ç‚È‚­‚È‚é
+		dm("HOOKã‚­ãƒ¼ãŒãŠã•ã‚ŒãŸ:" + wparam + ":" + lparam);
+		// return true; ã«ã™ã‚‹ã¨ã€onKeyDown ã«ã‚¤ãƒ™ãƒ³ãƒˆãŒé€šã‚‰ãªããªã‚‹
 		return false;
 	}
 
 	function onMySysKeyDown(userdata, wparam, lparam) {
-		dm("ƒVƒXƒeƒ€ƒL[‚ª‚¨‚³‚ê‚½:" + wparam + ":" + lparam);
+		dm("ã‚·ã‚¹ãƒ†ãƒ ã‚­ãƒ¼ãŒãŠã•ã‚ŒãŸ:" + wparam + ":" + lparam);
 		return true;
 	}
 
@@ -56,28 +56,28 @@ class MyWindow extends Window
 	}
 	
 	function onKeyDown(key, shift, process) {
-		dm("MAINƒL[‚ª‚¨‚³‚ê‚½:" + key + ":" + shift + ":" + process);
+		dm("MAINã‚­ãƒ¼ãŒãŠã•ã‚ŒãŸ:" + key + ":" + shift + ":" + process);
 	}
 	
 	var ypos;
 
-	// ƒƒbƒZ[ƒWóMƒCƒxƒ“ƒg
+	// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å—ä¿¡ã‚¤ãƒ™ãƒ³ãƒˆ
 	function onMessageReceived(key, msg) {
-		base.drawText(0, ypos, "ƒƒbƒZ[ƒWóM:" + key + ":" + msg, 0xffffff);
+		base.drawText(0, ypos, "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å—ä¿¡:" + key + ":" + msg, 0xffffff);
 		ypos += 20;
 	}
 
-	// ÀsI—¹ƒCƒxƒ“ƒg
+	// å®Ÿè¡Œçµ‚äº†ã‚¤ãƒ™ãƒ³ãƒˆ
 	function onShellExecuted(process, code) {
-		base.drawText(0, ypos, "ÀsI—¹:" + process + ":" + code, 0xffffff);
+		base.drawText(0, ypos, "å®Ÿè¡Œçµ‚äº†:" + process + ":" + code, 0xffffff);
 		ypos += 20;
 	}
 
-	// Às•”
+	// å®Ÿè¡Œéƒ¨
 	function action(ev)	{
 		if(ev.type == "onClick") {
 			if(ev.target == sendmenu) {
-				sendMessage("TEST APPLICATION", "‘—Mƒf[ƒ^");
+				sendMessage("TEST APPLICATION", "é€ä¿¡ãƒ‡ãƒ¼ã‚¿");
 			} else if (ev.target == execmenu) {
 				if (process) {
 					terminateProcess(process, 1);
@@ -96,6 +96,6 @@ class MyWindow extends Window
 	
 }
 
-// ‘‹
+// çª“
 var win = new MyWindow();
 win.visible=true;

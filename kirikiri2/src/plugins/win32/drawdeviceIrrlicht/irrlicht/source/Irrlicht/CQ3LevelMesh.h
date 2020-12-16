@@ -27,7 +27,7 @@ namespace scene
 		CQ3LevelMesh(io::IFileSystem* fs, video::IVideoDriver* driver,  scene::ISceneManager* smgr);
 
 		//! destructor
-		virtual ~CQ3LevelMesh();
+		virtual ‾CQ3LevelMesh();
 
 		//! loads a level from a .bsp-File. Also tries to load all
 		//! needed textures. Returns true if successful.
@@ -46,7 +46,7 @@ namespace scene
 		virtual void releaseMesh ( s32 index );
 
 		//! Returns an axis aligned bounding box of the mesh.
-		//! \return A bounding box of this mesh is returned.
+		//! ¥return A bounding box of this mesh is returned.
 		virtual const core::aabbox3d<f32>& getBoundingBox() const;
 
 		virtual void setBoundingBox( const core::aabbox3df& box);
@@ -83,8 +83,8 @@ namespace scene
 		}
 
 		//! Returns pointer to a mesh buffer which fits a material
- 		/** \param material: material to search for
-		\return Returns the pointer to the mesh buffer or
+ 		/** ¥param material: material to search for
+		¥return Returns the pointer to the mesh buffer or
 		NULL if there is no such mesh buffer. */
 		virtual IMeshBuffer* getMeshBuffer( const video::SMaterial &material) const
 		{

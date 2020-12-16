@@ -64,7 +64,7 @@ CSoftwareDriver::CSoftwareDriver(const core::dimension2d<s32>& windowSize, bool 
 
 
 //! destructor
-CSoftwareDriver::~CSoftwareDriver()
+CSoftwareDriver::‾CSoftwareDriver()
 {
 	// delete Backbuffer
 	BackBuffer->drop();
@@ -838,7 +838,7 @@ void CSoftwareDriver::draw2DRectangle(const core::rect<s32>& pos,
 }
 
 
-//! \return Returns the name of the video driver. Example: In case of the Direct3D8
+//! ¥return Returns the name of the video driver. Example: In case of the Direct3D8
 //! driver, it would return "Direct3D8.1".
 const wchar_t* CSoftwareDriver::getName() const
 {

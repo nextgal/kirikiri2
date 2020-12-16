@@ -23,7 +23,7 @@ namespace io
 
 		CMemoryReadFile(void* memory, long len, const c8* fileName, bool deleteMemoryWhenDropped);
 
-		virtual ~CMemoryReadFile();
+		virtual ‾CMemoryReadFile();
 
 		//! returns how much was read
 		virtual s32 read(void* buffer, u32 sizeToRead);

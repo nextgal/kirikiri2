@@ -33,15 +33,15 @@ namespace scene
 	public:
 
 		//! constructor
-		//! \param parent: The node which this node is a child of.  Making this node a child of another node, or
+		//! ¥param parent: The node which this node is a child of.  Making this node a child of another node, or
 		//! making it a parent of another node is yet untested and most likely does not work properly.
-		//! \param mgr: Pointer to the scene manager.
-		//! \param id: The id of the node
-		//! \param maxLOD: The maximum LOD ( Level of Detail ) for the node.
-		//! \param patchSize: An E_GEOMIPMAP_PATCH_SIZE enumeration defining the size of each patch of the terrain.
-		//! \param position: The absolute position of this node.
-		//! \param rotation: The absolute rotation of this node. ( NOT YET IMPLEMENTED )
-		//! \param scale: The scale factor for the terrain.  If you're using a heightmap of size 128x128 and would like
+		//! ¥param mgr: Pointer to the scene manager.
+		//! ¥param id: The id of the node
+		//! ¥param maxLOD: The maximum LOD ( Level of Detail ) for the node.
+		//! ¥param patchSize: An E_GEOMIPMAP_PATCH_SIZE enumeration defining the size of each patch of the terrain.
+		//! ¥param position: The absolute position of this node.
+		//! ¥param rotation: The absolute rotation of this node. ( NOT YET IMPLEMENTED )
+		//! ¥param scale: The scale factor for the terrain.  If you're using a heightmap of size 128x128 and would like
 		//! your terrain to be 12800x12800 in game units, then use a scale factor of ( core::vector ( 100.0f, 100.0f, 100.0f ).
 		//! If you use a Y scaling factor of 0.0f, then your terrain will be flat.
 		CTerrainSceneNode(ISceneNode* parent, ISceneManager* mgr, io::IFileSystem* fs, s32 id, 
@@ -50,7 +50,7 @@ namespace scene
 			const core::vector3df& rotation = core::vector3df(0.0f, 0.0f, 0.0f),
 			const core::vector3df& scale = core::vector3df(1.0f, 1.0f, 1.0f));
 
-		virtual ~CTerrainSceneNode();
+		virtual ‾CTerrainSceneNode();
 
 		//! Initializes the terrain data.  Loads the vertices from the heightMapFile.
 		virtual bool loadHeightMap(io::IReadFile* file, 
@@ -62,15 +62,15 @@ namespace scene
 
 		//! Returns the material based on the zero based index i. This scene node only uses
 		//! 1 material.
-		//! \param i: Zero based index i. UNUSED, left in for virtual purposes.
-		//! \return Returns the single material this scene node uses.
+		//! ¥param i: Zero based index i. UNUSED, left in for virtual purposes.
+		//! ¥return Returns the single material this scene node uses.
 		virtual video::SMaterial& getMaterial ( u32 i ) 
 		{ 
 			return Mesh.getMeshBuffer(i)->getMaterial();
 		}
 
 		//! Returns amount of materials used by this scene node ( always 1 )
-		//! \return Returns current count of materials used by this scene node ( always 1 )
+		//! ¥return Returns current count of materials used by this scene node ( always 1 )
 		virtual u32 getMaterialCount() const
 		{
 			return Mesh.getMeshBufferCount(); 
@@ -82,25 +82,25 @@ namespace scene
 		//! then make another call to setScale with the values ( 2.0f, 2.0f, 2.0f ), this will return 
 		//! core::vector3df ( 2.0f, 2.0f, 2.0f ), although the total scaling of the scene node is
 		//! core::vector3df ( 100.0f, 10.0f, 100.0f ).
-		//! \return Returns the last scaling factor passed to the scene node.
+		//! ¥return Returns the last scaling factor passed to the scene node.
 		virtual core::vector3df getScale() const
 		{
 			return TerrainData.Scale; 
 		}
 
 		//! Scales the scene nodes vertices by the vector specified.
-		//! \param scale: Scaling factor to apply to the node.
+		//! ¥param scale: Scaling factor to apply to the node.
 		virtual void setScale(const core::vector3df& scale);
 
 		//! Gets the last rotation factor applied to the scene node.
-		//! \return Returns the last rotation factor applied to the scene node.
+		//! ¥return Returns the last rotation factor applied to the scene node.
 		virtual const core::vector3df& getRotation() const 
 		{
 			return TerrainData.Rotation;
 		}
 
 		//! Rotates the node. This only modifies the relative rotation of the node.
-		//! \param rotation: New rotation of the node in degrees.
+		//! ¥param rotation: New rotation of the node in degrees.
 		virtual void setRotation(const core::vector3df& rotation);
 
 		//! Sets the pivot point for rotation of this node.
@@ -108,14 +108,14 @@ namespace scene
 		virtual void setRotationPivot( const core::vector3df& pivot );
 
 		//! Gets the last positioning vector applied to the scene node. 
-		//! \return Returns the last position vector applied to the scene node.
+		//! ¥return Returns the last position vector applied to the scene node.
 		virtual core::vector3df getPosition() const
 		{
 			return TerrainData.Position;
 		}
 
 		//! Moves the scene nodes vertices by the vector specified.
-		//! \param newpos: Vector specifying how much to move each vertex of the scene node.
+		//! ¥param newpos: Vector specifying how much to move each vertex of the scene node.
 		virtual void setPosition(const core::vector3df& newpos);
 
 		//! Updates the scene nodes indices if the camera has moved or rotated by a certain
@@ -141,30 +141,30 @@ namespace scene
 		virtual IMesh* getMesh() { return &Mesh; }
 
 		//! Gets the meshbuffer data based on a specified Level of Detail.
-		//! \param mb: A reference to an SMeshBufferLightMap object
-		//! \param LOD: The Level Of Detail you want the indices from.
+		//! ¥param mb: A reference to an SMeshBufferLightMap object
+		//! ¥param LOD: The Level Of Detail you want the indices from.
 		virtual void getMeshBufferForLOD(SMeshBufferLightMap& mb, s32 LOD ) const;
 
 		//! Gets the indices for a specified patch at a specified Level of Detail.  
-		//! \param indices: A reference to an array of u32 indices.
-		//! \param patchX: Patch x coordinate.
-		//! \param patchZ: Patch z coordinate.
-		//! \param LOD: The level of detail to get for that patch.  If -1, then get 
+		//! ¥param indices: A reference to an array of u32 indices.
+		//! ¥param patchX: Patch x coordinate.
+		//! ¥param patchZ: Patch z coordinate.
+		//! ¥param LOD: The level of detail to get for that patch.  If -1, then get 
 		//! the CurrentLOD.  If the CurrentLOD is set to -1, meaning it's not shown,
 		//! then it will retrieve the triangles at the highest LOD ( 0 ).
-		//! \return: Number of indices put into the buffer.
+		//! ¥return: Number of indices put into the buffer.
 		virtual s32 getIndicesForPatch(core::array<u32>& indices,
 			s32 patchX, s32 patchZ, s32 LOD = 0 );
 
 		//! Populates an array with the CurrentLOD of each patch.
-		//! \param LODs: A reference to a core::array<s32> to hold the values
-		//! \return Returns the number of elements in the array
+		//! ¥param LODs: A reference to a core::array<s32> to hold the values
+		//! ¥return Returns the number of elements in the array
 		virtual s32 getCurrentLODOfPatches(core::array<s32>& LODs) const;
 
 		//! Manually sets the LOD of a patch
-		//! \param patchX: Patch x coordinate.
-		//! \param patchZ: Patch z coordinate.
-		//! \param LOD: The level of detail to set the patch to.
+		//! ¥param patchX: Patch x coordinate.
+		//! ¥param patchZ: Patch z coordinate.
+		//! ¥param LOD: The level of detail to set the patch to.
 		virtual void setLODOfPatch( s32 patchX, s32 patchZ, s32 LOD );
 
 		//! Returns center of terrain.

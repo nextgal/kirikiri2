@@ -1,52 +1,52 @@
-2012/4/18 �����T��i�l�Q�j
+2012/4/18 ゆんゆん探偵（Ｍ２）
 
-�Ekwidgets���āH
-�g���g����GUI�A�v�����\�z���邽�߂̃E�B�W�F�b�g�Z�b�g�ł��B
-KAG�Ƃ͊��S�ɗ���āATJS�l�C�e�B�u�ȃA�v������邽�߂̓���B
-�g���g���ŕ\�����邽�߂̃f�[�^�����������H�����肷��̂ɓK���Ă��܂��B
+・kwidgetsって？
+吉里吉里でGUIアプリを構築するためのウィジェットセットです。
+KAGとは完全に離れて、TJSネイティブなアプリを作るための道具。
+吉里吉里で表示するためのデータを作ったり加工したりするのに適しています。
 
-�E�N��������́H
-���C���I�[�T�[�͂����T��B
-���Ɛ����q������Ȃ��񂪍��܂ł̎�ȃR���g���r���[�^�[�ł��B
-��������̍���������̃v���O�C���Ƃ̑g�ݍ��킹�ł���ɋ��͂ɁB
-�����ĉ�����dee����̍�����g���g���{�̂�������Γ����Ȃ��B
-�F�l�̌��Ɗ��ɂ���ďo���Ă��܂��B
+・誰が作ったの？
+メインオーサーはゆんゆん探偵。
+あと清兵衛さんや吾妻さんが今までの主なコントリビューターです。
+ごうさんの作った多数のプラグインとの組み合わせでさらに強力に。
+そして何よりもdeeさんの作った吉里吉里本体が無ければ動かない。
+皆様の血と汗によって出来ています。
 
-�E���C�Z���X�ǂ��Ȃ��Ă�́H
-�g���g���Q�{�̂Ɠ������C�Z���X�i�f�o�k�Ƌg���g�����C�Z���X�̃f���A���j�ł��B
+・ライセンスどうなってるの？
+吉里吉里２本体と同じライセンス（ＧＰＬと吉里吉里ライセンスのデュアル）です。
 
-�E�����o����́H
-�Ƃ肠�������̃t�H���_�ɂ��� krkr.exe �����s���Ă݂�Ƃ��������킩����ۂ��ł���H
+・何が出来るの？
+とりあえずこのフォルダにある krkr.exe を実行してみるとだいたいわかるっぽいですよ？
 
-�E�t�H���_�\���ǂ��Ȃ��Ă�H
-data �t�H���_�����ɂ���̂� kwidgets �̃T���v������v���O�����ŁA
-data/kwidegs �̉��ɂ���̂� kwidgets �̖{�̂ł��B
+・フォルダ構成どうなってる？
+data フォルダ直下にあるのが kwidgets のサンプル動作プログラムで、
+data/kwidegs の下にあるのが kwidgets の本体です。
 
-�E�g�ݍ��݂͂ǂ�����΂����̂��ȁc�H
-release.bat �����s����� release/kwidgets.xp3 ���p�b�N�����̂ŁA�����̃v���W�F�N�g�ɃR�s��B
-���ꂩ��A�g���g��������ȉ��̂悤�ȃC�j�V�����R�[�h�����s����΂n�j�ł��B
-�i�ȉ��̗�� krkr.exe �Ɠ����K�w��kwidgets.xp3��u���Ă�ꍇ�̃R�[�h�j�B
+・組み込みはどうすればいいのかな…？
+release.bat を実行すると release/kwidgets.xp3 がパックされるので、自分のプロジェクトにコピる。
+それから、吉里吉里側から以下のようなイニシャルコードを実行すればＯＫです。
+（以下の例は krkr.exe と同じ階層にkwidgets.xp3を置いてる場合のコード）。
 
    Storages.addAutoPath(System.exePath + "kwidgets.xp3>");
    Scripts.execStorage("KInitialize.tjs");
 
-�E�}�j���A���͖����́H
-�c�O�Ȃ���c�B
-�ꉞ�Adoxygen���ӎ������R�����g�͓���Ă���̂ŁA�K���ɐ��`����JavaScript���ۂ�
-������悤�ɂ����doxygen�ɐH�킹����͂��Ȃ񂾂��ǁc�����܂Ŏ肪����Ă܂���B
-�N�����̕ӂ̖ʓ|�ȍ�Ƃ���Ă����悤�Ȃ�劽�}�ł��B
-���ʁA�������Ԃ₢�������togetter�ɂ܂Ƃ߂Ă��܂��B
+・マニュアルは無いの？
+残念ながら…。
+一応、doxygenを意識したコメントは入れてあるので、適当に整形してJavaScriptっぽく
+見えるようにすればdoxygenに食わせられるはずなんだけど…そこまで手が回ってません。
+誰かその辺の面倒な作業やってくれるようなら大歓迎です。
+当面、少しずつつぶやいた解説をtogetterにまとめています。
    http://togetter.com/li/289394
 
-�E����̊g���\��Ƃ�����́H
-���W�b�N���K���߂��ē��삪�������Ƃ���Ƃ�����̂ŁA���̕ӂڂ��ڂ������Ă�������́B
+・今後の拡張予定とかあるの？
+ロジックが適当過ぎて動作が怪しいところとかあるので、その辺ぼちぼち直していくつもりは。
 
-�E����ȋ@�\�~�����񂾂��ǁB
-�c�C�b�^�[�ł����T�� ( @yunyundetective )�܂ŁA�����k���B
-�Ή����邩�ǂ����ۏ�̌���ł͖����ł����A�Ȃ邽���ڂ�ʂ��܂��B
+・こんな機能欲しいんだけど。
+ツイッターでゆんゆん探偵 ( @yunyundetective )まで、ご相談を。
+対応するかどうか保障の限りでは無いですが、なるたけ目を通します。
 
-�E�V�����E�B�W�F�b�g����Č����񂾂��ǁB
-���Ђ��Ж{�̂ɒǉ������Ă��������I
+・新しいウィジェット作って見たんだけど。
+ぜひぜひ本体に追加させてください！
 
 
 

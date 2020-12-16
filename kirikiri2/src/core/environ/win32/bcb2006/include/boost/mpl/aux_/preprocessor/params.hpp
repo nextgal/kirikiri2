@@ -28,8 +28,8 @@
 
 #   include "boost/preprocessor/cat.hpp"
 
-#   define BOOST_MPL_PP_PARAMS(n,p) \
-    BOOST_PP_CAT(BOOST_MPL_PP_PARAMS_,n)(p) \
+#   define BOOST_MPL_PP_PARAMS(n,p) ¥
+    BOOST_PP_CAT(BOOST_MPL_PP_PARAMS_,n)(p) ¥
     /**/
 
 #   define BOOST_MPL_PP_PARAMS_0(p)
@@ -50,17 +50,17 @@
 #   include "boost/preprocessor/inc.hpp"
 #   include "boost/preprocessor/cat.hpp"
 
-#   define BOOST_MPL_PP_AUX_PARAM_FUNC(unused, i, param) \
-    BOOST_PP_COMMA_IF(i) \
-    BOOST_PP_CAT(param, BOOST_PP_INC(i)) \
+#   define BOOST_MPL_PP_AUX_PARAM_FUNC(unused, i, param) ¥
+    BOOST_PP_COMMA_IF(i) ¥
+    BOOST_PP_CAT(param, BOOST_PP_INC(i)) ¥
     /**/
 
-#   define BOOST_MPL_PP_PARAMS(n, param) \
-    BOOST_PP_REPEAT_1( \
-          n \
-        , BOOST_MPL_PP_AUX_PARAM_FUNC \
-        , param \
-        ) \
+#   define BOOST_MPL_PP_PARAMS(n, param) ¥
+    BOOST_PP_REPEAT_1( ¥
+          n ¥
+        , BOOST_MPL_PP_AUX_PARAM_FUNC ¥
+        , param ¥
+        ) ¥
     /**/
 
 #endif // BOOST_MPL_NO_OWN_PP_PRIMITIVES

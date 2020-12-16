@@ -92,7 +92,7 @@ namespace io
 	public:
 
 		CZipReader(IReadFile* file, bool ignoreCase, bool ignorePaths);
-		virtual ~CZipReader();
+		virtual ‾CZipReader();
 
 		//! opens a file by file name
 		virtual IReadFile* openFile(const c8* filename);

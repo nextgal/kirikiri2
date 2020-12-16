@@ -26,20 +26,20 @@ class IMaterialRenderer : public virtual IReferenceCounted
 public:
 
 	//! Destructor
-	virtual ~IMaterialRenderer() {}
+	virtual ‾IMaterialRenderer() {}
 
 	//! Called by the IVideoDriver implementation the let the renderer set its needed render states.
 	/** This is called during the IVideoDriver::setMaterial() call.
 	When overriding this, you can set some renderstates or for example a
 	vertex or pixel shader if you like.
-	\param material: The new material parameters to be set. The renderer
+	¥param material: The new material parameters to be set. The renderer
 	may change the material flags in this material. For example if this
 	material does not accept the zbuffer = true, it can set it to false.
 	This is useful, because in the next lastMaterial will be just the
 	material in this call.
-	\param lastMaterial: The material parameters which have been set before
+	¥param lastMaterial: The material parameters which have been set before
 	this material.
-	\param resetAllRenderstates: True if all renderstates should really be
+	¥param resetAllRenderstates: True if all renderstates should really be
 	reset. This is usually true if the last rendering mode was not a usual
 	3d rendering mode, but for example a 2d rendering mode.
 	You should reset really all renderstates if this is true, no matter if
@@ -48,7 +48,7 @@ public:
 	already there, for example bilinear filtering, wireframe,
 	gouraudshading, lighting, zbuffer, zwriteenable, backfaceculling and
 	fogenable.
-	\param services: Interface providing some methods for changing
+	¥param services: Interface providing some methods for changing
 	advanced, internal states of a IVideoDriver. */
 	virtual void OnSetMaterial(const SMaterial& material, const SMaterial& lastMaterial,
 		bool resetAllRenderstates, IMaterialRendererServices* services) {}
@@ -60,13 +60,13 @@ public:
 	material set. This method will be called every time. This is useful for
 	example for materials with shaders, which don't only set new
 	renderstates but also shader constants.
-	\param service: Pointer to interface providing methos for setting
+	¥param service: Pointer to interface providing methos for setting
 	constants and other things.
-	\param vtxtype: Vertex type with which the next rendering will be done.
+	¥param vtxtype: Vertex type with which the next rendering will be done.
 	This can be used by the material renderer to set some specific
 	optimized shaders or if this is an incompatible vertex type for this
 	renderer, to refuse rendering for example.
-	\return Returns true if everything is ok, and false if nothing should
+	¥return Returns true if everything is ok, and false if nothing should
 	be rendered. The material renderer can choose to return false for
 	example if he doesn't support the specified vertex type. This is
 	actually done in D3D8 and D3D9 when using a normal mapped material with
@@ -88,7 +88,7 @@ public:
 	are implemented in multiple ways and need special hardware capabilities, it is possible
 	to query how the current material renderer is performing on the current hardware with this
 	function.
-	\return Returns 0 if everything is running fine. Any other value is material renderer
+	¥return Returns 0 if everything is running fine. Any other value is material renderer
 	specific and means for example that the renderer switched back to a fall back material because
 	it cannot use the latest shaders. More specific examples:
 	Fixed function pipeline materials should return 0 in most cases, parallax mapped

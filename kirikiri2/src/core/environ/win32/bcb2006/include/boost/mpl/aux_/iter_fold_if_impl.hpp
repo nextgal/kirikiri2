@@ -29,7 +29,7 @@
 
 #include "boost/mpl/aux_/config/use_preprocessed.hpp"
 
-#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) && \
+#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) && ¥
     !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER iter_fold_if_impl.hpp
@@ -127,36 +127,36 @@ struct iter_fold_if_backward_step
 
 // local macros, #undef-ined at the end of the header
 
-#   define AUX_ITER_FOLD_FORWARD_STEP(unused, i, unused2) \
-    typedef iter_fold_if_forward_step< \
-          typename BOOST_PP_CAT(forward_step,i)::iterator \
-        , typename BOOST_PP_CAT(forward_step,i)::state \
-        , ForwardOp \
-        , ForwardPredicate \
-        > BOOST_PP_CAT(forward_step, BOOST_PP_INC(i)); \
+#   define AUX_ITER_FOLD_FORWARD_STEP(unused, i, unused2) ¥
+    typedef iter_fold_if_forward_step< ¥
+          typename BOOST_PP_CAT(forward_step,i)::iterator ¥
+        , typename BOOST_PP_CAT(forward_step,i)::state ¥
+        , ForwardOp ¥
+        , ForwardPredicate ¥
+        > BOOST_PP_CAT(forward_step, BOOST_PP_INC(i)); ¥
     /**/
 
-#   define AUX_ITER_FOLD_BACKWARD_STEP_FUNC(i) \
-    typedef iter_fold_if_backward_step< \
-          typename BOOST_PP_CAT(forward_step,BOOST_PP_DEC(i))::iterator \
-        , typename BOOST_PP_CAT(backward_step,i)::state \
-        , BackwardOp \
-        , BackwardPredicate \
-        > BOOST_PP_CAT(backward_step,BOOST_PP_DEC(i)); \
+#   define AUX_ITER_FOLD_BACKWARD_STEP_FUNC(i) ¥
+    typedef iter_fold_if_backward_step< ¥
+          typename BOOST_PP_CAT(forward_step,BOOST_PP_DEC(i))::iterator ¥
+        , typename BOOST_PP_CAT(backward_step,i)::state ¥
+        , BackwardOp ¥
+        , BackwardPredicate ¥
+        > BOOST_PP_CAT(backward_step,BOOST_PP_DEC(i)); ¥
     /**/
 
-#   define AUX_ITER_FOLD_BACKWARD_STEP(unused, i, unused2) \
-    AUX_ITER_FOLD_BACKWARD_STEP_FUNC( \
-        BOOST_PP_SUB_D(1,BOOST_MPL_UNROLLING_LIMIT,i) \
-        ) \
+#   define AUX_ITER_FOLD_BACKWARD_STEP(unused, i, unused2) ¥
+    AUX_ITER_FOLD_BACKWARD_STEP_FUNC( ¥
+        BOOST_PP_SUB_D(1,BOOST_MPL_UNROLLING_LIMIT,i) ¥
+        ) ¥
     /**/
 
-#   define AUX_LAST_FORWARD_STEP \
-    BOOST_PP_CAT(forward_step, BOOST_MPL_UNROLLING_LIMIT) \
+#   define AUX_LAST_FORWARD_STEP ¥
+    BOOST_PP_CAT(forward_step, BOOST_MPL_UNROLLING_LIMIT) ¥
     /**/
 
-#   define AUX_LAST_BACKWARD_STEP \
-    BOOST_PP_CAT(backward_step, BOOST_MPL_UNROLLING_LIMIT) \
+#   define AUX_LAST_BACKWARD_STEP ¥
+    BOOST_PP_CAT(backward_step, BOOST_MPL_UNROLLING_LIMIT) ¥
     /**/
 
 template<

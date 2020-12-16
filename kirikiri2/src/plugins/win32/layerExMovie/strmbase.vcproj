@@ -146,281 +146,281 @@
 	</References>
 	<Files>
 		<Filter
-			Name="ソース ファイル"
+			Name="繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\BaseClasses\amextra.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･amextra.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\amfilter.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･amfilter.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\amvideo.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･amvideo.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\combase.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･combase.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\cprop.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･cprop.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\ctlutil.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･ctlutil.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\ddmm.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･ddmm.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\dllentry.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･dllentry.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\dllsetup.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･dllsetup.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\mtype.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･mtype.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\outputq.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･outputq.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\pstream.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･pstream.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\pullpin.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･pullpin.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\refclock.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･refclock.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\renbase.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･renbase.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\schedule.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･schedule.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\seekpt.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･seekpt.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\source.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･source.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\strmctl.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･strmctl.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\sysclock.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･sysclock.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\transfrm.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･transfrm.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\transip.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･transip.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\videoctl.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･videoctl.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\vtrans.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･vtrans.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\winctrl.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･winctrl.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\winutil.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･winutil.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\wxdebug.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･wxdebug.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\wxlist.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･wxlist.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\wxutil.cpp"
+				RelativePath=".ﾂ･BaseClassesﾂ･wxutil.cpp"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="ヘッダー ファイル"
+			Name="繝倥ャ繝繝ｼ 繝輔ぃ繧､繝ｫ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\BaseClasses\amextra.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･amextra.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\amfilter.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･amfilter.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\cache.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･cache.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\combase.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･combase.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\cprop.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･cprop.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\ctlutil.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･ctlutil.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\ddmm.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･ddmm.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\dllsetup.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･dllsetup.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\dsschedule.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･dsschedule.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\fourcc.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･fourcc.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\measure.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･measure.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\msgthrd.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･msgthrd.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\mtype.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･mtype.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\outputq.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･outputq.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\pstream.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･pstream.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\pullpin.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･pullpin.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\refclock.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･refclock.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\reftime.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･reftime.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\renbase.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･renbase.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\schedule.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･schedule.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\seekpt.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･seekpt.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\source.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･source.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\streams.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･streams.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\strmctl.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･strmctl.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\sysclock.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･sysclock.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\transfrm.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･transfrm.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\transip.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･transip.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\videoctl.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･videoctl.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\vtrans.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･vtrans.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\winctrl.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･winctrl.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\winutil.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･winutil.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\wxdebug.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･wxdebug.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\wxlist.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･wxlist.h"
 				>
 			</File>
 			<File
-				RelativePath=".\BaseClasses\wxutil.h"
+				RelativePath=".ﾂ･BaseClassesﾂ･wxutil.h"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="リソース ファイル"
+			Name="繝ｪ繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
 		<File
-			RelativePath=".\BaseClasses\makefile"
+			RelativePath=".ﾂ･BaseClassesﾂ･makefile"
 			>
 		</File>
 		<File
-			RelativePath=".\ReadMe.txt"
+			RelativePath=".ﾂ･ReadMe.txt"
 			>
 		</File>
 	</Files>

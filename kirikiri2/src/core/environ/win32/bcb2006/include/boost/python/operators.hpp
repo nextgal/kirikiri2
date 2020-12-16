@@ -137,48 +137,48 @@ namespace detail
   };
 }
 
-# define BOOST_PYTHON_BINARY_OPERATION(id, rid, expr)                   \
-namespace detail                                                        \
-{                                                                       \
-  template <>                                                           \
-  struct operator_l<op_##id>                                            \
-  {                                                                     \
-      template <class L, class R>                                       \
-      struct apply                                                      \
-      {                                                                 \
-          static inline PyObject* execute(L const& l, R const& r)       \
-          {                                                             \
-              return detail::convert_result(expr);                      \
-          }                                                             \
-      };                                                                \
-      static char const* name() { return "__" #id "__"; }               \
-  };                                                                    \
-                                                                        \
-  template <>                                                           \
-  struct operator_r<op_##id>                                            \
-  {                                                                     \
-      template <class L, class R>                                       \
-      struct apply                                                      \
-      {                                                                 \
-          static inline PyObject* execute(R const& r, L const& l)       \
-          {                                                             \
-              return detail::convert_result(expr);                      \
-          }                                                             \
-      };                                                                \
-      static char const* name() { return "__" #rid "__"; }              \
-  };                                                                    \
+# define BOOST_PYTHON_BINARY_OPERATION(id, rid, expr)                   ¥
+namespace detail                                                        ¥
+{                                                                       ¥
+  template <>                                                           ¥
+  struct operator_l<op_##id>                                            ¥
+  {                                                                     ¥
+      template <class L, class R>                                       ¥
+      struct apply                                                      ¥
+      {                                                                 ¥
+          static inline PyObject* execute(L const& l, R const& r)       ¥
+          {                                                             ¥
+              return detail::convert_result(expr);                      ¥
+          }                                                             ¥
+      };                                                                ¥
+      static char const* name() { return "__" #id "__"; }               ¥
+  };                                                                    ¥
+                                                                        ¥
+  template <>                                                           ¥
+  struct operator_r<op_##id>                                            ¥
+  {                                                                     ¥
+      template <class L, class R>                                       ¥
+      struct apply                                                      ¥
+      {                                                                 ¥
+          static inline PyObject* execute(R const& r, L const& l)       ¥
+          {                                                             ¥
+              return detail::convert_result(expr);                      ¥
+          }                                                             ¥
+      };                                                                ¥
+      static char const* name() { return "__" #rid "__"; }              ¥
+  };                                                                    ¥
 } 
 
-# define BOOST_PYTHON_BINARY_OPERATOR(id, rid, op)      \
-BOOST_PYTHON_BINARY_OPERATION(id, rid, l op r)          \
-namespace self_ns                                       \
-{                                                       \
-  template <class L, class R>                           \
-  inline detail::operator_<detail::op_##id,L,R>         \
-  operator op(L const&, R const&)                       \
-  {                                                     \
-      return detail::operator_<detail::op_##id,L,R>();  \
-  }                                                     \
+# define BOOST_PYTHON_BINARY_OPERATOR(id, rid, op)      ¥
+BOOST_PYTHON_BINARY_OPERATION(id, rid, l op r)          ¥
+namespace self_ns                                       ¥
+{                                                       ¥
+  template <class L, class R>                           ¥
+  inline detail::operator_<detail::op_##id,L,R>         ¥
+  operator op(L const&, R const&)                       ¥
+  {                                                     ¥
+      return detail::operator_<detail::op_##id,L,R>();  ¥
+  }                                                     ¥
 }
   
 BOOST_PYTHON_BINARY_OPERATOR(add, radd, +)
@@ -239,33 +239,33 @@ namespace self_ns
 }
 
 
-# define BOOST_PYTHON_INPLACE_OPERATOR(id, op)                  \
-namespace detail                                                \
-{                                                               \
-  template <>                                                   \
-  struct operator_l<op_##id>                                    \
-  {                                                             \
-      template <class L, class R>                               \
-      struct apply                                              \
-      {                                                         \
-          static inline PyObject*                               \
-          execute(back_reference<L&> l, R const& r)             \
-          {                                                     \
-              l.get() op r;                                     \
-              return python::incref(l.source().ptr());          \
-          }                                                     \
-      };                                                        \
-      static char const* name() { return "__" #id "__"; }       \
-  };                                                            \
-}                                                               \
-namespace self_ns                                               \
-{                                                               \
-  template <class R>                                            \
-  inline detail::operator_<detail::op_##id,self_t,R>            \
-  operator op(self_t const&, R const&)                          \
-  {                                                             \
-      return detail::operator_<detail::op_##id,self_t,R>();     \
-  }                                                             \
+# define BOOST_PYTHON_INPLACE_OPERATOR(id, op)                  ¥
+namespace detail                                                ¥
+{                                                               ¥
+  template <>                                                   ¥
+  struct operator_l<op_##id>                                    ¥
+  {                                                             ¥
+      template <class L, class R>                               ¥
+      struct apply                                              ¥
+      {                                                         ¥
+          static inline PyObject*                               ¥
+          execute(back_reference<L&> l, R const& r)             ¥
+          {                                                     ¥
+              l.get() op r;                                     ¥
+              return python::incref(l.source().ptr());          ¥
+          }                                                     ¥
+      };                                                        ¥
+      static char const* name() { return "__" #id "__"; }       ¥
+  };                                                            ¥
+}                                                               ¥
+namespace self_ns                                               ¥
+{                                                               ¥
+  template <class R>                                            ¥
+  inline detail::operator_<detail::op_##id,self_t,R>            ¥
+  operator op(self_t const&, R const&)                          ¥
+  {                                                             ¥
+      return detail::operator_<detail::op_##id,self_t,R>();     ¥
+  }                                                             ¥
 }
 
 BOOST_PYTHON_INPLACE_OPERATOR(iadd,+=)
@@ -279,37 +279,37 @@ BOOST_PYTHON_INPLACE_OPERATOR(iand,&=)
 BOOST_PYTHON_INPLACE_OPERATOR(ixor,^=)
 BOOST_PYTHON_INPLACE_OPERATOR(ior,|=)
     
-# define BOOST_PYTHON_UNARY_OPERATOR(id, op, func_name)         \
-namespace detail                                                \
-{                                                               \
-  template <>                                                   \
-  struct operator_1<op_##id>                                    \
-  {                                                             \
-      template <class T>                                        \
-      struct apply                                              \
-      {                                                         \
-          static PyObject* execute(T const& x)                  \
-          {                                                     \
-              return detail::convert_result(op(x));             \
-          }                                                     \
-      };                                                        \
-      static char const* name() { return "__" #id "__"; }       \
-  };                                                            \
-}                                                               \
-namespace self_ns                                               \
-{                                                               \
-  inline detail::operator_<detail::op_##id>                     \
-  func_name(self_t const&)                                      \
-  {                                                             \
-      return detail::operator_<detail::op_##id>();              \
-  }                                                             \
+# define BOOST_PYTHON_UNARY_OPERATOR(id, op, func_name)         ¥
+namespace detail                                                ¥
+{                                                               ¥
+  template <>                                                   ¥
+  struct operator_1<op_##id>                                    ¥
+  {                                                             ¥
+      template <class T>                                        ¥
+      struct apply                                              ¥
+      {                                                         ¥
+          static PyObject* execute(T const& x)                  ¥
+          {                                                     ¥
+              return detail::convert_result(op(x));             ¥
+          }                                                     ¥
+      };                                                        ¥
+      static char const* name() { return "__" #id "__"; }       ¥
+  };                                                            ¥
+}                                                               ¥
+namespace self_ns                                               ¥
+{                                                               ¥
+  inline detail::operator_<detail::op_##id>                     ¥
+  func_name(self_t const&)                                      ¥
+  {                                                             ¥
+      return detail::operator_<detail::op_##id>();              ¥
+  }                                                             ¥
 }
 # undef BOOST_PYTHON_INPLACE_OPERATOR
 
 BOOST_PYTHON_UNARY_OPERATOR(neg, -, operator-)
 BOOST_PYTHON_UNARY_OPERATOR(pos, +, operator+)
 BOOST_PYTHON_UNARY_OPERATOR(abs, abs, abs)
-BOOST_PYTHON_UNARY_OPERATOR(invert, ~, operator~)
+BOOST_PYTHON_UNARY_OPERATOR(invert, ‾, operator‾)
 BOOST_PYTHON_UNARY_OPERATOR(int, long, int_)
 BOOST_PYTHON_UNARY_OPERATOR(long, PyLong_FromLong, long_)
 BOOST_PYTHON_UNARY_OPERATOR(float, double, float_)

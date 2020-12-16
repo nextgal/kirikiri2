@@ -76,7 +76,7 @@ namespace video
 		{ }
 
 		//! Copy constructor
-		/** \param other Material to copy from. */
+		/** ¥param other Material to copy from. */
 		SMaterial(const SMaterial& other)
 		{
 			// These pointers are checked during assignment
@@ -86,7 +86,7 @@ namespace video
 		}
 
 		//! Assignment operator
-		/** \param other Material to copy from. */
+		/** ¥param other Material to copy from. */
 		SMaterial& operator=(const SMaterial& other)
 		{
 			MaterialType = other.MaterialType;
@@ -142,21 +142,21 @@ namespace video
 		/** A value of 20 is common. If set to 0, no specular
 		highlights are being used. To activate, simply set the
 		shininess of a material to a value other than 0:
-		\code
+		¥code
 		sceneNode->getMaterial(0).Shininess = 20.0f;
-		\endcode
+		¥endcode
 
 		You can change the color of the highlights using
-		\code
+		¥code
 		sceneNode->getMaterial(0).SpecularColor.set(255,255,255,255);
-		\endcode
+		¥endcode
 
 		The specular color of the dynamic lights
 		(SLight::SpecularColor) will influence the the highlight color
 		too, but they are set to a useful value by default when
 		creating the light scene node. Here is a simple example on how
 		to use specular highlights:
-		\code
+		¥code
 		// load and display mesh
 		scene::IAnimatedMeshSceneNode* node = smgr->addAnimatedMeshSceneNode(
 		smgr->getMesh("data/faerie.md2"));
@@ -167,7 +167,7 @@ namespace video
 		// add white light
 		scene::ILightSceneNode* light = smgr->addLightSceneNode(0,
 			core::vector3df(5,5,5), video::SColorf(1.0f, 1.0f, 1.0f));
-		\endcode */
+		¥endcode */
 		f32 Shininess;
 
 		//! Free parameter, dependent on the material type.
@@ -187,8 +187,8 @@ namespace video
 
 		//! Draw as wireframe or filled triangles? Default: false
 		/** The user can access a material flag using
-		\code material.Wireframe=true \endcode
-		or \code material.setFlag(EMF_WIREFRAME, true); \endcode */
+		¥code material.Wireframe=true ¥endcode
+		or ¥code material.setFlag(EMF_WIREFRAME, true); ¥endcode */
 		bool Wireframe;
 
 		//! Draw as point cloud or filled triangles? Default: false
@@ -221,16 +221,16 @@ namespace video
 		u32 ZBuffer;
 
 		//! Gets the texture transformation matrix for level i
-		/** \param i The desired level. Must not be larger than MATERIAL_MAX_TEXTURES.
-		\return Texture matrix for texture level i. */
+		/** ¥param i The desired level. Must not be larger than MATERIAL_MAX_TEXTURES.
+		¥return Texture matrix for texture level i. */
 		core::matrix4& getTextureMatrix(u32 i)
 		{
 			return TextureLayer[i].getTextureMatrix();
 		}
 
 		//! Gets the immutable texture transformation matrix for level i
-		/** \param i The desired level.
-		\return Texture matrix for texture level i, or identity matrix for levels larger than MATERIAL_MAX_TEXTURES. */
+		/** ¥param i The desired level.
+		¥return Texture matrix for texture level i, or identity matrix for levels larger than MATERIAL_MAX_TEXTURES. */
 		const core::matrix4& getTextureMatrix(u32 i) const
 		{
 			if (i<MATERIAL_MAX_TEXTURES)
@@ -240,8 +240,8 @@ namespace video
 		}
 
 		//! Sets the i-th texture transformation matrix
-		/** \param i The desired level.
-		\param mat Texture matrix for texture level i. */
+		/** ¥param i The desired level.
+		¥param mat Texture matrix for texture level i. */
 		void setTextureMatrix(u32 i, const core::matrix4& mat)
 		{
 			if (i>=MATERIAL_MAX_TEXTURES)
@@ -250,8 +250,8 @@ namespace video
 		}
 
 		//! Gets the i-th texture
-		/** \param i The desired level.
-		\return Texture for texture level i, if defined, else 0. */
+		/** ¥param i The desired level.
+		¥return Texture for texture level i, if defined, else 0. */
 		ITexture* getTexture(u32 i) const
 		{
 			if (i>=MATERIAL_MAX_TEXTURES)
@@ -262,8 +262,8 @@ namespace video
 
 		//! Sets the i-th texture
 		/** If i>=MATERIAL_MAX_TEXTURES this setting will be ignored.
-		\param i The desired level.
-		\param tex Texture for texture level i. */
+		¥param i The desired level.
+		¥param tex Texture for texture level i. */
 		void setTexture(u32 i, ITexture* tex)
 		{
 			if (i>=MATERIAL_MAX_TEXTURES)
@@ -272,8 +272,8 @@ namespace video
 		}
 
 		//! Sets the Material flag to the given value
-		/** \param flag The flag to be set.
-		\param value The new value for the flag. */
+		/** ¥param flag The flag to be set.
+		¥param value The new value for the flag. */
 		void setFlag(E_MATERIAL_FLAG flag, bool value)
 		{
 			switch (flag)
@@ -326,8 +326,8 @@ namespace video
 		}
 
 		//! Gets the Material flag
-		/** \param flag The flag to query.
-		\return The current value of the flag. */
+		/** ¥param flag The flag to query.
+		¥return The current value of the flag. */
 		bool getFlag(E_MATERIAL_FLAG flag) const
 		{
 			switch (flag)
@@ -369,8 +369,8 @@ namespace video
 		}
 
 		//! Inequality operator
-		/** \param b Material to compare to.
-		\return True if the materials differ, else false. */
+		/** ¥param b Material to compare to.
+		¥return True if the materials differ, else false. */
 		inline bool operator!=(const SMaterial& b) const
 		{
 			bool different =
@@ -400,8 +400,8 @@ namespace video
 		}
 
 		//! Equality operator
-		/** \param b Material to compare to.
-		\return True if the materials are equal, else false. */
+		/** ¥param b Material to compare to.
+		¥return True if the materials are equal, else false. */
 		inline bool operator==(const SMaterial& b) const
 		{ return !(b!=*this); }
 

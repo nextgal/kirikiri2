@@ -33,7 +33,7 @@ public:
 	tTJSMersenneTwister(const tTJSMersenneTwisterData &data);
 		/* construct tTJSMersenneTwisterData data */
 
-	virtual ~tTJSMersenneTwister() {;}
+	virtual ‾tTJSMersenneTwister() {;}
 
 private:
 	void init_genrand(unsigned long s);

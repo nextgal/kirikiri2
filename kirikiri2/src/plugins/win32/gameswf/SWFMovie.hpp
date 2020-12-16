@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------
-// SWF ���[�r�[��񏈗��N���X
+// SWF ムービー情報処理クラス
 // ---------------------------------------------------------------
 
 #ifndef _swfMovie_hpp_
@@ -19,7 +19,7 @@ private:
 	int lastFrame;
 public:
 	SWFMovie();
-	~SWFMovie();
+	‾SWFMovie();
 	void draw(int width, int height);
 	
 	void load(const char *name);

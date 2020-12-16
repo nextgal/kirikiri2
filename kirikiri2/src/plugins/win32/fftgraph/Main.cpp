@@ -6,24 +6,24 @@
 
 
 //---------------------------------------------------------------------------
-// ƒf[ƒ^
+// ãƒ‡ãƒ¼ã‚¿
 //---------------------------------------------------------------------------
-// ‚±‚Ìƒvƒ‰ƒOƒCƒ“‚Å‚Í•¡”‚ÌƒXƒyƒAƒi‚ğ“¯‚É•\¦‚·‚é‚±‚Æ‚Íl‚¦‚È‚¢
-tjs_int SampleBufferLen = 0; // SampleBuffer ƒTƒCƒY
-tjs_int16 *SampleBuffer = NULL; // “ü—Í PCM ƒoƒbƒtƒ@
-tjs_int FFTLen = 0; // FFT’·
-float *FFTData = NULL; // FFTƒf[ƒ^
-float *WindowData = NULL; // ‘‹ŠÖ”ƒf[ƒ^
-int *fft_ip = NULL; // FFTƒ[ƒN
-float *fft_w = NULL; // FFTƒ[ƒN
-tjs_int BandCount = 0; // ‘Ñˆæ”
-float BandCut = 0; // ’áü”gƒJƒbƒgƒIƒt
-	// (‘Î”–Ú·ã‚É‚¨‚¯‚é) ’áü”gˆæ‚Ì 1/BandCut •ª‚Ì’áü”g—Ìˆæ‚ğ•\¦‚µ‚È‚¢
-tjs_int *BandData = NULL; // ‘Ñˆæ‚²‚Æ‚Ì¬•ªƒf[ƒ^
-tjs_int *BandPeakData = NULL; // ‘Ñˆæ‚²‚Æ‚Ìƒs[ƒNƒf[ƒ^
-tjs_int *BandPeakCount = NULL; // ÅŒã‚Éƒs[ƒNƒf[ƒ^‚ªXV‚³‚ê‚½‚©‚ç‚ÌƒJƒEƒ“ƒg
-tjs_int *BandStart = NULL; // ‘Ñˆæ‚²‚Æ‚ÌŠJnü”g”ˆÊ’u
-tjs_int *BandEnd = NULL; // ‘Ñˆæ‚²‚Æ‚ÌI—¹ü”g”ˆÊ’u
+// ã“ã®ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã§ã¯è¤‡æ•°ã®ã‚¹ãƒšã‚¢ãƒŠã‚’åŒæ™‚ã«è¡¨ç¤ºã™ã‚‹ã“ã¨ã¯è€ƒãˆãªã„
+tjs_int SampleBufferLen = 0; // SampleBuffer ã‚µã‚¤ã‚º
+tjs_int16 *SampleBuffer = NULL; // å…¥åŠ› PCM ãƒãƒƒãƒ•ã‚¡
+tjs_int FFTLen = 0; // FFTé•·
+float *FFTData = NULL; // FFTãƒ‡ãƒ¼ã‚¿
+float *WindowData = NULL; // çª“é–¢æ•°ãƒ‡ãƒ¼ã‚¿
+int *fft_ip = NULL; // FFTãƒ¯ãƒ¼ã‚¯
+float *fft_w = NULL; // FFTãƒ¯ãƒ¼ã‚¯
+tjs_int BandCount = 0; // å¸¯åŸŸæ•°
+float BandCut = 0; // ä½å‘¨æ³¢ã‚«ãƒƒãƒˆã‚ªãƒ•
+	// (å¯¾æ•°ç›®ç››ä¸Šã«ãŠã‘ã‚‹) ä½å‘¨æ³¢åŸŸã® 1/BandCut åˆ†ã®ä½å‘¨æ³¢é ˜åŸŸã‚’è¡¨ç¤ºã—ãªã„
+tjs_int *BandData = NULL; // å¸¯åŸŸã”ã¨ã®æˆåˆ†ãƒ‡ãƒ¼ã‚¿
+tjs_int *BandPeakData = NULL; // å¸¯åŸŸã”ã¨ã®ãƒ”ãƒ¼ã‚¯ãƒ‡ãƒ¼ã‚¿
+tjs_int *BandPeakCount = NULL; // æœ€å¾Œã«ãƒ”ãƒ¼ã‚¯ãƒ‡ãƒ¼ã‚¿ãŒæ›´æ–°ã•ã‚ŒãŸæ™‚ã‹ã‚‰ã®ã‚«ã‚¦ãƒ³ãƒˆ
+tjs_int *BandStart = NULL; // å¸¯åŸŸã”ã¨ã®é–‹å§‹å‘¨æ³¢æ•°ä½ç½®
+tjs_int *BandEnd = NULL; // å¸¯åŸŸã”ã¨ã®çµ‚äº†å‘¨æ³¢æ•°ä½ç½®
 //---------------------------------------------------------------------------
 
 
@@ -31,7 +31,7 @@ tjs_int *BandEnd = NULL; // ‘Ñˆæ‚²‚Æ‚ÌI—¹ü”g”ˆÊ’u
 
 
 //---------------------------------------------------------------------------
-// visualization —p‚ÌƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğæ“¾
+// visualization ç”¨ã®ã‚µãƒ³ãƒ—ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—
 //---------------------------------------------------------------------------
 static void GetVisBuffer(iTJSDispatch2 * obj, tjs_int numsamples,
 	tjs_int channels, tjs_int aheadsamples)
@@ -75,8 +75,8 @@ extern "C"
 }
 void DoFFT()
 {
-	// SampleBuffer ‚É‚‘¬—£Uƒt[ƒŠƒG•ÏŠ· (ÀÛ‚ÍƒTƒCƒ“•ÏŠ·) ‚ğs‚¢
-	// FFTData ‚ÉŠi”[‚·‚é
+	// SampleBuffer ã«é«˜é€Ÿé›¢æ•£ãƒ•ãƒ¼ãƒªã‚¨å¤‰æ› (å®Ÿéš›ã¯ã‚µã‚¤ãƒ³å¤‰æ›) ã‚’è¡Œã„
+	// FFTData ã«æ ¼ç´ã™ã‚‹
 	tjs_int len = SampleBufferLen;
 	tjs_int len2 = len / 2;
 
@@ -84,7 +84,7 @@ void DoFFT()
 	{
 		FFTLen = len;
 
-		// ƒoƒbƒtƒ@‚ÌŠm•Û
+		// ãƒãƒƒãƒ•ã‚¡ã®ç¢ºä¿
 		if(FFTData) delete [] FFTData, FFTData = NULL;
 		if(WindowData) delete [] WindowData, WindowData = NULL;
 		if(fft_ip) delete [] fft_ip, fft_ip = NULL;
@@ -97,26 +97,26 @@ void DoFFT()
 
 		fft_ip[0] = 0;
 
-		// ‘‹ŠÖ”‚Ìì¬
+		// çª“é–¢æ•°ã®ä½œæˆ
 		float mul = (4.0/32768.0/len);
 		for(tjs_int i = 0; i < len; i++)
 		{
 			WindowData[i] = sin(3.14159265358979 * (i + 0.5) / len)  * mul;
-				// (sin‘‹)
+				// (sinçª“)
 		}
 	}
 
-	// FFTData ‚É‘‹ŠÖ”‚ğ“K—p‚µ‚È‚ª‚çƒf[ƒ^‚ğ“]‘—
+	// FFTData ã«çª“é–¢æ•°ã‚’é©ç”¨ã—ãªãŒã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’è»¢é€
 	for(tjs_int i = 0; i < len2; i++)
 	{
 		FFTData[i] = SampleBuffer[i] * WindowData[i];
 		FFTData[i + len2] = SampleBuffer[i + len2] * WindowData[len2 - i - 1];
 	}
 
-	// ‚‘¬—£UƒTƒCƒ“•ÏŠ·
+	// é«˜é€Ÿé›¢æ•£ã‚µã‚¤ãƒ³å¤‰æ›
 	ddst(len, -1, FFTData, fft_ip, fft_w);
 
-	// ’¼—¬¬•ª‚ÌƒJƒbƒg
+	// ç›´æµæˆåˆ†ã®ã‚«ãƒƒãƒˆ
 	FFTData[0] = FFTData[1] = 0;
 
 }
@@ -125,7 +125,7 @@ void DoFFT()
 
 
 //---------------------------------------------------------------------------
-// ‘Ñˆæ‚²‚Æ‚Ìü”g”¬•ª‚ğ“¾‚é
+// å¸¯åŸŸã”ã¨ã®å‘¨æ³¢æ•°æˆåˆ†ã‚’å¾—ã‚‹
 //---------------------------------------------------------------------------
 void GetBandSpectrum(int count, float cut, float mindb, int maxval, int falldown,
 	int peakholdtime, int peakfalldown)
@@ -135,7 +135,7 @@ void GetBandSpectrum(int count, float cut, float mindb, int maxval, int falldown
 		BandCount = count;
 		BandCut = cut;
 
-		// ƒoƒbƒtƒ@‚ÌŠm•Û
+		// ãƒãƒƒãƒ•ã‚¡ã®ç¢ºä¿
 		if(BandData) delete [] BandData, BandData = NULL;
 		if(BandPeakData) delete [] BandPeakData, BandPeakData = NULL;
 		if(BandPeakCount) delete [] BandPeakCount, BandPeakCount = NULL;
@@ -151,7 +151,7 @@ void GetBandSpectrum(int count, float cut, float mindb, int maxval, int falldown
 		BandStart = new tjs_int[count];
 		BandEnd = new tjs_int[count];
 
-		// ‘Ñˆæ‚²‚Æ‚Ìü”g”ŠJnˆÊ’u‚Æü”g”I—¹ˆÊ’u‚ÌŒvZ
+		// å¸¯åŸŸã”ã¨ã®å‘¨æ³¢æ•°é–‹å§‹ä½ç½®ã¨å‘¨æ³¢æ•°çµ‚äº†ä½ç½®ã®è¨ˆç®—
 		for(i = 0; i < count; i++)
 		{
 			float j = (float)(i  ) * ((cut-1) / cut) / (float)count + (1.0 / cut);
@@ -165,7 +165,7 @@ void GetBandSpectrum(int count, float cut, float mindb, int maxval, int falldown
 		}
 	}
 
-	// ‘Ñˆæ‚²‚Æ‚É¬•ª‚Ìƒs[ƒN‚ğ“¾‚Ä‚»‚ê‚ğ dB ‚É‚µ‚ÄŠi”[
+	// å¸¯åŸŸã”ã¨ã«æˆåˆ†ã®ãƒ”ãƒ¼ã‚¯ã‚’å¾—ã¦ãã‚Œã‚’ dB ã«ã—ã¦æ ¼ç´
 	float max_mindb_1 = maxval * 1.0 / mindb;
 	for(tjs_int i = 0; i < count; i++)
 	{
@@ -213,7 +213,7 @@ void GetBandSpectrum(int count, float cut, float mindb, int maxval, int falldown
 
 
 //---------------------------------------------------------------------------
-// ƒXƒyƒAƒi‚ğ•`‰æ‚·‚é‚½‚ß‚ÌŠÖ”
+// ã‚¹ãƒšã‚¢ãƒŠã‚’æç”»ã™ã‚‹ãŸã‚ã®é–¢æ•°
 //---------------------------------------------------------------------------
 struct FFTGraphParam
 {
@@ -316,7 +316,7 @@ void DrawFFTGraph(const FFTGraphParam & param)
 
 	switch(type)
 {
-	case 0: // winamp, fire•—
+	case 0: // winamp, fireé¢¨
 	  {
 #if 1
 		const static tjs_uint32 firecolors[16] =
@@ -328,7 +328,7 @@ void DrawFFTGraph(const FFTGraphParam & param)
 			};
 		const tjs_uint32 peak_color = 0xff808080;
 #else
-			/* ‚ ‚«‚³‚ñƒ‚[ƒh */
+			/* ã‚ãã•ã‚“ãƒ¢ãƒ¼ãƒ‰ */
 		const static tjs_uint32 firecolors[16] =
 			{
 				0xff11DDFF, 0xff11CCEE, 0xff11BBDD, 0xff11AACC,
@@ -370,7 +370,7 @@ void DrawFFTGraph(const FFTGraphParam & param)
 		}
 	  }
 	  break;
-	case 1: // LCD •—
+	case 1: // LCD é¢¨
 	  {
 		tjs_int division = 16;
 		tjs_int thick = 2;
@@ -399,7 +399,7 @@ void DrawFFTGraph(const FFTGraphParam & param)
 
 
 //---------------------------------------------------------------------------
-// ƒXƒyƒAƒi‚ğ•`‰æ‚·‚é‚½‚ß‚Ì TJS ŠÖ”
+// ã‚¹ãƒšã‚¢ãƒŠã‚’æç”»ã™ã‚‹ãŸã‚ã® TJS é–¢æ•°
 //---------------------------------------------------------------------------
 class tDrawFFTGraphFunction : public tTJSDispatch
 {
@@ -410,8 +410,8 @@ class tDrawFFTGraphFunction : public tTJSDispatch
 	{
 		if(membername) return TJS_E_MEMBERNOTFOUND;
 
-		// ˆø” : ƒŒƒCƒ„, ƒTƒEƒ“ƒhƒoƒbƒtƒ@, ¶’[ˆÊ’u, ã’[ˆÊ’u, •, ‚‚³,
-		//        [, ƒIƒvƒVƒ‡ƒ“]
+		// å¼•æ•° : ãƒ¬ã‚¤ãƒ¤, ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡, å·¦ç«¯ä½ç½®, ä¸Šç«¯ä½ç½®, å¹…, é«˜ã•,
+		//        [, ã‚ªãƒ—ã‚·ãƒ§ãƒ³]
 
 		if(numparams < 6) return TJS_E_BADPARAMCOUNT;
 
@@ -423,7 +423,7 @@ class tDrawFFTGraphFunction : public tTJSDispatch
 		tjs_int width;
 		tjs_int height;
 
-		// ‰æ‘œ‚ÌƒTƒCƒYAƒsƒNƒZƒ‹ƒoƒbƒtƒ@‚Ö‚Ìƒ|ƒCƒ“ƒ^Aƒsƒbƒ`‚ğ“¾‚é
+		// ç”»åƒã®ã‚µã‚¤ã‚ºã€ãƒ”ã‚¯ã‚»ãƒ«ãƒãƒƒãƒ•ã‚¡ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã€ãƒ”ãƒƒãƒã‚’å¾—ã‚‹
 
 		tTJSVariant val;
 		static tjs_uint32 imageWidth_hint = 0;
@@ -449,17 +449,17 @@ class tDrawFFTGraphFunction : public tTJSDispatch
 		bufferpitch = val;
 			/*
 				note:
-				PropGet “™‚Ì "hint" (ƒqƒ“ƒg) ˆø”‚É‚Í tjs_uint32 Œ^‚Ì•Ï”‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ğ“n‚·B
-				TJS2 ‚ÍAƒƒ“ƒo–¼‚ğŒŸõ‚·‚é‚Æ‚«‚ÉAŒŸõ“r’†‚ÅZo‚³‚ê‚½”’l‚ğ hint ‚ÉŠi”[‚µ‚Ä•Ô‚·B
-				‚Q‰ñ–ÚˆÈ~‚ÍAÄ‚Ñ hint ‚É“n‚³‚ê‚½’l‚ğ—p‚¢‚ÄŒŸõ‚ğs‚¤‚½‚ßAˆ—‚ª‚‘¬‚É‚È‚éB
-				ÀÛ‚Íƒqƒ“ƒg‚Íƒƒ“ƒo–¼‚ÌƒnƒbƒVƒ…‚ÅA“¯‚¶ƒƒ“ƒo–¼‚È‚ç‚Î“¯‚¶”’l‚É‚È‚é‚ªA
-				“¯‚¶ƒqƒ“ƒg‚Ì’l‚¾‚©‚ç‚Æ‚¢‚Á‚Ä“¯‚¶ƒƒ“ƒo–¼‚Å‚ ‚é‚Æ‚ÍŒÀ‚ç‚È‚¢B
-				ƒqƒ“ƒg‚Ì’l‚ª•s³‚Èê‡‚Í³‚µ‚¢’l‚É©“®“I‚ÉC³‚³‚ê‚é‚ªA‰Šú’l‚Æ‚µ‚Ä‚Í 0 ‚ğ
-				w’è‚·‚é‚±‚Æ‚ª„§‚³‚ê‚éB
+				PropGet ç­‰ã® "hint" (ãƒ’ãƒ³ãƒˆ) å¼•æ•°ã«ã¯ tjs_uint32 å‹ã®å¤‰æ•°ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã‚’æ¸¡ã™ã€‚
+				TJS2 ã¯ã€ãƒ¡ãƒ³ãƒåã‚’æ¤œç´¢ã™ã‚‹ã¨ãã«ã€æ¤œç´¢é€”ä¸­ã§ç®—å‡ºã•ã‚ŒãŸæ•°å€¤ã‚’ hint ã«æ ¼ç´ã—ã¦è¿”ã™ã€‚
+				ï¼’å›ç›®ä»¥é™ã¯ã€å†ã³ hint ã«æ¸¡ã•ã‚ŒãŸå€¤ã‚’ç”¨ã„ã¦æ¤œç´¢ã‚’è¡Œã†ãŸã‚ã€å‡¦ç†ãŒé«˜é€Ÿã«ãªã‚‹ã€‚
+				å®Ÿéš›ã¯ãƒ’ãƒ³ãƒˆã¯ãƒ¡ãƒ³ãƒåã®ãƒãƒƒã‚·ãƒ¥ã§ã€åŒã˜ãƒ¡ãƒ³ãƒåãªã‚‰ã°åŒã˜æ•°å€¤ã«ãªã‚‹ãŒã€
+				åŒã˜ãƒ’ãƒ³ãƒˆã®å€¤ã ã‹ã‚‰ã¨ã„ã£ã¦åŒã˜ãƒ¡ãƒ³ãƒåã§ã‚ã‚‹ã¨ã¯é™ã‚‰ãªã„ã€‚
+				ãƒ’ãƒ³ãƒˆã®å€¤ãŒä¸æ­£ãªå ´åˆã¯æ­£ã—ã„å€¤ã«è‡ªå‹•çš„ã«ä¿®æ­£ã•ã‚Œã‚‹ãŒã€åˆæœŸå€¤ã¨ã—ã¦ã¯ 0 ã‚’
+				æŒ‡å®šã™ã‚‹ã“ã¨ãŒæ¨å¥¨ã•ã‚Œã‚‹ã€‚
 			*/
 
 
-		// ƒpƒ‰ƒ[ƒ^‚ğ€”õ
+		// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æº–å‚™
 		FFTGraphParam fftparam;
 		fftparam.sb = sbobj;
 		fftparam.laybuf = bufferptr;
@@ -475,10 +475,10 @@ class tDrawFFTGraphFunction : public tTJSDispatch
 		else
 			fftparam.options = NULL;
 
-		// ƒXƒyƒAƒi‚ğ•`‰æ
+		// ã‚¹ãƒšã‚¢ãƒŠã‚’æç”»
 		DrawFFTGraph(fftparam);
 
-		// —Ìˆæ‚ğƒAƒbƒvƒf[ƒg
+		// é ˜åŸŸã‚’ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
 		{
 			tTJSVariant val[4];
 			tTJSVariant *pval[4] = { val, val +1, val +2, val +3 };
@@ -492,7 +492,7 @@ class tDrawFFTGraphFunction : public tTJSDispatch
 		}
 
 
-		// –ß‚é
+		// æˆ»ã‚‹
 		return TJS_S_OK;
 	}
 } * DrawFFTGraphFunction;
@@ -511,97 +511,97 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void* lpReserved
 static tjs_int GlobalRefCountAtInit = 0;
 extern "C" HRESULT _stdcall _export V2Link(iTVPFunctionExporter *exporter)
 {
-	// ƒXƒ^ƒu‚Ì‰Šú‰»(•K‚¸‹Lq‚·‚é)
+	// ã‚¹ã‚¿ãƒ–ã®åˆæœŸåŒ–(å¿…ãšè¨˜è¿°ã™ã‚‹)
 	TVPInitImportStub(exporter);
 
-	// TestFunction ‚Ìì¬‚Æ“o˜^
+	// TestFunction ã®ä½œæˆã¨ç™»éŒ²
 	tTJSVariant val;
 
-	// TJS ‚ÌƒOƒ[ƒoƒ‹ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚é
+	// TJS ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹
 	iTJSDispatch2 * global = TVPGetScriptDispatch();
 
-	// 1 ‚Ü‚¸ƒIƒuƒWƒFƒNƒg‚ğì¬
+	// 1 ã¾ãšã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆ
 	DrawFFTGraphFunction = new tDrawFFTGraphFunction();
 
-	// 2 DrawFFTGraphFunction ‚ğ tTJSVariant Œ^‚É•ÏŠ·
+	// 2 DrawFFTGraphFunction ã‚’ tTJSVariant å‹ã«å¤‰æ›
 	val = tTJSVariant(DrawFFTGraphFunction);
 
-	// 3 ‚·‚Å‚É val ‚ª DrawFFTGraphFunction ‚ğ•Û‚µ‚Ä‚¢‚é‚Ì‚ÅA
-	// DrawFFTGraphFunction ‚Í Release ‚·‚é
+	// 3 ã™ã§ã« val ãŒ DrawFFTGraphFunction ã‚’ä¿æŒã—ã¦ã„ã‚‹ã®ã§ã€
+	// DrawFFTGraphFunction ã¯ Release ã™ã‚‹
 	DrawFFTGraphFunction->Release();
 
 
-	// 4 global ‚Ì PropSet ƒƒ\ƒbƒh‚ğ—p‚¢AƒIƒuƒWƒFƒNƒg‚ğ“o˜^‚·‚é
+	// 4 global ã® PropSet ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”¨ã„ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç™»éŒ²ã™ã‚‹
 	global->PropSet(
-		TJS_MEMBERENSURE, // ƒƒ“ƒo‚ª‚È‚©‚Á‚½ê‡‚É‚Íì¬‚·‚é‚æ‚¤‚É‚·‚éƒtƒ‰ƒO
-		TJS_W("drawFFTGraph"), // ƒƒ“ƒo–¼ ( ‚©‚È‚ç‚¸ TJS_W( ) ‚ÅˆÍ‚Ş )
-		NULL, // ƒqƒ“ƒg ( –{—ˆ‚Íƒƒ“ƒo–¼‚ÌƒnƒbƒVƒ…’l‚¾‚ªANULL ‚Å‚à‚æ‚¢ )
-		&val, // “o˜^‚·‚é’l
-		global // ƒRƒ“ƒeƒLƒXƒg ( global ‚Å‚æ‚¢ )
+		TJS_MEMBERENSURE, // ãƒ¡ãƒ³ãƒãŒãªã‹ã£ãŸå ´åˆã«ã¯ä½œæˆã™ã‚‹ã‚ˆã†ã«ã™ã‚‹ãƒ•ãƒ©ã‚°
+		TJS_W("drawFFTGraph"), // ãƒ¡ãƒ³ãƒå ( ã‹ãªã‚‰ãš TJS_W( ) ã§å›²ã‚€ )
+		NULL, // ãƒ’ãƒ³ãƒˆ ( æœ¬æ¥ã¯ãƒ¡ãƒ³ãƒåã®ãƒãƒƒã‚·ãƒ¥å€¤ã ãŒã€NULL ã§ã‚‚ã‚ˆã„ )
+		&val, // ç™»éŒ²ã™ã‚‹å€¤
+		global // ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ ( global ã§ã‚ˆã„ )
 		);
 
 
-	// - global ‚ğ Release ‚·‚é
+	// - global ã‚’ Release ã™ã‚‹
 	global->Release();
 
-	// val ‚ğƒNƒŠƒA‚·‚éB
-	// ‚±‚ê‚Í•K‚¸s‚¤B‚»‚¤‚µ‚È‚¢‚Æ val ‚ª•Û‚µ‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg
-	// ‚ª Release ‚³‚ê‚¸AŸ‚Ég‚¤ TVPPluginGlobalRefCount ‚ª³Šm‚É‚È‚ç‚È‚¢B
+	// val ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹ã€‚
+	// ã“ã‚Œã¯å¿…ãšè¡Œã†ã€‚ãã†ã—ãªã„ã¨ val ãŒä¿æŒã—ã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	// ãŒ Release ã•ã‚Œãšã€æ¬¡ã«ä½¿ã† TVPPluginGlobalRefCount ãŒæ­£ç¢ºã«ãªã‚‰ãªã„ã€‚
 	val.Clear();
 
 
-	// ‚±‚Ì“_‚Å‚Ì TVPPluginGlobalRefCount ‚Ì’l‚ğ
+	// ã“ã®æ™‚ç‚¹ã§ã® TVPPluginGlobalRefCount ã®å€¤ã‚’
 	GlobalRefCountAtInit = TVPPluginGlobalRefCount;
 	TVPAddLog(TVPPluginGlobalRefCount);
-	// ‚Æ‚µ‚ÄT‚¦‚Ä‚¨‚­BTVPPluginGlobalRefCount ‚Í‚±‚Ìƒvƒ‰ƒOƒCƒ““à‚Å
-	// ŠÇ—‚³‚ê‚Ä‚¢‚é tTJSDispatch ”h¶ƒIƒuƒWƒFƒNƒg‚ÌQÆƒJƒEƒ“ƒ^‚Ì‘Œv‚ÅA
-	// ‰ğ•ú‚É‚Í‚±‚ê‚Æ“¯‚¶‚©A‚±‚ê‚æ‚è‚à­‚È‚­‚È‚Á‚Ä‚È‚¢‚Æ‚È‚ç‚È‚¢B
-	// ‚»‚¤‚È‚Á‚Ä‚È‚¯‚ê‚ÎA‚Ç‚±‚©•Ê‚Ì‚Æ‚±‚ë‚ÅŠÖ”‚È‚Ç‚ªQÆ‚³‚ê‚Ä‚¢‚ÄA
-	// ƒvƒ‰ƒOƒCƒ“‚Í‰ğ•ú‚Å‚«‚È‚¢‚ÆŒ¾‚¤‚±‚Æ‚É‚È‚éB
+	// ã¨ã—ã¦æ§ãˆã¦ãŠãã€‚TVPPluginGlobalRefCount ã¯ã“ã®ãƒ—ãƒ©ã‚°ã‚¤ãƒ³å†…ã§
+	// ç®¡ç†ã•ã‚Œã¦ã„ã‚‹ tTJSDispatch æ´¾ç”Ÿã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å‚ç…§ã‚«ã‚¦ãƒ³ã‚¿ã®ç·è¨ˆã§ã€
+	// è§£æ”¾æ™‚ã«ã¯ã“ã‚Œã¨åŒã˜ã‹ã€ã“ã‚Œã‚ˆã‚Šã‚‚å°‘ãªããªã£ã¦ãªã„ã¨ãªã‚‰ãªã„ã€‚
+	// ãã†ãªã£ã¦ãªã‘ã‚Œã°ã€ã©ã“ã‹åˆ¥ã®ã¨ã“ã‚ã§é–¢æ•°ãªã©ãŒå‚ç…§ã•ã‚Œã¦ã„ã¦ã€
+	// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã¯è§£æ”¾ã§ããªã„ã¨è¨€ã†ã“ã¨ã«ãªã‚‹ã€‚
 
 	return S_OK;
 }
 //---------------------------------------------------------------------------
 extern "C" HRESULT _stdcall _export V2Unlink()
 {
-	// ‹g—¢‹g—¢‘¤‚©‚çAƒvƒ‰ƒOƒCƒ“‚ğ‰ğ•ú‚µ‚æ‚¤‚Æ‚·‚é‚Æ‚«‚ÉŒÄ‚Î‚ê‚éŠÖ”B
+	// å‰é‡Œå‰é‡Œå´ã‹ã‚‰ã€ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’è§£æ”¾ã—ã‚ˆã†ã¨ã™ã‚‹ã¨ãã«å‘¼ã°ã‚Œã‚‹é–¢æ•°ã€‚
 
-	// ‚à‚µ‰½‚ç‚©‚ÌğŒ‚Åƒvƒ‰ƒOƒCƒ“‚ğ‰ğ•ú‚Å‚«‚È‚¢ê‡‚Í
-	// ‚±‚Ì“_‚Å E_FAIL ‚ğ•Ô‚·‚æ‚¤‚É‚·‚éB
-	// ‚±‚±‚Å‚ÍATVPPluginGlobalRefCount ‚ª GlobalRefCountAtInit ‚æ‚è‚à
-	// ‘å‚«‚­‚È‚Á‚Ä‚¢‚ê‚Î¸”s‚Æ‚¢‚¤‚±‚Æ‚É‚·‚éB
+	// ã‚‚ã—ä½•ã‚‰ã‹ã®æ¡ä»¶ã§ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’è§£æ”¾ã§ããªã„å ´åˆã¯
+	// ã“ã®æ™‚ç‚¹ã§ E_FAIL ã‚’è¿”ã™ã‚ˆã†ã«ã™ã‚‹ã€‚
+	// ã“ã“ã§ã¯ã€TVPPluginGlobalRefCount ãŒ GlobalRefCountAtInit ã‚ˆã‚Šã‚‚
+	// å¤§ãããªã£ã¦ã„ã‚Œã°å¤±æ•—ã¨ã„ã†ã“ã¨ã«ã™ã‚‹ã€‚
 	TVPAddLog(TVPPluginGlobalRefCount);
 	if(TVPPluginGlobalRefCount > GlobalRefCountAtInit) return E_FAIL;
-		// E_FAIL ‚ª‹A‚é‚ÆAPlugins.unlink ƒƒ\ƒbƒh‚Í‹U‚ğ•Ô‚·
+		// E_FAIL ãŒå¸°ã‚‹ã¨ã€Plugins.unlink ãƒ¡ã‚½ãƒƒãƒ‰ã¯å½ã‚’è¿”ã™
 
-	// TJS ‚ÌƒOƒ[ƒoƒ‹ƒIƒuƒWƒFƒNƒg‚É“o˜^‚µ‚½ drawFFTGraph ŠÖ”‚ğíœ‚·‚é
+	// TJS ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ç™»éŒ²ã—ãŸ drawFFTGraph é–¢æ•°ã‚’å‰Šé™¤ã™ã‚‹
 
-	// - ‚Ü‚¸ATJS ‚ÌƒOƒ[ƒoƒ‹ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚é
+	// - ã¾ãšã€TJS ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹
 	iTJSDispatch2 * global = TVPGetScriptDispatch();
 
-	// - global ‚Ì DeleteMember ƒƒ\ƒbƒh‚ğ—p‚¢AƒIƒuƒWƒFƒNƒg‚ğíœ‚·‚é
+	// - global ã® DeleteMember ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”¨ã„ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å‰Šé™¤ã™ã‚‹
 	if(global)
 	{
-		// TJS ©‘Ì‚ªŠù‚É‰ğ•ú‚³‚ê‚Ä‚¢‚½‚Æ‚«‚È‚Ç‚Í
-		// global ‚Í NULL ‚É‚È‚è“¾‚é‚Ì‚Å global ‚ª NULL ‚Å‚È‚¢
-		// ‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚é
+		// TJS è‡ªä½“ãŒæ—¢ã«è§£æ”¾ã•ã‚Œã¦ã„ãŸã¨ããªã©ã¯
+		// global ã¯ NULL ã«ãªã‚Šå¾—ã‚‹ã®ã§ global ãŒ NULL ã§ãªã„
+		// ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹
 
 		global->DeleteMember(
-			0, // ƒtƒ‰ƒO ( 0 ‚Å‚æ‚¢ )
-			TJS_W("drawFFTGraph"), // ƒƒ“ƒo–¼
-			NULL, // ƒqƒ“ƒg
-			global // ƒRƒ“ƒeƒLƒXƒg
+			0, // ãƒ•ãƒ©ã‚° ( 0 ã§ã‚ˆã„ )
+			TJS_W("drawFFTGraph"), // ãƒ¡ãƒ³ãƒå
+			NULL, // ãƒ’ãƒ³ãƒˆ
+			global // ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
 			);
-			// “o˜^‚µ‚½ŠÖ”‚ª•¡”‚ ‚éê‡‚Í ‚±‚ê‚ğŒJ‚è•Ô‚·
+			// ç™»éŒ²ã—ãŸé–¢æ•°ãŒè¤‡æ•°ã‚ã‚‹å ´åˆã¯ ã“ã‚Œã‚’ç¹°ã‚Šè¿”ã™
 	}
 
-	// - global ‚ğ Release ‚·‚é
+	// - global ã‚’ Release ã™ã‚‹
 	if(global) global->Release();
 
-	// ƒXƒ^ƒu‚Ìg—pI—¹(•K‚¸‹Lq‚·‚é)
+	// ã‚¹ã‚¿ãƒ–ã®ä½¿ç”¨çµ‚äº†(å¿…ãšè¨˜è¿°ã™ã‚‹)
 	TVPUninitImportStub();
 
-	// ‚»‚Ì‘¼‚Ìˆ—
+	// ãã®ä»–ã®å‡¦ç†
 	if(SampleBuffer) delete [] SampleBuffer, SampleBuffer = NULL;
 	if(FFTData) delete [] FFTData, FFTData = NULL;
 	if(WindowData) delete [] WindowData, WindowData = NULL;

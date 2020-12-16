@@ -116,49 +116,49 @@ typedef my_marker_reader * my_marker_ptr;
  */
 
 /* Declare and initialize local copies of input pointer/count */
-#define INPUT_VARS(cinfo)  \
-	struct jpeg_source_mgr * datasrc = (cinfo)->src;  \
-	const JOCTET * next_input_byte = datasrc->next_input_byte;  \
+#define INPUT_VARS(cinfo)  ¥
+	struct jpeg_source_mgr * datasrc = (cinfo)->src;  ¥
+	const JOCTET * next_input_byte = datasrc->next_input_byte;  ¥
 	size_t bytes_in_buffer = datasrc->bytes_in_buffer
 
 /* Unload the local copies --- do this only at a restart boundary */
-#define INPUT_SYNC(cinfo)  \
-	( datasrc->next_input_byte = next_input_byte,  \
+#define INPUT_SYNC(cinfo)  ¥
+	( datasrc->next_input_byte = next_input_byte,  ¥
 	  datasrc->bytes_in_buffer = bytes_in_buffer )
 
 /* Reload the local copies --- used only in MAKE_BYTE_AVAIL */
-#define INPUT_RELOAD(cinfo)  \
-	( next_input_byte = datasrc->next_input_byte,  \
+#define INPUT_RELOAD(cinfo)  ¥
+	( next_input_byte = datasrc->next_input_byte,  ¥
 	  bytes_in_buffer = datasrc->bytes_in_buffer )
 
 /* Internal macro for INPUT_BYTE and INPUT_2BYTES: make a byte available.
  * Note we do *not* do INPUT_SYNC before calling fill_input_buffer,
  * but we must reload the local copies after a successful fill.
  */
-#define MAKE_BYTE_AVAIL(cinfo,action)  \
-	if (bytes_in_buffer == 0) {  \
-	  if (! (*datasrc->fill_input_buffer) (cinfo))  \
-	    { action; }  \
-	  INPUT_RELOAD(cinfo);  \
+#define MAKE_BYTE_AVAIL(cinfo,action)  ¥
+	if (bytes_in_buffer == 0) {  ¥
+	  if (! (*datasrc->fill_input_buffer) (cinfo))  ¥
+	    { action; }  ¥
+	  INPUT_RELOAD(cinfo);  ¥
 	}
 
 /* Read a byte into variable V.
  * If must suspend, take the specified action (typically "return FALSE").
  */
-#define INPUT_BYTE(cinfo,V,action)  \
-	MAKESTMT( MAKE_BYTE_AVAIL(cinfo,action); \
-		  bytes_in_buffer--; \
+#define INPUT_BYTE(cinfo,V,action)  ¥
+	MAKESTMT( MAKE_BYTE_AVAIL(cinfo,action); ¥
+		  bytes_in_buffer--; ¥
 		  V = GETJOCTET(*next_input_byte++); )
 
 /* As above, but read two bytes interpreted as an unsigned 16-bit integer.
  * V should be declared unsigned int or perhaps INT32.
  */
-#define INPUT_2BYTES(cinfo,V,action)  \
-	MAKESTMT( MAKE_BYTE_AVAIL(cinfo,action); \
-		  bytes_in_buffer--; \
-		  V = ((unsigned int) GETJOCTET(*next_input_byte++)) << 8; \
-		  MAKE_BYTE_AVAIL(cinfo,action); \
-		  bytes_in_buffer--; \
+#define INPUT_2BYTES(cinfo,V,action)  ¥
+	MAKESTMT( MAKE_BYTE_AVAIL(cinfo,action); ¥
+		  bytes_in_buffer--; ¥
+		  V = ((unsigned int) GETJOCTET(*next_input_byte++)) << 8; ¥
+		  MAKE_BYTE_AVAIL(cinfo,action); ¥
+		  bytes_in_buffer--; ¥
 		  V += GETJOCTET(*next_input_byte++); )
 
 

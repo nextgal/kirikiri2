@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="Shift_JIS" ?>
 <doc>
-<title>�Ď���</title>
+<title>監視式</title>
 
 <para>
-<ptitle>�Ď����ɂ���</ptitle>
-�@�Ď����́A���s���� Shift + F3 ���������Ƃɂ��\�����邱�Ƃ��ł��܂��B<r/>
-�@�Ď����ł͊ȒP�ɑ����̎��̌��ʂ���x�Ɋm�F���邱�Ƃ��ł��܂��B<r/>
-�@�܂��A��莞�Ԃ��ƂɌ��ʂ̕\�����X�V�����邱�Ƃ��ł��܂��B<r/>
-�@���Ȃ݂Ɏ��̌��ʂ͕ύX���������Ƃ��Ɏ����I�ɍX�V�����킯�ł͂���܂���B�蓮�ŕ\�����X�V���邩�A���邢�͈�莞�Ԃ��ƂɎ����I�ɍX�V������K�v������܂��B�C�x���g�n���h�����ł̕ϐ��̕ω���Ǐ]���ĕ\�����邱�Ƃ��ł��܂���B�C�x���g�n���h�������s���ɕ\���X�V�̎��Ԃ������Ƃ��Ă��A���ׂẴC�x���g�n���h������g���g���{�̂ɐ��䂪�߂����Ƃ��ɕ\�����X�V����܂��B<r/>
+<ptitle>監視式について</ptitle>
+　監視式は、実行中に Shift + F3 を押すことにより表示することができます。<r/>
+　監視式では簡単に多くの式の結果を一度に確認することができます。<r/>
+　また、一定時間ごとに結果の表示を更新させることもできます。<r/>
+　ちなみに式の結果は変更があったときに自動的に更新されるわけではありません。手動で表示を更新するか、あるいは一定時間ごとに自動的に更新させる必要があります。イベントハンドラ中での変数の変化を追従して表示することもできません。イベントハンドラを実行中に表示更新の時間が来たとしても、すべてのイベントハンドラから吉里吉里本体に制御が戻ったときに表示が更新されます。<r/>
 </para>
 
 <para>
-<ptitle>��ʂ̐���</ptitle>
+<ptitle>画面の説明</ptitle>
 <img src="ExprWatch.png"/><r/><r/>
-�E�N���b�N���j���[�̐����ł��B<r/>
+右クリックメニューの説明です。<r/>
 <dl>
-<dt><img src="NewExprIcon.png"/> �V�K�̎�</dt>
+<dt><img src="NewExprIcon.png"/> 新規の式</dt>
 <dd>
-�@�Ď�����V�����ǉ����܂��B
+　監視式を新しく追加します。
 </dd>
 
-<dt><img src="DeleteIcon.png"/> �폜</dt>
+<dt><img src="DeleteIcon.png"/> 削除</dt>
 <dd>
-�@�I������Ă���Ď������폜���܂��B
+　選択されている監視式を削除します。
 </dd>
 
-<dt>���̕ҏW</dt>
+<dt>式の編集</dt>
 <dd>
-�@�I������Ă���Ď�����ҏW���܂��B
+　選択されている監視式を編集します。
 </dd>
 
-<dt><img src="UpdateIcon.png"/> �X�V</dt>
+<dt><img src="UpdateIcon.png"/> 更新</dt>
 <dd>
-�@���ʂ��X�V���܂��B
+　結果を更新します。
 </dd>
 
-<dt><img src="AutoUpdateIcon.png"/> �����X�V</dt>
+<dt><img src="AutoUpdateIcon.png"/> 自動更新</dt>
 <dd>
-�@���ʕ\������莞�Ԃ��ƂɎ����I�ɍX�V�����܂��B
+　結果表示を一定時間ごとに自動的に更新しします。
 </dd>
 
-<dt>�����X�V�̊Ԋu</dt>
+<dt>自動更新の間隔</dt>
 <dd>
-�@�����X�V���s���Ԋu��ݒ肵�܂��B
+　自動更新を行う間隔を設定します。
 </dd>
 
-<dt><img src="ControllerIcon.png"/> �R���g���[��</dt>
+<dt><img src="ControllerIcon.png"/> コントローラ</dt>
 <dd>
-�@<link href="Controller"/> ��\�����܂��B
+　<link href="Controller"/> を表示します。
 </dd>
 
-<dt><img src="ScriptEditorIcon.png"/> �X�N���v�g�G�f�B�^</dt>
+<dt><img src="ScriptEditorIcon.png"/> スクリプトエディタ</dt>
 <dd>
-�@<link href="ScriptEditor"/> ��\�����܂��B
+　<link href="ScriptEditor"/> を表示します。
 </dd>
 
-<dt><img src="ConsoleIcon.png"/> �R���\�[��</dt>
+<dt><img src="ConsoleIcon.png"/> コンソール</dt>
 <dd>
-�@<link href="Console"/> ��\�����܂��B
+　<link href="Console"/> を表示します。
 </dd>
 </dl>
 <r/>

@@ -17,7 +17,7 @@
 #
 # /* BOOST_PP_TUPLE_REM */
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
 #    define BOOST_PP_TUPLE_REM(size) BOOST_PP_TUPLE_REM_I(size)
 # else
 #    define BOOST_PP_TUPLE_REM(size) BOOST_PP_TUPLE_REM_OO((size))
@@ -55,14 +55,14 @@
 #
 # /* BOOST_PP_TUPLE_REM_CTOR */
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
 #    define BOOST_PP_TUPLE_REM_CTOR(size, tuple) BOOST_PP_TUPLE_REM_CTOR_I(BOOST_PP_TUPLE_REM(size), tuple)
 # else
 #    define BOOST_PP_TUPLE_REM_CTOR(size, tuple) BOOST_PP_TUPLE_REM_CTOR_D(size, tuple)
 #    define BOOST_PP_TUPLE_REM_CTOR_D(size, tuple) BOOST_PP_TUPLE_REM_CTOR_I(BOOST_PP_TUPLE_REM(size), tuple)
 # endif
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
 #    define BOOST_PP_TUPLE_REM_CTOR_I(ext, tuple) ext tuple
 # else
 #    define BOOST_PP_TUPLE_REM_CTOR_I(ext, tuple) BOOST_PP_TUPLE_REM_CTOR_OO((ext, tuple))

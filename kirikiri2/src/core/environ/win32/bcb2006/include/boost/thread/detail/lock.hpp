@@ -68,7 +68,7 @@ public:
     {
         if (initially_locked) lock();
     }
-    ~scoped_lock()
+    ‾scoped_lock()
     {
         if (m_locked) unlock();
     }
@@ -112,7 +112,7 @@ public:
     {
         if (initially_locked) lock();
     }
-    ~scoped_try_lock()
+    ‾scoped_try_lock()
     {
         if (m_locked) unlock();
     }
@@ -161,7 +161,7 @@ public:
     {
         if (initially_locked) lock();
     }
-    ~scoped_timed_lock()
+    ‾scoped_timed_lock()
     {
         if (m_locked) unlock();
     }

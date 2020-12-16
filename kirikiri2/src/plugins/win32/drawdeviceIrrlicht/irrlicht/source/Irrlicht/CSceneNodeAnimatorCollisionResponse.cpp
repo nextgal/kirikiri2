@@ -37,7 +37,7 @@ CSceneNodeAnimatorCollisionResponse::CSceneNodeAnimatorCollisionResponse(
 
 
 //! destructor
-CSceneNodeAnimatorCollisionResponse::~CSceneNodeAnimatorCollisionResponse()
+CSceneNodeAnimatorCollisionResponse::‾CSceneNodeAnimatorCollisionResponse()
 {
 	if (World)
 		World->drop();

@@ -117,7 +117,7 @@ public:
 	}
 
 	//! destructor
-	~OctTree()
+	‾OctTree()
 	{
 		for (u32 i=0; i<IndexDataCount; ++i)
 			delete [] IndexData[i].Indices;
@@ -249,7 +249,7 @@ private:
 
 
 		// destructor
-		~OctTreeNode()
+		‾OctTreeNode()
 		{
 			delete IndexData;
 

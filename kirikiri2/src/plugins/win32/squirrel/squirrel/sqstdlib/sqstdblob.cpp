@@ -12,9 +12,9 @@
 //Blob
 
 
-#define SETUP_BLOB(v) \
-	SQBlob *self = NULL; \
-	{ if(SQ_FAILED(sq_getinstanceup(v,1,(SQUserPointer*)&self,(SQUserPointer)SQSTD_BLOB_TYPE_TAG))) \
+#define SETUP_BLOB(v) ¥
+	SQBlob *self = NULL; ¥
+	{ if(SQ_FAILED(sq_getinstanceup(v,1,(SQUserPointer*)&self,(SQUserPointer)SQSTD_BLOB_TYPE_TAG))) ¥
 		return SQ_ERROR; }
 
 

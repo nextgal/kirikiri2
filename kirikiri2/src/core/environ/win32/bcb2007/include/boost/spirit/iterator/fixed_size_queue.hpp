@@ -26,8 +26,8 @@
 //namespace std { typedef unsigned size_t; }
 //#endif
 
-#define BOOST_SPIRIT_ASSERT_FSQ_SIZE \
-    BOOST_SPIRIT_ASSERT(((m_tail + N + 1) - m_head) % (N+1) == m_size % (N+1)) \
+#define BOOST_SPIRIT_ASSERT_FSQ_SIZE ¥
+    BOOST_SPIRIT_ASSERT(((m_tail + N + 1) - m_head) % (N+1) == m_size % (N+1)) ¥
     /**/
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -44,7 +44,7 @@ public:
     fixed_size_queue();
     fixed_size_queue(const fixed_size_queue& x);
     fixed_size_queue& operator=(const fixed_size_queue& x);
-    ~fixed_size_queue();
+    ‾fixed_size_queue();
 
     void push_back(const T& e);
     void push_front(const T& e);
@@ -205,7 +205,7 @@ fixed_size_queue<T, N>::operator=(const fixed_size_queue& x)
 
 template <typename T, std::size_t N>
 inline
-fixed_size_queue<T, N>::~fixed_size_queue()
+fixed_size_queue<T, N>::‾fixed_size_queue()
 {
     BOOST_SPIRIT_ASSERT(m_size <= N+1);
     BOOST_SPIRIT_ASSERT_FSQ_SIZE;

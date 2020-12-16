@@ -116,164 +116,164 @@ namespace detail
 }}} // namespace boost::python::detail
 
 
-#define BOOST_PYTHON_TYPEDEF_GEN(z, index, data)                                \
-    typedef typename ::boost::mpl::next<BOOST_PP_CAT(iter, index)>::type        \
-        BOOST_PP_CAT(iter, BOOST_PP_INC(index));                                \
-    typedef typename ::boost::mpl::apply0<BOOST_PP_CAT(iter, index)>::type      \
+#define BOOST_PYTHON_TYPEDEF_GEN(z, index, data)                                ¥
+    typedef typename ::boost::mpl::next<BOOST_PP_CAT(iter, index)>::type        ¥
+        BOOST_PP_CAT(iter, BOOST_PP_INC(index));                                ¥
+    typedef typename ::boost::mpl::apply0<BOOST_PP_CAT(iter, index)>::type      ¥
         BOOST_PP_CAT(T, index);
 
-#define BOOST_PYTHON_FUNC_WRAPPER_GEN(z, index, data)                   \
-    static RT BOOST_PP_CAT(func_,                                       \
-        BOOST_PP_SUB_D(1, index, BOOST_PP_TUPLE_ELEM(3, 1, data))) (    \
-        BOOST_PP_ENUM_BINARY_PARAMS_Z(                                  \
-            1, index, T, arg))                                          \
-    {                                                                   \
-        BOOST_PP_TUPLE_ELEM(3, 2, data)                                 \
-        BOOST_PP_TUPLE_ELEM(3, 0, data)(                                \
-            BOOST_PP_ENUM_PARAMS(                                       \
-                index,                                                  \
-                arg));                                                  \
+#define BOOST_PYTHON_FUNC_WRAPPER_GEN(z, index, data)                   ¥
+    static RT BOOST_PP_CAT(func_,                                       ¥
+        BOOST_PP_SUB_D(1, index, BOOST_PP_TUPLE_ELEM(3, 1, data))) (    ¥
+        BOOST_PP_ENUM_BINARY_PARAMS_Z(                                  ¥
+            1, index, T, arg))                                          ¥
+    {                                                                   ¥
+        BOOST_PP_TUPLE_ELEM(3, 2, data)                                 ¥
+        BOOST_PP_TUPLE_ELEM(3, 0, data)(                                ¥
+            BOOST_PP_ENUM_PARAMS(                                       ¥
+                index,                                                  ¥
+                arg));                                                  ¥
     }
 
-#define BOOST_PYTHON_GEN_FUNCTION(fname, fstubs_name, n_args, n_dflts, ret)     \
-    struct fstubs_name                                                          \
-    {                                                                           \
-        BOOST_STATIC_CONSTANT(int, n_funcs = BOOST_PP_INC(n_dflts));            \
-        BOOST_STATIC_CONSTANT(int, max_args = n_funcs);                         \
-                                                                                \
-        template <typename SigT>                                                \
-        struct gen                                                              \
-        {                                                                       \
-            typedef typename ::boost::mpl::begin<SigT>::type rt_iter;           \
-            typedef typename ::boost::mpl::apply0<rt_iter>::type RT;            \
-            typedef typename ::boost::mpl::next<rt_iter>::type iter0;           \
-                                                                                \
-            BOOST_PP_REPEAT_2ND(                                                \
-                n_args,                                                         \
-                BOOST_PYTHON_TYPEDEF_GEN,                                       \
-                0)                                                              \
-                                                                                \
-            BOOST_PP_REPEAT_FROM_TO_2(                                          \
-                BOOST_PP_SUB_D(1, n_args, n_dflts),                             \
-                BOOST_PP_INC(n_args),                                           \
-                BOOST_PYTHON_FUNC_WRAPPER_GEN,                                  \
-                (fname, BOOST_PP_SUB_D(1, n_args, n_dflts), ret))               \
-        };                                                                      \
-    };                                                                          \
+#define BOOST_PYTHON_GEN_FUNCTION(fname, fstubs_name, n_args, n_dflts, ret)     ¥
+    struct fstubs_name                                                          ¥
+    {                                                                           ¥
+        BOOST_STATIC_CONSTANT(int, n_funcs = BOOST_PP_INC(n_dflts));            ¥
+        BOOST_STATIC_CONSTANT(int, max_args = n_funcs);                         ¥
+                                                                                ¥
+        template <typename SigT>                                                ¥
+        struct gen                                                              ¥
+        {                                                                       ¥
+            typedef typename ::boost::mpl::begin<SigT>::type rt_iter;           ¥
+            typedef typename ::boost::mpl::apply0<rt_iter>::type RT;            ¥
+            typedef typename ::boost::mpl::next<rt_iter>::type iter0;           ¥
+                                                                                ¥
+            BOOST_PP_REPEAT_2ND(                                                ¥
+                n_args,                                                         ¥
+                BOOST_PYTHON_TYPEDEF_GEN,                                       ¥
+                0)                                                              ¥
+                                                                                ¥
+            BOOST_PP_REPEAT_FROM_TO_2(                                          ¥
+                BOOST_PP_SUB_D(1, n_args, n_dflts),                             ¥
+                BOOST_PP_INC(n_args),                                           ¥
+                BOOST_PYTHON_FUNC_WRAPPER_GEN,                                  ¥
+                (fname, BOOST_PP_SUB_D(1, n_args, n_dflts), ret))               ¥
+        };                                                                      ¥
+    };                                                                          ¥
 
 ///////////////////////////////////////////////////////////////////////////////
-#define BOOST_PYTHON_MEM_FUNC_WRAPPER_GEN(z, index, data)                       \
-    static RT BOOST_PP_CAT(func_,                                               \
-        BOOST_PP_SUB_D(1, index, BOOST_PP_TUPLE_ELEM(3, 1, data))) (            \
-            ClassT obj BOOST_PP_COMMA_IF(index)                                 \
-            BOOST_PP_ENUM_BINARY_PARAMS_Z(1, index, T, arg)                     \
-        )                                                                       \
-    {                                                                           \
-        BOOST_PP_TUPLE_ELEM(3, 2, data) obj.BOOST_PP_TUPLE_ELEM(3, 0, data)(    \
-            BOOST_PP_ENUM_PARAMS(index, arg)                                    \
-        );                                                                      \
+#define BOOST_PYTHON_MEM_FUNC_WRAPPER_GEN(z, index, data)                       ¥
+    static RT BOOST_PP_CAT(func_,                                               ¥
+        BOOST_PP_SUB_D(1, index, BOOST_PP_TUPLE_ELEM(3, 1, data))) (            ¥
+            ClassT obj BOOST_PP_COMMA_IF(index)                                 ¥
+            BOOST_PP_ENUM_BINARY_PARAMS_Z(1, index, T, arg)                     ¥
+        )                                                                       ¥
+    {                                                                           ¥
+        BOOST_PP_TUPLE_ELEM(3, 2, data) obj.BOOST_PP_TUPLE_ELEM(3, 0, data)(    ¥
+            BOOST_PP_ENUM_PARAMS(index, arg)                                    ¥
+        );                                                                      ¥
     }
 
-#define BOOST_PYTHON_GEN_MEM_FUNCTION(fname, fstubs_name, n_args, n_dflts, ret) \
-    struct fstubs_name                                                          \
-    {                                                                           \
-        BOOST_STATIC_CONSTANT(int, n_funcs = BOOST_PP_INC(n_dflts));            \
-        BOOST_STATIC_CONSTANT(int, max_args = n_funcs + 1);                     \
-                                                                                \
-        template <typename SigT>                                                \
-        struct gen                                                              \
-        {                                                                       \
-            typedef typename ::boost::mpl::begin<SigT>::type rt_iter;           \
-            typedef typename ::boost::mpl::apply0<rt_iter>::type RT;            \
-                                                                                \
-            typedef typename ::boost::mpl::next<rt_iter>::type class_iter;      \
-            typedef typename ::boost::mpl::apply0<class_iter>::type ClassT;     \
-            typedef typename ::boost::mpl::next<class_iter>::type iter0;        \
-                                                                                \
-            BOOST_PP_REPEAT_2ND(                                                \
-                n_args,                                                         \
-                BOOST_PYTHON_TYPEDEF_GEN,                                       \
-                0)                                                              \
-                                                                                \
-            BOOST_PP_REPEAT_FROM_TO_2(                                          \
-                BOOST_PP_SUB_D(1, n_args, n_dflts),                             \
-                BOOST_PP_INC(n_args),                                           \
-                BOOST_PYTHON_MEM_FUNC_WRAPPER_GEN,                              \
-                (fname, BOOST_PP_SUB_D(1, n_args, n_dflts), ret))               \
-        };                                                                      \
+#define BOOST_PYTHON_GEN_MEM_FUNCTION(fname, fstubs_name, n_args, n_dflts, ret) ¥
+    struct fstubs_name                                                          ¥
+    {                                                                           ¥
+        BOOST_STATIC_CONSTANT(int, n_funcs = BOOST_PP_INC(n_dflts));            ¥
+        BOOST_STATIC_CONSTANT(int, max_args = n_funcs + 1);                     ¥
+                                                                                ¥
+        template <typename SigT>                                                ¥
+        struct gen                                                              ¥
+        {                                                                       ¥
+            typedef typename ::boost::mpl::begin<SigT>::type rt_iter;           ¥
+            typedef typename ::boost::mpl::apply0<rt_iter>::type RT;            ¥
+                                                                                ¥
+            typedef typename ::boost::mpl::next<rt_iter>::type class_iter;      ¥
+            typedef typename ::boost::mpl::apply0<class_iter>::type ClassT;     ¥
+            typedef typename ::boost::mpl::next<class_iter>::type iter0;        ¥
+                                                                                ¥
+            BOOST_PP_REPEAT_2ND(                                                ¥
+                n_args,                                                         ¥
+                BOOST_PYTHON_TYPEDEF_GEN,                                       ¥
+                0)                                                              ¥
+                                                                                ¥
+            BOOST_PP_REPEAT_FROM_TO_2(                                          ¥
+                BOOST_PP_SUB_D(1, n_args, n_dflts),                             ¥
+                BOOST_PP_INC(n_args),                                           ¥
+                BOOST_PYTHON_MEM_FUNC_WRAPPER_GEN,                              ¥
+                (fname, BOOST_PP_SUB_D(1, n_args, n_dflts), ret))               ¥
+        };                                                                      ¥
     };
 
-#define BOOST_PYTHON_OVERLOAD_CONSTRUCTORS(fstubs_name, n_args, n_dflts)        \
-    fstubs_name(char const* doc = 0)                                            \
-        : ::boost::python::detail::overloads_common<fstubs_name>(doc) {}        \
-    template <class Keywords>                                                   \
-    fstubs_name(char const* doc, Keywords const& keywords)                      \
-        : ::boost::python::detail::overloads_common<fstubs_name>(               \
-            doc, keywords.range())                                              \
-    {                                                                           \
-        typedef typename ::boost::python::detail::                              \
-            error::more_keywords_than_function_arguments<                       \
-                Keywords::size,n_args>::too_many_keywords assertion;            \
-    }                                                                           \
-    template <class Keywords>                                                   \
-    fstubs_name(Keywords const& keywords, char const* doc = 0)                  \
-        : ::boost::python::detail::overloads_common<fstubs_name>(               \
-            doc, keywords.range())                                              \
-    {                                                                           \
-        typedef typename ::boost::python::detail::                              \
-            error::more_keywords_than_function_arguments<                       \
-                Keywords::size,n_args>::too_many_keywords assertion;            \
+#define BOOST_PYTHON_OVERLOAD_CONSTRUCTORS(fstubs_name, n_args, n_dflts)        ¥
+    fstubs_name(char const* doc = 0)                                            ¥
+        : ::boost::python::detail::overloads_common<fstubs_name>(doc) {}        ¥
+    template <class Keywords>                                                   ¥
+    fstubs_name(char const* doc, Keywords const& keywords)                      ¥
+        : ::boost::python::detail::overloads_common<fstubs_name>(               ¥
+            doc, keywords.range())                                              ¥
+    {                                                                           ¥
+        typedef typename ::boost::python::detail::                              ¥
+            error::more_keywords_than_function_arguments<                       ¥
+                Keywords::size,n_args>::too_many_keywords assertion;            ¥
+    }                                                                           ¥
+    template <class Keywords>                                                   ¥
+    fstubs_name(Keywords const& keywords, char const* doc = 0)                  ¥
+        : ::boost::python::detail::overloads_common<fstubs_name>(               ¥
+            doc, keywords.range())                                              ¥
+    {                                                                           ¥
+        typedef typename ::boost::python::detail::                              ¥
+            error::more_keywords_than_function_arguments<                       ¥
+                Keywords::size,n_args>::too_many_keywords assertion;            ¥
     }
 
 # if defined(BOOST_NO_VOID_RETURNS)
 
-#  define BOOST_PYTHON_GEN_FUNCTION_STUB(fname, fstubs_name, n_args, n_dflts)   \
-    struct fstubs_name                                                          \
-        : public ::boost::python::detail::overloads_common<fstubs_name>         \
-    {                                                                           \
-        BOOST_PYTHON_GEN_FUNCTION(                                              \
-            fname, non_void_return_type, n_args, n_dflts, return)               \
-        BOOST_PYTHON_GEN_FUNCTION(                                              \
-            fname, void_return_type, n_args, n_dflts, ;)                        \
-                                                                                \
-        BOOST_PYTHON_OVERLOAD_CONSTRUCTORS(fstubs_name, n_args, n_dflts)        \
+#  define BOOST_PYTHON_GEN_FUNCTION_STUB(fname, fstubs_name, n_args, n_dflts)   ¥
+    struct fstubs_name                                                          ¥
+        : public ::boost::python::detail::overloads_common<fstubs_name>         ¥
+    {                                                                           ¥
+        BOOST_PYTHON_GEN_FUNCTION(                                              ¥
+            fname, non_void_return_type, n_args, n_dflts, return)               ¥
+        BOOST_PYTHON_GEN_FUNCTION(                                              ¥
+            fname, void_return_type, n_args, n_dflts, ;)                        ¥
+                                                                                ¥
+        BOOST_PYTHON_OVERLOAD_CONSTRUCTORS(fstubs_name, n_args, n_dflts)        ¥
     };
 
-#  define BOOST_PYTHON_GEN_MEM_FUNCTION_STUB(fname, fstubs_name, n_args, n_dflts)       \
-    struct fstubs_name                                                                  \
-        : public ::boost::python::detail::overloads_common<fstubs_name>                 \
-    {                                                                                   \
-        BOOST_PYTHON_GEN_MEM_FUNCTION(                                                  \
-            fname, non_void_return_type, n_args, n_dflts, return)                       \
-        BOOST_PYTHON_GEN_MEM_FUNCTION(                                                  \
-            fname, void_return_type, n_args, n_dflts, ;)                                \
-                                                                                        \
-        BOOST_PYTHON_OVERLOAD_CONSTRUCTORS(fstubs_name, n_args, n_dflts)                \
+#  define BOOST_PYTHON_GEN_MEM_FUNCTION_STUB(fname, fstubs_name, n_args, n_dflts)       ¥
+    struct fstubs_name                                                                  ¥
+        : public ::boost::python::detail::overloads_common<fstubs_name>                 ¥
+    {                                                                                   ¥
+        BOOST_PYTHON_GEN_MEM_FUNCTION(                                                  ¥
+            fname, non_void_return_type, n_args, n_dflts, return)                       ¥
+        BOOST_PYTHON_GEN_MEM_FUNCTION(                                                  ¥
+            fname, void_return_type, n_args, n_dflts, ;)                                ¥
+                                                                                        ¥
+        BOOST_PYTHON_OVERLOAD_CONSTRUCTORS(fstubs_name, n_args, n_dflts)                ¥
     };
 
 # else // !defined(BOOST_NO_VOID_RETURNS)
 
-#  define BOOST_PYTHON_GEN_FUNCTION_STUB(fname, fstubs_name, n_args, n_dflts)   \
-    struct fstubs_name                                                          \
-        : public ::boost::python::detail::overloads_common<fstubs_name>         \
-    {                                                                           \
-        BOOST_PYTHON_GEN_FUNCTION(                                              \
-            fname, non_void_return_type, n_args, n_dflts, return)               \
-                                                                                \
-        typedef non_void_return_type void_return_type;                          \
-        BOOST_PYTHON_OVERLOAD_CONSTRUCTORS(fstubs_name, n_args, n_dflts)        \
+#  define BOOST_PYTHON_GEN_FUNCTION_STUB(fname, fstubs_name, n_args, n_dflts)   ¥
+    struct fstubs_name                                                          ¥
+        : public ::boost::python::detail::overloads_common<fstubs_name>         ¥
+    {                                                                           ¥
+        BOOST_PYTHON_GEN_FUNCTION(                                              ¥
+            fname, non_void_return_type, n_args, n_dflts, return)               ¥
+                                                                                ¥
+        typedef non_void_return_type void_return_type;                          ¥
+        BOOST_PYTHON_OVERLOAD_CONSTRUCTORS(fstubs_name, n_args, n_dflts)        ¥
     };
 
 
-#  define BOOST_PYTHON_GEN_MEM_FUNCTION_STUB(fname, fstubs_name, n_args, n_dflts)       \
-    struct fstubs_name                                                                  \
-        : public ::boost::python::detail::overloads_common<fstubs_name>                 \
-    {                                                                                   \
-        BOOST_PYTHON_GEN_MEM_FUNCTION(                                                  \
-            fname, non_void_return_type, n_args, n_dflts, return)                       \
-                                                                                        \
-        typedef non_void_return_type void_return_type;                                  \
-        BOOST_PYTHON_OVERLOAD_CONSTRUCTORS(fstubs_name, n_args, n_dflts)                \
+#  define BOOST_PYTHON_GEN_MEM_FUNCTION_STUB(fname, fstubs_name, n_args, n_dflts)       ¥
+    struct fstubs_name                                                                  ¥
+        : public ::boost::python::detail::overloads_common<fstubs_name>                 ¥
+    {                                                                                   ¥
+        BOOST_PYTHON_GEN_MEM_FUNCTION(                                                  ¥
+            fname, non_void_return_type, n_args, n_dflts, return)                       ¥
+                                                                                        ¥
+        typedef non_void_return_type void_return_type;                                  ¥
+        BOOST_PYTHON_OVERLOAD_CONSTRUCTORS(fstubs_name, n_args, n_dflts)                ¥
     };
 
 # endif // !defined(BOOST_NO_VOID_RETURNS)
@@ -364,18 +364,18 @@ namespace detail
 //      foo_overloads' base class.
 //
 ///////////////////////////////////////////////////////////////////////////////
-#define BOOST_PYTHON_FUNCTION_OVERLOADS(generator_name, fname, min_args, max_args)          \
-    BOOST_PYTHON_GEN_FUNCTION_STUB(                                                         \
-        fname,                                                                              \
-        generator_name,                                                                     \
-        max_args,                                                                           \
+#define BOOST_PYTHON_FUNCTION_OVERLOADS(generator_name, fname, min_args, max_args)          ¥
+    BOOST_PYTHON_GEN_FUNCTION_STUB(                                                         ¥
+        fname,                                                                              ¥
+        generator_name,                                                                     ¥
+        max_args,                                                                           ¥
         BOOST_PP_SUB_D(1, max_args, min_args))
 
-#define BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(generator_name, fname, min_args, max_args)   \
-    BOOST_PYTHON_GEN_MEM_FUNCTION_STUB(                                                     \
-        fname,                                                                              \
-        generator_name,                                                                     \
-        max_args,                                                                           \
+#define BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(generator_name, fname, min_args, max_args)   ¥
+    BOOST_PYTHON_GEN_MEM_FUNCTION_STUB(                                                     ¥
+        fname,                                                                              ¥
+        generator_name,                                                                     ¥
+        max_args,                                                                           ¥
         BOOST_PP_SUB_D(1, max_args, min_args))
 
 // deprecated macro names (to be removed)

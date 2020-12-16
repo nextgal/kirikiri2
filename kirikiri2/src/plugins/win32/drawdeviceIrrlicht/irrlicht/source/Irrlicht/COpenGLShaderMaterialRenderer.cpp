@@ -52,7 +52,7 @@ COpenGLShaderMaterialRenderer::COpenGLShaderMaterialRenderer(COpenGLDriver* driv
 
 
 //! Destructor
-COpenGLShaderMaterialRenderer::~COpenGLShaderMaterialRenderer()
+COpenGLShaderMaterialRenderer::‾COpenGLShaderMaterialRenderer()
 {
 	if (CallBack)
 		CallBack->drop();
@@ -178,7 +178,7 @@ bool COpenGLShaderMaterialRenderer::createPixelShader(const c8* pxsh)
 		const char* errString = reinterpret_cast<const char*>(glGetString(GL_PROGRAM_ERROR_STRING_ARB));
 
 		char tmp[2048];
-		sprintf(tmp, "Pixel shader compilation failed at position %d:\n%s", errPos, errString);
+		sprintf(tmp, "Pixel shader compilation failed at position %d:¥n%s", errPos, errString);
 		os::Printer::log(tmp);
 
 		return false;
@@ -216,7 +216,7 @@ bool COpenGLShaderMaterialRenderer::createVertexShader(const char* vtxsh)
 		const char* errString = reinterpret_cast<const char*>(glGetString(GL_PROGRAM_ERROR_STRING_ARB));
 
 		char tmp[2048];
-		sprintf(tmp, "Vertex shader compilation failed at position %d:\n%s", errPos, errString);
+		sprintf(tmp, "Vertex shader compilation failed at position %d:¥n%s", errPos, errString);
 		os::Printer::log(tmp);
 
 		return false;

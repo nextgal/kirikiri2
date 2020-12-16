@@ -457,7 +457,7 @@ namespace detail {
     // of scope, even in case of exceptions
     struct resetter {
         resetter(std::istream& is) : is_(is), f_(is.flags()) {}
-        ~resetter() { is_.flags(f_); }
+        ‾resetter() { is_.flags(f_); }
         std::istream& is_;
         std::istream::fmtflags f_;      // old GNU c++ lib has no ios_base
     };

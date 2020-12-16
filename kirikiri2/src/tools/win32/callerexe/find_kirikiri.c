@@ -73,14 +73,14 @@ int find_kirikiri_executable(char * buf /* at least MAX_PATH + 22 size */)
 	char file[MAX_PATH+22];
 
 	/* retrieve file path and make file mask */
-	filemask[0] = '\0';
+	filemask[0] = '¥0';
 	GetModuleFileName(GetModuleHandle(NULL), filemask, MAX_PATH);
 	cp = filemask;
 	pathlast = -1;
 	while(1)
 	{
 		if(*cp == 0) break;
-		if(*cp == ':' || *cp == '\\' || *cp == '/')
+		if(*cp == ':' || *cp == '¥¥' || *cp == '/')
 			pathlast = cp - filemask;
 		cp = CharNext(cp);
 	}
@@ -89,7 +89,7 @@ int find_kirikiri_executable(char * buf /* at least MAX_PATH + 22 size */)
 
 	/* find the file */
 	found = 0;
-	file[0] = '\"';
+	file[0] = '¥"';
 	zeromemory(&fd, sizeof(fd));
 	findhandle = FindFirstFile(filemask, &fd);
 
@@ -97,7 +97,7 @@ int find_kirikiri_executable(char * buf /* at least MAX_PATH + 22 size */)
 
 	do
 	{
-		me_strcpy(file + 1, filemask); /* file[0] is '\"' */
+		me_strcpy(file + 1, filemask); /* file[0] is '¥"' */
 		me_strcpy(file + pathlast + 1, fd.cFileName);
 		if(check_is_tvp(file + 1))
 		{
@@ -111,7 +111,7 @@ int find_kirikiri_executable(char * buf /* at least MAX_PATH + 22 size */)
 	if(found)
 	{
 		me_strcpy(buf, file);
-		me_strcpy(buf + me_strlen(file), "\"");
+		me_strcpy(buf + me_strlen(file), "¥"");
 
 		return 1;
 	}

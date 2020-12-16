@@ -1,15 +1,15 @@
 /**
- * ‹[—ƒR[ƒh‚É‚æ‚éƒ}ƒjƒ…ƒAƒ‹
+ * æ“¬ä¼¼ã‚³ãƒ¼ãƒ‰ã«ã‚ˆã‚‹ãƒãƒ‹ãƒ¥ã‚¢ãƒ«
  */
 class Layer
 {
 	/**
-	 * ƒŒƒCƒ„[‚ÌƒTƒCƒY‚ğ’²®‚µ‚ÄAw’è‚Ì’l(•¶š—ñ–”‚Í®”’l)‚É€‚¶‚½QRƒR[ƒh‚ğ‘‚«‚İ‚Ü‚·
-	 * @param value QRƒR[ƒh‚É‚·‚é’l(•¶š—ñ–”‚Í®”’l)
-	 * @param ecLevel Œë‚è’ù³ƒŒƒxƒ‹(default:0/0(Å¬)`3(Å‘å))
-	 * @param qrVersion —e—ÊƒTƒCƒYƒOƒ‹[ƒv(default:0/0`2)
-	 * @param autoExtent ©“®Šg’£‚Ì—L–³(default:true(’l‚É‘Î‚µ‚ÄƒTƒCƒY‚ª¬‚³‚¢‚Æ‚«‚Í“KØ‚ÈƒTƒCƒY‚É©“®Šg’£))
-	 * @param maskPattern ƒ}ƒXƒLƒ“ƒOƒpƒ^[ƒ“(default:-1(©“®‘I‘ğ))
+	 * ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ã‚µã‚¤ã‚ºã‚’èª¿æ•´ã—ã¦ã€æŒ‡å®šã®å€¤(æ–‡å­—åˆ—åˆã¯æ•´æ•°å€¤)ã«æº–ã˜ãŸQRã‚³ãƒ¼ãƒ‰ã‚’æ›¸ãè¾¼ã¿ã¾ã™
+	 * @param value QRã‚³ãƒ¼ãƒ‰ã«ã™ã‚‹å€¤(æ–‡å­—åˆ—åˆã¯æ•´æ•°å€¤)
+	 * @param ecLevel èª¤ã‚Šè¨‚æ­£ãƒ¬ãƒ™ãƒ«(default:0/0(æœ€å°)ã€œ3(æœ€å¤§))
+	 * @param qrVersion å®¹é‡ã‚µã‚¤ã‚ºã‚°ãƒ«ãƒ¼ãƒ—(default:0/0ã€œ2)
+	 * @param autoExtent è‡ªå‹•æ‹¡å¼µã®æœ‰ç„¡(default:true(å€¤ã«å¯¾ã—ã¦ã‚µã‚¤ã‚ºãŒå°ã•ã„ã¨ãã¯é©åˆ‡ãªã‚µã‚¤ã‚ºã«è‡ªå‹•æ‹¡å¼µ))
+	 * @param maskPattern ãƒã‚¹ã‚­ãƒ³ã‚°ãƒ‘ã‚¿ãƒ¼ãƒ³(default:-1(è‡ªå‹•é¸æŠ))
 	 */
 	function drawQRCode(value, ecLevel=0, qrVersion=0, autoExtent=true, maskPattern=-1);
 }

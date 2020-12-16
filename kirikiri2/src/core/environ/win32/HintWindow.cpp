@@ -106,7 +106,7 @@ void __fastcall TTVPHintWindow::Init(void)
 	BackBMP=new Graphics::TBitmap();
 }
 //---------------------------------------------------------------------------
-__fastcall TTVPHintWindow::~TTVPHintWindow()
+__fastcall TTVPHintWindow::‾TTVPHintWindow()
 {
 	TVPMostRecentHintWindow = NULL;
 	delete BackBMP;
@@ -119,7 +119,7 @@ void __fastcall TTVPHintWindow::ActivateHint(const TRect &ARect,const AnsiString
 		0, SWP_HIDEWINDOW | SWP_NOACTIVATE | SWP_NOSIZE | SWP_NOMOVE | SWP_NOZORDER);
 
 	// change the window style
-	SetWindowLong(Handle,GWL_STYLE,GetWindowLong(Handle,GWL_STYLE) & ~WS_BORDER);
+	SetWindowLong(Handle,GWL_STYLE,GetWindowLong(Handle,GWL_STYLE) & ‾WS_BORDER);
 
 	// adjust position
 	TRect Rect=ARect;

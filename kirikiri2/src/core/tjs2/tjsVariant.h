@@ -59,7 +59,7 @@ public:
 		tjs_uint len2));
 	TJS_METHOD_DEF(TJS_METHOD_RET_EMPTY, tTJSVariantOctet,
 		(const tTJSVariantOctet *o1, const tTJSVariantOctet *o2));
-	TJS_METHOD_DEF(TJS_METHOD_RET_EMPTY, ~tTJSVariantOctet, ());
+	TJS_METHOD_DEF(TJS_METHOD_RET_EMPTY, ‾tTJSVariantOctet, ());
 
 	TJS_METHOD_DEF(void, AddRef, ())
 	{
@@ -140,9 +140,9 @@ struct tTJSVariant_S
 {
 	//---- data members -----------------------------------------------------
 
-	#define tTJSVariant_BITCOPY(a,b) \
-	{\
-		*(tTJSVariant_S*)&(a) = *(tTJSVariant_S*)&(b); \
+	#define tTJSVariant_BITCOPY(a,b) ¥
+	{¥
+		*(tTJSVariant_S*)&(a) = *(tTJSVariant_S*)&(b); ¥
 	}
 
 	union
@@ -642,7 +642,7 @@ public:
 
 	//---- destructor -------------------------------------------------------
 
-	TJS_METHOD_DEF(TJS_METHOD_RET_EMPTY, ~tTJSVariant, ());
+	TJS_METHOD_DEF(TJS_METHOD_RET_EMPTY, ‾tTJSVariant, ());
 
 	//---- type -------------------------------------------------------------
 
@@ -1108,9 +1108,9 @@ public:
 
 	TJS_METHOD_DEF(void, bitnot, ());
 
-	TJS_CONST_METHOD_DEF(tTJSVariant, operator ~, ())
+	TJS_CONST_METHOD_DEF(tTJSVariant, operator ‾, ())
 	{
-		return (tjs_int64)~AsInteger();
+		return (tjs_int64)‾AsInteger();
 	}
 
 	TJS_CONST_METHOD_DEF(tTJSVariant, operator -, (const tTJSVariant & rhs))

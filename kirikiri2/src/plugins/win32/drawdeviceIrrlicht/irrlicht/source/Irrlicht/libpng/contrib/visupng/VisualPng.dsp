@@ -43,9 +43,9 @@ RSC=rc.exe
 # PROP Intermediate_Dir "Release"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
-# ADD BASE CPP /nologo /W3 /O2 /I "..\.." /I "..\..\..\zlib" /D "WIN32" /D "NDEBUG" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /c
+# ADD BASE CPP /nologo /W3 /O2 /I "..¥.." /I "..¥..¥..¥zlib" /D "WIN32" /D "NDEBUG" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /c
 # SUBTRACT BASE CPP /YX
-# ADD CPP /nologo /MD /W3 /O2 /I "..\.." /I "..\..\..\zlib" /D "WIN32" /D "NDEBUG" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /c
+# ADD CPP /nologo /MD /W3 /O2 /I "..¥.." /I "..¥..¥..¥zlib" /D "WIN32" /D "NDEBUG" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /c
 # SUBTRACT CPP /YX
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
@@ -56,11 +56,11 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
-# ADD LINK32 ..\..\projects\visualc6\Win32_LIB_Release\libpng.lib ..\..\..\zlib\projects\visualc6\Win32_LIB_Release\zlib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
+# ADD LINK32 ..¥..¥projects¥visualc6¥Win32_LIB_Release¥libpng.lib ..¥..¥..¥zlib¥projects¥visualc6¥Win32_LIB_Release¥zlib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
 # Begin Special Build Tool
-OutDir=.\Release
+OutDir=.¥Release
 SOURCE="$(InputPath)"
-PostBuild_Cmds=$(outdir)\VisualPng.exe ..\..\contrib\pngsuite\basn6a16.png
+PostBuild_Cmds=$(outdir)¥VisualPng.exe ..¥..¥contrib¥pngsuite¥basn6a16.png
 # End Special Build Tool
 
 !ELSEIF  "$(CFG)" == "VisualPng - Win32 Debug"
@@ -77,9 +77,9 @@ PostBuild_Cmds=$(outdir)\VisualPng.exe ..\..\contrib\pngsuite\basn6a16.png
 # PROP Intermediate_Dir "Debug"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
-# ADD BASE CPP /nologo /W3 /Gm /ZI /Od /I "..\.." /I "..\..\..\zlib" /D "WIN32" /D "_DEBUG" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /GZ /c
+# ADD BASE CPP /nologo /W3 /Gm /ZI /Od /I "..¥.." /I "..¥..¥..¥zlib" /D "WIN32" /D "_DEBUG" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /GZ /c
 # SUBTRACT BASE CPP /YX
-# ADD CPP /nologo /MDd /W3 /Gm /ZI /Od /I "..\.." /I "..\..\..\zlib" /D "WIN32" /D "_DEBUG" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /ZI /Od /I "..¥.." /I "..¥..¥..¥zlib" /D "WIN32" /D "_DEBUG" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /GZ /c
 # SUBTRACT CPP /YX
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
@@ -90,11 +90,11 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 ..\..\projects\visualc6\Win32_LIB_Release\libpng.lib ..\..\..\zlib\projects\visualc6\Win32_LIB_Release\zlib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"msvcrt.lib" /pdbtype:sept
+# ADD LINK32 ..¥..¥projects¥visualc6¥Win32_LIB_Release¥libpng.lib ..¥..¥..¥zlib¥projects¥visualc6¥Win32_LIB_Release¥zlib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"msvcrt.lib" /pdbtype:sept
 # Begin Special Build Tool
-OutDir=.\Debug
+OutDir=.¥Debug
 SOURCE="$(InputPath)"
-PostBuild_Cmds=$(outdir)\VisualPng.exe ..\..\contrib\pngsuite\basn6a16.png
+PostBuild_Cmds=$(outdir)¥VisualPng.exe ..¥..¥contrib¥pngsuite¥basn6a16.png
 # End Special Build Tool
 
 !ENDIF 
@@ -108,11 +108,11 @@ PostBuild_Cmds=$(outdir)\VisualPng.exe ..\..\contrib\pngsuite\basn6a16.png
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=.\PngFile.c
+SOURCE=.¥PngFile.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\VisualPng.c
+SOURCE=.¥VisualPng.c
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -120,15 +120,15 @@ SOURCE=.\VisualPng.c
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=.\cexcept.h
+SOURCE=.¥cexcept.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\PngFile.h
+SOURCE=.¥PngFile.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\resource.h
+SOURCE=.¥resource.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"
@@ -136,11 +136,11 @@ SOURCE=.\resource.h
 # PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
 # Begin Source File
 
-SOURCE=.\VisualPng.ico
+SOURCE=.¥VisualPng.ico
 # End Source File
 # Begin Source File
 
-SOURCE=.\VisualPng.rc
+SOURCE=.¥VisualPng.rc
 # End Source File
 # End Group
 # End Target

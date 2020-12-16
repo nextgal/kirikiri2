@@ -23,7 +23,7 @@ CMemoryReadFile::CMemoryReadFile(void* memory, long len, const c8* fileName, boo
 
 
 
-CMemoryReadFile::~CMemoryReadFile()
+CMemoryReadFile::‾CMemoryReadFile()
 {
 	if (deleteMemoryWhenDropped)
 		delete [] (c8*)Buffer;

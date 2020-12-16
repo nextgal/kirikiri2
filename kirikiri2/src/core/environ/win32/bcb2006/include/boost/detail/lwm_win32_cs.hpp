@@ -65,7 +65,7 @@ public:
         InitializeCriticalSection(&cs_);
     }
 
-    ~lightweight_mutex()
+    ‾lightweight_mutex()
     {
         DeleteCriticalSection(&cs_);
     }
@@ -89,7 +89,7 @@ public:
             EnterCriticalSection(&m_.cs_);
         }
 
-        ~scoped_lock()
+        ‾scoped_lock()
         {
             LeaveCriticalSection(&m_.cs_);
         }

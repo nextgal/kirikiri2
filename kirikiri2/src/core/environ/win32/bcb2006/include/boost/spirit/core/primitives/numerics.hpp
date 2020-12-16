@@ -23,10 +23,10 @@
 //  the real parser is used inside a grammar. This workaround solves the
 //  problem
 #if defined(BOOST_MSVC) && (BOOST_MSVC <= 1200)
-#define BOOST_SPIRIT_NUMP_RESULT(parser_t, scanner_t, T) \
+#define BOOST_SPIRIT_NUMP_RESULT(parser_t, scanner_t, T) ¥
     typename match_result<scanner_t, T>::type
 #else
-#define BOOST_SPIRIT_NUMP_RESULT(parser_t, scanner_t, T) \
+#define BOOST_SPIRIT_NUMP_RESULT(parser_t, scanner_t, T) ¥
     typename parser_result<parser_t, scanner_t>::type
 #endif
 

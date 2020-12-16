@@ -41,7 +41,7 @@ public:
 	}
 
 	//! destructor
-	virtual ~CFileReadCallBack()
+	virtual ‾CFileReadCallBack()
 	{
 		if (Close && File) {
 			File->Release();

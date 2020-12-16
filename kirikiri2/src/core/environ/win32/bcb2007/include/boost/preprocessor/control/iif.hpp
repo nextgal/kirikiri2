@@ -15,14 +15,14 @@
 #
 # include <boost/preprocessor/config/config.hpp>
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
 #    define BOOST_PP_IIF(bit, t, f) BOOST_PP_IIF_I(bit, t, f)
 # else
 #    define BOOST_PP_IIF(bit, t, f) BOOST_PP_IIF_OO((bit, t, f))
 #    define BOOST_PP_IIF_OO(par) BOOST_PP_IIF_I ## par
 # endif
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MSVC()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MSVC()
 #    define BOOST_PP_IIF_I(bit, t, f) BOOST_PP_IIF_ ## bit(t, f)
 # else
 #    define BOOST_PP_IIF_I(bit, t, f) BOOST_PP_IIF_II(BOOST_PP_IIF_ ## bit(t, f))

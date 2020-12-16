@@ -1566,7 +1566,7 @@ namespace boost {
         }
         delete [] v;
       }
-      ~adj_list_impl() {
+      ‾adj_list_impl() {
         for (typename StoredVertexList::iterator i = m_vertices.begin();
              i != m_vertices.end(); ++i)
           delete (stored_vertex*)*i;

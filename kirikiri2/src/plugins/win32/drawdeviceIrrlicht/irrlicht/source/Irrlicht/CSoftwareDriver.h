@@ -22,7 +22,7 @@ namespace video
 		CSoftwareDriver(const core::dimension2d<s32>& windowSize, bool fullscreen, io::IFileSystem* io, video::IImagePresenter* presenter);
 
 		//! destructor
-		virtual ~CSoftwareDriver();
+		virtual ‾CSoftwareDriver();
 
 		//! presents the rendered scene on the screen, returns false if failed
 		virtual bool endScene( s32 windowId = 0, core::rect<s32>* sourceRect=0, core::rect<s32>* destRect=0, void* destDC=0 );
@@ -80,7 +80,7 @@ namespace video
 								const core::position2d<s32>& end,
 								SColor color=SColor(255,255,255,255));
 
-		//! \return Returns the name of the video driver. Example: In case of the Direct3D8
+		//! ¥return Returns the name of the video driver. Example: In case of the Direct3D8
 		//! driver, it would return "Direct3D8.1".
 		virtual const wchar_t* getName() const;
 

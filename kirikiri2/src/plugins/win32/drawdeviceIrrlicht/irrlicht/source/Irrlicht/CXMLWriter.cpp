@@ -24,7 +24,7 @@ CXMLWriter::CXMLWriter(IWriteFile* file)
 
 
 //! Destructor
-CXMLWriter::~CXMLWriter()
+CXMLWriter::‾CXMLWriter()
 {
 	if (File)
 		File->drop();
@@ -49,7 +49,7 @@ void CXMLWriter::writeXMLHeader()
 		File->write(&h, sizeof(wchar_t));
 	}
 
-	const wchar_t* const p = L"<?xml version=\"1.0\"?>";
+	const wchar_t* const p = L"<?xml version=¥"1.0¥"?>";
 	File->write(p, wcslen(p)*sizeof(wchar_t));
 
 	writeLineBreak();
@@ -72,7 +72,7 @@ void CXMLWriter::writeElement(const wchar_t* name, bool empty,
 	if (Tabs > 0)
 	{
 		for (int i=0; i<Tabs; ++i)
-			File->write(L"\t", sizeof(wchar_t));
+			File->write(L"¥t", sizeof(wchar_t));
 	}
 	
 	// write name
@@ -111,7 +111,7 @@ void CXMLWriter::writeElement(const wchar_t* name, bool empty,
 	if (Tabs > 0)
 	{
 		for (int i=0; i<Tabs; ++i)
-			File->write(L"\t", sizeof(wchar_t));
+			File->write(L"¥t", sizeof(wchar_t));
 	}
 	
 	// write name
@@ -144,9 +144,9 @@ void CXMLWriter::writeAttribute(const wchar_t* name, const wchar_t* value)
 
 	File->write(L" ", sizeof(wchar_t));
 	File->write(name, wcslen(name)*sizeof(wchar_t));
-	File->write(L"=\"", 2*sizeof(wchar_t));
+	File->write(L"=¥"", 2*sizeof(wchar_t));
 	writeText(value);
-	File->write(L"\"", sizeof(wchar_t));
+	File->write(L"¥"", sizeof(wchar_t));
 }
 
 
@@ -173,7 +173,7 @@ void CXMLWriter::writeClosingTag(const wchar_t* name)
 	if (Tabs > 0 && !TextWrittenLast)
 	{
 		for (int i=0; i<Tabs; ++i)
-			File->write(L"\t", sizeof(wchar_t));
+			File->write(L"¥t", sizeof(wchar_t));
 	}
 
 	File->write(L"</", 2*sizeof(wchar_t));
@@ -190,7 +190,7 @@ const CXMLWriter::XMLSpecialCharacters XMLWSChar[] =
 	{ L'<', L"&lt;" },
 	{ L'>', L"&gt;" },
 	{ L'"', L"&quot;" },
-	{ L'\0', 0 }
+	{ L'¥0', 0 }
 };
 
 
@@ -208,7 +208,7 @@ void CXMLWriter::writeText(const wchar_t* text)
 	{
 		// check if it is matching
 		bool found = false;
-		for (s32 i=0; XMLWSChar[i].Character != '\0'; ++i)
+		for (s32 i=0; XMLWSChar[i].Character != '¥0'; ++i)
 			if (*p == XMLWSChar[i].Character)
 			{
 				s.append(XMLWSChar[i].Symbol);
@@ -234,11 +234,11 @@ void CXMLWriter::writeLineBreak()
 		return;
 
 #if defined(_IRR_OSX_PLATFORM_)
-	File->write(L"\r", sizeof(wchar_t));
+	File->write(L"¥r", sizeof(wchar_t));
 #elif defined(_IRR_WINDOWS_API_)
-	File->write(L"\r\n", 2*sizeof(wchar_t));
+	File->write(L"¥r¥n", 2*sizeof(wchar_t));
 #else
-	File->write(L"\n", sizeof(wchar_t));
+	File->write(L"¥n", sizeof(wchar_t));
 #endif
 
 }

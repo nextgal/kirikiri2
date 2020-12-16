@@ -206,7 +206,7 @@ public: // new and delete
 public: // constructors and destructor
 	tTVPRegionRect() {;};
 	tTVPRegionRect(const tTVPRect &r) : tTVPRect(r) {;};
-	~tTVPRegionRect() {;};
+	‾tTVPRegionRect() {;};
 
 public: // link operations
 	void LinkAfter(tTVPRegionRect * r)
@@ -293,7 +293,7 @@ private: // data members
 public: // constructors and destructors
 	tTVPComplexRect();
 	tTVPComplexRect(const tTVPComplexRect & ref);
-	~tTVPComplexRect();
+	‾tTVPComplexRect();
 
 public: // storage management
 	void Clear();

@@ -34,23 +34,23 @@ namespace scene
 	public:
 
 		//! Gets joint count.
-		//! \return Returns amount of joints in the skeletal animated mesh.
+		//! ¥return Returns amount of joints in the skeletal animated mesh.
 		virtual u32 getJointCount() const = 0;
 
 		//! Gets the name of a joint.
-		//! \param number: Zero based index of joint. The last joint
+		//! ¥param number: Zero based index of joint. The last joint
 		//! has the number getJointCount()-1;
-		//! \return Returns name of joint and null if an error happened.
+		//! ¥return Returns name of joint and null if an error happened.
 		virtual const c8* getJointName(u32 number) const = 0;
 
 		//! Gets a joint number from its name
-		//! \param name: Name of the joint.
-		//! \return Returns the number of the joint or -1 if not found.
+		//! ¥param name: Name of the joint.
+		//! ¥return Returns the number of the joint or -1 if not found.
 		virtual s32 getJointNumber(const c8* name) const = 0;
 
 		//! uses animation from another mesh
 		//! the animation is linked (not copied) based on joint names (so make sure they are unique)
-		//! \return Returns true if all joints in this mesh were
+		//! ¥return Returns true if all joints in this mesh were
 		//! matched up (empty names will not be matched, and it's case
 		//! sensitive). Unmatched joints will not be animated.
 		virtual bool useAnimationFrom(const ISkinnedMesh *mesh) = 0;

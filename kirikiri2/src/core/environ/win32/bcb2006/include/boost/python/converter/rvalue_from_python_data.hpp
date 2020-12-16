@@ -86,15 +86,15 @@ struct rvalue_from_python_storage
 // Augments rvalue_from_python_storage<T> with a destructor. If
 // stage1.convertible == storage.bytes, it indicates that an object of
 // remove_reference<T>::type has been constructed in storage and
-// should will be destroyed in ~rvalue_from_python_data(). It is
+// should will be destroyed in ‾rvalue_from_python_data(). It is
 // crucial that successful rvalue conversions establish this equality
 // and that unsuccessful ones do not.
 template <class T>
 struct rvalue_from_python_data : rvalue_from_python_storage<T>
 {
-# if (!defined(__MWERKS__) || __MWERKS__ >= 0x3000) \
-        && (!defined(__EDG_VERSION__) || __EDG_VERSION__ >= 245) \
-        && (!defined(__DECCXX_VER) || __DECCXX_VER > 60590014) \
+# if (!defined(__MWERKS__) || __MWERKS__ >= 0x3000) ¥
+        && (!defined(__EDG_VERSION__) || __EDG_VERSION__ >= 245) ¥
+        && (!defined(__DECCXX_VER) || __DECCXX_VER > 60590014) ¥
         && !defined(BOOST_PYTHON_SYNOPSIS) /* Synopsis' OpenCXX has trouble parsing this */
     // This must always be a POD struct with m_data its first member.
     BOOST_STATIC_ASSERT(BOOST_PYTHON_OFFSETOF(rvalue_from_python_storage<T>,stage1) == 0);
@@ -109,7 +109,7 @@ struct rvalue_from_python_data : rvalue_from_python_storage<T>
     rvalue_from_python_data(void* convertible);
 
     // Destroys any object constructed in the storage.
-    ~rvalue_from_python_data();
+    ‾rvalue_from_python_data();
  private:
     typedef typename add_reference<typename add_cv<T>::type>::type ref_type;
 };
@@ -130,7 +130,7 @@ inline rvalue_from_python_data<T>::rvalue_from_python_data(void* convertible)
 }
 
 template <class T>
-inline rvalue_from_python_data<T>::~rvalue_from_python_data()
+inline rvalue_from_python_data<T>::‾rvalue_from_python_data()
 {
     if (this->stage1.convertible == this->storage.bytes)
         python::detail::destroy_referent<ref_type>(this->storage.bytes);

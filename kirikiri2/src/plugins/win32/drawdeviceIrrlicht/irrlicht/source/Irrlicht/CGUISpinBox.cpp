@@ -74,7 +74,7 @@ CGUISpinBox::CGUISpinBox(const wchar_t* text, IGUIEnvironment* environment,
 
 
 //! destructor
-CGUISpinBox::~CGUISpinBox()
+CGUISpinBox::‾CGUISpinBox()
 {
 	if (ButtonSpinUp)
 		ButtonSpinUp->drop();

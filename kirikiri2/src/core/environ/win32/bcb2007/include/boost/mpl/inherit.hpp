@@ -161,7 +161,7 @@ struct inherit2
 
 BOOST_MPL_AUX_VOID_SPEC(2, inherit2)
 
-#define BOOST_PP_ITERATION_PARAMS_1 \
+#define BOOST_PP_ITERATION_PARAMS_1 ¥
     (3,(3, BOOST_MPL_METAFUNCTION_MAX_ARITY, "boost/mpl/inherit.hpp"))
 #include BOOST_PP_ITERATE()
 

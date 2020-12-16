@@ -55,8 +55,8 @@ static void readpng2_error_handler(png_structp png_ptr, png_const_charp msg);
 
 void readpng2_version_info(void)
 {
-#if defined(PNG_ASSEMBLER_CODE_SUPPORTED) && \
-    (defined(__i386__) || defined(_M_IX86)) && \
+#if defined(PNG_ASSEMBLER_CODE_SUPPORTED) && ¥
+    (defined(__i386__) || defined(_M_IX86)) && ¥
     defined(PNG_LIBPNG_VER) && (PNG_LIBPNG_VER >= 10200)
     /*
      * WARNING:  This preprocessor approach means that the following code
@@ -69,23 +69,23 @@ void readpng2_version_info(void)
         int mmxsupport = png_mmx_support();
         if (mmxsupport < 0)
             fprintf(stderr, "   Compiled with libpng %s; using libpng %s "
-              "without MMX support.\n", PNG_LIBPNG_VER_STRING, png_libpng_ver);
+              "without MMX support.¥n", PNG_LIBPNG_VER_STRING, png_libpng_ver);
         else {
             int compilerID;
             png_uint_32 mmx_mask = png_get_mmx_flagmask(
               PNG_SELECT_READ | PNG_SELECT_WRITE, &compilerID);
 
             fprintf(stderr, "   Compiled with libpng %s; using libpng %s "
-              "with MMX support\n   (%s version).", PNG_LIBPNG_VER_STRING,
+              "with MMX support¥n   (%s version).", PNG_LIBPNG_VER_STRING,
               png_libpng_ver, compilerID == 1? "MSVC++" :
               (compilerID == 2? "GNU C" : "unknown"));
-            fprintf(stderr, "  Processor %s MMX instructions.\n",
+            fprintf(stderr, "  Processor %s MMX instructions.¥n",
               mmxsupport? "supports" : "does not support");
             if (mmxsupport > 0) {
                 int num_optims = 0;
 
                 fprintf(stderr,
-                  "      Potential MMX optimizations supported by libpng:\n");
+                  "      Potential MMX optimizations supported by libpng:¥n");
                 if (mmx_mask & PNG_ASM_FLAG_MMX_READ_FILTER_SUB)
                     ++num_optims;
                 if (mmx_mask & PNG_ASM_FLAG_MMX_READ_FILTER_UP)
@@ -96,38 +96,38 @@ void readpng2_version_info(void)
                     ++num_optims;
                 if (num_optims)
                     fprintf(stderr,
-                      "         decoding %s row filters (reading)\n",
+                      "         decoding %s row filters (reading)¥n",
                       (num_optims == 4)? "all non-trivial" : "some");
                 if (mmx_mask & PNG_ASM_FLAG_MMX_READ_COMBINE_ROW) {
-                    fprintf(stderr, "         combining rows (reading)\n");
+                    fprintf(stderr, "         combining rows (reading)¥n");
                     ++num_optims;
                 }
                 if (mmx_mask & PNG_ASM_FLAG_MMX_READ_INTERLACE) {
                     fprintf(stderr,
-                      "         expanding interlacing (reading)\n");
+                      "         expanding interlacing (reading)¥n");
                     ++num_optims;
                 }
-                mmx_mask &= ~( PNG_ASM_FLAG_MMX_READ_COMBINE_ROW  \
-                             | PNG_ASM_FLAG_MMX_READ_INTERLACE    \
-                             | PNG_ASM_FLAG_MMX_READ_FILTER_SUB   \
-                             | PNG_ASM_FLAG_MMX_READ_FILTER_UP    \
-                             | PNG_ASM_FLAG_MMX_READ_FILTER_AVG   \
+                mmx_mask &= ‾( PNG_ASM_FLAG_MMX_READ_COMBINE_ROW  ¥
+                             | PNG_ASM_FLAG_MMX_READ_INTERLACE    ¥
+                             | PNG_ASM_FLAG_MMX_READ_FILTER_SUB   ¥
+                             | PNG_ASM_FLAG_MMX_READ_FILTER_UP    ¥
+                             | PNG_ASM_FLAG_MMX_READ_FILTER_AVG   ¥
                              | PNG_ASM_FLAG_MMX_READ_FILTER_PAETH );
                 if (mmx_mask) {
-                    fprintf(stderr, "         other (unknown)\n");
+                    fprintf(stderr, "         other (unknown)¥n");
                     ++num_optims;
                 }
                 if (num_optims == 0)
-                    fprintf(stderr, "         (none)\n");
+                    fprintf(stderr, "         (none)¥n");
             }
         }
     }
 #else
     fprintf(stderr, "   Compiled with libpng %s; using libpng %s "
-      "without MMX support.\n", PNG_LIBPNG_VER_STRING, png_libpng_ver);
+      "without MMX support.¥n", PNG_LIBPNG_VER_STRING, png_libpng_ver);
 #endif
 
-    fprintf(stderr, "   Compiled with zlib %s; using zlib %s.\n",
+    fprintf(stderr, "   Compiled with zlib %s; using zlib %s.¥n",
       ZLIB_VERSION, zlib_version);
 }
 
@@ -194,19 +194,19 @@ int readpng2_init(mainprog_info *mainprog_ptr)
         * to this list.  If a future version of readpng2.c recognizes
         * more chunks, delete them from this list. */
        png_byte png_chunk_types_to_ignore[]=
-          { 99,  72,  82,  77, '\0', /* cHRM */
-           104,  73,  83,  84, '\0', /* hIST */
-           105,  67,  67,  80, '\0', /* iCCP */
-           105,  84,  88, 116, '\0', /* iTXt */
-           111,  70,  70, 115, '\0', /* oFFs */
-           112,  67,  65,  76, '\0', /* pCAL */
-           115,  67,  65,  76, '\0', /* sCAL */
-           112,  72,  89, 115, '\0', /* pHYs */
-           115,  66,  73,  84, '\0', /* sBIT */
-           115,  80,  76,  84, '\0', /* sPLT */
-           116,  69,  88, 116, '\0', /* tEXt */
-           116,  73,  77,  69, '\0', /* tIME */
-           122,  84,  88, 116, '\0'}; /* zTXt */
+          { 99,  72,  82,  77, '¥0', /* cHRM */
+           104,  73,  83,  84, '¥0', /* hIST */
+           105,  67,  67,  80, '¥0', /* iCCP */
+           105,  84,  88, 116, '¥0', /* iTXt */
+           111,  70,  70, 115, '¥0', /* oFFs */
+           112,  67,  65,  76, '¥0', /* pCAL */
+           115,  67,  65,  76, '¥0', /* sCAL */
+           112,  72,  89, 115, '¥0', /* pHYs */
+           115,  66,  73,  84, '¥0', /* sBIT */
+           115,  80,  76,  84, '¥0', /* sPLT */
+           116,  69,  88, 116, '¥0', /* tEXt */
+           116,  73,  77,  69, '¥0', /* tIME */
+           122,  84,  88, 116, '¥0'}; /* zTXt */
 #define NUM_PNG_CHUNK_TYPES_TO_IGNORE 13
 
     png_set_keep_unknown_chunks(png_ptr, HANDLE_CHUNK_NEVER,
@@ -233,11 +233,11 @@ int readpng2_init(mainprog_info *mainprog_ptr)
      * to disable all:  mask = png_get_mmx_flagmask (
      *                   PNG_SELECT_READ | PNG_SELECT_WRITE, &compilerID);
      *                  flags = png_get_asm_flags (png_ptr);
-     *                  flags &= ~mask;
+     *                  flags &= ‾mask;
      *                  png_set_asm_flags (png_ptr, flags);
      */
 
-#if (defined(__i386__) || defined(_M_IX86)) && \
+#if (defined(__i386__) || defined(_M_IX86)) && ¥
     defined(PNG_LIBPNG_VER) && (PNG_LIBPNG_VER >= 10200)
     /*
      * WARNING:  This preprocessor approach means that the following code
@@ -253,16 +253,16 @@ int readpng2_init(mainprog_info *mainprog_ptr)
         int compilerID;
 
         if (mainprog_ptr->nommxfilters)
-            mmx_disable_mask |= ( PNG_ASM_FLAG_MMX_READ_FILTER_SUB   \
-                                | PNG_ASM_FLAG_MMX_READ_FILTER_UP    \
-                                | PNG_ASM_FLAG_MMX_READ_FILTER_AVG   \
+            mmx_disable_mask |= ( PNG_ASM_FLAG_MMX_READ_FILTER_SUB   ¥
+                                | PNG_ASM_FLAG_MMX_READ_FILTER_UP    ¥
+                                | PNG_ASM_FLAG_MMX_READ_FILTER_AVG   ¥
                                 | PNG_ASM_FLAG_MMX_READ_FILTER_PAETH );
         if (mainprog_ptr->nommxcombine)
             mmx_disable_mask |= PNG_ASM_FLAG_MMX_READ_COMBINE_ROW;
         if (mainprog_ptr->nommxinterlace)
             mmx_disable_mask |= PNG_ASM_FLAG_MMX_READ_INTERLACE;
         asm_flags = png_get_asm_flags(png_ptr);
-        png_set_asm_flags(png_ptr, asm_flags & ~mmx_disable_mask);
+        png_set_asm_flags(png_ptr, asm_flags & ‾mmx_disable_mask);
 
 
         /* Now query libpng's asm settings, just for yuks.  Note that this
@@ -274,38 +274,38 @@ int readpng2_init(mainprog_info *mainprog_ptr)
           &compilerID);
         if (asm_flags & PNG_ASM_FLAG_MMX_SUPPORT_COMPILED)
             fprintf(stderr,
-              "  MMX support (%s version) is compiled into libpng\n",
+              "  MMX support (%s version) is compiled into libpng¥n",
               compilerID == 1? "MSVC++" :
               (compilerID == 2? "GNU C" : "unknown"));
         else
-            fprintf(stderr, "  MMX support is not compiled into libpng\n");
-        fprintf(stderr, "  MMX instructions are %ssupported by CPU\n",
+            fprintf(stderr, "  MMX support is not compiled into libpng¥n");
+        fprintf(stderr, "  MMX instructions are %ssupported by CPU¥n",
           (asm_flags & PNG_ASM_FLAG_MMX_SUPPORT_IN_CPU)? "" : "not ");
-        fprintf(stderr, "  MMX read support for combining rows is %sabled\n",
+        fprintf(stderr, "  MMX read support for combining rows is %sabled¥n",
           (asm_flags & PNG_ASM_FLAG_MMX_READ_COMBINE_ROW)? "en" : "dis");
         fprintf(stderr,
-          "  MMX read support for expanding interlacing is %sabled\n",
+          "  MMX read support for expanding interlacing is %sabled¥n",
           (asm_flags & PNG_ASM_FLAG_MMX_READ_INTERLACE)? "en" : "dis");
-        fprintf(stderr, "  MMX read support for \"sub\" filter is %sabled\n",
+        fprintf(stderr, "  MMX read support for ¥"sub¥" filter is %sabled¥n",
           (asm_flags & PNG_ASM_FLAG_MMX_READ_FILTER_SUB)? "en" : "dis");
-        fprintf(stderr, "  MMX read support for \"up\" filter is %sabled\n",
+        fprintf(stderr, "  MMX read support for ¥"up¥" filter is %sabled¥n",
           (asm_flags & PNG_ASM_FLAG_MMX_READ_FILTER_UP)? "en" : "dis");
-        fprintf(stderr, "  MMX read support for \"avg\" filter is %sabled\n",
+        fprintf(stderr, "  MMX read support for ¥"avg¥" filter is %sabled¥n",
           (asm_flags & PNG_ASM_FLAG_MMX_READ_FILTER_AVG)? "en" : "dis");
-        fprintf(stderr, "  MMX read support for \"Paeth\" filter is %sabled\n",
+        fprintf(stderr, "  MMX read support for ¥"Paeth¥" filter is %sabled¥n",
           (asm_flags & PNG_ASM_FLAG_MMX_READ_FILTER_PAETH)? "en" : "dis");
-        asm_flags &= (mmx_mask & ~( PNG_ASM_FLAG_MMX_READ_COMBINE_ROW  \
-                                  | PNG_ASM_FLAG_MMX_READ_INTERLACE    \
-                                  | PNG_ASM_FLAG_MMX_READ_FILTER_SUB   \
-                                  | PNG_ASM_FLAG_MMX_READ_FILTER_UP    \
-                                  | PNG_ASM_FLAG_MMX_READ_FILTER_AVG   \
+        asm_flags &= (mmx_mask & ‾( PNG_ASM_FLAG_MMX_READ_COMBINE_ROW  ¥
+                                  | PNG_ASM_FLAG_MMX_READ_INTERLACE    ¥
+                                  | PNG_ASM_FLAG_MMX_READ_FILTER_SUB   ¥
+                                  | PNG_ASM_FLAG_MMX_READ_FILTER_UP    ¥
+                                  | PNG_ASM_FLAG_MMX_READ_FILTER_AVG   ¥
                                   | PNG_ASM_FLAG_MMX_READ_FILTER_PAETH ));
         if (asm_flags)
             fprintf(stderr,
-              "  additional MMX support is also enabled (0x%02lx)\n",
+              "  additional MMX support is also enabled (0x%02lx)¥n",
               asm_flags);
 #else  /* !PNG_ASSEMBLER_CODE_SUPPORTED */
-        fprintf(stderr, "  MMX querying is disabled in libpng.\n");
+        fprintf(stderr, "  MMX querying is disabled in libpng.¥n");
 #endif /* ?PNG_ASSEMBLER_CODE_SUPPORTED */
     }
 #endif
@@ -378,7 +378,7 @@ static void readpng2_info_callback(png_structp png_ptr, png_infop info_ptr)
 
     if (mainprog_ptr == NULL) {         /* we be hosed */
         fprintf(stderr,
-          "readpng2 error:  main struct not recoverable in info_callback.\n");
+          "readpng2 error:  main struct not recoverable in info_callback.¥n");
         fflush(stderr);
         return;
         /*
@@ -609,13 +609,13 @@ static void readpng2_error_handler(png_structp png_ptr, png_const_charp msg)
      * regardless of whether _BSD_SOURCE or anything else has (or has not)
      * been defined. */
 
-    fprintf(stderr, "readpng2 libpng error: %s\n", msg);
+    fprintf(stderr, "readpng2 libpng error: %s¥n", msg);
     fflush(stderr);
 
     mainprog_ptr = png_get_error_ptr(png_ptr);
     if (mainprog_ptr == NULL) {         /* we are completely hosed now */
         fprintf(stderr,
-          "readpng2 severe error:  jmpbuf not recoverable; terminating.\n");
+          "readpng2 severe error:  jmpbuf not recoverable; terminating.¥n");
         fflush(stderr);
         exit(99);
     }

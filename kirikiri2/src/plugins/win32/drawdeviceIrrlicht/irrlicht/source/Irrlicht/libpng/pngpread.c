@@ -500,7 +500,7 @@ png_push_read_chunk(png_structp png_ptr, png_infop info_ptr)
       png_push_handle_unknown(png_ptr, info_ptr, png_ptr->push_length);
    }
 
-   png_ptr->mode &= ~PNG_HAVE_CHUNK_HEADER;
+   png_ptr->mode &= ‾PNG_HAVE_CHUNK_HEADER;
 }
 
 void /* PRIVATE */
@@ -742,7 +742,7 @@ png_push_read_IDAT(png_structp png_ptr)
       }
 
       png_crc_finish(png_ptr, 0);
-      png_ptr->mode &= ~PNG_HAVE_CHUNK_HEADER;
+      png_ptr->mode &= ‾PNG_HAVE_CHUNK_HEADER;
       png_ptr->mode |= PNG_AFTER_IDAT;
    }
 }
@@ -1079,7 +1079,7 @@ png_push_handle_tEXt(png_structp png_ptr, png_infop info_ptr, png_uint_32
 
    png_ptr->current_text = (png_charp)png_malloc(png_ptr,
          (png_uint_32)(length+1));
-   png_ptr->current_text[length] = '\0';
+   png_ptr->current_text[length] = '¥0';
    png_ptr->current_text_ptr = png_ptr->current_text;
    png_ptr->current_text_size = (png_size_t)length;
    png_ptr->current_text_left = (png_size_t)length;
@@ -1178,7 +1178,7 @@ png_push_handle_zTXt(png_structp png_ptr, png_infop info_ptr, png_uint_32
 
    png_ptr->current_text = (png_charp)png_malloc(png_ptr,
        (png_uint_32)(length+1));
-   png_ptr->current_text[length] = '\0';
+   png_ptr->current_text[length] = '¥0';
    png_ptr->current_text_ptr = png_ptr->current_text;
    png_ptr->current_text_size = (png_size_t)length;
    png_ptr->current_text_left = (png_size_t)length;
@@ -1275,7 +1275,7 @@ png_push_read_zTXt(png_structp png_ptr, png_infop info_ptr)
                png_memcpy(text, key, key_size);
                text_size = key_size + png_ptr->zbuf_size -
                   png_ptr->zstream.avail_out;
-               *(text + text_size) = '\0';
+               *(text + text_size) = '¥0';
             }
             else
             {
@@ -1290,7 +1290,7 @@ png_push_read_zTXt(png_structp png_ptr, png_infop info_ptr)
                png_memcpy(text + text_size, png_ptr->zbuf,
                   png_ptr->zbuf_size - png_ptr->zstream.avail_out);
                text_size += png_ptr->zbuf_size - png_ptr->zstream.avail_out;
-               *(text + text_size) = '\0';
+               *(text + text_size) = '¥0';
             }
             if (ret != Z_STREAM_END)
             {
@@ -1369,7 +1369,7 @@ png_push_handle_iTXt(png_structp png_ptr, png_infop info_ptr, png_uint_32
 
    png_ptr->current_text = (png_charp)png_malloc(png_ptr,
          (png_uint_32)(length+1));
-   png_ptr->current_text[length] = '\0';
+   png_ptr->current_text[length] = '¥0';
    png_ptr->current_text_ptr = png_ptr->current_text;
    png_ptr->current_text_size = (png_size_t)length;
    png_ptr->current_text_left = (png_size_t)length;

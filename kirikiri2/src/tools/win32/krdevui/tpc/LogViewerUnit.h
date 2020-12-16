@@ -18,13 +18,13 @@
 //---------------------------------------------------------------------------
 class TLogViewerForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TPanel *Panel1;
 	TButton *CloseButton;
 	TRichEdit *LogEdit;
 	void __fastcall Panel1Resize(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
-public:		// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TLogViewerForm(TComponent* Owner);
 };
 //---------------------------------------------------------------------------

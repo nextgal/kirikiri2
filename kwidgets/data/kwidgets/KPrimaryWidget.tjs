@@ -4,43 +4,43 @@
 
 
 /**----------------------------------------------------------------------
- * ƒvƒ‰ƒCƒ}ƒŠƒEƒBƒWƒFƒbƒg
+ * ãƒ—ãƒ©ã‚¤ãƒãƒªã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
  *
- * ƒEƒBƒ“ƒhƒE‚Ìì¬‚É©“®“I‚Éì¬‚³‚ê‚é 
+ * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½œæˆæ™‚ã«è‡ªå‹•çš„ã«ä½œæˆã•ã‚Œã‚‹ 
  ----------------------------------------------------------------------*/
 class KPrimaryWidget extends KWidget
 {
-  // qƒEƒBƒWƒFƒbƒg
+  // å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
   var child;
-  // ƒEƒBƒWƒFƒbƒgˆê‘qŒÉBƒŒƒCƒAƒEƒg‚Éadd‚³‚ê‚Ä‚¢‚È‚¢ƒEƒBƒWƒFƒbƒg‚ªˆê“I‚ÉŠi”[‚³‚ê‚éB
+  // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆä¸€æ™‚å€‰åº«ã€‚ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã«addã•ã‚Œã¦ã„ãªã„ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãŒä¸€æ™‚çš„ã«æ ¼ç´ã•ã‚Œã‚‹ã€‚
   var widgetDepot;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    * 
-   * KPrimaryWidget ‚Í KWindow ‚É‚æ‚è©“®“I‚Éì¬‚³‚êAƒ†[ƒU[‚ª
-   * –¾¦“I‚Énew‚·‚é‚±‚Æ‚Í–³‚¢
+   * KPrimaryWidget ã¯ KWindow ã«ã‚ˆã‚Šè‡ªå‹•çš„ã«ä½œæˆã•ã‚Œã€ãƒ¦ãƒ¼ã‚¶ãƒ¼ãŒ
+   * æ˜ç¤ºçš„ã«newã™ã‚‹ã“ã¨ã¯ç„¡ã„
    ------------------------------*/
   function KPrimaryWidget(win) {
-    // eŒÄ‚Ño‚µ
+    // è¦ªå‘¼ã³å‡ºã—
     super.KWidget(win, "", true);
-    // ƒCƒ[ƒW‚ğ‚½‚È‚¢
+    // ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’æŒãŸãªã„
     hasImage = false;
-    // q‚Í‚Ü‚¾–³‚µ
+    // å­ã¯ã¾ã ç„¡ã—
     child = void;
-    // BGƒJƒ‰[‚ÍŠDF
+    // BGã‚«ãƒ©ãƒ¼ã¯ç°è‰²
     neutralColor = WIN_BG;
 
-    // ƒEƒBƒWƒFƒbƒg‚Ìˆê’u‚«ê
+    // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ä¸€æ™‚ç½®ãå ´
     widgetDepot = new global.Layer(win, this);
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ‚Í‚ß‚Ş
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ã¯ã‚è¾¼ã‚€
    * 
-   * ƒvƒ‰ƒCƒ}ƒŠƒEƒBƒWƒFƒbƒg‚É‚Í1“x‚É1‚Â‚ÌƒEƒBƒWƒFƒbƒg‚µ‚©u’Ç‰Áv‚Å‚«‚È‚¢
+   * ãƒ—ãƒ©ã‚¤ãƒãƒªã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã«ã¯1åº¦ã«1ã¤ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã—ã‹ã€Œè¿½åŠ ã€ã§ããªã„
    * 
-   * @param qƒEƒBƒWƒFƒbƒg
+   * @param å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function add(child) {
     this.child = child;
@@ -49,10 +49,10 @@ class KPrimaryWidget extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğæ‚èœ‚­
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å–ã‚Šé™¤ã
    *
-   * @param qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(child, doInvalidate = true) {
     child.parent = widgetDepot;
@@ -61,17 +61,17 @@ class KPrimaryWidget extends KWidget
       invalidate child;
   }
 
-  // q‚Ìƒ}[ƒWƒ“‚ª•Ï‚í‚Á‚½‚çÄ”z’u
+  // å­ã®ãƒãƒ¼ã‚¸ãƒ³ãŒå¤‰ã‚ã£ãŸã‚‰å†é…ç½®
   function onChildMarginModified {
     invalidateLayout();
   }
 
-  // q‚ÌÅ¬Å‘åƒTƒCƒY‚ª•Ï‚í‚Á‚½‚çÄ”z’u
+  // å­ã®æœ€å°æœ€å¤§ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã£ãŸã‚‰å†é…ç½®
   function onChildMinMaxSizeModified {
     invalidateLayout();
   }
         
-  // Ä”z’u
+  // å†é…ç½®
   function invalidateLayout {
     setMinMaxSize(child.minWidth + child.marginHorizontal,
                   child.minHeight + child.marginVertical,
@@ -82,7 +82,7 @@ class KPrimaryWidget extends KWidget
                   height - child.marginVertical);
   }
 
-  // ƒŠƒTƒCƒY‚ª‹N‚«‚½‚çAq‚ÌƒTƒCƒY‚ğXV
+  // ãƒªã‚µã‚¤ã‚ºãŒèµ·ããŸã‚‰ã€å­ã®ã‚µã‚¤ã‚ºã‚’æ›´æ–°
   function onSizeModified(w, h) {
     if (! child)
       return;

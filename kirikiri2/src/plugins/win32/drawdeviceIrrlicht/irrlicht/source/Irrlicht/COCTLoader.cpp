@@ -38,7 +38,7 @@ COCTLoader::COCTLoader(video::IVideoDriver* driver)
 
 
 //! destructor
-COCTLoader::~COCTLoader()
+COCTLoader::‾COCTLoader()
 {
 	if (Driver) 
 		Driver->drop();
@@ -83,7 +83,7 @@ core::vector3df COCTLoader::GetFaceNormal(f32 a[3], f32 b[3], f32 c[3]) {
 
 
 //! creates/loads an animated mesh from the file.
-//! \return Pointer to the created mesh. Returns 0 if loading failed.
+//! ¥return Pointer to the created mesh. Returns 0 if loading failed.
 //! If you no longer need the mesh, you should call IAnimatedMesh::drop().
 //! See IReferenceCounted::drop() for more information.
 IAnimatedMesh* COCTLoader::createMesh(io::IReadFile* file) 

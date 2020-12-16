@@ -8,7 +8,7 @@ function dm() {
 }
 
 /**
- * Flash“‡ƒŒƒCƒ„ƒTƒ“ƒvƒ‹
+ * Flashçµ±åˆãƒ¬ã‚¤ãƒ¤ã‚µãƒ³ãƒ—ãƒ«
  */
 class FlashLayer extends Layer, FlashPlayer
 {
@@ -20,7 +20,7 @@ class FlashLayer extends Layer, FlashPlayer
 	}
 
 	// -------------------------------------
-	// ƒTƒCƒY•ÏX·‚µ‘Ö‚¦
+	// ã‚µã‚¤ã‚ºå¤‰æ›´å·®ã—æ›¿ãˆ
 	// -------------------------------------
 
 	function setSize(width, height) {
@@ -29,16 +29,16 @@ class FlashLayer extends Layer, FlashPlayer
 	}
 	
 	// -------------------------------------
-	// ƒŒƒCƒ„ƒCƒxƒ“ƒgˆ—•”
+	// ãƒ¬ã‚¤ãƒ¤ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†éƒ¨
 	// -------------------------------------
 
 	function onKeyDown(key) {
-		dm("ƒL[‚ª‚¨‚³‚ê‚½:" + key);
+		dm("ã‚­ãƒ¼ãŒãŠã•ã‚ŒãŸ:" + key);
 		doKeyDown(key);
 	}
 
 	function onKeyUp(key) {
-		dm("ƒL[‚ª‚Í‚È‚³‚ê‚½:" + key);
+		dm("ã‚­ãƒ¼ãŒã¯ãªã•ã‚ŒãŸ:" + key);
 		doKeyUp(key);
 	}
 
@@ -71,7 +71,7 @@ class FlashLayer extends Layer, FlashPlayer
 	}
 	
 	// -------------------------------------
-	// FlashƒCƒxƒ“ƒgˆ—•”
+	// Flashã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†éƒ¨
 	// -------------------------------------
 
 	function onFrameUpdate() {
@@ -91,10 +91,10 @@ class FlashLayer extends Layer, FlashPlayer
 	}
 
 	// -------------------------------------
-	// ŒÄ‚Ño‚µƒeƒXƒg
+	// å‘¼ã³å‡ºã—ãƒ†ã‚¹ãƒˆ
 	// -------------------------------------
 
-	// ActionScript‚©‚çŒÄ‚Î‚ê‚éƒƒ\ƒbƒh‚ğ’è‹`‚µ‚Ä‚¨‚­
+	// ActionScriptã‹ã‚‰å‘¼ã°ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®šç¾©ã—ã¦ãŠã
 	function drawMessage(msg) {
 		window.drawMessage(msg);
 	}
@@ -113,20 +113,20 @@ class MyWindow extends Window
 	
 	function MyWindow() {
 		super.Window();
-		menu.add(exit = new MenuItem(this, "I—¹"));
-		menu.add(red  = new MenuItem(this, "”wŒi‚ğÔ‚É"));
-		menu.add(blue = new MenuItem(this, "”wŒi‚ğÂ‚É"));
+		menu.add(exit = new MenuItem(this, "çµ‚äº†"));
+		menu.add(red  = new MenuItem(this, "èƒŒæ™¯ã‚’èµ¤ã«"));
+		menu.add(blue = new MenuItem(this, "èƒŒæ™¯ã‚’é’ã«"));
 		menu.add(clear = new MenuItem(this, "clear"));
 
 		setInnerSize(WIDTH, HEIGHT);
 
-		// ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„
+		// ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤
 		base = new Layer(this, null);
 		base.setSize(WIDTH, HEIGHT);
 		base.fillRect(0,0,WIDTH,HEIGHT,0xffffffff);
 		add(base);
 		
-		// Flash•\¦ƒŒƒCƒ„
+		// Flashè¡¨ç¤ºãƒ¬ã‚¤ãƒ¤
 		layer = new FlashLayer(this, base, WIDTH, HEIGHT);
 		with (layer) {
 			.setPos(0, 0);
@@ -138,7 +138,7 @@ class MyWindow extends Window
 		layer.disableLocalSecurity();
 		layer.allowScriptAccess = "always";
 
-		// ƒŒƒCƒ„‚ÉƒtƒH[ƒJƒX‚ğ‚ ‚Ä‚é
+		// ãƒ¬ã‚¤ãƒ¤ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’ã‚ã¦ã‚‹
 		layer.enabled = true;
 		layer.focusable = true;
 		layer.focus(true);
@@ -159,10 +159,10 @@ class MyWindow extends Window
 		}
 		add(message);
 
-		drawMessage("‚±‚Ì•¶š‚Æ‰©F‚Ì‹éŒ`‚Í‹g—¢‹g—¢‚ÌƒŒƒCƒ„‚É•`‰æ‚³‚ê‚Ä‚¢‚Ü‚·");
+		drawMessage("ã“ã®æ–‡å­—ã¨é»„è‰²ã®çŸ©å½¢ã¯å‰é‡Œå‰é‡Œã®ãƒ¬ã‚¤ãƒ¤ã«æç”»ã•ã‚Œã¦ã„ã¾ã™");
 	}
 
-	// Às•”
+	// å®Ÿè¡Œéƒ¨
 	function action(ev)	{
 		if(ev.type == "onClick") {
 			switch (ev.target) {
@@ -170,11 +170,11 @@ class MyWindow extends Window
 				System.terminate();
 				break;
 			case red:
-				// ActionScript‚ğ’¼ÚŒÄ‚Ño‚µ
+				// ActionScriptã‚’ç›´æ¥å‘¼ã³å‡ºã—
 				layer.callFunction("setBaseColor", 0xff0000);
 				break;
 			case blue:
-				// ActionScript‚ğ’¼ÚŒÄ‚Ño‚µ
+				// ActionScriptã‚’ç›´æ¥å‘¼ã³å‡ºã—
 				layer.callFunction("setBaseColor", 0x0000ff);
 				break;
 			case clear:
@@ -184,7 +184,7 @@ class MyWindow extends Window
 		}
 	}
 	
-	// ƒƒbƒZ[ƒW•`‰æ
+	// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æç”»
 	function drawMessage(msg) {
 		with (message) {
 			.fillRect(0,0,.width,.height,0);
@@ -193,7 +193,7 @@ class MyWindow extends Window
 	}
 
 	function onKeyDown(key) {
-		dm("Win:ƒL[‚ª‚¨‚³‚ê‚½:" + key);
+		dm("Win:ã‚­ãƒ¼ãŒãŠã•ã‚ŒãŸ:" + key);
 	}
 };
 

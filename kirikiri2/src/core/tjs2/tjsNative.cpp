@@ -64,7 +64,7 @@ tTJSNativeClassMethod::tTJSNativeClassMethod(tTJSNativeClassMethodCallback proce
 	if(TJSObjectHashMapEnabled()) TJSAddObjectHashRecord(this);
 }
 //---------------------------------------------------------------------------
-tTJSNativeClassMethod::~tTJSNativeClassMethod()
+tTJSNativeClassMethod::‾tTJSNativeClassMethod()
 {
 	if(TJSObjectHashMapEnabled()) TJSRemoveObjectHashRecord(this);
 }
@@ -158,7 +158,7 @@ tTJSNativeClassProperty::tTJSNativeClassProperty(
 	if(TJSObjectHashMapEnabled()) TJSAddObjectHashRecord(this);
 }
 //---------------------------------------------------------------------------
-tTJSNativeClassProperty::~tTJSNativeClassProperty()
+tTJSNativeClassProperty::‾tTJSNativeClassProperty()
 {
 	if(TJSObjectHashMapEnabled()) TJSRemoveObjectHashRecord(this);
 }
@@ -245,7 +245,7 @@ tTJSNativeClass::tTJSNativeClass(const ttstr &name)
 		TJSObjectHashSetType(this, ttstr(TJS_W("(native class) ")) + ClassName);
 }
 //---------------------------------------------------------------------------
-tTJSNativeClass::~tTJSNativeClass()
+tTJSNativeClass::‾tTJSNativeClass()
 {
 }
 //---------------------------------------------------------------------------
@@ -430,7 +430,7 @@ tTJSNativeFunction::tTJSNativeFunction(const tjs_char *name)
 	}
 }
 //---------------------------------------------------------------------------
-tTJSNativeFunction::~tTJSNativeFunction()
+tTJSNativeFunction::‾tTJSNativeFunction()
 {
 	if(TJSObjectHashMapEnabled()) TJSRemoveObjectHashRecord(this);
 }

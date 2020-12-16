@@ -25,7 +25,7 @@ public:
 		ret->_defaultparams.copy(_defaultparams);
 		return ret;
 	}
-	~SQClosure()
+	‾SQClosure()
 	{
 		REMOVE_FROM_CHAIN(&_ss(this)->_gc_chain,this);
 	}
@@ -52,7 +52,7 @@ public:
 		new (nc) SQGenerator(ss,closure);
 		return nc;
 	}
-	~SQGenerator()
+	‾SQGenerator()
 	{
 		REMOVE_FROM_CHAIN(&_ss(this)->_gc_chain,this);
 	}
@@ -98,7 +98,7 @@ public:
 		ret->_nparamscheck = _nparamscheck;
 		return ret;
 	}
-	~SQNativeClosure()
+	‾SQNativeClosure()
 	{
 		REMOVE_FROM_CHAIN(&_ss(this)->_gc_chain,this);
 	}

@@ -173,7 +173,7 @@ namespace detail {
         // misc switches
         switch (os.narrow(buf[i1], 0)) 
           {
-          case '\'' : break; // no effect yet. (painful to implement)
+          case '¥'' : break; // no effect yet. (painful to implement)
           case 'l':
           case 'h':  // short/long modifier : for printf-comaptibility (no action needed)
              break;
@@ -257,32 +257,32 @@ namespace detail {
         fpar->ref_state_.flags_ |= std::ios_base::uppercase;
       case 'p': // pointer => set hex.
       case 'x':
-        fpar->ref_state_.flags_ &= ~std::ios_base::basefield;
+        fpar->ref_state_.flags_ &= ‾std::ios_base::basefield;
         fpar->ref_state_.flags_ |= std::ios_base::hex;
         break;
       
       case 'o':
-        fpar->ref_state_.flags_ &= ~std::ios_base::basefield;
+        fpar->ref_state_.flags_ &= ‾std::ios_base::basefield;
         fpar->ref_state_.flags_ |=  std::ios_base::oct;
         break;
 
       case 'E':
         fpar->ref_state_.flags_ |=  std::ios_base::uppercase;
       case 'e':
-        fpar->ref_state_.flags_ &= ~std::ios_base::floatfield;
+        fpar->ref_state_.flags_ &= ‾std::ios_base::floatfield;
         fpar->ref_state_.flags_ |=  std::ios_base::scientific;
 
-        fpar->ref_state_.flags_ &= ~std::ios_base::basefield;
+        fpar->ref_state_.flags_ &= ‾std::ios_base::basefield;
         fpar->ref_state_.flags_ |=  std::ios_base::dec;
         break;
       
       case 'f':
-        fpar->ref_state_.flags_ &= ~std::ios_base::floatfield;
+        fpar->ref_state_.flags_ &= ‾std::ios_base::floatfield;
         fpar->ref_state_.flags_ |=  std::ios_base::fixed;
       case 'u':
       case 'd':
       case 'i':
-        fpar->ref_state_.flags_ &= ~std::ios_base::basefield;
+        fpar->ref_state_.flags_ &= ‾std::ios_base::basefield;
         fpar->ref_state_.flags_ |=  std::ios_base::dec;
         break;
 
@@ -305,11 +305,11 @@ namespace detail {
         fpar->ref_state_.flags_ |= std::ios_base::uppercase;
         break;
       case 'g': // 'g' conversion is default for floats.
-        fpar->ref_state_.flags_ &= ~std::ios_base::basefield;
+        fpar->ref_state_.flags_ &= ‾std::ios_base::basefield;
         fpar->ref_state_.flags_ |=  std::ios_base::dec;
 
         // CLEAR all floatield flags, so stream will CHOOSE
-        fpar->ref_state_.flags_ &= ~std::ios_base::floatfield; 
+        fpar->ref_state_.flags_ &= ‾std::ios_base::floatfield; 
         break;
 
       case 'C':
@@ -448,7 +448,7 @@ void basic_format<Ch, Traits> ::parse(const string_t & buf)
     if(special_things) style_ |= special_needs;
     num_args_ = max_argN + 1;
     if(ordered_args) style_ |=  ordered;
-    else style_ &= ~ordered;
+    else style_ &= ‾ordered;
 }
 
 } // namespace boost

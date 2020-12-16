@@ -104,7 +104,7 @@ namespace core
 	}
 
 	//! returns linear interpolation of a and b with ratio t
-	//! \return: a if t==0, b if t==1, and the linear interpolation else
+	//! ¥return: a if t==0, b if t==1, and the linear interpolation else
 	template<class T>
 	inline T lerp(const T& a, const T& b, const f32 t)
 	{
@@ -157,13 +157,13 @@ namespace core
 	inline s32 s32_min ( s32 a, s32 b)
 	{
 		s32 mask = (a - b) >> 31;
-		return (a & mask) | (b & ~mask);
+		return (a & mask) | (b & ‾mask);
 	}
 
 	inline s32 s32_max ( s32 a, s32 b)
 	{
 		s32 mask = (a - b) >> 31;
-		return (b & mask) | (a & ~mask);
+		return (b & mask) | (a & ‾mask);
 	}
 
 	inline s32 s32_clamp (s32 value, s32 low, s32 high)
@@ -253,7 +253,7 @@ namespace core
 	}
 
 	/*
-		if (condition) state |= m; else state &= ~m;
+		if (condition) state |= m; else state &= ‾m;
 	*/
 	REALINLINE void setbit_cond ( u32 &state, s32 condition, u32 mask )
 	{
@@ -277,7 +277,7 @@ namespace core
 #elif defined(_MSC_VER)
 		__asm fnclex;
 #elif defined(__GNUC__) && defined(__x86__)
-		__asm__ __volatile__ ("fclex \n\t");
+		__asm__ __volatile__ ("fclex ¥n¥t");
 #else
 #  warn clearFPUException not supported.
 #endif
@@ -353,7 +353,7 @@ namespace core
 		}
 #elif defined(__GNUC__)
 		__asm__ __volatile__ (
-			"fsub %2 \n\t"
+			"fsub %2 ¥n¥t"
 			"fistpl %0"
 			: "=m" (t)
 			: "t" (x), "f" (h)
@@ -386,8 +386,8 @@ namespace core
 		}
 #elif defined(__GNUC__)
 		__asm__ __volatile__ (
-			"fadd %2 \n\t"
-			"fistpl %0 \n\t"
+			"fadd %2 ¥n¥t"
+			"fistpl %0 ¥n¥t"
 			: "=m"(t)
 			: "t"(x), "f"(h)
 			: "st"
@@ -417,7 +417,7 @@ namespace core
 		}
 #elif defined(__GNUC__)
 		__asm__ __volatile__ (
-			"fistpl %0 \n\t"
+			"fistpl %0 ¥n¥t"
 			: "=m"(t)
 			: "t"(x)
 			: "st"

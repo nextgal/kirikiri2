@@ -20,7 +20,7 @@ CSceneNodeAnimatorRotation::CSceneNodeAnimatorRotation(u32 time, const core::vec
 
 
 //! destructor
-CSceneNodeAnimatorRotation::~CSceneNodeAnimatorRotation()
+CSceneNodeAnimatorRotation::‾CSceneNodeAnimatorRotation()
 {
 }
 

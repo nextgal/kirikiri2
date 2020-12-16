@@ -38,7 +38,7 @@ static int HexNum(char ch)
 //---------------------------------------------------------------------------
 static AnsiString EncodeString(AnsiString str)
 {
-	if(str == "") return "\"\"";
+	if(str == "") return "¥"¥"";
 
 #ifdef TVP_ENVIRON
 	ttstr ws(str.c_str());
@@ -48,15 +48,15 @@ static AnsiString EncodeString(AnsiString str)
 	const wchar_t *p = ws.c_bstr();
 #endif
 
-	AnsiString ret = "\"";
+	AnsiString ret = "¥"";
 	while(*p)
 	{
 		char tmp[10];
-		sprintf(tmp, "\\x%X", *p);
+		sprintf(tmp, "¥¥x%X", *p);
 		ret += tmp;
 		p++;
 	}
-	return ret + "\"";
+	return ret + "¥"";
 }
 //---------------------------------------------------------------------------
 static AnsiString DecodeString(AnsiString str)
@@ -71,12 +71,12 @@ static AnsiString DecodeString(AnsiString str)
 
 	const char *p = str.c_str();
 
-	if(p[0] != '\"') return str;
+	if(p[0] != '¥"') return str;
 
 	p++;
 	while(*p)
 	{
-		if(*p != '\\') break;
+		if(*p != '¥¥') break;
 		p++;
 		if(*p != 'x') break;
 		p++;
@@ -111,7 +111,7 @@ TLayeredOption::TLayeredOption()
 	Strings = new TStringList();
 }
 //---------------------------------------------------------------------------
-TLayeredOption::~TLayeredOption()
+TLayeredOption::‾TLayeredOption()
 {
 	delete Strings;
 }
@@ -162,7 +162,7 @@ AnsiString TLayeredOption::ToString() const
 				if(parent_value == value) continue; // exclude
 			}
 		}
-		ret += Strings->Strings[i] + "\r\n";
+		ret += Strings->Strings[i] + "¥r¥n";
 	}
 	return ret;
 }
@@ -171,17 +171,17 @@ void TLayeredOption::SaveToFile(const AnsiString & filename) const
 {
 	AnsiString options = ToString();
 	const char * warnings =
-"; ============================================================================\n"
-"; *DO NOT EDIT* this file unless you are understanding what you are doing.\n"
-"; FYI:\n"
-";  Each line consists of NAME=\"VALUE\" pair, VALUE is a series of\n"
-";  \\xNN, where NN is hexadecimal representation of UNICODE codepoint.\n"
-";  For example, opt=\"\\x61\\x62\\x63\\x3042\\x3044\\x3046\" means that the\n"
-";  value of options \"opt\" is alphabets a, b, and c followed by Japanese\n"
-";  Hiraganas A, I, and U.\n"
-";  DO NOT PUT non-escaped value like opt=\"abc\". This doesn't work and should\n"
-";  be like opt=\"\\x61\\x62\\x63\".\n"
-"; ============================================================================\n"
+"; ============================================================================¥n"
+"; *DO NOT EDIT* this file unless you are understanding what you are doing.¥n"
+"; FYI:¥n"
+";  Each line consists of NAME=¥"VALUE¥" pair, VALUE is a series of¥n"
+";  ¥¥xNN, where NN is hexadecimal representation of UNICODE codepoint.¥n"
+";  For example, opt=¥"¥¥x61¥¥x62¥¥x63¥¥x3042¥¥x3044¥¥x3046¥" means that the¥n"
+";  value of options ¥"opt¥" is alphabets a, b, and c followed by Japanese¥n"
+";  Hiraganas A, I, and U.¥n"
+";  DO NOT PUT non-escaped value like opt=¥"abc¥". This doesn't work and should¥n"
+";  be like opt=¥"¥¥x61¥¥x62¥¥x63¥".¥n"
+"; ============================================================================¥n"
 "";
 
 	TFileStream * fs = new TFileStream(filename, fmCreate|fmShareDenyWrite);
@@ -285,7 +285,7 @@ void __fastcall ChangeIcon(AnsiString outname, AnsiString inname,
 	if(memcmp(buf,"MZ",2))
 	{
 		delete st;
-		throw Exception("Invalid exe type!\nOperation was aborted.");
+		throw Exception("Invalid exe type!¥nOperation was aborted.");
 	}
 
 	int v,pebase;
@@ -298,7 +298,7 @@ void __fastcall ChangeIcon(AnsiString outname, AnsiString inname,
 	if(v!='PE')
 	{
 		delete st;
-		throw Exception("PE header was not found!\nOperation was aborted.\n");
+		throw Exception("PE header was not found!¥nOperation was aborted.¥n");
 	}
 
 	// search .rsrc section      pebase = 'PE' position
@@ -316,7 +316,7 @@ void __fastcall ChangeIcon(AnsiString outname, AnsiString inname,
 	if(i==objcount)
 	{
 		delete st;
-		throw Exception(".rsrc section was not found!\nOperation was aborted.\n");
+		throw Exception(".rsrc section was not found!¥nOperation was aborted.¥n");
 	}
 
 	int rsrcofs=0;
@@ -345,7 +345,7 @@ void __fastcall ChangeIcon(AnsiString outname, AnsiString inname,
 	if(i==ie)
 	{
 		delete st;
-		throw Exception("ICON resource section was not found!\nOperation was aborted.\n");
+		throw Exception("ICON resource section was not found!¥nOperation was aborted.¥n");
 	}
 
 	// search group icon resource
@@ -369,7 +369,7 @@ void __fastcall ChangeIcon(AnsiString outname, AnsiString inname,
 	if(i==ie)
 	{
 		delete st;
-		throw Exception("GROUP ICON resource section was not found!\nOperation was aborted.\n");
+		throw Exception("GROUP ICON resource section was not found!¥nOperation was aborted.¥n");
 	}
 
 	st->Position= rsrcofs+16+ne*8+i*8+4;
@@ -421,8 +421,8 @@ void __fastcall ChangeIcon(AnsiString outname, AnsiString inname,
 	{
 		delete iconst;
 		delete st;
-		throw Exception("New icon image count exceeds original icon image count!\n"
-			"Operation was aborted.\n");
+		throw Exception("New icon image count exceeds original icon image count!¥n"
+			"Operation was aborted.¥n");
 	}
 
 	int iconsize=iconst->Size-6- numicons*16;
@@ -430,8 +430,8 @@ void __fastcall ChangeIcon(AnsiString outname, AnsiString inname,
 	{
 		delete iconst;
 		delete st;
-		throw Exception("New icon size exceeds original icon size!\n"
-			"Operation was aborted.\n");
+		throw Exception("New icon size exceeds original icon size!¥n"
+			"Operation was aborted.¥n");
 	}
 
 	// copy the program
@@ -724,7 +724,7 @@ __fastcall TConfMainFrame::TConfMainFrame(TComponent* Owner)
 	InitConfigData();
 }
 //---------------------------------------------------------------------------
-__fastcall TConfMainFrame::~TConfMainFrame()
+__fastcall TConfMainFrame::‾TConfMainFrame()
 {
 	FreeOptionsData();
 	FreeConfigData();
@@ -789,8 +789,8 @@ void __fastcall TConfMainFrame::OptionsTreeViewChange(TObject *Sender,
 				AnsiString desc = data->Description;
 				if(((TOptionData*)Node->Data)->OptionName != "")
 					desc = "-" + ((TOptionData*)Node->Data)->OptionName +
-						"\r\n" + desc;
-				desc = ReplaceAnsiStringAll(desc, "[cr]", "\r\n");
+						"¥r¥n" + desc;
+				desc = ReplaceAnsiStringAll(desc, "[cr]", "¥r¥n");
 				OptionDescMemo->Text = desc;
 				break;
 			}
@@ -1014,10 +1014,10 @@ void __fastcall TConfMainFrame::ParseData()
 
 	optionsdata = buf;
 
-	optionsdata += SearchPluginOptions("\\", "dll");
-	optionsdata += SearchPluginOptions("\\", "tpm");
-	optionsdata += SearchPluginOptions("plugin\\", "dll");
-	optionsdata += SearchPluginOptions("plugin\\", "tpm");
+	optionsdata += SearchPluginOptions("¥¥", "dll");
+	optionsdata += SearchPluginOptions("¥¥", "tpm");
+	optionsdata += SearchPluginOptions("plugin¥¥", "dll");
+	optionsdata += SearchPluginOptions("plugin¥¥", "tpm");
 
 	delete [] buf;
 	delete stream;
@@ -1340,15 +1340,15 @@ void __fastcall TConfMainFrame::ReadOptionInfoFromExe(AnsiString exename)
 	OriginalOptionsGroupBoxLabel = OptionsGroupBox->Caption;
 	OptionsGroupBox->Caption = ReadingOptionsLabel->Caption;
 
-	if(WinExec(("\"" + exename + "\" -@cmddesc " +
-		AnsiString(reinterpret_cast<int>(Handle)) + " \"" +
-		OptionsFileName + "\" \"" + eventname + "\"").c_str(), SW_HIDE) <= 31)
+	if(WinExec(("¥"" + exename + "¥" -@cmddesc " +
+		AnsiString(reinterpret_cast<int>(Handle)) + " ¥"" +
+		OptionsFileName + "¥" ¥"" + eventname + "¥"").c_str(), SW_HIDE) <= 31)
 		OptionsGroupBox->Caption = OptionsReadFailedLabel->Caption;
 
 	if(WAIT_TIMEOUT	== WaitForSingleObject(event, 10000))
 	{
 		CloseHandle(event);
-		throw Exception("The program \"" + exename + "\" did not reply!");
+		throw Exception("The program ¥"" + exename + "¥" did not reply!");
 	}
 	CloseHandle(event);
 
@@ -1538,7 +1538,7 @@ AnsiString TConfMainFrame::GetConfigFileName(AnsiString exename)
 //---------------------------------------------------------------------------
 AnsiString TConfMainFrame::GetDataPathDirectory(AnsiString datapath, AnsiString exename)
 {
-	if(datapath == "") datapath = "$(exepath)\\savedata";
+	if(datapath == "") datapath = "$(exepath)¥¥savedata";
 
 	AnsiString exepath = ExcludeTrailingBackslash(ExtractFileDir(exename));
 	AnsiString personalpath = ExcludeTrailingBackslash(AnsiGetPersonalPath());

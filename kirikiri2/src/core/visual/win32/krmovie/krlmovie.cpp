@@ -12,7 +12,7 @@
 *****************************************************************************/
 
 #include "dslayerd.h"
-#include "..\krmovie.h"
+#include "..Â¥krmovie.h"
 
 #include "asyncio.h"
 #include "asyncrdr.h"
@@ -23,14 +23,14 @@
 
 
 //----------------------------------------------------------------------------
-//! @brief	  	VideoOverlay Object (ƒŒƒCƒ„Ä¶—p) ‚ğæ“¾‚·‚é
+//! @brief	  	VideoOverlay Object (ãƒ¬ã‚¤ãƒ¤å†ç”Ÿç”¨) ã‚’å–å¾—ã™ã‚‹
 //! @param		callbackwin : 
 //! @param		stream : 
 //! @param		streamname : 
 //! @param		type : 
 //! @param		size : 
 //! @param		out : VideoOverlay Object
-//! @return		ƒGƒ‰[•¶š—ñ
+//! @return		ã‚¨ãƒ©ãƒ¼æ–‡å­—åˆ—
 //----------------------------------------------------------------------------
 void __stdcall GetVideoLayerObject(
 	HWND callbackwin, IStream *stream, const wchar_t * streamname,

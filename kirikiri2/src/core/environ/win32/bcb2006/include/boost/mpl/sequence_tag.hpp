@@ -87,14 +87,14 @@ struct sequence_tag_impl
     template< typename Sequence > struct result2_;
 };
 
-#   define AUX_CLASS_SEQUENCE_TAG_SPEC(has_tag, has_begin, result_type) \
-template<> struct sequence_tag_impl<has_tag,has_begin> \
-{ \
-    template< typename Sequence > struct result2_ \
-    { \
-        typedef result_type type; \
-    }; \
-}; \
+#   define AUX_CLASS_SEQUENCE_TAG_SPEC(has_tag, has_begin, result_type) ¥
+template<> struct sequence_tag_impl<has_tag,has_begin> ¥
+{ ¥
+    template< typename Sequence > struct result2_ ¥
+    { ¥
+        typedef result_type type; ¥
+    }; ¥
+}; ¥
 /**/
 
 AUX_CLASS_SEQUENCE_TAG_SPEC(true, true, typename Sequence::tag)

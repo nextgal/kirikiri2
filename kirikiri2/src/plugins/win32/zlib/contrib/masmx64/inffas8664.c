@@ -28,7 +28,7 @@
  * compiled with gcc -DNO_MMX, but inffast.S is still faster on the P3 with MMX
  * enabled.  I will attempt to merge the MMX code into this version.  Newer
  * versions of this and inffast.S can be found at
- * http://www.eetbeetee.com/zlib/ and http://www.charm.net/~christop/zlib/
+ * http://www.eetbeetee.com/zlib/ and http://www.charm.net/‾christop/zlib/
  *
  */
 

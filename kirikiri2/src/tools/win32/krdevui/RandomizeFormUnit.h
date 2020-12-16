@@ -21,7 +21,7 @@
 //---------------------------------------------------------------------------
 class TRandomizeForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TButton *CancelButton;
 	TLabel *Label1;
 	TLabel *Label2;
@@ -30,13 +30,13 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	TLabel *Label7;
 	TTimer *Timer;
 	void __fastcall TimerTimer(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	prng_state *State;
 	POINT PrevMousePos;
 	__int64 Distance;
 	DWORD StartTick;
 	
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TRandomizeForm(TComponent* Owner, prng_state *state);
 };
 //---------------------------------------------------------------------------

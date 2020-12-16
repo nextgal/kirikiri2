@@ -17,7 +17,7 @@ namespace gregorian {
   typedef long date_duration_rep;
 
   //! Durations in days for gregorian system
-  /*! \ingroup date_basics
+  /*! ¥ingroup date_basics
    */
   typedef date_time::date_duration<date_duration_rep> date_duration;
   //  typedef date_time::date_duration<long> date_duration;

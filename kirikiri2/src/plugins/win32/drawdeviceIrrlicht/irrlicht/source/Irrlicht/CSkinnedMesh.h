@@ -30,7 +30,7 @@ namespace scene
 		CSkinnedMesh();
 
 		//! destructor
-		virtual ~CSkinnedMesh();
+		virtual ‾CSkinnedMesh();
 
 		//! returns the amount of frames. If the amount is 1, it is a static (=non animated) mesh.
 		virtual u32 getFrameCount() const;
@@ -52,8 +52,8 @@ namespace scene
 		virtual IMeshBuffer* getMeshBuffer(u32 nr) const;
 
 		//! Returns pointer to a mesh buffer which fits a material
- 		/** \param material: material to search for
-		\return Returns the pointer to the mesh buffer or
+ 		/** ¥param material: material to search for
+		¥return Returns the pointer to the mesh buffer or
 		NULL if there is no such mesh buffer. */
 		virtual IMeshBuffer* getMeshBuffer( const video::SMaterial &material) const;
 

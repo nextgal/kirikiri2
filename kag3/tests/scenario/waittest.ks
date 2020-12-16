@@ -1,28 +1,28 @@
 @wc time=20
-[delay speed=user]•¶Žš•\Ž¦‘¬“x : ƒ†[ƒU‘I‘ð[l]
-[delay speed=10]•¶Žš•\Ž¦‘¬“x : 10[l]
-[delay speed=100]•¶Žš•\Ž¦‘¬“x : 100[l]
-[nowait]•¶Žš•\Ž¦‘¬“x : ƒm[ƒEƒFƒCƒg[endnowait][l]
-•¶Žš•\Ž¦‘¬“x : 100[l]
-[delay speed=user]\
+[delay speed=user]æ–‡å­—è¡¨ç¤ºé€Ÿåº¦ : ãƒ¦ãƒ¼ã‚¶é¸æŠž[l]
+[delay speed=10]æ–‡å­—è¡¨ç¤ºé€Ÿåº¦ : 10[l]
+[delay speed=100]æ–‡å­—è¡¨ç¤ºé€Ÿåº¦ : 100[l]
+[nowait]æ–‡å­—è¡¨ç¤ºé€Ÿåº¦ : ãƒŽãƒ¼ã‚¦ã‚§ã‚¤ãƒˆ[endnowait][l]
+æ–‡å­—è¡¨ç¤ºé€Ÿåº¦ : 100[l]
+[delay speed=user]Â¥
 *start
-5•b‘Ò‚ÂB[l]
+5ç§’å¾…ã¤ã€‚[l]
 @wait time=5000
-‘Ò‚Á‚½B[l]
-6•bƒJƒEƒ“ƒg‚·‚éB[l]
+å¾…ã£ãŸã€‚[l]
+6ç§’ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹ã€‚[l]
 @resetwait
 @wait mode=until time=1000
-1 \
+1 Â¥
 @wait mode=until time=2000
-2 \
+2 Â¥
 @wait mode=until time=3000
-3 \
+3 Â¥
 @wait mode=until time=4000
-4 \
+4 Â¥
 @wait mode=until time=5000
-5 \
+5 Â¥
 @wait mode=until time=6000
-6 \
-‘Ò‚Á‚½B[p]\
+6 Â¥
+å¾…ã£ãŸã€‚[p]Â¥
 @ct
 @jump target=*start

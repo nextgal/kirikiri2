@@ -49,7 +49,7 @@ tTVPLayerManager::tTVPLayerManager(tTJSNI_BaseWindow *window)
 	InNotifyingHintOrCursorChange = false;
 }
 //---------------------------------------------------------------------------
-tTVPLayerManager::~tTVPLayerManager()
+tTVPLayerManager::‾tTVPLayerManager()
 {
 	if(DrawBuffer) delete DrawBuffer;
 }

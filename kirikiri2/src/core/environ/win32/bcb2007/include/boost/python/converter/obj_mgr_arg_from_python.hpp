@@ -49,7 +49,7 @@ struct object_manager_ref_arg_from_python
     object_manager_ref_arg_from_python(PyObject*);
     bool convertible() const;
     Ref operator()(PyObject*) const;
-    ~object_manager_ref_arg_from_python();
+    ‾object_manager_ref_arg_from_python();
  private:
     typename python::detail::referent_storage<Ref>::type m_result;
 };
@@ -89,7 +89,7 @@ inline object_manager_ref_arg_from_python<Ref>::object_manager_ref_arg_from_pyth
 }
 
 template <class Ref>
-inline object_manager_ref_arg_from_python<Ref>::~object_manager_ref_arg_from_python()
+inline object_manager_ref_arg_from_python<Ref>::‾object_manager_ref_arg_from_python()
 {
     python::detail::destroy_referent<Ref>(this->m_result.bytes);
 }

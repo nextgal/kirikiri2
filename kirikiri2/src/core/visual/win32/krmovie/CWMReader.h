@@ -2,7 +2,7 @@
 /*! @file
 @brief Windows Media Reader
 
-Windows Mediaƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚Ş
+Windows Mediaãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€
 -----------------------------------------------------------------------------
 	Copyright (C) 2005 T.Imoto <http://www.kaede-software.com>
 -----------------------------------------------------------------------------
@@ -27,7 +27,7 @@ Windows Mediaƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚Ş
 class CWMReader;
 
 //----------------------------------------------------------------------------
-//! @brief WMo—ÍƒXƒgƒŠ[ƒ€
+//! @brief WMå‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ 
 //----------------------------------------------------------------------------
 class CWMOutput : public IOutputStream, public CUnknown
 {
@@ -48,7 +48,7 @@ public:
 	CWMOutput( CWMReader *reader ) : CUnknown(NAME("WM Output"),NULL), m_Reader(reader), m_StreamNum(0) {}
 	void SetStreamNumber( WORD num ) { m_StreamNum = num; }
 	WORD GetStreamNumber() { return m_StreamNum; }
-	virtual ~CWMOutput();
+	virtual â€¾CWMOutput();
 
 	DECLARE_IUNKNOWN
 	STDMETHODIMP NonDelegatingQueryInterface( REFIID riid, void ** ppv );
@@ -65,11 +65,11 @@ public:
 };
 
 //----------------------------------------------------------------------------
-//! @brief WMƒŠ[ƒ_[
+//! @brief WMãƒªãƒ¼ãƒ€ãƒ¼
 //!
-//! ‚±‚ÌƒNƒ‰ƒX‚ÍCOM‚Å‚Í‚È‚¢BCDemuxSource‚É‚æ‚Á‚Ä•Û‚³‚êACDemuxSource‚ªŠJ•ú‚ğs‚¤
-//! —˜—p‚ÍAnew‚µA‚»‚Ìƒ|ƒCƒ“ƒ^‚ğCDemuxSource¶¬‚É“n‚·B
-//! Ú‚µ‚­‚Í tTVPDSMovie::BuildWMVGraph ‚ğQÆ‚Ì‚±‚ÆB
+//! ã“ã®ã‚¯ãƒ©ã‚¹ã¯COMã§ã¯ãªã„ã€‚CDemuxSourceã«ã‚ˆã£ã¦ä¿æŒã•ã‚Œã€CDemuxSourceãŒé–‹æ”¾ã‚’è¡Œã†
+//! åˆ©ç”¨æ™‚ã¯ã€newã—ã€ãã®ãƒã‚¤ãƒ³ã‚¿ã‚’CDemuxSourceç”Ÿæˆæ™‚ã«æ¸¡ã™ã€‚
+//! è©³ã—ãã¯ tTVPDSMovie::BuildWMVGraph ã‚’å‚ç…§ã®ã“ã¨ã€‚
 //----------------------------------------------------------------------------
 class CWMReader : public IDemuxReader
 {
@@ -100,7 +100,7 @@ private:
 
 public:
 	CWMReader();
-	virtual ~CWMReader();
+	virtual â€¾CWMReader();
 
 	// method of IDemuxReader
 	virtual int GetNumberOfOutput(void);

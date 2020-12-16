@@ -60,12 +60,12 @@
 
 #ifdef __STDC__
 #ifdef SPECIALBUILD
-#  pragma message("PNG_LIBPNG_SPECIALBUILD (and deprecated SPECIALBUILD)\
+#  pragma message("PNG_LIBPNG_SPECIALBUILD (and deprecated SPECIALBUILD)¥
  are now LIBPNG reserved macros. Use PNG_USER_PRIVATEBUILD instead.")
 #endif
 
 #ifdef PRIVATEBUILD
-# pragma message("PRIVATEBUILD is deprecated.\
+# pragma message("PRIVATEBUILD is deprecated.¥
  Use PNG_USER_PRIVATEBUILD instead.")
 # define PNG_USER_PRIVATEBUILD PRIVATEBUILD
 #endif
@@ -285,7 +285,7 @@
  * on non-Mac platforms.
  */
 #ifndef MACOS
-#  if (defined(__MWERKS__) && defined(macintosh)) || defined(applec) || \
+#  if (defined(__MWERKS__) && defined(macintosh)) || defined(applec) || ¥
       defined(THINK_C) || defined(__SC__) || defined(TARGET_OS_MAC)
 #    define MACOS
 #  endif
@@ -386,7 +386,7 @@
 #endif
 
 /* I have no idea why is this necessary... */
-#if defined(_MSC_VER) && (defined(WIN32) || defined(_Windows) || \
+#if defined(_MSC_VER) && (defined(WIN32) || defined(_Windows) || ¥
     defined(_WINDOWS) || defined(_WIN32) || defined(__WIN32__))
 #  include <malloc.h>
 #endif
@@ -520,7 +520,7 @@
 #endif
 
 /* Ignore attempt to turn off both floating and fixed point support */
-#if !defined(PNG_FLOATING_POINT_SUPPORTED) || \
+#if !defined(PNG_FLOATING_POINT_SUPPORTED) || ¥
     !defined(PNG_NO_FIXED_POINT_SUPPORTED)
 #  define PNG_FIXED_POINT_SUPPORTED
 #endif
@@ -531,7 +531,7 @@
 
 #if defined(PNG_READ_SUPPORTED)
 
-#if !defined(PNG_READ_TRANSFORMS_NOT_SUPPORTED) && \
+#if !defined(PNG_READ_TRANSFORMS_NOT_SUPPORTED) && ¥
       !defined(PNG_NO_READ_TRANSFORMS)
 #  define PNG_READ_TRANSFORMS_SUPPORTED
 #endif
@@ -593,7 +593,7 @@
 #  endif
 #endif /* PNG_READ_TRANSFORMS_SUPPORTED */
 
-#if !defined(PNG_NO_PROGRESSIVE_READ) && \
+#if !defined(PNG_NO_PROGRESSIVE_READ) && ¥
  !defined(PNG_PROGRESSIVE_READ_NOT_SUPPORTED)  /* if you don't do progressive */
 #  define PNG_PROGRESSIVE_READ_SUPPORTED     /* reading.  This is not talking */
 #endif                               /* about interlacing capability!  You'll */
@@ -619,7 +619,7 @@
 
 #if defined(PNG_WRITE_SUPPORTED)
 
-# if !defined(PNG_WRITE_TRANSFORMS_NOT_SUPPORTED) && \
+# if !defined(PNG_WRITE_TRANSFORMS_NOT_SUPPORTED) && ¥
     !defined(PNG_NO_WRITE_TRANSFORMS)
 #  define PNG_WRITE_TRANSFORMS_SUPPORTED
 #endif
@@ -657,15 +657,15 @@
 #  endif
 #endif /* PNG_WRITE_TRANSFORMS_SUPPORTED */
 
-#if !defined(PNG_NO_WRITE_INTERLACING_SUPPORTED) && \
+#if !defined(PNG_NO_WRITE_INTERLACING_SUPPORTED) && ¥
     !defined(PNG_WRITE_INTERLACING_SUPPORTED)
 #define PNG_WRITE_INTERLACING_SUPPORTED  /* not required for PNG-compliant
                                             encoders, but can cause trouble
                                             if left undefined */
 #endif
 
-#if !defined(PNG_NO_WRITE_WEIGHTED_FILTER) && \
-    !defined(PNG_WRITE_WEIGHTED_FILTER) && \
+#if !defined(PNG_NO_WRITE_WEIGHTED_FILTER) && ¥
+    !defined(PNG_WRITE_WEIGHTED_FILTER) && ¥
      defined(PNG_FLOATING_POINT_SUPPORTED)
 #  define PNG_WRITE_WEIGHTED_FILTER_SUPPORTED
 #endif
@@ -689,7 +689,7 @@
 #  endif
 #endif /* PNG_1_0_X */
 
-#if defined(PNG_READ_USER_TRANSFORM_SUPPORTED) || \
+#if defined(PNG_READ_USER_TRANSFORM_SUPPORTED) || ¥
     defined(PNG_WRITE_USER_TRANSFORM_SUPPORTED)
 #  ifndef PNG_NO_USER_TRANSFORM_PTR
 #    define PNG_USER_TRANSFORM_PTR_SUPPORTED
@@ -737,11 +737,11 @@
      /* work around Intel-Mac compiler bug */
 #    define PNG_NO_MMX_CODE
 #  endif
-#  if !defined(PNG_MMX_CODE_SUPPORTED) && !defined(PNG_NO_MMX_CODE) && \
+#  if !defined(PNG_MMX_CODE_SUPPORTED) && !defined(PNG_NO_MMX_CODE) && ¥
      defined(__MMX__)
 #    define PNG_MMX_CODE_SUPPORTED
 #  endif
-#  if !defined(PNG_USE_PNGGCCRD) && !defined(PNG_NO_MMX_CODE) && \
+#  if !defined(PNG_USE_PNGGCCRD) && !defined(PNG_NO_MMX_CODE) && ¥
      !defined(PNG_USE_PNGVCRD) && defined(__MMX__)
 #    define PNG_USE_PNGGCCRD
 #  endif
@@ -814,14 +814,14 @@
  * a bit smaller.
  */
 
-#if defined(PNG_READ_SUPPORTED) && \
-    !defined(PNG_READ_ANCILLARY_CHUNKS_NOT_SUPPORTED) && \
+#if defined(PNG_READ_SUPPORTED) && ¥
+    !defined(PNG_READ_ANCILLARY_CHUNKS_NOT_SUPPORTED) && ¥
     !defined(PNG_NO_READ_ANCILLARY_CHUNKS)
 #  define PNG_READ_ANCILLARY_CHUNKS_SUPPORTED
 #endif
 
-#if defined(PNG_WRITE_SUPPORTED) && \
-    !defined(PNG_WRITE_ANCILLARY_CHUNKS_NOT_SUPPORTED) && \
+#if defined(PNG_WRITE_SUPPORTED) && ¥
+    !defined(PNG_WRITE_ANCILLARY_CHUNKS_NOT_SUPPORTED) && ¥
     !defined(PNG_NO_WRITE_ANCILLARY_CHUNKS)
 #  define PNG_WRITE_ANCILLARY_CHUNKS_SUPPORTED
 #endif
@@ -914,7 +914,7 @@
 #    define PNG_HANDLE_AS_UNKNOWN_SUPPORTED
 #  endif
 #endif
-#if !defined(PNG_NO_READ_USER_CHUNKS) && \
+#if !defined(PNG_NO_READ_USER_CHUNKS) && ¥
      defined(PNG_READ_UNKNOWN_CHUNKS_SUPPORTED)
 #  define PNG_READ_USER_CHUNKS_SUPPORTED
 #  define PNG_USER_CHUNKS_SUPPORTED
@@ -928,7 +928,7 @@
 #ifndef PNG_NO_READ_OPT_PLTE
 #  define PNG_READ_OPT_PLTE_SUPPORTED /* only affects support of the */
 #endif                      /* optional PLTE chunk in RGB and RGBA images */
-#if defined(PNG_READ_iTXt_SUPPORTED) || defined(PNG_READ_tEXt_SUPPORTED) || \
+#if defined(PNG_READ_iTXt_SUPPORTED) || defined(PNG_READ_tEXt_SUPPORTED) || ¥
     defined(PNG_READ_zTXt_SUPPORTED)
 #  define PNG_READ_TEXT_SUPPORTED
 #  define PNG_TEXT_SUPPORTED
@@ -1058,7 +1058,7 @@
 #     endif
 #  endif
 #endif
-#if defined(PNG_WRITE_iTXt_SUPPORTED) || defined(PNG_WRITE_tEXt_SUPPORTED) || \
+#if defined(PNG_WRITE_iTXt_SUPPORTED) || defined(PNG_WRITE_tEXt_SUPPORTED) || ¥
     defined(PNG_WRITE_zTXt_SUPPORTED)
 #  define PNG_WRITE_TEXT_SUPPORTED
 #  ifndef PNG_TEXT_SUPPORTED
@@ -1304,8 +1304,8 @@ typedef z_stream FAR *  png_zstreamp;
 #  define PNG_IMPEXP
 #endif
 
-#if defined(PNG_DLL) || defined(_DLL) || defined(__DLL__ ) || \
-    (( defined(_Windows) || defined(_WINDOWS) || \
+#if defined(PNG_DLL) || defined(_DLL) || defined(__DLL__ ) || ¥
+    (( defined(_Windows) || defined(_WINDOWS) || ¥
        defined(WIN32) || defined(_WIN32) || defined(__WIN32__) ))
 
 #  ifndef PNGAPI
@@ -1316,7 +1316,7 @@ typedef z_stream FAR *  png_zstreamp;
 #     endif
 #  endif
 
-#  if !defined(PNG_IMPEXP) && (!defined(PNG_DLL) || \
+#  if !defined(PNG_IMPEXP) && (!defined(PNG_DLL) || ¥
        0 /* WINCOMPILER_WITH_NO_SUPPORT_FOR_DECLIMPEXP */)
 #     define PNG_IMPEXP
 #  endif
@@ -1400,7 +1400,7 @@ typedef z_stream FAR *  png_zstreamp;
 #ifdef PNG_SETJMP_SUPPORTED
 #  define png_jmpbuf(png_ptr) ((png_ptr)->jmpbuf)
 #else
-#  define png_jmpbuf(png_ptr) \
+#  define png_jmpbuf(png_ptr) ¥
    (LIBPNG_WAS_COMPILED_WITH__PNG_SETJMP_NOT_SUPPORTED)
 #endif
 

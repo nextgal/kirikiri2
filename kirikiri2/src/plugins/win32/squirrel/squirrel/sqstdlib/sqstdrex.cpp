@@ -49,7 +49,7 @@ static const SQChar *g_nnames[] =
 #define SQREX_SYMBOL_BRANCH ('|')
 #define SQREX_SYMBOL_END_OF_STRING ('$')
 #define SQREX_SYMBOL_BEGINNING_OF_STRING ('^')
-#define SQREX_SYMBOL_ESCAPE_CHAR ('\\')
+#define SQREX_SYMBOL_ESCAPE_CHAR ('¥¥')
 
 
 typedef int SQRexNodeType;
@@ -113,11 +113,11 @@ static SQChar sqstd_rex_escapechar(SQRex *exp)
 	if(*exp->_p == SQREX_SYMBOL_ESCAPE_CHAR){
 		exp->_p++;
 		switch(*exp->_p) {
-		case 'v': exp->_p++; return '\v';
-		case 'n': exp->_p++; return '\n';
-		case 't': exp->_p++; return '\t';
-		case 'r': exp->_p++; return '\r';
-		case 'f': exp->_p++; return '\f';
+		case 'v': exp->_p++; return '¥v';
+		case 'n': exp->_p++; return '¥n';
+		case 't': exp->_p++; return '¥t';
+		case 'r': exp->_p++; return '¥r';
+		case 'f': exp->_p++; return '¥f';
 		default: return (*exp->_p++);
 		}
 	} else if(!scisprint(*exp->_p)) sqstd_rex_error(exp,_SC("letter expected"));
@@ -137,11 +137,11 @@ static SQInteger sqstd_rex_charnode(SQRex *exp,SQBool isclass)
 	if(*exp->_p == SQREX_SYMBOL_ESCAPE_CHAR) {
 		exp->_p++;
 		switch(*exp->_p) {
-			case 'n': exp->_p++; return sqstd_rex_newnode(exp,'\n');
-			case 't': exp->_p++; return sqstd_rex_newnode(exp,'\t');
-			case 'r': exp->_p++; return sqstd_rex_newnode(exp,'\r');
-			case 'f': exp->_p++; return sqstd_rex_newnode(exp,'\f');
-			case 'v': exp->_p++; return sqstd_rex_newnode(exp,'\v');
+			case 'n': exp->_p++; return sqstd_rex_newnode(exp,'¥n');
+			case 't': exp->_p++; return sqstd_rex_newnode(exp,'¥t');
+			case 'r': exp->_p++; return sqstd_rex_newnode(exp,'¥r');
+			case 'f': exp->_p++; return sqstd_rex_newnode(exp,'¥f');
+			case 'v': exp->_p++; return sqstd_rex_newnode(exp,'¥v');
 			case 'a': case 'A': case 'w': case 'W': case 's': case 'S': 
 			case 'd': case 'D': case 'x': case 'X': case 'c': case 'C': 
 			case 'p': case 'P': case 'l': case 'u': 
@@ -307,7 +307,7 @@ static SQInteger sqstd_rex_element(SQRex *exp)
 		ret = nnode;
 	}
 
-	if((*exp->_p != SQREX_SYMBOL_BRANCH) && (*exp->_p != ')') && (*exp->_p != SQREX_SYMBOL_GREEDY_ZERO_OR_MORE) && (*exp->_p != SQREX_SYMBOL_GREEDY_ONE_OR_MORE) && (*exp->_p != '\0')) {
+	if((*exp->_p != SQREX_SYMBOL_BRANCH) && (*exp->_p != ')') && (*exp->_p != SQREX_SYMBOL_GREEDY_ZERO_OR_MORE) && (*exp->_p != SQREX_SYMBOL_GREEDY_ONE_OR_MORE) && (*exp->_p != '¥0')) {
 		SQInteger nnode = sqstd_rex_element(exp);
 		exp->_nodes[ret].next = nnode;
 	}
@@ -542,7 +542,7 @@ SQRex *sqstd_rex_compile(const SQChar *pattern,const SQChar **error)
 	if(setjmp(*((jmp_buf*)exp->_jmpbuf)) == 0) {
 		SQInteger res = sqstd_rex_list(exp);
 		exp->_nodes[exp->_first].left = res;
-		if(*exp->_p!='\0')
+		if(*exp->_p!='¥0')
 			sqstd_rex_error(exp,_SC("unexpected character"));
 #ifdef DEBUG_NNAMES_LOG
 		{
@@ -550,15 +550,15 @@ SQRex *sqstd_rex_compile(const SQChar *pattern,const SQChar **error)
 			SQRexNode *t;
 			nsize = exp->_nsize;
 			t = &exp->_nodes[0];
-			scprintf(_SC("\n"));
+			scprintf(_SC("¥n"));
 			for(i = 0;i < nsize; i++) {
 				if(exp->_nodes[i].type>MAX_CHAR)
 					scprintf(_SC("[%02d] %10s "),i,g_nnames[exp->_nodes[i].type-MAX_CHAR]);
 				else
 					scprintf(_SC("[%02d] %10c "),i,exp->_nodes[i].type);
-				scprintf(_SC("left %02d right %02d next %02d\n"),exp->_nodes[i].left,exp->_nodes[i].right,exp->_nodes[i].next);
+				scprintf(_SC("left %02d right %02d next %02d¥n"),exp->_nodes[i].left,exp->_nodes[i].right,exp->_nodes[i].next);
 			}
-			scprintf(_SC("\n"));
+			scprintf(_SC("¥n"));
 		}
 #endif
 		exp->_matches = (SQRexMatch *) sq_malloc(exp->_nsubexpr * sizeof(SQRexMatch));

@@ -26,7 +26,7 @@ namespace gui
 			s32 id, core::rect<s32> rectangle, bool noclip=false);
 
 		//! destructor
-		virtual ~CGUIButton();
+		virtual ‾CGUIButton();
 
 		//! called if an event happened.
 		virtual bool OnEvent(const SEvent& event);
@@ -53,10 +53,10 @@ namespace gui
 		virtual void setSpriteBank(IGUISpriteBank* bank);
 
 		//! Sets the animated sprite for a specific button state
-		/** \param index: Number of the sprite within the sprite bank, use -1 for no sprite
-		\param state: State of the button to set the sprite for
-		\param index: The sprite number from the current sprite bank
-		\param color: The color of the sprite
+		/** ¥param index: Number of the sprite within the sprite bank, use -1 for no sprite
+		¥param state: State of the button to set the sprite for
+		¥param index: The sprite number from the current sprite bank
+		¥param color: The color of the sprite
 		*/
 		virtual void setSprite(EGUI_BUTTON_STATE state, s32 index, 
 				video::SColor color=video::SColor(255,255,255,255), bool loop=false);

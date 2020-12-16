@@ -41,7 +41,7 @@ static const sTemplate Template [] =
 	{ L"R:", L"0", 0,20,205, 0, 255 },
 	{ L"G:", L"0", 0,20,230, 0, 255 },
 	{ L"B:", L"0", 0,20,255, 0, 255 },
-	{ L"H:", L"0", L"°",180,205, 0, 360 },
+	{ L"H:", L"0", L"ﾂｰ",180,205, 0, 360 },
 	{ L"S:", L"0", L"%",180,230, 0, 100 },
 	{ L"L:", L"0", L"%",180,255, 0, 100 },
 };
@@ -164,7 +164,7 @@ CGUIColorSelectDialog::CGUIColorSelectDialog( const wchar_t* title, IGUIEnvironm
 
 
 //! destructor
-CGUIColorSelectDialog::~CGUIColorSelectDialog()
+CGUIColorSelectDialog::‾CGUIColorSelectDialog()
 {
 	if (CloseButton)
 		CloseButton->drop();

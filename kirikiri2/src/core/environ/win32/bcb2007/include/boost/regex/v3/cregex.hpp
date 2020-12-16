@@ -145,8 +145,8 @@ typedef enum
   REG_ESUBREG = 6,   /* Invalid back reference.  */
   REG_EBRACK = 7,    /* Unmatched left bracket.  */
   REG_EPAREN = 8,    /* Parenthesis imbalance.  */
-  REG_EBRACE = 9,    /* Unmatched \{.  */
-  REG_BADBR = 10,    /* Invalid contents of \{\}.  */
+  REG_EBRACE = 9,    /* Unmatched ¥{.  */
+  REG_BADBR = 10,    /* Invalid contents of ¥{¥}.  */
   REG_ERANGE = 11,   /* Invalid range end.  */
   REG_ESPACE = 12,   /* Ran out of memory.  */
   REG_BADRPT = 13,   /* No preceding re for repetition op.  */
@@ -167,8 +167,8 @@ enum match_flags
    match_not_eob = match_not_bob << 1,               // last is not end of buffer
    match_not_bow = match_not_eob << 1,               // first is not start of word
    match_not_eow = match_not_bow << 1,               // last is not end of word
-   match_not_dot_newline = match_not_eow << 1,       // \n is not matched by '.'
-   match_not_dot_null = match_not_dot_newline << 1,  // '\0' is not matched by '.'
+   match_not_dot_newline = match_not_eow << 1,       // ¥n is not matched by '.'
+   match_not_dot_null = match_not_dot_newline << 1,  // '¥0' is not matched by '.'
    match_prev_avail = match_not_dot_null << 1,       // *--first is a valid expression
    match_init = match_prev_avail << 1,               // internal use
    match_any = match_init << 1,                      // don't care what we match
@@ -241,7 +241,7 @@ private:
 public:
    RegEx();
    RegEx(const RegEx& o);
-   ~RegEx();
+   ‾RegEx();
    explicit RegEx(const char* c, bool icase = false);
    explicit RegEx(const std::string& s, bool icase = false);
    RegEx& operator=(const RegEx& o);
@@ -276,7 +276,7 @@ public:
    std::string Merge(const char* in, const char* fmt,
                        bool copy = true, unsigned int flags = match_default);
 
-   std::size_t Split(std::vector<std::string>& v, std::string& s, unsigned flags = match_default, unsigned max_count = ~0);
+   std::size_t Split(std::vector<std::string>& v, std::string& s, unsigned flags = match_default, unsigned max_count = ‾0);
    //
    // now operators for returning what matched in more detail:
    //

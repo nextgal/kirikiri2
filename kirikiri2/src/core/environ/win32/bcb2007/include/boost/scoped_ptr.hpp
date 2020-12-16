@@ -69,7 +69,7 @@ public:
 
 #endif
 
-    ~scoped_ptr() // never throws
+    ‾scoped_ptr() // never throws
     {
 #if defined(BOOST_SP_ENABLE_DEBUG_HOOKS)
         boost::sp_scalar_destructor_hook(ptr);

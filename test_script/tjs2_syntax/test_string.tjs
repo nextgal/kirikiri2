@@ -1,10 +1,10 @@
 
-var str = "abcŠ¿š";
-var n1 = str.length;  // n ‚É‚Í 5 ‚ª‘ã“ü‚³‚ê‚é
-var n2 = "abcŠ¿š".length; // ‚±‚ê‚à“¯‚¶‚­ 5 ‚ª‘ã“ü‚³‚ê‚é
+var str = "abcæ¼¢å­—";
+var n1 = str.length;  // n ã«ã¯ 5 ãŒä»£å…¥ã•ã‚Œã‚‹
+var n2 = "abcæ¼¢å­—".length; // ã“ã‚Œã‚‚åŒã˜ã 5 ãŒä»£å…¥ã•ã‚Œã‚‹
 
-if( str != "abcŠ¿š" ) {
-	Debug.message( "faild: str != \"abcŠ¿š\"" );
+if( str != "abcæ¼¢å­—" ) {
+	Debug.message( "faild: str != Â¥"abcæ¼¢å­—Â¥"" );
 }
 if( n1 != 5 ) {
 	Debug.message( "faild: n1 != 5" );
@@ -16,15 +16,15 @@ if( n2 != 5 ) {
 var isSuccess = false;
 
 str = "abcdef";
-var c0 = str[0];  // 'a' ‚ª c ‚É‘ã“ü‚³‚ê‚é
-var c2 = str[2];  // 'c' ‚ª c ‚É‘ã“ü‚³‚ê‚é
+var c0 = str[0];  // 'a' ãŒ c ã«ä»£å…¥ã•ã‚Œã‚‹
+var c2 = str[2];  // 'c' ãŒ c ã«ä»£å…¥ã•ã‚Œã‚‹
 
 if( c0 != 'a' || c2 != 'c' ) {
 	Debug.message( "faild: c0 = str[0]" );
 }
 
 try{
-	str[3] = 'A'; // ‘ã“ü®‚Í¶¬‚Å‚«‚È‚¢‚Ì‚ÅƒGƒ‰[‚É‚È‚é
+	str[3] = 'A'; // ä»£å…¥å¼ã¯ç”Ÿæˆã§ããªã„ã®ã§ã‚¨ãƒ©ãƒ¼ã«ãªã‚‹
 } catch {
 	isSuccess = true;
 }
@@ -34,7 +34,7 @@ if( isSuccess != true ) {
 
 var isSuccess = false;
 try{
-	var c100 = str[100]; // c ’l‚ª”ÍˆÍŠO‚È‚Ì‚ÅƒGƒ‰[‚É‚È‚é
+	var c100 = str[100]; // c å€¤ãŒç¯„å›²å¤–ãªã®ã§ã‚¨ãƒ©ãƒ¼ã«ãªã‚‹
 } catch {
 	isSuccess = true;
 }
@@ -42,7 +42,7 @@ if( isSuccess != true ) {
 	Debug.message( "faild: c100 = str[100]" );
 }
 
-var c6 = str[6]; // ‹ó•¶š '' ‚ª‘ã“ü‚³‚ê‚é
+var c6 = str[6]; // ç©ºæ–‡å­— '' ãŒä»£å…¥ã•ã‚Œã‚‹
 if( c6 != '' ) {
 	Debug.message( "faild: c6 = str[6]" );
 }
@@ -53,42 +53,42 @@ if( c3 != 'd' ) {
 }
 
 str = "abcdefghijklabc";
-var nfgh = str.indexOf("fgh"); // n ‚É‚Í 5 ‚ª‘ã“ü‚³‚ê‚é
+var nfgh = str.indexOf("fgh"); // n ã«ã¯ 5 ãŒä»£å…¥ã•ã‚Œã‚‹
 if( nfgh != 5 ) {
-	Debug.message( "faild: nfgh = str.indexOf(\"fgh\")" );
+	Debug.message( "faild: nfgh = str.indexOf(Â¥"fghÂ¥")" );
 }
-var nxyz = str.indexOf("xyz"); // n ‚É‚Í -1 ‚ª‘ã“ü‚³‚ê‚é
+var nxyz = str.indexOf("xyz"); // n ã«ã¯ -1 ãŒä»£å…¥ã•ã‚Œã‚‹
 if( nxyz != -1 ) {
-	Debug.message( "faild: nxyz = str.indexOf(\"xyz\")" );
+	Debug.message( "faild: nxyz = str.indexOf(Â¥"xyzÂ¥")" );
 }
 var nabc = str.indexOf("abc",4);
 if( nabc != 12 ) {
-	Debug.message( "faild: nabc = str.indexOf(\"abc\",4)" );
+	Debug.message( "faild: nabc = str.indexOf(Â¥"abcÂ¥",4)" );
 }
 var lwr="ABCDEF".toLowerCase();
 if( lwr != "abcdef" ) {
-	Debug.message( "faild: lwr=\"ABCDEF\".toLowerCase()" );
+	Debug.message( "faild: lwr=Â¥"ABCDEFÂ¥".toLowerCase()" );
 }
 var upr="abcdef".toUpperCase();
 if( upr != "ABCDEF" ) {
-	Debug.message( "faild: lwr=\"abcdef\".toUpperCase()" );
+	Debug.message( "faild: lwr=Â¥"abcdefÂ¥".toUpperCase()" );
 }
 
 var ss="abcdefghijkl".substring(3,3);
 if( ss != "def" ) {
-	Debug.message( "faild: ss=\"abcdefghijkl\".substring(3,3)" );
+	Debug.message( "faild: ss=Â¥"abcdefghijklÂ¥".substring(3,3)" );
 }
 var ss2="abcdefghijkl".substr(3,3);
 if( ss2 != "def" ) {
-	Debug.message( "faild: ss2=\"abcdefghijkl\".substr(3,3)" );
+	Debug.message( "faild: ss2=Â¥"abcdefghijklÂ¥".substr(3,3)" );
 }
 
 var formatted = "%04X %c %5d".sprintf(10, 'b', 30);
 if( formatted != "000A b    30" ) {
-	Debug.message( "faild: formatted = \"%04X %c %5d\".sprintf(10, 'b', 30)" );
+	Debug.message( "faild: formatted = Â¥"%04X %c %5dÂ¥".sprintf(10, 'b', 30)" );
 }
 var replaced = "abcdef".replace(/cd/, "ab");
 if( replaced != "ababef" ) {
-	Debug.message( "faild: replaced = \"abcdef\".replace(\"cd\", \"ab\")" );
+	Debug.message( "faild: replaced = Â¥"abcdefÂ¥".replace(Â¥"cdÂ¥", Â¥"abÂ¥")" );
 }
 

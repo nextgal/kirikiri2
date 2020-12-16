@@ -29,16 +29,16 @@
 #   include "boost/mpl/aux_/preprocessor/filter_params.hpp"
 #   include "boost/mpl/aux_/preprocessor/sub.hpp"
 
-#   define BOOST_MPL_PP_EXT_PARAMS(i,j,p) \
-    BOOST_MPL_PP_EXT_PARAMS_DELAY_1(i,BOOST_MPL_PP_SUB(j,i),p) \
+#   define BOOST_MPL_PP_EXT_PARAMS(i,j,p) ¥
+    BOOST_MPL_PP_EXT_PARAMS_DELAY_1(i,BOOST_MPL_PP_SUB(j,i),p) ¥
     /**/
 
-#   define BOOST_MPL_PP_EXT_PARAMS_DELAY_1(i,n,p) \
-    BOOST_MPL_PP_EXT_PARAMS_DELAY_2(i,n,p) \
+#   define BOOST_MPL_PP_EXT_PARAMS_DELAY_1(i,n,p) ¥
+    BOOST_MPL_PP_EXT_PARAMS_DELAY_2(i,n,p) ¥
     /**/
 
-#   define BOOST_MPL_PP_EXT_PARAMS_DELAY_2(i,n,p) \
-    BOOST_MPL_PP_EXT_PARAMS_##i(n,p) \
+#   define BOOST_MPL_PP_EXT_PARAMS_DELAY_2(i,n,p) ¥
+    BOOST_MPL_PP_EXT_PARAMS_##i(n,p) ¥
     /**/
 
 #   define BOOST_MPL_PP_EXT_PARAMS_1(i,p) BOOST_MPL_PP_FILTER_PARAMS_##i(p##1,p##2,p##3,p##4,p##5,p##6,p##7,p##8,p##9)
@@ -60,20 +60,20 @@
 #   include "boost/preprocessor/tuple/elem.hpp"
 #   include "boost/preprocessor/cat.hpp"
 
-#   define BOOST_MPL_PP_AUX_EXT_PARAM_FUNC(unused, i, op) \
-    BOOST_PP_COMMA_IF(i) \
-    BOOST_PP_CAT( \
-          BOOST_PP_TUPLE_ELEM(2,1,op) \
-        , BOOST_PP_ADD_D(1, i, BOOST_PP_TUPLE_ELEM(2,0,op)) \
-        ) \
+#   define BOOST_MPL_PP_AUX_EXT_PARAM_FUNC(unused, i, op) ¥
+    BOOST_PP_COMMA_IF(i) ¥
+    BOOST_PP_CAT( ¥
+          BOOST_PP_TUPLE_ELEM(2,1,op) ¥
+        , BOOST_PP_ADD_D(1, i, BOOST_PP_TUPLE_ELEM(2,0,op)) ¥
+        ) ¥
     /**/
 
-#   define BOOST_MPL_PP_EXT_PARAMS(i, j, param) \
-    BOOST_PP_REPEAT_1( \
-          BOOST_PP_SUB_D(1,j,i) \
-        , BOOST_MPL_PP_AUX_EXT_PARAM_FUNC \
-        , (i,param) \
-        ) \
+#   define BOOST_MPL_PP_EXT_PARAMS(i, j, param) ¥
+    BOOST_PP_REPEAT_1( ¥
+          BOOST_PP_SUB_D(1,j,i) ¥
+        , BOOST_MPL_PP_AUX_EXT_PARAM_FUNC ¥
+        , (i,param) ¥
+        ) ¥
     /**/
 
 #endif // BOOST_MPL_NO_OWN_PP_PRIMITIVES

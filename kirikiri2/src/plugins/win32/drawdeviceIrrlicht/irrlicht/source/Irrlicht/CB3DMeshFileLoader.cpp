@@ -39,7 +39,7 @@ bool CB3DMeshFileLoader::isALoadableFileExtension(const c8* fileName) const
 
 
 //! creates/loads an animated mesh from the file.
-//! \return Pointer to the created mesh. Returns 0 if loading failed.
+//! ¥return Pointer to the created mesh. Returns 0 if loading failed.
 //! If you no longer need the mesh, you should call IAnimatedMesh::drop().
 //! See IReferenceCounted::drop() for more information.
 IAnimatedMesh* CB3DMeshFileLoader::createMesh(io::IReadFile* f)
@@ -734,9 +734,9 @@ bool CB3DMeshFileLoader::readChunkKEYS(CSkinnedMesh::SJoint *InJoint)
 
 bool CB3DMeshFileLoader::readChunkANIM(CSkinnedMesh::SJoint *InJoint)
 {
-	s32 AnimFlags; //not stored\used
-	s32 AnimFrames;//not stored\used
-	f32 AnimFPS; //not stored\used
+	s32 AnimFlags; //not stored¥used
+	s32 AnimFrames;//not stored¥used
+	f32 AnimFPS; //not stored¥used
 
 	file->read(&AnimFlags, sizeof(s32));
 	file->read(&AnimFrames, sizeof(s32));
@@ -953,7 +953,7 @@ core::stringc CB3DMeshFileLoader::readString()
 core::stringc CB3DMeshFileLoader::stripPathFromString(core::stringc string, bool returnPath)
 {
 	s32 slashIndex=string.findLast('/'); // forward slash
-	s32 backSlash=string.findLast('\\'); // back slash
+	s32 backSlash=string.findLast('¥¥'); // back slash
 
 	if (backSlash>slashIndex) slashIndex=backSlash;
 

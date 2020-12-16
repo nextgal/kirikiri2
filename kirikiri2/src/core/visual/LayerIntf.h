@@ -185,7 +185,7 @@ class tTJSNI_BaseLayer :
 	//---------------------------------------------- object lifetime stuff --
 public:
 	tTJSNI_BaseLayer(void);
-	~tTJSNI_BaseLayer();
+	‾tTJSNI_BaseLayer();
 	tjs_error TJS_INTF_METHOD Construct(tjs_int numparams, tTJSVariant **param,
 		iTJSDispatch2 *tjs_obj);
 	void TJS_INTF_METHOD Invalidate();
@@ -1034,7 +1034,7 @@ class tTJSNI_Font : public tTJSNativeInstance
 
 public:
 	tTJSNI_Font();
-	~tTJSNI_Font();
+	‾tTJSNI_Font();
 	tjs_error TJS_INTF_METHOD Construct(tjs_int numparams, tTJSVariant **param,
 		iTJSDispatch2 *tjs_obj);
 	void TJS_INTF_METHOD Invalidate();

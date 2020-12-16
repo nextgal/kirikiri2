@@ -135,8 +135,8 @@ int read_dimacs_max_flow(Graph& g,
 
     switch (in_line[0]) {
     case 'c':                  /* skip lines with comments */
-    case '\n':                 /* skip empty lines   */
-    case '\0':                 /* skip empty lines at the end of file */
+    case '¥n':                 /* skip empty lines   */
+    case '¥0':                 /* skip empty lines at the end of file */
       break;
       
     case 'p':                  /* problem description      */
@@ -283,7 +283,7 @@ int read_dimacs_max_flow(Graph& g,
   /* ---------------------------------- */
  error:  /* error found reading input */
   
-  printf ( "\nline %ld of input - %s\n", 
+  printf ( "¥nline %ld of input - %s¥n", 
            no_lines, err_message[err_no] );
   
   exit (1);

@@ -97,7 +97,7 @@ public:
 		Avail = true;
 	}
 
-	~tTVPGraphicType()
+	‾tTVPGraphicType()
 	{
 		Avail = false;
 	}
@@ -285,7 +285,7 @@ void TVPInternalLoadBMP(void *callbackdata,
 	sizecallback(callbackdata, bi.biWidth, height);
 
 	tjs_int pitch;
-	pitch = (((bi.biWidth * orgbitcount) + 31) & ~31) /8;
+	pitch = (((bi.biWidth * orgbitcount) + 31) & ‾31) /8;
 	tjs_uint8 *readbuf = (tjs_uint8 *)TJSAlignedAlloc(pitch * TVP_BMP_READ_LINE_MAX, 4);
 	tjs_uint8 *buf;
 	tjs_int bufremain = 0;
@@ -1044,8 +1044,8 @@ static int __fastcall PNG_read_chunk_callback(png_structp png_ptr,png_unknown_ch
 			uchar unit
 		*/
 		// be careful because the integers are stored in network byte order
-		#define PNG_read_be32(a) (((tjs_uint32)(a)[0]<<24)+\
-			((tjs_uint32)(a)[1]<<16)+((tjs_uint32)(a)[2]<<8)+\
+		#define PNG_read_be32(a) (((tjs_uint32)(a)[0]<<24)+¥
+			((tjs_uint32)(a)[1]<<16)+((tjs_uint32)(a)[2]<<8)+¥
 			((tjs_uint32)(a)[3]))
 		tjs_uint32 width  = PNG_read_be32(chunk->data+0);
 		tjs_uint32 height = PNG_read_be32(chunk->data+4);
@@ -1416,7 +1416,7 @@ class tTVPEFileObject : public ::EFileObject
 	tTJSBinaryStream * Stream;
 public:
 	tTVPEFileObject(tTJSBinaryStream *ref);
-	~tTVPEFileObject();
+	‾tTVPEFileObject();
 
 	virtual DWORD Read( void * ptrBuf, DWORD dwByte );
 	virtual DWORD GetLength( void );
@@ -1441,7 +1441,7 @@ tTVPEFileObject::tTVPEFileObject(tTJSBinaryStream *ref)
 	}
 }
 //---------------------------------------------------------------------------
-tTVPEFileObject::~tTVPEFileObject()
+tTVPEFileObject::‾tTVPEFileObject()
 {
 	// tTVPEFileObject destructor
 	// nothing to do
@@ -1590,7 +1590,7 @@ void TVPLoadERI(void* formatdata, void *callbackdata, tTVPGraphicSizeCallback si
 	tjs_uint imagesize;
 	rii.nImageHeight = h = std::abs(static_cast<int>(erifile.m_InfoHeader.nImageHeight));
 
-	rii.BytesPerLine = ((rii.nImageWidth * rii.dwBitsPerPixel /8)+0x07)& ~0x07;
+	rii.BytesPerLine = ((rii.nImageWidth * rii.dwBitsPerPixel /8)+0x07)& ‾0x07;
 
 	rii.ptrImageArray = (PBYTE)malloc(imagesize = h * rii.BytesPerLine);
 	if(!rii.ptrImageArray)
@@ -2143,7 +2143,7 @@ public:
 		RefCount = 1; Size = 0; Bitmap = NULL; RawData = NULL;
 		MetaInfo = NULL;
 	}
-	~tTVPGraphicImageData()
+	‾tTVPGraphicImageData()
 	{
 		if(Bitmap) delete Bitmap;
 		if(RawData) delete [] RawData;

@@ -103,7 +103,7 @@ CLMTSMeshFileLoader::CLMTSMeshFileLoader(io::IFileSystem* fs, video::IVideoDrive
 }
 
 
-CLMTSMeshFileLoader::~CLMTSMeshFileLoader()
+CLMTSMeshFileLoader::‾CLMTSMeshFileLoader()
 {
 	if (Driver)
 		Driver->drop();

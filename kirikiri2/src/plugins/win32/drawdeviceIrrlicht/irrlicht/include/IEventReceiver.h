@@ -255,10 +255,10 @@ class IEventReceiver
 public:
 
 	//! Destructor
-	virtual ~IEventReceiver() {}
+	virtual ‾IEventReceiver() {}
 
 	//! Called if an event happened.
-	/** \return True if the event was processed. */
+	/** ¥return True if the event was processed. */
 	virtual bool OnEvent(const SEvent& event) = 0;
 };
 

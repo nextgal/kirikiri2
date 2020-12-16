@@ -128,7 +128,7 @@ SQInteger sqstd_flen(SQFILE file)
 struct SQFile : public SQStream {
 	SQFile() { _handle = NULL; _owns = false;}
 	SQFile(SQFILE file, bool owns) { _handle = file; _owns = owns;}
-	virtual ~SQFile() { Close(); }
+	virtual ‾SQFile() { Close(); }
 	bool Open(const SQChar *filename ,const SQChar *mode) {
 		Close();
 		if( (_handle = sqstd_fopen(filename,mode)) ) {

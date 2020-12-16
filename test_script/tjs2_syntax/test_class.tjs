@@ -86,7 +86,7 @@ if( (objmethod incontextof t2)() != 0 ) {
 }
 function classproptest() {
 	var p = &property1;
-	&tmp.addProp = p; // p ‚ğ tmp ‚Ì addProp ‚Æ‚µ‚Ä“o˜^‚·‚é
+	&tmp.addProp = p; // p ã‚’ tmp ã® addProp ã¨ã—ã¦ç™»éŒ²ã™ã‚‹
 	tmp.addProp = 20;
 	if( tmp.addProp != 20 ) {
 		Debug.message( "faild: tmp.addProp" );
@@ -120,7 +120,7 @@ class arg2Class {
 var newobject = new arg2Class(5, 6);
 invalidate newobject;
 
-// test Œp³
+// test ç¶™æ‰¿
 class testInherited extends test {
 	function testInherited() {
 		super.test();

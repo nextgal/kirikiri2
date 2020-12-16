@@ -51,7 +51,7 @@ public:
 	tTJSCriticalSection TVPTimerCS;
 
 	tTVPTimerThread();
-	~tTVPTimerThread();
+	‾tTVPTimerThread();
 
 protected:
 	void Execute();
@@ -88,7 +88,7 @@ tTVPTimerThread::tTVPTimerThread() : tTVPThread(true)
 	Resume();
 }
 //---------------------------------------------------------------------------
-tTVPTimerThread::~tTVPTimerThread()
+tTVPTimerThread::‾tTVPTimerThread()
 {
 	Terminate();
 	Resume();

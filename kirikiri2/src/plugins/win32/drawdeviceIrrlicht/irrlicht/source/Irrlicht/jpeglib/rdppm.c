@@ -91,7 +91,7 @@ pbm_getc (FILE * infile)
   if (ch == '#') {
     do {
       ch = getc(infile);
-    } while (ch != '\n' && ch != EOF);
+    } while (ch != '¥n' && ch != EOF);
   }
   return ch;
 }
@@ -112,7 +112,7 @@ read_pbm_integer (j_compress_ptr cinfo, FILE * infile)
     ch = pbm_getc(infile);
     if (ch == EOF)
       ERREXIT(cinfo, JERR_INPUT_EOF);
-  } while (ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r');
+  } while (ch == ' ' || ch == '¥t' || ch == '¥n' || ch == '¥r');
 
   if (ch < '0' || ch > '9')
     ERREXIT(cinfo, JERR_PPM_NONNUMERIC);

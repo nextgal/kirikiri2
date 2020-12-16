@@ -25,7 +25,7 @@ namespace gui
 			IGUIElement* parent, s32 id, const core::rect<s32>& rectangle);
 
 		//! destructor
-		virtual ~CGUIEditBox();
+		virtual ‾CGUIEditBox();
 
 		//! Sets another skin independent font.
 		virtual void setOverrideFont(IGUIFont* font=0);
@@ -44,28 +44,28 @@ namespace gui
 		virtual void setWordWrap(bool enable);
 
 		//! Checks if word wrap is enabled
-		//! \return true if word wrap is enabled, false otherwise
+		//! ¥return true if word wrap is enabled, false otherwise
 		virtual bool isWordWrapEnabled() const;
 
 		//! Enables or disables newlines.
-		/** \param enable: If set to true, the EGET_EDITBOX_ENTER event will not be fired,
+		/** ¥param enable: If set to true, the EGET_EDITBOX_ENTER event will not be fired,
 		instead a newline character will be inserted. */
 		virtual void setMultiLine(bool enable);
 
 		//! Checks if multi line editing is enabled
-		//! \return true if mult-line is enabled, false otherwise
+		//! ¥return true if mult-line is enabled, false otherwise
 		virtual bool isMultiLineEnabled() const;
 
 		//! Enables or disables automatic scrolling with cursor position
-		//! \param enable: If set to true, the text will move around with the cursor position
+		//! ¥param enable: If set to true, the text will move around with the cursor position
 		virtual void setAutoScroll(bool enable);
 
 		//! Checks to see if automatic scrolling is enabled
-		//! \return true if automatic scrolling is enabled, false if not
+		//! ¥return true if automatic scrolling is enabled, false if not
 		virtual bool isAutoScrollEnabled() const;
 
 		//! Gets the size area of the text in the edit box
-		//! \return Returns the size in pixels of the text
+		//! ¥return Returns the size in pixels of the text
 		virtual core::dimension2di getTextDimension();
 
 		//! Sets text justification
@@ -81,7 +81,7 @@ namespace gui
 		virtual void setText(const wchar_t* text);
 
 		//! Sets the maximum amount of characters which may be entered in the box.
-		//! \param max: Maximum amount of characters. If 0, the character amount is 
+		//! ¥param max: Maximum amount of characters. If 0, the character amount is 
 		//! infinity.
 		virtual void setMax(u32 max);
 
@@ -90,8 +90,8 @@ namespace gui
 
 		//! Sets whether the edit box is a password box. Setting this to true will 
 		/** disable MultiLine, WordWrap and the ability to copy with ctrl+c or ctrl+x
-		\param passwordBox: true to enable password, false to disable
-		\param passwordChar: the character that is displayed instead of letters */
+		¥param passwordBox: true to enable password, false to disable
+		¥param passwordChar: the character that is displayed instead of letters */
 		virtual void setPasswordBox(bool passwordBox, wchar_t passwordChar = L'*');
 
 		//! Returns true if the edit box is currently a password box.

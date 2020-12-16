@@ -26,7 +26,7 @@ namespace scene
 		CAnimatedMeshMD3();
 
 		//! destructor
-		virtual ~CAnimatedMeshMD3();
+		virtual ‾CAnimatedMeshMD3();
 
 		//! loads a quake3 md3 file
 		virtual bool loadModelFile( u32 modelIndex, io::IReadFile* file);
@@ -58,8 +58,8 @@ namespace scene
 		}
 
 		//! Returns pointer to a mesh buffer which fits a material
- 		/** \param material: material to search for
-		\return Returns the pointer to the mesh buffer or
+ 		/** ¥param material: material to search for
+		¥return Returns the pointer to the mesh buffer or
 		NULL if there is no such mesh buffer. */
 		virtual IMeshBuffer* getMeshBuffer( const video::SMaterial &material) const
 		{

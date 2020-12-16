@@ -1,7 +1,7 @@
 '
-' VBScript �ɂ��L�q�B
-' VBScript �ɂ͈�������̃R���X�g���N�^�̊T�O���Ȃ�㩁i��)
-' �d�����Ȃ��̂� tjs �ŋL�q�����������\�b�h���Ăяo���Ă܂��B
+' VBScript による記述。
+' VBScript には引数ありのコンストラクタの概念がない罠（涙)
+' 仕方がないので tjs で記述した生成メソッドを呼び出してます。
 '
 Dim win, base
 Set win = createWindow()

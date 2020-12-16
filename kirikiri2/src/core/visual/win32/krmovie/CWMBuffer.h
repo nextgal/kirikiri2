@@ -2,7 +2,7 @@
 /*! @file
 @brief DirectShow media sample wrapper for Windows media format
 
-DirectShow‚ÌMedia Sample‚ğƒ‰ƒbƒv‚µ‚½Windows Media Format SDK—p‚ÌBuffer
+DirectShowã®Media Sampleã‚’ãƒ©ãƒƒãƒ—ã—ãŸWindows Media Format SDKç”¨ã®Buffer
 -----------------------------------------------------------------------------
 	Copyright (C) 2005 T.Imoto <http://www.kaede-software.com>
 -----------------------------------------------------------------------------
@@ -24,10 +24,10 @@ DirectShow‚ÌMedia Sample‚ğƒ‰ƒbƒv‚µ‚½Windows Media Format SDK—p‚ÌBuffer
 #include <dshow.h>
 
 //----------------------------------------------------------------------------
-//! @brief WMV—pƒoƒbƒtƒ@
+//! @brief WMVç”¨ãƒãƒƒãƒ•ã‚¡
 //!
-//! DirectShow‚Å‚ÍSample‚É‚ ‚½‚é‚à‚ÌB
-//! Œ»İ‚ÌÀ‘•‚ÍIMediaSample‚Ìƒ‰ƒbƒp[‚É‚È‚Á‚Ä‚¢‚éB
+//! DirectShowã§ã¯Sampleã«ã‚ãŸã‚‹ã‚‚ã®ã€‚
+//! ç¾åœ¨ã®å®Ÿè£…ã¯IMediaSampleã®ãƒ©ãƒƒãƒ‘ãƒ¼ã«ãªã£ã¦ã„ã‚‹ã€‚
 //----------------------------------------------------------------------------
 class CWMBuffer : public INSSBuffer, public CUnknown
 {
@@ -40,7 +40,7 @@ class CWMBuffer : public INSSBuffer, public CUnknown
 	}
 public:
 	CWMBuffer( IMediaSample *smaple ) : CUnknown(NAME("WM Buffer"),NULL), m_Sample(smaple) {}
-	virtual ~CWMBuffer() {}
+	virtual â€¾CWMBuffer() {}
 
 	void SetSample( IMediaSample *sample ) { m_Sample = sample; }
 	IMediaSample *GetSample() { return m_Sample; }

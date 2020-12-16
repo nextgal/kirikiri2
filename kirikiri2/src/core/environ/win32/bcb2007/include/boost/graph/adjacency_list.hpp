@@ -171,9 +171,9 @@ namespace boost {
     typedef vecS type;
   };
 
-#define BOOST_CONTAINER_SELECTOR(NAME) \
-  template <> struct container_selector<NAME>  { \
-    typedef NAME type; \
+#define BOOST_CONTAINER_SELECTOR(NAME) ¥
+  template <> struct container_selector<NAME>  { ¥
+    typedef NAME type; ¥
   }
 
   BOOST_CONTAINER_SELECTOR(vecS);

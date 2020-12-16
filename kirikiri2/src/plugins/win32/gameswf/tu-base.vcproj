@@ -18,7 +18,7 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)ﾂ･$(ProjectName)"
 			ConfigurationType="4"
 			CharacterSet="1"
 			>
@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="tu-testbed;..\layerExCairo\zlib;libjpeg"
+				AdditionalIncludeDirectories="tu-testbed;..ﾂ･layerExCairoﾂ･zlib;libjpeg"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -81,7 +81,7 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)ﾂ･$(ProjectName)"
 			ConfigurationType="4"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
@@ -103,7 +103,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="tu-testbed;..\layerExCairo\zlib;libjpeg"
+				AdditionalIncludeDirectories="tu-testbed;..ﾂ･layerExCairoﾂ･zlib;libjpeg"
 				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
@@ -144,111 +144,111 @@
 	</References>
 	<Files>
 		<Filter
-			Name="ソース ファイル"
+			Name="繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\tu-testbed\base\container.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･container.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\ear_clip_triangulate_float.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･ear_clip_triangulate_float.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\ear_clip_triangulate_sint16.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･ear_clip_triangulate_sint16.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\image.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･image.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\image_filters.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･image_filters.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\jpeg.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･jpeg.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\membuf.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･membuf.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\tu_file.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･tu_file.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\tu_random.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･tu_random.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\tu_timer.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･tu_timer.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\utf8.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･utf8.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\zlib_adapter.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･zlib_adapter.cpp"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="ヘッダー ファイル"
+			Name="繝倥ャ繝繝ｼ 繝輔ぃ繧､繝ｫ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\tu-testbed\base\container.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･container.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\ear_clip_triangulate.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･ear_clip_triangulate.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\ear_clip_triangulate_impl.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･ear_clip_triangulate_impl.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\image.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･image.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\jpeg.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･jpeg.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\membuf.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･membuf.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\tu_file.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･tu_file.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\tu_random.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･tu_random.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\tu_timer.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･tu_timer.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\utf8.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･utf8.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\base\zlib_adapter.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･baseﾂ･zlib_adapter.h"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="リソース ファイル"
+			Name="繝ｪ繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>

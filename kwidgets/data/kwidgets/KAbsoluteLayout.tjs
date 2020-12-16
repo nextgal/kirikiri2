@@ -4,21 +4,21 @@
 
 
 /*----------------------------------------------------------------------
- * â‘ÎˆÊ’uƒŒƒCƒAƒEƒg
+ * çµ¶å¯¾ä½ç½®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
  ----------------------------------------------------------------------*/
 class KAbsoluteLayout extends KWidget
 {
-  // Ši”[‚µ‚Ä‚éƒEƒBƒWƒFƒbƒg
+  // æ ¼ç´ã—ã¦ã‚‹ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
   var childList;
 
   /**------------------------------
-   * â‘ÎˆÊ’uƒŒƒCƒAƒEƒg
+   * çµ¶å¯¾ä½ç½®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
    * 
-   * ƒEƒBƒWƒFƒbƒg‚ğAƒŒƒCƒAƒEƒg’†‚Éâ‘ÎÀ•WŠî€‚Åİ’u‚µ‚Ü‚·B
-   * ƒEƒBƒWƒFƒbƒg©g‚Ì margin ‚Æ align ‚Ìİ’è‚É]‚Á‚ÄA”z’u‚ğs‚¢‚Ü‚·B
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ã€ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆä¸­ã«çµ¶å¯¾åº§æ¨™åŸºæº–ã§è¨­ç½®ã—ã¾ã™ã€‚
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆè‡ªèº«ã® margin ã¨ align ã®è¨­å®šã«å¾“ã£ã¦ã€é…ç½®ã‚’è¡Œã„ã¾ã™ã€‚
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param name åå‰
    ------------------------------*/
   function KAbsoluteLayout(win, name) {
     super.KWidget(win, name);
@@ -28,9 +28,9 @@ class KAbsoluteLayout extends KWidget
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚ğƒŒƒCƒAƒEƒg‚É“o˜^‚·‚é
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã«ç™»éŒ²ã™ã‚‹
    * 
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function add(child, ignoreSize = false) {
     child.parent = this;
@@ -40,10 +40,10 @@ class KAbsoluteLayout extends KWidget
   }
 
   /**------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚ğƒŒƒCƒAƒEƒg‚©‚çŠJ•ú‚·‚é
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‹ã‚‰é–‹æ”¾ã™ã‚‹
    * 
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(child, doInvalidate = true) {
     child.parent = widgetDepot;
@@ -54,9 +54,9 @@ class KAbsoluteLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğƒJƒEƒ“ƒg‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹
    * 
-   * @return qƒAƒCƒeƒ€”
+   * @return å­ã‚¢ã‚¤ãƒ†ãƒ æ•°
    ------------------------------*/
   property childCount {
     getter {
@@ -65,17 +65,17 @@ class KAbsoluteLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğQÆ‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å‚ç…§ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @return qƒEƒBƒWƒFƒbƒg
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @return å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function childAt(index) {
     return childList[index];
   }
 
   /*------------------------------
-   * ƒŒƒCƒAƒEƒg‚ğ‚â‚è’¼‚µ
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ã‚„ã‚Šç›´ã—
    ------------------------------*/
   function invalidateLayout {
     var minW, minH, maxW, maxH;

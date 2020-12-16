@@ -8,9 +8,9 @@ class MyWindow extends Window
 
 		borderStyle = bsSingle;
 
-		caption = "asq -> asd ƒRƒ“ƒo[ƒ^";
+		caption = "asq -> asd ã‚³ãƒ³ãƒãƒ¼ã‚¿";
 
-		// ‰º•~‚«(ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„)
+		// ä¸‹æ•·ã(ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤)
 		add(primlayer = new Layer(this, null));
 		primlayer.left = primlayer.top = 0;
 		primlayer.imageWidth = 260;
@@ -18,15 +18,15 @@ class MyWindow extends Window
 		primlayer.setSizeToImageSize();
 		setInnerSize(primlayer.width, primlayer.height);
 
-		primlayer.drawText(10, 10, "ƒGƒNƒXƒvƒ[ƒ‰“™‚©‚ç•ÏŠ·‚µ‚½‚¢ asq ƒtƒ@ƒCƒ‹‚ğ",
+		primlayer.drawText(10, 10, "ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ç­‰ã‹ã‚‰å¤‰æ›ã—ãŸã„ asq ãƒ•ã‚¡ã‚¤ãƒ«ã‚’",
 			0x0000ff, 255, true, 255, 0x000000, 3, 2, 2);
-		primlayer.drawText(10, 30, "‚±‚±‚Éƒhƒƒbƒv‚µ‚Ä‚­‚¾‚³‚¢",
+		primlayer.drawText(10, 30, "ã“ã“ã«ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ãã ã•ã„",
 			0x0000ff, 255, true, 255, 0x000000, 3, 2, 2);
 
 		Debug.console.visible = true;
 
-		Debug.message("ƒGƒNƒXƒvƒ[ƒ‰“™‚©‚ç•ÏŠ·‚µ‚½‚¢ asq ƒtƒ@ƒCƒ‹‚ğA"
-			"uasq -> asd ƒRƒ“ƒo[ƒ^vƒEƒBƒ“ƒhƒE‚Éƒhƒƒbƒv‚µ‚Ä‚­‚¾‚³‚¢B");
+		Debug.message("ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ç­‰ã‹ã‚‰å¤‰æ›ã—ãŸã„ asq ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã€"
+			"ã€Œasq -> asd ã‚³ãƒ³ãƒãƒ¼ã‚¿ã€ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ãã ã•ã„ã€‚");
 
 
 		visible = true;
@@ -43,11 +43,11 @@ class MyWindow extends Window
 
 	function convert_file(file)
 	{
-		// ƒtƒ@ƒCƒ‹‚ğ•ÏŠ·
-		var pattern = /\s*([0-9\-]+)\s*,\s*([0-9\-]+)\s*,\s*([0-9\-]+)\s*,\s*([0-9\-]+)\s*,\s*([0-9\-]+)\s*,\s*([0-9\-]+)\s*,\s*([0-9\-]+)\s*/;
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å¤‰æ›
+		var pattern = /Â¥s*([0-9Â¥-]+)Â¥s*,Â¥s*([0-9Â¥-]+)Â¥s*,Â¥s*([0-9Â¥-]+)Â¥s*,Â¥s*([0-9Â¥-]+)Â¥s*,Â¥s*([0-9Â¥-]+)Â¥s*,Â¥s*([0-9Â¥-]+)Â¥s*,Â¥s*([0-9Â¥-]+)Â¥s*/;
 		try
 		{
-			Debug.message(file + " ‚ğ•ÏŠ·’†");
+			Debug.message(file + " ã‚’å¤‰æ›ä¸­");
 			var input = [];
 			input.load(file);
 			var new_file = Storages.chopStorageExt(file) + ".asd";
@@ -59,13 +59,13 @@ class MyWindow extends Window
 			output.add("");
 			output.add("*start");
 
-			// ƒtƒ@ƒCƒ‹‚ğ‚İ‚é
+			// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã¿ã‚‹
 			var totalTime = 0;
 			for(var i = 0; i < input.count; i++)
 			{
 				var line = input[i];
-				if(line.length == 0) continue; // ‹ós
-				if(line[0] == ';') continue; // ƒRƒƒ“ƒg
+				if(line.length == 0) continue; // ç©ºè¡Œ
+				if(line[0] == ';') continue; // ã‚³ãƒ¡ãƒ³ãƒˆ
 				var s = pattern.match(line);
 				if(s.count)
 				{
@@ -79,21 +79,21 @@ class MyWindow extends Window
 
 			if(totalTime == 0)
 			{
-				// ŠÔ‚ª 0
-				// ƒRƒ“ƒ_ƒNƒ^‚ª–³ŒÀƒ‹[ƒv‚ÉŠ×‚é‚Ì‚Å‰ñ”ğ
-				throw new Exception("ˆê‰ñ‚Ìƒ‹[ƒv‚É‚©‚©‚éŠÔ‚ª 0 ‚Å‚· ( asq ƒtƒ@ƒCƒ‹‚Å‚Í‚È‚¢‚©A ƒf[ƒ^‚ªˆÙí )");
+				// æ™‚é–“ãŒ 0
+				// ã‚³ãƒ³ãƒ€ã‚¯ã‚¿ãŒç„¡é™ãƒ«ãƒ¼ãƒ—ã«é™¥ã‚‹ã®ã§å›é¿
+				throw new Exception("ä¸€å›ã®ãƒ«ãƒ¼ãƒ—ã«ã‹ã‹ã‚‹æ™‚é–“ãŒ 0 ã§ã™ ( asq ãƒ•ã‚¡ã‚¤ãƒ«ã§ã¯ãªã„ã‹ã€ ãƒ‡ãƒ¼ã‚¿ãŒç•°å¸¸ )");
 			}
 
 			output.add("@jump target=*start");
 
-			// ƒtƒ@ƒCƒ‹‚ğ‘‚«‚İ
+			// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ›¸ãè¾¼ã¿
 			output.save(new_file);
 
-			Debug.message(file + " •ÏŠ·I—¹ --> " + new_file);
+			Debug.message(file + " å¤‰æ›çµ‚äº† --> " + new_file);
 		}
 		catch(e)
 		{
-			Debug.message("ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½(ƒtƒ@ƒCƒ‹ " + file + ") : " + e.message);
+			Debug.message("ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ(ãƒ•ã‚¡ã‚¤ãƒ« " + file + ") : " + e.message);
 		}
 	}
 

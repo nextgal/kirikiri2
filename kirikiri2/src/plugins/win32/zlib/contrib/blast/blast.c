@@ -431,12 +431,12 @@ int main(void)
 
     /* decompress to stdout */
     ret = blast(inf, stdin, outf, stdout);
-    if (ret != 0) fprintf(stderr, "blast error: %d\n", ret);
+    if (ret != 0) fprintf(stderr, "blast error: %d¥n", ret);
 
     /* see if there are any leftover bytes */
     n = 0;
     while (getchar() != EOF) n++;
-    if (n) fprintf(stderr, "blast warning: %d unused bytes of input\n", n);
+    if (n) fprintf(stderr, "blast warning: %d unused bytes of input¥n", n);
 
     /* return blast() error code */
     return ret;

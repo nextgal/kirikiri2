@@ -229,7 +229,7 @@ namespace scene
 	//! Holding Frames Buffers and Tag Infos
 	struct SMD3Mesh: public IReferenceCounted
 	{
-		~SMD3Mesh()
+		‾SMD3Mesh()
 		{
 			for (u32 i=0; i<Buffer.size(); ++i)
 				Buffer[i]->drop();

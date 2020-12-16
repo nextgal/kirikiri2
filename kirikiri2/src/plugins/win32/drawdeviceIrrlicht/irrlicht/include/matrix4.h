@@ -37,11 +37,11 @@ namespace core
 			};
 
 			//! Default constructor
-			/** \param constructor Choose the initialization style */
+			/** ¥param constructor Choose the initialization style */
 			CMatrix4( eConstructor constructor = EM4CONST_IDENTITY );
 			//! Copy constructor
-			/** \param other Other matrix to copy from
-			\param constructor Choose the initialization style */
+			/** ¥param other Other matrix to copy from
+			¥param constructor Choose the initialization style */
 			CMatrix4( const CMatrix4<T>& other,eConstructor constructor = EM4CONST_COPY);
 
 			//! Simple operator for directly accessing every element of the matrix.
@@ -199,17 +199,17 @@ namespace core
 			void multiplyWith1x4Matrix(T* matrix) const;
 
 			//! Calculates inverse of matrix. Slow.
-			/** \return Returns false if there is no inverse matrix.*/
+			/** ¥return Returns false if there is no inverse matrix.*/
 			bool makeInverse();
 
 
 			//! Inverts a primitive matrix which only contains a translation and a rotation
-			/** \param out: where result matrix is written to. */
+			/** ¥param out: where result matrix is written to. */
 			bool getInversePrimitive ( CMatrix4<T>& out ) const;
 
 			//! Gets the inversed matrix of this one
-			/** \param out: where result matrix is written to.
-			\return Returns false if there is no inverse matrix. */
+			/** ¥param out: where result matrix is written to.
+			¥return Returns false if there is no inverse matrix. */
 			bool getInverse(CMatrix4<T>& out) const;
 
 			//! Builds a right-handed perspective projection matrix based on a field of view
@@ -243,9 +243,9 @@ namespace core
 					const vector3df& upVector);
 
 			//! Builds a matrix that flattens geometry into a plane.
-			/** \param light: light source
-			\param plane: plane into which the geometry if flattened into
-			\param point: value between 0 and 1, describing the light source.
+			/** ¥param light: light source
+			¥param plane: plane into which the geometry if flattened into
+			¥param point: value between 0 and 1, describing the light source.
 			If this is 1, it is a point light, if it is 0, it is a directional light. */
 			CMatrix4<T>& buildShadowMatrix(const core::vector3df& light, core::plane3df plane, f32 point=1.0f);
 
@@ -254,8 +254,8 @@ namespace core
 			CMatrix4<T>& buildNDCToDCMatrix( const core::rect<s32>& area, f32 zScale);
 
 			//! Creates a new matrix as interpolated matrix from two other ones.
-			/** \param b: other matrix to interpolate with
-			\param time: Must be a value between 0 and 1. */
+			/** ¥param b: other matrix to interpolate with
+			¥param time: Must be a value between 0 and 1. */
 			CMatrix4<T> interpolate(const core::CMatrix4<T>& b, f32 time) const;
 
 			//! Gets transposed matrix
@@ -277,29 +277,29 @@ namespace core
 			//! Set texture transformation rotation
 			/** Rotate about z axis, recenter at (0.5,0.5).
 			Doesn't clear other elements than those affected
-			\param radAngle Angle in radians
-			\return Altered matrix */
+			¥param radAngle Angle in radians
+			¥return Altered matrix */
 			CMatrix4<T>& setTextureRotationCenter( f32 radAngle );
 
 			//! Set texture transformation translation
 			/** Doesn't clear other elements than those affected.
-			\param x Offset on x axis
-			\param y Offset on y axis
-			\return Altered matrix */
+			¥param x Offset on x axis
+			¥param y Offset on y axis
+			¥return Altered matrix */
 			CMatrix4<T>& setTextureTranslate( f32 x, f32 y );
 
 			//! Set texture transformation scale
 			/** Doesn't clear other elements than those affected.
-			\param sx Scale factor on x axis
-			\param sy Scale factor on y axis
-			\return Altered matrix. */
+			¥param sx Scale factor on x axis
+			¥param sy Scale factor on y axis
+			¥return Altered matrix. */
 			CMatrix4<T>& setTextureScale( f32 sx, f32 sy );
 
 			//! Set texture transformation scale, and recenter at (0.5,0.5)
 			/** Doesn't clear other elements than those affected.
-			\param sx Scale factor on x axis
-			\param sy Scale factor on y axis
-			\return Altered matrix. */
+			¥param sx Scale factor on x axis
+			¥param sy Scale factor on y axis
+			¥return Altered matrix. */
 			CMatrix4<T>& setTextureScaleCenter( f32 sx, f32 sy );
 
 			//! Sets all matrix data members at once
@@ -1135,7 +1135,7 @@ namespace core
 
 
 	//! Inverts a primitive matrix which only contains a translation and a rotation
-	//! \param out: where result matrix is written to.
+	//! ¥param out: where result matrix is written to.
 	template <class T>
 	inline bool CMatrix4<T>::getInversePrimitive ( CMatrix4<T>& out ) const
 	{

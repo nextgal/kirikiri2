@@ -101,7 +101,7 @@ inline void makePlanarMappingT(VERTEXTYPE *v,
 
 //! Flips the direction of surfaces. Changes backfacing triangles to frontfacing
 //! triangles and vice versa.
-//! \param mesh: Mesh on which the operation is performed.
+//! ¥param mesh: Mesh on which the operation is performed.
 void CMeshManipulator::flipSurfaces(scene::IMesh* mesh) const
 {
 	if (!mesh)
@@ -127,7 +127,7 @@ void CMeshManipulator::flipSurfaces(scene::IMesh* mesh) const
 
 
 //! Sets the alpha vertex color value of the whole mesh to a new value
-//! \param mesh: Mesh on which the operation is performed.
+//! ¥param mesh: Mesh on which the operation is performed.
 void CMeshManipulator::setVertexColorAlpha(scene::IMesh* mesh, s32 alpha) const
 {
 	if (!mesh)
@@ -209,7 +209,7 @@ void CMeshManipulator::setVertexColors(IMesh* mesh, video::SColor color) const
 
 
 //! Recalculates all normals of the mesh buffer.
-/** \param buffer: Mesh buffer on which the operation is performed. */
+/** ¥param buffer: Mesh buffer on which the operation is performed. */
 void CMeshManipulator::recalculateNormals(IMeshBuffer* buffer, bool smooth) const
 {
 	if (!buffer)
@@ -256,7 +256,7 @@ void CMeshManipulator::recalculateNormals(IMeshBuffer* buffer, bool smooth) cons
 
 
 //! Recalculates all normals of the mesh.
-//! \param mesh: Mesh on which the operation is performed.
+//! ¥param mesh: Mesh on which the operation is performed.
 void CMeshManipulator::recalculateNormals(scene::IMesh* mesh, bool smooth) const
 {
 	if (!mesh)
@@ -269,8 +269,8 @@ void CMeshManipulator::recalculateNormals(scene::IMesh* mesh, bool smooth) const
 
 
 //! Applies a transformation
-/** \param mesh: Mesh on which the operation is performed.
-	\param m: matrix. */
+/** ¥param mesh: Mesh on which the operation is performed.
+	¥param m: matrix. */
 void CMeshManipulator::transformMesh(scene::IMesh* mesh, const core::matrix4& m) const
 {
 	if (!mesh)
@@ -323,7 +323,7 @@ void CMeshManipulator::transformMesh(scene::IMesh* mesh, const core::matrix4& m)
 
 
 //! Scales the whole mesh.
-//! \param mesh: Mesh on which the operation is performed.
+//! ¥param mesh: Mesh on which the operation is performed.
 void CMeshManipulator::scaleMesh(scene::IMesh* mesh, const core::vector3df& scale) const
 {
 	if (!mesh)
@@ -485,8 +485,8 @@ SMesh* CMeshManipulator::createMeshCopy(scene::IMesh* mesh) const
 
 
 //! Creates a planar texture mapping on the mesh
-//! \param mesh: Mesh on which the operation is performed.
-//! \param resolution: resolution of the planar mapping. This is the value
+//! ¥param mesh: Mesh on which the operation is performed.
+//! ¥param resolution: resolution of the planar mapping. This is the value
 //! specifying which is the releation between world space and
 //! texture coordinate space.
 void CMeshManipulator::makePlanarTextureMapping(scene::IMesh* mesh, f32 resolution=0.01f) const

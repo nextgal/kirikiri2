@@ -124,7 +124,7 @@ void SQVM::Finalize()
 		_stack[i]=_null_;
 }
 
-SQVM::~SQVM()
+SQVM::‾SQVM()
 {
 	Finalize();
 	//sq_free(_callsstack,_alloccallsstacksize*sizeof(CallInfo));
@@ -723,7 +723,7 @@ exception_restore:
 		{
 			const SQInstruction &_i_ = *ci->_ip++;
 			//dumpstack(_stackbase);
-			//scprintf("\n[%d] %s %d %d %d %d\n",ci->_ip-ci->_iv->_vals,g_InstrDesc[_i_.op].name,arg0,arg1,arg2,arg3);
+			//scprintf("¥n[%d] %s %d %d %d %d¥n",ci->_ip-ci->_iv->_vals,g_InstrDesc[_i_.op].name,arg0,arg1,arg2,arg3);
 			switch(_i_.op)
 			{
 			case _OP_LINE:
@@ -922,7 +922,7 @@ common_call:
 			case _OP_BWNOT:
 				if(type(STK(arg1)) == OT_INTEGER) {
 					SQInteger t = _integer(STK(arg1));
-					TARGET = SQInteger(~t);
+					TARGET = SQInteger(‾t);
 					continue;
 				}
 				Raise_ErrorF(_SC("attempt to perform a bitwise op on a %s"), GetTypeName(STK(arg1)));
@@ -1554,11 +1554,11 @@ void SQVM::dumpstack(SQInteger stackbase,bool dumpall)
 {
 	SQInteger size=dumpall?_stack.size():_top;
 	SQInteger n=0;
-	scprintf(_SC("\n>>>>stack dump<<<<\n"));
+	scprintf(_SC("¥n>>>>stack dump<<<<¥n"));
 	CallInfo &ci=_callsstack[_callsstacksize-1];
-	scprintf(_SC("IP: %p\n"),ci._ip);
-	scprintf(_SC("prev stack base: %d\n"),ci._prevstkbase);
-	scprintf(_SC("prev top: %d\n"),ci._prevtop);
+	scprintf(_SC("IP: %p¥n"),ci._ip);
+	scprintf(_SC("prev stack base: %d¥n"),ci._prevstkbase);
+	scprintf(_SC("prev top: %d¥n"),ci._prevtop);
 	for(SQInteger i=0;i<size;i++){
 		SQObjectPtr &obj=_stack[i];	
 		if(stackbase==i)scprintf(_SC(">"));else scprintf(_SC(" "));
@@ -1584,7 +1584,7 @@ void SQVM::dumpstack(SQInteger stackbase,bool dumpall)
 			assert(0);
 			break;
 		};
-		scprintf(_SC("\n"));
+		scprintf(_SC("¥n"));
 		++n;
 	}
 }

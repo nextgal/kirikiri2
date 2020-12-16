@@ -1,5 +1,5 @@
 // -- algorithm.hpp -- Boost Lambda Library -----------------------------------
-// Copyright (C) 2002 Jaakko J�rvi (jaakko.jarvi@cs.utu.fi)
+// Copyright (C) 2002 Jaakko J舐vi (jaakko.jarvi@cs.utu.fi)
 // Copyright (C) 2002 Gary Powell (gwpowell@hotmail.com)
 //
 // Permission to copy, use, sell and distribute this software is granted
@@ -1347,21 +1347,21 @@ struct prev_permutation {
 // The macro below defines a function object class for calling a
 // const_iterator returning member function of a container.
 
-#define CALL_MEMBER(X)                                     \
-struct call_##X {                                          \
-template <class Args>                                      \
-  struct sig {                                             \
-    typedef typename boost::remove_const<                  \
-        typename boost::tuples::element<1, Args>::type     \
-     >::type::const_iterator type;                         \
-  };                                                       \
-                                                           \
-  template<class T>                                        \
-  typename T::const_iterator                               \
-  operator()(const T& t) const                             \
-  {                                                        \
-    return t.X();                                          \
-  }                                                        \
+#define CALL_MEMBER(X)                                     ¥
+struct call_##X {                                          ¥
+template <class Args>                                      ¥
+  struct sig {                                             ¥
+    typedef typename boost::remove_const<                  ¥
+        typename boost::tuples::element<1, Args>::type     ¥
+     >::type::const_iterator type;                         ¥
+  };                                                       ¥
+                                                           ¥
+  template<class T>                                        ¥
+  typename T::const_iterator                               ¥
+  operator()(const T& t) const                             ¥
+  {                                                        ¥
+    return t.X();                                          ¥
+  }                                                        ¥
 };
 
 // create call_begin and call_end classes

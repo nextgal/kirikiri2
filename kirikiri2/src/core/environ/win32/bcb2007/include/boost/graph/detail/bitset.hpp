@@ -90,7 +90,7 @@ namespace boost {
       void m_sanitize_highest() {
         size_type extra_bits = size() % WordTraits::word_size;
         if (extra_bits)
-          m_hi_word() &= ~((~static_cast<word_type>(0)) << extra_bits);
+          m_hi_word() &= ‾((‾static_cast<word_type>(0)) << extra_bits);
       }
     public:
 
@@ -109,14 +109,14 @@ namespace boost {
         }
 
       public:
-        ~reference() {}
+        ‾reference() {}
 
         // for b[i] = x;
         reference& operator=(bool x) {
           if ( x )
             *m_word_ptr |= s_mask_bit(m_bit_pos);
           else
-            *m_word_ptr &= ~s_mask_bit(m_bit_pos);
+            *m_word_ptr &= ‾s_mask_bit(m_bit_pos);
 
           return *this;
         }
@@ -125,12 +125,12 @@ namespace boost {
           if ( (*(j.m_word_ptr) & s_mask_bit(j.m_bit_pos)) )
             *m_word_ptr |= s_mask_bit(m_bit_pos);
           else
-            *m_word_ptr &= ~s_mask_bit(m_bit_pos);
+            *m_word_ptr &= ‾s_mask_bit(m_bit_pos);
 
           return *this;
         }
         // flips the bit
-        bool operator~() const { 
+        bool operator‾() const { 
           return (*(m_word_ptr) & s_mask_bit(m_bit_pos)) == 0; 
         }
         // for x = b[i];
@@ -179,7 +179,7 @@ namespace boost {
 
       Derived& set() {
         for (size_type i = 0; i < num_words(); ++i)
-          data()[i] = ~static_cast<word_type>(0);
+          data()[i] = ‾static_cast<word_type>(0);
         m_sanitize_highest();
         return static_cast<Derived&>(*this);
       }
@@ -190,7 +190,7 @@ namespace boost {
         if (val)
           m_get_word(pos) |= s_mask_bit(pos);
         else
-          m_get_word(pos) &= ~s_mask_bit(pos);
+          m_get_word(pos) &= ‾s_mask_bit(pos);
         return static_cast<Derived&>(*this);
       }
       
@@ -202,18 +202,18 @@ namespace boost {
 
       Derived& reset(size_type pos) {
         BOOST_ASSERT_THROW(pos < size(), std::out_of_range("boost::bitset::reset(pos)"));
-        m_get_word(pos) &= ~s_mask_bit(pos);
+        m_get_word(pos) &= ‾s_mask_bit(pos);
         return static_cast<Derived&>(*this);
       }
 
       // compliment
-      Derived operator~() const {
+      Derived operator‾() const {
         return Derived(static_cast<const Derived&>(*this)).flip();
       }
       
       Derived& flip() {
         for (size_type i = 0; i < num_words(); ++i)
-          data()[i] = ~data()[i];
+          data()[i] = ‾data()[i];
         m_sanitize_highest();
         return static_cast<Derived&>(*this);
       }
@@ -313,7 +313,7 @@ namespace boost {
       // difference:  this = this - x
       Derived& operator-=(const Derived& x) {
         for (size_type i = 0; i < num_words(); ++i)
-          data()[i] &= ~x.data()[i];
+          data()[i] &= ‾x.data()[i];
         return static_cast<Derived&>(*this);
       }
 
@@ -507,7 +507,7 @@ namespace boost {
           this->set(*first++);
       }
 
-      ~dyn_size_bitset() { 
+      ‾dyn_size_bitset() { 
         m_alloc.deallocate(m_data, m_num_words); 
       }
       
@@ -666,7 +666,7 @@ namespace boost {
         
         const word_type mask 
           = static_cast<word_type>(static_cast<unsigned long>(-1));
-        BOOST_ASSERT_THROW(! (data()[0] & ~mask), overflow);
+        BOOST_ASSERT_THROW(! (data()[0] & ‾mask), overflow);
         
         return static_cast<unsigned long>(data()[0] & mask);
       }
@@ -718,7 +718,7 @@ namespace boost {
           // find byte within word
           for ( std::size_t j = 0; j < sizeof(word_type); j++ ) {
             unsigned char this_byte
-              = static_cast<unsigned char>(thisword & (~(unsigned char)0));
+              = static_cast<unsigned char>(thisword & (‾(unsigned char)0));
             if ( this_byte )
               return i * WordTraits::word_size + j * CHAR_BIT +
                 first_bit_location<>::value[this_byte];
@@ -749,7 +749,7 @@ namespace boost {
       word_type thisword = data()[i];
 
         // mask off bits below bound
-      thisword &= (~static_cast<word_type>(0)) << s_which_bit(prev);
+      thisword &= (‾static_cast<word_type>(0)) << s_which_bit(prev);
 
       if ( thisword != static_cast<word_type>(0) ) {
         // find byte within word
@@ -757,7 +757,7 @@ namespace boost {
         thisword >>= s_which_byte(prev) * CHAR_BIT;
         for ( size_type j = s_which_byte(prev); j < sizeof(word_type); j++ ) {
           unsigned char this_byte
-            = static_cast<unsigned char>(thisword & (~(unsigned char)0));
+            = static_cast<unsigned char>(thisword & (‾(unsigned char)0));
           if ( this_byte )
             return i * WordTraits::word_size + j * CHAR_BIT +
               first_bit_location<>::value[this_byte];
@@ -774,7 +774,7 @@ namespace boost {
           // find byte within word
           for ( size_type j = 0; j < sizeof(word_type); j++ ) {
             unsigned char this_byte
-              = static_cast<unsigned char>(thisword & (~(unsigned char)0));
+              = static_cast<unsigned char>(thisword & (‾(unsigned char)0));
             if ( this_byte )
               return i * WordTraits::word_size + j * CHAR_BIT +
                 first_bit_location<>::value[this_byte];

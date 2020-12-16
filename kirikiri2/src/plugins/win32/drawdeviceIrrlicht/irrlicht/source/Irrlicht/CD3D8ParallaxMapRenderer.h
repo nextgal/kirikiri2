@@ -27,7 +27,7 @@ public:
 	CD3D8ParallaxMapRenderer(
 		IDirect3DDevice8* d3ddev, video::IVideoDriver* driver,
 		s32& outMaterialTypeNr, IMaterialRenderer* baseMaterial);
-	~CD3D8ParallaxMapRenderer();
+	‾CD3D8ParallaxMapRenderer();
 
 	//! Called by the engine when the vertex and/or pixel shader constants for an
 	//! material renderer should be set.

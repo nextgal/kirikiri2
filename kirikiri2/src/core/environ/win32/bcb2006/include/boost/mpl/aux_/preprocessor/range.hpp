@@ -19,8 +19,8 @@
 
 #include "boost/preprocessor/seq/subseq.hpp"
 
-#define BOOST_MPL_PP_RANGE(first, length) \
-    BOOST_PP_SEQ_SUBSEQ((0)(1)(2)(3)(4)(5)(6)(7)(8)(9), first, length) \
+#define BOOST_MPL_PP_RANGE(first, length) ¥
+    BOOST_PP_SEQ_SUBSEQ((0)(1)(2)(3)(4)(5)(6)(7)(8)(9), first, length) ¥
 /**/
 
 #endif // BOOST_MPL_AUX_PREPROCESSOR_RANGE_HPP_INCLUDED

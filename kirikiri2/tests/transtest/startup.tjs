@@ -1,15 +1,15 @@
-// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÌƒeƒXƒg
+// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã®ãƒ†ã‚¹ãƒˆ
 
 Plugins.link("extrans.dll");
 
 class TestWindow extends Window
 {
-	var fore; // ƒvƒ‰ƒCƒ}ƒŠ
-	var lay0; // ƒŒƒCƒ„ ‚»‚Ì1
-	var lay1; // ƒŒƒCƒ„ ‚»‚Ì2
-	var back; // — 
-	var lay2; // ƒŒƒCƒ„ ‚»‚Ì3
-	var lay3; // ƒŒƒCƒ„ ‚»‚Ì4
+	var fore; // ãƒ—ãƒ©ã‚¤ãƒãƒª
+	var lay0; // ãƒ¬ã‚¤ãƒ¤ ãã®1
+	var lay1; // ãƒ¬ã‚¤ãƒ¤ ãã®2
+	var back; // è£
+	var lay2; // ãƒ¬ã‚¤ãƒ¤ ãã®3
+	var lay3; // ãƒ¬ã‚¤ãƒ¤ ãã®4
 
 	function TestWindow()
 	{

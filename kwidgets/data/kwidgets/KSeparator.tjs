@@ -4,22 +4,22 @@
 
 
 /**----------------------------------------------------------------------
- * ‚’¼•ûŒüƒZƒpƒŒ[ƒ^[(‰¡’·‚ÉL‚Ñ‚é•ªŠ„ü)
+ * å‚ç›´æ–¹å‘ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ãƒ¼(æ¨ªé•·ã«ä¼¸ã³ã‚‹åˆ†å‰²ç·š)
  ----------------------------------------------------------------------*/
 class KVerticalSeparator extends KWidget
 {
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @window ƒEƒBƒ“ƒhƒE
-   * @name –¼‘O
+   * @window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @name åå‰
    ------------------------------*/
   function KVerticalSeparator(window, name = "") {
     super.KWidget(window, name);
     this.setMinMaxSize(2, 2, 10000, 2);
   }
 
-  // ƒTƒCƒY‚ª•Ï‚í‚Á‚½‚çÄ•`‰æ
+  // ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã£ãŸã‚‰å†æç”»
   function onSizeModified {
     fillRect(0, 0, width, 1, WIN_DARKEN1);
     fillRect(0, 1, width, 1, WIN_LIGHTEN2);
@@ -27,22 +27,22 @@ class KVerticalSeparator extends KWidget
 }
 
 /**----------------------------------------------------------------------
- * …•½•ûŒüƒZƒpƒŒ[ƒ^[(c’·‚ÉL‚Ñ‚é•ªŠ„ü)
+ * æ°´å¹³æ–¹å‘ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ãƒ¼(ç¸¦é•·ã«ä¼¸ã³ã‚‹åˆ†å‰²ç·š)
  ----------------------------------------------------------------------*/
 class KHorizontalSeparator extends KWidget
 {
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @window ƒEƒBƒ“ƒhƒE
-   * @name –¼‘O
+   * @window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @name åå‰
    ------------------------------*/
   function KHorizontalSeparator(window, name = "") {
     super.KWidget(window, name);
     this.setMinMaxSize(2, 2, 2, 10000);
   }
 
-  // ƒTƒCƒY‚ª•Ï‚í‚Á‚½‚çÄ•`‰æ
+  // ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã£ãŸã‚‰å†æç”»
   function onSizeModified {
     fillRect(0, 0, 1, height, WIN_DARKEN1);
     fillRect(1, 0, 1, height, WIN_LIGHTEN2);

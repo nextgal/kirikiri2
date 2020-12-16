@@ -103,7 +103,7 @@ CAsyncIo::CAsyncIo(CAsyncStream *pStream)
 }
 
 
-CAsyncIo::~CAsyncIo()
+CAsyncIo::‾CAsyncIo()
 {
     // move everything to the done list
     BeginFlush();

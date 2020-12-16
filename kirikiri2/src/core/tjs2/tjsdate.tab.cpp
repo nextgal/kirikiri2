@@ -198,7 +198,7 @@ typedef unsigned char yytype_uint8;
 
 #ifdef YYTYPE_INT8
 typedef YYTYPE_INT8 yytype_int8;
-#elif (defined __STDC__ || defined __C99__FUNC__ \
+#elif (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 typedef signed char yytype_int8;
 #else
@@ -222,7 +222,7 @@ typedef short int yytype_int16;
 #  define YYSIZE_T __SIZE_TYPE__
 # elif defined size_t
 #  define YYSIZE_T size_t
-# elif ! defined YYSIZE_T && (defined __STDC__ || defined __C99__FUNC__ \
+# elif ! defined YYSIZE_T && (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 #  include <stddef.h> /* INFRINGES ON USER NAME SPACE */
 #  define YYSIZE_T size_t
@@ -256,7 +256,7 @@ typedef short int yytype_int16;
 #ifndef lint
 # define YYID(n) (n)
 #else
-#if (defined __STDC__ || defined __C99__FUNC__ \
+#if (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 static int
 YYID (int yyi)
@@ -287,7 +287,7 @@ YYID (yyi)
 #    define alloca _alloca
 #   else
 #    define YYSTACK_ALLOC alloca
-#    if ! defined _ALLOCA_H && ! defined _STDLIB_H && (defined __STDC__ || defined __C99__FUNC__ \
+#    if ! defined _ALLOCA_H && ! defined _STDLIB_H && (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 #     include <stdlib.h> /* INFRINGES ON USER NAME SPACE */
 #     ifndef _STDLIB_H
@@ -314,8 +314,8 @@ YYID (yyi)
 #  ifndef YYSTACK_ALLOC_MAXIMUM
 #   define YYSTACK_ALLOC_MAXIMUM YYSIZE_MAXIMUM
 #  endif
-#  if (defined __cplusplus && ! defined _STDLIB_H \
-       && ! ((defined YYMALLOC || defined malloc) \
+#  if (defined __cplusplus && ! defined _STDLIB_H ¥
+       && ! ((defined YYMALLOC || defined malloc) ¥
 	     && (defined YYFREE || defined free)))
 #   include <stdlib.h> /* INFRINGES ON USER NAME SPACE */
 #   ifndef _STDLIB_H
@@ -324,14 +324,14 @@ YYID (yyi)
 #  endif
 #  ifndef YYMALLOC
 #   define YYMALLOC malloc
-#   if ! defined malloc && ! defined _STDLIB_H && (defined __STDC__ || defined __C99__FUNC__ \
+#   if ! defined malloc && ! defined _STDLIB_H && (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 void *malloc (YYSIZE_T); /* INFRINGES ON USER NAME SPACE */
 #   endif
 #  endif
 #  ifndef YYFREE
 #   define YYFREE free
-#   if ! defined free && ! defined _STDLIB_H && (defined __STDC__ || defined __C99__FUNC__ \
+#   if ! defined free && ! defined _STDLIB_H && (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 void free (void *); /* INFRINGES ON USER NAME SPACE */
 #   endif
@@ -340,8 +340,8 @@ void free (void *); /* INFRINGES ON USER NAME SPACE */
 #endif /* ! defined yyoverflow || YYERROR_VERBOSE */
 
 
-#if (! defined yyoverflow \
-     && (! defined __cplusplus \
+#if (! defined yyoverflow ¥
+     && (! defined __cplusplus ¥
 	 || (defined YYSTYPE_IS_TRIVIAL && YYSTYPE_IS_TRIVIAL)))
 
 /* A type that is properly aligned for any stack member.  */
@@ -356,24 +356,24 @@ union yyalloc
 
 /* The size of an array large to enough to hold all stacks, each with
    N elements.  */
-# define YYSTACK_BYTES(N) \
-     ((N) * (sizeof (yytype_int16) + sizeof (YYSTYPE)) \
+# define YYSTACK_BYTES(N) ¥
+     ((N) * (sizeof (yytype_int16) + sizeof (YYSTYPE)) ¥
       + YYSTACK_GAP_MAXIMUM)
 
 /* Copy COUNT objects from FROM to TO.  The source and destination do
    not overlap.  */
 # ifndef YYCOPY
 #  if defined __GNUC__ && 1 < __GNUC__
-#   define YYCOPY(To, From, Count) \
+#   define YYCOPY(To, From, Count) ¥
       __builtin_memcpy (To, From, (Count) * sizeof (*(From)))
 #  else
-#   define YYCOPY(To, From, Count)		\
-      do					\
-	{					\
-	  YYSIZE_T yyi;				\
-	  for (yyi = 0; yyi < (Count); yyi++)	\
-	    (To)[yyi] = (From)[yyi];		\
-	}					\
+#   define YYCOPY(To, From, Count)		¥
+      do					¥
+	{					¥
+	  YYSIZE_T yyi;				¥
+	  for (yyi = 0; yyi < (Count); yyi++)	¥
+	    (To)[yyi] = (From)[yyi];		¥
+	}					¥
       while (YYID (0))
 #  endif
 # endif
@@ -383,15 +383,15 @@ union yyalloc
    elements in the stack, and YYPTR gives the new location of the
    stack.  Advance YYPTR to a properly aligned location for the next
    stack.  */
-# define YYSTACK_RELOCATE(Stack_alloc, Stack)				\
-    do									\
-      {									\
-	YYSIZE_T yynewbytes;						\
-	YYCOPY (&yyptr->Stack_alloc, Stack, yysize);			\
-	Stack = &yyptr->Stack_alloc;					\
-	yynewbytes = yystacksize * sizeof (*Stack) + YYSTACK_GAP_MAXIMUM; \
-	yyptr += yynewbytes / sizeof (*yyptr);				\
-      }									\
+# define YYSTACK_RELOCATE(Stack_alloc, Stack)				¥
+    do									¥
+      {									¥
+	YYSIZE_T yynewbytes;						¥
+	YYCOPY (&yyptr->Stack_alloc, Stack, yysize);			¥
+	Stack = &yyptr->Stack_alloc;					¥
+	yynewbytes = yystacksize * sizeof (*Stack) + YYSTACK_GAP_MAXIMUM; ¥
+	yyptr += yynewbytes / sizeof (*yyptr);				¥
+      }									¥
     while (YYID (0))
 
 #endif
@@ -414,7 +414,7 @@ union yyalloc
 #define YYUNDEFTOK  2
 #define YYMAXUTOK   263
 
-#define YYTRANSLATE(YYX)						\
+#define YYTRANSLATE(YYX)						¥
   ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
 
 /* YYTRANSLATE[YYLEX] -- Bison symbol number corresponding to YYLEX.  */
@@ -647,21 +647,21 @@ static const yytype_uint8 yystos[] =
 
 #define YYRECOVERING()  (!!yyerrstatus)
 
-#define YYBACKUP(Token, Value)					\
-do								\
-  if (yychar == YYEMPTY && yylen == 1)				\
-    {								\
-      yychar = (Token);						\
-      yylval = (Value);						\
-      yytoken = YYTRANSLATE (yychar);				\
-      YYPOPSTACK (1);						\
-      goto yybackup;						\
-    }								\
-  else								\
-    {								\
-      yyerror (YY_("syntax error: cannot back up")); \
-      YYERROR;							\
-    }								\
+#define YYBACKUP(Token, Value)					¥
+do								¥
+  if (yychar == YYEMPTY && yylen == 1)				¥
+    {								¥
+      yychar = (Token);						¥
+      yylval = (Value);						¥
+      yytoken = YYTRANSLATE (yychar);				¥
+      YYPOPSTACK (1);						¥
+      goto yybackup;						¥
+    }								¥
+  else								¥
+    {								¥
+      yyerror (YY_("syntax error: cannot back up")); ¥
+      YYERROR;							¥
+    }								¥
 while (YYID (0))
 
 
@@ -675,22 +675,22 @@ while (YYID (0))
 
 #define YYRHSLOC(Rhs, K) ((Rhs)[K])
 #ifndef YYLLOC_DEFAULT
-# define YYLLOC_DEFAULT(Current, Rhs, N)				\
-    do									\
-      if (YYID (N))                                                    \
-	{								\
-	  (Current).first_line   = YYRHSLOC (Rhs, 1).first_line;	\
-	  (Current).first_column = YYRHSLOC (Rhs, 1).first_column;	\
-	  (Current).last_line    = YYRHSLOC (Rhs, N).last_line;		\
-	  (Current).last_column  = YYRHSLOC (Rhs, N).last_column;	\
-	}								\
-      else								\
-	{								\
-	  (Current).first_line   = (Current).last_line   =		\
-	    YYRHSLOC (Rhs, 0).last_line;				\
-	  (Current).first_column = (Current).last_column =		\
-	    YYRHSLOC (Rhs, 0).last_column;				\
-	}								\
+# define YYLLOC_DEFAULT(Current, Rhs, N)				¥
+    do									¥
+      if (YYID (N))                                                    ¥
+	{								¥
+	  (Current).first_line   = YYRHSLOC (Rhs, 1).first_line;	¥
+	  (Current).first_column = YYRHSLOC (Rhs, 1).first_column;	¥
+	  (Current).last_line    = YYRHSLOC (Rhs, N).last_line;		¥
+	  (Current).last_column  = YYRHSLOC (Rhs, N).last_column;	¥
+	}								¥
+      else								¥
+	{								¥
+	  (Current).first_line   = (Current).last_line   =		¥
+	    YYRHSLOC (Rhs, 0).last_line;				¥
+	  (Current).first_column = (Current).last_column =		¥
+	    YYRHSLOC (Rhs, 0).last_column;				¥
+	}								¥
     while (YYID (0))
 #endif
 
@@ -701,9 +701,9 @@ while (YYID (0))
 
 #ifndef YY_LOCATION_PRINT
 # if YYLTYPE_IS_TRIVIAL
-#  define YY_LOCATION_PRINT(File, Loc)			\
-     fprintf (File, "%d.%d-%d.%d",			\
-	      (Loc).first_line, (Loc).first_column,	\
+#  define YY_LOCATION_PRINT(File, Loc)			¥
+     fprintf (File, "%d.%d-%d.%d",			¥
+	      (Loc).first_line, (Loc).first_column,	¥
 	      (Loc).last_line,  (Loc).last_column)
 # else
 #  define YY_LOCATION_PRINT(File, Loc) ((void) 0)
@@ -727,21 +727,21 @@ while (YYID (0))
 #  define YYFPRINTF fprintf
 # endif
 
-# define YYDPRINTF(Args)			\
-do {						\
-  if (yydebug)					\
-    YYFPRINTF Args;				\
+# define YYDPRINTF(Args)			¥
+do {						¥
+  if (yydebug)					¥
+    YYFPRINTF Args;				¥
 } while (YYID (0))
 
-# define YY_SYMBOL_PRINT(Title, Type, Value, Location)			  \
-do {									  \
-  if (yydebug)								  \
-    {									  \
-      YYFPRINTF (stderr, "%s ", Title);					  \
-      yy_symbol_print (stderr,						  \
-		  Type, Value); \
-      YYFPRINTF (stderr, "\n");						  \
-    }									  \
+# define YY_SYMBOL_PRINT(Title, Type, Value, Location)			  ¥
+do {									  ¥
+  if (yydebug)								  ¥
+    {									  ¥
+      YYFPRINTF (stderr, "%s ", Title);					  ¥
+      yy_symbol_print (stderr,						  ¥
+		  Type, Value); ¥
+      YYFPRINTF (stderr, "¥n");						  ¥
+    }									  ¥
 } while (YYID (0))
 
 
@@ -750,7 +750,7 @@ do {									  \
 `--------------------------------*/
 
 /*ARGSUSED*/
-#if (defined __STDC__ || defined __C99__FUNC__ \
+#if (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 static void
 yy_symbol_value_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)
@@ -782,7 +782,7 @@ yy_symbol_value_print (yyoutput, yytype, yyvaluep)
 | Print this symbol on YYOUTPUT.  |
 `--------------------------------*/
 
-#if (defined __STDC__ || defined __C99__FUNC__ \
+#if (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 static void
 yy_symbol_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)
@@ -808,7 +808,7 @@ yy_symbol_print (yyoutput, yytype, yyvaluep)
 | TOP (included).                                                   |
 `------------------------------------------------------------------*/
 
-#if (defined __STDC__ || defined __C99__FUNC__ \
+#if (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 static void
 yy_stack_print (yytype_int16 *yybottom, yytype_int16 *yytop)
@@ -825,13 +825,13 @@ yy_stack_print (yybottom, yytop)
       int yybot = *yybottom;
       YYFPRINTF (stderr, " %d", yybot);
     }
-  YYFPRINTF (stderr, "\n");
+  YYFPRINTF (stderr, "¥n");
 }
 
-# define YY_STACK_PRINT(Bottom, Top)				\
-do {								\
-  if (yydebug)							\
-    yy_stack_print ((Bottom), (Top));				\
+# define YY_STACK_PRINT(Bottom, Top)				¥
+do {								¥
+  if (yydebug)							¥
+    yy_stack_print ((Bottom), (Top));				¥
 } while (YYID (0))
 
 
@@ -839,7 +839,7 @@ do {								\
 | Report that the YYRULE is going to be reduced.  |
 `------------------------------------------------*/
 
-#if (defined __STDC__ || defined __C99__FUNC__ \
+#if (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 static void
 yy_reduce_print (YYSTYPE *yyvsp, int yyrule)
@@ -853,7 +853,7 @@ yy_reduce_print (yyvsp, yyrule)
   int yynrhs = yyr2[yyrule];
   int yyi;
   unsigned long int yylno = yyrline[yyrule];
-  YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
+  YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):¥n",
 	     yyrule - 1, yylno);
   /* The symbols being reduced.  */
   for (yyi = 0; yyi < yynrhs; yyi++)
@@ -862,14 +862,14 @@ yy_reduce_print (yyvsp, yyrule)
       yy_symbol_print (stderr, yyrhs[yyprhs[yyrule] + yyi],
 		       &(yyvsp[(yyi + 1) - (yynrhs)])
 		       		       );
-      YYFPRINTF (stderr, "\n");
+      YYFPRINTF (stderr, "¥n");
     }
 }
 
-# define YY_REDUCE_PRINT(Rule)		\
-do {					\
-  if (yydebug)				\
-    yy_reduce_print (yyvsp, Rule); \
+# define YY_REDUCE_PRINT(Rule)		¥
+do {					¥
+  if (yydebug)				¥
+    yy_reduce_print (yyvsp, Rule); ¥
 } while (YYID (0))
 
 /* Nonzero means print parse trace.  It is left uninitialized so that
@@ -908,7 +908,7 @@ int yydebug;
 #   define yystrlen strlen
 #  else
 /* Return the length of YYSTR.  */
-#if (defined __STDC__ || defined __C99__FUNC__ \
+#if (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 static YYSIZE_T
 yystrlen (const char *yystr)
@@ -930,9 +930,9 @@ yystrlen (yystr)
 #  if defined __GLIBC__ && defined _STRING_H && defined _GNU_SOURCE
 #   define yystpcpy stpcpy
 #  else
-/* Copy YYSRC to YYDEST, returning the address of the terminating '\0' in
+/* Copy YYSRC to YYDEST, returning the address of the terminating '¥0' in
    YYDEST.  */
-#if (defined __STDC__ || defined __C99__FUNC__ \
+#if (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 static char *
 yystpcpy (char *yydest, const char *yysrc)
@@ -946,7 +946,7 @@ yystpcpy (yydest, yysrc)
   char *yyd = yydest;
   const char *yys = yysrc;
 
-  while ((*yyd++ = *yys++) != '\0')
+  while ((*yyd++ = *yys++) != '¥0')
     continue;
 
   return yyd - 1;
@@ -973,12 +973,12 @@ yytnamerr (char *yyres, const char *yystr)
       for (;;)
 	switch (*++yyp)
 	  {
-	  case '\'':
+	  case '¥'':
 	  case ',':
 	    goto do_not_strip_quotes;
 
-	  case '\\':
-	    if (*++yyp != '\\')
+	  case '¥¥':
+	    if (*++yyp != '¥¥')
 	      goto do_not_strip_quotes;
 	    /* Fall through.  */
 	  default:
@@ -989,7 +989,7 @@ yytnamerr (char *yyres, const char *yystr)
 
 	  case '"':
 	    if (yyres)
-	      yyres[yyn] = '\0';
+	      yyres[yyn] = '¥0';
 	    return yyn;
 	  }
     do_not_strip_quotes: ;
@@ -1066,7 +1066,7 @@ yysyntax_error (char *yyresult, int yystate, int yychar)
 	      {
 		yycount = 1;
 		yysize = yysize0;
-		yyformat[sizeof yyunexpected - 1] = '\0';
+		yyformat[sizeof yyunexpected - 1] = '¥0';
 		break;
 	      }
 	    yyarg[yycount++] = yytname[yyx];
@@ -1092,7 +1092,7 @@ yysyntax_error (char *yyresult, int yystate, int yychar)
 	     produced a string with the wrong number of "%s"s.  */
 	  char *yyp = yyresult;
 	  int yyi = 0;
-	  while ((*yyp = *yyf) != '\0')
+	  while ((*yyp = *yyf) != '¥0')
 	    {
 	      if (*yyp == '%' && yyf[1] == 's' && yyi < yycount)
 		{
@@ -1117,7 +1117,7 @@ yysyntax_error (char *yyresult, int yystate, int yychar)
 `-----------------------------------------------*/
 
 /*ARGSUSED*/
-#if (defined __STDC__ || defined __C99__FUNC__ \
+#if (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 static void
 yydestruct (const char *yymsg, int yytype, YYSTYPE *yyvaluep)
@@ -1167,7 +1167,7 @@ int yyparse ();
 `-------------------------*/
 
 #ifdef YYPARSE_PARAM
-#if (defined __STDC__ || defined __C99__FUNC__ \
+#if (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 int
 yyparse (void *YYPARSE_PARAM)
@@ -1177,7 +1177,7 @@ yyparse (YYPARSE_PARAM)
     void *YYPARSE_PARAM;
 #endif
 #else /* ! YYPARSE_PARAM */
-#if (defined __STDC__ || defined __C99__FUNC__ \
+#if (defined __STDC__ || defined __C99__FUNC__ ¥
      || defined __cplusplus || defined _MSC_VER)
 int
 yyparse (void)
@@ -1246,7 +1246,7 @@ YYSTYPE yylval;
   yyvs = yyvsa;
   yystacksize = YYINITDEPTH;
 
-  YYDPRINTF ((stderr, "Starting parse\n"));
+  YYDPRINTF ((stderr, "Starting parse¥n"));
 
   yystate = 0;
   yyerrstatus = 0;
@@ -1327,14 +1327,14 @@ YYSTYPE yylval;
       yyssp = yyss + yysize - 1;
       yyvsp = yyvs + yysize - 1;
 
-      YYDPRINTF ((stderr, "Stack size increased to %lu\n",
+      YYDPRINTF ((stderr, "Stack size increased to %lu¥n",
 		  (unsigned long int) yystacksize));
 
       if (yyss + yystacksize - 1 <= yyssp)
 	YYABORT;
     }
 
-  YYDPRINTF ((stderr, "Entering state %d\n", yystate));
+  YYDPRINTF ((stderr, "Entering state %d¥n", yystate));
 
   if (yystate == YYFINAL)
     YYACCEPT;
@@ -1366,7 +1366,7 @@ yybackup:
   if (yychar <= YYEOF)
     {
       yychar = yytoken = YYEOF;
-      YYDPRINTF ((stderr, "Now at end of input.\n"));
+      YYDPRINTF ((stderr, "Now at end of input.¥n"));
     }
   else
     {

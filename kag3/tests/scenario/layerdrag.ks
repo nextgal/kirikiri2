@@ -1,13 +1,13 @@
 @iscript
 if(typeof(global.enableDrag)!="undefined")
-	throw new Exception("‚±‚ÌƒXƒNƒŠƒvƒg‚ğ‚Q‰ñˆÈãÀs‚µ‚È‚¢‚Å‚­‚¾‚³‚¢");
+	throw new Exception("ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’ï¼’å›ä»¥ä¸Šå®Ÿè¡Œã—ãªã„ã§ãã ã•ã„");
 @endscript
 @iscript
 function enableDrag(elm)
 {
 	var layer = kag.getLayerFromElm(elm);
 	if(typeof(layer.org_onMouseDown) != "undefined")
-		return; // ‚·‚Å‚ÉŠÖ”‚ª’u‚«Š·‚¦‚ç‚ê‚Ä‚¢‚é‚Ì‚Åˆ—‚µ‚È‚¢
+		return; // ã™ã§ã«é–¢æ•°ãŒç½®ãæ›ãˆã‚‰ã‚Œã¦ã„ã‚‹ã®ã§å‡¦ç†ã—ãªã„
 	layer.org_onMouseDown = layer.onMouseDown;
 	layer.org_onMouseMove = layer.onMouseMove;
 	layer.org_onMouseUp = layer.onMouseUp;
@@ -35,7 +35,7 @@ function enableDrag(elm)
 	{
 		dragging = false;
 		org_onMouseUp(...);
-		// ƒhƒ‰ƒbƒO‚ªI—¹‚µ‚½‚Æ‚«‚É‚È‚É‚©‚â‚è‚½‚¢ê‡‚Í‚±‚±‚É‘‚­
+		// ãƒ‰ãƒ©ãƒƒã‚°ãŒçµ‚äº†ã—ãŸã¨ãã«ãªã«ã‹ã‚„ã‚ŠãŸã„å ´åˆã¯ã“ã“ã«æ›¸ã
 	} incontextof layer;
 	layer.onHitTest = function(x, y, hit)
 	{
@@ -59,8 +59,8 @@ function disableDrag(elm)
 	delete layer.org_onMouseUp;
 	delete layer.org_onHitTest;
 }
-// ’ˆÓ : enabledrag ƒ^ƒO‚Åƒhƒ‰ƒbƒO‚ğ‰Â”\‚É‚µ‚½ê‡A
-// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‘O‚É‚Í disabledrag ƒ^ƒO‚Åƒhƒ‰ƒbƒO‚ğ–³Œø‚É‚µ‚Ä‚­‚¾‚³‚¢
+// æ³¨æ„ : enabledrag ã‚¿ã‚°ã§ãƒ‰ãƒ©ãƒƒã‚°ã‚’å¯èƒ½ã«ã—ãŸå ´åˆã€
+// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³å‰ã«ã¯ disabledrag ã‚¿ã‚°ã§ãƒ‰ãƒ©ãƒƒã‚°ã‚’ç„¡åŠ¹ã«ã—ã¦ãã ã•ã„
 @endscript
 @macro name=enabledrag
 @eval exp="enableDrag(mp)"

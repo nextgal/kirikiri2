@@ -35,7 +35,7 @@ protected:
 	std::vector<ttstr> Extensions;
 
 	tTVPSusiePlugin(HINSTANCE inst, const char *api);
-	virtual ~tTVPSusiePlugin();
+	virtual ‾tTVPSusiePlugin();
 
 	static int PASCAL ProgressCallback(int nNum,int nDenom,long lData) { return 0; }
 

@@ -23,20 +23,20 @@
 #if defined(BOOST_MPL_BROKEN_PP_MACRO_EXPANSION)
 #   include "boost/preprocessor/cat.hpp"
 
-#   define BOOST_MPL_PP_ADD(i,j) \
-    BOOST_MPL_PP_ADD_DELAY(i,j) \
+#   define BOOST_MPL_PP_ADD(i,j) ¥
+    BOOST_MPL_PP_ADD_DELAY(i,j) ¥
     /**/
 
-#   define BOOST_MPL_PP_ADD_DELAY(i,j) \
-    BOOST_PP_CAT(BOOST_MPL_PP_TUPLE_11_ELEM_##i,BOOST_MPL_PP_ADD_##j) \
+#   define BOOST_MPL_PP_ADD_DELAY(i,j) ¥
+    BOOST_PP_CAT(BOOST_MPL_PP_TUPLE_11_ELEM_##i,BOOST_MPL_PP_ADD_##j) ¥
     /**/
 #else
-#   define BOOST_MPL_PP_ADD(i,j) \
-    BOOST_MPL_PP_ADD_DELAY(i,j) \
+#   define BOOST_MPL_PP_ADD(i,j) ¥
+    BOOST_MPL_PP_ADD_DELAY(i,j) ¥
     /**/
 
-#   define BOOST_MPL_PP_ADD_DELAY(i,j) \
-    BOOST_MPL_PP_TUPLE_11_ELEM_##i BOOST_MPL_PP_ADD_##j \
+#   define BOOST_MPL_PP_ADD_DELAY(i,j) ¥
+    BOOST_MPL_PP_TUPLE_11_ELEM_##i BOOST_MPL_PP_ADD_##j ¥
     /**/
 #endif // BOOST_MPL_BROKEN_PP_MACRO_EXPANSION
 

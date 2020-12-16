@@ -25,7 +25,7 @@ class ISceneUserDataSerializer
 {
 public:
 
-	virtual ~ISceneUserDataSerializer() {}
+	virtual ‾ISceneUserDataSerializer() {}
 
 	//! Called when the scene manager read a scene node while loading a file.
 	/** The userData pointer contains a list of attributes with userData which

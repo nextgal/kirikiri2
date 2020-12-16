@@ -1,21 +1,21 @@
-[position left=16 top=16 width=&(640-32) height=&(480-32)]\
-[image storage="_24" page=fore layer=base bfloor=128 gfloor=128 rfloor=128]\
+[position left=16 top=16 width=&(640-32) height=&(480-32)]Â¥
+[image storage="_24" page=fore layer=base bfloor=128 gfloor=128 rfloor=128]Â¥
 *loop1|loop1
 @cm
-1:ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğŠJn‚µ‚Ü‚·(children=true)B[l]
-[backlay]\
-[image storage="uni" page=back layer=0 left=10 visible=true]\
-[image storage="_24_3" page=back layer=base]\
-[image storage="uni" page=back layer=1 left=100 visible=true index=1002000]\
-[trans method=universal rule=trans1 layer=base vague=60 time=5000]\
-[wt]\
+1:ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ã¾ã™(children=true)ã€‚[l]
+[backlay]Â¥
+[image storage="uni" page=back layer=0 left=10 visible=true]Â¥
+[image storage="_24_3" page=back layer=base]Â¥
+[image storage="uni" page=back layer=1 left=100 visible=true index=1002000]Â¥
+[trans method=universal rule=trans1 layer=base vague=60 time=5000]Â¥
+[wt]Â¥
 *loop2|loop2
 @cm
-2:‚à‚¤ˆê‰ñ(children=true)[l]
-[backlay]\
-[image storage="uni" page=back layer=0 left=140 visible=true]\
-[image storage="_24" page=back layer=base]\
-[image storage="uni" page=back layer=1 left=200 visible=true]\
-[trans rule=trans1 children=true layer=base vague=60000 time=5000]\
-[wt]\
+2:ã‚‚ã†ä¸€å›(children=true)[l]
+[backlay]Â¥
+[image storage="uni" page=back layer=0 left=140 visible=true]Â¥
+[image storage="_24" page=back layer=base]Â¥
+[image storage="uni" page=back layer=1 left=200 visible=true]Â¥
+[trans rule=trans1 children=true layer=base vague=60000 time=5000]Â¥
+[wt]Â¥
 [jump target=*loop1]

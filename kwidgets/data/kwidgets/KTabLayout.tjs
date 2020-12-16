@@ -4,18 +4,18 @@
 
 
 /**----------------------------------------------------------------------
- * ƒ^ƒuƒ{ƒ^ƒ“
+ * ã‚¿ãƒ–ãƒœã‚¿ãƒ³
  ----------------------------------------------------------------------*/
 class KTab extends KWidget
 {
   var _label;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * ƒ†[ƒU[‚ª’¼Únew‚·‚éƒNƒ‰ƒX‚Å‚Í–³‚¢B
-   * KTabLayout ‚Å add() ‚µ‚½Û‚É“à•”“I‚ÉŸè‚Éì‚ç‚ê‚éB
-   * KTabLayout.tabAt() ‚ÅQÆ‰Â”\B
+   * ãƒ¦ãƒ¼ã‚¶ãƒ¼ãŒç›´æ¥newã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã¯ç„¡ã„ã€‚
+   * KTabLayout ã§ add() ã—ãŸéš›ã«å†…éƒ¨çš„ã«å‹æ‰‹ã«ä½œã‚‰ã‚Œã‚‹ã€‚
+   * KTabLayout.tabAt() ã§å‚ç…§å¯èƒ½ã€‚
    ------------------------------*/
   function KTab(window, label) {
     super.KWidget(window);
@@ -25,10 +25,10 @@ class KTab extends KWidget
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹
+   * ãƒ©ãƒ™ãƒ«
    *
-   * @param v ƒ‰ƒxƒ‹
-   * @return ƒ‰ƒxƒ‹
+   * @param v ãƒ©ãƒ™ãƒ«
+   * @return ãƒ©ãƒ™ãƒ«
    ------------------------------*/
   property label {
     getter {
@@ -43,7 +43,7 @@ class KTab extends KWidget
   }
 
   /**------------------------------
-   * ‚±‚Ìƒ^ƒu‚ğ‘I‘ğ‚·‚é
+   * ã“ã®ã‚¿ãƒ–ã‚’é¸æŠã™ã‚‹
    ------------------------------*/
   function select {
     parent.tabIndex = this.index;
@@ -101,7 +101,7 @@ class KTab extends KWidget
 
 
 /**----------------------------------------------------------------------
- * ƒ^ƒuƒŒƒCƒAƒEƒg
+ * ã‚¿ãƒ–ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
  ----------------------------------------------------------------------*/
 class KTabLayout extends KWidget
 {
@@ -116,11 +116,11 @@ class KTabLayout extends KWidget
   var _tabWrapping;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param window ƒEƒBƒ“ƒhƒE
-   * @param type ƒtƒŒ[ƒ€ƒ^ƒCƒvBFRAME_FLATTEN, FRAME_SUNKEN, FRAME_RAISED‚Ì‚¢‚¸‚ê‚©‚ğ‘I‘ğ‚·‚éB
-   * @param name –¼‘O
+   * @param window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param type ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¿ã‚¤ãƒ—ã€‚FRAME_FLATTEN, FRAME_SUNKEN, FRAME_RAISEDã®ã„ãšã‚Œã‹ã‚’é¸æŠã™ã‚‹ã€‚
+   * @param name åå‰
    ------------------------------*/
   function KTabLayout(window, type = FRAME_RAISED, name = "") {
     super.KWidget(window, name);
@@ -137,10 +137,10 @@ class KTabLayout extends KWidget
   }
 
   /**------------------------------
-   * ƒtƒŒ[ƒ€ƒ^ƒCƒv
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¿ã‚¤ãƒ—
    *
-   * @param v ƒtƒŒ[ƒ€ƒ^ƒCƒv
-   * @return ƒtƒŒ[ƒ€ƒ^ƒCƒv
+   * @param v ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¿ã‚¤ãƒ—
+   * @return ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¿ã‚¤ãƒ—
    ------------------------------*/
   property type {
     getter {
@@ -156,10 +156,10 @@ class KTabLayout extends KWidget
   }
 
   /**------------------------------
-   * ƒ^ƒu‚ğÜ‚è•Ô‚·‚©‚Ç‚¤‚©
+   * ã‚¿ãƒ–ã‚’æŠ˜ã‚Šè¿”ã™ã‹ã©ã†ã‹
    * 
-   * @param v ƒ^ƒu‚ğÜ‚è•Ô‚·‚©‚Ç‚¤‚©
-   * @return ƒ^ƒu‚ğÜ‚è•Ô‚·‚©‚Ç‚¤‚©
+   * @param v ã‚¿ãƒ–ã‚’æŠ˜ã‚Šè¿”ã™ã‹ã©ã†ã‹
+   * @return ã‚¿ãƒ–ã‚’æŠ˜ã‚Šè¿”ã™ã‹ã©ã†ã‹
    ------------------------------*/
   property tabWrapping {
     getter {
@@ -174,10 +174,10 @@ class KTabLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ“o˜^‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ç™»éŒ²ã™ã‚‹
    * 
-   * @param tabName ƒ^ƒu‚Ì–¼‘O
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param tabName ã‚¿ãƒ–ã®åå‰
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function add(tabName, child) {
     child.tabName = tabName;
@@ -189,11 +189,11 @@ class KTabLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ“o˜^‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ç™»éŒ²ã™ã‚‹
    * 
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @param tabName ƒ^ƒu‚Ì–¼‘O
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @param tabName ã‚¿ãƒ–ã®åå‰
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function insert(index, tabName, child) {
     if (_tabIndex >= index)
@@ -207,10 +207,10 @@ class KTabLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ‰ğ•ú‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’è§£æ”¾ã™ã‚‹
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(child, doInvalidate = true) {
     var index = childList.find(child);
@@ -228,9 +228,9 @@ class KTabLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğƒJƒEƒ“ƒg‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹
    * 
-   * @return qƒAƒCƒeƒ€”
+   * @return å­ã‚¢ã‚¤ãƒ†ãƒ æ•°
    ------------------------------*/
   property childCount {
     getter {
@@ -239,30 +239,30 @@ class KTabLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğQÆ‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å‚ç…§ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @return qƒEƒBƒWƒFƒbƒg
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @return å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function childAt(index) {
     return childList[index];
   }
 
   /**------------------------------
-   * ƒ^ƒu‚ğQÆ‚·‚é
+   * ã‚¿ãƒ–ã‚’å‚ç…§ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @return ƒ^ƒu
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @return ã‚¿ãƒ–
    ------------------------------*/
   function tabAt(index) {
     return tabList[index];
   }
 
   /**------------------------------
-   * ƒ^ƒuƒCƒ“ƒfƒbƒNƒX
+   * ã‚¿ãƒ–ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    *
-   * @param v  ƒ^ƒuƒCƒ“ƒfƒbƒNƒX
-   * @return ƒ^ƒuƒCƒ“ƒfƒbƒNƒX
+   * @param v  ã‚¿ãƒ–ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @return ã‚¿ãƒ–ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   property tabIndex {
     getter {
@@ -279,56 +279,56 @@ class KTabLayout extends KWidget
   }
 
   /**------------------------------
-   * ƒ^ƒu‚ªƒNƒŠƒbƒN‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã‚¿ãƒ–ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function onTabClick(index) {
   }
 
   /**------------------------------
-   * ƒ^ƒu‚ªƒ_ƒuƒ‹ƒNƒŠƒbƒN‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã‚¿ãƒ–ãŒãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function onTabDoubleClick(index) {
   }
 
   /**------------------------------
-   * ƒ^ƒu‚ª‰EƒNƒŠƒbƒN‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã‚¿ãƒ–ãŒå³ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function onTabRightClick(index) {
   }
 
   /**------------------------------
-   * ƒ^ƒu‚ªƒhƒ‰ƒbƒOŠJn‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã‚¿ãƒ–ãŒãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function onTabDragEnter(index) {
   }
 
   /**------------------------------
-   * ƒ^ƒu‚ÌƒpƒPƒbƒgƒhƒ‰ƒbƒO‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã‚¿ãƒ–ã®ãƒ‘ã‚±ãƒƒãƒˆãƒ‰ãƒ©ãƒƒã‚°ãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @param packet ƒpƒPƒbƒg
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @param packet ãƒ‘ã‚±ãƒƒãƒˆ
    ------------------------------*/
   function onTabPacketCancel(packet) {
   }
 
   /**------------------------------
-   * ƒ^ƒu‚ª‘I‘ğ‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã‚¿ãƒ–ãŒé¸æŠã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function onTabSelected(index) {
   }
 
-  // ƒtƒH[ƒJƒX‚ÌƒL[”½‰B
-  // ¶‰E‚Åƒ^ƒu‚ğØ‚è‘Ö‚¦
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹æ™‚ã®ã‚­ãƒ¼åå¿œã€‚
+  // å·¦å³ã§ã‚¿ãƒ–ã‚’åˆ‡ã‚Šæ›¿ãˆ
   function onKeyDown(key, shift) {
     switch (key) {
     default:
@@ -343,7 +343,7 @@ class KTabLayout extends KWidget
     } 
   }
 
-  // ƒŒƒCƒAƒEƒg‚Ì‚â‚è’¼‚µ
+  // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®ã‚„ã‚Šç›´ã—
   function invalidateLayout {
     if (childList.count == 0)
       return;
@@ -389,13 +389,13 @@ class KTabLayout extends KWidget
       redraw();
   }
 
-  // ƒ^ƒu‚ğ‘S‚ÄÄ•`‰æ
+  // ã‚¿ãƒ–ã‚’å…¨ã¦å†æç”»
   function redrawAllTabs {
     for (var i = 0; i < tabList.count; i++)
       tabList[i].redraw();
   }
 
-  // ƒtƒŒ[ƒ€‚ÌÄ•`‰æ
+  // ãƒ•ãƒ¬ãƒ¼ãƒ ã®å†æç”»
   function redraw {
     if (childList.count == 0) {
       return;
@@ -477,17 +477,17 @@ class KTabLayout extends KWidget
     }
   }
 
-  // q‚ÌÅ¬Å‘åƒTƒCƒYXV‚ğŒŸ’m
+  // å­ã®æœ€å°æœ€å¤§ã‚µã‚¤ã‚ºæ›´æ–°ã‚’æ¤œçŸ¥
   function onChildMinMaxSizeModified {
     invalidateLayout();
   }
 
-  // q‚Ìƒ}[ƒWƒ“•ÏX‚ğŒŸ’m
+  // å­ã®ãƒãƒ¼ã‚¸ãƒ³å¤‰æ›´ã‚’æ¤œçŸ¥
   function onChildMarginModified {
     invalidateLayout();
   }
 
-  // q‚ÌƒAƒ‰ƒCƒƒ“ƒg•ÏX‚ğŒŸ’m
+  // å­ã®ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆå¤‰æ›´ã‚’æ¤œçŸ¥
   function onChildAlignModified {
     redraw();
   }
@@ -496,24 +496,24 @@ class KTabLayout extends KWidget
     redraw();
   }
 
-  // ƒtƒH[ƒJƒX‚ğŒŸ’m
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’æ¤œçŸ¥
   function onFocus {
     redrawAllTabs();
   }
 
-  // ƒtƒH[ƒJƒXƒƒXƒg‚ğŒŸ’m
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãƒ­ã‚¹ãƒˆã‚’æ¤œçŸ¥
   function onBlur {
     redrawAllTabs();
   }
 
-  // enabled==true‚È‚ç‚»‚Ì‚Ü‚Ü•\¦
+  // enabled==trueãªã‚‰ãã®ã¾ã¾è¡¨ç¤º
   function onNodeEnabled {
     for (var i = 0; i < tabList.count; i++)
       tabList[i].opacity = 255;
     frameLayer.opacity = 255;
   }
 
-  // enabled=false‚È‚ç”¼“§–¾‚Å•\¦
+  // enabled=falseãªã‚‰åŠé€æ˜ã§è¡¨ç¤º
   function onNodeDisabled {
     for (var i = 0; i < tabList.count; i++)
       tabList[i].opacity = 64;

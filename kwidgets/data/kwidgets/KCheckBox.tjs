@@ -6,51 +6,51 @@ var image_check_box_on	= "k_check_button_on";
 var image_check_box_off	= "k_check_button_off";
 
 /**----------------------------------------------------------------------
- * ƒ`ƒFƒbƒNƒ{ƒbƒNƒX
+ * ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹
  ----------------------------------------------------------------------*/
 class KCheckBox extends KValueWidget
 {
-  // ƒ‰ƒxƒ‹
+  // ãƒ©ãƒ™ãƒ«
   var _label;
-  // ’l
+  // å€¤
   var _value;
-  // ƒ{ƒ^ƒ“•\¦ƒŒƒCƒ„
+  // ãƒœã‚¿ãƒ³è¡¨ç¤ºãƒ¬ã‚¤ãƒ¤
   var buttonLayer;
 
   /*------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    * 
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param label ƒ‰ƒxƒ‹
-   * @param name –¼‘O<
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param label ãƒ©ãƒ™ãƒ«
+   * @param name åå‰<
    ------------------------------*/
   function KCheckBox(win, label = "", name = "") {
-    // eŒÄ‚Ño‚µ
+    // è¦ªå‘¼ã³å‡ºã—
     super.KWidget(win, name);
 
-    // ƒ{ƒ^ƒ“ƒŒƒCƒ„ì¬
+    // ãƒœã‚¿ãƒ³ãƒ¬ã‚¤ãƒ¤ä½œæˆ
     buttonLayer = new global.Layer(win, this);
     buttonLayer.loadImages(image_off);
     buttonLayer.visible = true;
     buttonLayer.hitThreshold = 256;
-    // ƒTƒCƒYİ’è
+    // ã‚µã‚¤ã‚ºè¨­å®š
     buttonLayer.setSizeToImageSize();
     setFixedSize(buttonLayer.width + 2, buttonLayer.height + 2);
-    // ƒfƒtƒHƒ‹ƒgƒtƒH[ƒJƒX
+    // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹
     focusable = win.defaultFocusable;
-    // •Ó‚è•~‹’l
+    // è¾ºã‚Šæ•·å±…å€¤
     hitThreshold = 0;
-    // ’l‚Ífalse‚©‚ç
+    // å€¤ã¯falseã‹ã‚‰
     _value = false;
-    // ƒ‰ƒxƒ‹‚ğİ’è
+    // ãƒ©ãƒ™ãƒ«ã‚’è¨­å®š
     this.label = label;
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹‚Ì’l
+   * ãƒ©ãƒ™ãƒ«ã®å€¤
    *
-   * @return ƒ‰ƒxƒ‹‚Ì’l
-   * @param v V‹K‚Ìƒ‰ƒxƒ‹‚Ì’l
+   * @return ãƒ©ãƒ™ãƒ«ã®å€¤
+   * @param v æ–°è¦ã®ãƒ©ãƒ™ãƒ«ã®å€¤
    ------------------------------*/
   property label {
     getter {
@@ -58,38 +58,38 @@ class KCheckBox extends KValueWidget
     }
 
     setter(v) {
-      // “à—e‚ªXV‚³‚ê‚Ä‚¢‚é‚¾‚¯ˆ—
+      // å†…å®¹ãŒæ›´æ–°ã•ã‚Œã¦ã„ã‚‹æ™‚ã ã‘å‡¦ç†
       if (_label == v)
         return;
-      // ’l‚ğXV
+      // å€¤ã‚’æ›´æ–°
       _label = v;
-      // Ä•`‰æ
+      // å†æç”»
       drawContent();
     }
   }
 
-  // ƒ‰ƒxƒ‹‚Ì“à—e‚ğ•`‰æBƒTƒCƒY‚ğÄİ’è
+  // ãƒ©ãƒ™ãƒ«ã®å†…å®¹ã‚’æç”»ã€‚ã‚µã‚¤ã‚ºã‚’å†è¨­å®š
   function drawContent {
     if (_label == "") {
-      // ƒ‰ƒxƒ‹‚ª–³‚¢‚È‚çAƒTƒCƒY‚ğƒ{ƒ^ƒ“‚Ì‚İ‚É‡‚í‚¹A“§–¾‚Å“h‚è’×‚µ
+      // ãƒ©ãƒ™ãƒ«ãŒç„¡ã„ãªã‚‰ã€ã‚µã‚¤ã‚ºã‚’ãƒœã‚¿ãƒ³ã®ã¿ã«åˆã‚ã›ã€é€æ˜ã§å¡—ã‚Šæ½°ã—
       setFixedSize(buttonLayer.width + 2, buttonLayer.height + 2);
       fillRect(0, 0, width, height, focused ? WIN_HIGHLIGHT : 0);
-      // ƒ{ƒ^ƒ“‚ğÄ”z’u
+      // ãƒœã‚¿ãƒ³ã‚’å†é…ç½®
       buttonLayer.setPos(1, 1);
     } else {
-      // ƒTƒCƒY‚ğÄİ’è
+      // ã‚µã‚¤ã‚ºã‚’å†è¨­å®š
       setFixedSize(font.getTextWidth(_label) + spaceHorizontal + buttonLayer.width + 3, Math.max(font.height, buttonLayer.height + 2));
-      // “§–¾‚É“h‚è‚Â‚Ô‚µ
+      // é€æ˜ã«å¡—ã‚Šã¤ã¶ã—
       fillRect(0, 0, width, height, focused ? WIN_HIGHLIGHT : 0);
-      // •‚ÅƒeƒLƒXƒg•`‰æ
+      // é»’ã§ãƒ†ã‚­ã‚¹ãƒˆæç”»
       drawText(2 + buttonLayer.width + spaceHorizontal, (height - font.height) / 2, _label, fontColor);
-      // ƒ{ƒ^ƒ“‚ğÄ”z’u
+      // ãƒœã‚¿ãƒ³ã‚’å†é…ç½®
       buttonLayer.setPos(1, (height - buttonLayer.height) / 2);
     }
   }
 
   /*------------------------------
-   * ‰æ‘œ‚ğƒ[ƒh‚·‚é
+   * ç”»åƒã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
    ------------------------------*/
   function reloadImage {
     if (_value) 
@@ -99,9 +99,9 @@ class KCheckBox extends KValueWidget
   }
 
   /*------------------------------
-   * ƒ}ƒEƒXƒ{ƒ^ƒ“‚É”½‰‚·‚é
+   * ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ã«åå¿œã™ã‚‹
    *
-   * ƒ}ƒEƒXƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ä’l‚ª•Ï‚í‚é‚ÆA onValueModified ‚ªŒÄ‚Î‚ê‚Ü‚·
+   * ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦å€¤ãŒå¤‰ã‚ã‚‹ã¨ã€ onValueModified ãŒå‘¼ã°ã‚Œã¾ã™
    ------------------------------*/
   function onClick {
     focus();
@@ -114,9 +114,9 @@ class KCheckBox extends KValueWidget
   }
 
   /*------------------------------
-   * ƒL[ƒ{[ƒh‚É”½‰‚·‚é
+   * ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã«åå¿œã™ã‚‹
    *
-   * ƒL[ƒ{[ƒh‚ğ‰Ÿ‚µ‚Ä’l‚ª•Ï‚í‚é‚ÆA onValueModified ‚ªŒÄ‚Î‚ê‚Ü‚·
+   * ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã‚’æŠ¼ã—ã¦å€¤ãŒå¤‰ã‚ã‚‹ã¨ã€ onValueModified ãŒå‘¼ã°ã‚Œã¾ã™
    ------------------------------*/
   function onKeyDown(key, shift) {
     if (key == VK_SPACE || key == VK_RETURN) {
@@ -128,67 +128,67 @@ class KCheckBox extends KValueWidget
   }
 
   /*------------------------------
-   * ’l‚ğİ’è‚·‚é
+   * å€¤ã‚’è¨­å®šã™ã‚‹
    *
-   * @param v ’l
-   * @return ’l
+   * @param v å€¤
+   * @return å€¤
    ------------------------------*/
   property value {
     getter {
       return _value;
     }
     setter(v) {
-      // •ÏX‚ª‚ ‚Á‚½ê‡‚Ì‚İXV‚ğ‚·‚é
+      // å¤‰æ›´ãŒã‚ã£ãŸå ´åˆã®ã¿æ›´æ–°ã‚’ã™ã‚‹
       if (_value == v)
         return;
-      // ’l‚ğXV
+      // å€¤ã‚’æ›´æ–°
       _value = v;
-      // ƒCƒ[ƒW‚ğ“Ç‚İ’¼‚·
+      // ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’èª­ã¿ç›´ã™
       reloadImage();
     }
   }
 
-  // ƒtƒHƒ“ƒgƒJƒ‰[‚ª•ÏX‚³‚ê‚½‚çƒ‰ƒxƒ‹‚ğÄ•`‰æ
+  // ãƒ•ã‚©ãƒ³ãƒˆã‚«ãƒ©ãƒ¼ãŒå¤‰æ›´ã•ã‚ŒãŸã‚‰ãƒ©ãƒ™ãƒ«ã‚’å†æç”»
   function onFontColorModified {
     drawContent();
   }
 
-  // ƒtƒHƒ“ƒgƒtƒFƒCƒX‚ª•ÏX‚³‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚§ã‚¤ã‚¹ãŒå¤‰æ›´ã•ã‚ŒãŸã‚‰å†æç”»
   function onFontFaceModified {
     drawContent();
   }
 
-  // ƒtƒHƒ“ƒgƒwƒCƒg‚ª•ÏX‚³‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ³ãƒˆãƒ˜ã‚¤ãƒˆãŒå¤‰æ›´ã•ã‚ŒãŸã‚‰å†æç”»
   function onFontHeightModified {
     drawContent();
   }
 
-  // ƒXƒy[ƒX‚ª•ÏX‚³‚ê‚½‚çÄ•`‰æ
+  // ã‚¹ãƒšãƒ¼ã‚¹ãŒå¤‰æ›´ã•ã‚ŒãŸã‚‰å†æç”»
   function onSpaceModified {
     drawContent();
   }
 
-  // ƒtƒH[ƒJƒX‚³‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã•ã‚ŒãŸã‚‰å†æç”»
   function onFocus {
     drawContent();
   }
 
-  // ƒtƒH[ƒJƒX‚ªŠO‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒå¤–ã‚ŒãŸã‚‰å†æç”»
   function onBlur {
     drawContent();
   }
 
-  // enabled==true‚È‚ç‚»‚Ì‚Ü‚Ü•\¦
+  // enabled==trueãªã‚‰ãã®ã¾ã¾è¡¨ç¤º
   function onNodeEnabled {
     opacity = 255;
   }
 
-  // enabled=false‚È‚ç”¼“§–¾‚Å•\¦
+  // enabled=falseãªã‚‰åŠé€æ˜ã§è¡¨ç¤º
   function onNodeDisabled {
     opacity = 64;
   }
 
-  // •\¦‰æ‘œ
+  // è¡¨ç¤ºç”»åƒ
   property image_on	{ getter { return image_check_box_on; } }
   property image_off{ getter { return image_check_box_off; } }
 }

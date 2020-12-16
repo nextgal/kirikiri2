@@ -1,10 +1,10 @@
-; Config.tjs ‚É‚Ä freeSaveDataMode ‚Í false ‚ÉA
-; saveThumbnail ‚Í true ‚Éİ’è‚·‚é•K—v‚ª‚ ‚è‚Ü‚·
+; Config.tjs ã«ã¦ freeSaveDataMode ã¯ false ã«ã€
+; saveThumbnail ã¯ true ã«è¨­å®šã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™
 @call storage="rclick_tjs.ks"
 @image layer=base page=fore storage=_24_3
-*loop|‰EƒNƒŠƒbƒN‚µ‚Ä‚Ë
+*loop|å³ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã­
 @cm
-‰E[link]ƒNƒŠƒbƒN[endlink]‚µ‚Ä‚İ‚Ä‚­‚¾‚³‚¢[l]
+å³[link]ã‚¯ãƒªãƒƒã‚¯[endlink]ã—ã¦ã¿ã¦ãã ã•ã„[l]
 @backlay
 @image layer=base page=back storage=_24
 @trans method=crossfade time=2000
@@ -15,5 +15,5 @@
 @trans children=false method=crossfade time=2000
 @wt
 @l
-‚Í‚¢[p]
+ã¯ã„[p]
 @jump target=*loop

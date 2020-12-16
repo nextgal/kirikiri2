@@ -46,7 +46,7 @@ class TWaveView : public TCustomControl
 //-- constructor and destructor
 public:
 	__fastcall TWaveView(Classes::TComponent* AOwner);
-	__fastcall ~TWaveView();
+	__fastcall ‾TWaveView();
 
 	void __fastcall ClearAll();
 

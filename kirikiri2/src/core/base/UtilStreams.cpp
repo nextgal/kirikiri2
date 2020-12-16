@@ -78,7 +78,7 @@ tTVPLocalTempStorageHolder::tTVPLocalTempStorageHolder(const ttstr & name)
 	}
 }
 //---------------------------------------------------------------------------
-tTVPLocalTempStorageHolder::~tTVPLocalTempStorageHolder()
+tTVPLocalTempStorageHolder::‾tTVPLocalTempStorageHolder()
 {
 	if(FileMustBeDeleted) TVPRemoveFile(LocalName);
 	if(FolderMustBeDeleted) TVPRemoveFolder(LocalFolder);
@@ -117,7 +117,7 @@ tTVPMemoryStream::tTVPMemoryStream(const void * block, tjs_uint size)
 	CurrentPos = 0;
 }
 //---------------------------------------------------------------------------
-tTVPMemoryStream::~tTVPMemoryStream()
+tTVPMemoryStream::‾tTVPMemoryStream()
 {
 	if(Block && !Reference) Free(Block);
 }
@@ -302,7 +302,7 @@ tTVPPartialStream::tTVPPartialStream(tTJSBinaryStream *stream, tjs_uint64 start,
 	}
 }
 //---------------------------------------------------------------------------
-tTVPPartialStream::~tTVPPartialStream()
+tTVPPartialStream::‾tTVPPartialStream()
 {
 	if(Stream) delete Stream;
 }

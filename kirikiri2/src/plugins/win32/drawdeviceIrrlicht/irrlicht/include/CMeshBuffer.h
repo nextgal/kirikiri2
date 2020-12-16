@@ -27,7 +27,7 @@ namespace scene
 
 
 		//! Get material of this meshbuffer
-		/** \return Material of this buffer */
+		/** ¥return Material of this buffer */
 		virtual const video::SMaterial& getMaterial() const
 		{
 			return Material;
@@ -35,7 +35,7 @@ namespace scene
 
 
 		//! Get material of this meshbuffer
-		/** \return Material of this buffer */
+		/** ¥return Material of this buffer */
 		virtual video::SMaterial& getMaterial()
 		{
 			return Material;
@@ -43,7 +43,7 @@ namespace scene
 
 
 		//! Get pointer to vertices
-		/** \return Pointer to vertices. */
+		/** ¥return Pointer to vertices. */
 		virtual const void* getVertices() const
 		{
 			return Vertices.const_pointer();
@@ -51,7 +51,7 @@ namespace scene
 
 
 		//! Get pointer to vertices
-		/** \return Pointer to vertices. */
+		/** ¥return Pointer to vertices. */
 		virtual void* getVertices()
 		{
 			return Vertices.pointer();
@@ -59,7 +59,7 @@ namespace scene
 
 
 		//! Get number of vertices
-		/** \return Number of vertices. */
+		/** ¥return Number of vertices. */
 		virtual u32 getVertexCount() const
 		{
 			return Vertices.size();
@@ -67,7 +67,7 @@ namespace scene
 
 
 		//! Get pointer to indices
-		/** \return Pointer to indices. */
+		/** ¥return Pointer to indices. */
 		virtual const u16* getIndices() const
 		{
 			return Indices.const_pointer();
@@ -75,7 +75,7 @@ namespace scene
 
 
 		//! Get pointer to indices
-		/** \return Pointer to indices. */
+		/** ¥return Pointer to indices. */
 		virtual u16* getIndices()
 		{
 			return Indices.pointer();
@@ -83,7 +83,7 @@ namespace scene
 
 
 		//! Get number of indices
-		/** \return Number of indices. */
+		/** ¥return Number of indices. */
 		virtual u32 getIndexCount() const
 		{
 			return Indices.size();
@@ -91,7 +91,7 @@ namespace scene
 
 
 		//! Get the axis aligned bounding box
-		/** \return Axis aligned bounding box of this buffer. */
+		/** ¥return Axis aligned bounding box of this buffer. */
 		virtual const core::aabbox3d<f32>& getBoundingBox() const
 		{
 			return BoundingBox;
@@ -99,7 +99,7 @@ namespace scene
 
 
 		//! Set the axis aligned bounding box
-		/** \param box New axis aligned bounding box for this buffer. */
+		/** ¥param box New axis aligned bounding box for this buffer. */
 		//! set user axis aligned bounding box
 		virtual void setBoundingBox(const core::aabbox3df& box)
 		{
@@ -123,7 +123,7 @@ namespace scene
 
 
 		//! Get type of vertex data stored in this buffer.
-		/** \return Type of vertex data. */
+		/** ¥return Type of vertex data. */
 		virtual video::E_VERTEX_TYPE getVertexType() const
 		{
 			return T().getType();
@@ -162,7 +162,7 @@ namespace scene
 		/** Only works for compatible types, i.e. either the same type
 		or the main buffer is of standard type. Otherwise, behavior is
 		undefined.
-		\param other Meshbuffer to be appended to this one.
+		¥param other Meshbuffer to be appended to this one.
 		*/
 		virtual void append(const IMeshBuffer* const other)
 		{

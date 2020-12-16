@@ -55,7 +55,7 @@ tTVPScenarioCacheItem::tTVPScenarioCacheItem(const ttstr & name, bool isstring)
 	}
 }
 //---------------------------------------------------------------------------
-tTVPScenarioCacheItem::~tTVPScenarioCacheItem()
+tTVPScenarioCacheItem::‾tTVPScenarioCacheItem()
 {
 	if(Lines) delete [] Lines;
 }
@@ -114,10 +114,10 @@ void tTVPScenarioCacheItem::LoadScenario(const ttstr & name, bool isstring)
 	tjs_char *p = buffer_p;
 	while(*p)
 	{
-		if(*p == TJS_W('\r') || *p == TJS_W('\n'))
+		if(*p == TJS_W('¥r') || *p == TJS_W('¥n'))
 		{
 			count++;
-			if(*p == TJS_W('\r') && p[1] == TJS_W('\n')) p++;
+			if(*p == TJS_W('¥r') && p[1] == TJS_W('¥n')) p++;
 			p++;
 			ls = p;
 		}
@@ -140,20 +140,20 @@ void tTVPScenarioCacheItem::LoadScenario(const ttstr & name, bool isstring)
 	// pass2: split lines
 	count = 0;
 	ls = buffer_p;
-	while(*ls == '\t') ls++; // skip leading tabs
+	while(*ls == '¥t') ls++; // skip leading tabs
 	p = ls;
 	while(*p)
 	{
-		if(*p == TJS_W('\r') || *p == TJS_W('\n'))
+		if(*p == TJS_W('¥r') || *p == TJS_W('¥n'))
 		{
 			Lines[count].Start = ls;
 			Lines[count].Length = p-ls;
 			count++;
 			tjs_char *rp = p;
-			if(*p == TJS_W('\r') && p[1] == TJS_W('\n')) p++;
+			if(*p == TJS_W('¥r') && p[1] == TJS_W('¥n')) p++;
 			p++;
 			ls = p;
-			while(*ls == '\t') ls++;  // skip leading tabs
+			while(*ls == '¥t') ls++;  // skip leading tabs
 			p = ls;
 			*rp = 0; // end line with null terminater
 		}
@@ -668,7 +668,7 @@ void tTJSNI_KAGParser::StoreIntStackToDic(iTJSDispatch2 *dic, std::vector<tjs_in
 		p[7] = hex[(v >>  0) & 0x000f];
 		p += 8;
 	}
-	*p = '\0';
+	*p = '¥0';
 	stack_str.FixLen();
 	tTJSVariant val;
 	val = stack_str;
@@ -714,7 +714,7 @@ void tTJSNI_KAGParser::StoreBoolStackToDic(iTJSDispatch2 *dic, std::vector<bool>
 		*p = bit[(tjs_int)(*it)];
 		++p;
 	}
-	*p = '\0';
+	*p = '¥0';
 	stack_str.FixLen();
 	tTJSVariant val;
 	val = stack_str;
@@ -1018,7 +1018,7 @@ void tTJSNI_KAGParser::BreakConditionAndMacro()
 static bool inline TVPIsWS(tjs_char ch)
 {
 	// is white space ?
-	return (ch == TJS_W(' ') || ch == TJS_W('\t'));
+	return (ch == TJS_W(' ') || ch == TJS_W('¥t'));
 }
 //---------------------------------------------------------------------------
 void tTJSNI_KAGParser::GoToLabel(const ttstr &name)
@@ -1132,7 +1132,7 @@ bool tTJSNI_KAGParser::SkipCommentOrLabel()
 
 		if(p[0] == TJS_W('[') &&
 			(!TJS_strcmp(p, TJS_W("[iscript]")) ||
-			 !TJS_strcmp(p, TJS_W("[iscript]\\")) )||
+			 !TJS_strcmp(p, TJS_W("[iscript]¥¥")) )||
 		   p[0] == TJS_W('@') &&
 			(!TJS_strcmp(p, TJS_W("@iscript")) )    )
 		{
@@ -1150,7 +1150,7 @@ bool tTJSNI_KAGParser::SkipCommentOrLabel()
 				p = Lines[CurLine].Start;
 				if(p[0] == TJS_W('[') &&
 					(!TJS_strcmp(p, TJS_W("[endscript]")) ||
-					 !TJS_strcmp(p, TJS_W("[endscript]\\")) )||
+					 !TJS_strcmp(p, TJS_W("[endscript]¥¥")) )||
 				  p[0] == TJS_W('@') &&
 					(!TJS_strcmp(p, TJS_W("@endscript")) )    )
 				{
@@ -1160,7 +1160,7 @@ bool tTJSNI_KAGParser::SkipCommentOrLabel()
 				if(ExcludeLevel == -1)
 				{
 					script += p;
-					script += TJS_W("\r\n");
+					script += TJS_W("¥r¥n");
 				}
 			}
 
@@ -1431,14 +1431,14 @@ parse_start:
 
 		if(!IgnoreCR)
 		{
-			if(CurLineStr[CurPos] == TJS_W('\\') &&
+			if(CurLineStr[CurPos] == TJS_W('¥¥') &&
 				CurLineStr[CurPos+1] == 0  ||
 				CurLineStr[CurPos] == 0 && CurPos >= 3 &&
 				CurLineStr[CurPos-3] == TJS_W('[') &&
 				CurLineStr[CurPos-2] == TJS_W('p') && // for line ending with [p]
 				CurLineStr[CurPos-1] == TJS_W(']') )
 			{
-				// line ended with '\\'
+				// line ended with '¥¥'
 				CurLine++;
 				CurPos = 0;
 				LineBufferUsing = false;
@@ -1493,12 +1493,12 @@ parse_start:
 					LineBufferUsing = false;
 					continue;
 				}
-				else if(ch == TJS_W('\t'))
+				else if(ch == TJS_W('¥t'))
 				{
 					CurPos++;
 					continue;
 				}
-				else if(ch != TJS_W('\n'))
+				else if(ch != TJS_W('¥n'))
 				{
 					static tTJSVariant tag_val(TJS_W("ch"));
 					DicObj->PropSetByVS(TJS_MEMBERENSURE,
@@ -1518,7 +1518,7 @@ parse_start:
 				}
 				else
 				{
-					// \n  ( reline )
+					// ¥n  ( reline )
 					static tTJSVariant r_val(TJS_W("r"));
 					DicObj->PropSetByVS(TJS_MEMBERENSURE,
 						__tag_name.AsVariantStringNoAddRef(), &r_val, DicObj);
@@ -1617,16 +1617,16 @@ parse_start:
 		if(tagkind == tag_macro) RecordingMacroName.Clear();
 
 
-#define TVP_KAG_STEP_NEXT \
-						if(ldelim == 0) \
-						{ \
-							CurLine++; \
-							CurPos = 0; \
-							LineBufferUsing = false; \
-						} \
-						else \
-						{ \
-							CurPos++; \
+#define TVP_KAG_STEP_NEXT ¥
+						if(ldelim == 0) ¥
+						{ ¥
+							CurLine++; ¥
+							CurPos = 0; ¥
+							LineBufferUsing = false; ¥
+						} ¥
+						else ¥
+						{ ¥
+							CurPos++; ¥
 						}
 
 
@@ -1878,7 +1878,7 @@ parse_start:
 							if(ldelim == 0 && !IgnoreCR)
 							{
 								d += curposlen;
-								*d = TJS_W('\\'); d++;
+								*d = TJS_W('¥¥'); d++;
 								*d = 0;
 							}
 
@@ -1905,7 +1905,7 @@ parse_start:
 							if(ldelim == 0 && !IgnoreCR)
 							{
 								d += curposlen;
-								*d = TJS_W('\\'); d++;
+								*d = TJS_W('¥¥'); d++;
 								*d = 0;
 							}
 
@@ -2123,8 +2123,8 @@ parse_start:
 				else if(CurLineStr[CurPos] == TJS_W('%'))
 					macroarg = true, CurPos++;
 
-				if(CurLineStr[CurPos] == TJS_W('\"') ||
-					CurLineStr[CurPos] == TJS_W('\''))
+				if(CurLineStr[CurPos] == TJS_W('¥"') ||
+					CurLineStr[CurPos] == TJS_W('¥''))
 				{
 					vdelim = CurLineStr[CurPos];
 					CurPos++;

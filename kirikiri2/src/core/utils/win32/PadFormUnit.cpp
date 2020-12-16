@@ -196,14 +196,14 @@ void __fastcall TTVPPadForm::GoToLine(int line)
 //---------------------------------------------------------------------------
 void __fastcall TTVPPadForm::SetLines(const ttstr & lines)
 {
-	// unify \n to \r\n
+	// unify ¥n to ¥r¥n
 	int newlen = 0;
 	const char *p, *op;
 	AnsiString in = lines.AsAnsiString();
 	p = op = in.c_str();
 	while(*p)
 	{
-		if(*p == '\n' && (p != op && p[-1] != '\r' || p == op))
+		if(*p == '¥n' && (p != op && p[-1] != '¥r' || p == op))
 			newlen += 2;
 		else
 			newlen ++;
@@ -216,10 +216,10 @@ void __fastcall TTVPPadForm::SetLines(const ttstr & lines)
 	p = op = in.c_str();
 	while(*p)
 	{
-		if(*p == '\n' && (p != op && p[-1] != '\r' || p == op))
+		if(*p == '¥n' && (p != op && p[-1] != '¥r' || p == op))
 		{
-			*(tp++) = '\r';
-			*(tp++) = '\n';
+			*(tp++) = '¥r';
+			*(tp++) = '¥n';
 		}
 		else
 		{

@@ -222,7 +222,7 @@ class tTVPTSSWaveDecoder : public tTVPWaveDecoder
 public:
 
 	tTVPTSSWaveDecoder(ITSSWaveDecoder *decoder) { Decoder = decoder; }
-	~tTVPTSSWaveDecoder() { Decoder->Release(); };
+	‾tTVPTSSWaveDecoder() { Decoder->Release(); };
 
 	void GetFormat(tTVPWaveFormat & format)
 	{
@@ -311,7 +311,7 @@ public:
 
 	tTVPWaveUnpacker(IWaveUnpacker *unpacker, IStream *stream)
 		{ Unpacker = unpacker; Stream = stream; }
-	~tTVPWaveUnpacker() { Unpacker->Release(); Stream->Release();};
+	‾tTVPWaveUnpacker() { Unpacker->Release(); Stream->Release();};
 
 	void GetFormat(tTVPWaveFormat & format)
 	{
@@ -407,7 +407,7 @@ public:
 		RenderBuffer = new tjs_uint8[Info.dwUnitRender];
 	}
 
-	~tTVPKMPWaveDecoder()
+	‾tTVPKMPWaveDecoder()
 	{
 		delete [] RenderBuffer;
 		Module->Close(Handle);
@@ -699,7 +699,7 @@ static BOOL CALLBACK DSoundEnumCallback( GUID* pGUID, const char * strDesc,
 		{
 			char syspath[1024];
 			GetSystemDirectory(syspath, 1023);
-			strcat(syspath, "\\drivers"); // SystemDir\drivers
+			strcat(syspath, "¥¥drivers"); // SystemDir¥drivers
 			success = SearchPath(syspath, strDrvName, NULL, 1023, driverpath, &driverpath_filename);
 		}
 
@@ -707,7 +707,7 @@ static BOOL CALLBACK DSoundEnumCallback( GUID* pGUID, const char * strDesc,
 		{
 			char syspath[1024];
 			GetWindowsDirectory(syspath, 1023);
-			strcat(syspath, "\\system32"); // WinDir\system32
+			strcat(syspath, "¥¥system32"); // WinDir¥system32
 			success = SearchPath(syspath, strDrvName, NULL, 1023, driverpath, &driverpath_filename);
 		}
 
@@ -715,7 +715,7 @@ static BOOL CALLBACK DSoundEnumCallback( GUID* pGUID, const char * strDesc,
 		{
 			char syspath[1024];
 			GetWindowsDirectory(syspath, 1023);
-			strcat(syspath, "\\system32\\drivers"); // WinDir\system32\drivers
+			strcat(syspath, "¥¥system32¥¥drivers"); // WinDir¥system32¥drivers
 			success = SearchPath(syspath, strDrvName, NULL, 1023, driverpath, &driverpath_filename);
 		}
 
@@ -847,7 +847,7 @@ static void TVPInitDirectSound()
 			// try to not set 3D mode
 			TVPAddLog(TJS_W("Warning: Cannot create DirectSound primary buffer with 3D sound mode. "
 				"Force not to use it."));
-			dsbd.dwFlags &= ~DSBCAPS_CTRL3D;
+			dsbd.dwFlags &= ‾DSBCAPS_CTRL3D;
 			hr = TVPDirectSound->CreateSoundBuffer(&dsbd, &TVPPrimaryBuffer, NULL);
 			if(SUCCEEDED(hr)) TVPDirectSoundUse3D = false;
 		}
@@ -1316,39 +1316,39 @@ static void TVPConvertWaveFormatToDestinationFormat(void *dest, const void *src,
 
 	struct type_24bit { tjs_uint8 data[3]; };
 
-	#define PROCESS_BY_SAMPLESIZE \
-		if(df->Format.wBitsPerSample == 8) \
-		{ \
-			typedef tjs_int8 type; \
-			PROCESS; \
-		} \
-		else if(df->Format.wBitsPerSample == 16) \
-		{ \
-			typedef tjs_int16 type; \
-			PROCESS;\
-		} \
-		else if(df->Format.wBitsPerSample == 24) \
-		{ \
-			typedef type_24bit type; \
-			PROCESS; \
-		} \
-		else if(df->Format.wBitsPerSample == 32) \
-		{ \
-			typedef tjs_int32 type; \
-			PROCESS; \
-		} \
+	#define PROCESS_BY_SAMPLESIZE ¥
+		if(df->Format.wBitsPerSample == 8) ¥
+		{ ¥
+			typedef tjs_int8 type; ¥
+			PROCESS; ¥
+		} ¥
+		else if(df->Format.wBitsPerSample == 16) ¥
+		{ ¥
+			typedef tjs_int16 type; ¥
+			PROCESS;¥
+		} ¥
+		else if(df->Format.wBitsPerSample == 24) ¥
+		{ ¥
+			typedef type_24bit type; ¥
+			PROCESS; ¥
+		} ¥
+		else if(df->Format.wBitsPerSample == 32) ¥
+		{ ¥
+			typedef tjs_int32 type; ¥
+			PROCESS; ¥
+		} ¥
 
 	if(df->Format.nChannels == 4 && sf->Channels == 1)
 	{
 		// expand mono to quadphone
-		#define PROCESS \
-			type *ps = (type *)dest + (count-1); \
-			type *pd = (type *)dest + (count-1) * 4; \
-			for(tjs_int i = 0; i < count; i++) \
-			{ \
-				pd[0] = pd[1] = pd[2] = pd[3] = ps[0]; \
-				pd -= 4; \
-				ps -= 1; \
+		#define PROCESS ¥
+			type *ps = (type *)dest + (count-1); ¥
+			type *pd = (type *)dest + (count-1) * 4; ¥
+			for(tjs_int i = 0; i < count; i++) ¥
+			{ ¥
+				pd[0] = pd[1] = pd[2] = pd[3] = ps[0]; ¥
+				pd -= 4; ¥
+				ps -= 1; ¥
 			}
 
 		PROCESS_BY_SAMPLESIZE
@@ -1359,15 +1359,15 @@ static void TVPConvertWaveFormatToDestinationFormat(void *dest, const void *src,
 	if(df->Format.nChannels == 4 && sf->Channels == 2)
 	{
 		// expand stereo to quadphone
-		#define PROCESS \
-			type *ps = (type *)dest + (count-1) * 2; \
-			type *pd = (type *)dest + (count-1) * 4; \
-			for(tjs_int i = 0; i < count; i++) \
-			{ \
-				pd[0] = pd[2] = ps[0]; \
-				pd[1] = pd[3] = ps[1]; \
-				pd -= 4; \
-				ps -= 2; \
+		#define PROCESS ¥
+			type *ps = (type *)dest + (count-1) * 2; ¥
+			type *pd = (type *)dest + (count-1) * 4; ¥
+			for(tjs_int i = 0; i < count; i++) ¥
+			{ ¥
+				pd[0] = pd[2] = ps[0]; ¥
+				pd[1] = pd[3] = ps[1]; ¥
+				pd -= 4; ¥
+				ps -= 2; ¥
 			}
 
 		PROCESS_BY_SAMPLESIZE
@@ -1383,19 +1383,19 @@ static void TVPConvertWaveFormatToDestinationFormat(void *dest, const void *src,
 		// is to be reordered as :
 		// FL FR FC LF BL BR (which WAVEFORMATEXTENSIBLE expects)
 
-		#define PROCESS \
-			type *op = (type *)dest; \
-			for(tjs_int i = 0; i < count; i++) \
-			{ \
-				type fc = op[1]; \
-				type bl = op[3]; \
-				type br = op[4]; \
-				op[1] = op[2]; \
-				op[2] = fc; \
-				op[3] = op[5]; \
-				op[4] = bl; \
-				op[5] = br; \
-				op += 6; \
+		#define PROCESS ¥
+			type *op = (type *)dest; ¥
+			for(tjs_int i = 0; i < count; i++) ¥
+			{ ¥
+				type fc = op[1]; ¥
+				type bl = op[3]; ¥
+				type br = op[4]; ¥
+				op[1] = op[2]; ¥
+				op[2] = fc; ¥
+				op[3] = op[5]; ¥
+				op[4] = bl; ¥
+				op[5] = br; ¥
+				op += 6; ¥
 			}
 
 		PROCESS_BY_SAMPLESIZE
@@ -1457,7 +1457,7 @@ class tTVPWaveSoundBufferThread : public tTVPThread
 
 public:
 	tTVPWaveSoundBufferThread();
-	~tTVPWaveSoundBufferThread();
+	‾tTVPWaveSoundBufferThread();
 
 private:
 	void __fastcall UtilWndProc(Messages::TMessage &Msg);
@@ -1486,7 +1486,7 @@ tTVPWaveSoundBufferThread::tTVPWaveSoundBufferThread()
 	Resume();
 }
 //---------------------------------------------------------------------------
-tTVPWaveSoundBufferThread::~tTVPWaveSoundBufferThread()
+tTVPWaveSoundBufferThread::‾tTVPWaveSoundBufferThread()
 {
 	SetPriority(ttpNormal);
 	Terminate();
@@ -1765,7 +1765,7 @@ class tTVPWaveSoundBufferDecodeThread : public tTVPThread
 
 public:
 	tTVPWaveSoundBufferDecodeThread(tTJSNI_WaveSoundBuffer * owner);
-	~tTVPWaveSoundBufferDecodeThread();
+	‾tTVPWaveSoundBufferDecodeThread();
 
 	void Execute(void);
 
@@ -1787,7 +1787,7 @@ tTVPWaveSoundBufferDecodeThread::tTVPWaveSoundBufferDecodeThread(
 	Resume();
 }
 //---------------------------------------------------------------------------
-tTVPWaveSoundBufferDecodeThread::~tTVPWaveSoundBufferDecodeThread()
+tTVPWaveSoundBufferDecodeThread::‾tTVPWaveSoundBufferDecodeThread()
 {
 	SetPriority(TVPDecodeThreadHighPriority);
 	Running = false;
@@ -2031,7 +2031,7 @@ void tTJSNI_WaveSoundBuffer::TryCreateSoundBuffer(bool use3d)
 	{
 		if(BufferCanControlPan)
 		{
-			dsbd.dwFlags &= ~ DSBCAPS_CTRLPAN;
+			dsbd.dwFlags &= ‾ DSBCAPS_CTRLPAN;
 			BufferCanControlPan = false;
 			hr = TVPDirectSound->CreateSoundBuffer(&dsbd, &SoundBuffer, NULL);
 		}
@@ -2041,7 +2041,7 @@ void tTJSNI_WaveSoundBuffer::TryCreateSoundBuffer(bool use3d)
 	{
 		if(BufferCanControlFrequency)
 		{
-			dsbd.dwFlags &= ~ DSBCAPS_CTRLFREQUENCY;
+			dsbd.dwFlags &= ‾ DSBCAPS_CTRLFREQUENCY;
 			BufferCanControlFrequency = false;
 			hr = TVPDirectSound->CreateSoundBuffer(&dsbd, &SoundBuffer, NULL);
 		}

@@ -1,24 +1,24 @@
 @if exp="typeof(global.rclickconfig_object) == 'undefined'"
 @iscript
-// ‰EƒNƒŠƒbƒN‚Å‚Ìİ’è‰æ–Ê‚ğ TJS2 ‚ÅÀŒ»‚·‚éƒTƒ“ƒvƒ‹
+// å³ã‚¯ãƒªãƒƒã‚¯ã§ã®è¨­å®šç”»é¢ã‚’ TJS2 ã§å®Ÿç¾ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«
 
-// x‚Í 28 ŒÂ—˜—p‰Â”\‚È‚Ì‚ÅAConfig.tjs ‚Ìİ’è‚à 28 ŒÂ‚É‚µ‚Ä‚­‚¾‚³‚¢
+// æ ã¯ 28 å€‹åˆ©ç”¨å¯èƒ½ãªã®ã§ã€Config.tjs ã®è¨­å®šã‚‚ 28 å€‹ã«ã—ã¦ãã ã•ã„
 
-// 2002/4/10 3.05 beta 5 •t‘®  ‰”Å
-// 2002/4/23                   ƒƒCƒ“ƒƒjƒ…[‚©‚çux‚ğ‹²‚Şv‚ğ‘I‘ğ‚µ‚Ä‚à
-//                             ƒXƒiƒbƒvƒVƒ‡ƒbƒg‚ğXV‚Å‚«‚é‚æ‚¤‚É‚µ‚½
-//                             ( RClickConfigLayer.saveSnapshot ’Ç‰Á
-//                               RClickConfigLayer.onLoadOrSave •ÏX
-//                               ÅŒã‚Ì•û‚Ìukag ‚Ì saveBookMark ‚ğ’u‚«Š·‚¦‚év
-//                               ‚ğ’Ç‰Á )
-// 2002/6/14                   KAG3 –{‘Ì‚ÌxŠÖ˜A‚Ìd—l•ÏX‚É”º‚¢‚¢‚ë‚¢‚ë•ÏX‚µ
-//                             ‚Ü‚µ‚½ ( diff ‚Æ‚Á‚Ä‚­‚¾‚³‚¢ )
-//                             Config.tjs ‚É‚Ä freeSaveDataMode ‚Í false ‚ÉA
-//                             saveThumbnail ‚Í true ‚Éİ’è‚·‚é•K—v‚ª‚ ‚è‚Ü‚·
+// 2002/4/10 3.05 beta 5 ä»˜å±  åˆç‰ˆ
+// 2002/4/23                   ãƒ¡ã‚¤ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‹ã‚‰ã€Œæ ã‚’æŒŸã‚€ã€ã‚’é¸æŠã—ã¦ã‚‚
+//                             ã‚¹ãƒŠãƒƒãƒ—ã‚·ãƒ§ãƒƒãƒˆã‚’æ›´æ–°ã§ãã‚‹ã‚ˆã†ã«ã—ãŸ
+//                             ( RClickConfigLayer.saveSnapshot è¿½åŠ 
+//                               RClickConfigLayer.onLoadOrSave å¤‰æ›´
+//                               æœ€å¾Œã®æ–¹ã®ã€Œkag ã® saveBookMark ã‚’ç½®ãæ›ãˆã‚‹ã€
+//                               ã‚’è¿½åŠ  )
+// 2002/6/14                   KAG3 æœ¬ä½“ã®æ é–¢é€£ã®ä»•æ§˜å¤‰æ›´ã«ä¼´ã„ã„ã‚ã„ã‚å¤‰æ›´ã—
+//                             ã¾ã—ãŸ ( diff ã¨ã£ã¦ãã ã•ã„ )
+//                             Config.tjs ã«ã¦ freeSaveDataMode ã¯ false ã«ã€
+//                             saveThumbnail ã¯ true ã«è¨­å®šã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™
 
 
 class RButtonLayer extends ButtonLayer
-	// parent ‚É onClick ƒCƒxƒ“ƒg‚ğ‘—‚é‚æ‚¤‚É‚µ‚½ƒ{ƒ^ƒ“ƒŒƒCƒ„
+	// parent ã« onClick ã‚¤ãƒ™ãƒ³ãƒˆã‚’é€ã‚‹ã‚ˆã†ã«ã—ãŸãƒœã‚¿ãƒ³ãƒ¬ã‚¤ãƒ¤
 {
 	var tag;
 
@@ -43,13 +43,13 @@ class RButtonLayer extends ButtonLayer
 
 class SaveDataItemLayer extends KAGLayer
 {
-	// xˆêŒÂˆêŒÂ‚É‘Î‰‚·‚éƒŒƒCƒ„
-	var num; // x”Ô†
-	var bgColor = 0xa0ffffff; // ”wŒiF ( 0xAARRGGBB )
+	// æ ä¸€å€‹ä¸€å€‹ã«å¯¾å¿œã™ã‚‹ãƒ¬ã‚¤ãƒ¤
+	var num; // æ ç•ªå·
+	var bgColor = 0xa0ffffff; // èƒŒæ™¯è‰² ( 0xAARRGGBB )
 	var focusedColor = 0xffffffff;
 
-	var commentEdit; // ƒRƒƒ“ƒg‚ÌƒGƒfƒBƒbƒg
-	var protectCheckBox; // uƒf[ƒ^•ÛŒìvƒ`ƒFƒbƒNƒ{ƒbƒNƒX
+	var commentEdit; // ã‚³ãƒ¡ãƒ³ãƒˆã®ã‚¨ãƒ‡ã‚£ãƒƒãƒˆ
+	var protectCheckBox; // ã€Œãƒ‡ãƒ¼ã‚¿ä¿è­·ã€ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹
 
 	function SaveDataItemLayer(window, parent, num)
 	{
@@ -57,17 +57,17 @@ class SaveDataItemLayer extends KAGLayer
 
 		this.num = num;
 
-		setImageSize(500, 112); // ƒTƒCƒY
+		setImageSize(500, 112); // ã‚µã‚¤ã‚º
 		face = dfBoth;
 		fillRect(0, 0, imageWidth, imageHeight, bgColor);
 		setSizeToImageSize();
 
 		hitType = htMask;
-		hitThreshold = 0; // ‘Sˆæ•s“§‰ß
+		hitThreshold = 0; // å…¨åŸŸä¸é€é
 
 		cursor = kag.cursorPointed;
 
-		focusable = true; // ƒtƒH[ƒJƒX‚Íó‚¯æ‚ê‚é
+		focusable = true; // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã¯å—ã‘å–ã‚Œã‚‹
 
 		protectCheckBox = new CheckBoxLayer(window, this);
 		protectCheckBox.width = 16;
@@ -98,15 +98,15 @@ class SaveDataItemLayer extends KAGLayer
 		font.height = 14;
 		face = dfBoth;
 
-		drawText(420, 35, "ƒf[ƒ^•ÛŒì", 0x000000);
+		drawText(420, 35, "ãƒ‡ãƒ¼ã‚¿ä¿è­·", 0x000000);
 
-		// ”Ô†‚ğ•\¦
+		// ç•ªå·ã‚’è¡¨ç¤º
 		var str = string (num + 1);
 		font.height = 20;
 		var ty = font.getTextHeight(str);
-		drawText(6, ( imageHeight - ty ) \ 2, str, 0);
+		drawText(6, ( imageHeight - ty ) Â¥ 2, str, 0);
 
-		// ƒTƒ€ƒlƒCƒ‹‰æ‘œ‚ğ“Ç‚İ‚Ş
+		// ã‚µãƒ ãƒã‚¤ãƒ«ç”»åƒã‚’èª­ã¿è¾¼ã‚€
 		var tmplayer = new global.Layer(window, parent);
 
  		var tnname = kag.getBookMarkFileNameAtNum(num);
@@ -118,9 +118,9 @@ class SaveDataItemLayer extends KAGLayer
 		else
 		{
 			tmplayer.setImageSize(133, 100);
-			var str = "ƒf[ƒ^‚È‚µ";
+			var str = "ãƒ‡ãƒ¼ã‚¿ãªã—";
 			var tx = tmplayer.font.getTextWidth(str);
-			tmplayer.drawText((tmplayer.imageWidth - tx) \ 2, 40,
+			tmplayer.drawText((tmplayer.imageWidth - tx) Â¥ 2, 40,
 				str, 0xffffff);
 		}
 
@@ -128,22 +128,22 @@ class SaveDataItemLayer extends KAGLayer
 
 		invalidate tmplayer;
 
-		// x‚Ì•Û‘¶–¼‚ğ•\¦
+		// æ ã®ä¿å­˜åã‚’è¡¨ç¤º
 		font.height = 14;
 
 		var str = kag.bookMarkNames[num];
-		if(str == '') str = 'ƒf[ƒ^‚È‚µ';
+		if(str == '') str = 'ãƒ‡ãƒ¼ã‚¿ãªã—';
 		drawText(180, 15, str, 0x000000);
 
-		// “ú•t‚ğ•\¦
+		// æ—¥ä»˜ã‚’è¡¨ç¤º
 		if(kag.bookMarkDates[num] == '')
-			str = "“ú•t : ----/--/-- --:--", commentEdit.enabled = false;
+			str = "æ—¥ä»˜ : ----/--/-- --:--", commentEdit.enabled = false;
 		else
-			str = "“ú•t : " + kag.bookMarkDates[num];
+			str = "æ—¥ä»˜ : " + kag.bookMarkDates[num];
 
 		drawText(180, 35, str, 0x000000);
 
-		// ƒRƒƒ“ƒg : 
+		// ã‚³ãƒ¡ãƒ³ãƒˆ : 
 		drawText(180, 63, "Comments :", 0x000000);
 	}
 
@@ -156,7 +156,7 @@ class SaveDataItemLayer extends KAGLayer
 
 	function saveToSystemVariable()
 	{
-		// ó‘Ô‚ğƒVƒXƒeƒ€•Ï”‚É‹L˜^‚·‚é
+		// çŠ¶æ…‹ã‚’ã‚·ã‚¹ãƒ†ãƒ å¤‰æ•°ã«è¨˜éŒ²ã™ã‚‹
 		if(kag.scflags.bookMarkComments === void)
 			kag.scflags.bookMarkComments = [];
 		kag.scflags.bookMarkComments[num] = commentEdit.text;
@@ -167,7 +167,7 @@ class SaveDataItemLayer extends KAGLayer
 	{
 		super.onPaint(...);
 
-		// update() ‚ªŒÄ‚Î‚ê‚½ŒãA•`‰æ‚Ì’¼‘O‚ÉŒÄ‚Î‚ê‚é
+		// update() ãŒå‘¼ã°ã‚ŒãŸå¾Œã€æç”»ã®ç›´å‰ã«å‘¼ã°ã‚Œã‚‹
 		face = dfBoth;
 		if(focused)
 		{
@@ -187,14 +187,14 @@ class SaveDataItemLayer extends KAGLayer
 
 	function onFocus()
 	{
-		// ƒtƒH[ƒJƒX‚ğ“¾‚½
+		// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ãŸ
 		super.onFocus(...);
 		update();
 	}
 
 	function onBlur()
 	{
-		// ƒtƒH[ƒJƒX‚ğ¸‚Á‚½
+		// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¤±ã£ãŸ
 		super.onBlur(...);
 		update();
 	}
@@ -203,7 +203,7 @@ class SaveDataItemLayer extends KAGLayer
 	{
 		if(process)
 		{
-			// ‰Eƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚Æ‚«‚ÉƒCƒxƒ“ƒg‚ğ“§‰ß
+			// å³ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚Œã¦ã„ãŸã¨ãã«ã‚¤ãƒ™ãƒ³ãƒˆã‚’é€é
 			if(System.getKeyState(VK_RBUTTON))
 				super.onHitTest(x, y, false);
 			else
@@ -213,17 +213,17 @@ class SaveDataItemLayer extends KAGLayer
 
 	function onKeyDown(key, shift, process)
 	{
-		// ƒL[‚ª‰Ÿ‚³‚ê‚½
+		// ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸ
 		if(process && key == VK_RETURN || key == VK_SPACE)
 		{
-			// ƒXƒy[ƒXƒL[‚Ü‚½‚ÍƒGƒ“ƒ^[ƒL[
+			// ã‚¹ãƒšãƒ¼ã‚¹ã‚­ãƒ¼ã¾ãŸã¯ã‚¨ãƒ³ã‚¿ãƒ¼ã‚­ãƒ¼
 			super.onKeyDown(key, shift, false);
 			saveToSystemVariable();
 			parent.onLoadOrSave(num);
 		}
 		else
 		{
-			// process ‚ª false ‚Ìê‡‚Íˆ—‚Ís‚í‚È‚¢
+			// process ãŒ false ã®å ´åˆã¯å‡¦ç†ã¯è¡Œã‚ãªã„
 			super.onKeyDown(...);
 		}
 	}
@@ -240,31 +240,31 @@ class SaveDataItemLayer extends KAGLayer
 	}
 }
 
-class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
+class RClickConfigLayer extends Layer // è¨­å®šç”»é¢ãƒ¬ã‚¤ãƒ¤
 {
-	var closeButton; // u•Â‚¶‚évƒ{ƒ^ƒ“
-	var saveButton; // ƒZ[ƒu ƒ{ƒ^ƒ“
-	var loadButton; // ƒ[ƒh ƒ{ƒ^ƒ“
-	var hideMessageButton; // ƒƒbƒZ[ƒW‚ğÁ‚· ƒ{ƒ^ƒ“
+	var closeButton; // ã€Œé–‰ã˜ã‚‹ã€ãƒœã‚¿ãƒ³
+	var saveButton; // ã‚»ãƒ¼ãƒ– ãƒœã‚¿ãƒ³
+	var loadButton; // ãƒ­ãƒ¼ãƒ‰ ãƒœã‚¿ãƒ³
+	var hideMessageButton; // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ¶ˆã™ ãƒœã‚¿ãƒ³
 	var saveDataItems;
-	var state = -1; // 0 = ƒƒCƒ“ƒƒjƒ…[  1 = ƒ[ƒh‰æ–Ê 2 = ƒZ[ƒu‰æ–Ê
-	var owner; // RClickConfigPlugin ƒIƒuƒWƒFƒNƒg‚Ö‚ÌQÆ
-	var currentPage = 0; // ƒZ[ƒuƒf[ƒ^‘I‘ğ’†‚É•\¦’†‚Ìƒy[ƒW
-	var returnButton; // ‚à‚Ç‚é ƒ{ƒ^ƒ“
-	var pageButtons; // ƒZ[ƒuƒf[ƒ^‚Ìƒy[ƒWƒ{ƒ^ƒ“
+	var state = -1; // 0 = ãƒ¡ã‚¤ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼  1 = ãƒ­ãƒ¼ãƒ‰ç”»é¢ 2 = ã‚»ãƒ¼ãƒ–ç”»é¢
+	var owner; // RClickConfigPlugin ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®å‚ç…§
+	var currentPage = 0; // ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿é¸æŠä¸­ã«è¡¨ç¤ºä¸­ã®ãƒšãƒ¼ã‚¸
+	var returnButton; // ã‚‚ã©ã‚‹ ãƒœã‚¿ãƒ³
+	var pageButtons; // ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã®ãƒšãƒ¼ã‚¸ãƒœã‚¿ãƒ³
 
 	function RClickConfigLayer(win, par, owner)
 	{
 		super.Layer(win, par);
 		this.owner = owner;
 
-		// ƒŒƒCƒ„‚Ìó‘Ô‚ğ‰Šú‰»
+		// ãƒ¬ã‚¤ãƒ¤ã®çŠ¶æ…‹ã‚’åˆæœŸåŒ–
 		setImageSize(640, 480);
 		clearBase();
 		setSizeToImageSize();
 		setPos(0, 0);
 		hitType = htMask;
-		hitThreshold = 0; // ‘Sˆæ•s“§‰ß
+		hitThreshold = 0; // å…¨åŸŸä¸é€é
 	}
 
 	function finalize()
@@ -283,51 +283,51 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 
 	function clearBase()
 	{
-		// ‰º’n‚ğ“h‚è’¼‚·
+		// ä¸‹åœ°ã‚’å¡—ã‚Šç›´ã™
 		fillRect(0, 0, imageWidth, imageHeight, 0xc0000000);
 	}
 
 
 	function makeMainMenu()
 	{
-		// ƒƒCƒ“ƒƒjƒ…[‚Ì•\¦
+		// ãƒ¡ã‚¤ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®è¡¨ç¤º
 		if(state != 0)
 		{
 			clear();
 			state = 0;
 
 			/*
-				ƒ{ƒ^ƒ“‚ğì¬‚µ‚Ä‚¢‚Ü‚·
-				‚±‚±‚Å‚Í•¶šƒ{ƒ^ƒ“‚ğì¬‚µ‚Ä‚Ü‚·‚ªA
-				‰æ‘œƒ{ƒ^ƒ“‚ğì‚è‚½‚¢‚Æ‚«‚Í
+				ãƒœã‚¿ãƒ³ã‚’ä½œæˆã—ã¦ã„ã¾ã™
+				ã“ã“ã§ã¯æ–‡å­—ãƒœã‚¿ãƒ³ã‚’ä½œæˆã—ã¦ã¾ã™ãŒã€
+				ç”»åƒãƒœã‚¿ãƒ³ã‚’ä½œã‚ŠãŸã„ã¨ãã¯
 			if(closeButton === void)
 			{
 				closeButton = new RButtonLayer(window, this);
 				closeButton.showFocusImage = true;
-				closeButton.loadImages("ƒ{ƒ^ƒ“‰æ‘œƒtƒ@ƒCƒ‹–¼");
+				closeButton.loadImages("ãƒœã‚¿ãƒ³ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«å");
 				closeButton.left = 270;
 				closeButton.top = 350;
 				closeButton.focusable = true;
 			}
-				‚İ‚½‚¢‚ÈŠ´‚¶‚Å‹Lq‚µ‚Ü‚·
+				ã¿ãŸã„ãªæ„Ÿã˜ã§è¨˜è¿°ã—ã¾ã™
 
-				‚±‚±‚Åw’è‚·‚éƒ{ƒ^ƒ“‚Í•’Ê‚Ìƒ{ƒ^ƒ“‰æ‘œ
-				( ‚R‚Â‚Ìó‘Ô‚ª‰¡‚É•À‚ñ‚Å‚¢‚é‰æ‘œ ) ‚Å‚Í‚È‚­‚ÄA
-				‚S‚Â‚Ìó‘Ô ( ’ÊíA‰Ÿ‚³‚ê‚½Aƒ}ƒEƒX‚ªã‚É‚ ‚é‚Æ‚«A
-				ƒtƒH[ƒJƒX‚ª‚ ‚é ) ‚ª‰¡‚É•À‚ñ‚¾‰æ‘œ‚Å‚ ‚é•K—v‚ª
-				‚ ‚è‚Ü‚·B‚Æ‚­‚ÉÅŒã‚ÌuƒtƒH[ƒJƒX‚ª‚ ‚é‚Æ‚«v‚Ì
-				ó‘Ô‚ÍAƒL[ƒ{[ƒh‚Å‘€ì‚ğ‚·‚él‚Ì‚½‚ß‚É•K—v‚Å‚·
-				( showFocusImage=true ‚É‚·‚é‚Æ‚S‚Â‚ğ‰¡‚É‚È‚ç‚×‚½
-				  ‰æ‘œ‚ğg—p‚·‚é‚æ‚¤‚É‚È‚è‚Ü‚·;„§ ) 
+				ã“ã“ã§æŒ‡å®šã™ã‚‹ãƒœã‚¿ãƒ³ã¯æ™®é€šã®ãƒœã‚¿ãƒ³ç”»åƒ
+				( ï¼“ã¤ã®çŠ¶æ…‹ãŒæ¨ªã«ä¸¦ã‚“ã§ã„ã‚‹ç”»åƒ ) ã§ã¯ãªãã¦ã€
+				ï¼”ã¤ã®çŠ¶æ…‹ ( é€šå¸¸ã€æŠ¼ã•ã‚ŒãŸæ™‚ã€ãƒã‚¦ã‚¹ãŒä¸Šã«ã‚ã‚‹ã¨ãã€
+				ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒã‚ã‚‹æ™‚ ) ãŒæ¨ªã«ä¸¦ã‚“ã ç”»åƒã§ã‚ã‚‹å¿…è¦ãŒ
+				ã‚ã‚Šã¾ã™ã€‚ã¨ãã«æœ€å¾Œã®ã€Œãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒã‚ã‚‹ã¨ãã€ã®
+				çŠ¶æ…‹ã¯ã€ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã§æ“ä½œã‚’ã™ã‚‹äººã®ãŸã‚ã«å¿…è¦ã§ã™
+				( showFocusImage=true ã«ã™ã‚‹ã¨ï¼”ã¤ã‚’æ¨ªã«ãªã‚‰ã¹ãŸ
+				  ç”»åƒã‚’ä½¿ç”¨ã™ã‚‹ã‚ˆã†ã«ãªã‚Šã¾ã™;æ¨å¥¨ ) 
 			*/
 
-			// u•Â‚¶‚évƒ{ƒ^ƒ“‚ğì¬
+			// ã€Œé–‰ã˜ã‚‹ã€ãƒœã‚¿ãƒ³ã‚’ä½œæˆ
 			if(closeButton === void)
 			{
 				closeButton = new RButtonLayer(window, this);
 				closeButton.width = 100;
 				closeButton.height = 25;
-				closeButton.caption = "•Â‚¶‚é";
+				closeButton.caption = "é–‰ã˜ã‚‹";
 				closeButton.captionColor = 0xffffff;
 				closeButton.left = 270;
 				closeButton.top = 350;
@@ -335,13 +335,13 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 			}
 			closeButton.visible = true;
 
-			// uƒZ[ƒuvƒ{ƒ^ƒ“‚ğì¬
+			// ã€Œã‚»ãƒ¼ãƒ–ã€ãƒœã‚¿ãƒ³ã‚’ä½œæˆ
 			if(saveButton === void)
 			{
 				saveButton = new RButtonLayer(window, this);
 				saveButton.width = 100;
 				saveButton.height = 25;
-				saveButton.caption = "ƒZ[ƒu";
+				saveButton.caption = "ã‚»ãƒ¼ãƒ–";
 				saveButton.captionColor = 0xffffff;
 				saveButton.left = 270;
 				saveButton.top = 100;
@@ -350,13 +350,13 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 			saveButton.enabled = kag.canStore();
 			saveButton.visible = true;
 
-			// uƒ[ƒhvƒ{ƒ^ƒ“‚ğì¬
+			// ã€Œãƒ­ãƒ¼ãƒ‰ã€ãƒœã‚¿ãƒ³ã‚’ä½œæˆ
 			if(loadButton === void)
 			{
 				loadButton = new RButtonLayer(window, this);
 				loadButton.width = 100;
 				loadButton.height = 25;
-				loadButton.caption = "ƒ[ƒh";
+				loadButton.caption = "ãƒ­ãƒ¼ãƒ‰";
 				loadButton.captionColor = 0xffffff;
 				loadButton.left = 270;
 				loadButton.top = 150;
@@ -365,13 +365,13 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 			loadButton.enabled = kag.canRestore();
 			loadButton.visible = true;
 
-			// uƒƒbƒZ[ƒW‚ğÁ‚·vƒ{ƒ^ƒ“‚ğì¬
+			// ã€Œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ¶ˆã™ã€ãƒœã‚¿ãƒ³ã‚’ä½œæˆ
 			if(hideMessageButton === void)
 			{
 				hideMessageButton = new RButtonLayer(window, this);
 				hideMessageButton.width = 100;
 				hideMessageButton.height = 25;
-				hideMessageButton.caption = "ƒƒbƒZ[ƒW‚ğÁ‚·";
+				hideMessageButton.caption = "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ¶ˆã™";
 				hideMessageButton.captionColor = 0xffffff;
 				hideMessageButton.left = 270;
 				hideMessageButton.top = 200;
@@ -383,7 +383,7 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 
 	function clearSaveDataItems()
 	{
-		// ƒZ[ƒuƒf[ƒ^•\¦‚ÌƒNƒŠƒA
+		// ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿è¡¨ç¤ºã®ã‚¯ãƒªã‚¢
 		if(saveDataItems !== void)
 		{
 			for(var i = 0; i < saveDataItems.count; i++)
@@ -398,7 +398,7 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 
 	function makeSaveDataItems()
 	{
-		// ƒZ[ƒuƒf[ƒ^‚Ì•\¦
+		// ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã®è¡¨ç¤º
 		clearSaveDataItems();
 		saveDataItems = [];
 		for(var i = 0; i < 4; i++)
@@ -412,7 +412,7 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 
 	function clearPageButtons()
 	{
-		// ƒy[ƒWƒ{ƒ^ƒ“‚ÌƒNƒŠƒA
+		// ãƒšãƒ¼ã‚¸ãƒœã‚¿ãƒ³ã®ã‚¯ãƒªã‚¢
 		if(pageButtons !== void)
 		{
 			for(var i = 0; i < pageButtons.count; i++)
@@ -425,20 +425,20 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 
 	function makePageButtons()
 	{
-		// ƒy[ƒWƒ{ƒ^ƒ“‚ğì¬‚·‚é
+		// ãƒšãƒ¼ã‚¸ãƒœã‚¿ãƒ³ã‚’ä½œæˆã™ã‚‹
 		clearPageButtons();
 		pageButtons = [];
 		for(var i = 0; i < 7; i++)
 		{
-			// ƒy[ƒWƒ{ƒ^ƒ“‚Í‰æ‘œ‚Å‚à‚æ‚¢‚©‚à‚µ‚ê‚Ü‚¹‚ñ
-			// ‚»‚Ìê‡‚ÍŒ»İ‚Ìƒy[ƒW‚ğ•\‚·ƒ{ƒ^ƒ“‰æ‘œ‚ğ‘¼‚Æ
-			// •Ï‚¦‚é‚Æ‚æ‚¢‚©‚Æ
+			// ãƒšãƒ¼ã‚¸ãƒœã‚¿ãƒ³ã¯ç”»åƒã§ã‚‚ã‚ˆã„ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“
+			// ãã®å ´åˆã¯ç¾åœ¨ã®ãƒšãƒ¼ã‚¸ã‚’è¡¨ã™ãƒœã‚¿ãƒ³ç”»åƒã‚’ä»–ã¨
+			// å¤‰ãˆã‚‹ã¨ã‚ˆã„ã‹ã¨
 			var obj = new RButtonLayer(window, this);
 			pageButtons[i] = obj;
 			obj.width = 100;
 			obj.height = 25;
 			obj.color = currentPage == i ? 0xff0000 : 0x000000;
-			obj.caption = "ƒf[ƒ^ " + (i*4+1) + "`" + ((i+1)*4);
+			obj.caption = "ãƒ‡ãƒ¼ã‚¿ " + (i*4+1) + "ã€œ" + ((i+1)*4);
 			obj.captionColor = 0xffffff;
 			obj.top = i * 30 + 100;
 			obj.left = 10;
@@ -452,7 +452,7 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 
 	function changePage(newpage)
 	{
-		// ƒy[ƒW‚ğ•ÏX‚·‚é‚Æ‚«
+		// ãƒšãƒ¼ã‚¸ã‚’å¤‰æ›´ã™ã‚‹ã¨ã
 		if(pageButtons !== void)
 		{
 			pageButtons[currentPage].color = 0x000000;
@@ -466,13 +466,13 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 
 	function makeReturnButton()
 	{
-		// –ß‚é ƒ{ƒ^ƒ“‚ğì¬
+		// æˆ»ã‚‹ ãƒœã‚¿ãƒ³ã‚’ä½œæˆ
 		if(returnButton === void)
 		{
 			returnButton = new RButtonLayer(window, this);
 			returnButton.width = 100;
 			returnButton.height = 25;
-			returnButton.caption = "–ß‚é";
+			returnButton.caption = "æˆ»ã‚‹";
 			returnButton.captionColor = 0xffffff;
 			returnButton.left = 10;
 			returnButton.top = 440;
@@ -483,7 +483,7 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 
 	function makeLoadMenu()
 	{
-		// uƒ[ƒhvƒƒjƒ…[
+		// ã€Œãƒ­ãƒ¼ãƒ‰ã€ãƒ¡ãƒ‹ãƒ¥ãƒ¼
 		if(state != 1)
 		{
 			clear();
@@ -492,13 +492,13 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 			makeReturnButton();
 			makePageButtons();
 			font.height = 24;
-			drawText(30, 30, "ƒ[ƒh", 0xffffff);
+			drawText(30, 30, "ãƒ­ãƒ¼ãƒ‰", 0xffffff);
 		}
 	}
 
 	function makeSaveMenu()
 	{
-		// uƒZ[ƒuvƒƒjƒ…[
+		// ã€Œã‚»ãƒ¼ãƒ–ã€ãƒ¡ãƒ‹ãƒ¥ãƒ¼
 		if(state != 2)
 		{
 			clear();
@@ -507,13 +507,13 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 			makeReturnButton();
 			makePageButtons();
 			font.height = 24;
-			drawText(30, 30, "ƒZ[ƒu", 0xffffff);
+			drawText(30, 30, "ã‚»ãƒ¼ãƒ–", 0xffffff);
 		}
 	}
 
 	function clear()
 	{
-		// ‰æ–Êã‚Ìƒ{ƒ^ƒ“—Ş‚ğ‚·‚×‚Ä”ñ•\¦‚É‚·‚é‚©A–³Œø‰»‚·‚é
+		// ç”»é¢ä¸Šã®ãƒœã‚¿ãƒ³é¡ã‚’ã™ã¹ã¦éè¡¨ç¤ºã«ã™ã‚‹ã‹ã€ç„¡åŠ¹åŒ–ã™ã‚‹
 		clearBase();
 
 		closeButton.visible = false if closeButton !== void;
@@ -529,7 +529,7 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 
 	function saveToSystemVariable()
 	{
-		// ƒVƒXƒeƒ€•Ï”‚Éƒf[ƒ^‚ğ•Û‘¶‚·‚é•K—v‚ª‚ ‚é‚Æ‚«
+		// ã‚·ã‚¹ãƒ†ãƒ å¤‰æ•°ã«ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã¨ã
 		if(saveDataItems !== void)
 		{
 			for(var i = 0; i < saveDataItems.count; i++)
@@ -540,29 +540,29 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 
 	function onButtonClick(sender)
 	{
-		// ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
+		// ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã¨ã
 		switch(sender)
 		{
-		case closeButton: // u•Â‚¶‚évƒ{ƒ^ƒ“
+		case closeButton: // ã€Œé–‰ã˜ã‚‹ã€ãƒœã‚¿ãƒ³
 			owner.onConfigClose();
 			break;
-		case saveButton: // uƒZ[ƒuvƒ{ƒ^ƒ“
+		case saveButton: // ã€Œã‚»ãƒ¼ãƒ–ã€ãƒœã‚¿ãƒ³
 			makeSaveMenu();
 			break;
-		case loadButton: // uƒ[ƒhvƒ{ƒ^ƒ“
+		case loadButton: // ã€Œãƒ­ãƒ¼ãƒ‰ã€ãƒœã‚¿ãƒ³
 			makeLoadMenu();
 			break;
-		case hideMessageButton: // uƒƒbƒZ[ƒW‚ğÁ‚·vƒ{ƒ^ƒ“
+		case hideMessageButton: // ã€Œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ¶ˆã™ã€ãƒœã‚¿ãƒ³
 			owner.closeConfig();
 			kag.process('', '*hidemessage');
 			break;
-		case returnButton: // u–ß‚évƒ{ƒ^ƒ“
+		case returnButton: // ã€Œæˆ»ã‚‹ã€ãƒœã‚¿ãƒ³
 			makeMainMenu();
 			break;
 		default:
 			if(sender.tag == 'page')
 			{
-				// page ƒ{ƒ^ƒ“
+				// page ãƒœã‚¿ãƒ³
 				changePage(sender.page);
 			}
 		}
@@ -570,28 +570,28 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 
 	function onLoadOrSave(num)
 	{
-		// ”Ô† num ‚ğƒZ[ƒu‚Ü‚½‚Íƒ[ƒh
+		// ç•ªå· num ã‚’ã‚»ãƒ¼ãƒ–ã¾ãŸã¯ãƒ­ãƒ¼ãƒ‰
 		if(state == 1)
 		{
-			// ƒ[ƒh
+			// ãƒ­ãƒ¼ãƒ‰
 			kag.loadBookMarkWithAsk(num);
 		}
 		else
 		{
-			// ƒZ[ƒu
+			// ã‚»ãƒ¼ãƒ–
 			if(kag.saveBookMarkWithAsk(num))
 			{
 				clearSaveDataItems();
 				if(kag.scflags.bookMarkComments !== void)
-					kag.scflags.bookMarkComments[num] = ''; // ƒRƒƒ“ƒg‚Íˆê‰ƒNƒŠƒA
-				makeSaveDataItems(); // •\¦‚ğXV
+					kag.scflags.bookMarkComments[num] = ''; // ã‚³ãƒ¡ãƒ³ãƒˆã¯ä¸€å¿œã‚¯ãƒªã‚¢
+				makeSaveDataItems(); // è¡¨ç¤ºã‚’æ›´æ–°
 			}
 		}
 	}
 
 	function show()
 	{
-		// ƒŒƒCƒ„‚ğ•\¦‚·‚é
+		// ãƒ¬ã‚¤ãƒ¤ã‚’è¡¨ç¤ºã™ã‚‹
 		visible = true;
 		setMode();
 		focus();
@@ -599,7 +599,7 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 
 	function hide()
 	{
-		// ƒŒƒCƒ„‚ğ‰B‚·
+		// ãƒ¬ã‚¤ãƒ¤ã‚’éš ã™
 		removeMode();
 		visible = false;
 		clear();
@@ -610,7 +610,7 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 	{
 		super.onKeyDown(...);
 		if(key == VK_ESCAPE)
-			owner.onConfigClose(); // ESC ƒL[‚ª‰Ÿ‚³‚ê‚½‚çƒŒƒCƒ„‚ğ‰B‚·
+			owner.onConfigClose(); // ESC ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã‚‰ãƒ¬ã‚¤ãƒ¤ã‚’éš ã™
 	}
 
 	function onMouseDown(x, y, button, shift)
@@ -619,12 +619,12 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 		{
 			if(state == 0)
 			{
-				// ‰EƒNƒŠƒbƒN‚³‚ê‚½‚ç‚±‚ÌƒŒƒCƒ„‚ğ‰B‚·‚æ‚¤‚É
+				// å³ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã‚‰ã“ã®ãƒ¬ã‚¤ãƒ¤ã‚’éš ã™ã‚ˆã†ã«
 				owner.onConfigClose();
 			}
 			else if(state == 1 || state == 2)
 			{
-				// ƒZ[ƒuEƒ[ƒh‚Ì‰æ–Ê‚Ìê‡‚ÍƒƒCƒ“ƒƒjƒ…[‚É
+				// ã‚»ãƒ¼ãƒ–ãƒ»ãƒ­ãƒ¼ãƒ‰ã®ç”»é¢ã®å ´åˆã¯ãƒ¡ã‚¤ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã«
 				makeMainMenu();
 			}
 		}
@@ -632,16 +632,16 @@ class RClickConfigLayer extends Layer // İ’è‰æ–ÊƒŒƒCƒ„
 }
 
 
-class RClickConfigPlugin extends KAGPlugin // u‰EƒNƒŠƒbƒNİ’èvƒvƒ‰ƒOƒCƒ“ƒNƒ‰ƒX
+class RClickConfigPlugin extends KAGPlugin // ã€Œå³ã‚¯ãƒªãƒƒã‚¯è¨­å®šã€ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚¯ãƒ©ã‚¹
 {
-	var window; // ƒEƒBƒ“ƒhƒE‚Ö‚ÌQÆ
-	var config; // İ’èƒŒƒCƒ„
+	var window; // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¸ã®å‚ç…§
+	var config; // è¨­å®šãƒ¬ã‚¤ãƒ¤
 
 	function RClickConfigPlugin(window)
 	{
-		// RClickPlugin ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-		super.KAGPlugin(); // ƒX[ƒp[ƒNƒ‰ƒX‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğŒÄ‚Ô
-		this.window = window; // window ‚Ö‚ÌQÆ‚ğ•Û‘¶‚·‚é
+		// RClickPlugin ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+		super.KAGPlugin(); // ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‘¼ã¶
+		this.window = window; // window ã¸ã®å‚ç…§ã‚’ä¿å­˜ã™ã‚‹
 	}
 
 	function finalize()
@@ -652,30 +652,30 @@ class RClickConfigPlugin extends KAGPlugin // u‰EƒNƒŠƒbƒNİ’èvƒvƒ‰ƒOƒCƒ“ƒNƒ‰ƒX
 
 	function show()
 	{
-		// •\¦
+		// è¡¨ç¤º
 		if(config === void)
 			config = new RClickConfigLayer(window, kag.fore.base, this);
 		config.parent = window.fore.base;
-			// e‚ğÄİ’è‚·‚é
-			// (ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚É‚æ‚Á‚Ä•\”wŒiƒŒƒCƒ„‚Í•Ï‚í‚é‚½‚ß)
+			// è¦ªã‚’å†è¨­å®šã™ã‚‹
+			// (ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«ã‚ˆã£ã¦è¡¨èƒŒæ™¯ãƒ¬ã‚¤ãƒ¤ã¯å¤‰ã‚ã‚‹ãŸã‚)
 		config.makeMainMenu();
 		config.show();
 	}
 
 	function onConfigClose()
 	{
-		// İ’èƒŒƒCƒ„‚ª•Â‚¶‚é‚Æ‚«
+		// è¨­å®šãƒ¬ã‚¤ãƒ¤ãŒé–‰ã˜ã‚‹ã¨ã
 		closeConfig();
-		window.trigger('config'); // 'config' ƒgƒŠƒK‚ğ”­“®‚·‚é
+		window.trigger('config'); // 'config' ãƒˆãƒªã‚¬ã‚’ç™ºå‹•ã™ã‚‹
 	}
 
 	function closeConfig()
 	{
-		// İ’èƒŒƒCƒ„‚ğ•Â‚¶‚é
+		// è¨­å®šãƒ¬ã‚¤ãƒ¤ã‚’é–‰ã˜ã‚‹
 		config.hide() if config !== void;
 	}
 
-	// ˆÈ‰ºAKAGPlugin ‚Ìƒƒ\ƒbƒh‚ÌƒI[ƒo[ƒ‰ƒCƒh
+	// ä»¥ä¸‹ã€KAGPlugin ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
 
 	function onStore(f, elm)
 	{
@@ -683,7 +683,7 @@ class RClickConfigPlugin extends KAGPlugin // u‰EƒNƒŠƒbƒNİ’èvƒvƒ‰ƒOƒCƒ“ƒNƒ‰ƒX
 
 	function onRestore(f, clear, elm)
 	{
-		// x‚ğ“Ç‚İo‚·‚Æ‚«
+		// æ ã‚’èª­ã¿å‡ºã™ã¨ã
 		closeConfig();
 	}
 
@@ -705,8 +705,8 @@ class RClickConfigPlugin extends KAGPlugin // u‰EƒNƒŠƒbƒNİ’èvƒvƒ‰ƒOƒCƒ“ƒNƒ‰ƒX
 
 	function onSaveSystemVariables()
 	{
-		// ƒZ[ƒuƒf[ƒ^‚ÌƒRƒƒ“ƒg‚Í‚±‚Ìƒ^ƒCƒ~ƒ“ƒO‚Å‚à scflags ‚É
-		// •Û‘¶‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
+		// ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã®ã‚³ãƒ¡ãƒ³ãƒˆã¯ã“ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§ã‚‚ scflags ã«
+		// ä¿å­˜ã—ãªã‘ã‚Œã°ãªã‚‰ãªã„
 		if(config !== void) config.saveToSystemVariable();
 	}
 }
@@ -717,23 +717,23 @@ kag.addPlugin(global.rclickconfig_object = new RClickConfigPlugin(kag));
 
 @endscript
 @endif
-; ‰EƒNƒŠƒbƒNİ’è
-@rclick call=true storage="rclick_tjs.ks" target="*rclick" enabled=true name="ƒƒjƒ…[(&S) ..." enabled=true
+; å³ã‚¯ãƒªãƒƒã‚¯è¨­å®š
+@rclick call=true storage="rclick_tjs.ks" target="*rclick" enabled=true name="ãƒ¡ãƒ‹ãƒ¥ãƒ¼(&S) ..." enabled=true
 @return
 
 
 *rclick
-; ‰EƒNƒŠƒbƒN‚ÅŒÄ‚Î‚ê‚éƒTƒuƒ‹[ƒ`ƒ“
+; å³ã‚¯ãƒªãƒƒã‚¯ã§å‘¼ã°ã‚Œã‚‹ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³
 @locksnapshot
 *rclick_2
 @eval exp="rclickconfig_object.show()"
-; show ƒƒ\ƒbƒh‚ğŒÄ‚Ô
+; show ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã¶
 @waittrig name="config"
-; ª 'config' ƒgƒŠƒK‚ğ‘Ò‚Â
+; â†‘ 'config' ãƒˆãƒªã‚¬ã‚’å¾…ã¤
 @unlocksnapshot
 @return
 
 *hidemessage
-; ƒƒbƒZ[ƒW‚ğÁ‚·‚Æ‚«‚ÉŒÄ‚Î‚ê‚é
+; ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ¶ˆã™ã¨ãã«å‘¼ã°ã‚Œã‚‹
 @hidemessage
 @jump target=*rclick_2

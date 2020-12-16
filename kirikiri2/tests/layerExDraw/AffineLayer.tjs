@@ -1,4 +1,4 @@
-// ƒ‰ƒXƒ^[ƒXƒNƒ[ƒ‹ˆ——pƒvƒ‰ƒOƒCƒ“
+// ãƒ©ã‚¹ã‚¿ãƒ¼ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«å‡¦ç†ç”¨ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
 if (typeof global.Layer.copyRaster == "undefined") {
 	try {
 		Plugins.link("layerExRaster.dll");
@@ -6,7 +6,7 @@ if (typeof global.Layer.copyRaster == "undefined") {
 	}
 }
 
-// ƒxƒNƒ^[ˆ——pƒvƒ‰ƒOƒCƒ“
+// ãƒ™ã‚¯ã‚¿ãƒ¼å‡¦ç†ç”¨ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
 if (typeof global.Layer.drawImage == "undefined") {
 	try {
 		Plugins.link("layerExDraw.dll");
@@ -16,26 +16,26 @@ if (typeof global.Layer.drawImage == "undefined") {
 
 // --------------------------------------------------------------------------
 
-// ‰ğ‘œ“xî•ñ
+// è§£åƒåº¦æƒ…å ±
 var affineResolutions = %[];
 
-// Šî–{‰ğ‘œ“xB‚±‚Ì‰ğ‘œ“x‚È‚ç“™”{ˆµ‚¢‚Æ‚·‚éBvoid ‚Ìê‡‚Í–³Œø
+// åŸºæœ¬è§£åƒåº¦ã€‚ã“ã®è§£åƒåº¦ãªã‚‰ç­‰å€æ‰±ã„ã¨ã™ã‚‹ã€‚void ã®å ´åˆã¯ç„¡åŠ¹
 var affineBaseResolution = void;
 
 /**
- * ‰ğ‘œ“xî•ñ‚Ì“Ç‚İ‚İ
+ * è§£åƒåº¦æƒ…å ±ã®èª­ã¿è¾¼ã¿
  */
 function loadResolutionInfo(filename)
 {
 	(Dictionary.clear incontextof affineResolutions)();
 	var temp = [];
-	var sep = (Storages.extractStorageExt(filename).toLowerCase() == ".txt") ? "\t" : ",";
+	var sep = (Storages.extractStorageExt(filename).toLowerCase() == ".txt") ? "Â¥t" : ",";
 	temp.load(filename);
 	for (var i = 0; i < temp.count; i++) {
 		var line = [];
 		line.split(sep, temp[i]);
 		if (line.count >= 2 && line[0].charAt(0) != '#') {
-			//dm("‰ğ‘œ“x“o˜^:" + line[0] + ":" + line[1]);
+			//dm("è§£åƒåº¦ç™»éŒ²:" + line[0] + ":" + line[1]);
 			var res = %[x:+line[1]];
 			if (line.count >= 3) {
 				res.y = +line[2];
@@ -54,16 +54,16 @@ if (Storages.isExistentStorage("resolutions.txt")) {
 // --------------------------------------------------------------------------
 
 /**
- * ƒAƒtƒBƒ“ƒRƒs[‚à‚Æî•ñ‹¤’Ê•”
+ * ã‚¢ãƒ•ã‚£ãƒ³ã‚³ãƒ”ãƒ¼ã‚‚ã¨æƒ…å ±å…±é€šéƒ¨
  */
 class AffineSourceLayer {
 
-	var _initOpacity; ///< •W€‚Ìopacity
-	var _initType;    ///< •W€‚Ìtype
-	var _resolutionx; ///< “à•”‰æ‘œ•\¦‰ğ‘œ“x
-	var _resolutiony; ///< “à•”‰æ‘œ•\¦‰ğ‘œ“x
-	var _afn_offx; ///< ƒAƒtƒBƒ“•ÏŠ·’†SÀ•WX
-	var _afn_offy; ///< ƒAƒtƒBƒ“•ÏŠ·’†SÀ•WY 
+	var _initOpacity; ///< æ¨™æº–ã®opacity
+	var _initType;    ///< æ¨™æº–ã®type
+	var _resolutionx; ///< å†…éƒ¨ç”»åƒè¡¨ç¤ºè§£åƒåº¦
+	var _resolutiony; ///< å†…éƒ¨ç”»åƒè¡¨ç¤ºè§£åƒåº¦
+	var _afn_offx; ///< ã‚¢ãƒ•ã‚£ãƒ³å¤‰æ›ä¸­å¿ƒåº§æ¨™X
+	var _afn_offy; ///< ã‚¢ãƒ•ã‚£ãƒ³å¤‰æ›ä¸­å¿ƒåº§æ¨™Y 
 	
 	function AffineSourceLayer() {
 		_resolutionx = 100;
@@ -82,21 +82,21 @@ class AffineSourceLayer {
 	}
 
 	/**
-	 * ‰ğ‘œ“x‚Ìİ’è
-	 * @param image ‰æ‘œ–¼
-	 * @param resox ‰æ‘œ‚Åw’è‚³‚ê‚Ä‚é‰ğ‘œ“xX
-	 * @param resoy ‰æ‘œ‚Åw’è‚³‚ê‚Ä‚é‰ğ‘œ“xY
+	 * è§£åƒåº¦ã®è¨­å®š
+	 * @param image ç”»åƒå
+	 * @param resox ç”»åƒã§æŒ‡å®šã•ã‚Œã¦ã‚‹è§£åƒåº¦X
+	 * @param resoy ç”»åƒã§æŒ‡å®šã•ã‚Œã¦ã‚‹è§£åƒåº¦Y
 	 */
 	function setResolution(image, reso_x, reso_y) {
 		var imgname = Storages.chopStorageExt(image);
-		//dm("‰æ‘œƒ[ƒhŠm”F:" + imgname);
+		//dm("ç”»åƒãƒ­ãƒ¼ãƒ‰ç¢ºèª:" + imgname);
 		var res = affineResolutions[imgname];
 		if (res !== void) {
 			_resolutionx = res.x;
 			_resolutiony = res.y !== void ? res.y : _resolutionx;
 		} else if (affineBaseResolution !== void && reso_x !== void) {
-			// ‰æ‘œ‚É‰ğ‘œ“xî•ñ‚ª‚ ‚Á‚½ê‡
-			// ‹g—¢‹g—¢‘¤‚Åì‹Æ‚ª•K—v‚¾‚¯‚Çˆê‰À‘•‚µ‚Ä‚¨‚­
+			// ç”»åƒã«è§£åƒåº¦æƒ…å ±ãŒã‚ã£ãŸå ´åˆ
+			// å‰é‡Œå‰é‡Œå´ã§ä½œæ¥­ãŒå¿…è¦ã ã‘ã©ä¸€å¿œå®Ÿè£…ã—ã¦ãŠã
 			_resolutionx = (int)(reso_x + 0.5) * 100 / affineBaseResolution;
 			if (reso_y !== void) {
 				_resolutiony = (int)(reso_y + 0.5) * 100 / affineBaseResolution;
@@ -174,10 +174,10 @@ class AffineSourceLayer {
 
 class BitmapAffineSourceLayer extends AffineSourceLayer {
 
-	var _image;	// ‰æ‘œ•Û‘¶—p
+	var _image;	// ç”»åƒä¿å­˜ç”¨
 	
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 */
 	function BitmapAffineSourceLayer(parent) {
 		super.AffineSourceLayer();
@@ -185,15 +185,15 @@ class BitmapAffineSourceLayer extends AffineSourceLayer {
 	}
 
 	/**
-	 * ƒtƒ@ƒCƒiƒ‰ƒCƒU
+	 * ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
 	 */
 	function finalize() {
 		invalidate _image;
 	}
 
 	/**
-	 * •¡»‚ğ•Ô‚·
-	 * @param newparent V‚µ‚¢e(î•ñ‚ğˆÚ‚·•K—v‚ª‚ ‚é‚½‚ß)
+	 * è¤‡è£½ã‚’è¿”ã™
+	 * @param newparent æ–°ã—ã„è¦ª(æƒ…å ±ã‚’ç§»ã™å¿…è¦ãŒã‚ã‚‹ãŸã‚)
 	 */
 	function clone(newparent) {
 		var ret = new global.BitmapAffineSourceLayer(newparent);
@@ -229,9 +229,9 @@ class BitmapAffineSourceLayer extends AffineSourceLayer {
     }
 
 	/**
-	 * ƒTƒCƒY‚Ìw’è(Layer‚Ì‹@”\‚ğƒI[ƒoƒ‰ƒCƒh)
-	 * @param w ‰¡•
-	 * @param h c•
+	 * ã‚µã‚¤ã‚ºã®æŒ‡å®š(Layerã®æ©Ÿèƒ½ã‚’ã‚ªãƒ¼ãƒãƒ©ã‚¤ãƒ‰)
+	 * @param w æ¨ªå¹…
+	 * @param h ç¸¦å¹…
      */
 	function setSize(w, h) {
 		_image.setSize(w * _resolutionx / 100,
@@ -239,7 +239,7 @@ class BitmapAffineSourceLayer extends AffineSourceLayer {
     }
 
     /**
-     * ƒTƒCƒY‚ğƒCƒ[ƒW‚É‚ ‚í‚¹‚é(Layer‚Ì‹@”\‚ğƒI[ƒoƒ‰ƒCƒh)
+     * ã‚µã‚¤ã‚ºã‚’ã‚¤ãƒ¡ãƒ¼ã‚¸ã«ã‚ã‚ã›ã‚‹(Layerã®æ©Ÿèƒ½ã‚’ã‚ªãƒ¼ãƒãƒ©ã‚¤ãƒ‰)
      */
     function setSizeToImageSize() {
 		_image.setSizeToImageSize();
@@ -283,7 +283,7 @@ class BitmapAffineSourceLayer extends AffineSourceLayer {
     }
 
     /**
-     * ”z’uˆÊ’uw’è
+     * é…ç½®ä½ç½®æŒ‡å®š
      */
     function setImagePos(l, t, w, h) {
 		if (_resolutionx == 100 && _resolutiony == 100) {
@@ -297,9 +297,9 @@ class BitmapAffineSourceLayer extends AffineSourceLayer {
     }
 
     /**
-     * ƒTƒCƒY‚Ìw’è(Layer‚Ì‹@”\‚ğƒI[ƒoƒ‰ƒCƒh)
-     * @param w ‰¡•
-     * @param h c•
+     * ã‚µã‚¤ã‚ºã®æŒ‡å®š(Layerã®æ©Ÿèƒ½ã‚’ã‚ªãƒ¼ãƒãƒ©ã‚¤ãƒ‰)
+     * @param w æ¨ªå¹…
+     * @param h ç¸¦å¹…
      */
     function setImageSize(w, h) {
 		if (_resolutionx == 100 && _resolutiony == 100) {
@@ -313,7 +313,7 @@ class BitmapAffineSourceLayer extends AffineSourceLayer {
 	// ----------------------------------------------------------------------
 
 	/**
-	 * ‰æ‘œ‚Ìƒ[ƒh
+	 * ç”»åƒã®ãƒ­ãƒ¼ãƒ‰
 	 */
 	function loadImages(storage) {
 		var ret = _image.loadImages(...);
@@ -360,9 +360,9 @@ class BitmapAffineSourceLayer extends AffineSourceLayer {
 															  _image.width, _image.height, type);
 			}
 			clearRegion.update(l, t, width, height);
-			//dm(name + "•`‰æ—ÌˆæXV:" + l + "," + t + ","  +width + "," + height);
+			//dm(name + "æç”»é ˜åŸŸæ›´æ–°:" + l + "," + t + ","  +width + "," + height);
 		} else {
-			// ‰ñ“]Šp‚ÆŠg‘å—¦‚©‚çAffine’lŒvZ
+			// å›è»¢è§’ã¨æ‹¡å¤§ç‡ã‹ã‚‰Affineå€¤è¨ˆç®—
 			var rad, sn, cs, rad, stepx, stepy;
 			rad = (Math.PI * rotate)/180.0;
 			sn = Math.sin(rad);
@@ -380,7 +380,7 @@ class BitmapAffineSourceLayer extends AffineSourceLayer {
 			var rx = width  - afx;
 			var ry = height - afy;
 			
-			// XVƒGƒŠƒA4‹÷‚ÌÀ•W‚ğ‹‚ß‚é
+			// æ›´æ–°ã‚¨ãƒªã‚¢4éš…ã®åº§æ¨™ã‚’æ±‚ã‚ã‚‹
 			var x = [];
 			var y = [];
 			x.add(left + lx*dxh+ly*dxv);
@@ -392,7 +392,7 @@ class BitmapAffineSourceLayer extends AffineSourceLayer {
 			x.add(left + rx*dxh+ry*dxv);
 			y.add(top  + rx*dyh+ry*dyv);
 
-			// ƒAƒtƒBƒ“•ÏŒ`‚µ‚Ä•`‰æ
+			// ã‚¢ãƒ•ã‚£ãƒ³å¤‰å½¢ã—ã¦æç”»
 			(global.Layer.affineCopy incontextof target)(_image,
 														 -_image.imageLeft, -_image.imageTop,
 														 _image.width, _image.height,
@@ -401,7 +401,7 @@ class BitmapAffineSourceLayer extends AffineSourceLayer {
 														 x[1]-0.5,y[1]-0.5,
 														 x[2]-0.5,y[2]-0.5,
 														 type|stRefNoClip,true);
-			// •`‰æ—Ìˆæ‚Ì•Û‘¶
+			// æç”»é ˜åŸŸã®ä¿å­˜
 			x.sort();
 			y.sort();
 			clearRegion.update2(x[0], y[0], x[3], y[3]);
@@ -409,7 +409,7 @@ class BitmapAffineSourceLayer extends AffineSourceLayer {
 	}
 
 	// ---------------------------------------------------------------
-	// ˆÈ‰ºƒrƒbƒgƒ}ƒbƒv‚É‘Î‚µ‚Ä‚Ì‚İˆÓ–¡‚Ì‚ ‚éƒCƒ“ƒ^[ƒtƒF[ƒX
+	// ä»¥ä¸‹ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã«å¯¾ã—ã¦ã®ã¿æ„å‘³ã®ã‚ã‚‹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
 	// ---------------------------------------------------------------
 
 	function adjustGamma(rgamma=1.0, rfloor=0, rceil=255, ggamma=1.0, gfloor=0, gceil=255, bgamma=1.0, bfloor=0, bceil=255) {
@@ -680,7 +680,7 @@ class BitmapAffineSourceLayer extends AffineSourceLayer {
     }
 
     // ----------------------------------------------------------------
-    // LayerEx ‘Î‰
+    // LayerEx å¯¾å¿œ
 
     function light(brightness, contrast) {
         _image.light(...);
@@ -730,18 +730,18 @@ class BitmapAffineSourceLayer extends AffineSourceLayer {
 };
 
 /**
- * ƒAƒtƒBƒ“•ÏŒ`•\¦—p‚ÌƒŒƒCƒ„
+ * ã‚¢ãƒ•ã‚£ãƒ³å¤‰å½¢è¡¨ç¤ºç”¨ã®ãƒ¬ã‚¤ãƒ¤
  */
 class VectorAffineSourceLayer extends AffineSourceLayer {
 
-	var neutralColor = 0; // Á‹—p
+	var neutralColor = 0; // æ¶ˆå»ç”¨
 	
-	var _image;  // ‰æ‘œ•Û‘¶—p
+	var _image;  // ç”»åƒä¿å­˜ç”¨
 
-	var _imageX;      // ‰æ‘œ‚Ì•`‰æ—ÌˆæX
-	var _imageY;      // ‰æ‘œ‚Ì•`‰æ—ÌˆæY
-	var _imageWidth;  // ‰æ‘œ‚Ì•`‰æ—ÌˆæWidth
-	var _imageHeight; // ‰æ‘œ‚Ì•`‰æ—ÌˆæHeight
+	var _imageX;      // ç”»åƒã®æç”»é ˜åŸŸX
+	var _imageY;      // ç”»åƒã®æç”»é ˜åŸŸY
+	var _imageWidth;  // ç”»åƒã®æç”»é ˜åŸŸWidth
+	var _imageHeight; // ç”»åƒã®æç”»é ˜åŸŸHeight
 
 	var _imageLeft;
 	var _imageTop;
@@ -749,7 +749,7 @@ class VectorAffineSourceLayer extends AffineSourceLayer {
 	var _height;
 	
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 */
 	function VectorAffineSourceLayer(parent) {
 		super.AffineSourceLayer();
@@ -757,14 +757,14 @@ class VectorAffineSourceLayer extends AffineSourceLayer {
 	}
 
 	/**
-	 * ƒtƒ@ƒCƒiƒ‰ƒCƒU
+	 * ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
 	 */
 	function finalize() {
 		invalidate _image;
 	}
 
 	/**
-	 * •¡»‚ğ•Ô‚·
+	 * è¤‡è£½ã‚’è¿”ã™
 	 */
 	function clone(newparent) {
 		var ret = new global.VectorAffineSourceLayer(newparent);
@@ -782,7 +782,7 @@ class VectorAffineSourceLayer extends AffineSourceLayer {
 	}
 
 	property name {
-		setter(v) { // ‚È‚É‚à‚µ‚È‚¢
+		setter(v) { // ãªã«ã‚‚ã—ãªã„
 		}
 	}
 
@@ -835,9 +835,9 @@ class VectorAffineSourceLayer extends AffineSourceLayer {
     }
 
 	/**
-	 * ƒTƒCƒY‚Ìw’è(Layer‚Ì‹@”\‚ğƒI[ƒoƒ‰ƒCƒh)
-	 * @param w ‰¡•
-	 * @param h c•
+	 * ã‚µã‚¤ã‚ºã®æŒ‡å®š(Layerã®æ©Ÿèƒ½ã‚’ã‚ªãƒ¼ãƒãƒ©ã‚¤ãƒ‰)
+	 * @param w æ¨ªå¹…
+	 * @param h ç¸¦å¹…
      */
 	function setSize(w, h) {
 		width  = w;
@@ -845,7 +845,7 @@ class VectorAffineSourceLayer extends AffineSourceLayer {
     }
 
 	/**
-     * ƒTƒCƒY‚ğƒCƒ[ƒW‚É‚ ‚í‚¹‚é(Layer‚Ì‹@”\‚ğƒI[ƒoƒ‰ƒCƒh)
+     * ã‚µã‚¤ã‚ºã‚’ã‚¤ãƒ¡ãƒ¼ã‚¸ã«ã‚ã‚ã›ã‚‹(Layerã®æ©Ÿèƒ½ã‚’ã‚ªãƒ¼ãƒãƒ©ã‚¤ãƒ‰)
 	 */
 	function setSizeToImageSize() {
 		_imageLeft = 0;
@@ -899,7 +899,7 @@ class VectorAffineSourceLayer extends AffineSourceLayer {
 	// ----------------------------------------------------------------------
 	
 	/**
-	 * ‰æ‘œ‚Ìƒ[ƒh
+	 * ç”»åƒã®ãƒ­ãƒ¼ãƒ‰
 	 */
 	function loadImages(storage) {
 		_image.load(storage);
@@ -930,9 +930,9 @@ class VectorAffineSourceLayer extends AffineSourceLayer {
 															   _imageY - _imageTop,
 															   _width, _height);
 			clearRegion.update(l, t, width, height);
-			//dm(name + "•`‰æ—ÌˆæXV:" + l + "," + t + ","  +width + "," + height);
+			//dm(name + "æç”»é ˜åŸŸæ›´æ–°:" + l + "," + t + ","  +width + "," + height);
 		} else {
-			// ‰ñ“]Šp‚ÆŠg‘å—¦‚©‚çAffine’lŒvZ
+			// å›è»¢è§’ã¨æ‹¡å¤§ç‡ã‹ã‚‰Affineå€¤è¨ˆç®—
 			var rad, sn, cs, rad, stepx, stepy;
 			rad = (Math.PI * rotate)/180.0;
 			sn = Math.sin(rad);
@@ -950,7 +950,7 @@ class VectorAffineSourceLayer extends AffineSourceLayer {
 			var rx = lx + width;
 			var ry = ly + height;
 			
-			// XVƒGƒŠƒA4‹÷‚ÌÀ•W‚ğ‹‚ß‚é
+			// æ›´æ–°ã‚¨ãƒªã‚¢4éš…ã®åº§æ¨™ã‚’æ±‚ã‚ã‚‹
 			var x = [];
 			var y = [];
 			x.add(left + lx*dxh+ly*dxv);
@@ -962,7 +962,7 @@ class VectorAffineSourceLayer extends AffineSourceLayer {
 			x.add(left + rx*dxh+ry*dxv);
 			y.add(top  + rx*dyh+ry*dyv);
 
-			// ƒAƒtƒBƒ“•ÏŒ`‚µ‚Ä•`‰æ
+			// ã‚¢ãƒ•ã‚£ãƒ³å¤‰å½¢ã—ã¦æç”»
 			(global.Layer.drawImageAffine incontextof target)(_image,
 															  _imageX - _imageLeft,
 															  _imageY - _imageTop,
@@ -971,7 +971,7 @@ class VectorAffineSourceLayer extends AffineSourceLayer {
 															  x[0]-0.5,y[0]-0.5,
 															  x[1]-0.5,y[1]-0.5,
 															  x[2]-0.5,y[2]-0.5);
-			// •`‰æ—Ìˆæ‚Ì•Û‘¶
+			// æç”»é ˜åŸŸã®ä¿å­˜
 			x.sort();
 			y.sort();
 			clearRegion.update2(x[0], y[0], x[3], y[3]);
@@ -980,12 +980,12 @@ class VectorAffineSourceLayer extends AffineSourceLayer {
 };
 
 /* ---------------------------------------------------------------
- * ƒAƒtƒBƒ“ó‘Ô‚ğ•Û‚Å‚«‚éƒŒƒCƒ„
- * loadImages ‚Ü‚½‚Í assignImages ‚ÅŠ„‚è“–‚Ä‚½‰æ‘œ‚ğ‰ñ“]EŠg‘åw’è‚µ‚Ä•\¦‚Å‚«‚éB
- * ‰ñ“]EŠg‘åw’è‚ğs‚È‚Á‚½ê‡A‚Ú‚©‚µ‚È‚Ç‚Ì‘¼‚Ì‰æ‘œ–Ê‚Ì‘€ì‚Í
- * ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚é‚Ì‚Å’ˆÓ‚ª•K—v‚Å‚ ‚éB
+ * ã‚¢ãƒ•ã‚£ãƒ³çŠ¶æ…‹ã‚’ä¿æŒã§ãã‚‹ãƒ¬ã‚¤ãƒ¤
+ * loadImages ã¾ãŸã¯ assignImages ã§å‰²ã‚Šå½“ã¦ãŸç”»åƒã‚’å›è»¢ãƒ»æ‹¡å¤§æŒ‡å®šã—ã¦è¡¨ç¤ºã§ãã‚‹ã€‚
+ * å›è»¢ãƒ»æ‹¡å¤§æŒ‡å®šã‚’è¡Œãªã£ãŸå ´åˆã€ã¼ã‹ã—ãªã©ã®ä»–ã®ç”»åƒé¢ã®æ“ä½œã¯
+ * ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã‚‹ã®ã§æ³¨æ„ãŒå¿…è¦ã§ã‚ã‚‹ã€‚
  *
- * ˆÈ‰º‚Ì‘€ì‚Í“Ç‚İ‚Ü‚ê‚Ä‚¢‚é“à•”‰æ‘œ‚É‘Î‚µ‚Äì—p‚·‚é
+ * ä»¥ä¸‹ã®æ“ä½œã¯èª­ã¿è¾¼ã¾ã‚Œã¦ã„ã‚‹å†…éƒ¨ç”»åƒã«å¯¾ã—ã¦ä½œç”¨ã™ã‚‹
  *
  * adjustGamma()
  * affineBlend()
@@ -1012,21 +1012,21 @@ class VectorAffineSourceLayer extends AffineSourceLayer {
  * setImageSize();
  * setImagePos();
  *
- * ˆÈ‰º‚ÌƒvƒƒpƒeƒB‚à“à•”‰æ‘œ‚É‘Î‚µ‚Äì—p‚·‚é
+ * ä»¥ä¸‹ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚‚å†…éƒ¨ç”»åƒã«å¯¾ã—ã¦ä½œç”¨ã™ã‚‹
  * face
  * font
  * holdAlpha
  */
 class AffineLayer extends Layer {
 
-	var _image;    ///< ƒCƒ[ƒW‰æ‘œƒ[ƒh—p
-    var _rotate;   ///< ‰ñ“]Šp“x
-	var _zoomx;    ///< X•ûŒüƒY[ƒ€’l
-    var _zoomy;    ///< Y•ûŒüƒY[ƒ€’l
-    var _doAffine; ///< ƒAƒtƒBƒ“•ÏŠ·Às
-	var _clearRegion; //< ‘O‰ñ•`‰æ‚ÌÁ‹—Ìˆæ
+	var _image;    ///< ã‚¤ãƒ¡ãƒ¼ã‚¸ç”»åƒãƒ­ãƒ¼ãƒ‰ç”¨
+    var _rotate;   ///< å›è»¢è§’åº¦
+	var _zoomx;    ///< Xæ–¹å‘ã‚ºãƒ¼ãƒ å€¤
+    var _zoomy;    ///< Yæ–¹å‘ã‚ºãƒ¼ãƒ å€¤
+    var _doAffine; ///< ã‚¢ãƒ•ã‚£ãƒ³å¤‰æ›å®Ÿè¡Œ
+	var _clearRegion; //< å‰å›æç”»æ™‚ã®æ¶ˆå»é ˜åŸŸ
 	
-	// ƒrƒbƒgƒ}ƒbƒv‰æ‘œ—p‚É‰Šú‰»
+	// ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ç”»åƒç”¨ã«åˆæœŸåŒ–
 	function _initBitmap() {
 		if (!(_image instanceof "BitmapAffineSourceLayer")) {
 			invalidate _image;
@@ -1034,7 +1034,7 @@ class AffineLayer extends Layer {
 		}
 	}
 
-	// ƒxƒNƒ^‰æ‘œ—p‚É‰Šú‰»
+	// ãƒ™ã‚¯ã‚¿ç”»åƒç”¨ã«åˆæœŸåŒ–
 	function _initVector() {
 		if (!(_image instanceof "VectorAffineSourceLayer")) {
 			invalidate _image;
@@ -1054,12 +1054,12 @@ class AffineLayer extends Layer {
 	}
 
     /**
-     * ƒtƒ@ƒCƒiƒ‰ƒCƒU‚Ì‚Á‚Æ‚è
+     * ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶ã®ã£ã¨ã‚Š
      */
     function finalize() {
 		raster = 0;
 		super.finalize();
-		// ÅŒã‚Ü‚Åc‚µ‚Ä‚¨‚©‚È‚¢‚Æ‘¼‚Ìƒƒ\ƒbƒh‚ğ‚æ‚Î‚ê‚½‚É¢‚é
+		// æœ€å¾Œã¾ã§æ®‹ã—ã¦ãŠã‹ãªã„ã¨ä»–ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ã‚ˆã°ã‚ŒãŸæ™‚ã«å›°ã‚‹
 		invalidate _image;
     }
 
@@ -1075,7 +1075,7 @@ class AffineLayer extends Layer {
 
 	
 	/**
-	 * ƒAƒtƒBƒ“‚ÌÄŒvZw¦
+	 * ã‚¢ãƒ•ã‚£ãƒ³ã®å†è¨ˆç®—æŒ‡ç¤º
 	 */
 	function calcAffine() {
 		_doAffine = true;
@@ -1085,7 +1085,7 @@ class AffineLayer extends Layer {
 	// ----------------------------------------------
 	
 	/**
-	 * ƒŒƒ]ƒŠƒ…[ƒVƒ‡ƒ“w’è
+	 * ãƒ¬ã‚¾ãƒªãƒ¥ãƒ¼ã‚·ãƒ§ãƒ³æŒ‡å®š
 	 */
 	property resolutionx {
 		setter(v) {
@@ -1100,7 +1100,7 @@ class AffineLayer extends Layer {
 	}
 
 	/**
-	 * ƒŒƒ]ƒŠƒ…[ƒVƒ‡ƒ“w’è
+	 * ãƒ¬ã‚¾ãƒªãƒ¥ãƒ¼ã‚·ãƒ§ãƒ³æŒ‡å®š
 	 */
 	property resolutiony {
 		setter(v) {
@@ -1115,7 +1115,7 @@ class AffineLayer extends Layer {
 	}
 
 	/**
-	 * ƒŒƒ]ƒŠƒ…[ƒVƒ‡ƒ“w’è
+	 * ãƒ¬ã‚¾ãƒªãƒ¥ãƒ¼ã‚·ãƒ§ãƒ³æŒ‡å®š
 	 */
 	property resolution {
 		setter(v) {
@@ -1133,8 +1133,8 @@ class AffineLayer extends Layer {
 	// ----------------------------------------------
 	
 	/**
-	 * ‰Šú‰»ˆ—
-     * “o˜^Ï‚İ‰æ‘œ‚Ìó‘Ô‚É–ß‚·
+	 * åˆæœŸåŒ–å‡¦ç†
+     * ç™»éŒ²æ¸ˆã¿ç”»åƒã®çŠ¶æ…‹ã«æˆ»ã™
      */
     function reset() {
 		opacity  = _image._initOpacity if _image._initOpacity !== void;
@@ -1147,11 +1147,11 @@ class AffineLayer extends Layer {
     }
 
 	/**
-	 * •`‰æˆ—ŒÄ‚Ño‚µ
-	 * @param target •`‰æ‘ÎÛ
+	 * æç”»å‡¦ç†å‘¼ã³å‡ºã—
+	 * @param target æç”»å¯¾è±¡
 	 */
 	function drawAffine(target) {
-		// ‹Œ•`‰æ—Ìˆæ‚ÌÁ‹
+		// æ—§æç”»é ˜åŸŸã®æ¶ˆå»
 		(global.Layer.fillRect incontextof target)(_clearRegion.left, _clearRegion.top,
 												   _clearRegion.width, _clearRegion.height, neutralColor);
 		_clearRegion.clear();
@@ -1161,12 +1161,12 @@ class AffineLayer extends Layer {
 	// ------------------------------------------------------------------
 	
 	/**
-     * ƒyƒCƒ“ƒg‘Oˆ—
+     * ãƒšã‚¤ãƒ³ãƒˆå‰å‡¦ç†
      */
 	function onPaint() {
 		super.onPaint(...);
 		if (_rasterStart !== void) {
-			// ƒ‰ƒXƒ^[ˆ—‚ª•K—v‚Èê‡
+			// ãƒ©ã‚¹ã‚¿ãƒ¼å‡¦ç†ãŒå¿…è¦ãªå ´åˆ
 			if (_rasterLayer === void) {
 				_rasterLayer = new global.Layer(window, this);
 				_rasterLayer.setSize(super.width, super.height);
@@ -1178,14 +1178,14 @@ class AffineLayer extends Layer {
 			super.copyRaster(_rasterLayer, _raster, _rasterLines, _rasterCycle, _rasterTime);
 		} else {
 			if (_doAffine) {
-				//dm(name + ":‘ÎÛ‰æ‘œ‚ê‚¢‚â:" + _image);
+				//dm(name + ":å¯¾è±¡ç”»åƒã‚Œã„ã‚„:" + _image);
 				drawAffine(this);
 				_doAffine = false;
 			}
 		}
 	}
     
-    /// ‰ñ“]—Êi“xj
+    /// å›è»¢é‡ï¼ˆåº¦ï¼‰
     property rotate {
         setter(v) {
 			if (_rotate != v) {
@@ -1198,7 +1198,7 @@ class AffineLayer extends Layer {
         }
     }
     
-    /// ƒY[ƒ€Xi“w’èj
+    /// ã‚ºãƒ¼ãƒ Xï¼ˆï¼…æŒ‡å®šï¼‰
     property zoomx {
         setter(v) {
 			if (_zoomx != v) {
@@ -1211,7 +1211,7 @@ class AffineLayer extends Layer {
         }
     }
     
-    /// ƒY[ƒ€Yi“w’èj
+    /// ã‚ºãƒ¼ãƒ Yï¼ˆï¼…æŒ‡å®šï¼‰
     property zoomy {
         setter(v) {
 			if (_zoomy != v) {
@@ -1224,7 +1224,7 @@ class AffineLayer extends Layer {
         }
     }
     
-    // ƒY[ƒ€i“w’èj
+    // ã‚ºãƒ¼ãƒ ï¼ˆï¼…æŒ‡å®šï¼‰
     property zoom {
         setter(v) {
 			if (_zoomx != v || _zoomy != v) {
@@ -1239,9 +1239,9 @@ class AffineLayer extends Layer {
     }
 
     /**
-     * ƒY[ƒ€—Ê‚ğw’è‚·‚é
-     * @param zx ‰¡ƒY[ƒ€
-     * @parma zy cƒY[ƒ€BÈ—ª‚·‚é‚Æ‰¡‚Æ“¯‚¶’l
+     * ã‚ºãƒ¼ãƒ é‡ã‚’æŒ‡å®šã™ã‚‹
+     * @param zx æ¨ªã‚ºãƒ¼ãƒ 
+     * @parma zy ç¸¦ã‚ºãƒ¼ãƒ ã€‚çœç•¥ã™ã‚‹ã¨æ¨ªã¨åŒã˜å€¤
      */
     function setZoom(zx, zy=void) {
         //Debug.message("setZoom:" + zx + ":" + zy);
@@ -1274,10 +1274,10 @@ class AffineLayer extends Layer {
     }
     
     /**
-     * ƒAƒtƒBƒ“•ÏŠ·‚ÌƒIƒtƒZƒbƒgŠî€‚ğw’è
-	 * @param x ƒIƒtƒZƒbƒgˆÊ’uX
-	 * @param y ƒIƒtƒZƒbƒgˆÊ’uY
-	 * AFFINEOFFSET_DEFAULT/CENTER/TOP/BOTTOM/RIGHT/LEFT ‚ªw’è‰Â”\BƒfƒtƒHƒ‹ƒg‚Í AFFINEOFFSET_DEFAULT
+     * ã‚¢ãƒ•ã‚£ãƒ³å¤‰æ›ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆåŸºæº–ã‚’æŒ‡å®š
+	 * @param x ã‚ªãƒ•ã‚»ãƒƒãƒˆä½ç½®X
+	 * @param y ã‚ªãƒ•ã‚»ãƒƒãƒˆä½ç½®Y
+	 * AFFINEOFFSET_DEFAULT/CENTER/TOP/BOTTOM/RIGHT/LEFT ãŒæŒ‡å®šå¯èƒ½ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ AFFINEOFFSET_DEFAULT
      */
     function setAffineOffset(x,y) {
         afx = x;
@@ -1309,7 +1309,7 @@ class AffineLayer extends Layer {
     }
 
     /**
-     * ”z’uˆÊ’uw’è
+     * é…ç½®ä½ç½®æŒ‡å®š
      */
     function setPos(l, t, w, h) {
 		_affineleft = l;
@@ -1341,9 +1341,9 @@ class AffineLayer extends Layer {
     }
 
     /**
-     * ƒTƒCƒY‚Ìw’è(Layer‚Ì‹@”\‚ğƒI[ƒoƒ‰ƒCƒh)
-     * @param w ‰¡•
-     * @param h c•
+     * ã‚µã‚¤ã‚ºã®æŒ‡å®š(Layerã®æ©Ÿèƒ½ã‚’ã‚ªãƒ¼ãƒãƒ©ã‚¤ãƒ‰)
+     * @param w æ¨ªå¹…
+     * @param h ç¸¦å¹…
      */
 	function setSize(w, h) {
 		_image.setSize(w, h);
@@ -1351,7 +1351,7 @@ class AffineLayer extends Layer {
     }
 
     /**
-     * ƒTƒCƒY‚ğƒCƒ[ƒW‚É‚ ‚í‚¹‚é(Layer‚Ì‹@”\‚ğƒI[ƒoƒ‰ƒCƒh)
+     * ã‚µã‚¤ã‚ºã‚’ã‚¤ãƒ¡ãƒ¼ã‚¸ã«ã‚ã‚ã›ã‚‹(Layerã®æ©Ÿèƒ½ã‚’ã‚ªãƒ¼ãƒãƒ©ã‚¤ãƒ‰)
      */
     function setSizeToImageSize() {
         _image.setSizeToImageSize();
@@ -1379,7 +1379,7 @@ class AffineLayer extends Layer {
     }
 
     /**
-     * ”z’uˆÊ’uw’è
+     * é…ç½®ä½ç½®æŒ‡å®š
      */
 	function setImagePos(l, t, w, h) {
 		if (w !== void && h !== void) {
@@ -1415,9 +1415,9 @@ class AffineLayer extends Layer {
     }
 	
     /**
-     * ƒTƒCƒY‚Ìw’è(Layer‚Ì‹@”\‚ğƒI[ƒoƒ‰ƒCƒh)
-     * @param w ‰¡•
-     * @param h c•
+     * ã‚µã‚¤ã‚ºã®æŒ‡å®š(Layerã®æ©Ÿèƒ½ã‚’ã‚ªãƒ¼ãƒãƒ©ã‚¤ãƒ‰)
+     * @param w æ¨ªå¹…
+     * @param h ç¸¦å¹…
      */
     function setImageSize(w, h) {
 		_initBitmap();
@@ -1428,10 +1428,10 @@ class AffineLayer extends Layer {
 	// ------------------------------------------------------------------------
 
     /**
-     * ‰æ‘œ‚Ì“Ç‚İ‚İ(Layer‚Ì‹@”\‚ğƒI[ƒoƒ‰ƒCƒh)
-     * @param image “Ç‚İ‚Ş‰æ‘œƒXƒgƒŒ[ƒW
-	 * @param colorKey “Ç‚İ‚Ş‰æ‘œ‚ÌƒJƒ‰[ƒL[
-	 * @return ƒ^ƒOî•ñ‚Ì«‘”z—ñ
+     * ç”»åƒã®èª­ã¿è¾¼ã¿(Layerã®æ©Ÿèƒ½ã‚’ã‚ªãƒ¼ãƒãƒ©ã‚¤ãƒ‰)
+     * @param image èª­ã¿è¾¼ã‚€ç”»åƒã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸
+	 * @param colorKey èª­ã¿è¾¼ã‚€ç”»åƒã®ã‚«ãƒ©ãƒ¼ã‚­ãƒ¼
+	 * @return ã‚¿ã‚°æƒ…å ±ã®è¾æ›¸é…åˆ—
      */
 	function loadImages(image,colorKey=clNone) {
 		var ext = Storages.extractStorageExt(image).toUpperCase();
@@ -1446,8 +1446,8 @@ class AffineLayer extends Layer {
     }
 
     /**
-     * ‰æ‘œ‚ÌƒRƒs[(Layer‚Ì‹@”\‚ğƒI[ƒoƒ‰ƒCƒh)
-     * @param src ƒRƒs[Œ³‚ÌƒŒƒCƒ„
+     * ç”»åƒã®ã‚³ãƒ”ãƒ¼(Layerã®æ©Ÿèƒ½ã‚’ã‚ªãƒ¼ãƒãƒ©ã‚¤ãƒ‰)
+     * @param src ã‚³ãƒ”ãƒ¼å…ƒã®ãƒ¬ã‚¤ãƒ¤
      */
 	function assignImages(src) {
 		if (src instanceof "AffineLayer") {
@@ -1470,7 +1470,7 @@ class AffineLayer extends Layer {
 		calcAffine();
     }
 
-	// ƒ€[ƒr[—p
+	// ãƒ ãƒ¼ãƒ“ãƒ¼ç”¨
 	function assignImagesForMovie(src) {
 		_initBitmap();
 		_image.assignImages(src);
@@ -1664,7 +1664,7 @@ class AffineLayer extends Layer {
     }
 
     // ----------------------------------------------------------------
-    // LayerEx ‘Î‰
+    // LayerEx å¯¾å¿œ
 
     function light(brightness, contrast) {
 		_initBitmap();
@@ -1709,7 +1709,7 @@ class AffineLayer extends Layer {
     }
 
 	// --------------------------------------
-	// ƒ‰ƒXƒ^[ˆ——p
+	// ãƒ©ã‚¹ã‚¿ãƒ¼å‡¦ç†ç”¨
 	// --------------------------------------
 
 	var _rasterLayer;
@@ -1722,7 +1722,7 @@ class AffineLayer extends Layer {
 	}
 	
 	/**
-	 * ƒ‰ƒXƒ^ˆ—‚ğ’â~‚·‚é
+	 * ãƒ©ã‚¹ã‚¿å‡¦ç†ã‚’åœæ­¢ã™ã‚‹
 	 */
 	function stopRaster() {
 		if (_rasterLayer !== void) {
@@ -1732,7 +1732,7 @@ class AffineLayer extends Layer {
 		if (_rasterStart !== void) {
 			System.removeContinuousHandler(onFlipRaster);
 			_rasterStart = void;
-			calcAffine(); // Ä•\¦—p
+			calcAffine(); // å†è¡¨ç¤ºç”¨
 		}
 	}
 
@@ -1751,7 +1751,7 @@ class AffineLayer extends Layer {
 					}
 					_rasterStart = System.getTickCount();
 					System.addContinuousHandler(onFlipRaster);
-					calcAffine(); // Ä•\¦—p
+					calcAffine(); // å†è¡¨ç¤ºç”¨
 				}
 			}
 		}
@@ -1781,7 +1781,7 @@ class AffineLayer extends Layer {
 	}
 };
 
-// ’è”’è‹`
+// å®šæ•°å®šç¾©
 AffineLayer.AFFINEOFFSET_CENTER = -100000;
 AffineLayer.AFFINEOFFSET_TOP    = -100001;
 AffineLayer.AFFINEOFFSET_BOTTOM = -100002;

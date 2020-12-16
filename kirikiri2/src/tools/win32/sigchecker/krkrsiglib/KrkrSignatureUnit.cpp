@@ -124,9 +124,9 @@ static void ImportKey(AnsiString inkey, AnsiString startline, AnsiString endline
 {
 	const char *pkey = inkey.c_str();
 	const char *start = strstr(pkey, startline.c_str());
-	if(!start) throw Exception("Cannot find \"" + startline + "\" in the key string");
+	if(!start) throw Exception("Cannot find ¥"" + startline + "¥" in the key string");
 	const char *end = strstr(pkey, endline.c_str());
-	if(!end) throw Exception("Cannot find \"" + endline + "\" in the key string");
+	if(!end) throw Exception("Cannot find ¥"" + endline + "¥" in the key string");
 
 	start += startline.Length();
 	char buf[10240];

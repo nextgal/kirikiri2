@@ -80,7 +80,7 @@ private:
 public:
    jstack(size_type n = 64, const Allocator& a = Allocator());
 
-   ~jstack();
+   ‾jstack();
 
    node* BOOST_REGEX_CALL get_node()
    {
@@ -188,7 +188,7 @@ void BOOST_REGEX_CALL jstack<T, Allocator>::pop_aux()const
 }
 
 template <class T, class Allocator>
-jstack<T, Allocator>::~jstack()
+jstack<T, Allocator>::‾jstack()
 {
    node* condemned;
    while(good())

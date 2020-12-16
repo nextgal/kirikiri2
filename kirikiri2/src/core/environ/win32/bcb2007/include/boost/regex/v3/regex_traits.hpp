@@ -80,44 +80,44 @@ struct BOOST_REGEX_DECL regex_traits_base
       syntax_open_brace = 15,                   // {
       syntax_close_brace = 16,                  // }
       syntax_digit = 17,                        // 0-9
-      syntax_b = 18,                            // for \b
-      syntax_B = 19,                            // for \B
-      syntax_left_word = 20,                    // for \<
-      syntax_right_word = 21,                   // for \>
-      syntax_w = 22,                            // for \w
-      syntax_W = 23,                            // for \W
-      syntax_start_buffer = 24,                 // for \`
-      syntax_end_buffer = 25,                   // for \'
+      syntax_b = 18,                            // for ¥b
+      syntax_B = 19,                            // for ¥B
+      syntax_left_word = 20,                    // for ¥<
+      syntax_right_word = 21,                   // for ¥>
+      syntax_w = 22,                            // for ¥w
+      syntax_W = 23,                            // for ¥W
+      syntax_start_buffer = 24,                 // for ¥`
+      syntax_end_buffer = 25,                   // for ¥'
       syntax_newline = 26,                      // for newline alt
       syntax_comma = 27,                        // for {x,y}
 
-      syntax_a = 28,                            // for \a
-      syntax_f = 29,                            // for \f
-      syntax_n = 30,                            // for \n
-      syntax_r = 31,                            // for \r
-      syntax_t = 32,                            // for \t
-      syntax_v = 33,                            // for \v
-      syntax_x = 34,                            // for \xdd
-      syntax_c = 35,                            // for \cx
+      syntax_a = 28,                            // for ¥a
+      syntax_f = 29,                            // for ¥f
+      syntax_n = 30,                            // for ¥n
+      syntax_r = 31,                            // for ¥r
+      syntax_t = 32,                            // for ¥t
+      syntax_v = 33,                            // for ¥v
+      syntax_x = 34,                            // for ¥xdd
+      syntax_c = 35,                            // for ¥cx
       syntax_colon = 36,                        // for [:...:]
       syntax_equal = 37,                        // for [=...=]
    
       // perl ops:
-      syntax_e = 38,                            // for \e
-      syntax_l = 39,                            // for \l
-      syntax_L = 40,                            // for \L
-      syntax_u = 41,                            // for \u
-      syntax_U = 42,                            // for \U
-      syntax_s = 43,                            // for \s
-      syntax_S = 44,                            // for \S
-      syntax_d = 45,                            // for \d
-      syntax_D = 46,                            // for \D
-      syntax_E = 47,                            // for \Q\E
-      syntax_Q = 48,                            // for \Q\E
-      syntax_X = 49,                            // for \X
-      syntax_C = 50,                            // for \C
-      syntax_Z = 51,                            // for \Z
-      syntax_G = 52,                            // for \G
+      syntax_e = 38,                            // for ¥e
+      syntax_l = 39,                            // for ¥l
+      syntax_L = 40,                            // for ¥L
+      syntax_u = 41,                            // for ¥u
+      syntax_U = 42,                            // for ¥U
+      syntax_s = 43,                            // for ¥s
+      syntax_S = 44,                            // for ¥S
+      syntax_d = 45,                            // for ¥d
+      syntax_D = 46,                            // for ¥D
+      syntax_E = 47,                            // for ¥Q¥E
+      syntax_Q = 48,                            // for ¥Q¥E
+      syntax_X = 49,                            // for ¥X
+      syntax_C = 50,                            // for ¥C
+      syntax_Z = 51,                            // for ¥Z
+      syntax_G = 52,                            // for ¥G
 
       // new extentions:
       syntax_not = 53,                          // for (?!...)
@@ -210,7 +210,7 @@ public:
 
    static bool BOOST_REGEX_CALL is_separator(char c)
    {
-      return BOOST_REGEX_MAKE_BOOL((c == '\n') || (c == '\r'));
+      return BOOST_REGEX_MAKE_BOOL((c == '¥n') || (c == '¥r'));
    }
 
    static bool BOOST_REGEX_CALL is_combining(char)
@@ -245,7 +245,7 @@ public:
    {
       init();
    }
-   ~c_regex_traits()
+   ‾c_regex_traits()
    {
       m_free();
    }
@@ -292,7 +292,7 @@ public:
 
    static bool BOOST_REGEX_CALL is_separator(wchar_t c)
    {
-      return BOOST_REGEX_MAKE_BOOL((c == L'\n') || (c == L'\r') || (c == (wchar_t)0x2028) || (c == (wchar_t)0x2029));
+      return BOOST_REGEX_MAKE_BOOL((c == L'¥n') || (c == L'¥r') || (c == (wchar_t)0x2028) || (c == (wchar_t)0x2029));
    }
 
    static bool BOOST_REGEX_CALL is_combining(wchar_t c)
@@ -314,7 +314,7 @@ public:
    locale_type BOOST_REGEX_CALL getloc()const{ return locale_type(); }
    c_regex_traits<wchar_t>()
    { init(); }
-   ~c_regex_traits<wchar_t>()
+   ‾c_regex_traits<wchar_t>()
    { m_free(); }
    struct sentry
    {
@@ -421,7 +421,7 @@ public:
 
    static bool BOOST_REGEX_CALL is_separator(char c)
    {
-      return BOOST_REGEX_MAKE_BOOL((c == '\n') || (c == '\r'));
+      return BOOST_REGEX_MAKE_BOOL((c == '¥n') || (c == '¥r'));
    }
 
    static bool BOOST_REGEX_CALL is_combining(char)
@@ -456,12 +456,12 @@ public:
    {
       sentry(const w32_regex_traits<char>&)
       { w32_regex_traits<char>::update(); }
-      ~sentry(){}
+      ‾sentry(){}
       operator void*() { return this; }
    };
    static void BOOST_REGEX_CALL update();
    w32_regex_traits();
-   ~w32_regex_traits();
+   ‾w32_regex_traits();
 private:
    static w32_regex_traits<char> i;
 };
@@ -493,7 +493,7 @@ public:
 
    static bool BOOST_REGEX_CALL is_separator(wchar_t c)
    {
-      return BOOST_REGEX_MAKE_BOOL((c == L'\n') || (c == L'\r') || (c == (wchar_t)0x2028) || (c == (wchar_t)0x2029));
+      return BOOST_REGEX_MAKE_BOOL((c == L'¥n') || (c == L'¥r') || (c == (wchar_t)0x2028) || (c == (wchar_t)0x2029));
    }
 
    static bool BOOST_REGEX_CALL is_combining(wchar_t c)
@@ -518,12 +518,12 @@ public:
    {
       sentry(const w32_regex_traits<wchar_t>&)
       { w32_regex_traits<wchar_t>::update(); }
-      ~sentry(){}
+      ‾sentry(){}
       operator void*() { return this; }
    };
    static void BOOST_REGEX_CALL update();
    w32_regex_traits();
-   ~w32_regex_traits();
+   ‾w32_regex_traits();
    static std::size_t BOOST_REGEX_CALL strnarrow(char *s1, std::size_t len, const wchar_t *s2);
    static std::size_t BOOST_REGEX_CALL strwiden(wchar_t *s1, std::size_t len, const char *s2);
 
@@ -624,7 +624,7 @@ public:
    typedef std::locale locale_type;
 
    cpp_regex_traits();
-   ~cpp_regex_traits();
+   ‾cpp_regex_traits();
 
    static std::size_t BOOST_REGEX_CALL length(const char_type* p)
    {
@@ -647,7 +647,7 @@ public:
 
    static bool BOOST_REGEX_CALL is_separator(char c)
    {
-      return BOOST_REGEX_MAKE_BOOL((c == '\n') || (c == '\r'));
+      return BOOST_REGEX_MAKE_BOOL((c == '¥n') || (c == '¥r'));
    }
 
    static bool BOOST_REGEX_CALL is_combining(char)
@@ -661,7 +661,7 @@ public:
          return true;
       if((f & char_class_underscore) && (c == '_'))
          return true;
-      if((f & char_class_blank) && ((c == ' ') || (c == '\t')))
+      if((f & char_class_blank) && ((c == ' ') || (c == '¥t')))
          return true;
       return false;
    }
@@ -733,7 +733,7 @@ public:
 
    static bool BOOST_REGEX_CALL is_separator(wchar_t c)
    {
-      return BOOST_REGEX_MAKE_BOOL((c == L'\n') || (c == L'\r') || (c == (wchar_t)0x2028) || (c == (wchar_t)0x2029));
+      return BOOST_REGEX_MAKE_BOOL((c == L'¥n') || (c == L'¥r') || (c == (wchar_t)0x2028) || (c == (wchar_t)0x2029));
    }
 
    static bool BOOST_REGEX_CALL is_combining(wchar_t c)
@@ -745,7 +745,7 @@ public:
          return true;
       if((f & char_class_underscore) && (c == '_'))
          return true;
-      if((f & char_class_blank) && ((c == ' ') || (c == '\t')))
+      if((f & char_class_blank) && ((c == ' ') || (c == '¥t')))
          return true;
       if((f & char_class_unicode) && ((uchar_type)c > (uchar_type)255))
          return true;
@@ -760,7 +760,7 @@ public:
 
    std::string BOOST_REGEX_CALL error_string(unsigned id)const;
    cpp_regex_traits();
-   ~cpp_regex_traits();
+   ‾cpp_regex_traits();
    locale_type BOOST_REGEX_CALL imbue(locale_type l);
    locale_type BOOST_REGEX_CALL getloc()const{ return locale_inst; }
    std::size_t BOOST_REGEX_CALL strwiden(wchar_t *s1, std::size_t len, const char *s2)const;

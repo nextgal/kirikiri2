@@ -139,13 +139,13 @@ select_file_name (char * fname)
     if ((env = (const char *) getenv("TMP")) == NULL)
       if ((env = (const char *) getenv("TEMP")) == NULL)
 	env = ".";
-    if (*env == '\0')		/* null string means "." */
+    if (*env == '¥0')		/* null string means "." */
       env = ".";
     ptr = fname;		/* copy name to fname */
-    while (*env != '\0')
+    while (*env != '¥0')
       *ptr++ = *env++;
-    if (ptr[-1] != '\\' && ptr[-1] != '/')
-      *ptr++ = '\\';		/* append backslash if not in env variable */
+    if (ptr[-1] != '¥¥' && ptr[-1] != '/')
+      *ptr++ = '¥¥';		/* append backslash if not in env variable */
     /* Append a suitable file name */
     next_file_num++;		/* advance counter */
     sprintf(ptr, "JPG%03d.TMP", next_file_num);
@@ -342,7 +342,7 @@ read_xms_store (j_common_ptr cinfo, backing_store_ptr info,
    * specially if byte_count is odd.  We don't expect this to be common.
    */
 
-  spec.length = byte_count & (~ 1L);
+  spec.length = byte_count & (‾ 1L);
   spec.src_handle = info->handle.xms_handle;
   spec.src.offset = file_offset;
   spec.dst_handle = 0;
@@ -375,7 +375,7 @@ write_xms_store (j_common_ptr cinfo, backing_store_ptr info,
    * specially if byte_count is odd.  We don't expect this to be common.
    */
 
-  spec.length = byte_count & (~ 1L);
+  spec.length = byte_count & (‾ 1L);
   spec.src_handle = 0;
   spec.src.ptr = buffer_address;
   spec.dst_handle = info->handle.xms_handle;

@@ -12,26 +12,26 @@
 #include "TSimpleList.h"
 
 #ifndef SAFE_RELEASE
-#	define SAFE_RELEASE( x )			\
-		if( NULL != x ) {				\
-			x->Release();				\
-			x = NULL;					\
+#	define SAFE_RELEASE( x )			Â¥
+		if( NULL != x ) {				Â¥
+			x->Release();				Â¥
+			x = NULL;					Â¥
 		}
 #endif // SAFE_RELEASE
 
 #ifndef SAFE_ARRAYDELETE
-#	define SAFE_ARRAYDELETE( x )		\
-		if( x ) {						\
-			delete [] x;				\
-			x = NULL;					\
+#	define SAFE_ARRAYDELETE( x )		Â¥
+		if( x ) {						Â¥
+			delete [] x;				Â¥
+			x = NULL;					Â¥
        }
 #endif //SAFE_ARRAYDELETE
 
 #ifndef SAFE_CLOSEFILEHANDLE
-#	define SAFE_CLOSEFILEHANDLE( h )		\
-		if( INVALID_HANDLE_VALUE != h ) {	\
-			CloseHandle( h );				\
-			h = INVALID_HANDLE_VALUE;		\
+#	define SAFE_CLOSEFILEHANDLE( h )		Â¥
+		if( INVALID_HANDLE_VALUE != h ) {	Â¥
+			CloseHandle( h );				Â¥
+			h = INVALID_HANDLE_VALUE;		Â¥
 		}
 #endif //SAFE_CLOSEFILEHANDLE
 
@@ -41,7 +41,7 @@ class CWMInput
 {
 public:
 	CWMInput();
-	~CWMInput(){ Cleanup(); }
+	â€¾CWMInput(){ Cleanup(); }
 
 	bool operator<( const CWMInput & right ) const {
 		return( m_qwPresentTime < right.m_qwPresentTime );
@@ -70,7 +70,7 @@ public:
 struct InputSample
 {
 	bool	is_video_;
-	QWORD	tick_;		// 100ƒiƒm•b’PˆÊ
+	QWORD	tick_;		// 100ãƒŠãƒç§’å˜ä½
 	void*	sample_;
 	size_t	sample_size_;
 
@@ -80,7 +80,7 @@ struct InputSample
 		sample_ = new char[size];
 		memcpy( sample_, sample, size );
 	}
-	~InputSample() {
+	â€¾InputSample() {
 		if( sample_ ) {
 			delete[] sample_;
 		}
@@ -98,13 +98,13 @@ public:
 	, video_width_(640), video_height_(480), video_scale_(1), video_rate_(30)
 	{}
 
-	~CWMVEncoder() { ReleaseAll(); }
+	â€¾CWMVEncoder() { ReleaseAll(); }
 
-	//! ƒvƒƒtƒ@ƒCƒ‹‚ğƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İ‚Ş”Å
+	//! ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿è¾¼ã‚€ç‰ˆ
 	HRESULT Initial( const WCHAR* pwszOutFile, LPCTSTR ptszProfileFile, int width, int height,
 					DWORD scale, DWORD rate, WAVEFORMATEX* waveex, size_t samplesize  );
 
-	//! ƒvƒƒtƒ@ƒCƒ‹‚ğƒpƒ‰ƒ[ƒ^‚©‚ç¶¬‚·‚é”Å
+	//! ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‹ã‚‰ç”Ÿæˆã™ã‚‹ç‰ˆ
 	HRESULT Initial( const WCHAR* pwszOutFile );
 
 	HRESULT Start();
@@ -143,12 +143,12 @@ public:
 	}
 	DWORD GetVideoScale() const { return video_scale_; }
 
-	// ƒŒ[ƒg‚ğİ’è‚·‚é
+	// ãƒ¬ãƒ¼ãƒˆã‚’è¨­å®šã™ã‚‹
 	void SetVideoRate( DWORD r ) {
 		if( encoder_running_ ) return;
 		if( r > 0 ) video_rate_ = r;
 	}
-	// ƒŒ[ƒg‚ğæ“¾‚·‚é
+	// ãƒ¬ãƒ¼ãƒˆã‚’å–å¾—ã™ã‚‹
 	DWORD GetVideoRate() const { return video_rate_; }
 
 protected:
@@ -172,16 +172,16 @@ protected:
 	CComPtr<IWMWriter>	m_WMWriter;
 	CComPtr<IWMProfile>	m_WMProfile;
 
-	bool			audio_enable_;		// ƒI[ƒfƒBƒI‚Ì—LŒø/–³Œø
-	bool			encoder_running_;	// ƒGƒ“ƒR[ƒhÀs’†‚©‚Ç‚¤‚©
+	bool			audio_enable_;		// ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªã®æœ‰åŠ¹/ç„¡åŠ¹
+	bool			encoder_running_;	// ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰å®Ÿè¡Œä¸­ã‹ã©ã†ã‹
 
 	CWMInput		video_input_;
 	CWMInput		audio_input_;
 
-	DWORD			video_quality_;		// ƒNƒIƒŠƒeƒBA0 - 100 ( default 50 )
-	DWORD			video_sec_per_key_;	// Å‘åƒL[ƒtƒŒ[ƒ€ŠÔŠu ( default 5 )
-	int				video_width_;		// ‰æ‘œ• ( default 640 )
-	int				video_height_;		// ‰æ‘œ‚‚³ ( default 480 )
+	DWORD			video_quality_;		// ã‚¯ã‚ªãƒªãƒ†ã‚£ã€0 - 100 ( default 50 )
+	DWORD			video_sec_per_key_;	// æœ€å¤§ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ é–“éš” ( default 5 )
+	int				video_width_;		// ç”»åƒå¹… ( default 640 )
+	int				video_height_;		// ç”»åƒé«˜ã• ( default 480 )
 	DWORD			video_scale_;		//
 	DWORD			video_rate_;		//
 };
@@ -202,7 +202,7 @@ public:
 	 : m_Type( Type ), m_wStreamNum( dwStreamNum ), m_pwszConnectionName( wszConnectionName ), m_pMt( pMt ) {
 	}
 
-	~CProfileStreams() { /*Cleanup();*/ }
+	â€¾CProfileStreams() { /*Cleanup();*/ }
 
 	void Cleanup() {
 		SAFE_ARRAYDELETE( m_pMt );

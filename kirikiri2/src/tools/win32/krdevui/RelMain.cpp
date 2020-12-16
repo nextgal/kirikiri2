@@ -67,8 +67,8 @@ static void _UIExecReleaser()
 
 	if(projfolder != "")
 	{
-		if(projfolder.c_str()[0] == '\\' &&
-			projfolder.c_str()[1] == '\\')
+		if(projfolder.c_str()[0] == '¥¥' &&
+			projfolder.c_str()[1] == '¥¥')
 		{
 			projfolder = ExpandUNCFileName(projfolder);
 		}
@@ -80,7 +80,7 @@ static void _UIExecReleaser()
 
 		if(!DirectoryExists(projfolder))
 		{
-			MessageBox(NULL, ("Folder \"" + projfolder + "\" does not exist").c_str(),
+			MessageBox(NULL, ("Folder ¥"" + projfolder + "¥" does not exist").c_str(),
 				"Error", MB_OK);
 			ExitProcess(0);
 		}
@@ -292,7 +292,7 @@ tTVPLocalFileStream::tTVPLocalFileStream(const char *name,
 
 }
 //---------------------------------------------------------------------------
-tTVPLocalFileStream::~tTVPLocalFileStream()
+tTVPLocalFileStream::‾tTVPLocalFileStream()
 {
 	if(Handle!=INVALID_HANDLE_VALUE) CloseHandle(Handle);
 	if(FileName) delete [] FileName;

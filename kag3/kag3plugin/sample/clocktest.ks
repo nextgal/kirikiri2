@@ -1,14 +1,14 @@
 @call storage="snow.ks"
 @call storage="clock.ks"
 @image layer=base page=fore storage=_24_3
-*start1|ŽžŒv‚Í”ñ•\Ž¦
-ŽžŒv‚ð•\Ž¦‚µ‚Ü‚·[l]
+*start1|æ™‚è¨ˆã¯éžè¡¨ç¤º
+æ™‚è¨ˆã‚’è¡¨ç¤ºã—ã¾ã™[l]
 @backlay
 @clockopt backvisible=true
 @trans method=crossfade time=2000
 @wt
-*start2|ŽžŒv‚Í•\Ž¦’†
-”wŒi‚ð“ü‚ê‘Ö‚¦‚Ü‚·[l]
+*start2|æ™‚è¨ˆã¯è¡¨ç¤ºä¸­
+èƒŒæ™¯ã‚’å…¥ã‚Œæ›¿ãˆã¾ã™[l]
 @backlay
 @image layer=base page=back storage=_24
 @trans method=crossfade time=2000
@@ -19,7 +19,7 @@
 @trans children=false method=crossfade time=2000
 @wt
 @l
-ŽžŒv‚ð”ñ•\Ž¦‚É‚µ‚Ü‚·[l]
+æ™‚è¨ˆã‚’éžè¡¨ç¤ºã«ã—ã¾ã™[l]
 @backlay
 @clockopt backvisible=false
 @trans method=crossfade time=2000

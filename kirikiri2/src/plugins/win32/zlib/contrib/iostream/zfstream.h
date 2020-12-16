@@ -10,7 +10,7 @@ class gzfilebuf : public streambuf {
 public:
 
   gzfilebuf( );
-  virtual ~gzfilebuf();
+  virtual ‾gzfilebuf();
 
   gzfilebuf *open( const char *name, int io_mode );
   gzfilebuf *attach( int file_descriptor, int io_mode );
@@ -49,7 +49,7 @@ class gzfilestream_common : virtual public ios {
   friend gzofstream &setcompressionstrategy( gzofstream &, int );
 
 public:
-  virtual ~gzfilestream_common();
+  virtual ‾gzfilestream_common();
 
   void attach( int fd, int io_mode );
   void open( const char *name, int io_mode );
@@ -73,7 +73,7 @@ public:
   gzifstream( const char *name, int io_mode = ios::in );
   gzifstream( int fd, int io_mode = ios::in );
 
-  virtual ~gzifstream();
+  virtual ‾gzifstream();
 
 };
 
@@ -85,7 +85,7 @@ public:
   gzofstream( const char *name, int io_mode = ios::out );
   gzofstream( int fd, int io_mode = ios::out );
 
-  virtual ~gzofstream();
+  virtual ‾gzofstream();
 
 };
 

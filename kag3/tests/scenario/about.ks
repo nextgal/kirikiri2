@@ -1,4 +1,4 @@
-@title name="‚±‚Ìƒ\ƒtƒg‚É‚Â‚¢‚Ä"
+@title name="ã“ã®ã‚½ãƒ•ãƒˆã«ã¤ã„ã¦"
 @rclick enabled=false
 @clickskip enabled=false
 @position left=0 top=0 width=320 height=200 color=0xffffff opacity=255 marginl=0 margint=0 marginr=0 marginb=0
@@ -8,7 +8,7 @@
 @nowait
 @backlay
 @current page=back
-‹g—¢‹g—¢‚Q
+å‰é‡Œå‰é‡Œï¼’
 [emb exp="System.versionString"]
 @trans method=crossfade time=500
 @wt
@@ -16,11 +16,11 @@ KAG3
 [emb exp="kagVersion"]
 @trans method=crossfade time=500
 @wt
-[font size=12]ƒTƒ|[ƒgƒy[ƒW
-[link hint="ƒNƒŠƒbƒN‚·‚é‚ÆƒTƒ|[ƒgƒy[ƒW‚ğŠJ‚«‚Ü‚·" exp="System.shellExecute('http://kikyou.info/tvp/')"]http://kikyou.info/tvp/[endlink]
+[font size=12]ã‚µãƒãƒ¼ãƒˆãƒšãƒ¼ã‚¸
+[link hint="ã‚¯ãƒªãƒƒã‚¯ã™ã‚‹ã¨ã‚µãƒãƒ¼ãƒˆãƒšãƒ¼ã‚¸ã‚’é–‹ãã¾ã™" exp="System.shellExecute('http://kikyou.info/tvp/')"]http://kikyou.info/tvp/[endlink]
 @trans method=crossfade time=500
 @wt
-[link target=*exit]•Â‚¶‚é[endlink]
+[link target=*exit]é–‰ã˜ã‚‹[endlink]
 @trans method=crossfade time=500
 @wt
 @s

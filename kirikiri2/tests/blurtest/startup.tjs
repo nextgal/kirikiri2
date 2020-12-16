@@ -1,35 +1,35 @@
-// pad ƒeƒXƒg
+// pad ãƒ†ã‚¹ãƒˆ
 
 
 Debug.console.visible = true;
 
-class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
+class MainWindow extends Window // ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹
 {
 	var layer;
 	var chr;
 
 	function MainWindow()
 	{
-		// MainWindow ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		// MainWindow ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		super.Window();
 
 		borderStyle = bsSingle;
 		setInnerSize(640, 480);
 
-		caption = System.title = "blurƒeƒXƒg";
+		caption = System.title = "blurãƒ†ã‚¹ãƒˆ";
 
-		// ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„‚ğì¬
+		// ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤ã‚’ä½œæˆ
 		add(layer = new Layer(this, null));
 		layer.setSize(innerWidth, innerHeight);
 
-		// ‘OŒiƒŒƒCƒ„‚ğì¬
+		// å‰æ™¯ãƒ¬ã‚¤ãƒ¤ã‚’ä½œæˆ
 		add(chr = new Layer(this, layer));
 
-		// ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„‚É‰æ‘œ‚ğ“Ç‚İ‚Ş
+		// ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤ã«ç”»åƒã‚’èª­ã¿è¾¼ã‚€
 		layer.loadImages("../../../kag3/syoukai/bgimage/_24");
 		layer.fillRect(0, 0, 50, 50, 0xffffffff);
 
-		// ‘OŒiƒŒƒCƒ„‚É‰æ‘œ‚ğ“Ç‚İ‚Ş
+		// å‰æ™¯ãƒ¬ã‚¤ãƒ¤ã«ç”»åƒã‚’èª­ã¿è¾¼ã‚€
 		chr.loadImages("../../../kag3/syoukai/fgimage/uni");
 		chr.visible = true;
 //		chr.face = dfAddAlpha;
@@ -37,7 +37,7 @@ class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
 //		chr.convertType(dfAlpha);
 		chr.setSizeToImageSize();
 
-		// •\¦ó‘Ô‚É
+		// è¡¨ç¤ºçŠ¶æ…‹ã«
 		visible = true;
 
 	}

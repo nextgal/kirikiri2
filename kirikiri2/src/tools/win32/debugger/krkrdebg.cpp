@@ -9,7 +9,7 @@ USEFORM("DubbggerSettingUnit.cpp", DubbggerSettingForm);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
-	{	// 二重起動抑止
+	{	// 莠碁㍾襍ｷ蜍墓椛豁｢
 		HANDLE hMutex;
 		hMutex = ::CreateMutex(NULL, FALSE, "script debugger Mutex 9A7A0A70B3864EA5B9CFA711223A10AF");
 		if( (hMutex != NULL) && (GetLastError () == ERROR_ALREADY_EXISTS) ) {
@@ -21,7 +21,7 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	{
 		Application->Initialize();
 		SetApplicationMainFormOnTaskBar(Application, true);
-		Application->Title = "krkrdebg - スクリプト デバッガ -";
+		Application->Title = "krkrdebg - 繧ｹ繧ｯ繝ｪ繝励ヨ 繝�繝舌ャ繧ｬ -";
 		Application->CreateForm(__classid(TScriptDebuggerForm), &ScriptDebuggerForm);
 		Application->CreateForm(__classid(TProjectSettingForm), &ProjectSettingForm);
 		Application->CreateForm(__classid(TDubbggerSettingForm), &DubbggerSettingForm);

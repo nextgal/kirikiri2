@@ -17,8 +17,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\..\..\..\bin\win32\plugin"
-			IntermediateDirectory="obj\Release\layerExSave"
+			OutputDirectory="..¥..¥..¥..¥..¥bin¥win32¥plugin"
+			IntermediateDirectory="obj¥Release¥layerExSave"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\..\..\tools\win32\krdevui\tpc;..\..\ncbind;..\..\zlib;..\..;..\LodePNG"
+				AdditionalIncludeDirectories="..¥..¥..¥..¥tools¥win32¥krdevui¥tpc;..¥..¥ncbind;..¥..¥zlib;..¥..;..¥LodePNG"
 				PreprocessorDefinitions="NDEBUG"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -48,7 +48,7 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="false"
-				ProgramDataBaseFileName="$(OutDir)\layerExSave.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥layerExSave.pdb"
 				DebugInformationFormat="0"
 			/>
 			<Tool
@@ -57,15 +57,15 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG"
-				AdditionalIncludeDirectories="..\..\..\..\tools\win32\krdevui\tpc;..\..\ncbind;..\..\zlib;..\..;..\LodePNG"
+				AdditionalIncludeDirectories="..¥..¥..¥..¥tools¥win32¥krdevui¥tpc;..¥..¥ncbind;..¥..¥zlib;..¥..;..¥LodePNG"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\..\..\..\bin\win32\plugin\deflate.lib"
-				OutputFile="$(OutDir)\layerExSave.dll"
+				AdditionalDependencies="..¥..¥..¥..¥..¥bin¥win32¥plugin¥deflate.lib"
+				OutputFile="$(OutDir)¥layerExSave.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
 				GenerateManifest="false"
@@ -73,7 +73,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary="..\..\..\..\..\bin\win32\plugin\layerExSave.lib"
+				ImportLibrary="..¥..¥..¥..¥..¥bin¥win32¥plugin¥layerExSave.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -103,8 +103,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\bin"
-			IntermediateDirectory="obj\Debug\layerExSave"
+			OutputDirectory="..¥bin"
+			IntermediateDirectory="obj¥Debug¥layerExSave"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -126,7 +126,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\..\tools\win32\krdevui\tpc;..\..\ncbind;..\..\zlib;..\..;..\LodePNG"
+				AdditionalIncludeDirectories="..¥..¥..¥..¥tools¥win32¥krdevui¥tpc;..¥..¥ncbind;..¥..¥zlib;..¥..;..¥LodePNG"
 				PreprocessorDefinitions="_DEBUG"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -134,7 +134,7 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="false"
-				ProgramDataBaseFileName="$(OutDir)\layerExSave-d.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥layerExSave-d.pdb"
 				DebugInformationFormat="4"
 			/>
 			<Tool
@@ -143,22 +143,22 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG"
-				AdditionalIncludeDirectories="..\..\..\..\tools\win32\krdevui\tpc;..\..\ncbind;..\..\zlib;..\..;..\LodePNG"
+				AdditionalIncludeDirectories="..¥..¥..¥..¥tools¥win32¥krdevui¥tpc;..¥..¥ncbind;..¥..¥zlib;..¥..;..¥LodePNG"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\bin\deflate-d.lib"
-				OutputFile="$(OutDir)\layerExSave-d.dll"
+				AdditionalDependencies="..¥bin¥deflate-d.lib"
+				OutputFile="$(OutDir)¥layerExSave-d.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
 				GenerateManifest="false"
 				GenerateDebugInformation="true"
-				ProgramDataBaseFileName="$(OutDir)\layerExSave-d.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥layerExSave-d.pdb"
 				SubSystem="2"
-				ImportLibrary="..\bin\layerExSave-d.lib"
+				ImportLibrary="..¥bin¥layerExSave-d.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -195,12 +195,12 @@
 			Filter=""
 			>
 			<File
-				RelativePath="..\LodePNG\lodepng.cpp"
+				RelativePath="..¥LodePNG¥lodepng.cpp"
 				>
 			</File>
 		</Filter>
 		<File
-			RelativePath="..\Main.cpp"
+			RelativePath="..¥Main.cpp"
 			>
 		</File>
 		<Filter
@@ -208,16 +208,16 @@
 			Filter=""
 			>
 			<File
-				RelativePath="..\..\ncbind\ncbind.cpp"
+				RelativePath="..¥..¥ncbind¥ncbind.cpp"
 				>
 			</File>
 		</Filter>
 		<File
-			RelativePath="..\savepng.cpp"
+			RelativePath="..¥savepng.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\savetlg5.cpp"
+			RelativePath="..¥savetlg5.cpp"
 			>
 		</File>
 		<Filter
@@ -241,11 +241,11 @@
 							Filter=""
 							>
 							<File
-								RelativePath="..\..\..\..\tools\win32\krdevui\tpc\tlg5\slide.cpp"
+								RelativePath="..¥..¥..¥..¥tools¥win32¥krdevui¥tpc¥tlg5¥slide.cpp"
 								>
 							</File>
 							<File
-								RelativePath="..\..\..\..\tools\win32\krdevui\tpc\tlg5\slide.h"
+								RelativePath="..¥..¥..¥..¥tools¥win32¥krdevui¥tpc¥tlg5¥slide.h"
 								>
 							</File>
 						</Filter>
@@ -254,15 +254,15 @@
 			</Filter>
 		</Filter>
 		<File
-			RelativePath="..\..\tp_stub.cpp"
+			RelativePath="..¥..¥tp_stub.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\tp_stub.h"
+			RelativePath="..¥..¥tp_stub.h"
 			>
 		</File>
 		<File
-			RelativePath="..\utils.cpp"
+			RelativePath="..¥utils.cpp"
 			>
 		</File>
 	</Files>

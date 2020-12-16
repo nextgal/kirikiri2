@@ -1,6 +1,6 @@
 //=======================================================================
 // Copyright 2001 Universite Joseph Fourier, Grenoble.
-// Author: Fran�ois Faure
+// Author: Fran輟is Faure
 //
 // This file is part of the Boost Graph Library
 //
@@ -144,7 +144,7 @@ struct GraphParser
                         else if( c== 'n' ) state = PARSE_NUM_NODES;
                         else if( c== 'v' ) state = PARSE_VERTEX;
                         else if( c== 'e' ) state = PARSE_EDGE;
-                        else if( c== '\n' ) numLine++;
+                        else if( c== '¥n' ) numLine++;
                         else if( !isspace(c) ){
                                 in.putback(c);
                                 if( state == PARSE_VERTEX ){
@@ -193,7 +193,7 @@ protected:
         void skip( std::istream& in )
         {
                 char c = 0;
-                while( c!='\n' && !in.eof() ) 
+                while( c!='¥n' && !in.eof() ) 
                        in.get(c);
                 in.putback(c);
         }

@@ -8,7 +8,7 @@ Scripts.execStorage("test_string.tjs");
 Scripts.execStorage("test_with.tjs");
 
 
-// ƒp[ƒT[ƒeƒXƒg
+// ãƒ‘ãƒ¼ã‚µãƒ¼ãƒ†ã‚¹ãƒˆ
 var tl = [];
 var sl = [ %[number : 10, line : 4], %[number : 1, line : 7] ];
 tl.count = sl.count;
@@ -27,8 +27,8 @@ if( tl[1].number == 1 && tl[1].line == 7 ) {
 if( result == false ) {
 	Debug.message( "faild: dic assign" );
 }
-// bytecode ‚Å‚Í const ‚Í–¢‘Î‰ž
-// 16i”ŽÀ”’lƒeƒXƒg
+// bytecode ã§ã¯ const ã¯æœªå¯¾å¿œ
+// 16é€²æ•°å®Ÿæ•°å€¤ãƒ†ã‚¹ãƒˆ
 var testRealVal = (const) %[
  "quakeEndTick" => 0x1.07CC000000000p14 /* 16883.0 */
 ];

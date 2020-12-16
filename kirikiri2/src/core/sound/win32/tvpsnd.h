@@ -178,32 +178,32 @@ EXTERN_C const IID IID_ITSSMediaBaseInfo;
 #ifdef COBJMACROS
 
 
-#define ITSSMediaBaseInfo_QueryInterface(This,riid,ppvObject)	\
+#define ITSSMediaBaseInfo_QueryInterface(This,riid,ppvObject)	¥
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
 
-#define ITSSMediaBaseInfo_AddRef(This)	\
+#define ITSSMediaBaseInfo_AddRef(This)	¥
     (This)->lpVtbl -> AddRef(This)
 
-#define ITSSMediaBaseInfo_Release(This)	\
+#define ITSSMediaBaseInfo_Release(This)	¥
     (This)->lpVtbl -> Release(This)
 
 
-#define ITSSMediaBaseInfo_GetMediaType(This,shortname,descbuf,descbuflen)	\
+#define ITSSMediaBaseInfo_GetMediaType(This,shortname,descbuf,descbuflen)	¥
     (This)->lpVtbl -> GetMediaType(This,shortname,descbuf,descbuflen)
 
-#define ITSSMediaBaseInfo_GetLength(This,length)	\
+#define ITSSMediaBaseInfo_GetLength(This,length)	¥
     (This)->lpVtbl -> GetLength(This,length)
 
-#define ITSSMediaBaseInfo_GetTitle(This,buf,buflen)	\
+#define ITSSMediaBaseInfo_GetTitle(This,buf,buflen)	¥
     (This)->lpVtbl -> GetTitle(This,buf,buflen)
 
-#define ITSSMediaBaseInfo_GetCopyright(This,buf,buflen)	\
+#define ITSSMediaBaseInfo_GetCopyright(This,buf,buflen)	¥
     (This)->lpVtbl -> GetCopyright(This,buf,buflen)
 
-#define ITSSMediaBaseInfo_GetComment(This,buf,buflen)	\
+#define ITSSMediaBaseInfo_GetComment(This,buf,buflen)	¥
     (This)->lpVtbl -> GetComment(This,buf,buflen)
 
-#define ITSSMediaBaseInfo_GetArtist(This,buf,buflen)	\
+#define ITSSMediaBaseInfo_GetArtist(This,buf,buflen)	¥
     (This)->lpVtbl -> GetArtist(This,buf,buflen)
 
 #endif /* COBJMACROS */
@@ -369,23 +369,23 @@ EXTERN_C const IID IID_ITSSStorageProvider;
 #ifdef COBJMACROS
 
 
-#define ITSSStorageProvider_QueryInterface(This,riid,ppvObject)	\
+#define ITSSStorageProvider_QueryInterface(This,riid,ppvObject)	¥
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
 
-#define ITSSStorageProvider_AddRef(This)	\
+#define ITSSStorageProvider_AddRef(This)	¥
     (This)->lpVtbl -> AddRef(This)
 
-#define ITSSStorageProvider_Release(This)	\
+#define ITSSStorageProvider_Release(This)	¥
     (This)->lpVtbl -> Release(This)
 
 
-#define ITSSStorageProvider_GetStreamForRead(This,url,stream)	\
+#define ITSSStorageProvider_GetStreamForRead(This,url,stream)	¥
     (This)->lpVtbl -> GetStreamForRead(This,url,stream)
 
-#define ITSSStorageProvider_GetStreamForWrite(This,url,stream)	\
+#define ITSSStorageProvider_GetStreamForWrite(This,url,stream)	¥
     (This)->lpVtbl -> GetStreamForWrite(This,url,stream)
 
-#define ITSSStorageProvider_GetStreamForUpdate(This,url,stream)	\
+#define ITSSStorageProvider_GetStreamForUpdate(This,url,stream)	¥
     (This)->lpVtbl -> GetStreamForUpdate(This,url,stream)
 
 #endif /* COBJMACROS */
@@ -541,32 +541,32 @@ EXTERN_C const IID IID_ITSSModule;
 #ifdef COBJMACROS
 
 
-#define ITSSModule_QueryInterface(This,riid,ppvObject)	\
+#define ITSSModule_QueryInterface(This,riid,ppvObject)	¥
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
 
-#define ITSSModule_AddRef(This)	\
+#define ITSSModule_AddRef(This)	¥
     (This)->lpVtbl -> AddRef(This)
 
-#define ITSSModule_Release(This)	\
+#define ITSSModule_Release(This)	¥
     (This)->lpVtbl -> Release(This)
 
 
-#define ITSSModule_GetModuleCopyright(This,buffer,buflen)	\
+#define ITSSModule_GetModuleCopyright(This,buffer,buflen)	¥
     (This)->lpVtbl -> GetModuleCopyright(This,buffer,buflen)
 
-#define ITSSModule_GetModuleDescription(This,buffer,buflen)	\
+#define ITSSModule_GetModuleDescription(This,buffer,buflen)	¥
     (This)->lpVtbl -> GetModuleDescription(This,buffer,buflen)
 
-#define ITSSModule_GetSupportExts(This,index,mediashortname,buf,buflen)	\
+#define ITSSModule_GetSupportExts(This,index,mediashortname,buf,buflen)	¥
     (This)->lpVtbl -> GetSupportExts(This,index,mediashortname,buf,buflen)
 
-#define ITSSModule_GetMediaInfo(This,url,info)	\
+#define ITSSModule_GetMediaInfo(This,url,info)	¥
     (This)->lpVtbl -> GetMediaInfo(This,url,info)
 
-#define ITSSModule_GetMediaSupport(This,url)	\
+#define ITSSModule_GetMediaSupport(This,url)	¥
     (This)->lpVtbl -> GetMediaSupport(This,url)
 
-#define ITSSModule_GetMediaInstance(This,url,instance)	\
+#define ITSSModule_GetMediaInstance(This,url,instance)	¥
     (This)->lpVtbl -> GetMediaInstance(This,url,instance)
 
 #endif /* COBJMACROS */
@@ -733,23 +733,23 @@ EXTERN_C const IID IID_ITSSWaveDecoder;
 #ifdef COBJMACROS
 
 
-#define ITSSWaveDecoder_QueryInterface(This,riid,ppvObject)	\
+#define ITSSWaveDecoder_QueryInterface(This,riid,ppvObject)	¥
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
 
-#define ITSSWaveDecoder_AddRef(This)	\
+#define ITSSWaveDecoder_AddRef(This)	¥
     (This)->lpVtbl -> AddRef(This)
 
-#define ITSSWaveDecoder_Release(This)	\
+#define ITSSWaveDecoder_Release(This)	¥
     (This)->lpVtbl -> Release(This)
 
 
-#define ITSSWaveDecoder_GetFormat(This,format)	\
+#define ITSSWaveDecoder_GetFormat(This,format)	¥
     (This)->lpVtbl -> GetFormat(This,format)
 
-#define ITSSWaveDecoder_Render(This,buf,bufsamplelen,rendered,status)	\
+#define ITSSWaveDecoder_Render(This,buf,bufsamplelen,rendered,status)	¥
     (This)->lpVtbl -> Render(This,buf,bufsamplelen,rendered,status)
 
-#define ITSSWaveDecoder_SetPosition(This,samplepos)	\
+#define ITSSWaveDecoder_SetPosition(This,samplepos)	¥
     (This)->lpVtbl -> SetPosition(This,samplepos)
 
 #endif /* COBJMACROS */

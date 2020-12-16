@@ -4,7 +4,7 @@
 
 
 /**----------------------------------------------------------------------
- * ƒXƒpƒCƒ‰ƒ‹ƒŒƒCƒAƒEƒg(¶‚©‚ç‰EAã‚©‚ç‰º‚ÉƒEƒBƒWƒFƒbƒg‚ğ•À‚×‚éƒŒƒCƒAƒEƒg
+ * ã‚¹ãƒ‘ã‚¤ãƒ©ãƒ«ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ(å·¦ã‹ã‚‰å³ã€ä¸Šã‹ã‚‰ä¸‹ã«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ä¸¦ã¹ã‚‹ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
  ----------------------------------------------------------------------*/
 
 class KSpiralLayout extends KWidget
@@ -15,10 +15,10 @@ class KSpiralLayout extends KWidget
   var layoutRequired;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param window ƒEƒBƒ“ƒhƒE
-   * @param name –¼‘O
+   * @param window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param name åå‰
    ------------------------------*/
   function KSpiralLayout(window, name) {
     super.KWidget(window, name);
@@ -33,14 +33,14 @@ class KSpiralLayout extends KWidget
   }
 
   /**------------------------------
-   * Å’áŒÀ‚ÌƒTƒCƒY‚ğİ’è‚·‚é
+   * æœ€ä½é™ã®ã‚µã‚¤ã‚ºã‚’è¨­å®šã™ã‚‹
    *
-   * €–Ú‚ª­‚È‚­‚Ä‚àÅ’áŒÀL‚°‚ç‚ê‚é
-   * uÅ’áÅ‘åƒTƒCƒYv‚ğŒˆ’è‚·‚éB
-   * ƒfƒtƒHƒ‹ƒg’l‚Í1000x1000
+   * é …ç›®ãŒå°‘ãªãã¦ã‚‚æœ€ä½é™åºƒã’ã‚‰ã‚Œã‚‹
+   * ã€Œæœ€ä½æœ€å¤§ã‚µã‚¤ã‚ºã€ã‚’æ±ºå®šã™ã‚‹ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã¯1000x1000
    *
-   * @param w •
-   * @param h ‚‚³
+   * @param w å¹…
+   * @param h é«˜ã•
    ------------------------------*/
   function setMarginalSize(w, h) {
     _marginalWidth = w;
@@ -49,9 +49,9 @@ class KSpiralLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ’Ç‰Á‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’è¿½åŠ ã™ã‚‹
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function add(child) {
     child.parent = this;
@@ -60,10 +60,10 @@ class KSpiralLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ‘}“ü‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æŒ¿å…¥ã™ã‚‹
    *
-   * @param index ‘}“üˆÊ’u
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param index æŒ¿å…¥ä½ç½®
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function insert(index, child) {
     child.parent = this;
@@ -72,10 +72,10 @@ class KSpiralLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğæ‚èœ‚­
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å–ã‚Šé™¤ã
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(child, doInvalidate = true) {
     child.parent = widgetDepot;
@@ -86,9 +86,9 @@ class KSpiralLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ‘S‚Äæ‚èœ‚­
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å…¨ã¦å–ã‚Šé™¤ã
    *
-   * @param doInvalidate æ‚èœ‚¢‚½qƒEƒBƒWƒFƒbƒg‚ğ–³Œø‰»‚·‚é‚©
+   * @param doInvalidate å–ã‚Šé™¤ã„ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ç„¡åŠ¹åŒ–ã™ã‚‹ã‹
    ------------------------------*/
   function removeAll(doInvalidate = true)
   {
@@ -105,9 +105,9 @@ class KSpiralLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğƒJƒEƒ“ƒg‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹
    * 
-   * @return qƒAƒCƒeƒ€”
+   * @return å­ã‚¢ã‚¤ãƒ†ãƒ æ•°
    ------------------------------*/
   property childCount {
     getter {
@@ -116,17 +116,17 @@ class KSpiralLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğQÆ‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å‚ç…§ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @return qƒEƒBƒWƒFƒbƒg
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @return å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function childAt(index) {
     return childList[index];
   }
 
   /*------------------------------
-   * ƒŒƒCƒAƒEƒg‚ğŒvZ‚·‚é
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’è¨ˆç®—ã™ã‚‹
    ------------------------------*/
   function delayLayout {
     layoutRequired = true;
@@ -169,7 +169,7 @@ class KSpiralLayout extends KWidget
   }
 
   /*------------------------------
-   * ƒŒƒCƒAƒEƒg‚É]‚Á‚ÄƒEƒBƒWƒFƒbƒg‚ğ”z’u‚·‚é
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã«å¾“ã£ã¦ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’é…ç½®ã™ã‚‹
    ------------------------------*/
   function redraw {
     executeDelayedLayout();

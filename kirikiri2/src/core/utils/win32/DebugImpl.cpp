@@ -86,7 +86,7 @@ static iTJSDispatch2 * TVPGetControllerClass()
 	{
 		iTJSDispatch2 *Object;
 		tClassHolder() { Object = new tTJSNC_Controller(); }
-		~tClassHolder() { Object->Release(); }
+		‾tClassHolder() { Object->Release(); }
 	} static Holder;
 
 	Holder.Object->AddRef();
@@ -157,7 +157,7 @@ static iTJSDispatch2 * TVPGetConsoleClass()
 	{
 		iTJSDispatch2 *Object;
 		tClassHolder() { Object = new tTJSNC_Console(); }
-		~tClassHolder() { Object->Release(); }
+		‾tClassHolder() { Object->Release(); }
 	} static Holder;
 
 	Holder.Object->AddRef();

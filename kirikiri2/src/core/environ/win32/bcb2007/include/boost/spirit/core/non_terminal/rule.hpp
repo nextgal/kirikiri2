@@ -71,7 +71,7 @@ namespace boost { namespace spirit {
         struct result { typedef result_t type; };
 
         rule();
-        ~rule();
+        ‾rule();
 
         rule(rule const& r)
         : ptr(new impl::concrete_parser<rule, ScannerT, result_t>(r)) {}

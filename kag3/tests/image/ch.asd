@@ -7,14 +7,14 @@
 @endmacro
 
 
-; 0 -> 9 ŒJ‚è•Ô‚µ
+; 0 -> 9 ç¹°ã‚Šè¿”ã—
 @eval exp="f.af0 = 0"
 *start
 @copyone x=&f.af0
 @eval exp="(f.af0 += 2), (f.af0 = 0 if f.af0 > 144)"
 @jump target=*start
 
-; 0 -> 9 -> 0 ˆê‰ñ‚¾‚¯
+; 0 -> 9 -> 0 ä¸€å›ã ã‘
 *start1
 @macro name=copyone1
 @copy dx=16 dy=0 sx=%x sy=0 sw=16 sh=20
@@ -43,7 +43,7 @@
 @copyone1 x=0
 @s
 
-; 0 -> 9 -> 0 ŒJ‚è•Ô‚µ
+; 0 -> 9 -> 0 ç¹°ã‚Šè¿”ã—
 *start2
 @loop
 @macro name=copyone2

@@ -46,7 +46,7 @@ CAnimatedMeshSceneNode::CAnimatedMeshSceneNode(IAnimatedMesh* mesh, ISceneNode* 
 
 
 //! destructor
-CAnimatedMeshSceneNode::~CAnimatedMeshSceneNode()
+CAnimatedMeshSceneNode::‾CAnimatedMeshSceneNode()
 {
 	if (Mesh)
 		Mesh->drop();

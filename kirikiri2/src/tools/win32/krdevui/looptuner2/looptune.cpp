@@ -23,9 +23,9 @@ USEFORM("EditLabelAttribUnit.cpp", EditLabelAttribFrame); /* TFrame: File Type *
 USEFORM("EditLinkAttribUnit.cpp", EditLinkAttribFrame); /* TFrame: File Type */
 USEFORM("LinkDetailUnit.cpp", LinkDetailForm);
 USEFORM("LabelDetailUnit.cpp", LabelDetailForm);
-USEUNIT("..\..\..\..\core\sound\WaveLoopManager.cpp");
-USEUNIT("..\..\..\..\core\sound\win32\tvpsnd.c");
-USEUNIT("..\..\..\..\core\base\CharacterSet.cpp");
+USEUNIT("..¥..¥..¥..¥core¥sound¥WaveLoopManager.cpp");
+USEUNIT("..¥..¥..¥..¥core¥sound¥win32¥tvpsnd.c");
+USEUNIT("..¥..¥..¥..¥core¥base¥CharacterSet.cpp");
 USEUNIT("TotalView.cpp");
 //---------------------------------------------------------------------------
 static bool FindOtherLoopTunerInstanceAndNotify();

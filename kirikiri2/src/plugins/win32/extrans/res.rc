@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// ���{�� resources
+// 日本語 resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
 #ifdef _WIN32
@@ -29,19 +29,19 @@ LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
 
 1 TEXTINCLUDE DISCARDABLE 
 BEGIN
-    "resource.h\0"
+    "resource.h¥0"
 END
 
 2 TEXTINCLUDE DISCARDABLE 
 BEGIN
-    "#include ""afxres.h""\r\n"
-    "\0"
+    "#include ""afxres.h""¥r¥n"
+    "¥0"
 END
 
 3 TEXTINCLUDE DISCARDABLE 
 BEGIN
-    "\r\n"
-    "\0"
+    "¥r¥n"
+    "¥0"
 END
 
 #endif    // APSTUDIO_INVOKED
@@ -70,18 +70,18 @@ BEGIN
     BEGIN
         BLOCK "041104b0"
         BEGIN
-            VALUE "Comments", "\0"
-            VALUE "CompanyName", " \0"
-            VALUE "FileDescription", "Extended Transition Plug-in DLL\0"
-            VALUE "FileVersion", "1, 1, 2, 2\0"
-            VALUE "InternalName", "extrans\0"
-            VALUE "LegalCopyright", "Copyright (C) 2002-2009 W.Dee and contributors All rights reserved.\0"
-            VALUE "LegalTrademarks", "\0"
-            VALUE "OriginalFilename", "extrans.dll\0"
-            VALUE "PrivateBuild", "\0"
-            VALUE "ProductName", "extrans\0"
-            VALUE "ProductVersion", "1, 1, 2, 2\0"
-            VALUE "SpecialBuild", "\0"
+            VALUE "Comments", "¥0"
+            VALUE "CompanyName", " ¥0"
+            VALUE "FileDescription", "Extended Transition Plug-in DLL¥0"
+            VALUE "FileVersion", "1, 1, 2, 2¥0"
+            VALUE "InternalName", "extrans¥0"
+            VALUE "LegalCopyright", "Copyright (C) 2002-2009 W.Dee and contributors All rights reserved.¥0"
+            VALUE "LegalTrademarks", "¥0"
+            VALUE "OriginalFilename", "extrans.dll¥0"
+            VALUE "PrivateBuild", "¥0"
+            VALUE "ProductName", "extrans¥0"
+            VALUE "ProductVersion", "1, 1, 2, 2¥0"
+            VALUE "SpecialBuild", "¥0"
         END
     END
     BLOCK "VarFileInfo"
@@ -92,7 +92,7 @@ END
 
 #endif    // !_MAC
 
-#endif    // ���{�� resources
+#endif    // 日本語 resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -2,20 +2,20 @@
 // $Id: startup.tjs,v 1.31 2007/09/10 08:37:00 m2 Exp $
 //
 
-// “ñd‹N“®‰ñ”ğ
+// äºŒé‡èµ·å‹•å›é¿
 if (! System.createAppLock("kwidgets_sample"))
   System.exit();
-// ƒfƒoƒbƒOƒRƒ“ƒ\[ƒ‹‚ğ•\¦
+// ãƒ‡ãƒãƒƒã‚°ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‚’è¡¨ç¤º
 @if (!kirikiriz)
 Debug.console.visible = true;
 @endif
 
-// ƒvƒ‰ƒOƒCƒ“‚ğƒŠƒ“ƒN
+// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’ãƒªãƒ³ã‚¯
 Plugins.link("clipboardEx.dll");
-// kwidgets‚ğƒ[ƒh
+// kwidgetsã‚’ãƒ­ãƒ¼ãƒ‰
 Storages.addAutoPath("kwidgets/");
 Scripts.execStorage("KInitialize.tjs");
-// ƒTƒ“ƒvƒ‹ƒŠƒXƒg‚ğƒ[ƒh
+// ã‚µãƒ³ãƒ—ãƒ«ãƒªã‚¹ãƒˆã‚’ãƒ­ãƒ¼ãƒ‰
 Scripts.execStorage("WidgetSample.tjs");
 Scripts.execStorage("ScrollSample.tjs");
 Scripts.execStorage("DragDropSample.tjs");
@@ -27,48 +27,48 @@ Scripts.execStorage("TestCase.tjs");
 
 
 //----------------------------------------------------------------------
-// ƒTƒ“ƒvƒ‹ƒ‰ƒ“ƒ`ƒƒ[
+// ã‚µãƒ³ãƒ—ãƒ«ãƒ©ãƒ³ãƒãƒ£ãƒ¼
 //----------------------------------------------------------------------
 class SampleLauncher extends KWindow
 {
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   function SampleLauncher {
     super.KWindow("sample_launcher");
 
-    // ƒLƒƒƒvƒVƒ‡ƒ““™İ’è
+    // ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³ç­‰è¨­å®š
     borderStyle = bsDialog;
-    System.title = caption = "kwidgetsƒTƒ“ƒvƒ‹";
+    System.title = caption = "kwidgetsã‚µãƒ³ãƒ—ãƒ«";
 
-    // ƒfƒtƒHƒ‹ƒg’l‚ğİ’è
+    // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã‚’è¨­å®š
     defaultSpace = 2;
     defaultMargin = 3;
     defaultAlignHorizontal = ALIGN_CENTER;
     defaultAlignVertical = ALIGN_CENTER;
 
-    // ƒOƒŠƒbƒh‚ğì¬Aƒ{ƒ^ƒ“‚ğ”z’u
+    // ã‚°ãƒªãƒƒãƒ‰ã‚’ä½œæˆã€ãƒœã‚¿ãƒ³ã‚’é…ç½®
     var grid = new KGridLayout(this);
-    grid.add(0, 0, new KTextToggleButton(this, "ƒEƒBƒWƒFƒbƒgƒTƒ“ƒvƒ‹", "widget_sample"));
-    grid.add(0, 1, new KTextToggleButton(this, "ƒXƒNƒ[ƒ‹ƒTƒ“ƒvƒ‹", "scroll_sample"));
-    grid.add(0, 2, new KTextToggleButton(this, "ƒŠƒXƒgƒTƒ“ƒvƒ‹", "list_sample"));
-    grid.add(0, 3, new KTextToggleButton(this, "ƒŠƒXƒgƒTƒ“ƒvƒ‹2", "list_sample_2"));
-    grid.add(0, 4, new KTextToggleButton(this, "ƒhƒ‰ƒbƒO•ƒhƒƒbƒvƒTƒ“ƒvƒ‹", "dragdrop_sample"));
-    grid.add(0, 5, new KTextToggleButton(this, "ƒXƒpƒCƒ‰ƒ‹ƒTƒ“ƒvƒ‹", "spiral_sample"));
-    grid.add(0, 6, new KTextToggleButton(this, "ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒTƒ“ƒvƒ‹", "timeline_sample"));
+    grid.add(0, 0, new KTextToggleButton(this, "ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚µãƒ³ãƒ—ãƒ«", "widget_sample"));
+    grid.add(0, 1, new KTextToggleButton(this, "ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚µãƒ³ãƒ—ãƒ«", "scroll_sample"));
+    grid.add(0, 2, new KTextToggleButton(this, "ãƒªã‚¹ãƒˆã‚µãƒ³ãƒ—ãƒ«", "list_sample"));
+    grid.add(0, 3, new KTextToggleButton(this, "ãƒªã‚¹ãƒˆã‚µãƒ³ãƒ—ãƒ«2", "list_sample_2"));
+    grid.add(0, 4, new KTextToggleButton(this, "ãƒ‰ãƒ©ãƒƒã‚°ï¼†ãƒ‰ãƒ­ãƒƒãƒ—ã‚µãƒ³ãƒ—ãƒ«", "dragdrop_sample"));
+    grid.add(0, 5, new KTextToggleButton(this, "ã‚¹ãƒ‘ã‚¤ãƒ©ãƒ«ã‚µãƒ³ãƒ—ãƒ«", "spiral_sample"));
+    grid.add(0, 6, new KTextToggleButton(this, "ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚µãƒ³ãƒ—ãƒ«", "timeline_sample"));
 
-    //ƒOƒŠƒbƒh‚ğ”z’u
+    //ã‚°ãƒªãƒƒãƒ‰ã‚’é…ç½®
     primaryWidget.add(grid);
 
-    // ‰i‘±‰»«‘‚Ìì¬
+    // æ°¸ç¶šåŒ–è¾æ›¸ã®ä½œæˆ
     var dict = new KPersistentDictionary(System.dataPath + "samlelauncher_dict.txt");
-    // ƒEƒBƒ“ƒhƒE‚ÌŠÇ—ƒIƒuƒWƒFƒNƒg‚É«‘‚ğ’Ç‰Á‚µ‚ÄA
-    // finalize‚É©“®“I‚É“à—e‚ªƒZ[ƒu‚³‚ê‚é‚æ‚¤‚É‚·‚éB
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç®¡ç†ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«è¾æ›¸ã‚’è¿½åŠ ã—ã¦ã€
+    // finalizeæ™‚ã«è‡ªå‹•çš„ã«å†…å®¹ãŒã‚»ãƒ¼ãƒ–ã•ã‚Œã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚
     add(dict);
-    // ƒEƒBƒ“ƒhƒE“à‚Ì–¼‘O‚ğ‚Á‚Ä‚¢‚éƒEƒBƒWƒFƒbƒg‚Æ«‘‚ğƒoƒCƒ“ƒh‚·‚éB
-    // ‚±‚ê‚É‚æ‚èAƒAƒvƒŠI—¹‚ÌƒEƒBƒWƒFƒbƒg‚Ì’l‚ªŸ‰ñ‹N“®‚É‚¿‰z‚³‚ê‚éB
-    // ƒEƒBƒ“ƒhƒE©g‚ÌƒTƒCƒY‚ÆÀ•W‚à«‘‚É‹L˜^‚³‚ê‚éB
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦å†…ã®åå‰ã‚’æŒã£ã¦ã„ã‚‹ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã¨è¾æ›¸ã‚’ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹ã€‚
+    // ã“ã‚Œã«ã‚ˆã‚Šã€ã‚¢ãƒ—ãƒªçµ‚äº†æ™‚ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®å€¤ãŒæ¬¡å›èµ·å‹•æ™‚ã«æŒã¡è¶Šã•ã‚Œã‚‹ã€‚
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦è‡ªèº«ã®ã‚µã‚¤ã‚ºã¨åº§æ¨™ã‚‚è¾æ›¸ã«è¨˜éŒ²ã•ã‚Œã‚‹ã€‚
     bindPersistentDictionary(dict);
 
-    // «‘‚æ‚èƒ[ƒh‚µ‚½’l‚ÉŠî‚«AƒTƒ“ƒvƒ‹‚Ì‰Šú•\¦‚ğs‚¤
+    // è¾æ›¸ã‚ˆã‚Šãƒ­ãƒ¼ãƒ‰ã—ãŸå€¤ã«åŸºãã€ã‚µãƒ³ãƒ—ãƒ«ã®åˆæœŸè¡¨ç¤ºã‚’è¡Œã†
     if (widget_sample.value)
       showWidgetSample();
     if (scroll_sample.value)
@@ -87,9 +87,9 @@ class SampleLauncher extends KWindow
     visible = true;
   }
 
-  // q‚Ì’l‚Ì•ÏX‚ğŒŸ’m
+  // å­ã®å€¤ã®å¤‰æ›´ã‚’æ¤œçŸ¥
   function onChildValueModified(child, value) {
-    // ƒTƒ“ƒvƒ‹‚Ì•\¦ó‘Ô‚ğØ‚è‘Ö‚¦‚éB
+    // ã‚µãƒ³ãƒ—ãƒ«ã®è¡¨ç¤ºçŠ¶æ…‹ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹ã€‚
     switch (child.name) {
 
     case "widget_sample": 

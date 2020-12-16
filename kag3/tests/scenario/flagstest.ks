@@ -1,18 +1,18 @@
-[macro name=newtag]\
-[font color=%color|0xff0000]\
-‚±‚ñ‚È•—‚Éƒ}ƒNƒ‚ğì‚è‚Ü‚·\
-[resetfont]\
-[endmacro]\
+[macro name=newtag]Â¥
+[font color=%color|0xff0000]Â¥
+ã“ã‚“ãªé¢¨ã«ãƒã‚¯ãƒ­ã‚’ä½œã‚Šã¾ã™Â¥
+[resetfont]Â¥
+[endmacro]Â¥
 [newtag color=0x00ff00]
 [newtag]
 [newtag color=0x0000ff]
-[erasemacro name=newtag]\
+[erasemacro name=newtag]Â¥
 [newtag]
-[macro name=e][emb *][endmacro]\
-[macro name=t][if exp=f.flag]flag is true[endif][ignore exp=f.flag]flag is false[endignore][endmacro]\
-[eval exp="f.a = 0"]\
-[link cond="f.a==1" target="*ƒ‰ƒxƒ‹–¼"]‘I‘ğˆ[endlink cond="f.a==1" ]
-‰~ü—¦‚Í : \
+[macro name=e][emb *][endmacro]Â¥
+[macro name=t][if exp=f.flag]flag is true[endif][ignore exp=f.flag]flag is false[endignore][endmacro]Â¥
+[eval exp="f.a = 0"]Â¥
+[link cond="f.a==1" target="*ãƒ©ãƒ™ãƒ«å"]é¸æŠè‚¢[endlink cond="f.a==1" ]
+å††å‘¨ç‡ã¯ : Â¥
 @eval exp="f.pi = Math.PI"
 @e exp="f.pi"
 [l]
@@ -25,7 +25,7 @@ f.flag = 1633;
 (2*3+5*6)/6 = [e exp="(2*3+5*6)/6"][l]
 f.res = Math.sin(Math.PI/2) = [e exp="f.res = Math.sin(Math.PI/2)"][l]
 f.res = [e exp="f.res"][l]
-Ÿ‚Ì•¶š‚ÍŒ©‚¦‚È‚¢‚Í‚¸‚Å‚· : [ch cond=false text="•¶š"][l]
+æ¬¡ã®æ–‡å­—ã¯è¦‹ãˆãªã„ã¯ãšã§ã™ : [ch cond=false text="æ–‡å­—"][l]
 @if exp=true
 1[ch text="a"]
 @if exp=false

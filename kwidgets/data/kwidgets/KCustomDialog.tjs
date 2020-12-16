@@ -1,18 +1,18 @@
 //
-// ƒVƒ“ƒvƒ‹‚Èƒ_ƒCƒAƒƒOB
-// Ši”[‚·‚éƒEƒBƒWƒFƒbƒgƒŠƒXƒg‚ğ’è‹`®‚Å—^‚¦‚Äì¬‚·‚éB
+// ã‚·ãƒ³ãƒ—ãƒ«ãªãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã€‚
+// æ ¼ç´ã™ã‚‹ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒªã‚¹ãƒˆã‚’å®šç¾©å¼ã§ä¸ãˆã¦ä½œæˆã™ã‚‹ã€‚
 //
 // ex) 
 //   var def = %[ 
 //       name: "test_dialog",
 //       response: DIALOG_RESPONSE_OK | DIALOG_RESPONSE_CANCEL,
 //       caption: "Test Dialog",
-//       widgetList: [ %[ name: "check", label: "ƒ`ƒFƒbƒNƒ{ƒbƒNƒX", type: DIALOG_WIDGET_TYPE_CHECKBOX,  defaultValue: true ],
-//                     %[ name: "int",   label: "®”“ü—Í",         type: DIALOG_WIDGET_TYPE_TEXTINPUT, textType: TEXT_DIGIT ],
-//                     %[ name: "real",  label: "¬”“ü—Í",         type: DIALOG_WIDGET_TYPE_TEXTINPUT, textType: TEXT_REAL, defaultValue: 0.5 ],
-//                     %[ name: "str",   label: "•¶š“ü—Í",         type: DIALOG_WIDGET_TYPE_TEXTINPUT, textType: TEXT_ANY ],
-//                     %[ name: "text",  label: "ƒeƒLƒXƒg",         type: DIALOG_WIDGET_TYPE_TEXTBOX,   defaultValue: "‚Ù‚°\n‚à‚°" ],
-//                     %[ name: "list",  label: "ƒŠƒXƒg":           type: DIALOG_WIDGET_TYPE_DROPDOWNLIST, listItems: [ "€–Ú1", [ "€–Ú2", 2 ], [ "€–Ú3", 3 ] ], defaultValue: 2]
+//       widgetList: [ %[ name: "check", label: "ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹", type: DIALOG_WIDGET_TYPE_CHECKBOX,  defaultValue: true ],
+//                     %[ name: "int",   label: "æ•´æ•°å…¥åŠ›",         type: DIALOG_WIDGET_TYPE_TEXTINPUT, textType: TEXT_DIGIT ],
+//                     %[ name: "real",  label: "å°æ•°å…¥åŠ›",         type: DIALOG_WIDGET_TYPE_TEXTINPUT, textType: TEXT_REAL, defaultValue: 0.5 ],
+//                     %[ name: "str",   label: "æ–‡å­—å…¥åŠ›",         type: DIALOG_WIDGET_TYPE_TEXTINPUT, textType: TEXT_ANY ],
+//                     %[ name: "text",  label: "ãƒ†ã‚­ã‚¹ãƒˆ",         type: DIALOG_WIDGET_TYPE_TEXTBOX,   defaultValue: "ã»ã’Â¥nã‚‚ã’" ],
+//                     %[ name: "list",  label: "ãƒªã‚¹ãƒˆ":           type: DIALOG_WIDGET_TYPE_DROPDOWNLIST, listItems: [ "é …ç›®1", [ "é …ç›®2", 2 ], [ "é …ç›®3", 3 ] ], defaultValue: 2]
 //                     ]
 //   ];
 
@@ -127,7 +127,7 @@ class KCustomDialog extends KWindow
     if (response & DIALOG_RESPONSE_OK) 
       buttonGrid.add(x++, 0, new KTextButton(this, "OK", "okButton"));
     if (response & DIALOG_RESPONSE_CANCEL) 
-      buttonGrid.add(x++, 0, new KTextButton(this, "ƒLƒƒƒ“ƒZƒ‹", "cancelButton"));
+      buttonGrid.add(x++, 0, new KTextButton(this, "ã‚­ãƒ£ãƒ³ã‚»ãƒ«", "cancelButton"));
     invalidateLayout();
 
     setPos(owner.left + (owner.width - width) / 2,

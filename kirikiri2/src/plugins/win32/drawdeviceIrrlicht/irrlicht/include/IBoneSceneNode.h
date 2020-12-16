@@ -66,7 +66,7 @@ namespace scene
 		virtual u32 getBoneIndex() const = 0;
 
 		//! Sets the animation mode of the bone.
-		/** \return True if successful. (Unused) */
+		/** ¥return True if successful. (Unused) */
 		virtual bool setAnimationMode(E_BONE_ANIMATION_MODE mode) = 0;
 
 		//! Gets the current animation mode of the bone

@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="Shift_JIS" ?>
 <doc>
-<title>�z�b�g�L�[</title>
+<title>ホットキー</title>
 
 <para>
-<ptitle>���ʃz�b�g�L�[</ptitle>
-�@�g���g���ɂ͋��ʂ��Ďg�p�ł���z�b�g�L�[������������܂��B<r/>
+<ptitle>共通ホットキー</ptitle>
+　吉里吉里には共通して使用できるホットキーがいくつかあります。<r/>
 <r/>
 <dl>
-<dt>�R���g���[�� (Shift + F1)</dt>
+<dt>コントローラ (Shift + F1)</dt>
 <dd>
-�@<link href="Controller"/> ��\�����܂��B
+　<link href="Controller"/> を表示します。
 </dd>
 
 
-<dt>�X�N���v�g�G�f�B�^ (Shift + F2)</dt>
+<dt>スクリプトエディタ (Shift + F2)</dt>
 <dd>
-�@<link href="ScriptEditor"/> ��\�����܂��B
+　<link href="ScriptEditor"/> を表示します。
 </dd>
 
 
-<dt>�Ď��� (Shift + F3)</dt>
+<dt>監視式 (Shift + F3)</dt>
 <dd>
-�@<link href="ExprWatch"/> ��\�����܂��B
+　<link href="ExprWatch"/> を表示します。
 </dd>
 
 
-<dt>�R���\�[�� (Shift + F4)</dt>
+<dt>コンソール (Shift + F4)</dt>
 <dd>
-�@<link href="Console"/> ��\�����܂��B
+　<link href="Console"/> を表示します。
 </dd>
 
 
-<dt>�X�V��`�̕\�� (Shift + F11)</dt>
+<dt>更新矩形の表示 (Shift + F11)</dt>
 <dd>
-�@�E�B���h�E ( <at href="f_Window.html">Window �N���X</at> �ō쐬�����E�B���h�E ) ���A�N�e�B�u�ɂ��Ă��̃z�b�g�L�[�������ƁA���̃E�B���h�E�̕\���X�V�̈�����F�`���̋�`�ŕ\�����邱�Ƃ��ł��܂��B�E�B���h�E�̂ǂ̗̈悪�X�V���ꂽ�����m�F���邱�Ƃ��ł��܂��B
+　ウィンドウ ( <at href="f_Window.html">Window クラス</at> で作成したウィンドウ ) をアクティブにしてこのホットキーを押すと、そのウィンドウの表示更新領域を黄色〜白の矩形で表示することができます。ウィンドウのどの領域が更新されたかを確認することができます。
 </dd>
 
 
-<dt>���C���\���̃_���v (Shift + F12)</dt>
+<dt>レイヤ構造のダンプ (Shift + F12)</dt>
 <dd>
-�@�E�B���h�E ( <at href="f_Window.html">Window �N���X</at> �ō쐬�����E�B���h�E ) ���A�N�e�B�u�ɂ��Ă��̃z�b�g�L�[�������ƁA���̃E�B���h�E�ɏ������郌�C���̍\�����R���\�[���ɕ\������܂��B
+　ウィンドウ ( <at href="f_Window.html">Window クラス</at> で作成したウィンドウ ) をアクティブにしてこのホットキーを押すと、そのウィンドウに所属するレイヤの構造がコンソールに表示されます。
 </dd>
 
 
-<dt>�����̃R�s�[ (Ctrl + F11)</dt>
+<dt>環境情報のコピー (Ctrl + F11)</dt>
 <dd>
-�@�g���g�������삵�Ă���R���s���[�^�̏���A<at href="f_Debug_notice.html">Debug.notice ���\�b�h</at> �ŏo�͂������O���N���b�v�{�[�h�ɃR�s�[���܂��B���[�U�̊��̏������W����ۂɗ��p���邱�Ƃ��ł��܂��B
+　吉里吉里が動作しているコンピュータの情報や、<at href="f_Debug_notice.html">Debug.notice メソッド</at> で出力したログをクリップボードにコピーします。ユーザの環境の情報を収集する際に利用することができます。
 </dd>
 
 
-<dt>���쌠���̕\�� (Ctrl + F12)</dt>
+<dt>著作権情報の表示 (Ctrl + F12)</dt>
 <dd>
-�@�g���g���̒��쌠����\�����܂��B
+　吉里吉里の著作権情報を表示します。
 </dd>
 
 
-<dt>�����I�� (Ctrl + Alt + F12)</dt>
+<dt>強制終了 (Ctrl + Alt + F12)</dt>
 <dd>
-�@���̃L�[���Q�`�R�b�ԉ����ƁA�N�����Ă���g���g�������ׂċ����I�����邱�Ƃ��ł��܂��B�g���g�����A�N�e�B�u�łȂ���Ԃł������I�������邱�Ƃ��ł��܂��B
+　このキーを２〜３秒間押すと、起動している吉里吉里をすべて強制終了することができます。吉里吉里がアクティブでない状態でも強制終了させることができます。
 </dd>
 </dl>
 <r/>
 <note>
-�����̃z�b�g�L�[�́A�����I���̃z�b�g�L�[�������A<link href="CommandLine" />�ŃL�[��ύX�ł��܂��B<r/>
+これらのホットキーは、強制終了のホットキーを除き、<link href="CommandLine" />でキーを変更できます。<r/>
 </note>
 
 </para>

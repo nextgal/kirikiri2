@@ -22,7 +22,7 @@
 #include "boost/mpl/aux_/config/eti.hpp"
 #include "boost/config.hpp"
 
-#if defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) && \
+#if defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) && ¥
     !defined(BOOST_MPL_PREPROCESSING_MODE)
 #   include "boost/mpl/if.hpp"
 #   include "boost/type_traits/is_same.hpp"
@@ -30,7 +30,7 @@
 
 #include "boost/mpl/aux_/config/use_preprocessed.hpp"
 
-#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) && \
+#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) && ¥
     !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER fold_backward_impl.hpp

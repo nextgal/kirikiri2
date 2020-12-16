@@ -74,11 +74,11 @@ progress_monitor (j_common_ptr cinfo)
   if (percent_done != prog->percent_done) {
     prog->percent_done = percent_done;
     if (total_passes > 1) {
-      fprintf(stderr, "\rPass %d/%d: %3d%% ",
+      fprintf(stderr, "¥rPass %d/%d: %3d%% ",
 	      prog->pub.completed_passes + prog->completed_extra_passes + 1,
 	      total_passes, percent_done);
     } else {
-      fprintf(stderr, "\r %3d%% ", percent_done);
+      fprintf(stderr, "¥r %3d%% ", percent_done);
     }
     fflush(stderr);
   }
@@ -104,7 +104,7 @@ end_progress_monitor (j_common_ptr cinfo)
 {
   /* Clear away progress display */
   if (cinfo->err->trace_level == 0) {
-    fprintf(stderr, "\r                \r");
+    fprintf(stderr, "¥r                ¥r");
     fflush(stderr);
   }
 }
@@ -124,8 +124,8 @@ keymatch (char * arg, const char * keyword, int minchars)
   register int ca, ck;
   register int nmatched = 0;
 
-  while ((ca = *arg++) != '\0') {
-    if ((ck = *keyword++) == '\0')
+  while ((ca = *arg++) != '¥0') {
+    if ((ck = *keyword++) == '¥0')
       return FALSE;		/* arg longer than keyword, no good */
     if (isupper(ca))		/* force arg to lcase (assume ck is already) */
       ca = tolower(ca);
@@ -155,7 +155,7 @@ read_stdin (void)
 #endif
 #ifdef USE_FDOPEN		/* need to re-open in binary mode? */
   if ((input_file = fdopen(fileno(stdin), READ_BINARY)) == NULL) {
-    fprintf(stderr, "Cannot reopen stdin\n");
+    fprintf(stderr, "Cannot reopen stdin¥n");
     exit(EXIT_FAILURE);
   }
 #endif
@@ -173,7 +173,7 @@ write_stdout (void)
 #endif
 #ifdef USE_FDOPEN		/* need to re-open in binary mode? */
   if ((output_file = fdopen(fileno(stdout), WRITE_BINARY)) == NULL) {
-    fprintf(stderr, "Cannot reopen stdout\n");
+    fprintf(stderr, "Cannot reopen stdout¥n");
     exit(EXIT_FAILURE);
   }
 #endif

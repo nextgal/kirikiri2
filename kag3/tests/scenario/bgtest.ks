@@ -1,5 +1,5 @@
 @position opacity=0
-*first|‚Í‚¶‚ß
+*first|ã¯ã˜ã‚
 @backlay
 @image storage="grad2" page=back layer=base children=false
 @trans layer=base time=1000 method=crossfade children=true
@@ -18,7 +18,7 @@
 @trans layer=base time=1000 method=crossfade children=true
 @wt
 ;
-*save-01|ƒ‰ƒxƒ‹01
+*save-01|ãƒ©ãƒ™ãƒ«01
 ;
 @backlay
 @image storage="grad2" page=back layer=base children=false

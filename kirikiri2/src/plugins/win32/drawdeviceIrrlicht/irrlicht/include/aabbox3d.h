@@ -33,19 +33,19 @@ class aabbox3d
 
 		// operators
 		//! Equality operator
-		/** \param other box to compare with.
-		\return True if both boxes are equal, else false. */
+		/** ¥param other box to compare with.
+		¥return True if both boxes are equal, else false. */
 		inline bool operator==(const aabbox3d<T>& other) const { return (MinEdge == other.MinEdge && other.MaxEdge == MaxEdge);}
 		//! Inequality operator
-		/** \param other box to compare with.
-		\return True if both boxes are different, else false. */
+		/** ¥param other box to compare with.
+		¥return True if both boxes are different, else false. */
 		inline bool operator!=(const aabbox3d<T>& other) const { return !(MinEdge == other.MinEdge && other.MaxEdge == MaxEdge);}
 
 		// functions
 
 		//! Adds a point to the bounding box
 		/** The box grows bigger, if point was outside of the box.
-		\param p: Point to add into the box. */
+		¥param p: Point to add into the box. */
 		void addInternalPoint(const vector3d<T>& p)
 		{
 			addInternalPoint(p.X, p.Y, p.Z);
@@ -53,7 +53,7 @@ class aabbox3d
 
 		//! Adds another bounding box
 		/** The box grows bigger, if the new box was outside of the box.
-		\param b: Other bounding box to add into this box. */
+		¥param b: Other bounding box to add into this box. */
 		void addInternalBox(const aabbox3d<T>& b)
 		{
 			addInternalPoint(b.MaxEdge);
@@ -61,9 +61,9 @@ class aabbox3d
 		}
 
 		//! Resets the bounding box to a one-point box.
-		/** \param x X coord of the point.
-		\param y Y coord of the point.
-		\param z Z coord of the point. */
+		/** ¥param x X coord of the point.
+		¥param y Y coord of the point.
+		¥param z Z coord of the point. */
 		void reset(T x, T y, T z)
 		{
 			MaxEdge.set(x,y,z);
@@ -71,14 +71,14 @@ class aabbox3d
 		}
 
 		//! Resets the bounding box.
-		/** \param initValue New box to set this one to. */
+		/** ¥param initValue New box to set this one to. */
 		void reset(const aabbox3d<T>& initValue)
 		{
 			*this = initValue;
 		}
 
 		//! Resets the bounding box to a one-point box.
-		/** \param initValue New point. */
+		/** ¥param initValue New point. */
 		void reset(const vector3d<T>& initValue)
 		{
 			MaxEdge = initValue;
@@ -87,9 +87,9 @@ class aabbox3d
 
 		//! Adds a point to the bounding box
 		/** The box grows bigger, if point is outside of the box.
-		\param x X coordinate of the point to add to this box.
-		\param y Y coordinate of the point to add to this box.
-		\param z Z coordinate of the point to add to this box. */
+		¥param x X coordinate of the point to add to this box.
+		¥param y Y coordinate of the point to add to this box.
+		¥param z Z coordinate of the point to add to this box. */
 		void addInternalPoint(T x, T y, T z)
 		{
 			if (x>MaxEdge.X) MaxEdge.X = x;
@@ -102,8 +102,8 @@ class aabbox3d
 		}
 
 		//! Determines if a point is within this box.
-		/** \param p: Point to check.
-		\return True if the point is within the box and false if not */
+		/** ¥param p: Point to check.
+		¥return True if the point is within the box and false if not */
 		bool isPointInside(const vector3d<T>& p) const
 		{
 			return (p.X >= MinEdge.X && p.X <= MaxEdge.X &&
@@ -112,8 +112,8 @@ class aabbox3d
 		}
 
 		//! Determines if a point is within this box and its borders.
-		/** \param p: Point to check.
-		\return True if the point is within the box and false if not. */
+		/** ¥param p: Point to check.
+		¥return True if the point is within the box and false if not. */
 		bool isPointTotalInside(const vector3d<T>& p) const
 		{
 			return (p.X > MinEdge.X && p.X < MaxEdge.X &&
@@ -122,8 +122,8 @@ class aabbox3d
 		}
 
 		//! Determines if the box intersects with another box.
-		/** \param other: Other box to check a intersection with.
-		\return True if there is an intersection with the other box,
+		/** ¥param other: Other box to check a intersection with.
+		¥return True if there is an intersection with the other box,
 		otherwise false. */
 		bool intersectsWithBox(const aabbox3d<T>& other) const
 		{
@@ -131,8 +131,8 @@ class aabbox3d
 		}
 
 		//! Check if this box is completely inside the 'other' box.
-		/** \param other: Other box to check against.
-		\return True if this box is completly inside the other box,
+		/** ¥param other: Other box to check against.
+		¥return True if this box is completly inside the other box,
 		otherwise false. */
 		bool isFullInside(const aabbox3d<T>& other) const
 		{
@@ -140,8 +140,8 @@ class aabbox3d
 		}
 
 		//! Tests if the box intersects with a line
-		/** \param line: Line to test intersection with.
-		\return True if there is an intersection , else false. */
+		/** ¥param line: Line to test intersection with.
+		¥return True if there is an intersection , else false. */
 		bool intersectsWithLine(const line3d<T>& line) const
 		{
 			return intersectsWithLine(line.getMiddle(), line.getVector().normalize(),
@@ -149,10 +149,10 @@ class aabbox3d
 		}
 
 		//! Tests if the box intersects with a line
-		/** \param linemiddle Center of the line.
-		\param linevect Vector of the line.
-		\param halflength Half length of the line.
-		\return True if there is an intersection, else false. */
+		/** ¥param linemiddle Center of the line.
+		¥param linevect Vector of the line.
+		¥param halflength Half length of the line.
+		¥return True if there is an intersection, else false. */
 		bool intersectsWithLine(const vector3d<T>& linemiddle,
 					const vector3d<T>& linevect,
 					T halflength) const
@@ -181,8 +181,8 @@ class aabbox3d
 		}
 
 		//! Classifies a relation with a plane.
-		/** \param plane Plane to classify relation to.
-		\return Returns ISREL3D_FRONT if the box is in front of the plane,
+		/** ¥param plane Plane to classify relation to.
+		¥return Returns ISREL3D_FRONT if the box is in front of the plane,
 		ISREL3D_BACK if the box is behind the plane, and
 		ISREL3D_CLIPPED if it is on both sides of the plane. */
 		EIntersectionRelation3D classifyPlaneRelation(const plane3d<T>& plane) const
@@ -219,7 +219,7 @@ class aabbox3d
 
 
 		//! Get center of the bounding box
-		/** \return Center of the bounding box. */
+		/** ¥return Center of the bounding box. */
 		vector3d<T> getCenter() const
 		{
 			return (MinEdge + MaxEdge) / 2;
@@ -227,7 +227,7 @@ class aabbox3d
 
 
 		//! Get extent of the box
-		/** \return Extent of the bounding box. */
+		/** ¥return Extent of the bounding box. */
 		vector3d<T> getExtent() const
 		{
 			return MaxEdge - MinEdge;
@@ -235,7 +235,7 @@ class aabbox3d
 
 
 		//! Stores all 8 edges of the box into an array
-		/** \param edges: Pointer to array of 8 edges. */
+		/** ¥param edges: Pointer to array of 8 edges. */
 		void getEdges(vector3d<T> *edges) const
 		{
 			const core::vector3d<T> middle = getCenter();
@@ -268,7 +268,7 @@ class aabbox3d
 		//! Check if the box is empty.
 		/** This means that there is no space between the min and max
 		edge.
-		\return True if box is empty, else false. */
+		¥return True if box is empty, else false. */
 		bool isEmpty() const
 		{
 			return MinEdge.equals ( MaxEdge );
@@ -290,9 +290,9 @@ class aabbox3d
 		}
 
 		//! Calculates a new interpolated bounding box.
-		/** \param other: other box to interpolate between
-		\param d: value between 0.0f and 1.0f.
-		\return Interpolated box. */
+		/** ¥param other: other box to interpolate between
+		¥param d: value between 0.0f and 1.0f.
+		¥return Interpolated box. */
 		aabbox3d<T> getInterpolated(const aabbox3d<T>& other, f32 d) const
 		{
 			f32 inv = 1.0f - d;

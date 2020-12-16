@@ -14,16 +14,16 @@
 # an error.
 
 if [ -n "${CHOST}" ]; then
-    uname="$(echo "${CHOST}" | sed -e 's/^[^-]*-\([^-]*\)$/\1/' -e 's/^[^-]*-[^-]*-\([^-]*\)$/\1/' -e 's/^[^-]*-[^-]*-\([^-]*\)-.*$/\1/')"
+    uname="$(echo "${CHOST}" | sed -e 's/^[^-]*-¥([^-]*¥)$/¥1/' -e 's/^[^-]*-[^-]*-¥([^-]*¥)$/¥1/' -e 's/^[^-]*-[^-]*-¥([^-]*¥)-.*$/¥1/')"
     CROSS_PREFIX="${CHOST}-"
 fi
 
 STATICLIB=libz.a
 LDFLAGS="${LDFLAGS} -L. ${STATICLIB}"
-VER=`sed -n -e '/VERSION "/s/.*"\(.*\)".*/\1/p' < zlib.h`
-VER3=`sed -n -e '/VERSION "/s/.*"\([0-9]*\\.[0-9]*\\.[0-9]*\).*/\1/p' < zlib.h`
-VER2=`sed -n -e '/VERSION "/s/.*"\([0-9]*\\.[0-9]*\)\\..*/\1/p' < zlib.h`
-VER1=`sed -n -e '/VERSION "/s/.*"\([0-9]*\)\\..*/\1/p' < zlib.h`
+VER=`sed -n -e '/VERSION "/s/.*"¥(.*¥)".*/¥1/p' < zlib.h`
+VER3=`sed -n -e '/VERSION "/s/.*"¥([0-9]*¥¥.[0-9]*¥¥.[0-9]*¥).*/¥1/p' < zlib.h`
+VER2=`sed -n -e '/VERSION "/s/.*"¥([0-9]*¥¥.[0-9]*¥)¥¥..*/¥1/p' < zlib.h`
+VER1=`sed -n -e '/VERSION "/s/.*"¥([0-9]*¥)¥¥..*/¥1/p' < zlib.h`
 if "${CROSS_PREFIX}ar" --version >/dev/null 2>/dev/null || test $? -lt 126; then
     AR=${AR-"${CROSS_PREFIX}ar"}
     test -n "${CROSS_PREFIX}" && echo Using ${AR}
@@ -172,7 +172,7 @@ else
   IRIX*)     SFLAGS=${CFLAGS-"-ansi -O2 -rpath ."}
              CFLAGS=${CFLAGS-"-ansi -O2"}
              LDSHARED=${LDSHARED-"cc -shared -Wl,-soname,libz.so.1"} ;;
-  OSF1\ V4*) SFLAGS=${CFLAGS-"-O -std1"}
+  OSF1¥ V4*) SFLAGS=${CFLAGS-"-O -std1"}
              CFLAGS=${CFLAGS-"-O -std1"}
              LDFLAGS="${LDFLAGS} -Wl,-rpath,."
              LDSHARED=${LDSHARED-"cc -shared  -Wl,-soname,libz.so -Wl,-msym -Wl,-rpath,$(libdir) -Wl,-set_version,${VER}:1.0"} ;;
@@ -184,10 +184,10 @@ else
              LDSHARED=${LDSHARED-"cc"}
              RANLIB=${RANLIB-"true"}
              AR_RC="cc -A" ;;
-  SCO_SV\ 3.2*) SFLAGS=${CFLAGS-"-O3 -dy -KPIC "}
+  SCO_SV¥ 3.2*) SFLAGS=${CFLAGS-"-O3 -dy -KPIC "}
              CFLAGS=${CFLAGS-"-O3"}
              LDSHARED=${LDSHARED-"cc -dy -KPIC -G"} ;;
-  SunOS\ 5*) LDSHARED=${LDSHARED-"cc -G"}
+  SunOS¥ 5*) LDSHARED=${LDSHARED-"cc -G"}
          case `(uname -m || echo unknown) 2>/dev/null` in
          i86*)
              SFLAGS=${CFLAGS-"-xpentium -fast -KPIC -R."}
@@ -196,21 +196,21 @@ else
              SFLAGS=${CFLAGS-"-fast -xcg92 -KPIC -R."}
              CFLAGS=${CFLAGS-"-fast -xcg92"} ;;
          esac ;;
-  SunOS\ 4*) SFLAGS=${CFLAGS-"-O2 -PIC"}
+  SunOS¥ 4*) SFLAGS=${CFLAGS-"-O2 -PIC"}
              CFLAGS=${CFLAGS-"-O2"}
              LDSHARED=${LDSHARED-"ld"} ;;
-  SunStudio\ 9*) SFLAGS=${CFLAGS-"-fast -xcode=pic32 -xtarget=ultra3 -xarch=v9b"}
+  SunStudio¥ 9*) SFLAGS=${CFLAGS-"-fast -xcode=pic32 -xtarget=ultra3 -xarch=v9b"}
              CFLAGS=${CFLAGS-"-fast -xtarget=ultra3 -xarch=v9b"}
              LDSHARED=${LDSHARED-"cc -xarch=v9b"} ;;
-  UNIX_System_V\ 4.2.0)
+  UNIX_System_V¥ 4.2.0)
              SFLAGS=${CFLAGS-"-KPIC -O"}
              CFLAGS=${CFLAGS-"-O"}
              LDSHARED=${LDSHARED-"cc -G"} ;;
-  UNIX_SV\ 4.2MP)
+  UNIX_SV¥ 4.2MP)
              SFLAGS=${CFLAGS-"-Kconform_pic -O"}
              CFLAGS=${CFLAGS-"-O"}
              LDSHARED=${LDSHARED-"cc -G"} ;;
-  OpenUNIX\ 5)
+  OpenUNIX¥ 5)
              SFLAGS=${CFLAGS-"-KPIC -O"}
              CFLAGS=${CFLAGS-"-O"}
              LDSHARED=${LDSHARED-"cc -G"} ;;
@@ -296,7 +296,7 @@ cat > $test.c <<EOF
 int main() { return 0; }
 EOF
 if test "`($CC -c $CFLAGS $test.c) 2>&1`" = ""; then
-  sed < zconf.h "/^#ifdef HAVE_UNISTD_H.* may be/s/def HAVE_UNISTD_H\(.*\) may be/ 1\1 was/" > zconf.temp.h
+  sed < zconf.h "/^#ifdef HAVE_UNISTD_H.* may be/s/def HAVE_UNISTD_H¥(.*¥) may be/ 1¥1 was/" > zconf.temp.h
   mv zconf.temp.h zconf.h
   echo "Checking for unistd.h... Yes."
 else
@@ -304,7 +304,7 @@ else
 fi
 
 if test $zprefix -eq 1; then
-  sed < zconf.h "/#ifdef Z_PREFIX.* may be/s/def Z_PREFIX\(.*\) may be/ 1\1 was/" > zconf.temp.h
+  sed < zconf.h "/#ifdef Z_PREFIX.* may be/s/def Z_PREFIX¥(.*¥) may be/ 1¥1 was/" > zconf.temp.h
   mv zconf.temp.h zconf.h
   echo "Using z_ prefix on all symbols."
 fi
@@ -344,7 +344,7 @@ int mytest(const char *fmt, ...)
 
 int main()
 {
-  return (mytest("Hello%d\n", 1));
+  return (mytest("Hello%d¥n", 1));
 }
 EOF
 
@@ -369,7 +369,7 @@ int mytest(const char *fmt, ...)
 
 int main()
 {
-  return (mytest("Hello%d\n", 1));
+  return (mytest("Hello%d¥n", 1));
 }
 EOF
 
@@ -409,7 +409,7 @@ int mytest(const char *fmt, ...)
 
 int main()
 {
-  return (mytest("Hello%d\n", 1));
+  return (mytest("Hello%d¥n", 1));
 }
 EOF
 
@@ -592,5 +592,5 @@ sed < zlib.pc.in "
 /^mandir *=/s#=.*#=$mandir#
 /^LDFLAGS *=/s#=.*#=$LDFLAGS#
 " | sed -e "
-s/\@VERSION\@/$VER/g;
+s/¥@VERSION¥@/$VER/g;
 " > zlib.pc

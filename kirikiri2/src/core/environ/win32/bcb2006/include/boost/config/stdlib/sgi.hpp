@@ -24,9 +24,9 @@
 //
 // No std::stringstream with gcc < 3
 //
-#if defined(__GNUC__) && (__GNUC__ < 3) && \
-     ((__GNUC_MINOR__ < 95) || (__GNUC_MINOR__ == 96)) && \
-     !defined(__STL_USE_NEW_IOSTREAMS) || \
+#if defined(__GNUC__) && (__GNUC__ < 3) && ¥
+     ((__GNUC_MINOR__ < 95) || (__GNUC_MINOR__ == 96)) && ¥
+     !defined(__STL_USE_NEW_IOSTREAMS) || ¥
    defined(__APPLE_CC__)
    // Note that we only set this for GNU C++ prior to 2.95 since the
    // latest patches for that release do contain a minimal <sstream>

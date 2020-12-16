@@ -19,7 +19,7 @@
 #
 # /* BOOST_PP_INC */
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
 #    define BOOST_PP_INC(x) BOOST_PP_INC_I(x)
 # else
 #    define BOOST_PP_INC(x) BOOST_PP_INC_OO((x))

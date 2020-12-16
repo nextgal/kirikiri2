@@ -41,7 +41,7 @@ CGUIContextMenu::CGUIContextMenu(IGUIEnvironment* environment,
 
 
 //! destructor
-CGUIContextMenu::~CGUIContextMenu()
+CGUIContextMenu::‾CGUIContextMenu()
 {
 	for (u32 i=0; i<Items.size(); ++i)
 		if (Items[i].SubMenu)
@@ -595,7 +595,7 @@ s32 CGUIContextMenu::getSelectedItem() const
 }
 
 
-//! \return Returns a pointer to the submenu of an item.
+//! ¥return Returns a pointer to the submenu of an item.
 IGUIContextMenu* CGUIContextMenu::getSubMenu(u32 idx) const
 {
 	if (idx >= Items.size())

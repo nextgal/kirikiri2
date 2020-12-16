@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="Shift_JIS" ?>
 <doc>
-<title>�g���g���Q �ɂ���</title>
+<title>吉里吉里２ について</title>
 
 <para>
-<ptitle>�g���g���Q �ɂ���</ptitle>
-�@�g���g���Q�́AJava��JavaScript�ɂɂ��X�N���v�g����ł���TJS2��p���Ă��낢��Ȏ�����邽�߂̃\�t�g�ł��B<r/>
-�@TJS2 �̕��@�ɂ��Ă� TJS2 �w���v ���������������B<r/>
-�@�����ł͋g���g���̃N���X�𒆐S�ɐ������s���܂��B<r/>
+<ptitle>吉里吉里２ について</ptitle>
+　吉里吉里２は、JavaとJavaScriptににたスクリプト言語であるTJS2を用いていろいろな事をやるためのソフトです。<r/>
+　TJS2 の文法については TJS2 ヘルプ をご覧ください。<r/>
+　ここでは吉里吉里のクラスを中心に説明を行います。<r/>
 </para>
 
 
 <para>
-<ptitle>��ҘA����Ȃ�</ptitle>
-��� : W.Dee &lt;dee@kikyou.info><r/>
-��ʓI�Ȃ������s��񍐂Ȃǂ͉��L�̋g���g���_�E�����[�h�y�[�W�̌f���������p���������B<r/>
+<ptitle>作者連絡先など</ptitle>
+作者 : W.Dee &lt;dee@kikyou.info><r/>
+一般的なご質問や不具合報告などは下記の吉里吉里ダウンロードページの掲示板をご利用ください。<r/>
 <r/>
-�T�|�[�g��_�E�����[�h�͂����炩��<r/>
-�g���g���_�E�����[�h�y�[�W : <at target="_top" href="http://kikyou.info/tvp/">http://kikyou.info/tvp/</at><r/>
+サポートやダウンロードはこちらから<r/>
+吉里吉里ダウンロードページ : <at target="_top" href="http://kikyou.info/tvp/">http://kikyou.info/tvp/</at><r/>
 </para>
 
 

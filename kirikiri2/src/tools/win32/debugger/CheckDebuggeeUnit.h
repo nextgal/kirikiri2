@@ -13,10 +13,10 @@ class DebuggeeCheckThread : public TThread
 {
   typedef struct tagTHREADNAME_INFO
   {
-    DWORD dwType;     // 0x1000 �ɂȂ邱��
-    LPCSTR szName;    // ���O�ւ̃|�C���^�i���[�U�[�A�h���X��ԏ�j
-    DWORD dwThreadID; // �X���b�h ID (-1=�Ăяo���X���b�h)
-    DWORD dwFlags;    // �����̂��߂ɗ\��C0 �ɂ��邱��
+    DWORD dwType;     // 0x1000 になること
+    LPCSTR szName;    // 名前へのポインタ（ユーザーアドレス空間上）
+    DWORD dwThreadID; // スレッド ID (-1=呼び出しスレッド)
+    DWORD dwFlags;    // 将来のために予約，0 にすること
   } THREADNAME_INFO;
 private:
 	void SetName();

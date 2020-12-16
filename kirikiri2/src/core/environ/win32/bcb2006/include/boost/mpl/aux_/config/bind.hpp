@@ -19,8 +19,8 @@
 
 #include "boost/config.hpp"
 
-#if defined(BOOST_MSVC) && BOOST_MSVC <= 1300 \
- || defined(__BORLANDC__) && (__BORLANDC__ <= 0x561 || !defined(BOOST_STRICT_CONFIG)) \
+#if defined(BOOST_MSVC) && BOOST_MSVC <= 1300 ¥
+ || defined(__BORLANDC__) && (__BORLANDC__ <= 0x561 || !defined(BOOST_STRICT_CONFIG)) ¥
  && !defined(BOOST_MPL_NO_BIND_TEMPLATE)
 #   define BOOST_MPL_NO_BIND_TEMPLATE
 #endif 

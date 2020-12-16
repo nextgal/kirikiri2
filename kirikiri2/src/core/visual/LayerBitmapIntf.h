@@ -133,7 +133,7 @@ public:
 	tTVPBaseBitmap(tjs_uint w, tjs_uint h, tjs_uint bpp = 32);
 	tTVPBaseBitmap(const tTVPBaseBitmap & r) :
 		tTVPNativeBaseBitmap(r) {}
-	~tTVPBaseBitmap();
+	‾tTVPBaseBitmap();
 
 public:
 

@@ -1,16 +1,16 @@
 class Layer
 {
 	/**
-	 * ���̃��C���[��ł�X���W���A�X�N���[����ł͂����ɂȂ邩��Ԃ�
-	 * @param x ���C���[��ł�X���W
-	 * @return �X�N���[����ł�X���W
+	 * このレイヤー上でのX座標が、スクリーン上ではいくつになるかを返す
+	 * @param x レイヤー上でのX座標
+	 * @return スクリーン上でのX座標
 	 */
 	function getScreenLeft(x)
 
 	/**
-	 * ���̃��C���[��ł�Y���W���A�X�N���[����ł͂����ɂȂ邩��Ԃ�
-	 * @param y ���C���[��ł�Y���W
-	 * @return �X�N���[����ł�Y���W
+	 * このレイヤー上でのY座標が、スクリーン上ではいくつになるかを返す
+	 * @param y レイヤー上でのY座標
+	 * @return スクリーン上でのY座標
 	 */
 	function getScreenTop(y)
 }

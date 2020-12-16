@@ -43,7 +43,7 @@ public:
 	//-- constructor
 	tTVPArchive(const ttstr & name)
 		{ ArchiveName = name; Init = false; RefCount = 1; }
-	virtual ~tTVPArchive() { ; }
+	virtual ‾tTVPArchive() { ; }
 
 	//-- AddRef and Release
 	void AddRef() { RefCount++; }

@@ -14,7 +14,7 @@ struct ToArrayedPointer {
 	typedef typename PropAccT::SizeT SizeT;
 
 	ToArrayedPointer() : _array(0) {}
-	~ToArrayedPointer() {
+	‾ToArrayedPointer() {
 		if (_array) delete[] _array;
 		_array = 0;
 	}
@@ -37,7 +37,7 @@ private:
 };
 
 
-#define NCB_TYPECONV_ARRAY(type) \
+#define NCB_TYPECONV_ARRAY(type) ¥
 	NCB_TYPECONV_DSTMAP_SET(type, ToArrayedPointer<type>, false)
 
 #endif

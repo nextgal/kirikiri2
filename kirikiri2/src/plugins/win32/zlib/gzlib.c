@@ -42,9 +42,9 @@ char ZLIB_INTERNAL *gz_strwinerror (error)
         0,
         NULL);
     if (chars != 0) {
-        /* If there is an \r\n appended, zap it.  */
+        /* If there is an ¥r¥n appended, zap it.  */
         if (chars >= 2
-            && msgbuf[chars - 2] == '\r' && msgbuf[chars - 1] == '\n') {
+            && msgbuf[chars - 2] == '¥r' && msgbuf[chars - 1] == '¥n') {
             chars -= 2;
             msgbuf[chars] = 0;
         }

@@ -3,14 +3,14 @@ object TPCMainForm: TTPCMainForm
   Top = 7
   ActiveControl = CloseButton
   BorderStyle = bsDialog
-  Caption = '‰æ‘œƒtƒH[ƒ}ƒbƒgƒRƒ“ƒo[ƒ^'
+  Caption = 'ç”»åƒãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚³ãƒ³ãƒãƒ¼ã‚¿'
   ClientHeight = 390
   ClientWidth = 546
   Color = clBtnFace
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   Position = poDefault
@@ -23,21 +23,21 @@ object TPCMainForm: TTPCMainForm
     Top = 9
     Width = 283
     Height = 12
-    Caption = '•ÏŠ·‚µ‚½‚¢ƒtƒ@ƒCƒ‹‚ğ‚±‚ÌƒEƒBƒ“ƒhƒE‚Éƒhƒƒbƒv‚µ‚Ä‚­‚¾‚³‚¢'
+    Caption = 'å¤‰æ›ã—ãŸã„ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã“ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ãã ã•ã„'
   end
   object TranspOuputFormatGroupBox: TGroupBox
     Left = 144
     Top = 32
     Width = 393
     Height = 209
-    Caption = '“§–¾•”•ª‚Ì‚ ‚é‰æ‘œ(&F)'
+    Caption = 'é€æ˜éƒ¨åˆ†ã®ã‚ã‚‹ç”»åƒ(&F)'
     TabOrder = 2
     object TranspMainFormatLabel: TLabel
       Left = 232
       Top = 28
       Width = 75
       Height = 12
-      Caption = 'ƒƒCƒ“Œ`®(&C) :'
+      Caption = 'ãƒ¡ã‚¤ãƒ³å½¢å¼(&C) :'
       FocusControl = TranspMainFormatComboBox
     end
     object TranspMaskFormatLabel: TLabel
@@ -45,7 +45,7 @@ object TPCMainForm: TTPCMainForm
       Top = 75
       Width = 79
       Height = 12
-      Caption = 'ƒ}ƒXƒNŒ`®(&M) :'
+      Caption = 'ãƒã‚¹ã‚¯å½¢å¼(&M) :'
       FocusControl = TranspMaskFormatComboBox
     end
     object TranspFullTranspColorMethodLabel: TLabel
@@ -53,7 +53,7 @@ object TPCMainForm: TTPCMainForm
       Top = 176
       Width = 146
       Height = 12
-      Caption = 'Š®‘S“§–¾•”•ª‚ÌFî•ñ(&U) : '
+      Caption = 'å®Œå…¨é€æ˜éƒ¨åˆ†ã®è‰²æƒ…å ±(&U) : '
       FocusControl = TranspFullTranspColorMethodComboBox
     end
     object TranspBMPFormatRadioButton: TRadioButton
@@ -61,7 +61,7 @@ object TPCMainForm: TTPCMainForm
       Top = 24
       Width = 193
       Height = 17
-      Caption = 'ƒ¿ƒ`ƒƒƒ“ƒlƒ‹•t‚« 32bit B&MP'
+      Caption = 'Î±ãƒãƒ£ãƒ³ãƒãƒ«ä»˜ã 32bit B&MP'
       TabOrder = 0
       OnClick = TranspBMPFormatRadioButtonClick
     end
@@ -70,7 +70,7 @@ object TPCMainForm: TTPCMainForm
       Top = 40
       Width = 161
       Height = 17
-      Caption = 'ƒ¿ƒ`ƒƒƒlƒ‹•t‚« P&NG'
+      Caption = 'Î±ãƒãƒ£ãƒãƒ«ä»˜ã P&NG'
       Checked = True
       TabOrder = 1
       TabStop = True
@@ -81,7 +81,7 @@ object TPCMainForm: TTPCMainForm
       Top = 88
       Width = 153
       Height = 17
-      Caption = 'ƒƒCƒ“/ƒ}ƒXƒN•ª—£Œ`®(&S)'
+      Caption = 'ãƒ¡ã‚¤ãƒ³/ãƒã‚¹ã‚¯åˆ†é›¢å½¢å¼(&S)'
       TabOrder = 4
       OnClick = TranspSeparatedFormatRadioButtonClick
     end
@@ -118,7 +118,7 @@ object TPCMainForm: TTPCMainForm
       Top = 48
       Width = 73
       Height = 20
-      Caption = 'JPEGİ’è ...'
+      Caption = 'JPEGè¨­å®š ...'
       TabOrder = 6
       OnClick = TranspMainJPEGOptionButtonClick
     end
@@ -127,7 +127,7 @@ object TPCMainForm: TTPCMainForm
       Top = 95
       Width = 73
       Height = 20
-      Caption = 'JPEGİ’è ...'
+      Caption = 'JPEGè¨­å®š ...'
       TabOrder = 8
       OnClick = TranspMaskJPEGOptionButtonClick
     end
@@ -140,20 +140,20 @@ object TPCMainForm: TTPCMainForm
       ItemHeight = 12
       TabOrder = 11
       Items.Strings = (
-        'œ‹'
-        '‚»‚Ì‚Ü‚Ü'
-        '‡¬(1pixel)'
-        '‡¬(2pixel)'
-        '‡¬(3pixel)'
-        '‡¬(5pixel)'
-        '‡¬(8pixel)')
+        'é™¤å»'
+        'ãã®ã¾ã¾'
+        'åˆæˆ(1pixel)'
+        'åˆæˆ(2pixel)'
+        'åˆæˆ(3pixel)'
+        'åˆæˆ(5pixel)'
+        'åˆæˆ(8pixel)')
     end
     object TranspTLG5FormatRadioButton: TRadioButton
       Left = 16
       Top = 56
       Width = 153
       Height = 17
-      Caption = 'ƒ¿ƒ`ƒƒƒlƒ‹•t‚« T&LG5'
+      Caption = 'Î±ãƒãƒ£ãƒãƒ«ä»˜ã T&LG5'
       TabOrder = 2
       OnClick = TranspTLG5FormatRadioButtonClick
     end
@@ -162,7 +162,7 @@ object TPCMainForm: TTPCMainForm
       Top = 72
       Width = 145
       Height = 17
-      Caption = 'ƒ¿ƒ`ƒƒƒlƒ‹•t‚« TLG&6'
+      Caption = 'Î±ãƒãƒ£ãƒãƒ«ä»˜ã TLG&6'
       TabOrder = 3
       OnClick = TranspTLG6FormatRadioButtonClick
     end
@@ -171,7 +171,7 @@ object TPCMainForm: TTPCMainForm
       Top = 152
       Width = 353
       Height = 17
-      Caption = 'ltAddAlphaŒ`®‚Åo—Í‚·‚é(&A)'
+      Caption = 'ltAddAlphaå½¢å¼ã§å‡ºåŠ›ã™ã‚‹(&A)'
       TabOrder = 10
       OnClick = TranspOutputAddAlphaFormatCheckBoxClick
     end
@@ -188,7 +188,7 @@ object TPCMainForm: TTPCMainForm
       Top = 136
       Width = 353
       Height = 17
-      Caption = '“ü—Í‰æ‘œ‚ğltAddAlphaŒ`®‚Å‚ ‚é‚Æ‚İ‚È‚·(&D)'
+      Caption = 'å…¥åŠ›ç”»åƒã‚’ltAddAlphaå½¢å¼ã§ã‚ã‚‹ã¨ã¿ãªã™(&D)'
       TabOrder = 9
       OnClick = TranspAssumeInputIsAddAlphaCheckBoxClick
     end
@@ -198,14 +198,14 @@ object TPCMainForm: TTPCMainForm
     Top = 248
     Width = 529
     Height = 105
-    Caption = 'o—ÍƒtƒHƒ‹ƒ_(&O)'
+    Caption = 'å‡ºåŠ›ãƒ•ã‚©ãƒ«ãƒ€(&O)'
     TabOrder = 3
     object SameFolderRadioButton: TRadioButton
       Left = 16
       Top = 24
       Width = 249
       Height = 17
-      Caption = '“ü—Íƒtƒ@ƒCƒ‹‚Æ“¯‚¶ƒtƒHƒ‹ƒ_(&I)'
+      Caption = 'å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã¨åŒã˜ãƒ•ã‚©ãƒ«ãƒ€(&I)'
       Checked = True
       TabOrder = 0
       TabStop = True
@@ -216,7 +216,7 @@ object TPCMainForm: TTPCMainForm
       Top = 48
       Width = 137
       Height = 17
-      Caption = 'w’èƒtƒHƒ‹ƒ_(&Y) :'
+      Caption = 'æŒ‡å®šãƒ•ã‚©ãƒ«ãƒ€(&Y) :'
       TabOrder = 1
       OnClick = SpecifyFolderRadioButtonClick
     end
@@ -228,7 +228,7 @@ object TPCMainForm: TTPCMainForm
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = '‚l‚r ƒSƒVƒbƒN'
+      Font.Name = 'ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯'
       Font.Pitch = fpFixed
       Font.Style = []
       ParentFont = False
@@ -239,7 +239,7 @@ object TPCMainForm: TTPCMainForm
       Top = 46
       Width = 49
       Height = 20
-      Caption = 'QÆ ...'
+      Caption = 'å‚ç…§ ...'
       TabOrder = 3
       OnClick = OutputFolderRefButtonClick
     end
@@ -248,7 +248,7 @@ object TPCMainForm: TTPCMainForm
       Top = 72
       Width = 313
       Height = 17
-      Caption = '“¯–¼‚Ìƒtƒ@ƒCƒ‹‚ª‚ ‚Á‚½ê‡‚Éã‘‚«‚·‚é(&O)'
+      Caption = 'åŒåã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã£ãŸå ´åˆã«ä¸Šæ›¸ãã™ã‚‹(&O)'
       TabOrder = 4
     end
   end
@@ -258,7 +258,7 @@ object TPCMainForm: TTPCMainForm
     Width = 75
     Height = 21
     Cancel = True
-    Caption = '•Â‚¶‚é(&X)'
+    Caption = 'é–‰ã˜ã‚‹(&X)'
     TabOrder = 5
     OnClick = CloseButtonClick
   end
@@ -267,7 +267,7 @@ object TPCMainForm: TTPCMainForm
     Top = 32
     Width = 129
     Height = 209
-    Caption = '•s“§–¾‚È‰æ‘œ(&Q)'
+    Caption = 'ä¸é€æ˜ãªç”»åƒ(&Q)'
     TabOrder = 1
     object OpaqueBMPFormatRadioButton: TRadioButton
       Left = 16
@@ -321,7 +321,7 @@ object TPCMainForm: TTPCMainForm
       Top = 109
       Width = 73
       Height = 20
-      Caption = 'JPEGİ’è ...'
+      Caption = 'JPEGè¨­å®š ...'
       TabOrder = 5
       OnClick = OpaqueJPEGOptionButtonClick
     end
@@ -331,7 +331,7 @@ object TPCMainForm: TTPCMainForm
     Top = 361
     Width = 361
     Height = 17
-    Caption = 'ƒGƒ‰[‚ª”­¶‚µ‚È‚©‚Á‚½ê‡‚ÍƒƒO‚ğ•\¦‚µ‚È‚¢(&K)'
+    Caption = 'ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãªã‹ã£ãŸå ´åˆã¯ãƒ­ã‚°ã‚’è¡¨ç¤ºã—ãªã„(&K)'
     TabOrder = 4
   end
   object ExpandButton: TCheckBox
@@ -339,7 +339,7 @@ object TPCMainForm: TTPCMainForm
     Top = 6
     Width = 129
     Height = 17
-    Caption = 'ƒIƒvƒVƒ‡ƒ“‚ğ•\¦(&V)'
+    Caption = 'ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’è¡¨ç¤º(&V)'
     TabOrder = 0
     OnClick = ExpandButtonClick
   end

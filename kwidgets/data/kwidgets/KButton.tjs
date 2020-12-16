@@ -4,57 +4,57 @@
 
 
 /**----------------------------------------------------------------------
- * ƒ{ƒ^ƒ“
+ * ãƒœã‚¿ãƒ³
  ----------------------------------------------------------------------*/
 class KButton extends KValueWidget
 {
-  // ƒ‰ƒxƒ‹ƒEƒBƒWƒFƒbƒg
+  // ãƒ©ãƒ™ãƒ«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
   var child;
-  // ƒ{ƒ^ƒ“ƒCƒ[ƒW•`‰æ—p‚Ìƒx[ƒXƒŒƒCƒ„
+  // ãƒœã‚¿ãƒ³ã‚¤ãƒ¡ãƒ¼ã‚¸æç”»ç”¨ã®ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
   var baseLayer;
-  // ‰Ÿ‰º’†
+  // æŠ¼ä¸‹ä¸­
   var pressing;
-  // ƒ{ƒ^ƒ“‚Ì’l
+  // ãƒœã‚¿ãƒ³ã®å€¤
   var value = void;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param labelWidget ƒ{ƒ^ƒ“‚Ì^‚ñ’†‚É•\¦‚·‚éƒ‰ƒxƒ‹ƒEƒBƒWƒFƒbƒg
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param labelWidget ãƒœã‚¿ãƒ³ã®çœŸã‚“ä¸­ã«è¡¨ç¤ºã™ã‚‹ãƒ©ãƒ™ãƒ«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param name åå‰
    ------------------------------*/
   function KButton(win, labelWidget, name) {
     // super
     super.KWidget(win, name);
 
-    // ƒx[ƒXƒŒƒCƒ„‚ğƒZƒbƒgƒAƒbƒv
+    // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤ã‚’ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—
     baseLayer = new global.KWidget(win);
     baseLayer.parent = this;
     baseLayer.hitThreshold = 256;
 
-    // child‚ğƒZƒbƒgƒAƒbƒv
+    // childã‚’ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—
     child = labelWidget;
     child.parent = this;
     child.hitThreshold = 256;
 
-    // ƒfƒtƒHƒ‹ƒgƒtƒH[ƒJƒX
+    // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹
     focusable = win.defaultFocusable;
 
-    // •Ó‚è”»’èƒI[ƒ‹ó‚¯‚Â‚¯
+    // è¾ºã‚Šåˆ¤å®šã‚ªãƒ¼ãƒ«å—ã‘ã¤ã‘
     hitThreshold = 0;
 
-    // ©•ª©g‚ÍƒCƒ[ƒW‚½‚¸
+    // è‡ªåˆ†è‡ªèº«ã¯ã‚¤ãƒ¡ãƒ¼ã‚¸æŒãŸãš
     hasImage = false;
 
-    // ‰Ÿ‰º’†‚Å‚Í–³‚¢
+    // æŠ¼ä¸‹ä¸­ã§ã¯ç„¡ã„
     pressing = false;
 
-    // ƒŒƒCƒAƒEƒgÄİ’è
+    // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆå†è¨­å®š
     invalidateLayout();
   }
 
-  // ƒŒƒCƒAƒEƒg‚ğ‚â‚è’¼‚·
+  // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ã‚„ã‚Šç›´ã™
   function invalidateLayout {
     setMinMaxSize(child.minWidth + child.marginHorizontal + 2,
                   child.minHeight + child.marginVertical + 2,
@@ -63,21 +63,21 @@ class KButton extends KValueWidget
     drawContent();
   }
 
-  // “à—e‚ğ•`‰æ‚·‚é
+  // å†…å®¹ã‚’æç”»ã™ã‚‹
   function drawContent {
-    // ƒx[ƒXƒŒƒCƒ„‚É˜g‚ğ•`‰æ
+    // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤ã«æ ã‚’æç”»
     baseLayer.setFixedSize(width, height);
     baseLayer.fillRect(0, 0, width, height, focused ? WIN_HIGHLIGHT : 0);
     baseLayer.drawRaisedFrame(1, 1, width - 2, height - 2);
-    // qƒŒƒCƒ„‚ÌƒTƒCƒYEˆÊ’u‚ğÄİ’è
+    // å­ãƒ¬ã‚¤ãƒ¤ã®ã‚µã‚¤ã‚ºãƒ»ä½ç½®ã‚’å†è¨­å®š
     child.setSize(width - 2 - child.marginHorizontal, height - 2 - child.marginVertical);
     locateChild(1, 1, width - 2, height - 2, child);
   }  
 
   /**------------------------------
-   * ƒCƒxƒ“ƒg‚ğ”­¶‚³‚¹‹­§“I‚ÉŒ»İ‚Ì’l‚ğ’Ê’m‚·‚éB
+   * ã‚¤ãƒ™ãƒ³ãƒˆã‚’ç™ºç”Ÿã•ã›å¼·åˆ¶çš„ã«ç¾åœ¨ã®å€¤ã‚’é€šçŸ¥ã™ã‚‹ã€‚
    *
-   * ’ltrue‚Å onValueModified‚ğŒÄ‚Ñ‚Ü‚·B
+   * å€¤trueã§ onValueModifiedã‚’å‘¼ã³ã¾ã™ã€‚
    ------------------------------*/
   function invalidateValue {
     if (nodeEnabled)
@@ -85,25 +85,25 @@ class KButton extends KValueWidget
   }
 
   /*------------------------------
-   * ƒ{ƒ^ƒ“‰Ÿ‰º‚Ì”½‰
+   * ãƒœã‚¿ãƒ³æŠ¼ä¸‹æ™‚ã®åå¿œ
    * 
-   * ƒ{ƒ^ƒ“‚ğ‰Ÿ‚³‚ê‚½ƒOƒ‰ƒtƒBƒbƒN‚É‚µ‚ÄonValuChanged‚ğŒÄ‚Ô
+   * ãƒœã‚¿ãƒ³ã‚’æŠ¼ã•ã‚ŒãŸã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ã«ã—ã¦onValuChangedã‚’å‘¼ã¶
    ------------------------------*/
   function buttonDown {
-    // ƒtƒH[ƒJƒX‚µ‚½ã‚Å
+    // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã—ãŸä¸Šã§
     focus();
-    // ƒtƒ‰ƒbƒgƒtƒŒ[ƒ€‚ğ•`‰æ
+    // ãƒ•ãƒ©ãƒƒãƒˆãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æç”»
     baseLayer.drawFlattenFrame(1, 1, baseLayer.width - 2, baseLayer.height - 2);
-    // ƒ‰ƒxƒ‹‚ğ(+1,+1)ƒIƒtƒZƒbƒg‚µ‚½ˆÊ’u‚É•`‰æ
+    // ãƒ©ãƒ™ãƒ«ã‚’(+1,+1)ã‚ªãƒ•ã‚»ãƒƒãƒˆã—ãŸä½ç½®ã«æç”»
     locateChild(2, 2, width - 2, height - 2, child);
-    // ‰Ÿ‰º’†
+    // æŠ¼ä¸‹ä¸­
     pressing = true;
   }
 
   /*------------------------------
-   * ƒ{ƒ^ƒ“ŠJ•ú‚Ì”½‰
+   * ãƒœã‚¿ãƒ³é–‹æ”¾æ™‚ã®åå¿œ
    * 
-   * ƒ{ƒ^ƒ“‚ÌƒOƒ‰ƒtƒBƒbƒN‚ğŒ³‚É–ß‚µAAonValueChanged() ‚ğŒÄ‚Ô
+   * ãƒœã‚¿ãƒ³ã®ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ã‚’å…ƒã«æˆ»ã—ã€ã€onValueChanged() ã‚’å‘¼ã¶
    ------------------------------*/
   function buttonUp {
     if (! pressing)
@@ -111,16 +111,16 @@ class KButton extends KValueWidget
 
     pressing = false;
 
-    // ƒtƒŒ[ƒ€‚ğŒ³‚É–ß‚·
+    // ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å…ƒã«æˆ»ã™
     baseLayer.drawRaisedFrame(1, 1, baseLayer.width - 2, baseLayer.height - 2);
-    // ƒ‰ƒxƒ‹‚ÌˆÊ’u‚ğŒ³‚É–ß‚·
+    // ãƒ©ãƒ™ãƒ«ã®ä½ç½®ã‚’å…ƒã«æˆ»ã™
     locateChild(1, 1, width - 2, height - 2, child);
-    // ’l‚ÌXV‚ğ’Ê’m
+    // å€¤ã®æ›´æ–°ã‚’é€šçŸ¥
     invalidateValue();
   }
 
   /*------------------------------
-   * ƒ}ƒEƒX‚É”½‰‚·‚é
+   * ãƒã‚¦ã‚¹ã«åå¿œã™ã‚‹
    ------------------------------*/
   function onMouseDown {
     super.onMouseDown(...);
@@ -133,7 +133,7 @@ class KButton extends KValueWidget
   }
 
   /*------------------------------
-   * ƒL[ƒ{[ƒh‚É”½‰‚·‚é
+   * ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã«åå¿œã™ã‚‹
    ------------------------------*/
   function onKeyDown(key, shift) {
     if (key == VK_SPACE || key == VK_RETURN) {
@@ -148,62 +148,62 @@ class KButton extends KValueWidget
     super.onKeyUp(...);
   }
 
-  // q‚ÌÅ¬Å‘åƒTƒCƒY‚ª•Ï‚í‚Á‚½‚çƒŒƒCƒAƒEƒg‚â‚è’¼‚µ
+  // å­ã®æœ€å°æœ€å¤§ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã£ãŸã‚‰ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚„ã‚Šç›´ã—
   function onChildMinMaxSizeModified(child) {
     if (child == baseLayer)
       return;
     invalidateLayout();
   }
 
-  // q‚Ìƒ}[ƒWƒ“‚ª•Ï‚í‚Á‚½‚çƒŒƒCƒAƒEƒg‚â‚è’¼‚µ
+  // å­ã®ãƒãƒ¼ã‚¸ãƒ³ãŒå¤‰ã‚ã£ãŸã‚‰ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚„ã‚Šç›´ã—
   function onChildMarginModified {
     invalidateLayout();
   }
 
-  // ƒTƒCƒY‚ª•Ï‚í‚Á‚½‚çÄ•`‰æ
+  // ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã£ãŸã‚‰å†æç”»
   function onSizeModified {
     drawContent();
   }
 
-  // ƒtƒH[ƒJƒX‚³‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã•ã‚ŒãŸã‚‰å†æç”»
   function onFocus {
     drawContent();
   }
 
-  // ƒtƒH[ƒJƒX‚ªŠO‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒå¤–ã‚ŒãŸã‚‰å†æç”»
   function onBlur {
     drawContent();
   }
   
-  // enabled==true‚È‚ç‚»‚Ì‚Ü‚Ü•\¦
+  // enabled==trueãªã‚‰ãã®ã¾ã¾è¡¨ç¤º
   function onNodeEnabled {
     baseLayer.opacity = 255;
   } 
 
-  // enabled=false‚È‚ç”¼“§–¾‚Å•\¦
+  // enabled=falseãªã‚‰åŠé€æ˜ã§è¡¨ç¤º
   function onNodeDisabled {
     baseLayer.opacity = 64;
   }
 
-  // ‰i‘±‰»«‘‚É‚ÍƒoƒCƒ“ƒh‚µ‚È‚¢B
+  // æ°¸ç¶šåŒ–è¾æ›¸ã«ã¯ãƒã‚¤ãƒ³ãƒ‰ã—ãªã„ã€‚
   function bindPersistentDictionary() {
   }
 }  
 
 /*----------------------------------------------------------------------
- * ƒeƒLƒXƒgƒ{ƒ^ƒ“
+ * ãƒ†ã‚­ã‚¹ãƒˆãƒœã‚¿ãƒ³
  *
- * ƒeƒLƒXƒg‚ğƒ‰ƒxƒ‹‚É‚Á‚½ƒ{ƒ^ƒ“B
- * “à•”“I‚É KTextLabel ‚ğƒ‰ƒxƒ‹‚Æ‚µ‚Ä•Û‚µ‚Ä‚¢‚Ü‚·B
+ * ãƒ†ã‚­ã‚¹ãƒˆã‚’ãƒ©ãƒ™ãƒ«ã«æŒã£ãŸãƒœã‚¿ãƒ³ã€‚
+ * å†…éƒ¨çš„ã« KTextLabel ã‚’ãƒ©ãƒ™ãƒ«ã¨ã—ã¦ä¿æŒã—ã¦ã„ã¾ã™ã€‚
  ----------------------------------------------------------------------*/
 class KTextButton extends KButton
 {
   /*------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param label ƒ‰ƒxƒ‹
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param label ãƒ©ãƒ™ãƒ«
+   * @param name åå‰
    ------------------------------*/
    function KTextButton(win, label, name) {
     var labelWidget = new KTextLabel(win, label);
@@ -212,10 +212,10 @@ class KTextButton extends KButton
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹‚Ì’l
+   * ãƒ©ãƒ™ãƒ«ã®å€¤
    *
-   * @return ƒ‰ƒxƒ‹‚Ì’l
-   * @param v V‹K‚Ìƒ‰ƒxƒ‹‚Ì’l
+   * @return ãƒ©ãƒ™ãƒ«ã®å€¤
+   * @param v æ–°è¦ã®ãƒ©ãƒ™ãƒ«ã®å€¤
    ------------------------------*/
   property label {
     getter {
@@ -228,19 +228,19 @@ class KTextButton extends KButton
 }
 
 /*----------------------------------------------------------------------
- * ƒCƒ[ƒWƒ{ƒ^ƒ“
+ * ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒœã‚¿ãƒ³
  *
- * ƒCƒ[ƒW‚ğƒ‰ƒxƒ‹‚É‚Á‚½ƒ{ƒ^ƒ“B
- * “à•”“I‚É KImageLabel ‚ğƒ‰ƒxƒ‹‚Æ‚µ‚Ä•Û‚µ‚Ä‚¢‚Ü‚·B
+ * ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ãƒ©ãƒ™ãƒ«ã«æŒã£ãŸãƒœã‚¿ãƒ³ã€‚
+ * å†…éƒ¨çš„ã« KImageLabel ã‚’ãƒ©ãƒ™ãƒ«ã¨ã—ã¦ä¿æŒã—ã¦ã„ã¾ã™ã€‚
  ----------------------------------------------------------------------*/
 class KImageButton extends KButton
 {
   /*------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param label ƒCƒ[ƒWƒtƒ@ƒCƒ‹–¼
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param label ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«å
+   * @param name åå‰
    ------------------------------*/
   function KImageButton(win, label, name) {
     var labelWidget = new KImageLabel(win, label);
@@ -249,10 +249,10 @@ class KImageButton extends KButton
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹‚Ì’l
+   * ãƒ©ãƒ™ãƒ«ã®å€¤
    *
-   * @return ƒ‰ƒxƒ‹‚Ì’l
-   * @param v V‹K‚Ìƒ‰ƒxƒ‹‚Ì’l
+   * @return ãƒ©ãƒ™ãƒ«ã®å€¤
+   * @param v æ–°è¦ã®ãƒ©ãƒ™ãƒ«ã®å€¤
    ------------------------------*/
   property label {
     getter {

@@ -101,7 +101,7 @@ public:
 	tTVPRegionRectInitialHolder() { InitialRect = NULL; }
 	void Hold() { if(!InitialRect) { InitialRect = (tTVPRegionRect *)-1;
 		InitialRect = TVPAllocateRegionRect(); } }
-	~tTVPRegionRectInitialHolder() { if(InitialRect) TVPDeallocateRegionRect(InitialRect); }
+	‾tTVPRegionRectInitialHolder() { if(InitialRect) TVPDeallocateRegionRect(InitialRect); }
 };
 static tTVPRegionRectInitialHolder TVPRegionRectInitialHolder;
 //---------------------------------------------------------------------------
@@ -199,7 +199,7 @@ tTVPComplexRect::tTVPComplexRect(const tTVPComplexRect & ref)
 	}
 }
 //---------------------------------------------------------------------------
-tTVPComplexRect::~tTVPComplexRect()
+tTVPComplexRect::‾tTVPComplexRect()
 {
 	// destructor
 	FreeAllRectangles();

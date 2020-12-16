@@ -99,7 +99,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
     }
 
     // if filename given on commandline, store it
-    if ((szCmdLine != NULL) && (*szCmdLine != '\0'))
+    if ((szCmdLine != NULL) && (*szCmdLine != '¥0'))
         if (szCmdLine[0] == '"')
             strncpy (szCmdFileName, szCmdLine + 1, strlen(szCmdLine) - 2);
         else
@@ -179,7 +179,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT message, WPARAM wParam,
 
         // in case we process file given on command-line
 
-        if (szCmdFileName[0] != '\0')
+        if (szCmdFileName[0] != '¥0')
         {
             strcpy (szImgPathName, szCmdFileName);
 
@@ -531,10 +531,10 @@ BOOL BuildPngList (PTSTR pstrPathName, TCHAR **ppFileList, int *pFileCount,
     // extract foldername, filename and search-name
 
     strcpy (szImgPathName, pstrPathName);
-    strcpy (szImgFileName, strrchr (pstrPathName, '\\') + 1);
+    strcpy (szImgFileName, strrchr (pstrPathName, '¥¥') + 1);
 
     strcpy (szImgFindName, szImgPathName);
-    *(strrchr (szImgFindName, '\\') + 1) = '\0';
+    *(strrchr (szImgFindName, '¥¥') + 1) = '¥0';
     strcat (szImgFindName, "*.png");
 
     // first cycle: count number of files in directory for memory allocation
@@ -565,7 +565,7 @@ BOOL BuildPngList (PTSTR pstrPathName, TCHAR **ppFileList, int *pFileCount,
     while (bOk)
     {
         strcpy (*ppFileList + ii, szImgPathName);
-        strcpy (strrchr(*ppFileList + ii, '\\') + 1, finddata.cFileName);
+        strcpy (strrchr(*ppFileList + ii, '¥¥') + 1, finddata.cFileName);
 
         if (strcmp(pstrPathName, *ppFileList + ii) == 0)
             *pFileIndex = i;
@@ -678,7 +678,7 @@ BOOL LoadImageFile (HWND hwnd, PTSTR pstrPathName,
 
     if (*ppbImage != NULL)
     {
-        sprintf (szTmp, "VisualPng - %s", strrchr(pstrPathName, '\\') + 1);
+        sprintf (szTmp, "VisualPng - %s", strrchr(pstrPathName, '¥¥') + 1);
         SetWindowText (hwnd, szTmp);
     }
     else

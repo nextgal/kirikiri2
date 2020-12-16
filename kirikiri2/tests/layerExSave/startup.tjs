@@ -25,21 +25,21 @@ class MyWindow extends Window
 	
 	function MyWindow() {
 		super.Window();
-		menu.add(savemenu1 = new MenuItem(this, "TLG•Û‘¶1(blk)"));
-		menu.add(savemenu2 = new MenuItem(this, "TLG•Û‘¶2(bg)"));
-		menu.add(savemenu3 = new MenuItem(this, "PNG•Û‘¶1(blk)"));
-		menu.add(savemenu4 = new MenuItem(this, "PNG•Û‘¶2(bg)"));
-		menu.add(savemenu5 = new MenuItem(this, "PNG•Û‘¶3(oct)"));
-		menu.add(savemenu6 = new MenuItem(this, "ƒ[ƒhƒ`ƒFƒbƒN"));
+		menu.add(savemenu1 = new MenuItem(this, "TLGä¿å­˜1(blk)"));
+		menu.add(savemenu2 = new MenuItem(this, "TLGä¿å­˜2(bg)"));
+		menu.add(savemenu3 = new MenuItem(this, "PNGä¿å­˜1(blk)"));
+		menu.add(savemenu4 = new MenuItem(this, "PNGä¿å­˜2(bg)"));
+		menu.add(savemenu5 = new MenuItem(this, "PNGä¿å­˜3(oct)"));
+		menu.add(savemenu6 = new MenuItem(this, "ãƒ­ãƒ¼ãƒ‰ãƒã‚§ãƒƒã‚¯"));
 		setInnerSize(WIDTH, HEIGHT);
 
-		// ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„
+		// ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤
 		base = new Layer(this, null);
 		base.setSize(WIDTH, HEIGHT);
 		base.fillRect(0,0,WIDTH,HEIGHT,0xff000000);
 		add(base);
 
-		// •\¦ƒŒƒCƒ„
+		// è¡¨ç¤ºãƒ¬ã‚¤ãƒ¤
 		layer = new Layer(this, base);
 		var src = "original.png";
 		layer.loadImages(src) if (Storages.isExistentStorage(src));
@@ -49,13 +49,13 @@ class MyWindow extends Window
 		add(layer);
 
 		layer.fillRect(0,0,200,20,0xff8040FF);
-		layer.drawText(10, 30, "ƒeƒXƒg‚ÌƒeƒLƒXƒg", 0xffffff);
+		layer.drawText(10, 30, "ãƒ†ã‚¹ãƒˆã®ãƒ†ã‚­ã‚¹ãƒˆ", 0xffffff);
 
 		temp = new Layer(this, base);
 		add(temp);
 	}
 
-	// Às•”
+	// å®Ÿè¡Œéƒ¨
 	function action(ev)	{
 		if(ev.type == "onClick") {
 			switch (ev.target) {

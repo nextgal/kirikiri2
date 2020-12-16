@@ -55,7 +55,7 @@ __fastcall TScriptDebuggerForm::TScriptDebuggerForm(TComponent* Owner)
 	system_image_list_ = NULL;
 	GetSystemImageList();
 
-	// ƒRƒ}ƒ“ƒhƒ‰ƒCƒ““Ç‚İ‚İ
+	// ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³èª­ã¿è¾¼ã¿
 	ParseCommandline();
 
 	if( project_file_path_.IsEmpty() ) {
@@ -67,7 +67,7 @@ __fastcall TScriptDebuggerForm::TScriptDebuggerForm(TComponent* Owner)
 	}
 }
 //---------------------------------------------------------------------------
-__fastcall TScriptDebuggerForm::~TScriptDebuggerForm()
+__fastcall TScriptDebuggerForm::â€¾TScriptDebuggerForm()
 {
 	::ImageList_Destroy( system_image_list_ );
 }
@@ -101,10 +101,10 @@ void __fastcall TScriptDebuggerForm::ParseCommandline()
 /*
 AnsiString __fastcall MyReplaceText(const AnsiString& Src, const AnsiString& From, const AnsiString& To)
 {
-	AnsiString Result = StringReplace( Src, // ‘ÎÛ•¶š—ñ
-										From, // Œ³‚Ì•¶š
-										To, // ’uŠ·Œã‚Ì•¶š
-										TReplaceFlags() << rfReplaceAll << rfIgnoreCase // ’uŠ·‚Ìƒ^ƒCƒv‚Ìw’è
+	AnsiString Result = StringReplace( Src, // å¯¾è±¡æ–‡å­—åˆ—
+										From, // å…ƒã®æ–‡å­—
+										To, // ç½®æ›å¾Œã®æ–‡å­—
+										TReplaceFlags() << rfReplaceAll << rfIgnoreCase // ç½®æ›ã®ã‚¿ã‚¤ãƒ—ã®æŒ‡å®š
 									 );
 	return Result;
 }
@@ -193,7 +193,7 @@ void __fastcall TScriptDebuggerForm::PushSettingsCommand( int tailcommand )
 	ClearCommand();
 
 	size_t numcmd = 0;
-	// ƒuƒŒƒCƒNƒ|ƒCƒ“ƒg—p
+	// ãƒ–ãƒ¬ã‚¤ã‚¯ãƒã‚¤ãƒ³ãƒˆç”¨
 	size_t commandsize = sizeof(int) + sizeof(DebuggerCommandMinimum) // DBGEV_GER_BREAKPOINT_START
 		+ sizeof(DebuggerCommandMinimum); // DBGEV_GER_BREAKPOINT_END
 	numcmd += 2;
@@ -205,23 +205,23 @@ void __fastcall TScriptDebuggerForm::PushSettingsCommand( int tailcommand )
 		size_t count = lines.size();
 		if( count ) {
 			size_t breakptsize = namelen + (count+1) * sizeof(int) + sizeof(DebuggerCommandMinimum);
-			breakptsize = ((breakptsize + 3) / 4) * 4;	// ƒAƒ‰ƒCƒƒ“ƒg
+			breakptsize = ((breakptsize + 3) / 4) * 4;	// ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
 			commandsize += breakptsize;
 			numcmd++;
 		}
 	}
 
-	// —áŠO—p
+	// ä¾‹å¤–ç”¨
 	commandsize += sizeof(DebuggerCommandMinimum) + sizeof(int);
 	numcmd++;
 
-	// Às–½—ß—p
+	// å®Ÿè¡Œå‘½ä»¤ç”¨
 	commandsize += sizeof(DebuggerCommandMinimum);
 	numcmd++;
 
 	if( (int)commandsize > debuggee_comm_area_size_ ) {
-		// –{—ˆ‚Í•ªŠ„‚µ‚Ä‘—M‚·‚é‚æ‚¤‚É‚·‚é
-		Application->MessageBox( "ƒuƒŒ[ƒNƒ|ƒCƒ“ƒg‚ª‘½‚·‚¬‚Ü‚·", "ƒGƒ‰[", MB_OK );
+		// æœ¬æ¥ã¯åˆ†å‰²ã—ã¦é€ä¿¡ã™ã‚‹ã‚ˆã†ã«ã™ã‚‹
+		Application->MessageBox( "ãƒ–ãƒ¬ãƒ¼ã‚¯ãƒã‚¤ãƒ³ãƒˆãŒå¤šã™ãã¾ã™", "ã‚¨ãƒ©ãƒ¼", MB_OK );
 		return;
 	}
 
@@ -229,19 +229,19 @@ void __fastcall TScriptDebuggerForm::PushSettingsCommand( int tailcommand )
 	((DebuggerHeader*)(comBuff.data_))->num_of_command_ = numcmd;
 	char* startbuff = (char*)&(((DebuggerHeader*)(comBuff.data_))->commands_);
 
-	// ƒuƒŒƒCƒNƒ|ƒCƒ“ƒgŠJn
+	// ãƒ–ãƒ¬ã‚¤ã‚¯ãƒã‚¤ãƒ³ãƒˆé–‹å§‹
 	DebuggerCommandMinimum	breaksatrt( DBGEV_GER_BREAKPOINT_START, sizeof(DebuggerCommandMinimum) );
 	memcpy( startbuff, &breaksatrt, sizeof(DebuggerCommandMinimum) );
 	startbuff += sizeof(DebuggerCommandMinimum);
 
-	// ƒuƒŒƒCƒNƒ|ƒCƒ“ƒgƒŠƒXƒg
+	// ãƒ–ãƒ¬ã‚¤ã‚¯ãƒã‚¤ãƒ³ãƒˆãƒªã‚¹ãƒˆ
 	for( Breakpoints::const_iterator i = points.begin(); i != points.end(); ++i ) {
 		size_t namelen = (i->first.size()+1) * sizeof(wchar_t);
 		const BreakpointLine::lines& lines = i->second.Lines;
 		size_t count = lines.size();
 		if( count ) {
 			size_t breakptsize = namelen + (count+1) * sizeof(int) + sizeof(DebuggerCommandMinimum);
-			breakptsize = ((breakptsize + 3) / 4) * 4;	// ƒAƒ‰ƒCƒƒ“ƒg
+			breakptsize = ((breakptsize + 3) / 4) * 4;	// ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
 			int* breakcommand = (int*)startbuff;
 
 			*breakcommand = DBGEV_GER_BREAKPOINT;
@@ -265,17 +265,17 @@ void __fastcall TScriptDebuggerForm::PushSettingsCommand( int tailcommand )
 			startbuff += breakptsize;
 		}
 	}
-	// ƒuƒŒƒCƒNƒ|ƒCƒ“ƒgI—¹
+	// ãƒ–ãƒ¬ã‚¤ã‚¯ãƒã‚¤ãƒ³ãƒˆçµ‚äº†
 	DebuggerCommandMinimum	breakend( DBGEV_GER_BREAKPOINT_END, sizeof(DebuggerCommandMinimum) );
 	memcpy( startbuff, &breakend, sizeof(DebuggerCommandMinimum) );
 	startbuff += sizeof(DebuggerCommandMinimum);
 
-	// —áŠO
+	// ä¾‹å¤–
 	DebuggerCommandException exceptionFlg(0);
 	memcpy( startbuff, &exceptionFlg, sizeof(DebuggerCommandException) );
 	startbuff += sizeof(DebuggerCommandException);
 
-	// Às–½—ß
+	// å®Ÿè¡Œå‘½ä»¤
 	DebuggerCommandMinimum tail( tailcommand, 0, sizeof(DebuggerCommandMinimum) );
 	memcpy( startbuff, &tail, sizeof(DebuggerCommandMinimum) );
 
@@ -305,21 +305,21 @@ public:
 //---------------------------------------------------------------------------
 void __fastcall TScriptDebuggerForm::SendBreakpoints( HWND hwnd )
 {
-	assert(0);	// g‚¦‚È‚¢
-	{	// ƒuƒŒ[ƒNƒ|ƒCƒ“ƒg‘—MŠJn
+	assert(0);	// ä½¿ãˆãªã„
+	{	// ãƒ–ãƒ¬ãƒ¼ã‚¯ãƒã‚¤ãƒ³ãƒˆé€ä¿¡é–‹å§‹
 		DebuggerMessage	message( DBGEV_GER_BREAKPOINT_START, 0, 0 );
 		::SendMessage( hwnd, WM_COPYDATA, (WPARAM)Handle, (LPARAM)&message );
 	}
-	{	// ƒuƒŒ[ƒNƒ|ƒCƒ“ƒg‘—M
+	{	// ãƒ–ãƒ¬ãƒ¼ã‚¯ãƒã‚¤ãƒ³ãƒˆé€ä¿¡
 		const Breakpoints::breakpoints& points = breakpoints_.BreakPoint;
 		for( Breakpoints::const_iterator i = points.begin(); i != points.end(); ++i ) {
 			size_t namelen = (i->first.size()+1) * sizeof(wchar_t);
 			const BreakpointLine::lines& lines = i->second.Lines;
 			size_t count = lines.size();
 			if( count ) {
-				// 1ŒÂˆÈãƒuƒŒ[ƒNƒ|ƒCƒ“ƒg‚ª‚ ‚éƒtƒ@ƒCƒ‹‚Ì‘—‚é
+				// 1å€‹ä»¥ä¸Šãƒ–ãƒ¬ãƒ¼ã‚¯ãƒã‚¤ãƒ³ãƒˆãŒã‚ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®æ™‚é€ã‚‹
 				size_t datalen = (count+1)*sizeof(int) + namelen;
-				// ƒ|ƒCƒ“ƒg”Aƒ‰ƒCƒ“”Ô†”z—ñAƒtƒ@ƒCƒ‹–¼‚Ì‡‚Å‘—‚é
+				// ãƒã‚¤ãƒ³ãƒˆæ•°ã€ãƒ©ã‚¤ãƒ³ç•ªå·é…åˆ—ã€ãƒ•ã‚¡ã‚¤ãƒ«åã®é †ã§é€ã‚‹
 				std::vector<char>	buffer(datalen);
 				int* points = (int*)&(buffer[0]);
 				*points = count;
@@ -337,7 +337,7 @@ void __fastcall TScriptDebuggerForm::SendBreakpoints( HWND hwnd )
         }
 	}
 
-	{	// ƒuƒŒ[ƒNƒ|ƒCƒ“ƒg‘—MI—¹
+	{	// ãƒ–ãƒ¬ãƒ¼ã‚¯ãƒã‚¤ãƒ³ãƒˆé€ä¿¡çµ‚äº†
 		DebuggerMessage	message( DBGEV_GER_BREAKPOINT_END, 0, 0 );
 		::SendMessage( hwnd, WM_COPYDATA, (WPARAM)Handle, (LPARAM)&message );
 	}
@@ -345,7 +345,7 @@ void __fastcall TScriptDebuggerForm::SendBreakpoints( HWND hwnd )
 //---------------------------------------------------------------------------
 void __fastcall TScriptDebuggerForm::SendExceptionFlag( HWND hwnd )
 {
-	assert(0);	// g‚¦‚È‚¢
+	assert(0);	// ä½¿ãˆãªã„
 	int data[1] = {0};
 	DebuggerMessage	message( DBGEV_GER_EXCEPTION_FLG, (void*)data, sizeof(int) );
 	::SendMessage( hwnd, WM_COPYDATA, (WPARAM)Handle, (LPARAM)&message );
@@ -454,7 +454,7 @@ void __fastcall TScriptDebuggerForm::BreakFromDebuggee( const void* data, size_t
 	}
 }
 //---------------------------------------------------------------------------
-// ƒuƒŒ[ƒNó‘Ô‚É‚È‚Á‚½‚Æ‚«‚ÉƒR[ƒ‹‚³‚ê‚é
+// ãƒ–ãƒ¬ãƒ¼ã‚¯çŠ¶æ…‹ã«ãªã£ãŸã¨ãã«ã‚³ãƒ¼ãƒ«ã•ã‚Œã‚‹
 void __fastcall TScriptDebuggerForm::OnBreak()
 {
 	is_break_ = true;
@@ -465,7 +465,7 @@ void __fastcall TScriptDebuggerForm::OnBreak()
 	IsRequestBreak = false;
 }
 //---------------------------------------------------------------------------
-// ƒuƒŒ[ƒNó‘Ô‰ğœ
+// ãƒ–ãƒ¬ãƒ¼ã‚¯çŠ¶æ…‹è§£é™¤
 void __fastcall TScriptDebuggerForm::CancelBreak()
 {
 	is_break_ = false;
@@ -550,7 +550,7 @@ void __fastcall TScriptDebuggerForm::OnFileDrop( TWMDropFiles& Msg )
 		AnsiString fileName(buff);
 
 		if( path.IsEmpty() ) {
-			path = ExtractFileDir( fileName ) + AnsiString("\\");
+			path = ExtractFileDir( fileName ) + AnsiString("Â¥Â¥");
 		} else {
 			fileName = path + ExtractFileName( fileName );
 		}
@@ -561,15 +561,15 @@ void __fastcall TScriptDebuggerForm::OnFileDrop( TWMDropFiles& Msg )
 		if( is_directory ) {
 			debuggee_data_ = fileName;
 			AddFilesFromDir( debuggee_data_ );
-			break;  // Å‰‚Ì1ŒÂ‚µ‚©Œ©‚È‚¢
+			break;  // æœ€åˆã®1å€‹ã—ã‹è¦‹ãªã„
 		} else if( ext == AnsiString(".sdp") ) {
 			project_file_path_ = fileName;
 			ReadProjectFile();
-			break;  // Å‰‚Ì1ŒÂ‚µ‚©Œ©‚È‚¢
+			break;  // æœ€åˆã®1å€‹ã—ã‹è¦‹ãªã„
 		} else if( ext == AnsiString(".exe") ) {
 			debuggee_path_ = fileName;
 			ExecuteDebugAction->Enabled = true;
-			break;  // Å‰‚Ì1ŒÂ‚µ‚©Œ©‚È‚¢
+			break;  // æœ€åˆã®1å€‹ã—ã‹è¦‹ãªã„
 		}
 	}
 	::DragFinish(hdrop);
@@ -580,13 +580,13 @@ void __fastcall TScriptDebuggerForm::UpdateTreeView()
 	FileTreeView->Items->Clear();
 
 	TTreeNode* root = FileTreeView->Items->AddObject( NULL, debuggee_data_, NULL );
-	AnsiString basePath = debuggee_data_ + AnsiString("\\");
+	AnsiString basePath = debuggee_data_ + AnsiString("Â¥Â¥");
 	typedef std::list<AnsiString>::const_iterator const_iterator;
 	for( const_iterator i = file_list_.begin(); i != file_list_.end(); ++i ) {
 		AnsiString path( *i );
 		AnsiString relPath( ExtractRelativePath( basePath, path ) );
 		std::list<std::string> pathlist;
-		split( pathlist, std::string(relPath.c_str()), std::string("\\") );
+		split( pathlist, std::string(relPath.c_str()), std::string("Â¥Â¥") );
 		TTreeNode* node = root;
 		TTreeNode* parent = root;
 		if( node->HasChildren ){
@@ -655,8 +655,8 @@ void __fastcall TScriptDebuggerForm::AddFiles( const std::list<AnsiString>& file
 	if( files.size() ) {
 		for( std::list<AnsiString>::const_iterator i = files.begin(); i != files.end(); ++i ) {
 			DWORD attr = ::GetFileAttributes( (*i).c_str() );
-			if( (attr & FILE_ATTRIBUTE_DIRECTORY) && (attr & FILE_ATTRIBUTE_HIDDEN) == 0 ) {	// ‰B‚µƒtƒ@ƒCƒ‹‚Í’Ç‰Á‚µ‚È‚¢(.svn)‘Îô
-				AnsiString findDir = (*i) + AnsiString("\\*");
+			if( (attr & FILE_ATTRIBUTE_DIRECTORY) && (attr & FILE_ATTRIBUTE_HIDDEN) == 0 ) {	// éš ã—ãƒ•ã‚¡ã‚¤ãƒ«ã¯è¿½åŠ ã—ãªã„(.svn)å¯¾ç­–
+				AnsiString findDir = (*i) + AnsiString("Â¥Â¥*");
 				std::list<AnsiString>	dirFiles;
 				WIN32_FIND_DATA			FindData;
 				HANDLE hFind = ::FindFirstFile( findDir.c_str(), &FindData );
@@ -664,7 +664,7 @@ void __fastcall TScriptDebuggerForm::AddFiles( const std::list<AnsiString>& file
 					do {
 						AnsiString	fileName( FindData.cFileName );
 						if( fileName != AnsiString(".") && fileName != AnsiString("..") ) {
-							dirFiles.push_back( (*i) + AnsiString("\\") + fileName );
+							dirFiles.push_back( (*i) + AnsiString("Â¥Â¥") + fileName );
 						}
 					} while( FindNextFile( hFind, &FindData ) );
 					if( dirFiles.size() ) {
@@ -673,7 +673,7 @@ void __fastcall TScriptDebuggerForm::AddFiles( const std::list<AnsiString>& file
 						AddFiles( dirFiles );
 					}
 				}
-			} else if( (attr & FILE_ATTRIBUTE_HIDDEN) == 0 ) {	// ‰B‚µƒtƒ@ƒCƒ‹‚Í’Ç‰Á‚µ‚È‚¢(.svn)‘Îô]
+			} else if( (attr & FILE_ATTRIBUTE_HIDDEN) == 0 ) {	// éš ã—ãƒ•ã‚¡ã‚¤ãƒ«ã¯è¿½åŠ ã—ãªã„(.svn)å¯¾ç­–]
 				if( IsAppendFile( *i ) ) {
 					file_list_.push_back( *i );
                 }
@@ -694,11 +694,11 @@ void __fastcall TScriptDebuggerForm::ExecDebuggee()
 	if( debuggee_path_.Length() == 0 ) return;
 
 	if( proc_info_.dwProcessId == 0 ) {
-		// ‚Ü‚¾‹N“®‚µ‚Ä‚¢‚È‚¢
+		// ã¾ã èµ·å‹•ã—ã¦ã„ãªã„
 		debugee_hwnd_ = 0;
 		debuggee_check_thread_ = new DebuggeeCheckThread(false);
 	} else {
-		// ‹N“®’†
+		// èµ·å‹•ä¸­
 		SendExec();
     }
 }
@@ -728,7 +728,7 @@ void __fastcall TScriptDebuggerForm::ReadProjectFile()
 	curfile_breakpoints_ = NULL;
 	std::auto_ptr<TIniFile> projFile( new TIniFile( project_file_path_ ) );
 	if( projFile.get() ) {
-		// projƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ğƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚Éİ’è‚·‚é
+		// projãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ã‚’ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«è¨­å®šã™ã‚‹
 		AnsiString filePath = ExtractFilePath(project_file_path_);
 		AnsiString oldCurDir = GetCurrentDir();
 		if( SetCurrentDir( filePath ) ) {
@@ -736,7 +736,7 @@ void __fastcall TScriptDebuggerForm::ReadProjectFile()
 			debuggee_args_ = projFile->ReadString( "Debugee", "Args", "" );
 			debuggee_data_ = ExpandFileName( projFile->ReadString( "Debugee", "DataFolder", "" ) );
 			debuggee_working_folder_ = ExpandFileName( projFile->ReadString( "Debugee", "WorkingFolder", "" ) );
-			SetCurrentDir( oldCurDir );	// Œ³‚É–ß‚·
+			SetCurrentDir( oldCurDir );	// å…ƒã«æˆ»ã™
 		} else {
 			debuggee_path_ = projFile->ReadString( "Debugee", "Path", "" );
 			debuggee_args_ = projFile->ReadString( "Debugee", "Args", "" );
@@ -750,7 +750,7 @@ void __fastcall TScriptDebuggerForm::ReadProjectFile()
 		UpdateAll();
 		ExecuteDebugAction->Enabled = true;
 		OverWriteAction->Enabled = true;
-		Caption = AnsiString("krkrdebg - ƒXƒNƒŠƒvƒg ƒfƒoƒbƒK - ") + project_file_path_;
+		Caption = AnsiString("krkrdebg - ã‚¹ã‚¯ãƒªãƒ—ãƒˆ ãƒ‡ãƒãƒƒã‚¬ - ") + project_file_path_;
 	}
 }
 //---------------------------------------------------------------------------
@@ -787,7 +787,7 @@ void __fastcall TScriptDebuggerForm::WriteProjectFile()
 		projFile->WriteString( "Debugee", "ScriptExt", scriptExts );
 
 		OverWriteAction->Enabled = true;
-		Caption = AnsiString("krkrdebg - ƒXƒNƒŠƒvƒg ƒfƒoƒbƒK - ") + project_file_path_;
+		Caption = AnsiString("krkrdebg - ã‚¹ã‚¯ãƒªãƒ—ãƒˆ ãƒ‡ãƒãƒƒã‚¬ - ") + project_file_path_;
 	}
 }
 //---------------------------------------------------------------------------
@@ -797,13 +797,13 @@ void __fastcall TScriptDebuggerForm::ShowLastError()
 	::FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER |
 						FORMAT_MESSAGE_FROM_SYSTEM |
 						FORMAT_MESSAGE_IGNORE_INSERTS,
-						NULL, GetLastError(), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Šù’è‚ÌŒ¾Œê
+						NULL, GetLastError(), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // æ—¢å®šã®è¨€èª
 						(LPTSTR)&lpMsgBuf, 0, NULL );
 	::MessageBox( NULL, (LPCTSTR)lpMsgBuf, "Error", MB_OK | MB_ICONINFORMATION );
 	LocalFree(lpMsgBuf);
 }
 //---------------------------------------------------------------------------
-//! ƒfƒoƒbƒMƒ`ƒFƒbƒNƒXƒŒƒbƒh‚©‚ç‚ÌI—¹’Ê’m‚ğó‚¯‚é
+//! ãƒ‡ãƒãƒƒã‚®ãƒã‚§ãƒƒã‚¯ã‚¹ãƒ¬ãƒƒãƒ‰ã‹ã‚‰ã®çµ‚äº†é€šçŸ¥ã‚’å—ã‘ã‚‹
 void __fastcall TScriptDebuggerForm::TarminateDebugeeCheckThread()
 {
 	debuggee_check_thread_ = NULL;
@@ -898,7 +898,7 @@ void __fastcall TScriptDebuggerForm::SourceLineListBoxDrawItem( TWinControl *Con
 {
 	TCanvas *pCanvas = ((TListBox *)Control)->Canvas;
 	AnsiString Text = SourceLineListBox->Items->Strings[Index];
-	Text = ReplaceStr( Text, AnsiString("\t"), AnsiString("    "));
+	Text = ReplaceStr( Text, AnsiString("Â¥t"), AnsiString("    "));
 
 	const int BREAK_POINT_BOX_WIDTH = SourceLineListBox->ItemHeight;
 	const int LINE_TEXT_WIDTH = BREAK_POINT_BOX_WIDTH * 3;
@@ -923,7 +923,7 @@ void __fastcall TScriptDebuggerForm::SourceLineListBoxDrawItem( TWinControl *Con
 		pCanvas->Ellipse( breakPointCircle );
 	}
 
-	// s”Ô†•\¦
+	// è¡Œç•ªå·è¡¨ç¤º
 	TRect linenoRect = Rect;
 	linenoRect.Left += BREAK_POINT_BOX_WIDTH;
 	linenoRect.Right = linenoRect.Left + LINE_TEXT_WIDTH;
@@ -933,7 +933,7 @@ void __fastcall TScriptDebuggerForm::SourceLineListBoxDrawItem( TWinControl *Con
 	AnsiString lineText(Index);
 	pCanvas->TextRect( linenoRect, linenoRect.Left+2, linenoRect.Top+1, lineText );
 
-	// ÀÛ‚ÌƒeƒLƒXƒg•\¦
+	// å®Ÿéš›ã®ãƒ†ã‚­ã‚¹ãƒˆè¡¨ç¤º
 	TRect textRect = Rect;
 	textRect.Left += BREAK_POINT_BOX_WIDTH + LINE_TEXT_WIDTH;
 	int left = textRect.Left + 2;
@@ -948,14 +948,14 @@ void __fastcall TScriptDebuggerForm::SourceLineListBoxDrawItem( TWinControl *Con
 		pCanvas->Font->Color = clWhite;
 	pCanvas->TextRect( textRect, left, top, Text);
 
-	if( State.Contains(odSelected) ) {	// ‘I‘ğs
+	if( State.Contains(odSelected) ) {	// é¸æŠè¡Œ
 		pCanvas->Pen->Color = clBlack;
 		pCanvas->Pen->Style = psSolid;
 		pCanvas->MoveTo(Rect.Left, Rect.Bottom-1);
 		pCanvas->LineTo(Rect.Right-1, Rect.Bottom-1);
 
 	}
-	// “_ü‚ğÁ‚·
+	// ç‚¹ç·šã‚’æ¶ˆã™
 	if( State.Contains(odSelected) && State.Contains(odFocused) ) {
 		pCanvas->DrawFocusRect(Rect);
 	}
@@ -1036,7 +1036,7 @@ void __fastcall TScriptDebuggerForm::ExecuteDebugActionExecute(TObject *Sender)
 void __fastcall TScriptDebuggerForm::KillDebugActionExecute(TObject *Sender)
 {
 	SendExec();
-	// ‹­§I—¹
+	// å¼·åˆ¶çµ‚äº†
 	::TerminateProcess(proc_info_.hProcess, 0);
 }
 //---------------------------------------------------------------------------
@@ -1092,7 +1092,7 @@ void __fastcall TScriptDebuggerForm::SerachNext( const AnsiString& word, bool ca
 			}
 		}
 	}
-	Application->MessageBox( (word + AnsiString("‚ÍŒ©•t‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½B")).c_str(), "ŒŸõ", MB_OK );
+	Application->MessageBox( (word + AnsiString("ã¯è¦‹ä»˜ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚")).c_str(), "æ¤œç´¢", MB_OK );
 }
 //---------------------------------------------------------------------------
 void __fastcall TScriptDebuggerForm::SerachPrev( const AnsiString& word, bool caseSensitive )
@@ -1122,7 +1122,7 @@ void __fastcall TScriptDebuggerForm::SerachPrev( const AnsiString& word, bool ca
 			}
 		}
 	}
-	Application->MessageBox( (word + AnsiString("‚ÍŒ©•t‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½B")).c_str(), "ŒŸõ", MB_OK );
+	Application->MessageBox( (word + AnsiString("ã¯è¦‹ä»˜ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚")).c_str(), "æ¤œç´¢", MB_OK );
 }
 //---------------------------------------------------------------------------
 void __fastcall TScriptDebuggerForm::SearchPrevActionExecute(TObject *Sender)
@@ -1186,8 +1186,8 @@ void __fastcall TScriptDebuggerForm::GetSystemImageList()
 	TIcon* Icon;
 	SHFILEINFO sfi;
 
-	// ƒtƒHƒ‹ƒ_ƒAƒCƒRƒ“(ƒNƒ[ƒY)
-	system_image_list_ = (HIMAGELIST)::SHGetFileInfo("C:\\WINDOWS", 0, &sfi, sizeof(SHFILEINFO), SHGFI_SYSICONINDEX|SHGFI_ICON );
+	// ãƒ•ã‚©ãƒ«ãƒ€ã‚¢ã‚¤ã‚³ãƒ³(ã‚¯ãƒ­ãƒ¼ã‚º)
+	system_image_list_ = (HIMAGELIST)::SHGetFileInfo("C:Â¥Â¥WINDOWS", 0, &sfi, sizeof(SHFILEINFO), SHGFI_SYSICONINDEX|SHGFI_ICON );
 	if( system_image_list_ != 0 ) {
 		if( sfi.iIcon >= 0 ) {
 			hIcon = ::ImageList_GetIcon( system_image_list_, sfi.iIcon, ILD_NORMAL );
@@ -1206,10 +1206,10 @@ void __fastcall TScriptDebuggerForm::GetSystemImageList()
 //		::ImageList_Destroy( hSystemImageList );
 	}
 
-	// ƒtƒHƒ‹ƒ_ƒAƒCƒRƒ“(ƒI[ƒvƒ“)
-//	hSystemImageList = (HIMAGELIST)::SHGetFileInfo("C:\\WINDOWS", 0, &sfi, sizeof(SHFILEINFO),SHGFI_SYSICONINDEX|SHGFI_ICON|SHGFI_OPENICON);
+	// ãƒ•ã‚©ãƒ«ãƒ€ã‚¢ã‚¤ã‚³ãƒ³(ã‚ªãƒ¼ãƒ—ãƒ³)
+//	hSystemImageList = (HIMAGELIST)::SHGetFileInfo("C:Â¥Â¥WINDOWS", 0, &sfi, sizeof(SHFILEINFO),SHGFI_SYSICONINDEX|SHGFI_ICON|SHGFI_OPENICON);
 	if( system_image_list_ != 0 ) {
-		SHGetFileInfo("C:\\WINDOWS", 0, &sfi, sizeof(SHFILEINFO),SHGFI_SYSICONINDEX|SHGFI_ICON|SHGFI_OPENICON);
+		SHGetFileInfo("C:Â¥Â¥WINDOWS", 0, &sfi, sizeof(SHFILEINFO),SHGFI_SYSICONINDEX|SHGFI_ICON|SHGFI_OPENICON);
 		if( sfi.iIcon >= 0 ) {
 			hIcon = ::ImageList_GetIcon( system_image_list_, sfi.iIcon, ILD_NORMAL);
 			if( hIcon ) {
@@ -1243,7 +1243,7 @@ int __fastcall TScriptDebuggerForm::GetFileIconIndex( const std::string& name )
 	return -1;
 }
 //---------------------------------------------------------------------------
-// Šù‚É‚ ‚Á‚½‚ç‚»‚ê‚ğæ“¾‚µ‚ÄA–³‚©‚Á‚½‚çV‹Kæ“¾A’Ç‰Á‚·‚é
+// æ—¢ã«ã‚ã£ãŸã‚‰ãã‚Œã‚’å–å¾—ã—ã¦ã€ç„¡ã‹ã£ãŸã‚‰æ–°è¦å–å¾—ã€è¿½åŠ ã™ã‚‹
 int __fastcall TScriptDebuggerForm::GetWithAddFileIconIndex( const std::string& ext )
 {
 	std::map<std::string,int>::iterator i = file_icon_index_.find( ext );

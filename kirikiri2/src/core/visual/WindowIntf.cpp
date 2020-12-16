@@ -139,7 +139,7 @@ tTJSNI_BaseWindow::tTJSNI_BaseWindow()
 	DrawDevice = NULL;
 }
 //---------------------------------------------------------------------------
-tTJSNI_BaseWindow::~tTJSNI_BaseWindow()
+tTJSNI_BaseWindow::‾tTJSNI_BaseWindow()
 {
 	TVPUnregisterWindowToList(static_cast<tTJSNI_Window*>(this));  // making sure...
 }

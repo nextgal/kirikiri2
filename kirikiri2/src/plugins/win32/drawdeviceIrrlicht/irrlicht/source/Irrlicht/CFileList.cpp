@@ -62,7 +62,7 @@ CFileList::CFileList()
 	}
 
 	//TODO add drives
-	//entry.Name = "E:\\";
+	//entry.Name = "E:¥¥";
 	//entry.isDirectory = true;
 	//Files.push_back(entry);
 	#endif

@@ -31,7 +31,7 @@ public:
 	CGUIEnvironment(io::IFileSystem* fs, video::IVideoDriver* driver, IOSOperator* op);
 
 	//! destructor
-	virtual ~CGUIEnvironment();
+	virtual ‾CGUIEnvironment();
 
 	//! draws all gui elements
 	virtual void drawAll();
@@ -65,7 +65,7 @@ public:
 	virtual void setSkin(IGUISkin* skin);
 
 	//! Creates a new GUI Skin based on a template.
-	/** \return Returns a pointer to the created skin.
+	/** ¥return Returns a pointer to the created skin.
 	If you no longer need the skin, you should call IGUISkin::drop().
 	See IReferenceCounted::drop() for more information. */
 	virtual IGUISkin* createSkin(EGUI_SKIN_TYPE type);
@@ -196,26 +196,26 @@ public:
 	virtual IGUIElement* addGUIElement(const c8* elementName, IGUIElement* parent=0);
 
 	//! Saves the current gui into a file.
-	/** \param filename: Name of the file.
-	\param start: The element to start saving from. 
+	/** ¥param filename: Name of the file.
+	¥param start: The element to start saving from. 
 	if not specified, the root element will be used */ 
 	virtual bool saveGUI(const c8* filename, IGUIElement* start=0);
 
 	//! Saves the current gui into a file.
-	/** \param file: The file to save the GUI to.
-	\param start: The element to start saving from. 
+	/** ¥param file: The file to save the GUI to.
+	¥param start: The element to start saving from. 
 	if not specified, the root element will be used */
 	virtual bool saveGUI(io::IWriteFile* file, IGUIElement* start=0);
 
 	//! Loads the gui. Note that the current gui is not cleared before.
-	/** \param filename: Name of the file.
-	\param parent: The parent of all loaded GUI elements, 
+	/** ¥param filename: Name of the file.
+	¥param parent: The parent of all loaded GUI elements, 
 	if not specified, the root element will be used */
 	virtual bool loadGUI(const c8* filename, IGUIElement* parent=0);
 
 	//! Loads the gui. Note that the current gui is not cleared before.
-	/** \param file: IReadFile to load the GUI from
-	\param parent: The parent of all loaded GUI elements, 
+	/** ¥param file: IReadFile to load the GUI from
+	¥param parent: The parent of all loaded GUI elements, 
 	if not specified, the root element will be used */
 	virtual bool loadGUI(io::IReadFile* file, IGUIElement* parent=0);	
 

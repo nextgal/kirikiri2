@@ -26,7 +26,7 @@ namespace boost { namespace spirit {
         struct abstract_parser
         {
             abstract_parser() {}
-            virtual ~abstract_parser() {}
+            virtual ‾abstract_parser() {}
 
             virtual RT
             do_parse_virtual(ScannerT const& scan) const = 0;
@@ -44,7 +44,7 @@ namespace boost { namespace spirit {
         struct concrete_parser : public abstract_parser<ScannerT, RT>
         {
             concrete_parser(ParserT const& p_) : p(p_) {}
-            virtual ~concrete_parser() {}
+            virtual ‾concrete_parser() {}
 
             virtual RT
             do_parse_virtual(ScannerT const& scan) const
@@ -68,7 +68,7 @@ namespace boost { namespace spirit {
 
     //////////////////////////////////
     template <typename ScannerT, typename ContextT, typename TagT>
-    inline rule<ScannerT, ContextT, TagT>::~rule() {}
+    inline rule<ScannerT, ContextT, TagT>::‾rule() {}
 
     //////////////////////////////////
     template <typename ScannerT, typename ContextT, typename TagT>

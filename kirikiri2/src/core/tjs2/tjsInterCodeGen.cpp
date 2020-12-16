@@ -299,7 +299,7 @@ tTJSInterCodeContext::tTJSInterCodeContext(tTJSInterCodeContext *parent,
 		throw;
 	}
 #ifdef ENABLE_DEBUGGER
-	// ŒÃ‚¢ƒ[ƒJƒ‹•Ï”‚Ííœ‚µ‚Ä‚µ‚Ü‚¤
+	// å¤ã„ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã¯å‰Šé™¤ã—ã¦ã—ã¾ã†
 	TJSDebuggerClearLocalVariable( GetClassName().c_str(), GetName(), Block->GetName(), FunctionRegisterCodePoint );
 #endif	// ENABLE_DEBUGGER
 }
@@ -374,7 +374,7 @@ tTJSInterCodeContext::tTJSInterCodeContext( tTJSScriptBlock *block, const tjs_ch
 	}
 }
 //---------------------------------------------------------------------------
-tTJSInterCodeContext::~tTJSInterCodeContext()
+tTJSInterCodeContext::â€¾tTJSInterCodeContext()
 {
 	if(Name) delete [] Name;
 }
@@ -1052,7 +1052,7 @@ void tTJSInterCodeContext::Commit()
 
 	// we do thus nasty thing because the std::vector does not free its storage
 	// even we call 'clear' method...
-#define RE_CREATE(place, type, classname) (&place)->type::~classname(); \
+#define RE_CREATE(place, type, classname) (&place)->type::â€¾classname(); Â¥
 	new (&place) type ();
 
 	RE_CREATE(NodeToDeleteVector, std::vector<tTJSExprNode *>, vector);
@@ -1274,7 +1274,7 @@ tjs_int tTJSInterCodeContext::GenNodeCode(tjs_int & frame, tTJSExprNode *node,
 	case T_PLUSEQUAL:			// '+=' operator
 	case T_PERCENTEQUAL:		// '%=' operator
 	case T_SLASHEQUAL:			// '/=' operator
-	case T_BACKSLASHEQUAL:		// '\=' operator
+	case T_BACKSLASHEQUAL:		// 'Â¥=' operator
 	case T_ASTERISKEQUAL:		// '*=' operator
 	case T_LOGICALOREQUAL:		// '||=' operator
 	case T_LOGICALANDEQUAL:		// '&&=' operator
@@ -1487,7 +1487,7 @@ tjs_int tTJSInterCodeContext::GenNodeCode(tjs_int & frame, tTJSExprNode *node,
 	case T_MINUS:		// '-' operator
 	case T_PERCENT:		// '%' operator
 	case T_SLASH:		// '/' operator
-	case T_BACKSLASH:	// '\' operator
+	case T_BACKSLASH:	// 'Â¥' operator
 	case T_ASTERISK:	// binary '*' operator
 	  {
 		// general two-term operators
@@ -1614,7 +1614,7 @@ tjs_int tTJSInterCodeContext::GenNodeCode(tjs_int & frame, tTJSExprNode *node,
 
 	  }
 
-	case T_TILDE:		// '~' operator
+	case T_TILDE:		// 'â€¾' operator
 	case T_SHARP:		// '#' operator
 	case T_DOLLAR:		// '$' operator
 	case T_UPLUS:		// unary '+' operator
@@ -3697,7 +3697,7 @@ tTJSExprNode * tTJSInterCodeContext::MakeNP1(tjs_int opecode, tTJSExprNode * nod
 			ret = MakeConstValNode(!node1->GetValue());
 			break;
 		case T_TILDE:
-			ret = MakeConstValNode(~node1->GetValue());
+			ret = MakeConstValNode(â€¾node1->GetValue());
 			break;
 		case T_SHARP:
 		  {
@@ -3865,7 +3865,7 @@ tTJSExprNode * tTJSInterCodeContext::MakeNP3(tjs_int opecode, tTJSExprNode * nod
 //---------------------------------------------------------------------------
 
 /**
- * ƒoƒCƒgƒR[ƒh‚ğo—Í‚·‚é
+ * ãƒã‚¤ãƒˆã‚³ãƒ¼ãƒ‰ã‚’å‡ºåŠ›ã™ã‚‹
  * @return
  */
 std::vector<tjs_uint8>* tTJSInterCodeContext::ExportByteCode( bool outputdebug, tTJSScriptBlock *block, tjsConstArrayData& constarray )
@@ -3890,7 +3890,7 @@ std::vector<tjs_uint8>* tTJSInterCodeContext::ExportByteCode( bool outputdebug, 
 	if( Name != NULL ) {
 		name = constarray.PutString(Name);
 	}
-	// 13 * 4 ƒf[ƒ^•”•ª‚ÌƒTƒCƒY
+	// 13 * 4 ãƒ‡ãƒ¼ã‚¿éƒ¨åˆ†ã®ã‚µã‚¤ã‚º
 	int srcpossize = 0;
 	if( outputdebug ) {
 		srcpossize = SourcePosArraySize * 8;

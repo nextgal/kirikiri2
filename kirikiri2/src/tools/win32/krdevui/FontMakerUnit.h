@@ -28,7 +28,7 @@ class TPrivRefControl : public TCustomControl
 	// a class to provide Canvas and window handle
 public:
 	__fastcall TPrivRefControl(TComponent *AOwner) : TCustomControl(AOwner) {;}
-	__fastcall ~TPrivRefControl() {;}
+	__fastcall â€¾TPrivRefControl() {;}
 
 public:
 	__property Canvas;
@@ -36,7 +36,7 @@ public:
 //---------------------------------------------------------------------------
 class TFontMakerForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TGroupBox *FontGroupBox;
 	TLabel *Label1;
 	TComboBox *FontSelectComboBox;
@@ -68,7 +68,7 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall AntialiasedCheckBoxClick(TObject *Sender);
 	void __fastcall IncludeAllFontCharsCheckBoxClick(TObject *Sender);
 	void __fastcall IncludePrivateCharsCheckBoxClick(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	TFontPreviewForm *FontPreviewForm;
 	void __fastcall EnumFonts();
 	bool CharacterListInvalidated;
@@ -77,7 +77,7 @@ private:	// ƒ†[ƒU[éŒ¾
 	TPrivRefControl * PrivRefControl;
 
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TFontMakerForm(TComponent* Owner);
 private:
 	void __fastcall SetFontToCanvas(LOGFONT & font);

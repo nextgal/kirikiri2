@@ -17,24 +17,24 @@
 
 
 /**
- * ƒrƒfƒIƒGƒ“ƒR[ƒ_[
+ * ãƒ“ãƒ‡ã‚ªã‚¨ãƒ³ã‚³ãƒ¼ãƒ€ãƒ¼
  */
 class videoEncoder {
-	iTJSDispatch2*	objthis_;		///< ©ŒÈƒIƒuƒWƒFƒNƒgî•ñ‚ÌQÆ
-	CWMVEncoder*	wmv_encoder_;	///< WMV ƒGƒ“ƒR[ƒ_[
+	iTJSDispatch2*	objthis_;		///< è‡ªå·±ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆæƒ…å ±ã®å‚ç…§
+	CWMVEncoder*	wmv_encoder_;	///< WMV ã‚¨ãƒ³ã‚³ãƒ¼ãƒ€ãƒ¼
 
-	DWORD			video_quality_;		///< ƒNƒIƒŠƒeƒBA0 - 100 ( default 50 )
-	DWORD			video_sec_per_key_;	///< Å‘åƒL[ƒtƒŒ[ƒ€ŠÔŠu ( default 5 )
-	long			video_width_;		///< ‰æ‘œ• ( default 640 )
-	long			video_height_;		///< ‰æ‘œ‚‚³ ( default 480 )
-	DWORD			video_scale_;		///< ŠÔƒXƒP[ƒ‹
-	DWORD			video_rate_;		///< ŠÔƒŒ[ƒg
-	QWORD			video_tick_per_frame_;	///< 1ƒtƒŒ[ƒ€‚Ì tick
-	QWORD			video_tick_;		///< Œ»İ‚ÌƒtƒŒ[ƒ€‚Ì tick
+	DWORD			video_quality_;		///< ã‚¯ã‚ªãƒªãƒ†ã‚£ã€0 - 100 ( default 50 )
+	DWORD			video_sec_per_key_;	///< æœ€å¤§ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ é–“éš” ( default 5 )
+	long			video_width_;		///< ç”»åƒå¹… ( default 640 )
+	long			video_height_;		///< ç”»åƒé«˜ã• ( default 480 )
+	DWORD			video_scale_;		///< æ™‚é–“ã‚¹ã‚±ãƒ¼ãƒ«
+	DWORD			video_rate_;		///< æ™‚é–“ãƒ¬ãƒ¼ãƒˆ
+	QWORD			video_tick_per_frame_;	///< 1ãƒ•ãƒ¬ãƒ¼ãƒ ã® tick
+	QWORD			video_tick_;		///< ç¾åœ¨ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã® tick
 
 public:
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 */
 	videoEncoder( iTJSDispatch2 *objthis )
 	 : objthis_(objthis), wmv_encoder_(NULL)
@@ -42,12 +42,12 @@ public:
 	 , video_tick_(0), video_tick_per_frame_(0)
 	 {}
 	/**
-	 * ƒfƒXƒgƒ‰ƒNƒ^
+	 * ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 */
-	virtual ~videoEncoder() { close(); }
+	virtual â€¾videoEncoder() { close(); }
 
 	/**
-	 * ƒCƒ“ƒXƒ^ƒ“ƒX¶¬ƒtƒ@ƒNƒgƒŠ
+	 * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆãƒ•ã‚¡ã‚¯ãƒˆãƒª
 	 */
 	static tjs_error factory(videoEncoder **result, tjs_int numparams, tTJSVariant **params, iTJSDispatch2 *objthis) {
 		videoEncoder *self = new videoEncoder(objthis);
@@ -105,8 +105,8 @@ public:
 		}
 	}
 	/**
-	 * ƒŒƒCƒ„‚ğƒGƒ“ƒR[ƒh
-	 * @param layer ƒŒƒCƒ„
+	 * ãƒ¬ã‚¤ãƒ¤ã‚’ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰
+	 * @param layer ãƒ¬ã‚¤ãƒ¤
 	 */
 	void EncodeVideoSample( iTJSDispatch2 *layer ) {
 		CHECK_ENCODER
@@ -114,7 +114,7 @@ public:
 		ncbPropAccessor obj(layer);
 		const int imageWidth = obj.getIntValue(L"imageWidth");
 		const int imageHeight= obj.getIntValue(L"imageHeight");
-		// ƒŒƒCƒ„[ƒTƒCƒYƒ`ƒFƒbƒN
+		// ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚µã‚¤ã‚ºãƒã‚§ãƒƒã‚¯
 		if( imageWidth != video_width_ || imageHeight != video_height_ ) {
 			TVPThrowExceptionMessage( L"invalid layer size");
 		}
@@ -125,11 +125,11 @@ public:
 		}
 		const tjs_int imagePitch = obj.GetValue(L"mainImageBufferPitch", ncbTypedefs::Tag<tjs_int>());
 
-		// ‹g—¢‹g—¢‚Ìƒoƒbƒtƒ@‚Í DIB ‚Æ“¯‚¶\‘¢‚È‚Ì‚Å‚±‚Ìˆ—‚Å’Ê‚é
+		// å‰é‡Œå‰é‡Œã®ãƒãƒƒãƒ•ã‚¡ã¯ DIB ã¨åŒã˜æ§‹é€ ãªã®ã§ã“ã®å‡¦ç†ã§é€šã‚‹
 		int size = imageHeight * -imagePitch;
 		const unsigned char* buffer = imageBuffer + (imageHeight-1) * imagePitch;
 
-		// tick ‚Í 100ƒiƒm•b’PˆÊ‚É
+		// tick ã¯ 100ãƒŠãƒç§’å˜ä½ã«
 		wmv_encoder_->WriteVideoSample( (void*)buffer, size, video_tick_ );
 
 		video_tick_ += video_tick_per_frame_;
@@ -162,10 +162,10 @@ NCB_REGISTER_CLASS(videoEncoder) {
 	NCB_PROPERTY(videoHeight, getVideoHeight, setVideoHeight);
 }
 
-// ----------------------------------- ‹N“®EŠJ•úˆ—
+// ----------------------------------- èµ·å‹•ãƒ»é–‹æ”¾å‡¦ç†
 
 /**
- * “o˜^ˆ—‘O
+ * ç™»éŒ²å‡¦ç†å‰
  */
 void PreRegistCallback()
 {
@@ -173,7 +173,7 @@ void PreRegistCallback()
 }
 
 /**
- * ŠJ•úˆ—Œã
+ * é–‹æ”¾å‡¦ç†å¾Œ
  */
 void PostUnregistCallback()
 {

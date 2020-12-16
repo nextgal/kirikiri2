@@ -21,11 +21,11 @@
 class TTVPWindowForm;
 class TTVPMenuContainerForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TTimer *Timer;
 	void __fastcall FormDestroy(TObject *Sender);
 	void __fastcall TimerTimer(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	TTVPWindowForm *OwnerForm;
 
 	bool DroppedByKey;
@@ -33,7 +33,7 @@ private:	// ƒ†[ƒU[éŒ¾
 	bool WaitingShowing;
 	bool ShowingMenu;
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TTVPMenuContainerForm(TComponent* Owner);
 
 private:

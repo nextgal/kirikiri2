@@ -26,7 +26,7 @@ typedef void __fastcall (__closure *TCDPExecEvent)(System::TObject* Sender,
 //---------------------------------------------------------------------------
 class TTVPPadForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TStatusBar *StatusBar;
 	TToolBar *ToolBar;
 	TToolButton *ExecuteButton;
@@ -74,12 +74,12 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall CopyImportantLogMenuItemClick(TObject *Sender);
 	void __fastcall ShowOnTopMenuItemClick(TObject *Sender);
 	void __fastcall ShowScriptEditorMenuItemClick(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	TCDPExecEvent FOnExecute;
 	bool FFreeOnTerminate;
 	bool FIsMainCDP;
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TTVPPadForm(TComponent* Owner, bool ismain = false);
 
 	void __fastcall GoToLine(int line);

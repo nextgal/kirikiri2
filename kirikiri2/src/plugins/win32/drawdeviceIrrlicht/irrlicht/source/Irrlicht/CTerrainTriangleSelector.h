@@ -32,7 +32,7 @@ public:
 	CTerrainTriangleSelector(ITerrainSceneNode* node, s32 LOD );
 
 	//! Destructor
-	~CTerrainTriangleSelector();
+	‾CTerrainTriangleSelector();
 
 	//! Clears and sets triangle data
 	virtual void setTriangleData ( ITerrainSceneNode* node, s32 LOD );

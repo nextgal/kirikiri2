@@ -30,7 +30,7 @@ class TTVPFontSelectForm : public TForm
 			NEWTEXTMETRICEX *lpntme,  // pointer to physical-font data
 			int FontType,             // type of font
 			LPARAM userdata);
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TListBox *ListBox;
 	TLabel *Label1;
 	TLabel *Label3;
@@ -45,7 +45,7 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall ListBoxDblClick(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall FormDestroy(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	int Flags;
 	LOGFONT RefFont;
 protected:
@@ -57,7 +57,7 @@ END_MESSAGE_MAP(TForm)
 	void __fastcall WMShowTop(TMessage &Msg);
 	void __fastcall WMSetVisible(TMessage &Msg);
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TTVPFontSelectForm(TComponent* Owner, TCanvas *RefCanvas, int flags,
 		AnsiString caption, AnsiString prompt, AnsiString samplestring);
 

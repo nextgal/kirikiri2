@@ -31,7 +31,7 @@ private:
 public:
 	//-- constructor/destructor
 	tTVPStream() {;}
-	virtual ~tTVPStream() {;}
+	virtual ‾tTVPStream() {;}
 
 	//-- must implement
 	virtual unsigned __int64 Seek(__int64 offset, int whence) = 0;
@@ -112,7 +112,7 @@ private:
 public:
 	tTVPLocalFileStream(const char *name,  unsigned int flag, bool useencryption = false,
 		unsigned __int32 salt = 0);
-	~tTVPLocalFileStream();
+	‾tTVPLocalFileStream();
 
 	unsigned __int64 Seek(__int64 offset, int whence);
 

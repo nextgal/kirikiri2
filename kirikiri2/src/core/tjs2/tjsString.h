@@ -93,7 +93,7 @@ public:
 #endif
 
 	//--------------------------------------------------------- destructor --
-	TJS_METHOD_DEF(TJS_METHOD_RET_EMPTY, ~tTJSString, ()) { if(Ptr) Ptr->Release(); }
+	TJS_METHOD_DEF(TJS_METHOD_RET_EMPTY, ‾tTJSString, ()) { if(Ptr) Ptr->Release(); }
 
 	//--------------------------------------------------------- conversion --
 	TJS_CONST_METHOD_DEF(const tjs_char *, c_str, ())

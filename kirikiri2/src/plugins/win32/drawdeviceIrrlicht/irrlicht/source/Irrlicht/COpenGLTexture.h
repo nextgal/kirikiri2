@@ -53,7 +53,7 @@ public:
 	COpenGLTexture(const core::dimension2d<s32>& size, bool extPackedDepthStencilSupported, const char* name, COpenGLDriver* driver=0);
 
 	//! destructor
-	virtual ~COpenGLTexture();
+	virtual ‾COpenGLTexture();
 
 	//! lock function
 	virtual void* lock();
@@ -110,7 +110,7 @@ private:
 	void getImageData(IImage* image);
 
 	//! copies the the texture into an open gl texture.
-	//! \param: newTexture is true if method is called from a newly created texture for the first time. Otherwise call with false to improve memory handling.
+	//! ¥param: newTexture is true if method is called from a newly created texture for the first time. Otherwise call with false to improve memory handling.
 	void copyTexture(bool newTexture=true);
 
 	//! returns the size of a texture which would be the optimize size for rendering it

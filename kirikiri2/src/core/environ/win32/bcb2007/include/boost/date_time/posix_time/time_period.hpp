@@ -13,7 +13,7 @@ namespace boost {
 namespace posix_time {
 
   //! Time period type
-  /*! \ingroup time_basics
+  /*! ¥ingroup time_basics
    */
   typedef date_time::period<ptime, time_duration> time_period;
 

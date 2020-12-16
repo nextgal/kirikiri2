@@ -18,7 +18,7 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)¥$(ProjectName)"
 			ConfigurationType="4"
 			CharacterSet="1"
 			>
@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="cairo\src;cairo\pixman\src;zlib"
+				AdditionalIncludeDirectories="cairo¥src;cairo¥pixman¥src;zlib"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -81,7 +81,7 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)¥$(ProjectName)"
 			ConfigurationType="4"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
@@ -103,7 +103,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="cairo\src;cairo\pixman\src;zlib"
+				AdditionalIncludeDirectories="cairo¥src;cairo¥pixman¥src;zlib"
 				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
@@ -144,345 +144,345 @@
 	</References>
 	<Files>
 		<Filter
-			Name="�\�[�X �t�@�C��"
+			Name="ソース ファイル"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\cairo\src\cairo-analysis-surface.c"
+				RelativePath=".¥cairo¥src¥cairo-analysis-surface.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-arc.c"
+				RelativePath=".¥cairo¥src¥cairo-arc.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-array.c"
+				RelativePath=".¥cairo¥src¥cairo-array.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-base85-stream.c"
+				RelativePath=".¥cairo¥src¥cairo-base85-stream.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-bentley-ottmann.c"
+				RelativePath=".¥cairo¥src¥cairo-bentley-ottmann.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-cache.c"
+				RelativePath=".¥cairo¥src¥cairo-cache.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-cff-subset.c"
+				RelativePath=".¥cairo¥src¥cairo-cff-subset.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-clip.c"
+				RelativePath=".¥cairo¥src¥cairo-clip.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-color.c"
+				RelativePath=".¥cairo¥src¥cairo-color.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-debug.c"
+				RelativePath=".¥cairo¥src¥cairo-debug.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-deflate-stream.c"
+				RelativePath=".¥cairo¥src¥cairo-deflate-stream.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-fixed.c"
+				RelativePath=".¥cairo¥src¥cairo-fixed.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-font-options.c"
+				RelativePath=".¥cairo¥src¥cairo-font-options.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-font.c"
+				RelativePath=".¥cairo¥src¥cairo-font.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-freelist.c"
+				RelativePath=".¥cairo¥src¥cairo-freelist.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-gstate.c"
+				RelativePath=".¥cairo¥src¥cairo-gstate.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-hash.c"
+				RelativePath=".¥cairo¥src¥cairo-hash.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-hull.c"
+				RelativePath=".¥cairo¥src¥cairo-hull.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-image-surface.c"
+				RelativePath=".¥cairo¥src¥cairo-image-surface.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-lzw.c"
+				RelativePath=".¥cairo¥src¥cairo-lzw.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-matrix.c"
+				RelativePath=".¥cairo¥src¥cairo-matrix.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-meta-surface.c"
+				RelativePath=".¥cairo¥src¥cairo-meta-surface.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-operator.c"
+				RelativePath=".¥cairo¥src¥cairo-operator.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-output-stream.c"
+				RelativePath=".¥cairo¥src¥cairo-output-stream.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-path-bounds.c"
+				RelativePath=".¥cairo¥src¥cairo-path-bounds.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-path-fill.c"
+				RelativePath=".¥cairo¥src¥cairo-path-fill.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-path-fixed-private.h"
+				RelativePath=".¥cairo¥src¥cairo-path-fixed-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-path-fixed.c"
+				RelativePath=".¥cairo¥src¥cairo-path-fixed.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-path-stroke.c"
+				RelativePath=".¥cairo¥src¥cairo-path-stroke.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-path.c"
+				RelativePath=".¥cairo¥src¥cairo-path.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-pattern.c"
+				RelativePath=".¥cairo¥src¥cairo-pattern.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-pen.c"
+				RelativePath=".¥cairo¥src¥cairo-pen.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-polygon.c"
+				RelativePath=".¥cairo¥src¥cairo-polygon.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-rectangle.c"
+				RelativePath=".¥cairo¥src¥cairo-rectangle.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-region.c"
+				RelativePath=".¥cairo¥src¥cairo-region.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-scaled-font-subsets.c"
+				RelativePath=".¥cairo¥src¥cairo-scaled-font-subsets.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-scaled-font.c"
+				RelativePath=".¥cairo¥src¥cairo-scaled-font.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-skiplist.c"
+				RelativePath=".¥cairo¥src¥cairo-skiplist.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-slope.c"
+				RelativePath=".¥cairo¥src¥cairo-slope.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-spline.c"
+				RelativePath=".¥cairo¥src¥cairo-spline.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-stroke-style.c"
+				RelativePath=".¥cairo¥src¥cairo-stroke-style.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-surface-fallback.c"
+				RelativePath=".¥cairo¥src¥cairo-surface-fallback.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-surface.c"
+				RelativePath=".¥cairo¥src¥cairo-surface.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-traps.c"
+				RelativePath=".¥cairo¥src¥cairo-traps.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-truetype-subset.c"
+				RelativePath=".¥cairo¥src¥cairo-truetype-subset.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-unicode.c"
+				RelativePath=".¥cairo¥src¥cairo-unicode.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-wideint.c"
+				RelativePath=".¥cairo¥src¥cairo-wideint.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-win32-font.c"
+				RelativePath=".¥cairo¥src¥cairo-win32-font.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-win32-surface.c"
+				RelativePath=".¥cairo¥src¥cairo-win32-surface.c"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo.c"
+				RelativePath=".¥cairo¥src¥cairo.c"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="�w�b�_�[ �t�@�C��"
+			Name="ヘッダー ファイル"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\cairo\src\cairo-analysis-surface-private.h"
+				RelativePath=".¥cairo¥src¥cairo-analysis-surface-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-arc-private.h"
+				RelativePath=".¥cairo¥src¥cairo-arc-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-atsui.h"
+				RelativePath=".¥cairo¥src¥cairo-atsui.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-cache-private.h"
+				RelativePath=".¥cairo¥src¥cairo-cache-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-clip-private.h"
+				RelativePath=".¥cairo¥src¥cairo-clip-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-deprecated.h"
+				RelativePath=".¥cairo¥src¥cairo-deprecated.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-directfb.h"
+				RelativePath=".¥cairo¥src¥cairo-directfb.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-features.h"
+				RelativePath=".¥cairo¥src¥cairo-features.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-freelist-private.h"
+				RelativePath=".¥cairo¥src¥cairo-freelist-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-ft-private.h"
+				RelativePath=".¥cairo¥src¥cairo-ft-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-ft.h"
+				RelativePath=".¥cairo¥src¥cairo-ft.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-gstate-private.h"
+				RelativePath=".¥cairo¥src¥cairo-gstate-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-hash-private.h"
+				RelativePath=".¥cairo¥src¥cairo-hash-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-meta-surface-private.h"
+				RelativePath=".¥cairo¥src¥cairo-meta-surface-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-nquartz.h"
+				RelativePath=".¥cairo¥src¥cairo-nquartz.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-output-stream-private.h"
+				RelativePath=".¥cairo¥src¥cairo-output-stream-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-paginated-surface-private.h"
+				RelativePath=".¥cairo¥src¥cairo-paginated-surface-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-path-private.h"
+				RelativePath=".¥cairo¥src¥cairo-path-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-private.h"
+				RelativePath=".¥cairo¥src¥cairo-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-scaled-font-subsets-private.h"
+				RelativePath=".¥cairo¥src¥cairo-scaled-font-subsets-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-scaled-font-test.h"
+				RelativePath=".¥cairo¥src¥cairo-scaled-font-test.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-skiplist-private.h"
+				RelativePath=".¥cairo¥src¥cairo-skiplist-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-surface-fallback-private.h"
+				RelativePath=".¥cairo¥src¥cairo-surface-fallback-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-wideint-private.h"
+				RelativePath=".¥cairo¥src¥cairo-wideint-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-win32-private.h"
+				RelativePath=".¥cairo¥src¥cairo-win32-private.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-win32.h"
+				RelativePath=".¥cairo¥src¥cairo-win32.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-xcb-xrender.h"
+				RelativePath=".¥cairo¥src¥cairo-xcb-xrender.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo-xcb.h"
+				RelativePath=".¥cairo¥src¥cairo-xcb.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairo.h"
+				RelativePath=".¥cairo¥src¥cairo.h"
 				>
 			</File>
 			<File
-				RelativePath=".\cairo\src\cairoint.h"
+				RelativePath=".¥cairo¥src¥cairoint.h"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="���\�[�X �t�@�C��"
+			Name="リソース ファイル"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
 		<File
-			RelativePath=".\ReadMe.txt"
+			RelativePath=".¥ReadMe.txt"
 			>
 		</File>
 	</Files>

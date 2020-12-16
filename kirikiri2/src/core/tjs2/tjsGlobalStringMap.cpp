@@ -48,7 +48,7 @@ public:
 	}
 
 protected:
-	~tTJSGlobalStringMap()
+	‾tTJSGlobalStringMap()
 	{
 		TJSGlobalStringMap = NULL;
 	}

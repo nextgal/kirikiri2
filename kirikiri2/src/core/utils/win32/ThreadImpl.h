@@ -28,7 +28,7 @@ class tTVPThread
 
 public:
 	tTVPThread(bool suspended);
-	virtual ~tTVPThread();
+	virtual ‾tTVPThread();
 
 	bool GetTerminated() const { return Terminated; }
 	void SetTerminated(bool s) { Terminated = s; }
@@ -63,7 +63,7 @@ class tTVPThreadEvent
 
 public:
 	tTVPThreadEvent(bool manualreset = false);
-	virtual ~tTVPThreadEvent();
+	virtual ‾tTVPThreadEvent();
 
 	void Set();
 	void Reset();

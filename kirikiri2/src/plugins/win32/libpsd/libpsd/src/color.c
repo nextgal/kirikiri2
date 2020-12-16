@@ -335,18 +335,18 @@ void psd_rgb_to_inthsb(psd_int red, psd_int green, psd_int blue, psd_int * hue, 
 	}
 }
 
-#define HUE_TO_COLOR(hue, m1, m2, V)							\
-do {															\
-	psd_int h;													\
-	h = (hue + 360) % 360;										\
-	if(h < 60)				/*60 = 360 / 6;*/					\
-		V = m1 + (m2 - m1) * h / 60;							\
-	else if(h < 180)		/*180 = 360 / 2;*/					\
-		V = m2;													\
-	else if(h < 240)		/*240 = 360 * 2 / 3;*/				\
-		V = m1 + (m2 - m1) * (240 - h) / 60;					\
-	else														\
-		V = m1;													\
+#define HUE_TO_COLOR(hue, m1, m2, V)							¥
+do {															¥
+	psd_int h;													¥
+	h = (hue + 360) % 360;										¥
+	if(h < 60)				/*60 = 360 / 6;*/					¥
+		V = m1 + (m2 - m1) * h / 60;							¥
+	else if(h < 180)		/*180 = 360 / 2;*/					¥
+		V = m2;													¥
+	else if(h < 240)		/*240 = 360 * 2 / 3;*/				¥
+		V = m1 + (m2 - m1) * (240 - h) / 60;					¥
+	else														¥
+		V = m1;													¥
 } while(0)
 
 void psd_inthsb_to_rgb(psd_int hue, psd_int saturation, psd_int brightness, psd_int * red, psd_int * green, psd_int * blue)

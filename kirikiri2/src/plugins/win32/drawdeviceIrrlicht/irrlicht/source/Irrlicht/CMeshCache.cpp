@@ -12,7 +12,7 @@ namespace scene
 {
 
 
-CMeshCache::~CMeshCache()
+CMeshCache::‾CMeshCache()
 {
 	clear();
 }

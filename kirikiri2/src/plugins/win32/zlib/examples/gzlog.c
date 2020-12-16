@@ -248,7 +248,7 @@ typedef unsigned long ulong;
     jmp_buf gzlog_jump;         /* where to go back to */
     int gzlog_bail = 0;         /* which point to bail at (1..8) */
     int gzlog_count = -1;       /* number of times through to wait */
-#   define BAIL(n) do { if (n == gzlog_bail && gzlog_count-- == 0) \
+#   define BAIL(n) do { if (n == gzlog_bail && gzlog_count-- == 0) ¥
                             longjmp(gzlog_jump, gzlog_bail); } while (0)
 #else
 #   define BAIL(n)
@@ -285,7 +285,7 @@ typedef unsigned long ulong;
 #define PUT8(p,a) do {PUT4(p,a);PUT4(p+4,a>>32);} while(0)
 
 /* internal structure for log information */
-#define LOGID "\106\035\172"    /* should be three non-zero characters */
+#define LOGID "¥106¥035¥172"    /* should be three non-zero characters */
 struct log {
     char id[4];     /* contains LOGID to detect inadvertent overwrites */
     int fd;         /* file descriptor for .gz file, opened read/write */
@@ -725,7 +725,7 @@ local void log_log(struct log *log, int op, char *record)
     rec = fopen(log->path, "a");
     if (rec == NULL)
         return;
-    fprintf(rec, "%.24s %s recovery: %s\n", ctime(&now), op == APPEND_OP ?
+    fprintf(rec, "%.24s %s recovery: %s¥n", ctime(&now), op == APPEND_OP ?
             "append" : (op == COMPRESS_OP ? "compress" : "replace"), record);
     fclose(rec);
     return;
@@ -923,7 +923,7 @@ int gzlog_compress(gzlog *logd)
         return -1;
 
     /* create space for uncompressed data */
-    len = ((size_t)(log->last - log->first) & ~(((size_t)1 << 10) - 1)) +
+    len = ((size_t)(log->last - log->first) & ‾(((size_t)1 << 10) - 1)) +
           log->stored;
     if ((data = malloc(len)) == NULL)
         return -2;

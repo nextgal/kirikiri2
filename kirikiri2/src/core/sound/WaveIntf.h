@@ -77,7 +77,7 @@ TJS_EXP_FUNC_DEF(void, TVPConvertPCMToFloat, (float *output, const void *input, 
 class tTVPWaveDecoder
 {
 public:
-	virtual ~tTVPWaveDecoder() {};
+	virtual ‾tTVPWaveDecoder() {};
 
 	virtual void GetFormat(tTVPWaveFormat & format) = 0;
 		/* Retrieve PCM format, etc. */
@@ -230,7 +230,7 @@ class tTJSNI_WaveFlags : public tTJSNativeInstance
 
 public:
 	tTJSNI_WaveFlags();
-	~tTJSNI_WaveFlags();
+	‾tTJSNI_WaveFlags();
 	tjs_error TJS_INTF_METHOD Construct(tjs_int numparams, tTJSVariant **param,
 		iTJSDispatch2 *tjs_obj);
 	void TJS_INTF_METHOD Invalidate();

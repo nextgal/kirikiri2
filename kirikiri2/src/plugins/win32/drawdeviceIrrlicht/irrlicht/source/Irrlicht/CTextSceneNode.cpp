@@ -37,7 +37,7 @@ CTextSceneNode::CTextSceneNode(ISceneNode* parent, ISceneManager* mgr, s32 id,
 }
 
 //! destructor
-CTextSceneNode::~CTextSceneNode()
+CTextSceneNode::‾CTextSceneNode()
 {
 	if (Font)
 		Font->drop();
@@ -141,7 +141,7 @@ CBillboardTextSceneNode::CBillboardTextSceneNode(ISceneNode* parent, ISceneManag
 
 
 
-CBillboardTextSceneNode::~CBillboardTextSceneNode()
+CBillboardTextSceneNode::‾CBillboardTextSceneNode()
 {
 	if (Font)
 		Font->drop();

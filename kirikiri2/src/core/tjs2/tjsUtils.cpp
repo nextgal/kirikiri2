@@ -51,7 +51,7 @@ tTJSString TJSVariantToReadableString(const tTJSVariant &val,
 	tjs_int maxlen)
 {
 	// convert given variant to human-readable string
-	// ( eg. "(string)\"this is a\\nstring\"" )
+	// ( eg. "(string)¥"this is a¥¥nstring¥"" )
 
 	tTJSVariantType type = val.Type();
 
@@ -79,9 +79,9 @@ tTJSString TJSVariantToReadableString(const tTJSVariant &val,
 	  }
 	case tvtString:
 	  {
-		tTJSString str(TJS_W("(string)\""));
+		tTJSString str(TJS_W("(string)¥""));
 		str += ttstr(val).EscapeC();
-		str += TJS_W("\"");
+		str += TJS_W("¥"");
 		TJSTrimStringLength(str, maxlen);
 		return str;
 	  }
@@ -156,9 +156,9 @@ tTJSString TJSVariantToExpressionString(const tTJSVariant &val)
 	  }
 	case tvtString:
 	  {
-		tTJSString str(TJS_W("\""));
+		tTJSString str(TJS_W("¥""));
 		str += ttstr(val).EscapeC();
-		str += TJS_W("\"");
+		str += TJS_W("¥"");
 		return str;
 	  }
 	case tvtOctet:
@@ -209,7 +209,7 @@ void * TJSAlignedAlloc(tjs_uint bytes, tjs_uint align_bits)
 	tTJSPointerSizedInteger::type *iptr =
 		reinterpret_cast<tTJSPointerSizedInteger::type *>(&ptr);
 	*iptr += align + sizeof(void*);
-	*iptr &= ~(tTJSPointerSizedInteger::type)(align - 1);
+	*iptr &= ‾(tTJSPointerSizedInteger::type)(align - 1);
 	(reinterpret_cast<void**>(ptr))[-1] = org_ptr;
 	return ptr;
 }

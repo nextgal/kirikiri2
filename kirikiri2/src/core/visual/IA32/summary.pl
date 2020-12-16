@@ -18,49 +18,49 @@ sub process
 	@all = <FA>;
 	$all = join('', @all);
 
-	while($all =~ /;;\[emit_c_h\](.*?)\n/sg)
+	while($all =‾ /;;¥[emit_c_h¥](.*?)¥n/sg)
 	{
-		print FH "$1\n";
+		print FH "$1¥n";
 	}
 
 	;# equ conversion
-	print FH "/*[*/\n";
-	while($all =~ /;;\[emit_c_h_equ_begin\](.*?);;\[emit_c_h_equ_end\]/sg)
+	print FH "/*[*/¥n";
+	while($all =‾ /;;¥[emit_c_h_equ_begin¥](.*?);;¥[emit_c_h_equ_end¥]/sg)
 	{
-		@each = split(/\n/, $1);
+		@each = split(/¥n/, $1);
 		foreach $each(@each)
 		{
-			if($each =~ /(.*?)\s+equ\s+(.*)/)
+			if($each =‾ /(.*?)¥s+equ¥s+(.*)/)
 			{
 				$name = $1;
 				$value = $2;
-				if($value =~ /(\d.*?)[hH]/)
+				if($value =‾ /(¥d.*?)[hH]/)
 				{
 					$value = "0x$1";
 				}
-				print FH "#define $name $value\n";
+				print FH "#define $name $value¥n";
 			}
 		}
 	}
-	print FH "/*]*/\n";
+	print FH "/*]*/¥n";
 
 
-	while($all =~ /;;\[function\](.*?)\n/sg)
+	while($all =‾ /;;¥[function¥](.*?)¥n/sg)
 	{
-		print FH "TVP_GL_IA32_FUNC_EXTERN_DECL($1);\n";
+		print FH "TVP_GL_IA32_FUNC_EXTERN_DECL($1);¥n";
 	}
 
-	while($all =~ /;;\[function_replace_by\s+(.*?)\](.*?)\n;;(.*?),(.*?),(.*?)\n/sg)
+	while($all =‾ /;;¥[function_replace_by¥s+(.*?)¥](.*?)¥n;;(.*?),(.*?),(.*?)¥n/sg)
 	{
-		print FH "TVP_GL_IA32_FUNC_EXTERN_DECL($3, $4, $5);\n";
+		print FH "TVP_GL_IA32_FUNC_EXTERN_DECL($3, $4, $5);¥n";
 
-		print FC "if($1)\n\t" if($1 ne '1');
-		print FC "$2 = $4;\n";
+		print FC "if($1)¥n¥t" if($1 ne '1');
+		print FC "$2 = $4;¥n";
 	}
 
-	while($all =~ /;;\[emit_c_c\](.*?)\n/sg)
+	while($all =‾ /;;¥[emit_c_c¥](.*?)¥n/sg)
 	{
-		$c_emits .= $1."\n";
+		$c_emits .= $1."¥n";
 	}
 
 }
@@ -71,7 +71,7 @@ print FH <<EOF;
 /*
 	this is a part of TVP (KIRIKIRI) software source.
 	see other sources for license.
-	(C)2001-2009 W.Dee <dee\@kikyou.info> and contributors
+	(C)2001-2009 W.Dee <dee¥@kikyou.info> and contributors
 */
 
 /* C-language interface to tvpgl_ia32.lib */
@@ -103,7 +103,7 @@ print FC <<EOF;
 /*
 	this is a part of TVP (KIRIKIRI) software source.
 	see other sources for license.
-	(C)2001-2009 W.Dee <dee\@kikyou.info> and contributors
+	(C)2001-2009 W.Dee <dee¥@kikyou.info> and contributors
 */
 
 /* C-language interface to tvpgl_ia32.lib */

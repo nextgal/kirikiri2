@@ -9,11 +9,11 @@
 #include "sqstdstream.h"
 #include "sqstdblobimpl.h"
 
-#define SETUP_STREAM(v) \
-	SQStream *self = NULL; \
-	if(SQ_FAILED(sq_getinstanceup(v,1,(SQUserPointer*)&self,(SQUserPointer)SQSTD_STREAM_TYPE_TAG))) \
-		return sq_throwerror(v,_SC("invalid type tag")); \
-	if(!self->IsValid())  \
+#define SETUP_STREAM(v) ¥
+	SQStream *self = NULL; ¥
+	if(SQ_FAILED(sq_getinstanceup(v,1,(SQUserPointer*)&self,(SQUserPointer)SQSTD_STREAM_TYPE_TAG))) ¥
+		return sq_throwerror(v,_SC("invalid type tag")); ¥
+	if(!self->IsValid())  ¥
 		return sq_throwerror(v,_SC("the stream is invalid"));
 
 SQInteger _stream_readblob(HSQUIRRELVM v)
@@ -34,8 +34,8 @@ SQInteger _stream_readblob(HSQUIRRELVM v)
 	return 1;
 }
 
-#define SAFE_READN(ptr,len) { \
-	if(self->Read(ptr,len) != len) return sq_throwerror(v,_SC("io error")); \
+#define SAFE_READN(ptr,len) { ¥
+	if(self->Read(ptr,len) != len) return sq_throwerror(v,_SC("io error")); ¥
 	}
 SQInteger _stream_readn(HSQUIRRELVM v)
 {

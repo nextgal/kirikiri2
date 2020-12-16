@@ -40,7 +40,7 @@ CGUIStaticText::CGUIStaticText(const wchar_t* text, bool border,
 
 
 //! destructor
-CGUIStaticText::~CGUIStaticText()
+CGUIStaticText::‾CGUIStaticText()
 {
 	if (OverrideFont)
 		OverrideFont->drop();
@@ -271,17 +271,17 @@ void CGUIStaticText::breakText()
 		c = Text[i];
 		bool lineBreak = false;
 
-		if (c == L'\r') // Mac or Windows breaks
+		if (c == L'¥r') // Mac or Windows breaks
 		{
 			lineBreak = true;
 			c = ' ';
-			if (Text[i+1] == L'\n') // Windows breaks
+			if (Text[i+1] == L'¥n') // Windows breaks
 			{
 				Text.erase(i+1);
 				--size;
 			}
 		}
-		else if (c == L'\n') // Unix breaks
+		else if (c == L'¥n') // Unix breaks
 		{
 			lineBreak = true;
 			c = ' ';

@@ -75,7 +75,7 @@ public:
     };
     
     // Constructor
-    execution_exception( error_code ec_, c_string_literal what_msg_ ) // max length 256 inc '\0'
+    execution_exception( error_code ec_, c_string_literal what_msg_ ) // max length 256 inc '¥0'
     : m_error_code( ec_ ), m_what( what_msg_ ) {}
 
     // access methods
@@ -95,7 +95,7 @@ private:
 class execution_monitor {
 public:
     // Destructor
-    virtual ~execution_monitor()    {}
+    virtual ‾execution_monitor()    {}
     
     int execute( bool catch_system_errors = true, int timeout_ = 0 );  // timeout is in seconds
     //  The catch_system_errors parameter specifies whether the monitor should 

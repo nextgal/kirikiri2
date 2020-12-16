@@ -18,7 +18,7 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)ﾂ･$(ProjectName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			>
@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..;..\ncbind;..\layerExCairo;..\layerExCairo\zlib;..\layerExCairo\cairo\src;tu-testbed"
+				AdditionalIncludeDirectories="..;..ﾂ･ncbind;..ﾂ･layerExCairo;..ﾂ･layerExCairoﾂ･zlib;..ﾂ･layerExCairoﾂ･cairoﾂ･src;tu-testbed"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;LAYEREXSWF_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile=".\..\..\..\..\bin\win32\plugin\$(ProjectName).dll"
+				OutputFile=".ﾂ･..ﾂ･..ﾂ･..ﾂ･..ﾂ･binﾂ･win32ﾂ･pluginﾂ･$(ProjectName).dll"
 				LinkIncremental="2"
 				ModuleDefinitionFile="gameswf.def"
 				GenerateDebugInformation="true"
@@ -96,7 +96,7 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)ﾂ･$(ProjectName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
@@ -118,7 +118,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..;..\ncbind;..\layerExCairo;..\layerExCairo\zlib;..\layerExCairo\cairo\src;tu-testbed"
+				AdditionalIncludeDirectories="..;..ﾂ･ncbind;..ﾂ･layerExCairo;..ﾂ･layerExCairoﾂ･zlib;..ﾂ･layerExCairoﾂ･cairoﾂ･src;tu-testbed"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LAYEREXSWF_EXPORTS"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
@@ -137,7 +137,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile=".\..\..\..\..\bin\win32\plugin\$(ProjectName).dll"
+				OutputFile=".ﾂ･..ﾂ･..ﾂ･..ﾂ･..ﾂ･binﾂ･win32ﾂ･pluginﾂ･$(ProjectName).dll"
 				LinkIncremental="1"
 				ModuleDefinitionFile="gameswf.def"
 				GenerateDebugInformation="true"
@@ -176,71 +176,71 @@
 	</References>
 	<Files>
 		<Filter
-			Name="ソース ファイル"
+			Name="繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\cairoHandler.cpp"
+				RelativePath=".ﾂ･cairoHandler.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\gameswf.cpp"
+				RelativePath=".ﾂ･gameswf.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\gameswf.def"
+				RelativePath=".ﾂ･gameswf.def"
 				>
 			</File>
 			<File
-				RelativePath="..\layerExCairo\layerExCairo.cpp"
+				RelativePath="..ﾂ･layerExCairoﾂ･layerExCairo.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\layerExSWF.cpp"
+				RelativePath=".ﾂ･layerExSWF.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\ncbind\ncbind.cpp"
+				RelativePath="..ﾂ･ncbindﾂ･ncbind.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\SWFMovie.cpp"
+				RelativePath=".ﾂ･SWFMovie.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\tp_stub.cpp"
+				RelativePath="..ﾂ･tp_stub.cpp"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="ヘッダー ファイル"
+			Name="繝倥ャ繝繝ｼ 繝輔ぃ繧､繝ｫ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\layerExCairo\layerExBase.hpp"
+				RelativePath="..ﾂ･layerExCairoﾂ･layerExBase.hpp"
 				>
 			</File>
 			<File
-				RelativePath="..\layerExCairo\layerExCairo.hpp"
+				RelativePath="..ﾂ･layerExCairoﾂ･layerExCairo.hpp"
 				>
 			</File>
 			<File
-				RelativePath=".\layerExSWF.hpp"
+				RelativePath=".ﾂ･layerExSWF.hpp"
 				>
 			</File>
 			<File
-				RelativePath="..\ncbind\ncbind.hpp"
+				RelativePath="..ﾂ･ncbindﾂ･ncbind.hpp"
 				>
 			</File>
 			<File
-				RelativePath=".\SWFMovie.hpp"
+				RelativePath=".ﾂ･SWFMovie.hpp"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="リソース ファイル"
+			Name="繝ｪ繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>

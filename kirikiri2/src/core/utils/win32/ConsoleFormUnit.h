@@ -26,7 +26,7 @@ extern void TVPCopyImportantLogToClipboard();
 class TLogViewer;
 class TTVPConsoleForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TStatusBar *StatusBar;
 	TPopupMenu *PopupMenu;
 	TMenuItem *CopyMenuItem;
@@ -72,7 +72,7 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall ShowOnTopMenuItemClick(TObject *Sender);
 	void __fastcall SelectFontMenuItemClick(TObject *Sender);
 	void __fastcall ShowConsoleMenuItemClick(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	TLogViewer *LogViewer;
 	tjs_int LastSelectedItem;
 
@@ -82,9 +82,9 @@ BEGIN_MESSAGE_MAP
 END_MESSAGE_MAP(TForm)
 	void __fastcall WMClearSelection(TMessage &Msg);
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TTVPConsoleForm(TComponent* Owner);
-	__fastcall ~TTVPConsoleForm();
+	__fastcall â€¾TTVPConsoleForm();
 
 	void __fastcall AddLine(const ttstr & line);
 private:

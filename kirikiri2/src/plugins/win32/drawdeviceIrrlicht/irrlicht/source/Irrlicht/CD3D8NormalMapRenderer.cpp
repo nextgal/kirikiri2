@@ -20,93 +20,93 @@ namespace video
 
 	// Irrlicht Engine D3D8 render path normal map vertex shader
 	const char D3D8_NORMAL_MAP_VSH[] = 
-		";Irrlicht Engine 0.8 D3D8 render path normal map vertex shader\n"\
-		"; c0-3: Transposed world matrix \n"\
-		"; c8-11: Transposed worldViewProj matrix (Projection * View * World) \n"\
-		"; c12: Light01 position \n"\
-		"; c13: x,y,z: Light01 color; .w: 1/LightRadius� \n"\
-		"; c14: Light02 position \n"\
-		"; c15: x,y,z: Light02 color; .w: 1/LightRadius� \n"\
-		"\n"\
-		"; v0 - position \n"\
-		"; v1 - normal \n"\
-		"; v2 - color \n"\
-		"; v3 - texture coord \n"\
-		"; v4 - tangent \n"\
-		"; v5 - binormal \n"\
-		"\n"\
-		"vs.1.1\n"\
-		"\n"\
-		"m4x4 oPos, v0, c8             ; transform position to clip space with worldViewProj matrix\n"\
-        "\n"\
-		"m3x3 r5, v4, c0               ; transform tangent U\n"\
-		"m3x3 r7, v1, c0               ; transform normal W\n"\
-		"m3x3 r6, v5, c0               ; transform binormal V\n"\
-		"\n"\
-		"m4x4 r4, v0, c0               ; vertex into world position\n"\
-		"add r2, c12, -r4              ; vtxpos - lightpos1\n"\
-		"add r3, c14, -r4              ; vtxpos - lightpos2\n"\
-		"\n"\
-		"dp3 r8.x, r5, r2              ; transform the light vector 1 with U, V, W\n"\
-		"dp3 r8.y, r6, r2   \n"\
-		"dp3 r8.z, r7, r2   \n"\
-		"dp3 r9.x, r5, r3              ; transform the light vector 2 with U, V, W\n"\
-		"dp3 r9.y, r6, r3   \n"\
-		"dp3 r9.z, r7, r3   \n"\
-		"\n"\
-		"dp3 r8.w, r8, r8              ; normalize light vector 1 (r8)\n"\
-		"rsq r8.w, r8.w    \n"\
-		"mul r8, r8, r8.w  \n"\
-		"dp3 r9.w, r9, r9              ; normalize light vector 2 (r9)\n"\
-		"rsq r9.w, r9.w    \n"\
-		"mul r9, r9, r9.w  \n"\
-		"\n"\
-		"mad oT2.xyz, r8.xyz, c95, c95 ; move light vector 1 from -1..1 into 0..1 \n"\
-		"mad oT3.xyz, r9.xyz, c95, c95 ; move light vector 2 from -1..1 into 0..1 \n"\
-		"\n"\
-		" ; calculate attenuation of light 1 \n"\
-		"dp3 r2.x, r2.xyz, r2.xyz      ; r2.x = r2.x� + r2.y� + r2.z� \n"\
-		"mul r2.x, r2.x, c13.w         ; r2.x * attenutation \n"\
-		"rsq r2, r2.x                  ; r2.xyzw = 1/sqrt(r2.x * attenutation)\n"\
-		"mul oD0, r2, c13              ; resulting light color = lightcolor * attenuation \n"\
-		"\n"\
-		" ; calculate attenuation of light 2 \n"\
-		"dp3 r3.x, r3.xyz, r3.xyz      ; r3.x = r3.x� + r3.y� + r3.z� \n"\
-		"mul r3.x, r3.x, c15.w         ; r2.x * attenutation \n"\
-		"rsq r3, r3.x                  ; r2.xyzw = 1/sqrt(r2.x * attenutation)\n"\
-		"mul oD1, r3, c15              ; resulting light color = lightcolor * attenuation \n"\
-		"\n"\
-		"mov oT0.xy, v3.xy             ; move out texture coordinates 1\n"\
-		"mov oT1.xy, v3.xy             ; move out texture coordinates 2\n"\
-		"mov oD0.a, v2.a               ; move out original alpha value \n"\
-		"\n";
+		";Irrlicht Engine 0.8 D3D8 render path normal map vertex shader¥n"¥
+		"; c0-3: Transposed world matrix ¥n"¥
+		"; c8-11: Transposed worldViewProj matrix (Projection * View * World) ¥n"¥
+		"; c12: Light01 position ¥n"¥
+		"; c13: x,y,z: Light01 color; .w: 1/LightRadiusｲ ¥n"¥
+		"; c14: Light02 position ¥n"¥
+		"; c15: x,y,z: Light02 color; .w: 1/LightRadiusｲ ¥n"¥
+		"¥n"¥
+		"; v0 - position ¥n"¥
+		"; v1 - normal ¥n"¥
+		"; v2 - color ¥n"¥
+		"; v3 - texture coord ¥n"¥
+		"; v4 - tangent ¥n"¥
+		"; v5 - binormal ¥n"¥
+		"¥n"¥
+		"vs.1.1¥n"¥
+		"¥n"¥
+		"m4x4 oPos, v0, c8             ; transform position to clip space with worldViewProj matrix¥n"¥
+        "¥n"¥
+		"m3x3 r5, v4, c0               ; transform tangent U¥n"¥
+		"m3x3 r7, v1, c0               ; transform normal W¥n"¥
+		"m3x3 r6, v5, c0               ; transform binormal V¥n"¥
+		"¥n"¥
+		"m4x4 r4, v0, c0               ; vertex into world position¥n"¥
+		"add r2, c12, -r4              ; vtxpos - lightpos1¥n"¥
+		"add r3, c14, -r4              ; vtxpos - lightpos2¥n"¥
+		"¥n"¥
+		"dp3 r8.x, r5, r2              ; transform the light vector 1 with U, V, W¥n"¥
+		"dp3 r8.y, r6, r2   ¥n"¥
+		"dp3 r8.z, r7, r2   ¥n"¥
+		"dp3 r9.x, r5, r3              ; transform the light vector 2 with U, V, W¥n"¥
+		"dp3 r9.y, r6, r3   ¥n"¥
+		"dp3 r9.z, r7, r3   ¥n"¥
+		"¥n"¥
+		"dp3 r8.w, r8, r8              ; normalize light vector 1 (r8)¥n"¥
+		"rsq r8.w, r8.w    ¥n"¥
+		"mul r8, r8, r8.w  ¥n"¥
+		"dp3 r9.w, r9, r9              ; normalize light vector 2 (r9)¥n"¥
+		"rsq r9.w, r9.w    ¥n"¥
+		"mul r9, r9, r9.w  ¥n"¥
+		"¥n"¥
+		"mad oT2.xyz, r8.xyz, c95, c95 ; move light vector 1 from -1..1 into 0..1 ¥n"¥
+		"mad oT3.xyz, r9.xyz, c95, c95 ; move light vector 2 from -1..1 into 0..1 ¥n"¥
+		"¥n"¥
+		" ; calculate attenuation of light 1 ¥n"¥
+		"dp3 r2.x, r2.xyz, r2.xyz      ; r2.x = r2.xｲ + r2.yｲ + r2.zｲ ¥n"¥
+		"mul r2.x, r2.x, c13.w         ; r2.x * attenutation ¥n"¥
+		"rsq r2, r2.x                  ; r2.xyzw = 1/sqrt(r2.x * attenutation)¥n"¥
+		"mul oD0, r2, c13              ; resulting light color = lightcolor * attenuation ¥n"¥
+		"¥n"¥
+		" ; calculate attenuation of light 2 ¥n"¥
+		"dp3 r3.x, r3.xyz, r3.xyz      ; r3.x = r3.xｲ + r3.yｲ + r3.zｲ ¥n"¥
+		"mul r3.x, r3.x, c15.w         ; r2.x * attenutation ¥n"¥
+		"rsq r3, r3.x                  ; r2.xyzw = 1/sqrt(r2.x * attenutation)¥n"¥
+		"mul oD1, r3, c15              ; resulting light color = lightcolor * attenuation ¥n"¥
+		"¥n"¥
+		"mov oT0.xy, v3.xy             ; move out texture coordinates 1¥n"¥
+		"mov oT1.xy, v3.xy             ; move out texture coordinates 2¥n"¥
+		"mov oD0.a, v2.a               ; move out original alpha value ¥n"¥
+		"¥n";
 
 	// Irrlicht Engine D3D8 render path normal map pixel shader
 	const char D3D8_NORMAL_MAP_PSH[] = 
-		";Irrlicht Engine 0.8 D3D8 render path normal map pixel shader\n"\
-		";Input: \n"\
-		";t0: color map texture coord \n"\
-		";t1: normal map texture coords \n"\
-		";t2: light 1 vector in tangent space \n"\
-		";v0: light 1 color \n"\
-		";t3: light 2 vector in tangent space \n"\
-		";v1: light 2 color \n"\
-		";v0.a: vertex alpha value  \n"\
-		"ps.1.1 \n"\
-		"tex t0                     ; sample color map \n"\
-		"tex t1                     ; sample normal map\n"\
-		"texcoord t2     			; fetch light vector 1\n"\
-		"texcoord t3     			; fetch light vector 2\n"\
-		"\n"\
-		"dp3_sat r0, t1_bx2, t2_bx2 ; normal dot light 1 (_bx2 because moved into 0..1)\n"\
-		"mul r0, r0, v0             ; luminance1 * light color 1 \n"\
-		"\n"\
-		"dp3_sat r1, t1_bx2, t3_bx2 ; normal dot light 2 (_bx2 because moved into 0..1)\n"\
-		"mad r0, r1, v1, r0         ; (luminance2 * light color 2) + luminance 1 \n"\
-		"\n"\
-		"mul r0, t0, r0             ; total luminance * base color\n"\
-		"mov r0.a, v0.a             ; write interpolated vertex alpha value \n"\
-		"\n"\
+		";Irrlicht Engine 0.8 D3D8 render path normal map pixel shader¥n"¥
+		";Input: ¥n"¥
+		";t0: color map texture coord ¥n"¥
+		";t1: normal map texture coords ¥n"¥
+		";t2: light 1 vector in tangent space ¥n"¥
+		";v0: light 1 color ¥n"¥
+		";t3: light 2 vector in tangent space ¥n"¥
+		";v1: light 2 color ¥n"¥
+		";v0.a: vertex alpha value  ¥n"¥
+		"ps.1.1 ¥n"¥
+		"tex t0                     ; sample color map ¥n"¥
+		"tex t1                     ; sample normal map¥n"¥
+		"texcoord t2     			; fetch light vector 1¥n"¥
+		"texcoord t3     			; fetch light vector 2¥n"¥
+		"¥n"¥
+		"dp3_sat r0, t1_bx2, t2_bx2 ; normal dot light 1 (_bx2 because moved into 0..1)¥n"¥
+		"mul r0, r0, v0             ; luminance1 * light color 1 ¥n"¥
+		"¥n"¥
+		"dp3_sat r1, t1_bx2, t3_bx2 ; normal dot light 2 (_bx2 because moved into 0..1)¥n"¥
+		"mad r0, r1, v1, r0         ; (luminance2 * light color 2) + luminance 1 ¥n"¥
+		"¥n"¥
+		"mul r0, t0, r0             ; total luminance * base color¥n"¥
+		"mov r0.a, v0.a             ; write interpolated vertex alpha value ¥n"¥
+		"¥n"¥
 		"";	
 
 	CD3D8NormalMapRenderer::CD3D8NormalMapRenderer(
@@ -153,7 +153,7 @@ namespace video
 		}
 	}
 
-	CD3D8NormalMapRenderer::~CD3D8NormalMapRenderer()
+	CD3D8NormalMapRenderer::‾CD3D8NormalMapRenderer()
 	{
 		if (CallBack == this)
 			CallBack = 0;

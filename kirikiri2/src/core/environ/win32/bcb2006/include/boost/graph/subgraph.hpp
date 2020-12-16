@@ -121,7 +121,7 @@ namespace boost {
     }
 
 
-    ~subgraph() {
+    ‾subgraph() {
       for (typename ChildrenList::iterator i = m_children.begin();
            i != m_children.end(); ++i)
         delete *i;

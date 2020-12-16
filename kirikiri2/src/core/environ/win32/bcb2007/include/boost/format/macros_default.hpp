@@ -9,42 +9,4 @@
 //  in all copies. This software is provided "as is" without express or implied
 //  warranty, and with no claim as to its suitability for any purpose.
 
-// ideas taken from Rüdiger Loos's format class
-// and Karl Nelson's ofstream (also took its parsing code as basis for printf parsing)
-
-// ------------------------------------------------------------------------------
-// macros_default.hpp : configuration for the format library
-//                       provides default values for the stl workaround macros
-// ------------------------------------------------------------------------------
-
-#ifndef BOOST_FORMAT_MACROS_DEFAULT_HPP
-#define BOOST_FORMAT_MACROS_DEFAULT_HPP
-
-#include <boost/config.hpp>
-
-// *** This should go to "boost/config/suffix.hpp".
-
-#ifndef BOOST_IO_STD
-#  define BOOST_IO_STD std::
-#endif
-
-// **** Workaround for io streams, stlport and msvc.
-#ifdef BOOST_IO_NEEDS_USING_DECLARATION
-namespace boost {
-  using std::char_traits;
-  using std::basic_ostream;
-  using std::basic_ostringstream;
-  namespace io {
-    using std::basic_ostream;
-    namespace detail {
-      using std::basic_ios;
-      using std::basic_ostream;
-      using std::basic_ostringstream;
-    }
-  }
-}
-#endif
-
-// ------------------------------------------------------------------------------
-
-#endif // BOOST_FORMAT_MACROS_DEFAULT_HPP
+// ideas taken from R

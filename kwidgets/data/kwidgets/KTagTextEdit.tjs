@@ -3,7 +3,7 @@
 //
 
 /*----------------------------------------------------------------------
- * ƒ^ƒOƒeƒLƒXƒgƒGƒfƒBƒbƒg
+ * ã‚¿ã‚°ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ãƒƒãƒˆ
  ----------------------------------------------------------------------*/
 class KTagTextEdit extends KTextEdit
 {
@@ -15,24 +15,24 @@ class KTagTextEdit extends KTextEdit
   var isPointerOnRightOfTag;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
    * @param window
-   * @param name –¼‘O
+   * @param name åå‰
    ------------------------------*/
   function KTagTextEdit(window, name) {
-    // ƒ^ƒO‚ÌƒŠƒXƒg
+    // ã‚¿ã‚°ã®ãƒªã‚¹ãƒˆ
     tagList = [];
-    // ƒ^ƒOî•ñ‚ÌƒŠƒXƒg
+    // ã‚¿ã‚°æƒ…å ±ã®ãƒªã‚¹ãƒˆ
     tagInfoList = [];
-    // ƒ^ƒOƒŒƒCƒ„‚ÌƒŒƒCƒXƒg
+    // ã‚¿ã‚°ãƒ¬ã‚¤ãƒ¤ã®ãƒ¬ã‚¤ã‚¹ãƒˆ
     tagLayerList = [];
-    // Œ»İ‚Ìƒ^ƒOˆÊ’u
+    // ç¾åœ¨ã®ã‚¿ã‚°ä½ç½®
     curTagIndex = -1;
     pointerOnTag = false;
-    // ‰Šú‰»
+    // åˆæœŸåŒ–
     super.KTextEdit(window, name);
-    // ƒ^ƒOƒTƒCƒh‚ÌƒŒƒCƒ„
+    // ã‚¿ã‚°ã‚µã‚¤ãƒ‰ã®ãƒ¬ã‚¤ãƒ¤
     tagPointerSideLayer = new global.Layer(window, this);
     isPointerOnRightOfTag = false;
     tagPointerSideLayer.loadImages("k_tag_pointer_side_left");
@@ -42,9 +42,9 @@ class KTagTextEdit extends KTextEdit
   }
 
   /**------------------------------
-   * ƒ^ƒO‚Ì”‚ğQÆ‚·‚é
+   * ã‚¿ã‚°ã®æ•°ã‚’å‚ç…§ã™ã‚‹
    *
-   * @return ƒ^ƒO‚Ì”
+   * @return ã‚¿ã‚°ã®æ•°
    ------------------------------*/
   property tagCount {
     getter {
@@ -53,27 +53,27 @@ class KTagTextEdit extends KTextEdit
   }
 
   /**------------------------------
-   * ƒ^ƒO‚ğQÆ‚·‚é
+   * ã‚¿ã‚°ã‚’å‚ç…§ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @return ƒ^ƒO
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @return ã‚¿ã‚°
    ------------------------------*/
   function tagAt(index) {
     return tagList[index];
   }
 
   /**------------------------------
-   * ƒ^ƒOî•ñ‚ğQÆ‚·‚é
+   * ã‚¿ã‚°æƒ…å ±ã‚’å‚ç…§ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @return ƒ^ƒOî•ñ
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @return ã‚¿ã‚°æƒ…å ±
    ------------------------------*/
   function tagInfoAt(index) {
     return tagInfoList[index];
   }
 
   /**------------------------------
-   * ƒ|ƒCƒ“ƒ^ˆÊ’u‚Éƒ^ƒO‚ª‚ ‚é‚©”»’è‚·‚é
+   * ãƒã‚¤ãƒ³ã‚¿ä½ç½®ã«ã‚¿ã‚°ãŒã‚ã‚‹ã‹åˆ¤å®šã™ã‚‹
    ------------------------------*/
   property isTagOnPointer {
     getter {
@@ -83,7 +83,7 @@ class KTagTextEdit extends KTextEdit
   }
 
   /**------------------------------
-   * “Á’è‚ÌˆÊ’u‚Éƒ^ƒO‚ª‚ ‚é‚©”»’è‚·‚é
+   * ç‰¹å®šã®ä½ç½®ã«ã‚¿ã‚°ãŒã‚ã‚‹ã‹åˆ¤å®šã™ã‚‹
    ------------------------------*/
   function isTagOn(row, col) {
     var point = new KTextEditPoint(row, col);
@@ -92,30 +92,30 @@ class KTagTextEdit extends KTextEdit
   }
 
   /**------------------------------
-   * “Á’è‚ÌˆÊ’u‚Éƒ^ƒO‚ğ‘}“ü‚·‚é
+   * ç‰¹å®šã®ä½ç½®ã«ã‚¿ã‚°ã‚’æŒ¿å…¥ã™ã‚‹
    *
-   * @param row s
-   * @param col —ñ
-   * @param info ƒ^ƒO‚ÉŠÖ˜A‚Ã‚¯‚é’Ç‰Áî•ñ
-   * @param notify ‘}“ü‚ğƒtƒbƒNŠÖ”‚É’Ê’m‚·‚é‚©‚Ç‚¤‚©
-   * @return ‘}“ü‚³‚ê‚½ƒ^ƒO‚ÌƒCƒ“ƒfƒbƒNƒX
+   * @param row è¡Œ
+   * @param col åˆ—
+   * @param info ã‚¿ã‚°ã«é–¢é€£ã¥ã‘ã‚‹è¿½åŠ æƒ…å ±
+   * @param notify æŒ¿å…¥ã‚’ãƒ•ãƒƒã‚¯é–¢æ•°ã«é€šçŸ¥ã™ã‚‹ã‹ã©ã†ã‹
+   * @return æŒ¿å…¥ã•ã‚ŒãŸã‚¿ã‚°ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function insertTag(row, col, info = void, notify = true) {
     var tag = new KTextEditPoint(row, col);
     var index = findTagIndex(row, col);
-    // Šù‘¶‚Ìƒ^ƒO‚È‚çA‚»‚ÌƒCƒ“ƒfƒbƒNƒX‚ğ•Ô‚·
+    // æ—¢å­˜ã®ã‚¿ã‚°ãªã‚‰ã€ãã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’è¿”ã™
     if (index != -1
 	&& tagList[index].eq(tag))
       return index;
-    // V‹Kƒ^ƒO‚ğ‘}“ü
+    // æ–°è¦ã‚¿ã‚°ã‚’æŒ¿å…¥
     tagList.insert(index + 1, tag);
-    // V‹Kƒ^ƒOî•ñ‚ğ‘}“ü
+    // æ–°è¦ã‚¿ã‚°æƒ…å ±ã‚’æŒ¿å…¥
     tagInfoList.insert(index + 1, info);
-    // Ä•`‰æ
+    // å†æç”»
     redrawTags();
     if (notify) {
       onTagInsertAt(index + 1);
-      // Œ»İQÆ‚µ‚Ä‚éƒ^ƒO‚ğˆê’UƒNƒŠƒA
+      // ç¾åœ¨å‚ç…§ã—ã¦ã‚‹ã‚¿ã‚°ã‚’ä¸€æ—¦ã‚¯ãƒªã‚¢
       curTagIndex = -1;
       onPointAt(pointer.row, pointer.col);
     }
@@ -124,28 +124,28 @@ class KTagTextEdit extends KTextEdit
   }
 
   /**------------------------------
-   * Œ»İ‚Ìƒ|ƒCƒ“ƒ^ˆÊ’u‚Éƒ^ƒO‚ğ‘}“ü‚·‚é
+   * ç¾åœ¨ã®ãƒã‚¤ãƒ³ã‚¿ä½ç½®ã«ã‚¿ã‚°ã‚’æŒ¿å…¥ã™ã‚‹
    *
-   * @param info ƒ^ƒO‚ÉŠÖ˜A‚Ã‚¯‚é’Ç‰Áî•ñ
-   * @param notify ‘}“ü‚ğƒtƒbƒNŠÖ”‚É’Ê’m‚·‚é‚©‚Ç‚¤‚©
-   * @return ‘}“ü‚³‚ê‚½ƒ^ƒO‚ÌƒCƒ“ƒfƒbƒNƒX
+   * @param info ã‚¿ã‚°ã«é–¢é€£ã¥ã‘ã‚‹è¿½åŠ æƒ…å ±
+   * @param notify æŒ¿å…¥ã‚’ãƒ•ãƒƒã‚¯é–¢æ•°ã«é€šçŸ¥ã™ã‚‹ã‹ã©ã†ã‹
+   * @return æŒ¿å…¥ã•ã‚ŒãŸã‚¿ã‚°ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function insertTagAtPointer(info = void, notify = true) {
     return insertTag(pointer.row, pointer.col, info, notify);
   }
 
   /**------------------------------
-   * ƒ^ƒO‚ğíœ‚·‚é
+   * ã‚¿ã‚°ã‚’å‰Šé™¤ã™ã‚‹
    *
-   * @param notify íœ‚ğƒtƒbƒNŠÖ”‚É’Ê’m‚·‚é‚©‚Ç‚¤‚©
-   * @param index ƒCƒ“ƒfƒbƒNƒX
+   * @param notify å‰Šé™¤ã‚’ãƒ•ãƒƒã‚¯é–¢æ•°ã«é€šçŸ¥ã™ã‚‹ã‹ã©ã†ã‹
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function deleteTag(index, notify = true) {
     tagList.erase(index);
     tagInfoList.erase(index);
     if (notify) {
       onTagDeleteAt(index);
-      // Œ»İQÆ‚µ‚Ä‚éƒ^ƒO‚ğˆê’UƒNƒŠƒA
+      // ç¾åœ¨å‚ç…§ã—ã¦ã‚‹ã‚¿ã‚°ã‚’ä¸€æ—¦ã‚¯ãƒªã‚¢
       curTagIndex = -1;
       onPointAt(pointer.row, pointer.col);
     }
@@ -153,22 +153,22 @@ class KTagTextEdit extends KTextEdit
   }
 
   /**------------------------------
-   * Œ»İ‚Ìƒ|ƒCƒ“ƒ^ˆÊ’u‚Ìƒ^ƒO‚ğíœ‚·‚é
+   * ç¾åœ¨ã®ãƒã‚¤ãƒ³ã‚¿ä½ç½®ã®ã‚¿ã‚°ã‚’å‰Šé™¤ã™ã‚‹
    *
-   * @param notify íœ‚ğƒtƒbƒNŠÖ”‚É’Ê’m‚·‚é‚©‚Ç‚¤‚©
+   * @param notify å‰Šé™¤ã‚’ãƒ•ãƒƒã‚¯é–¢æ•°ã«é€šçŸ¥ã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function deleteTagAtPointer(notify = true) {
     deleteTag(findTagIndex(pointer.row, pointer.col), notify);
   }
 
   /**------------------------------
-   * s‚Æ—ñ‚É‘Î‰‚µ‚½Å¬‚Ìƒ^ƒO‚ÌƒCƒ“ƒfƒbƒNƒX‚ğŒŸõ‚·‚é
-   * w’è‚ÌˆÊ’u‚æ‚è‘O‚Éƒ^ƒO‚ª‘¶İ‚µ‚È‚¢‚ÍA-1‚ğ•Ô‚·B
+   * è¡Œã¨åˆ—ã«å¯¾å¿œã—ãŸæœ€å°ã®ã‚¿ã‚°ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æ¤œç´¢ã™ã‚‹
+   * æŒ‡å®šã®ä½ç½®ã‚ˆã‚Šå‰ã«ã‚¿ã‚°ãŒå­˜åœ¨ã—ãªã„æ™‚ã¯ã€-1ã‚’è¿”ã™ã€‚
    *
-   * @param row s
-   * @param col —ñ
-   * @param includeCurPos false‚ğw’è‚·‚é‚ÆAw’è‚ÌˆÊ’u‚É‚ ‚éƒ^ƒO‚ğŒŸõ‘ÎÛ‚Éu“ü‚ê‚È‚¢vB
-   * @return ƒ^ƒO‚ÌƒCƒ“ƒfƒbƒNƒX
+   * @param row è¡Œ
+   * @param col åˆ—
+   * @param includeCurPos falseã‚’æŒ‡å®šã™ã‚‹ã¨ã€æŒ‡å®šã®ä½ç½®ã«ã‚ã‚‹ã‚¿ã‚°ã‚’æ¤œç´¢å¯¾è±¡ã«ã€Œå…¥ã‚Œãªã„ã€ã€‚
+   * @return ã‚¿ã‚°ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function findTagIndex(row, col, includeCurPos = true) {
     var val = new KTextEditPoint(row, col);
@@ -195,17 +195,17 @@ class KTagTextEdit extends KTextEdit
   }
 
   /**------------------------------
-   * ƒ|ƒCƒ“ƒ^[ˆÊ’u‚Ìƒ^ƒO‚ÌƒCƒ“ƒfƒbƒNƒX‚ğŒŸõ‚·‚é
+   * ãƒã‚¤ãƒ³ã‚¿ãƒ¼ä½ç½®ã®ã‚¿ã‚°ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æ¤œç´¢ã™ã‚‹
    *
-   * @param includeCurPos false‚ğw’è‚·‚é‚ÆAw’è‚ÌˆÊ’u‚É‚ ‚éƒ^ƒO‚ğŒŸõ‘ÎÛ‚Éu“ü‚ê‚È‚¢vB
-   * @return ƒ^ƒO‚ÌƒCƒ“ƒfƒbƒNƒX
+   * @param includeCurPos falseã‚’æŒ‡å®šã™ã‚‹ã¨ã€æŒ‡å®šã®ä½ç½®ã«ã‚ã‚‹ã‚¿ã‚°ã‚’æ¤œç´¢å¯¾è±¡ã«ã€Œå…¥ã‚Œãªã„ã€ã€‚
+   * @return ã‚¿ã‚°ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function findTagIndexAtPointer(includeCurPos = true) {
     return findTagIndex(pointer.row, pointer.col, includeCurPos);
   }
 
   /**------------------------------
-   * ’¼‘O‚Ìƒ^ƒO‚ÖˆÚ“®‚·‚é
+   * ç›´å‰ã®ã‚¿ã‚°ã¸ç§»å‹•ã™ã‚‹
    ------------------------------*/
   function backwardTag {
     var index = findTagIndexAtPointer(false);
@@ -216,7 +216,7 @@ class KTagTextEdit extends KTextEdit
   }
 
   /**------------------------------
-   * ’¼Œã‚Ìƒ^ƒO‚ÖˆÚ“®‚·‚é
+   * ç›´å¾Œã®ã‚¿ã‚°ã¸ç§»å‹•ã™ã‚‹
    ------------------------------*/
   function forwardTag {
     var index = findTagIndexAtPointer() + 1;
@@ -227,63 +227,63 @@ class KTagTextEdit extends KTextEdit
   }
 
   /*----------------------------------------------------------------------
-   * ˆÈ‰ºAƒ^ƒO•ÒW‚É”º‚Á‚ÄŒÄ‚Ño‚³‚ê‚éƒtƒbƒNŠÖ”‚ÌŒû
+   * ä»¥ä¸‹ã€ã‚¿ã‚°ç·¨é›†ã«ä¼´ã£ã¦å‘¼ã³å‡ºã•ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°ã®å£
    ----------------------------------------------------------------------*/
   /**------------------------------
-   * ƒ^ƒO‚ªƒsƒbƒ^ƒŠƒ|ƒCƒ“ƒg‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
+   * ã‚¿ã‚°ãŒãƒ”ãƒƒã‚¿ãƒªãƒã‚¤ãƒ³ãƒˆã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
    *
-   * @param index ƒ^ƒO‚ÌƒCƒ“ƒfƒbƒNƒX
-   * @param pointerOnTag ƒ|ƒCƒ“ƒ^‚ªƒ^ƒO‚Ì^ã‚É‚ ‚é‚©‚Ç‚¤‚©
+   * @param index ã‚¿ã‚°ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @param pointerOnTag ãƒã‚¤ãƒ³ã‚¿ãŒã‚¿ã‚°ã®çœŸä¸Šã«ã‚ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function onTagPointAt(index) {
   }
 
   /**------------------------------
-   * ƒ^ƒO‚Ì—Ìˆæ‚ª•Ï‚í‚Á‚½‚ÉŒÄ‚Î‚ê‚é
+   * ã‚¿ã‚°ã®é ˜åŸŸãŒå¤‰ã‚ã£ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
    *
-   * @param index x”z‚·‚éƒ^ƒO‚Ì—Ìˆæ‚ÌƒCƒ“ƒfƒbƒNƒX
+   * @param index æ”¯é…ã™ã‚‹ã‚¿ã‚°ã®é ˜åŸŸã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function onTagRegionAt(index) {
   }
 
   /**------------------------------
-   * ƒ^ƒO‚ª‘}“ü‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
+   * ã‚¿ã‚°ãŒæŒ¿å…¥ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
    *
-   * @param index ƒ^ƒO‚ÌƒCƒ“ƒfƒbƒNƒX
+   * @param index ã‚¿ã‚°ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function onTagInsertAt(index) {
   }
 
   /**------------------------------
-   * ƒ^ƒO‚ªíœ‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
+   * ã‚¿ã‚°ãŒå‰Šé™¤ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
    *
-   * @param index ƒ^ƒO‚ÌƒCƒ“ƒfƒbƒNƒX
+   * @param index ã‚¿ã‚°ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function onTagDeleteAt(index) {
   }
 
   /*----------------------------------------------------------------------
-   * ˆÈ‰ºAKTextEdit‚ÌƒtƒbƒNˆ—
+   * ä»¥ä¸‹ã€KTextEditã®ãƒ•ãƒƒã‚¯å‡¦ç†
    ----------------------------------------------------------------------*/
-  // ‘SƒeƒLƒXƒg‰Šú‰»
+  // å…¨ãƒ†ã‚­ã‚¹ãƒˆåˆæœŸåŒ–
   function initAllRows {
     tagList = [];
     tagInfoList = [];
     super.initAllRows(...);
   }
 
-  // ƒL[ƒoƒCƒ“ƒh‚ğƒNƒŠƒA‚·‚é
+  // ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹
   function clearKeyBind {
     super.clearKeyBind();
-    // INSƒL[‚Æƒ|ƒCƒ“ƒ^ƒTƒCƒhØ‚è‘Ö‚¦‚ğƒoƒCƒ“ƒh‚·‚é
+    // INSã‚­ãƒ¼ã¨ãƒã‚¤ãƒ³ã‚¿ã‚µã‚¤ãƒ‰åˆ‡ã‚Šæ›¿ãˆã‚’ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
     bindKey(VK_INSERT, 0, 0, switchPointerSide);
-    // ‘O‚Ìƒ^ƒO
+    // å‰ã®ã‚¿ã‚°
     bindKey(VK_LEFT, 1, ssAlt, backwardTag);
-    // Ÿ‚Ìƒ^ƒO
+    // æ¬¡ã®ã‚¿ã‚°
     bindKey(VK_RIGHT, 1, ssAlt, forwardTag);
   }
 
-  // ƒ^ƒO‚ğÄ•`‰æ‚·‚é
+  // ã‚¿ã‚°ã‚’å†æç”»ã™ã‚‹
   function redrawTags {
     if (tagLayerList.count < tagList.count) {
       for (var i = tagList.count - tagLayerList.count; i > 0; i--) {
@@ -313,7 +313,7 @@ class KTagTextEdit extends KTextEdit
     }
   }
 
-  // ƒTƒCƒh‚ğØ‚è‘Ö‚¦
+  // ã‚µã‚¤ãƒ‰ã‚’åˆ‡ã‚Šæ›¿ãˆ
   function switchPointerSide {
     isPointerOnRightOfTag = ! isPointerOnRightOfTag;
     if (isPointerOnRightOfTag)
@@ -323,7 +323,7 @@ class KTagTextEdit extends KTextEdit
     locatePointerSide();
   }
 
-  // ƒTƒCƒh‚ğ•\¦
+  // ã‚µã‚¤ãƒ‰ã‚’è¡¨ç¤º
   function locatePointerSide {
     if (tagPointerSideLayer === void)
       return;
@@ -333,27 +333,27 @@ class KTagTextEdit extends KTextEdit
       tagPointerSideLayer.setPos(pointerX - tagPointerSideLayer.width, pointerY + fontHeight - tagPointerSideLayer.height + 1);
   }
 
-  // ƒ|ƒCƒ“ƒ^‚Ì“_–ÅŠJn
+  // ãƒã‚¤ãƒ³ã‚¿ã®ç‚¹æ»…é–‹å§‹
   function startPointerBlink {
     super.startPointerBlink();
     tagPointerSideLayer.visible = true;
   }
 
-  // ƒ|ƒCƒ“ƒ^‚Ì“_–ÅI—¹
+  // ãƒã‚¤ãƒ³ã‚¿ã®ç‚¹æ»…çµ‚äº†
   function stopPointerBlink {
     super.stopPointerBlink();
     tagPointerSideLayer.visible = false;
   }
 
-  // ƒ|ƒCƒ“ƒ^‚ğƒ^ƒCƒ}[‚Å“_–Å‚³‚¹‚é
+  // ãƒã‚¤ãƒ³ã‚¿ã‚’ã‚¿ã‚¤ãƒãƒ¼ã§ç‚¹æ»…ã•ã›ã‚‹
   function onPointerTimer {
     super.onPointerTimer();
     tagPointerSideLayer.visible = pointerLayer.visible;
   }
 
-  // ƒ|ƒCƒ“ƒ^‚ªˆÚ“®‚µ‚½‚ÉŒÄ‚Î‚ê‚é
+  // ãƒã‚¤ãƒ³ã‚¿ãŒç§»å‹•ã—ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
   function onPointAt(row, col) {
-    // ƒ|ƒCƒ“ƒ^ˆÊ’u‚©‚çŒ©‚¦‚éÅ¬‚Ìƒ^ƒO‚ğŒŸõ
+    // ãƒã‚¤ãƒ³ã‚¿ä½ç½®ã‹ã‚‰è¦‹ãˆã‚‹æœ€å°ã®ã‚¿ã‚°ã‚’æ¤œç´¢
     var index = findTagIndex(row, col);
     var onTag = (0 <= index && tagList[index].eq(pointer));
 
@@ -371,15 +371,15 @@ class KTagTextEdit extends KTextEdit
     locatePointerSide();
   }
 
-  // s‚ª•ªŠ„‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+  // è¡ŒãŒåˆ†å‰²ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
   function onSplitAt(row, col) {
-    // ƒJ[ƒ\ƒ‹‚©‚ç¶‚ÌÅ¬ƒ^ƒO‚ğŒŸõ(©•ª©g‚ÌˆÊ’u‚ğŠÜ‚Ü‚È‚¢)
+    // ã‚«ãƒ¼ã‚½ãƒ«ã‹ã‚‰å·¦ã®æœ€å°ã‚¿ã‚°ã‚’æ¤œç´¢(è‡ªåˆ†è‡ªèº«ã®ä½ç½®ã‚’å«ã¾ãªã„)
     var index;
     if (! isPointerOnRightOfTag)
       index = findTagIndex(row, col, false) + 1;
     else
       index = findTagIndex(row, col, true) + 1;
-    // ‚»‚ÌˆêŒÂ‰E‚Ìƒ^ƒO‚©‚ç•â³ŒvZŠJn
+    // ãã®ä¸€å€‹å³ã®ã‚¿ã‚°ã‹ã‚‰è£œæ­£è¨ˆç®—é–‹å§‹
     for (;
 	 index < tagList.count;
 	 index++) {
@@ -389,11 +389,11 @@ class KTagTextEdit extends KTextEdit
     }
   }
 
-  // s‚ªŒ‹‡‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+  // è¡ŒãŒçµåˆã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
   function onJoinAt(row, col) {
-    // Œ»İ‚ÌƒJ[ƒ\ƒ‹ˆÈ~‚ÌÅ¬ƒ^ƒO‚ğŒŸõ
+    // ç¾åœ¨ã®ã‚«ãƒ¼ã‚½ãƒ«ä»¥é™ã®æœ€å°ã‚¿ã‚°ã‚’æ¤œç´¢
     var index = findTagIndex(row, col);
-    // ‚»‚Ì1ŒÂŒã‚Ìƒ^ƒO‚©‚ç•â³ŒvZ
+    // ãã®1å€‹å¾Œã®ã‚¿ã‚°ã‹ã‚‰è£œæ­£è¨ˆç®—
     for (var i = index + 1;
 	 i < tagList.count;
 	 i++) {
@@ -402,21 +402,21 @@ class KTagTextEdit extends KTextEdit
       }
       tagList[i].row--;
     }
-    // Œ»İ’n“_‚Éƒ^ƒO‚ªd•¡‚µ‚Ä‚¢‚½‚ç‘OÒ‚ğíœ
+    // ç¾åœ¨åœ°ç‚¹ã«ã‚¿ã‚°ãŒé‡è¤‡ã—ã¦ã„ãŸã‚‰å‰è€…ã‚’å‰Šé™¤
     if (index + 1 < tagList.count
         && tagList[index].eq(tagList[index + 1]))
       deleteTag(index);
   }
 
-  // •¶š—ñ‚ª‘}“ü‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+  // æ–‡å­—åˆ—ãŒæŒ¿å…¥ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
   function onInsertAt(row, col, str) {
-    // ƒJ[ƒ\ƒ‹‚©‚ç¶‚ÌÅ¬ƒ^ƒO‚ğŒŸõ(©•ª©g‚ÌˆÊ’u‚ğŠÜ‚Ü‚È‚¢)
+    // ã‚«ãƒ¼ã‚½ãƒ«ã‹ã‚‰å·¦ã®æœ€å°ã‚¿ã‚°ã‚’æ¤œç´¢(è‡ªåˆ†è‡ªèº«ã®ä½ç½®ã‚’å«ã¾ãªã„)
     var index;
     if (! isPointerOnRightOfTag)
       index = findTagIndex(row, col, false) + 1;
     else
       index = findTagIndex(row, col, true) + 1;
-    // ‚»‚ÌˆêŒÂ‰E‚Ìƒ^ƒO‚©‚ç•â³ŒvZŠJn
+    // ãã®ä¸€å€‹å³ã®ã‚¿ã‚°ã‹ã‚‰è£œæ­£è¨ˆç®—é–‹å§‹
     for (;
 	 index < tagList.count && tagList[index].row == row;
 	 index++) {
@@ -424,37 +424,37 @@ class KTagTextEdit extends KTextEdit
     }
   }
 
-  // •¶š—ñ‚ªíœ‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+  // æ–‡å­—åˆ—ãŒå‰Šé™¤ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
   function onDeleteAt(row, col, str) {
-    // íœ¶’[A‰E’[‚É‘Î‰‚·‚éƒ^ƒO‚ÌƒCƒ“ƒfƒbƒXƒX‚ğæ“¾
+    // å‰Šé™¤å·¦ç«¯ã€å³ç«¯ã«å¯¾å¿œã™ã‚‹ã‚¿ã‚°ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¹ã‚¹ã‚’å–å¾—
     var leftIndex, rightIndex;
     leftIndex = findTagIndex(row, col, false) + 1;
     rightIndex = findTagIndex(row, col + str.length);
-    // ƒ^ƒO‚ÌˆÊ’u‚ğ•â³
+    // ã‚¿ã‚°ã®ä½ç½®ã‚’è£œæ­£
     for (var index = rightIndex + 1;
 	 index < tagList.count && tagList[index].row == row;
 	 index++) {
       tagList[index].col -= str.length;
     }
-    // —Ìˆæ“à‚Ìƒ^ƒO‚ğíœ
+    // é ˜åŸŸå†…ã®ã‚¿ã‚°ã‚’å‰Šé™¤
     if (leftIndex <= rightIndex) {
-      // —Ìˆæ“à‚Ìƒ^ƒO‚Í‘S•”Œ»İˆÊ’u‚Éİ’è
+      // é ˜åŸŸå†…ã®ã‚¿ã‚°ã¯å…¨éƒ¨ç¾åœ¨ä½ç½®ã«è¨­å®š
       for (var i = leftIndex; i <= rightIndex; i++) {
 	tagList[i].set(row, col);
       }
-      // ‰E’[‚Ìƒ^ƒOˆêŒÂ‚ğc‚µ‚Ä‚ ‚Æ‚Í‘S•”íœ
+      // å³ç«¯ã®ã‚¿ã‚°ä¸€å€‹ã‚’æ®‹ã—ã¦ã‚ã¨ã¯å…¨éƒ¨å‰Šé™¤
       for (var i = leftIndex; i < rightIndex; i++) {
 	deleteTag(leftIndex);
       }
     }
   }
 
-  // •¶š•ÒW‚ÌŒ‹‰ÊAÄ•`‰æ‚ª”­¶‚µ‚½‚ÉŒÄ‚Î‚ê‚é
+  // æ–‡å­—ç·¨é›†ã®çµæœã€å†æç”»ãŒç™ºç”Ÿã—ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
   function onRedraw {
     redrawTags();
   }
 
-  // ƒtƒHƒ“ƒg‚Ì‚‚³‚ª•Ï‚í‚Á‚½‚çAƒ^ƒO‚à‘å‚«‚³•ÏX‚Ë
+  // ãƒ•ã‚©ãƒ³ãƒˆã®é«˜ã•ãŒå¤‰ã‚ã£ãŸã‚‰ã€ã‚¿ã‚°ã‚‚å¤§ãã•å¤‰æ›´ã­
   function onFontHeightModified {
     for (var i = 0; i < tabLayerList.count; i++) {
       tabLayerList[i].setSize(4, font.height);
@@ -463,14 +463,14 @@ class KTagTextEdit extends KTextEdit
     super.onFontHeightModified(...);
   }
 
-  // ƒm[ƒh‚ªƒCƒl[ƒuƒ‹‚³‚ê‚½‚ç•s“§–¾‚É
+  // ãƒãƒ¼ãƒ‰ãŒã‚¤ãƒãƒ¼ãƒ–ãƒ«ã•ã‚ŒãŸã‚‰ä¸é€æ˜ã«
   function onNodeEnabled {
     super.onNodeEnabled();
     for (var i = 0; i < tagLayerList.count; i++)
       tagLayerList[i].opacity = 128;
   }
 
-  // ƒm[ƒh‚ªƒfƒBƒZ[ƒuƒ‹‚³‚ê‚½‚ç”¼“§–¾‚É
+  // ãƒãƒ¼ãƒ‰ãŒãƒ‡ã‚£ã‚»ãƒ¼ãƒ–ãƒ«ã•ã‚ŒãŸã‚‰åŠé€æ˜ã«
   function onNodeDisabled {
     super.onNodeDisabled();
     for (var i = 0; i < tagLayerList.count; i++)

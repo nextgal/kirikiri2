@@ -1,4 +1,4 @@
-TJS2ƒoƒCƒgƒR[ƒhƒRƒ“ƒpƒCƒ‹•â•ƒXƒNƒŠƒvƒg‚Å‚·B
+TJS2ãƒã‚¤ãƒˆã‚³ãƒ¼ãƒ‰ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«è£œåŠ©ã‚¹ã‚¯ãƒªãƒ—ãƒˆã§ã™ã€‚
 
-ŽÀs‚·‚é‚ÆƒEƒBƒ“ƒhƒE‚ªŠJ‚­‚Ì‚ÅA‚»‚±‚ÉTJSƒXƒNƒŠƒvƒg‚ðD&D‚µ‚Ä‚­‚¾‚³‚¢B
-ƒoƒCƒgƒR[ƒhƒtƒ@ƒCƒ‹‚ªo—Í‚³‚ê‚Ü‚·B
+å®Ÿè¡Œã™ã‚‹ã¨ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒé–‹ãã®ã§ã€ãã“ã«TJSã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’D&Dã—ã¦ãã ã•ã„ã€‚
+ãƒã‚¤ãƒˆã‚³ãƒ¼ãƒ‰ãƒ•ã‚¡ã‚¤ãƒ«ãŒå‡ºåŠ›ã•ã‚Œã¾ã™ã€‚

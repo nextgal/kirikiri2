@@ -10,33 +10,33 @@
 
 
 //---------------------------------------------------------------------------
-class NI_PluggedDrawDevice : public tTJSNativeInstance // ƒlƒCƒeƒBƒuƒCƒ“ƒXƒ^ƒ“ƒX
+class NI_PluggedDrawDevice : public tTJSNativeInstance // ãƒã‚¤ãƒ†ã‚£ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
 {
 	iTVPDrawDevice * Device;
 public:
 	NI_PluggedDrawDevice()
 	{
-		// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		Device = new tTVPPassThroughDrawDevice();
 	}
 
 	tjs_error TJS_INTF_METHOD
 		Construct(tjs_int numparams, tTJSVariant **param, iTJSDispatch2 *tjs_obj)
 	{
-		// TJS2 ƒIƒuƒWƒFƒNƒg‚ªì¬‚³‚ê‚é‚Æ‚«‚ÉŒÄ‚Î‚ê‚é
+		// TJS2 ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒä½œæˆã•ã‚Œã‚‹ã¨ãã«å‘¼ã°ã‚Œã‚‹
 
 		return S_OK;
 	}
 
 	void TJS_INTF_METHOD Invalidate()
 	{
-		// ƒIƒuƒWƒFƒNƒg‚ª–³Œø‰»‚³‚ê‚é‚Æ‚«‚ÉŒÄ‚Î‚ê‚é
+		// ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç„¡åŠ¹åŒ–ã•ã‚Œã‚‹ã¨ãã«å‘¼ã°ã‚Œã‚‹
 	}
 };
 //---------------------------------------------------------------------------
 /*
-	‚±‚ê‚Í NI_PluggedDrawDevice ‚ÌƒIƒuƒWƒFƒNƒg‚ğì¬‚µ‚Ä•Ô‚·‚¾‚¯‚ÌŠÖ”‚Å‚·B
-	Œãq‚Ì TJSCreateNativeClassForPlugin ‚Ìˆø”‚Æ‚µ‚Ä“n‚µ‚Ü‚·B
+	ã“ã‚Œã¯ NI_PluggedDrawDevice ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã¦è¿”ã™ã ã‘ã®é–¢æ•°ã§ã™ã€‚
+	å¾Œè¿°ã® TJSCreateNativeClassForPlugin ã®å¼•æ•°ã¨ã—ã¦æ¸¡ã—ã¾ã™ã€‚
 */
 static iTJSNativeInstance * TJS_INTF_METHOD Create_NI_PluggedDrawDevice()
 {
@@ -44,82 +44,82 @@ static iTJSNativeInstance * TJS_INTF_METHOD Create_NI_PluggedDrawDevice()
 }
 //---------------------------------------------------------------------------
 /*
-	TJS2 ‚ÌƒlƒCƒeƒBƒuƒNƒ‰ƒX‚ÍˆêˆÓ‚È ID ‚Å‹æ•Ê‚³‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚è‚Ü‚·B
-	‚±‚ê‚ÍŒãq‚Ì TJS_BEGIN_NATIVE_MEMBERS ƒ}ƒNƒ‚Å©“®“I‚Éæ“¾‚³‚ê‚Ü‚·‚ªA
-	‚»‚Ì ID ‚ğŠi”[‚·‚é•Ï”–¼‚ÆA‚»‚Ì•Ï”‚ğ‚±‚±‚ÅéŒ¾‚µ‚Ü‚·B
-	‰Šú’l‚É‚Í–³Œø‚È ID ‚ğ•\‚· -1 ‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B
+	TJS2 ã®ãƒã‚¤ãƒ†ã‚£ãƒ–ã‚¯ãƒ©ã‚¹ã¯ä¸€æ„ãª ID ã§åŒºåˆ¥ã•ã‚Œã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
+	ã“ã‚Œã¯å¾Œè¿°ã® TJS_BEGIN_NATIVE_MEMBERS ãƒã‚¯ãƒ­ã§è‡ªå‹•çš„ã«å–å¾—ã•ã‚Œã¾ã™ãŒã€
+	ãã® ID ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°åã¨ã€ãã®å¤‰æ•°ã‚’ã“ã“ã§å®£è¨€ã—ã¾ã™ã€‚
+	åˆæœŸå€¤ã«ã¯ç„¡åŠ¹ãª ID ã‚’è¡¨ã™ -1 ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚
 */
 #define TJS_NATIVE_CLASSID_NAME ClassID_PluggedDrawDevice
 static tjs_int32 TJS_NATIVE_CLASSID_NAME = -1;
 //---------------------------------------------------------------------------
 /*
-	TJS2 —p‚ÌuƒNƒ‰ƒXv‚ğì¬‚µ‚Ä•Ô‚·ŠÖ”‚Å‚·B
+	TJS2 ç”¨ã®ã€Œã‚¯ãƒ©ã‚¹ã€ã‚’ä½œæˆã—ã¦è¿”ã™é–¢æ•°ã§ã™ã€‚
 */
 static iTJSDispatch2 * Create_NC_PluggedDrawDevice()
 {
 	/*
-		‚Ü‚¸AƒNƒ‰ƒX‚Ìƒx[ƒX‚Æ‚È‚éƒNƒ‰ƒXƒIƒuƒWƒFƒNƒg‚ğì¬‚µ‚Ü‚·B
-		‚±‚ê‚É‚Í TJSCreateNativeClassForPlugin ‚ğ—p‚¢‚Ü‚·B
-		TJSCreateNativeClassForPlugin ‚Ì‘æ‚Pˆø”‚ÍƒNƒ‰ƒX–¼A‘æ‚Qˆø”‚Í
-		ƒlƒCƒeƒBƒuƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Ô‚·ŠÖ”‚ğw’è‚µ‚Ü‚·B
-		ì¬‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğˆê“I‚ÉŠi”[‚·‚éƒ[ƒJƒ‹•Ï”‚Ì–¼‘O‚Í
-		classobj ‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·B
+		ã¾ãšã€ã‚¯ãƒ©ã‚¹ã®ãƒ™ãƒ¼ã‚¹ã¨ãªã‚‹ã‚¯ãƒ©ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã¾ã™ã€‚
+		ã“ã‚Œã«ã¯ TJSCreateNativeClassForPlugin ã‚’ç”¨ã„ã¾ã™ã€‚
+		TJSCreateNativeClassForPlugin ã®ç¬¬ï¼‘å¼•æ•°ã¯ã‚¯ãƒ©ã‚¹åã€ç¬¬ï¼’å¼•æ•°ã¯
+		ãƒã‚¤ãƒ†ã‚£ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”ã™é–¢æ•°ã‚’æŒ‡å®šã—ã¾ã™ã€‚
+		ä½œæˆã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä¸€æ™‚çš„ã«æ ¼ç´ã™ã‚‹ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã®åå‰ã¯
+		classobj ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
 	*/
 	tTJSNativeClassForPlugin * classobj =
 		TJSCreateNativeClassForPlugin(TJS_W("PluggedDrawDevice"), Create_NI_PluggedDrawDevice);
 
 
 	/*
-		TJS_BEGIN_NATIVE_MEMBERS ƒ}ƒNƒ‚Å‚·Bˆø”‚É‚Í TJS2 “à‚Åg—p‚·‚éƒNƒ‰ƒX–¼
-		‚ğw’è‚µ‚Ü‚·B
-		‚±‚Ìƒ}ƒNƒ‚Æ TJS_END_NATIVE_MEMBERS ƒ}ƒNƒ‚Å‹²‚Ü‚ê‚½êŠ‚ÉAƒNƒ‰ƒX‚Ì
-		ƒƒ“ƒo‚Æ‚È‚é‚×‚«ƒƒ\ƒbƒh‚âƒvƒƒpƒeƒB‚Ì‹Lq‚ğ‚µ‚Ü‚·B
+		TJS_BEGIN_NATIVE_MEMBERS ãƒã‚¯ãƒ­ã§ã™ã€‚å¼•æ•°ã«ã¯ TJS2 å†…ã§ä½¿ç”¨ã™ã‚‹ã‚¯ãƒ©ã‚¹å
+		ã‚’æŒ‡å®šã—ã¾ã™ã€‚
+		ã“ã®ãƒã‚¯ãƒ­ã¨ TJS_END_NATIVE_MEMBERS ãƒã‚¯ãƒ­ã§æŒŸã¾ã‚ŒãŸå ´æ‰€ã«ã€ã‚¯ãƒ©ã‚¹ã®
+		ãƒ¡ãƒ³ãƒã¨ãªã‚‹ã¹ããƒ¡ã‚½ãƒƒãƒ‰ã‚„ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®è¨˜è¿°ã‚’ã—ã¾ã™ã€‚
 	*/
 	TJS_BEGIN_NATIVE_MEMBERS(/*TJS class name*/PluggedDrawDevice)
 
 		/*
-			‹ó‚Ì finalize ƒƒ\ƒbƒh‚ğéŒ¾‚µ‚Ü‚·Bfinalize ‚É‘Š“–‚·‚éˆ—‚Í
-			tTJSNativeInstance::Invalidate ‚ğƒI[ƒo[ƒ‰ƒCƒh‚·‚é‚±‚Æ‚Å‚àÀ‘•‚Å‚«
-			‚Ü‚·‚Ì‚ÅA’Êí‚Í‹ó‚Ìƒƒ\ƒbƒh‚Å\•ª‚Å‚·B
+			ç©ºã® finalize ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®£è¨€ã—ã¾ã™ã€‚finalize ã«ç›¸å½“ã™ã‚‹å‡¦ç†ã¯
+			tTJSNativeInstance::Invalidate ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã™ã‚‹ã“ã¨ã§ã‚‚å®Ÿè£…ã§ã
+			ã¾ã™ã®ã§ã€é€šå¸¸ã¯ç©ºã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ååˆ†ã§ã™ã€‚
 		*/
 		TJS_DECL_EMPTY_FINALIZE_METHOD
 
 		/*
-			(TJS‚Ì) ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğéŒ¾‚µ‚Ü‚·BTJS ‚ÅƒNƒ‰ƒX‚ğ‘‚­‚Æ‚«A
-			ƒNƒ‰ƒX“à‚ÅƒNƒ‰ƒX‚Æ“¯–¼‚Ìƒƒ\ƒbƒh‚ğéŒ¾‚µ‚Ä‚¢‚é•”•ª‚É‘Š“–‚µ‚Ü‚·B
+			(TJSã®) ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å®£è¨€ã—ã¾ã™ã€‚TJS ã§ã‚¯ãƒ©ã‚¹ã‚’æ›¸ãã¨ãã€
+			ã‚¯ãƒ©ã‚¹å†…ã§ã‚¯ãƒ©ã‚¹ã¨åŒåã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®£è¨€ã—ã¦ã„ã‚‹éƒ¨åˆ†ã«ç›¸å½“ã—ã¾ã™ã€‚
 
-			TJS_BEGIN_NATIVE_CONSTRUCTOR_DECL ƒ}ƒNƒ‚Ì‚P”Ô–Ú‚Ìˆø”‚ÍƒlƒCƒeƒBƒu
-			ƒCƒ“ƒXƒ^ƒ“ƒX‚ÉŠ„‚è“–‚Ä‚é•Ï”–¼‚ÅA‚Qê–Ê–Ú‚Ìˆø”‚Í‚»‚Ì•Ï”‚ÌŒ^–¼‚Å‚·B
-			‚±‚Ì—á‚Å‚Ì‚±‚ÌƒuƒƒbƒN“à‚Å‚Í NI_PluggedDrawDevice * _this ‚Æ‚¢‚¤•Ï”‚ª—˜—p‰Â”\‚ÅA
-			ƒlƒCƒeƒBƒuƒCƒ“ƒXƒ^ƒ“ƒX‚ÉƒAƒNƒZƒX‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-			ƒ}ƒNƒ‚Ì‚R”Ô–Ú‚Ìˆø”‚ÍATJS “à‚Åg—p‚·‚éƒNƒ‰ƒX–¼‚ğw’è‚µ‚Ü‚·B
-			TJS_END_NATIVE_CONSTRUCTOR_DECL ƒ}ƒNƒ‚Ìˆø”‚à“¯—l‚Å‚·B
-			‚±‚±‚àAƒRƒ“ƒXƒgƒ‰ƒNƒ^‚É‘Š“–‚·‚éˆ—‚Í tTJSNativeInstance::Construct
-			‚ğƒI[ƒo[ƒ‰ƒCƒh‚·‚é–‚ÅÀ‘•‚Å‚«‚é‚Ì‚ÅA‚±‚±‚Å‚Í‰½‚à‚¹‚¸‚É S_OK ‚ğ•Ô
-			‚µ‚Ü‚·B
+			TJS_BEGIN_NATIVE_CONSTRUCTOR_DECL ãƒã‚¯ãƒ­ã®ï¼‘ç•ªç›®ã®å¼•æ•°ã¯ãƒã‚¤ãƒ†ã‚£ãƒ–
+			ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«å‰²ã‚Šå½“ã¦ã‚‹å¤‰æ•°åã§ã€ï¼’å ´é¢ç›®ã®å¼•æ•°ã¯ãã®å¤‰æ•°ã®å‹åã§ã™ã€‚
+			ã“ã®ä¾‹ã§ã®ã“ã®ãƒ–ãƒ­ãƒƒã‚¯å†…ã§ã¯ NI_PluggedDrawDevice * _this ã¨ã„ã†å¤‰æ•°ãŒåˆ©ç”¨å¯èƒ½ã§ã€
+			ãƒã‚¤ãƒ†ã‚£ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚
+			ãƒã‚¯ãƒ­ã®ï¼“ç•ªç›®ã®å¼•æ•°ã¯ã€TJS å†…ã§ä½¿ç”¨ã™ã‚‹ã‚¯ãƒ©ã‚¹åã‚’æŒ‡å®šã—ã¾ã™ã€‚
+			TJS_END_NATIVE_CONSTRUCTOR_DECL ãƒã‚¯ãƒ­ã®å¼•æ•°ã‚‚åŒæ§˜ã§ã™ã€‚
+			ã“ã“ã‚‚ã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«ç›¸å½“ã™ã‚‹å‡¦ç†ã¯ tTJSNativeInstance::Construct
+			ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã™ã‚‹äº‹ã§å®Ÿè£…ã§ãã‚‹ã®ã§ã€ã“ã“ã§ã¯ä½•ã‚‚ã›ãšã« S_OK ã‚’è¿”
+			ã—ã¾ã™ã€‚
 		*/
 		TJS_BEGIN_NATIVE_CONSTRUCTOR_DECL(
 			/*var.name*/_this,
 			/*var.type*/NI_PluggedDrawDevice,
 			/*TJS class name*/PluggedDrawDevice)
 		{
-			// NI_PluggedDrawDevice::Construct ‚É‚à“à—e‚ğ‹Lq‚Å‚«‚é‚Ì‚Å
-			// ‚±‚±‚Å‚Í‰½‚à‚µ‚È‚¢
+			// NI_PluggedDrawDevice::Construct ã«ã‚‚å†…å®¹ã‚’è¨˜è¿°ã§ãã‚‹ã®ã§
+			// ã“ã“ã§ã¯ä½•ã‚‚ã—ãªã„
 			return TJS_S_OK;
 		}
 		TJS_END_NATIVE_CONSTRUCTOR_DECL(/*TJS class name*/PluggedDrawDevice)
 
 		/*
-			print ƒƒ\ƒbƒh‚ğéŒ¾‚µ‚Ü‚·Bƒƒ\ƒbƒh–¼‚Í
-			TJS_BEGIN_NATIVE_METHOD_DECL ‚Æ TJS_END_NATIVE_METHOD_DECL ‚Ì—¼ƒ}ƒN
-			ƒ‚É“¯‚¶‚à‚Ì‚ğw’è‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B‚±‚Ìƒ}ƒNƒ“à‚Åg—p‰Â”\‚È•Ï”‚É
-			tjs_int numparams ‚Æ tTJSVariant **param ‚ª‚ ‚Á‚ÄA‚»‚ê‚¼‚êA“n‚³‚ê
-			‚½ˆø”‚Ì”‚Æˆø”‚ğ¦‚µ‚Ä‚¢‚Ü‚·B‚±‚Ìƒƒ\ƒbƒh‚Å‚Í‚»‚ê‚ç‚Íg—p‚µ‚Ä‚¢‚Ü
-			‚¹‚ñB20`21s–Ú‚ÍAƒIƒuƒWƒFƒNƒg‚©‚çƒlƒCƒeƒBƒuƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ‚èo‚·
-			‚½‚ß‚Ìƒ}ƒNƒ‚Å‚·B‚±‚Ì—á‚Å‚Í _this ‚Æ‚¢‚¤ NI_PluggedDrawDevice * Œ^‚Ì•Ï”‚ÉƒlƒC
-			ƒeƒBƒuƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ‚èo‚·A‚Æ‚¢‚¤ˆÓ–¡‚É‚È‚è‚Ü‚·BˆÈ~A_this ‚Æ‚¢
-			‚¤•Ï”‚ÅƒlƒCƒeƒBƒuƒCƒ“ƒXƒ^ƒ“ƒX‚ÉƒAƒNƒZƒX‚Å‚«‚Ü‚·B23s–Ú‚ÅA‚»‚Ì
-			ƒlƒCƒeƒBƒuƒCƒ“ƒXƒ^ƒ“ƒX‚Ì Print ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µ‚Ä‚¢‚Ü‚·B
+			print ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®£è¨€ã—ã¾ã™ã€‚ãƒ¡ã‚½ãƒƒãƒ‰åã¯
+			TJS_BEGIN_NATIVE_METHOD_DECL ã¨ TJS_END_NATIVE_METHOD_DECL ã®ä¸¡ãƒã‚¯
+			ãƒ­ã«åŒã˜ã‚‚ã®ã‚’æŒ‡å®šã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚ã“ã®ãƒã‚¯ãƒ­å†…ã§ä½¿ç”¨å¯èƒ½ãªå¤‰æ•°ã«
+			tjs_int numparams ã¨ tTJSVariant **param ãŒã‚ã£ã¦ã€ãã‚Œãã‚Œã€æ¸¡ã•ã‚Œ
+			ãŸå¼•æ•°ã®æ•°ã¨å¼•æ•°ã‚’ç¤ºã—ã¦ã„ã¾ã™ã€‚ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ã¯ãã‚Œã‚‰ã¯ä½¿ç”¨ã—ã¦ã„ã¾
+			ã›ã‚“ã€‚20ã€œ21è¡Œç›®ã¯ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ãƒã‚¤ãƒ†ã‚£ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–ã‚Šå‡ºã™
+			ãŸã‚ã®ãƒã‚¯ãƒ­ã§ã™ã€‚ã“ã®ä¾‹ã§ã¯ _this ã¨ã„ã† NI_PluggedDrawDevice * å‹ã®å¤‰æ•°ã«ãƒã‚¤
+			ãƒ†ã‚£ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–ã‚Šå‡ºã™ã€ã¨ã„ã†æ„å‘³ã«ãªã‚Šã¾ã™ã€‚ä»¥é™ã€_this ã¨ã„
+			ã†å¤‰æ•°ã§ãƒã‚¤ãƒ†ã‚£ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«ã‚¢ã‚¯ã‚»ã‚¹ã§ãã¾ã™ã€‚23è¡Œç›®ã§ã€ãã®
+			ãƒã‚¤ãƒ†ã‚£ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã® Print ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã¦ã„ã¾ã™ã€‚
 		*/
 
 		TJS_BEGIN_NATIVE_PROP_DECL(interface)
@@ -141,13 +141,13 @@ static iTJSDispatch2 * Create_NC_PluggedDrawDevice()
 	TJS_END_NATIVE_MEMBERS
 
 	/*
-		‚±‚ÌŠÖ”‚Í classobj ‚ğ•Ô‚µ‚Ü‚·B
+		ã“ã®é–¢æ•°ã¯ classobj ã‚’è¿”ã—ã¾ã™ã€‚
 	*/
 	return classobj;
 }
 //---------------------------------------------------------------------------
 /*
-	TJS_NATIVE_CLASSID_NAME ‚Íˆê‰ undef ‚µ‚Ä‚¨‚¢‚½‚Ù‚¤‚ª‚æ‚¢‚Å‚µ‚å‚¤
+	TJS_NATIVE_CLASSID_NAME ã¯ä¸€å¿œ undef ã—ã¦ãŠã„ãŸã»ã†ãŒã‚ˆã„ã§ã—ã‚‡ã†
 */
 #undef TJS_NATIVE_CLASSID_NAME
 //---------------------------------------------------------------------------
@@ -168,104 +168,104 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason,
 static tjs_int GlobalRefCountAtInit = 0;
 extern "C" HRESULT _stdcall _export V2Link(iTVPFunctionExporter *exporter)
 {
-	// ƒXƒ^ƒu‚Ì‰Šú‰»(•K‚¸‹Lq‚·‚é)
+	// ã‚¹ã‚¿ãƒ–ã®åˆæœŸåŒ–(å¿…ãšè¨˜è¿°ã™ã‚‹)
 	TVPInitImportStub(exporter);
 
 	tTJSVariant val;
 
-	// TJS ‚ÌƒOƒ[ƒoƒ‹ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚é
+	// TJS ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹
 	iTJSDispatch2 * global = TVPGetScriptDispatch();
 
 
 	//-----------------------------------------------------------------------
-	// 1 ‚Ü‚¸ƒNƒ‰ƒXƒIƒuƒWƒFƒNƒg‚ğì¬
+	// 1 ã¾ãšã‚¯ãƒ©ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆ
 	iTJSDispatch2 * tjsclass = Create_NC_PluggedDrawDevice();
 
-	// 2 tjsclass ‚ğ tTJSVariant Œ^‚É•ÏŠ·
+	// 2 tjsclass ã‚’ tTJSVariant å‹ã«å¤‰æ›
 	val = tTJSVariant(tjsclass);
 
-	// 3 ‚·‚Å‚É val ‚ª tjsclass ‚ğ•Û‚µ‚Ä‚¢‚é‚Ì‚ÅAtjsclass ‚Í
-	//   Release ‚·‚é
+	// 3 ã™ã§ã« val ãŒ tjsclass ã‚’ä¿æŒã—ã¦ã„ã‚‹ã®ã§ã€tjsclass ã¯
+	//   Release ã™ã‚‹
 	tjsclass->Release();
 
 
-	// 4 global ‚Ì PropSet ƒƒ\ƒbƒh‚ğ—p‚¢AƒIƒuƒWƒFƒNƒg‚ğ“o˜^‚·‚é
+	// 4 global ã® PropSet ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”¨ã„ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç™»éŒ²ã™ã‚‹
 	global->PropSet(
-		TJS_MEMBERENSURE, // ƒƒ“ƒo‚ª‚È‚©‚Á‚½ê‡‚É‚Íì¬‚·‚é‚æ‚¤‚É‚·‚éƒtƒ‰ƒO
-		TJS_W("PluggedDrawDevice"), // ƒƒ“ƒo–¼ ( ‚©‚È‚ç‚¸ TJS_W( ) ‚ÅˆÍ‚Ş )
-		NULL, // ƒqƒ“ƒg ( –{—ˆ‚Íƒƒ“ƒo–¼‚ÌƒnƒbƒVƒ…’l‚¾‚ªANULL ‚Å‚à‚æ‚¢ )
-		&val, // “o˜^‚·‚é’l
-		global // ƒRƒ“ƒeƒLƒXƒg ( global ‚Å‚æ‚¢ )
+		TJS_MEMBERENSURE, // ãƒ¡ãƒ³ãƒãŒãªã‹ã£ãŸå ´åˆã«ã¯ä½œæˆã™ã‚‹ã‚ˆã†ã«ã™ã‚‹ãƒ•ãƒ©ã‚°
+		TJS_W("PluggedDrawDevice"), // ãƒ¡ãƒ³ãƒå ( ã‹ãªã‚‰ãš TJS_W( ) ã§å›²ã‚€ )
+		NULL, // ãƒ’ãƒ³ãƒˆ ( æœ¬æ¥ã¯ãƒ¡ãƒ³ãƒåã®ãƒãƒƒã‚·ãƒ¥å€¤ã ãŒã€NULL ã§ã‚‚ã‚ˆã„ )
+		&val, // ç™»éŒ²ã™ã‚‹å€¤
+		global // ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ ( global ã§ã‚ˆã„ )
 		);
 	//-----------------------------------------------------------------------
 
 
-	// - global ‚ğ Release ‚·‚é
+	// - global ã‚’ Release ã™ã‚‹
 	global->Release();
 
-	// ‚à‚µA“o˜^‚·‚éŠÖ”‚ª•¡”‚ ‚éê‡‚Í 1 ` 4 ‚ğŒJ‚è•Ô‚·
+	// ã‚‚ã—ã€ç™»éŒ²ã™ã‚‹é–¢æ•°ãŒè¤‡æ•°ã‚ã‚‹å ´åˆã¯ 1 ã€œ 4 ã‚’ç¹°ã‚Šè¿”ã™
 
 
-	// val ‚ğƒNƒŠƒA‚·‚éB
-	// ‚±‚ê‚Í•K‚¸s‚¤B‚»‚¤‚µ‚È‚¢‚Æ val ‚ª•Û‚µ‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg
-	// ‚ª Release ‚³‚ê‚¸AŸ‚Ég‚¤ TVPPluginGlobalRefCount ‚ª³Šm‚É‚È‚ç‚È‚¢B
+	// val ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹ã€‚
+	// ã“ã‚Œã¯å¿…ãšè¡Œã†ã€‚ãã†ã—ãªã„ã¨ val ãŒä¿æŒã—ã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	// ãŒ Release ã•ã‚Œãšã€æ¬¡ã«ä½¿ã† TVPPluginGlobalRefCount ãŒæ­£ç¢ºã«ãªã‚‰ãªã„ã€‚
 	val.Clear();
 
 
-	// ‚±‚Ì“_‚Å‚Ì TVPPluginGlobalRefCount ‚Ì’l‚ğ
+	// ã“ã®æ™‚ç‚¹ã§ã® TVPPluginGlobalRefCount ã®å€¤ã‚’
 	GlobalRefCountAtInit = TVPPluginGlobalRefCount;
-	// ‚Æ‚µ‚ÄT‚¦‚Ä‚¨‚­BTVPPluginGlobalRefCount ‚Í‚±‚Ìƒvƒ‰ƒOƒCƒ““à‚Å
-	// ŠÇ—‚³‚ê‚Ä‚¢‚é tTJSDispatch ”h¶ƒIƒuƒWƒFƒNƒg‚ÌQÆƒJƒEƒ“ƒ^‚Ì‘Œv‚ÅA
-	// ‰ğ•ú‚É‚Í‚±‚ê‚Æ“¯‚¶‚©A‚±‚ê‚æ‚è‚à­‚È‚­‚È‚Á‚Ä‚È‚¢‚Æ‚È‚ç‚È‚¢B
-	// ‚»‚¤‚È‚Á‚Ä‚È‚¯‚ê‚ÎA‚Ç‚±‚©•Ê‚Ì‚Æ‚±‚ë‚ÅŠÖ”‚È‚Ç‚ªQÆ‚³‚ê‚Ä‚¢‚ÄA
-	// ƒvƒ‰ƒOƒCƒ“‚Í‰ğ•ú‚Å‚«‚È‚¢‚ÆŒ¾‚¤‚±‚Æ‚É‚È‚éB
+	// ã¨ã—ã¦æ§ãˆã¦ãŠãã€‚TVPPluginGlobalRefCount ã¯ã“ã®ãƒ—ãƒ©ã‚°ã‚¤ãƒ³å†…ã§
+	// ç®¡ç†ã•ã‚Œã¦ã„ã‚‹ tTJSDispatch æ´¾ç”Ÿã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å‚ç…§ã‚«ã‚¦ãƒ³ã‚¿ã®ç·è¨ˆã§ã€
+	// è§£æ”¾æ™‚ã«ã¯ã“ã‚Œã¨åŒã˜ã‹ã€ã“ã‚Œã‚ˆã‚Šã‚‚å°‘ãªããªã£ã¦ãªã„ã¨ãªã‚‰ãªã„ã€‚
+	// ãã†ãªã£ã¦ãªã‘ã‚Œã°ã€ã©ã“ã‹åˆ¥ã®ã¨ã“ã‚ã§é–¢æ•°ãªã©ãŒå‚ç…§ã•ã‚Œã¦ã„ã¦ã€
+	// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã¯è§£æ”¾ã§ããªã„ã¨è¨€ã†ã“ã¨ã«ãªã‚‹ã€‚
 
 	return S_OK;
 }
 //---------------------------------------------------------------------------
 extern "C" HRESULT _stdcall _export V2Unlink()
 {
-	// ‹g—¢‹g—¢‘¤‚©‚çAƒvƒ‰ƒOƒCƒ“‚ğ‰ğ•ú‚µ‚æ‚¤‚Æ‚·‚é‚Æ‚«‚ÉŒÄ‚Î‚ê‚éŠÖ”B
+	// å‰é‡Œå‰é‡Œå´ã‹ã‚‰ã€ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’è§£æ”¾ã—ã‚ˆã†ã¨ã™ã‚‹ã¨ãã«å‘¼ã°ã‚Œã‚‹é–¢æ•°ã€‚
 
-	// ‚à‚µ‰½‚ç‚©‚ÌğŒ‚Åƒvƒ‰ƒOƒCƒ“‚ğ‰ğ•ú‚Å‚«‚È‚¢ê‡‚Í
-	// ‚±‚Ì“_‚Å E_FAIL ‚ğ•Ô‚·‚æ‚¤‚É‚·‚éB
-	// ‚±‚±‚Å‚ÍATVPPluginGlobalRefCount ‚ª GlobalRefCountAtInit ‚æ‚è‚à
-	// ‘å‚«‚­‚È‚Á‚Ä‚¢‚ê‚Î¸”s‚Æ‚¢‚¤‚±‚Æ‚É‚·‚éB
+	// ã‚‚ã—ä½•ã‚‰ã‹ã®æ¡ä»¶ã§ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’è§£æ”¾ã§ããªã„å ´åˆã¯
+	// ã“ã®æ™‚ç‚¹ã§ E_FAIL ã‚’è¿”ã™ã‚ˆã†ã«ã™ã‚‹ã€‚
+	// ã“ã“ã§ã¯ã€TVPPluginGlobalRefCount ãŒ GlobalRefCountAtInit ã‚ˆã‚Šã‚‚
+	// å¤§ãããªã£ã¦ã„ã‚Œã°å¤±æ•—ã¨ã„ã†ã“ã¨ã«ã™ã‚‹ã€‚
 	if(TVPPluginGlobalRefCount > GlobalRefCountAtInit) return E_FAIL;
-		// E_FAIL ‚ª‹A‚é‚ÆAPlugins.unlink ƒƒ\ƒbƒh‚Í‹U‚ğ•Ô‚·
+		// E_FAIL ãŒå¸°ã‚‹ã¨ã€Plugins.unlink ãƒ¡ã‚½ãƒƒãƒ‰ã¯å½ã‚’è¿”ã™
 
 
 	/*
-		‚½‚¾‚µAƒNƒ‰ƒX‚Ìê‡AŒµ–§‚ÉuƒIƒuƒWƒFƒNƒg‚ªg—p’†‚Å‚ ‚év‚Æ‚¢‚¤‚±‚Æ‚ğ
-		’m‚é‚·‚×‚ª‚ ‚è‚Ü‚¹‚ñBŠî–{“I‚É‚ÍAPlugins.unlink ‚É‚æ‚éƒvƒ‰ƒOƒCƒ“‚Ì‰ğ•ú‚Í
-		ŠëŒ¯‚Å‚ ‚é‚Æl‚¦‚Ä‚­‚¾‚³‚¢ (‚¢‚Á‚½‚ñ Plugins.link ‚ÅƒŠƒ“ƒN‚µ‚½‚çAÅŒã‚Ü
-		‚Åƒvƒ‰ƒOƒCƒ“‚ğ‰ğ•ú‚¹‚¸AƒvƒƒOƒ‰ƒ€I—¹‚Æ“¯‚É©“®“I‚É‰ğ•ú‚³‚¹‚é‚Ì‚ª‹g)B
+		ãŸã ã—ã€ã‚¯ãƒ©ã‚¹ã®å ´åˆã€å³å¯†ã«ã€Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒä½¿ç”¨ä¸­ã§ã‚ã‚‹ã€ã¨ã„ã†ã“ã¨ã‚’
+		çŸ¥ã‚‹ã™ã¹ãŒã‚ã‚Šã¾ã›ã‚“ã€‚åŸºæœ¬çš„ã«ã¯ã€Plugins.unlink ã«ã‚ˆã‚‹ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®è§£æ”¾ã¯
+		å±é™ºã§ã‚ã‚‹ã¨è€ƒãˆã¦ãã ã•ã„ (ã„ã£ãŸã‚“ Plugins.link ã§ãƒªãƒ³ã‚¯ã—ãŸã‚‰ã€æœ€å¾Œã¾
+		ã§ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’è§£æ”¾ã›ãšã€ãƒ—ãƒ­ã‚°ãƒ©ãƒ çµ‚äº†ã¨åŒæ™‚ã«è‡ªå‹•çš„ã«è§£æ”¾ã•ã›ã‚‹ã®ãŒå‰)ã€‚
 	*/
 
-	// TJS ‚ÌƒOƒ[ƒoƒ‹ƒIƒuƒWƒFƒNƒg‚É“o˜^‚µ‚½ PluggedDrawDevice ƒNƒ‰ƒX‚È‚Ç‚ğíœ‚·‚é
+	// TJS ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ç™»éŒ²ã—ãŸ PluggedDrawDevice ã‚¯ãƒ©ã‚¹ãªã©ã‚’å‰Šé™¤ã™ã‚‹
 
-	// - ‚Ü‚¸ATJS ‚ÌƒOƒ[ƒoƒ‹ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚é
+	// - ã¾ãšã€TJS ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹
 	iTJSDispatch2 * global = TVPGetScriptDispatch();
 
-	// - global ‚Ì DeleteMember ƒƒ\ƒbƒh‚ğ—p‚¢AƒIƒuƒWƒFƒNƒg‚ğíœ‚·‚é
+	// - global ã® DeleteMember ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”¨ã„ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å‰Šé™¤ã™ã‚‹
 	if(global)
 	{
-		// TJS ©‘Ì‚ªŠù‚É‰ğ•ú‚³‚ê‚Ä‚¢‚½‚Æ‚«‚È‚Ç‚Í
-		// global ‚Í NULL ‚É‚È‚è“¾‚é‚Ì‚Å global ‚ª NULL ‚Å‚È‚¢
-		// ‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚é
+		// TJS è‡ªä½“ãŒæ—¢ã«è§£æ”¾ã•ã‚Œã¦ã„ãŸã¨ããªã©ã¯
+		// global ã¯ NULL ã«ãªã‚Šå¾—ã‚‹ã®ã§ global ãŒ NULL ã§ãªã„
+		// ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹
 
 		global->DeleteMember(
-			0, // ƒtƒ‰ƒO ( 0 ‚Å‚æ‚¢ )
-			TJS_W("PluggedDrawDevice"), // ƒƒ“ƒo–¼
-			NULL, // ƒqƒ“ƒg
-			global // ƒRƒ“ƒeƒLƒXƒg
+			0, // ãƒ•ãƒ©ã‚° ( 0 ã§ã‚ˆã„ )
+			TJS_W("PluggedDrawDevice"), // ãƒ¡ãƒ³ãƒå
+			NULL, // ãƒ’ãƒ³ãƒˆ
+			global // ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
 			);
 	}
 
-	// - global ‚ğ Release ‚·‚é
+	// - global ã‚’ Release ã™ã‚‹
 	if(global) global->Release();
 
-	// ƒXƒ^ƒu‚Ìg—pI—¹(•K‚¸‹Lq‚·‚é)
+	// ã‚¹ã‚¿ãƒ–ã®ä½¿ç”¨çµ‚äº†(å¿…ãšè¨˜è¿°ã™ã‚‹)
 	TVPUninitImportStub();
 
 	return S_OK;

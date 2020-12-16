@@ -98,7 +98,7 @@ tTJSDispatch::tTJSDispatch()
 #endif
 }
 //---------------------------------------------------------------------------
-tTJSDispatch::~tTJSDispatch()
+tTJSDispatch::‾tTJSDispatch()
 {
 	if(!BeforeDestructionCalled)
 	{
@@ -414,7 +414,7 @@ tTJSCustomObject::tTJSCustomObject(tjs_int hashbits)
 		ClassIDs[i] = (tjs_int32)-1;
 }
 //---------------------------------------------------------------------------
-tTJSCustomObject::~tTJSCustomObject()
+tTJSCustomObject::‾tTJSCustomObject()
 {
 	for(tjs_int i=TJS_MAX_NATIVE_CLASS-1; i>=0; i--)
 	{
@@ -792,7 +792,7 @@ void tTJSCustomObject::RebuildHash( tjs_int requestcount )
 					if(data)
 					{
 						GetValue(data).CopyRef(*(tTJSVariant*)(&(d->Value)));
-						data->SymFlags &= ~ (TJS_SYMBOL_HIDDEN | TJS_SYMBOL_STATIC);
+						data->SymFlags &= ‾ (TJS_SYMBOL_HIDDEN | TJS_SYMBOL_STATIC);
 						data->SymFlags |= d->SymFlags & (TJS_SYMBOL_HIDDEN | TJS_SYMBOL_STATIC);
 						CheckObjectClosureAdd(GetValue(data));
 					}
@@ -807,7 +807,7 @@ void tTJSCustomObject::RebuildHash( tjs_int requestcount )
 				if(data)
 				{
 					GetValue(data).CopyRef(*(tTJSVariant*)(&(lv1->Value)));
-					data->SymFlags &= ~ (TJS_SYMBOL_HIDDEN | TJS_SYMBOL_STATIC);
+					data->SymFlags &= ‾ (TJS_SYMBOL_HIDDEN | TJS_SYMBOL_STATIC);
 					data->SymFlags |= lv1->SymFlags & (TJS_SYMBOL_HIDDEN | TJS_SYMBOL_STATIC);
 					CheckObjectClosureAdd(GetValue(data));
 				}
@@ -1507,12 +1507,12 @@ tTJSCustomObject::PropSet(tjs_uint32 flag, const tjs_char *membername, tjs_uint3
 	if(flag & TJS_HIDDENMEMBER)
 		data->SymFlags |= TJS_SYMBOL_HIDDEN;
 	else
-		data->SymFlags &= ~TJS_SYMBOL_HIDDEN;
+		data->SymFlags &= ‾TJS_SYMBOL_HIDDEN;
 
 	if(flag & TJS_STATICMEMBER)
 		data->SymFlags |= TJS_SYMBOL_STATIC;
 	else
-		data->SymFlags &= ~TJS_SYMBOL_STATIC;
+		data->SymFlags &= ‾TJS_SYMBOL_STATIC;
 
 	//-- below is mainly the same as TJSDefaultPropSet
 
@@ -1602,12 +1602,12 @@ tTJSCustomObject::PropSetByVS(tjs_uint32 flag, tTJSVariantString *membername,
 	if(flag & TJS_HIDDENMEMBER)
 		data->SymFlags |= TJS_SYMBOL_HIDDEN;
 	else
-		data->SymFlags &= ~TJS_SYMBOL_HIDDEN;
+		data->SymFlags &= ‾TJS_SYMBOL_HIDDEN;
 
 	if(flag & TJS_STATICMEMBER)
 		data->SymFlags |= TJS_SYMBOL_STATIC;
 	else
-		data->SymFlags &= ~TJS_SYMBOL_STATIC;
+		data->SymFlags &= ‾TJS_SYMBOL_STATIC;
 
 	//-- below is mainly the same as TJSDefaultPropSet
 

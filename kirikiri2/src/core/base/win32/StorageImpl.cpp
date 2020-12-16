@@ -39,7 +39,7 @@ class tTVPFileMedia : public iTVPStorageMedia
 
 public:
 	tTVPFileMedia() { RefCount = 1; }
-	~tTVPFileMedia() {;}
+	‾tTVPFileMedia() {;}
 
 	void TJS_INTF_METHOD AddRef() { RefCount ++; }
 	void TJS_INTF_METHOD Release()
@@ -104,7 +104,7 @@ tTJSBinaryStream * TJS_INTF_METHOD tTVPFileMedia::Open(const ttstr & name, tjs_u
 	// open storage named "name".
 	// currently only local/network(by OS) storage systems are supported.
 	if(name.IsEmpty())
-		TVPThrowExceptionMessage(TVPCannotOpenStorage, TJS_W("\"\""));
+		TVPThrowExceptionMessage(TVPCannotOpenStorage, TJS_W("¥"¥""));
 
 	ttstr origname = name;
 	ttstr _name(name);
@@ -189,11 +189,11 @@ void TJS_INTF_METHOD tTVPFileMedia::GetLocallyAccessibleName(ttstr &name)
 	{
 		// differs from "./",
 		// this may be a UNC file name.
-		// UNC first two chars must be "\\\\" ?
+		// UNC first two chars must be "¥¥¥¥" ?
 		// AFAIK 32-bit version of Windows assumes that '/' can be used as a path
-		// delimiter. Can UNC "\\\\" be replaced by "//" though ?
+		// delimiter. Can UNC "¥¥¥¥" be replaced by "//" though ?
 
-		newname = ttstr(TJS_W("\\\\")) + ptr;
+		newname = ttstr(TJS_W("¥¥¥¥")) + ptr;
 	}
 	else
 	{
@@ -215,11 +215,11 @@ void TJS_INTF_METHOD tTVPFileMedia::GetLocallyAccessibleName(ttstr &name)
 		}
 	}
 
-	// change path delimiter to '\\'
+	// change path delimiter to '¥¥'
 	tjs_char *pp = newname.Independ();
 	while(*pp)
 	{
-		if(*pp == TJS_W('/')) *pp = TJS_W('\\');
+		if(*pp == TJS_W('/')) *pp = TJS_W('¥¥');
 		pp++;
 	}
 
@@ -275,7 +275,7 @@ void TVPPreNormalizeStorageName(ttstr &name)
 
 	if(namelen>=3)
 	{
-		if(name[0] == TJS_W('\\') && name[1] == TJS_W('\\') ||
+		if(name[0] == TJS_W('¥¥') && name[1] == TJS_W('¥¥') ||
 			name[0] == TJS_W('/') && name[1] == TJS_W('/'))
 		{
 			// unc expression
@@ -318,7 +318,7 @@ ttstr TVPGetTemporaryName()
 				GetTempPath(MAX_PATH, tmp);
 				TVPTempPath = ttstr(tmp);
 			}
-			if(TVPTempPath.GetLastChar() != TJS_W('\\')) TVPTempPath += TJS_W("\\");
+			if(TVPTempPath.GetLastChar() != TJS_W('¥¥')) TVPTempPath += TJS_W("¥¥");
 			TVPProcessID = (tjs_int) GetCurrentProcessId();
 			TVPTempUniqueNum = (tjs_int) GetTickCount();
 			TVPTempPathInit = true;
@@ -404,7 +404,7 @@ tTJSBinaryStream * TVPOpenStream(const ttstr & _name, tjs_uint32 flags)
 	// open storage named "name".
 	// currently only local/network(by OS) storage systems are supported.
 	if(_name.IsEmpty())
-		TVPThrowExceptionMessage(TVPCannotOpenStorage, TJS_W("\"\""));
+		TVPThrowExceptionMessage(TVPCannotOpenStorage, TJS_W("¥"¥""));
 
 	ttstr origname = _name;
 	ttstr name(_name);
@@ -485,7 +485,7 @@ ttstr TVPLocalExtractFilePath(const ttstr & name)
 	for(; i >= 0; i--)
 	{
 		if(p[i] == TJS_W(':') || p[i] == TJS_W('/') ||
-			p[i] == TJS_W('\\'))
+			p[i] == TJS_W('¥¥'))
 			break;
 	}
 	return ttstr(p, i + 1);
@@ -511,14 +511,14 @@ static bool _TVPCreateFolders(const ttstr &folder)
 
 	if(p[i] == TJS_W(':')) return true;
 
-	while(i >= 0 && (p[i] == TJS_W('/') || p[i] == TJS_W('\\'))) i--;
+	while(i >= 0 && (p[i] == TJS_W('/') || p[i] == TJS_W('¥¥'))) i--;
 
 	if(i >= 0 && p[i] == TJS_W(':')) return true;
 
 	for(; i >= 0; i--)
 	{
 		if(p[i] == TJS_W(':') || p[i] == TJS_W('/') ||
-			p[i] == TJS_W('\\'))
+			p[i] == TJS_W('¥¥'))
 			break;
 	}
 
@@ -549,7 +549,7 @@ bool TVPCreateFolders(const ttstr &folder)
 
 	if(p[i] == TJS_W(':')) return true;
 
-	if(p[i] == TJS_W('/') || p[i] == TJS_W('\\')) i--;
+	if(p[i] == TJS_W('/') || p[i] == TJS_W('¥¥')) i--;
 
 	return _TVPCreateFolders(ttstr(p, i+1));
 }
@@ -631,7 +631,7 @@ retry:
 	TVPPushEnvironNoise(&tick, sizeof(tick));
 }
 //---------------------------------------------------------------------------
-tTVPLocalFileStream::~tTVPLocalFileStream()
+tTVPLocalFileStream::‾tTVPLocalFileStream()
 {
 	if(Handle!=INVALID_HANDLE_VALUE) CloseHandle(Handle);
 
@@ -708,7 +708,7 @@ __fastcall TTVPStreamAdapter::TTVPStreamAdapter(tTJSBinaryStream *ref)
 	Stream->SetPosition(0);
 }
 //---------------------------------------------------------------------------
-__fastcall TTVPStreamAdapter::~TTVPStreamAdapter()
+__fastcall TTVPStreamAdapter::‾TTVPStreamAdapter()
 {
 	delete Stream;
 }
@@ -753,7 +753,7 @@ tTVPIStreamAdapter::tTVPIStreamAdapter(tTJSBinaryStream *ref)
 	RefCount = 1;
 }
 //---------------------------------------------------------------------------
-tTVPIStreamAdapter::~tTVPIStreamAdapter()
+tTVPIStreamAdapter::‾tTVPIStreamAdapter()
 {
 	delete Stream;
 }
@@ -917,7 +917,7 @@ HRESULT STDMETHODCALLTYPE tTVPIStreamAdapter::Stat(STATSTG *pstatstg, DWORD grfS
 			// anyway returns an empty string
 			LPWSTR str = (LPWSTR)CoTaskMemAlloc(sizeof(*str));
 			if(str == NULL) return E_OUTOFMEMORY;
-			*str = L'\0';
+			*str = L'¥0';
 			pstatstg->pwcsName = str;
 		}
 
@@ -998,7 +998,7 @@ tTVPBinaryStreamAdapter::tTVPBinaryStreamAdapter(IStream *ref)
 	Stream->AddRef();
 }
 //---------------------------------------------------------------------------
-tTVPBinaryStreamAdapter::~tTVPBinaryStreamAdapter()
+tTVPBinaryStreamAdapter::‾tTVPBinaryStreamAdapter()
 {
 	Stream->Release();
 }
@@ -1124,7 +1124,7 @@ tTVPPluginHolder::tTVPPluginHolder(const ttstr &aname)
 	}
 	else
 	{
-		// not found in TVP storage system; search exepath, exepath\system, exepath\plugin
+		// not found in TVP storage system; search exepath, exepath¥system, exepath¥plugin
 		ttstr exepath =
 			IncludeTrailingBackslash(ExtractFileDir(ParamStr(0)));
 		ttstr pname = exepath + aname;
@@ -1134,14 +1134,14 @@ tTVPPluginHolder::tTVPPluginHolder(const ttstr &aname)
 			return;
 		}
 
-		pname = exepath + TJS_W("system\\") + aname;
+		pname = exepath + TJS_W("system¥¥") + aname;
 		if(TVPCheckExistentLocalFile(pname))
 		{
 			LocalName = pname;
 			return;
 		}
 
-		pname = exepath + TJS_W("plugin\\") + aname;
+		pname = exepath + TJS_W("plugin¥¥") + aname;
 		if(TVPCheckExistentLocalFile(pname))
 		{
 			LocalName = pname;
@@ -1150,7 +1150,7 @@ tTVPPluginHolder::tTVPPluginHolder(const ttstr &aname)
 	}
 }
 //---------------------------------------------------------------------------
-tTVPPluginHolder::~tTVPPluginHolder()
+tTVPPluginHolder::‾tTVPPluginHolder()
 {
 	if(LocalTempStorageHolder)
 	{
@@ -1179,7 +1179,7 @@ ttstr TVPSearchCD(const ttstr & name)
 	AnsiString narrow_name = name.AsAnsiString();
 
 	char dr[4];
-	for(dr[0]='A',dr[1]=':',dr[2]='\\',dr[3]=0;dr[0]<='Z';dr[0]++)
+	for(dr[0]='A',dr[1]=':',dr[2]='¥¥',dr[3]=0;dr[0]<='Z';dr[0]++)
 	{
 		if(GetDriveType(dr) == DRIVE_CDROM)
 		{

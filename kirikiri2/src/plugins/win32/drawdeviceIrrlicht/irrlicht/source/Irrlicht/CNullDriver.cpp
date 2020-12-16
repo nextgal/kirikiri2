@@ -138,7 +138,7 @@ CNullDriver::CNullDriver(io::IFileSystem* io, const core::dimension2d<s32>& scre
 
 
 //! destructor
-CNullDriver::~CNullDriver()
+CNullDriver::‾CNullDriver()
 {
 	if (FileSystem)
 		FileSystem->drop();
@@ -733,14 +733,14 @@ u32 CNullDriver::getPrimitiveCountDrawn( u32 param ) const
 
 //! Sets the dynamic ambient light color. The default color is
 //! (0,0,0,0) which means it is dark.
-//! \param color: New color of the ambient light.
+//! ¥param color: New color of the ambient light.
 void CNullDriver::setAmbientLight(const SColorf& color)
 {
 }
 
 
 
-//! \return Returns the name of the video driver. Example: In case of the DIRECT3D8
+//! ¥return Returns the name of the video driver. Example: In case of the DIRECT3D8
 //! driver, it would return "Direct3D8".
 const wchar_t* CNullDriver::getName() const
 {
@@ -790,7 +790,7 @@ u32 CNullDriver::getMaximalDynamicLightAmount() const
 
 
 //! Returns current amount of dynamic lights set
-//! \return Current amount of dynamic lights set
+//! ¥return Current amount of dynamic lights set
 u32 CNullDriver::getDynamicLightCount() const
 {
 	return Lights.size();
@@ -798,9 +798,9 @@ u32 CNullDriver::getDynamicLightCount() const
 
 
 //! Returns light data which was previously set by IVideoDriver::addDynamicLight().
-//! \param idx: Zero based index of the light. Must be greater than 0 and smaller
+//! ¥param idx: Zero based index of the light. Must be greater than 0 and smaller
 //! than IVideoDriver()::getDynamicLightCount.
-//! \return Light data.
+//! ¥return Light data.
 const SLight& CNullDriver::getDynamicLight(u32 idx) const
 {
 	if ( idx < Lights.size() )
@@ -952,7 +952,7 @@ void CNullDriver::makeColorKeyTexture(video::ITexture* texture,
 
 
 //! Creates a normal map from a height map texture.
-//! \param amplitude: Constant value by which the height information is multiplied.
+//! ¥param amplitude: Constant value by which the height information is multiplied.
 void CNullDriver::makeNormalMapTexture(video::ITexture* texture, f32 amplitude) const
 {
 	if (!texture)
@@ -1107,7 +1107,7 @@ void CNullDriver::setTextureCreationFlag(E_TEXTURE_CREATION_FLAG flag, bool enab
 	}
 
 	// set flag
-	TextureCreationFlags = (TextureCreationFlags & (~flag)) |
+	TextureCreationFlags = (TextureCreationFlags & (‾flag)) |
 		((((u32)!enabled)-1) & flag);
 }
 
@@ -1752,9 +1752,9 @@ IVideoDriver* createNullDriver(io::IFileSystem* io, const core::dimension2d<s32>
 
 //! Set/unset a clipping plane.
 //! There are at least 6 clipping planes available for the user to set at will.
-//! \param index: The plane index. Must be between 0 and MaxUserClipPlanes.
-//! \param plane: The plane itself.
-//! \param enable: If true, enable the clipping plane else disable it.
+//! ¥param index: The plane index. Must be between 0 and MaxUserClipPlanes.
+//! ¥param plane: The plane itself.
+//! ¥param enable: If true, enable the clipping plane else disable it.
 bool CNullDriver::setClipPlane(u32 index, const core::plane3df& plane, bool enable)
 {
 	return false;
@@ -1762,8 +1762,8 @@ bool CNullDriver::setClipPlane(u32 index, const core::plane3df& plane, bool enab
 
 //! Enable/disable a clipping plane.
 //! There are at least 6 clipping planes available for the user to set at will.
-//! \param index: The plane index. Must be between 0 and MaxUserClipPlanes.
-//! \param enable: If true, enable the clipping plane else disable it.
+//! ¥param index: The plane index. Must be between 0 and MaxUserClipPlanes.
+//! ¥param enable: If true, enable the clipping plane else disable it.
 void CNullDriver::enableClipPlane(u32 index, bool enable)
 {
 	// not necessary

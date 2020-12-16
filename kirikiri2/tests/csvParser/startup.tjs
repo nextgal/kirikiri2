@@ -1,19 +1,19 @@
 // libexpat
-// XMLParser ƒNƒ‰ƒX
+// XMLParser ã‚¯ãƒ©ã‚¹
 Plugins.link("csvParser.dll");
 
 Debug.console.visible = true;
 
-// ‘‹
+// çª“
 var win = new Window();
 win.visible=true;
 
 class MyParser extends CSVParser {
 
     /**
-     * s–ˆ‚ÉŒÄ‚Ño‚³‚ê‚é
-     * @param columns ƒJƒ‰ƒ€ƒf[ƒ^(Array)
-     * @param lineNo ˜_—s”Ô†(1`)
+     * è¡Œæ¯ã«å‘¼ã³å‡ºã•ã‚Œã‚‹
+     * @param columns ã‚«ãƒ©ãƒ ãƒ‡ãƒ¼ã‚¿(Array)
+     * @param lineNo è«–ç†è¡Œç•ªå·(1ã€œ)
      */
     function doLine(columns, lineNo) {
         var str = "lineNo:" + lineNo;
@@ -30,4 +30,4 @@ class MyParser extends CSVParser {
 var parser = new MyParser();
 
 parser.parseStorage("test.txt");
-parser.parse("s1,data1\ns2,data2\ns3,data3");
+parser.parse("è¡Œ1,data1Â¥nè¡Œ2,data2Â¥nè¡Œ3,data3");

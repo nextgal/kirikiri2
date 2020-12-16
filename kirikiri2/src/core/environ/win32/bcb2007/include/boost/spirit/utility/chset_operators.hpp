@@ -28,12 +28,12 @@ namespace boost { namespace spirit {
 //
 //      Where a is a chset, implements:
 //
-//          ~a
+//          ‾a
 //
 ///////////////////////////////////////////////////////////////////////////////
 template <typename CharT>
 chset<CharT>
-operator~(chset<CharT> const& a);
+operator‾(chset<CharT> const& a);
 
 //////////////////////////////////
 template <typename CharT>
@@ -65,12 +65,12 @@ operator^(chset<CharT> const& a, chset<CharT> const& b);
 //
 //      Where a is a range, implements:
 //
-//          ~a
+//          ‾a
 //
 ///////////////////////////////////////////////////////////////////////////////
 template <typename CharT>
 chset<CharT>
-operator~(range<CharT> const& a);
+operator‾(range<CharT> const& a);
 
 //////////////////////////////////
 template <typename CharT>
@@ -122,12 +122,12 @@ operator^(range<CharT> const& a, chset<CharT> const& b);
 //
 //      Where a is a chlit, implements:
 //
-//          ~a
+//          ‾a
 //
 ///////////////////////////////////////////////////////////////////////////////
 template <typename CharT>
 chset<CharT>
-operator~(chlit<CharT> const& a);
+operator‾(chlit<CharT> const& a);
 
 //////////////////////////////////
 template <typename CharT>
@@ -228,11 +228,11 @@ operator^(CharT a, chset<CharT> const& b);
 //
 //      Where a is anychar, implements:
 //
-//          ~a
+//          ‾a
 //
 ///////////////////////////////////////////////////////////////////////////////
 nothing_parser
-operator~(anychar_parser a);
+operator‾(anychar_parser a);
 
 //////////////////////////////////
 template <typename CharT>

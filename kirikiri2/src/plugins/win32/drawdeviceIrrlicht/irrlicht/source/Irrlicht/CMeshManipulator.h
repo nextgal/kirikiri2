@@ -22,47 +22,47 @@ class CMeshManipulator : public IMeshManipulator
 public:
 
 	//! destructor
-	virtual ~CMeshManipulator() {}
+	virtual ‾CMeshManipulator() {}
 
 	//! Flips the direction of surfaces. Changes backfacing triangles to frontfacing
 	//! triangles and vice versa.
-	//! \param mesh: Mesh on which the operation is performed.
+	//! ¥param mesh: Mesh on which the operation is performed.
 	virtual void flipSurfaces(scene::IMesh* mesh) const;
 
 	//! Sets the alpha vertex color value of the whole mesh to a new value
-	//! \param mesh: Mesh on which the operation is performed.
-	//! \param alpha: New alpha for the vertex color.
+	//! ¥param mesh: Mesh on which the operation is performed.
+	//! ¥param alpha: New alpha for the vertex color.
 	virtual void setVertexColorAlpha(scene::IMesh* mesh, s32 alpha) const;
 
 	//! Sets the colors of all vertices to one color
 	virtual void setVertexColors(IMesh* mesh, video::SColor color) const;
 
 	//! Recalculates all normals of the mesh.
-	/** \param mesh: Mesh on which the operation is performed.
-	    \param smooth: Whether to use smoothed normals. */
+	/** ¥param mesh: Mesh on which the operation is performed.
+	    ¥param smooth: Whether to use smoothed normals. */
 	virtual void recalculateNormals(scene::IMesh* mesh, bool smooth = false) const;
 
 	//! Recalculates all normals of the mesh buffer.
-	/** \param buffer: Mesh buffer on which the operation is performed.
-	    \param smooth: Whether to use smoothed normals. */
+	/** ¥param buffer: Mesh buffer on which the operation is performed.
+	    ¥param smooth: Whether to use smoothed normals. */
 	virtual void recalculateNormals(IMeshBuffer* buffer, bool smooth = false) const;
 
 	//! Scales the whole mesh.
-	//! \param mesh: Mesh on which the operation is performed.
-	//! \param scale: 3D Vector, defining the value, for each axis, to scale the mesh by.
+	//! ¥param mesh: Mesh on which the operation is performed.
+	//! ¥param scale: 3D Vector, defining the value, for each axis, to scale the mesh by.
 	virtual void scaleMesh(scene::IMesh* mesh, const core::vector3df& scale) const;
 
 	//! Applies a transformation
-	/** \param mesh: Mesh on which the operation is performed.
-		\param m: transformation matrix. */
+	/** ¥param mesh: Mesh on which the operation is performed.
+		¥param m: transformation matrix. */
 	virtual void transformMesh(scene::IMesh* mesh, const core::matrix4& m) const;
 
 	//! Clones a static IMesh into a modifiable SMesh.
 	virtual SMesh* createMeshCopy(scene::IMesh* mesh) const;
 
 	//! Creates a planar texture mapping on the mesh
-	//! \param mesh: Mesh on which the operation is performed.
-	//! \param resolution: resolution of the planar mapping. This is the value
+	//! ¥param mesh: Mesh on which the operation is performed.
+	//! ¥param resolution: resolution of the planar mapping. This is the value
 	//! specifying which is the relation between world space and 
 	//! texture coordinate space.
 	virtual void makePlanarTextureMapping(scene::IMesh* mesh, f32 resolution) const;
@@ -70,8 +70,8 @@ public:
 	//! Creates a copy of the mesh, which will only consist of S3DVertexTangents vertices.
 	//! This is useful if you want to draw tangent space normal mapped geometry because
 	//! it calculates the tangent and binormal data which is needed there.
-	//! \param mesh: Input mesh
-	//! \return Mesh consiting only of S3DVertexNormalMapped vertices.
+	//! ¥param mesh: Input mesh
+	//! ¥return Mesh consiting only of S3DVertexNormalMapped vertices.
 	//! If you no longer need the cloned mesh, you should call IMesh::drop().
 	//! See IReferenceCounted::drop() for more information.
 	virtual IMesh* createMeshWithTangents(IMesh* mesh) const;

@@ -11,4 +11,4 @@ untgz.o: untgz.c ../../zlib.h
 	cd ../..; ./configure; make
 
 clean:
-	rm -f untgz untgz.o *~
+	rm -f untgz untgz.o *‾

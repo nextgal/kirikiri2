@@ -1,4 +1,4 @@
-// affineCopy “™‚ÌƒeƒXƒg
+// affineCopy ç­‰ã®ãƒ†ã‚¹ãƒˆ
 
 function intrandom(min = 0, max = 0) 
 {
@@ -8,9 +8,9 @@ function intrandom(min = 0, max = 0)
 
 class TestWindow extends Window
 {
-	var fore; // ƒvƒ‰ƒCƒ}ƒŠ
-	var src; // ƒŒƒCƒ„ ‚»‚Ì1
-	var src2; // ƒŒƒCƒ„‚»‚Ì2
+	var fore; // ãƒ—ãƒ©ã‚¤ãƒãƒª
+	var src; // ãƒ¬ã‚¤ãƒ¤ ãã®1
+	var src2; // ãƒ¬ã‚¤ãƒ¤ãã®2
 
 	function TestWindow()
 	{
@@ -47,10 +47,10 @@ class TestWindow extends Window
 		src.face = dfOpaque;
 		src.font.height = 30;
 		src.fillRect(0, 0, 640, 480, 0);
-		src.drawText(100, 200, "•¶š‚¢‚Á‚Ï‚¢", 0xffffff, 255);
+		src.drawText(100, 200, "æ–‡å­—ã„ã£ã±ã„", 0xffffff, 255);
 		src.font.height = 16;
-		src.drawText(100, 280, "‚¢‚Á‚Ï‚¢•¶š", 0xffffff, 255);
-		src.drawText(100, 310, "‚¢‚Á‚Ï‚¢•¶šADFGa;oija;oiergjoiao;aeij", 0xffffff, 255);
+		src.drawText(100, 280, "ã„ã£ã±ã„æ–‡å­—", 0xffffff, 255);
+		src.drawText(100, 310, "ã„ã£ã±ã„æ–‡å­—ADFGa;oija;oiergjoiao;aeij", 0xffffff, 255);
 */
 
 

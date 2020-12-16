@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="Shift_JIS" ?>
 <doc>
-<title>�R���\�[��</title>
+<title>コンソール</title>
 
 <para>
-<ptitle>�R���\�[���ɂ���</ptitle>
-�@�R���\�[���́A���s���� Shift + F4 ���������Ƃɂ��\�����邱�Ƃ��ł��܂��B<r/>
-�@�R���\�[���ł́A�g���g���̃V�X�e����A���[�U�X�N���v�g�� <at href="f_Debug_message.html">Debug.message</at> ���\�b�h�ŏo�͂���l�X�ȃf�o�b�O�p���b�Z�[�W��\�����邱�Ƃ��ł��܂��B�܂��ATJS2 ������͂��Ă��̏�Ŏ��s���A���̌��ʂ�\�������鎖���ł��܂��B<r/>
+<ptitle>コンソールについて</ptitle>
+　コンソールは、実行中に Shift + F4 を押すことにより表示することができます。<r/>
+　コンソールでは、吉里吉里のシステムや、ユーザスクリプトが <at href="f_Debug_message.html">Debug.message</at> メソッドで出力する様々なデバッグ用メッセージを表示することができます。また、TJS2 式を入力してその場で実行し、式の結果を表示させる事もできます。<r/>
 </para>
 
 <para>
-<ptitle>��ʂ̐���</ptitle>
+<ptitle>画面の説明</ptitle>
 <img src="Console.png"/><r/><r/>
-�����ɂ��� <img src="ExecIcon.png"/> �̓N���b�N���邱�Ƃɂ��A���̉E�ɂ�����͗��ɓ��͂��ꂽ���̂� TJS2 ���Ƃ��Ď��s���邱�Ƃ��ł��܂��B<r/>
+左下にある <img src="ExecIcon.png"/> はクリックすることにより、その右にある入力欄に入力されたものを TJS2 式として実行することができます。<r/>
 <r/>
-�E�N���b�N���j���[�̐����ł��B<r/>
+右クリックメニューの説明です。<r/>
 <dl>
-<dt><img src="CopyIcon.png"/> �R�s�[</dt>
+<dt><img src="CopyIcon.png"/> コピー</dt>
 <dd>
-�@�R���\�[���̑I�𕔕����N���b�v�{�[�h�ɃR�s�[���܂��B
+　コンソールの選択部分をクリップボードにコピーします。
 </dd>
 
-<dt><img src="ControllerIcon.png"/> �R���g���[��</dt>
+<dt><img src="ControllerIcon.png"/> コントローラ</dt>
 <dd>
-�@<link href="Controller"/> ��\�����܂��B
+　<link href="Controller"/> を表示します。
 </dd>
 
-<dt><img src="ScriptEditorIcon.png"/> �X�N���v�g�G�f�B�^</dt>
+<dt><img src="ScriptEditorIcon.png"/> スクリプトエディタ</dt>
 <dd>
-�@<link href="ScriptEditor"/> ��\�����܂��B
+　<link href="ScriptEditor"/> を表示します。
 </dd>
 
-<dt><img src="ExprWatchIcon.png"/> �Ď���</dt>
+<dt><img src="ExprWatchIcon.png"/> 監視式</dt>
 <dd>
-�@<link href="ExprWatch"/> ��\�����܂��B
+　<link href="ExprWatch"/> を表示します。
 </dd>
 
-<dt>�G���[���Ɏ����I�ɕ\������</dt>
+<dt>エラー時に自動的に表示する</dt>
 <dd>
-�@�G���[�����������Ƃ��Ɏ����I�ɃR���\�[����\������悤�ɂ��܂��B
+　エラーが発生したときに自動的にコンソールを表示するようにします。
 </dd>
 </dl>
 <r/>

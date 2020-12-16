@@ -12,7 +12,7 @@
 
 
 //----------------------------------------------------------------------
-// ƒ†[ƒeƒBƒŠƒeƒBŠÖ”
+// ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£é–¢æ•°
 enum map_t
 {
   MAP_CONST,
@@ -107,7 +107,7 @@ rgb_to_hsv(const rgb_t *rgb, hsv_t *hsv)
 class LayerSupport
 {
 private:
-  iTJSDispatch2 *mObjthis; //< ƒIƒuƒWƒFƒNƒgî•ñ‚ÌQÆ
+  iTJSDispatch2 *mObjthis; //< ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆæƒ…å ±ã®å‚ç…§
 
 public:
   LayerSupport(iTJSDispatch2 *objthis) : mObjthis(objthis) {
@@ -542,11 +542,11 @@ public:
 
 NCB_GET_INSTANCE_HOOK(LayerSupport)
 {
-  NCB_INSTANCE_GETTER(objthis) { // objthis ‚ğ iTJSDispatch2* Œ^‚Ìˆø”‚Æ‚·‚é
-    ClassT* obj = GetNativeInstance(objthis);	// ƒlƒCƒeƒBƒuƒCƒ“ƒXƒ^ƒ“ƒXƒ|ƒCƒ“ƒ^æ“¾
+  NCB_INSTANCE_GETTER(objthis) { // objthis ã‚’ iTJSDispatch2* å‹ã®å¼•æ•°ã¨ã™ã‚‹
+    ClassT* obj = GetNativeInstance(objthis);	// ãƒã‚¤ãƒ†ã‚£ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãƒã‚¤ãƒ³ã‚¿å–å¾—
     if (!obj) {
-      obj = new ClassT(objthis);				// ‚È‚¢ê‡‚Í¶¬‚·‚é
-      SetNativeInstance(objthis, obj);		// objthis ‚É obj ‚ğƒlƒCƒeƒBƒuƒCƒ“ƒXƒ^ƒ“ƒX‚Æ‚µ‚Ä“o˜^‚·‚é
+      obj = new ClassT(objthis);				// ãªã„å ´åˆã¯ç”Ÿæˆã™ã‚‹
+      SetNativeInstance(objthis, obj);		// objthis ã« obj ã‚’ãƒã‚¤ãƒ†ã‚£ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¨ã—ã¦ç™»éŒ²ã™ã‚‹
     }
     return obj;
   }

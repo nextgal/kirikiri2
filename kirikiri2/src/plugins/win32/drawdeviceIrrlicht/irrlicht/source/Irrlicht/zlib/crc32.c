@@ -53,7 +53,7 @@
 
 /* Definitions for doing the crc four data bytes at a time. */
 #ifdef BYFOUR
-#  define REV(w) (((w)>>24)+(((w)>>8)&0xff00)+ \
+#  define REV(w) (((w)>>24)+(((w)>>8)&0xff00)+ ¥
                 (((w)&0xff00)<<8)+(((w)&0xff)<<24))
    local unsigned long crc32_little OF((unsigned long,
                         const unsigned char FAR *, unsigned));
@@ -160,20 +160,20 @@ local void make_crc_table()
 
         out = fopen("crc32.h", "w");
         if (out == NULL) return;
-        fprintf(out, "/* crc32.h -- tables for rapid CRC calculation\n");
-        fprintf(out, " * Generated automatically by crc32.c\n */\n\n");
+        fprintf(out, "/* crc32.h -- tables for rapid CRC calculation¥n");
+        fprintf(out, " * Generated automatically by crc32.c¥n */¥n¥n");
         fprintf(out, "local const unsigned long FAR ");
-        fprintf(out, "crc_table[TBLS][256] =\n{\n  {\n");
+        fprintf(out, "crc_table[TBLS][256] =¥n{¥n  {¥n");
         write_table(out, crc_table[0]);
 #  ifdef BYFOUR
-        fprintf(out, "#ifdef BYFOUR\n");
+        fprintf(out, "#ifdef BYFOUR¥n");
         for (k = 1; k < 8; k++) {
-            fprintf(out, "  },\n  {\n");
+            fprintf(out, "  },¥n  {¥n");
             write_table(out, crc_table[k]);
         }
-        fprintf(out, "#endif\n");
+        fprintf(out, "#endif¥n");
 #  endif /* BYFOUR */
-        fprintf(out, "  }\n};\n");
+        fprintf(out, "  }¥n};¥n");
         fclose(out);
     }
 #endif /* MAKECRCH */
@@ -188,7 +188,7 @@ local void write_table(out, table)
 
     for (n = 0; n < 256; n++)
         fprintf(out, "%s0x%08lxUL%s", n % 5 ? "" : "    ", table[n],
-                n == 255 ? "\n" : (n % 5 == 4 ? ",\n" : ", "));
+                n == 255 ? "¥n" : (n % 5 == 4 ? ",¥n" : ", "));
 }
 #endif /* MAKECRCH */
 
@@ -253,8 +253,8 @@ unsigned long ZEXPORT crc32(crc, buf, len)
 #ifdef BYFOUR
 
 /* ========================================================================= */
-#define DOLIT4 c ^= *buf4++; \
-        c = crc_table[3][c & 0xff] ^ crc_table[2][(c >> 8) & 0xff] ^ \
+#define DOLIT4 c ^= *buf4++; ¥
+        c = crc_table[3][c & 0xff] ^ crc_table[2][(c >> 8) & 0xff] ^ ¥
             crc_table[1][(c >> 16) & 0xff] ^ crc_table[0][c >> 24]
 #define DOLIT32 DOLIT4; DOLIT4; DOLIT4; DOLIT4; DOLIT4; DOLIT4; DOLIT4; DOLIT4
 
@@ -268,7 +268,7 @@ local unsigned long crc32_little(crc, buf, len)
     register const u4 FAR *buf4;
 
     c = (u4)crc;
-    c = ~c;
+    c = ‾c;
     while (len && ((ptrdiff_t)buf & 3)) {
         c = crc_table[0][(c ^ *buf++) & 0xff] ^ (c >> 8);
         len--;
@@ -288,13 +288,13 @@ local unsigned long crc32_little(crc, buf, len)
     if (len) do {
         c = crc_table[0][(c ^ *buf++) & 0xff] ^ (c >> 8);
     } while (--len);
-    c = ~c;
+    c = ‾c;
     return (unsigned long)c;
 }
 
 /* ========================================================================= */
-#define DOBIG4 c ^= *++buf4; \
-        c = crc_table[4][c & 0xff] ^ crc_table[5][(c >> 8) & 0xff] ^ \
+#define DOBIG4 c ^= *++buf4; ¥
+        c = crc_table[4][c & 0xff] ^ crc_table[5][(c >> 8) & 0xff] ^ ¥
             crc_table[6][(c >> 16) & 0xff] ^ crc_table[7][c >> 24]
 #define DOBIG32 DOBIG4; DOBIG4; DOBIG4; DOBIG4; DOBIG4; DOBIG4; DOBIG4; DOBIG4
 
@@ -308,7 +308,7 @@ local unsigned long crc32_big(crc, buf, len)
     register const u4 FAR *buf4;
 
     c = REV((u4)crc);
-    c = ~c;
+    c = ‾c;
     while (len && ((ptrdiff_t)buf & 3)) {
         c = crc_table[4][(c >> 24) ^ *buf++] ^ (c << 8);
         len--;
@@ -330,7 +330,7 @@ local unsigned long crc32_big(crc, buf, len)
     if (len) do {
         c = crc_table[4][(c >> 24) ^ *buf++] ^ (c << 8);
     } while (--len);
-    c = ~c;
+    c = ‾c;
     return (unsigned long)(REV(c));
 }
 

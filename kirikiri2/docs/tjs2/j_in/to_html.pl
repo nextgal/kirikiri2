@@ -29,22 +29,22 @@ sub sjis
 	my($text);
 	$text = $_[0];
 	$text = Jcode->new($text, "utf8")->sjis;
-	$text =~ s/---yen---/\\/g;
-	$text =~ s/---tilde---/\~/g;
-	$text =~ s/---nami---/�`/g;
-	$text =~ s/---haifun---/�|/g;
-	$text =~ s/&/&amp;/g;
-	$text =~ s/</&lt;/g;
-	$text =~ s/>/&gt;/g;
-	$text =~ s/\t/&nbsp;&nbsp;&nbsp;&nbsp;/g;
-	$text =~ s/\"/&quot;/g;
+	$text =‾ s/---yen---/¥¥/g;
+	$text =‾ s/---tilde---/¥‾/g;
+	$text =‾ s/---nami---/〜/g;
+	$text =‾ s/---haifun---/−/g;
+	$text =‾ s/&/&amp;/g;
+	$text =‾ s/</&lt;/g;
+	$text =‾ s/>/&gt;/g;
+	$text =‾ s/¥t/&nbsp;&nbsp;&nbsp;&nbsp;/g;
+	$text =‾ s/¥"/&quot;/g;
 	if($in_bq)
 	{
-		$text =~ s/ /&nbsp;/g;
-		$text =~ s/\/\*/<span class=\"comment\">\/\*/g;
-		$text =~ s/\*\//\*\/<\/span>/g;
-		if($text =~ s/^(\/\/.*?)$/<span class=\"comment\">$1/s ||
-			$text =~ s/([^:])(\/\/.*?)$/$1<span class=\"comment\">$2/s)
+		$text =‾ s/ /&nbsp;/g;
+		$text =‾ s/¥/¥*/<span class=¥"comment¥">¥/¥*/g;
+		$text =‾ s/¥*¥//¥*¥/<¥/span>/g;
+		if($text =‾ s/^(¥/¥/.*?)$/<span class=¥"comment¥">$1/s ||
+			$text =‾ s/([^:])(¥/¥/.*?)$/$1<span class=¥"comment¥">$2/s)
 		{
 			$in_comment = 1;
 		}
@@ -66,12 +66,12 @@ sub html
 {
 	my($text);
 	$text = $_[0];
-	$text =~ s/&/&amp;/g;
-	$text =~ s/</&lt;/g;
-	$text =~ s/>/&gt;/g;
-#	$text =~ s/ /&nbsp;/g;
-	$text =~ s/\t/&nbsp;&nbsp;&nbsp;&nbsp;/g;
-	$text =~ s/\"/&quot;/g;
+	$text =‾ s/&/&amp;/g;
+	$text =‾ s/</&lt;/g;
+	$text =‾ s/>/&gt;/g;
+#	$text =‾ s/ /&nbsp;/g;
+	$text =‾ s/¥t/&nbsp;&nbsp;&nbsp;&nbsp;/g;
+	$text =‾ s/¥"/&quot;/g;
 	return $text;
 }
 
@@ -80,10 +80,10 @@ sub sjis_noquote
 	my($text);
 	$text = $_[0];
 	$text = Jcode->new($text, "utf8")->sjis;
-	$text =~ s/---yen---/\\/g;
-	$text =~ s/---tilde---/\~/g;
-	$text =~ s/---nami---/�`/g;
-	$text =~ s/---haifun---/�|/g;
+	$text =‾ s/---yen---/¥¥/g;
+	$text =‾ s/---tilde---/¥‾/g;
+	$text =‾ s/---nami---/〜/g;
+	$text =‾ s/---haifun---/−/g;
 	return $text;
 }
 
@@ -104,7 +104,7 @@ sub get_title
 	my @all = <LFH>;
 	my $all = join('', @all);
 	close LFH;
-	$all =~ /\<title\>(.*?)\<\/title\>/;
+	$all =‾ /¥<title¥>(.*?)¥<¥/title¥>/;
 	return $1;
 }
 
@@ -124,7 +124,7 @@ sub rr
 			$curtitle=$title;
 
 #			my $num = $#keywords  + 1;
-#			$keywords[$num] = $title . "\t" . "id$num" . "\t" . $outfile . "\t";
+#			$keywords[$num] = $title . "¥t" . "id$num" . "¥t" . $outfile . "¥t";
 
 			print OH <<EOF;
 <?xml version="1.0" encoding="Shift_JIS"?>
@@ -138,13 +138,13 @@ sub rr
 	<meta name="author" content="W.Dee" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
-	<link href="browser.css" type="text/css" rel="stylesheet" title="�g���g���֘A���t�@�����X�p�W���X�^�C��" />
-	<link href="mailto:dee\@kikyou.info" rev="Made" />
-	<link href="index.html" target="_top" rel="Start" title="�g�b�v�y�[�W" />
+	<link href="browser.css" type="text/css" rel="stylesheet" title="吉里吉里関連リファレンス用標準スタイル" />
+	<link href="mailto:dee¥@kikyou.info" rev="Made" />
+	<link href="index.html" target="_top" rel="Start" title="トップページ" />
 </head>
 <body>
 EOF
-#			print OH "<a id=\"id$num\" name=\"id$num\"></a>";
+#			print OH "<a id=¥"id$num¥" name=¥"id$num¥"></a>";
 
 
 			foreach my $child ($node->getChildNodes) { &rr($child); }
@@ -167,16 +167,16 @@ EOF
 		elsif($name eq "l")
 		{
 			$c_count ++;
-			print OH "<span class=\"linenumber\">";
+			print OH "<span class=¥"linenumber¥">";
 			my $num = sprintf("%3d|", $c_count);
-			$num =~ s/ /&nbsp;/g;
+			$num =‾ s/ /&nbsp;/g;
 			print OH "$num</span>";
 		}
 		elsif($name eq "para")
 		{
 			$curpara = '';
 			foreach my $child ($node->getChildNodes) { &rr($child); }
-			print OH "</div></div>\n";
+			print OH "</div></div>¥n";
 		}
 		elsif($name eq "ptitle")
 		{
@@ -184,13 +184,13 @@ EOF
 
 			print OH "<h1>";
 
-			print OH "<a id=\"id$num\" name=\"id$num\">";
+			print OH "<a id=¥"id$num¥" name=¥"id$num¥">";
 
 			$in_para = 1;
 			foreach my $child ($node->getChildNodes) { &rr($child); }
 			$in_para = 0;
 
-			$keywords[$num] = $curpara . "\t" . "id$num" . "\t" . $outfile . "\t" . $curtitle;
+			$keywords[$num] = $curpara . "¥t" . "id$num" . "¥t" . $outfile . "¥t" . $curtitle;
 
 
 			print OH <<EOF;
@@ -213,7 +213,7 @@ EOF
 		elsif($name eq "descimg")
 		{
 			my $title = sjis(($node->getElementsByTagName("dititle"))[0]->getFirstChild->getData);
-			print OH "<br /><div class=\"descimg\">";
+			print OH "<br /><div class=¥"descimg¥">";
 			foreach my $child ($node->getChildNodes) { &rr($child); }
 			print OH "<br />$title</div><br />";
 		}
@@ -221,7 +221,7 @@ EOF
 		{
 			my $word = $node->getFirstChild->getData;
 			my $num = $#keywords  + 1;
-			$keywords[$num] = sjis_noquote($word) . "\t" . "id$num" . "\t" . $outfile . "\t";
+			$keywords[$num] = sjis_noquote($word) . "¥t" . "id$num" . "¥t" . $outfile . "¥t";
 			if(!$in_para && $curtitle ne $curpara)
 			{
 				$keywords[$num] .= "$curtitle-$curpara";
@@ -230,7 +230,7 @@ EOF
 			{
 				$keywords[$num] .= "$curtitle";
 			}
-			print OH "<a id=\"id$num\" name=\"id$num\" class=\"targanchor\"><dfn>";
+			print OH "<a id=¥"id$num¥" name=¥"id$num¥" class=¥"targanchor¥"><dfn>";
 			foreach my $child ($node->getChildNodes) { &rr($child); }
 			print OH "</dfn></a>";
 		}
@@ -242,29 +242,29 @@ EOF
 				my $w;
 				my $h;
 				($w, $h) = imgsize($filename);
-				print OH "<img width=\"$w\" height=\"$h\" alt=\"". sjis($node->getAttribute("src"))."\" src=\"". sjis($node->getAttribute("src"))."\" />";
+				print OH "<img width=¥"$w¥" height=¥"$h¥" alt=¥"". sjis($node->getAttribute("src"))."¥" src=¥"". sjis($node->getAttribute("src"))."¥" />";
 			}
 			else
 			{
-				print OH "<img src=\"".sjis($filename)."\" alt=\"".sjis($filename)."\" />";
+				print OH "<img src=¥"".sjis($filename)."¥" alt=¥"".sjis($filename)."¥" />";
 			}
 		}
 		elsif($name eq "colorbox")
 		{
 			my $color=sjis($node->getAttribute("color"));
-			print OH "<span style=\"border:1px solid black; color:$color; background-color:$color;\">";
-			print OH "��";
-			print OH "</span>\n";
+			print OH "<span style=¥"border:1px solid black; color:$color; background-color:$color;¥">";
+			print OH "■";
+			print OH "</span>¥n";
 		}
 		elsif($name eq "dt")
 		{
-			print OH "\n<dt>";
+			print OH "¥n<dt>";
 			foreach my $child ($node->getChildNodes) { &rr($child); }
-			print OH "</dt>\n";
+			print OH "</dt>¥n";
 		}
 		elsif($name eq "tt")
 		{
-			print OH "<code class=\"inlinecode\">";
+			print OH "<code class=¥"inlinecode¥">";
 			foreach my $child ($node->getChildNodes) { &rr($child); }
 			print OH "</code>";
 		}
@@ -276,34 +276,34 @@ EOF
 		}
 		elsif($name eq "i")
 		{
-			print OH "<span class=\"i\">";
+			print OH "<span class=¥"i¥">";
 			foreach my $child ($node->getChildNodes) { &rr($child); }
 			print OH "</span>";
 		}
 		elsif($name eq "bq")
 		{
-			print OH "\n<br />\n<code class=\"bq\">";
+			print OH "¥n<br />¥n<code class=¥"bq¥">";
 			$in_bq = 1;
 			foreach my $child ($node->getChildNodes) { &rr($child); }
 			$in_bq = 0;
 			print OH &quit_comment;
-			print OH "</code>\n<br />\n\n";
+			print OH "</code>¥n<br />¥n¥n";
 		}
 		elsif($name eq "example")
 		{
-			print OH "\n<br />\n<code class=\"bq\"><span class=\"weak\">��:</span><br />";
+			print OH "¥n<br />¥n<code class=¥"bq¥"><span class=¥"weak¥">例:</span><br />";
 			$in_bq = 1;
 			foreach my $child ($node->getChildNodes) { &rr($child); }
 			$in_bq = 0;
 			print OH &quit_comment;
-			print OH "</code>\n<br />\n\n";
+			print OH "</code>¥n<br />¥n¥n";
 		}
 		elsif($name eq "dititle")
 		{
 		}
 		elsif($name eq "a")
 		{
-			print OH "<a class=\"jump\" href=\"" . sjis($node->getAttribute("href")) . "\">";
+			print OH "<a class=¥"jump¥" href=¥"" . sjis($node->getAttribute("href")) . "¥">";
 			foreach my $child ($node->getChildNodes) { &rr($child); }
 			print OH "</a>";
 		}
@@ -311,20 +311,20 @@ EOF
 		{
 			if($node->getAttribute("target") ne '')
 			{
-				print OH "<a target=\"" . $node->getAttribute("target") . "\" class=\"jump\" href=\"" . sjis($node->getAttribute("href")) . "\">";
+				print OH "<a target=¥"" . $node->getAttribute("target") . "¥" class=¥"jump¥" href=¥"" . sjis($node->getAttribute("href")) . "¥">";
 			}
 			else
 			{
-				print OH "<a target=\"$a_target\" class=\"jump\" href=\"" . sjis($node->getAttribute("href")) . "\">";
+				print OH "<a target=¥"$a_target¥" class=¥"jump¥" href=¥"" . sjis($node->getAttribute("href")) . "¥">";
 			}
 			foreach my $child ($node->getChildNodes) { &rr($child); }
 			print OH "</a>";
 		}
 		elsif($name eq "r")
 		{
-#			if(!$in_bq) { print OH "<br />\n"; } else { print OH "\n"; }
+#			if(!$in_bq) { print OH "<br />¥n"; } else { print OH "¥n"; }
 			print OH &quit_comment;
-			print OH "<br />\n";
+			print OH "<br />¥n";
 		}
 		elsif($name eq "link")
 		{
@@ -332,7 +332,7 @@ EOF
 			my $title = get_title($href);
 			if($title ne '')
 			{
-				print OH "<a target=\"$a_target\" class=\"jump\" href=\"${href}.html\">$title</a>";
+				print OH "<a target=¥"$a_target¥" class=¥"jump¥" href=¥"${href}.html¥">$title</a>";
 			}
 		}
 		elsif($name eq "comlink")
@@ -341,13 +341,13 @@ EOF
 			my $title = get_title($href);
 			if($title ne '')
 			{
-				print OH "<span class=\"comlink\"> ( �� <a target=\"$a_target\" class=\"jump\" href=\"${href}.html\">$title</a> ) </span>";
+				print OH "<span class=¥"comlink¥"> ( → <a target=¥"$a_target¥" class=¥"jump¥" href=¥"${href}.html¥">$title</a> ) </span>";
 			}
 		}
 		elsif($name eq "font")
 		{
 			my $color = $node->getAttribute("color");
-			print OH "<font color=\"$color\">";
+			print OH "<font color=¥"$color¥">";
 			foreach my $child ($node->getChildNodes) { &rr($child); }
 			print OH "</font>";
 		}
@@ -357,8 +357,8 @@ EOF
 		}
 		elsif($name eq "keywords")
 		{
-			print OH "<div><a class=\"jump\" href=\"keywords.html\" target=\"index\">�L�[���[�h�ꗗ��</a></div>\n";
-			print OH "<div><a class=\"jump\" href=\"keywords_p.html\" target=\"index\">�ꏊ���L�[���[�h�ꗗ��</a></div><br />\n";
+			print OH "<div><a class=¥"jump¥" href=¥"keywords.html¥" target=¥"index¥">キーワード一覧へ</a></div>¥n";
+			print OH "<div><a class=¥"jump¥" href=¥"keywords_p.html¥" target=¥"index¥">場所順キーワード一覧へ</a></div><br />¥n";
 		}
 		elsif($name eq "include")
 		{
@@ -367,7 +367,7 @@ EOF
 			open IH, $file or die;
 			@content_all = <IH>;
 			close IH;
-			print OH join("\n", @content_all);
+			print OH join("¥n", @content_all);
 		}
 		else
 		{
@@ -379,8 +379,8 @@ EOF
 	elsif($type == TEXT_NODE)
 	{
 		my $text = $node->getData;
-		$text =~ s/^\n//s;
-		$text =~ s/\n$//s;
+		$text =‾ s/^¥n//s;
+		$text =‾ s/¥n$//s;
 		if($in_para) { $curpara .= sjis_noquote($text); }
 		$text = sjis($text);
 		print OH $text;
@@ -396,7 +396,7 @@ sub process
 {
 	my $fn = $_[0];
 	my $of = $fn;
-	$of =~ s/\.xml/\.html/;
+	$of =‾ s/¥.xml/¥.html/;
 
 	$orgfile = $fn;
 	$outfile = $of;
@@ -408,13 +408,13 @@ sub process
 
 	my $parser = new XML::DOM::Parser;
 
-	$content =~ s/�`/---nami---/g;
-	$content =~ s/\x81\x7c/---haifun---/g;
+	$content =‾ s/〜/---nami---/g;
+	$content =‾ s/¥x81¥x7c/---haifun---/g;
 	$content = Jcode->new($content, "sjis")->euc;
-	$content =~ s/\\/---yen---/g;
-	$content =~ s/\~/---tilde---/g;
+	$content =‾ s/¥¥/---yen---/g;
+	$content =‾ s/¥‾/---tilde---/g;
 	$content = Jcode->new($content, "euc")->sjis;
-	$content =~ s/Shift_JIS/x-sjis-unicode/;
+	$content =‾ s/Shift_JIS/x-sjis-unicode/;
 	my $doc = $parser->parse($content);
 
 	open OH, ">$of";
@@ -425,7 +425,7 @@ my @list = <*.xml>;
 
 foreach my $each (@list)
 {
-	print $each, "\n";
+	print $each, "¥n";
 	&process($each);
 }
 
@@ -456,25 +456,25 @@ sub writekeywords
 <html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
-	<title>�L�[���[�h�ꗗ</title>
+	<title>キーワード一覧</title>
 	<meta name="author" content="W.Dee" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
-	<link href="keywords.css" type="text/css" rel="stylesheet" title="�g���g���֘A���t�@�����X�p�L�[���[�h�ꗗ�X�^�C��" />
-	<link href="mailto:dee\@kikyou.info" rev="Made" />
-	<link href="index.html" target="_top" rel="Start" title="�g�b�v�y�[�W" />
+	<link href="keywords.css" type="text/css" rel="stylesheet" title="吉里吉里関連リファレンス用キーワード一覧スタイル" />
+	<link href="mailto:dee¥@kikyou.info" rev="Made" />
+	<link href="index.html" target="_top" rel="Start" title="トップページ" />
 </head>
 <!-- generated by to_html.pl -->
 <body>
-<div><a class="jump" href="frame.html" target="index">�ڎ���</a></div>
-<div><a class="jump" href="keywords_p.html">�ꏊ���L�[���[�h�ꗗ��</a></div>
+<div><a class="jump" href="frame.html" target="index">目次へ</a></div>
+<div><a class="jump" href="keywords_p.html">場所順キーワード一覧へ</a></div>
 
 <script type="text/javascript" src="keywordgrep.js"></script>
 <form action="#" onsubmit="return false">
 <input type="text" value="" size="30" id="grepword" accesskey="/" />
 </form>
 
-<table class="keywords" summary="�L�[���[�h�ꗗ�ł�"><tbody>
+<table class="keywords" summary="キーワード一覧です"><tbody>
 EOF
 
 	@keywords = sort @keywords;
@@ -486,14 +486,14 @@ EOF
 		my $name;
 		my $placedesc;
 		my $title;
-		($word, $name, $place, $placedesc) = split(/\t/, $keywords[$i]);
+		($word, $name, $place, $placedesc) = split(/¥t/, $keywords[$i]);
 		$title = html($word);
 		if($placedesc ne '') { $title .= " ( $placedesc ) "; }
-		print OH "<tr><td><div><a class=\"jump\" href=\"$place#$name\" target=\"main\" title=\"". ($title) . "\">" . html($word);
+		print OH "<tr><td><div><a class=¥"jump¥" href=¥"$place#$name¥" target=¥"main¥" title=¥"". ($title) . "¥">" . html($word);
 		if($placedesc ne '') { print OH " <span>( ". ($placedesc) ." )</span>"; }
-		print OH "</a></div></td></tr>\n";
+		print OH "</a></div></td></tr>¥n";
 	}
-	print OH "\n";
+	print OH "¥n";
 	print OH <<EOF;
 	</tbody>
 </table>
@@ -509,8 +509,8 @@ EOF
 		my $place;
 		my $name;
 		my $placedesc;
-		($word, $name, $place, $placedesc) = split(/\t/, $keywords[$i]);
-		$keywords[$i] = "$place\t$placedesc\t$word\t$name";
+		($word, $name, $place, $placedesc) = split(/¥t/, $keywords[$i]);
+		$keywords[$i] = "$place¥t$placedesc¥t$word¥t$name";
 	}
 
 
@@ -526,25 +526,25 @@ EOF
 <html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
-	<title>�ꏊ���L�[���[�h�ꗗ</title>
+	<title>場所順キーワード一覧</title>
 	<meta name="author" content="W.Dee" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
-	<link href="keywords.css" type="text/css" rel="stylesheet" title="�g���g���֘A���t�@�����X�p�L�[���[�h�ꗗ�X�^�C��" />
-	<link href="mailto:dee\@kikyou.info" rev="Made" />
-	<link href="index.html" target="_top" rel="Start" title="�g�b�v�y�[�W" />
+	<link href="keywords.css" type="text/css" rel="stylesheet" title="吉里吉里関連リファレンス用キーワード一覧スタイル" />
+	<link href="mailto:dee¥@kikyou.info" rev="Made" />
+	<link href="index.html" target="_top" rel="Start" title="トップページ" />
 </head>
 <!-- generated by to_html.pl -->
 <body>
-<div><a class="jump" href="frame.html" target="index">�ڎ���</a></div>
-<div><a class="jump" href="keywords.html">�L�[���[�h�ꗗ��</a></div>
+<div><a class="jump" href="frame.html" target="index">目次へ</a></div>
+<div><a class="jump" href="keywords.html">キーワード一覧へ</a></div>
 
 <script type="text/javascript" src="keywordgrep.js"></script>
 <form action="#" onsubmit="return false">
 <input type="text" value="" size="30" id="grepword" accesskey="/" />
 </form>
 
-<table class="keywords" summary="�ꏊ���L�[���[�h�ꗗ�ł�"><tbody>
+<table class="keywords" summary="場所順キーワード一覧です"><tbody>
 EOF
 
 	for($i = 0; $i <= $#keywords; $i++)
@@ -554,15 +554,15 @@ EOF
 		my $name;
 		my $placedesc;
 		my $title;
-		($place, $placedesc, $word, $name) = split(/\t/, $keywords[$i]);
+		($place, $placedesc, $word, $name) = split(/¥t/, $keywords[$i]);
 		$title = html($word);
 		if($placedesc ne '') { $title .= " ( $placedesc ) "; }
-		print OH "<tr><td><div><a class=\"jump\" href=\"$place#$name\" target=\"main\" title=\"". ($title) . "\">". html($word);
+		print OH "<tr><td><div><a class=¥"jump¥" href=¥"$place#$name¥" target=¥"main¥" title=¥"". ($title) . "¥">". html($word);
 		if($placedesc ne '') { print OH " <span>( ". ($placedesc) ." )</span>"; }
-		print OH "</a></div></td></tr>\n";
+		print OH "</a></div></td></tr>¥n";
 	}
 
-	print OH "\n";
+	print OH "¥n";
 	print OH <<EOF;
 	</tbody>
 </table>

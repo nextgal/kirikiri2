@@ -33,14 +33,14 @@ public:
 	CLWOMeshFileLoader(scene::ISceneManager* smgr, io::IFileSystem* fs);
 
 	//! destructor
-	virtual ~CLWOMeshFileLoader();
+	virtual â€¾CLWOMeshFileLoader();
 
 	//! returns true if the file maybe is able to be loaded by this class
 	//! based on the file extension (e.g. ".bsp")
 	virtual bool isALoadableFileExtension(const c8* fileName) const;
 
 	//! creates/loads an animated mesh from the file.
-	//! \return Pointer to the created mesh. Returns 0 if loading failed.
+	//! Â¥return Pointer to the created mesh. Returns 0 if loading failed.
 	//! If you no longer need the mesh, you should call IAnimatedMesh::drop().
 	//! See IUnknown::drop() for more information.
 	virtual IAnimatedMesh* createMesh(io::IReadFile* file);
@@ -70,20 +70,20 @@ private:
 	io::IReadFile* File;
 	SMesh* Mesh;
 
-// ƒƒ‚: 
+// ãƒ¡ãƒ¢: 
  /*
- EPolyMapping ‚Å ƒ|ƒŠID‚©‚çƒŒƒCƒ„ID‚ğæ“¾
- EƒŒƒCƒ„ID‚©‚çA‚»‚ÌƒŒƒCƒ„‚ÌUVˆê——‚ğæ“¾
- EŒ»İ‚Ìƒ|ƒŠ‚Ìƒ}ƒeƒŠƒAƒ‹‚ÌƒeƒNƒXƒ`ƒƒ‚ÌVMapName ‚Å‚»‚Ìˆê——‚ğŒŸõ
- Eƒqƒbƒg‚µ‚½ UV ‚ğ Tcoords ‚Æ‚µ‚ÄQÆ‚·‚é
+ ãƒ»PolyMapping ã§ ãƒãƒªIDã‹ã‚‰ãƒ¬ã‚¤ãƒ¤IDã‚’å–å¾—
+ ãƒ»ãƒ¬ã‚¤ãƒ¤IDã‹ã‚‰ã€ãã®ãƒ¬ã‚¤ãƒ¤ã®UVä¸€è¦§ã‚’å–å¾—
+ ãƒ»ç¾åœ¨ã®ãƒãƒªã®ãƒãƒ†ãƒªã‚¢ãƒ«ã®ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®VMapName ã§ãã®ä¸€è¦§ã‚’æ¤œç´¢
+ ãƒ»ãƒ’ãƒƒãƒˆã—ãŸ UV ã‚’ Tcoords ã¨ã—ã¦å‚ç…§ã™ã‚‹
  */
 	core::array<core::array<core::vector3df> > Points;
-	core::array<core::array<u32> > Indices;   // ƒ|ƒŠID>PointƒCƒ“ƒfƒNƒX—ñ
-  core::array<u16> PolyMapping;             // ƒ|ƒŠID>ƒŒƒCƒ„IDƒ}ƒbƒv 
-	core::array<u16> MaterialMapping;         // ƒ|ƒŠID>ƒ}ƒeƒŠƒAƒ‹ID(tag)ƒ}ƒbƒv
-  // map("ƒŒƒCƒ„ID_" + VMAP-name, array(TXUV))
+	core::array<core::array<u32> > Indices;   // ãƒãƒªID>Pointã‚¤ãƒ³ãƒ‡ã‚¯ã‚¹åˆ—
+  core::array<u16> PolyMapping;             // ãƒãƒªID>ãƒ¬ã‚¤ãƒ¤IDãƒãƒƒãƒ— 
+	core::array<u16> MaterialMapping;         // ãƒãƒªID>ãƒãƒ†ãƒªã‚¢ãƒ«ID(tag)ãƒãƒƒãƒ—
+  // map("ãƒ¬ã‚¤ãƒ¤ID_" + VMAP-name, array(TXUV))
   core::map<core::stringc, core::array<core::vector2df>* > VMAPMap;
-	// map("ƒŒƒCƒ„ID_" + VMAP-name, map((polyID<<16 | vtxId), TXUV))
+	// map("ãƒ¬ã‚¤ãƒ¤ID_" + VMAP-name, map((polyID<<16 | vtxId), TXUV))
 	struct VMADId {
 		u32 vtxId;
 		u32 polyId;
@@ -106,10 +106,10 @@ private:
 	core::array<core::stringc> Images;
 	u8 FormatVersion;
 
-  // ƒp[ƒT‚Ìó‘Ô•Ï”
+  // ãƒ‘ãƒ¼ã‚µã®çŠ¶æ…‹å¤‰æ•°
   u16 CurrentLayerId;
-  u32 CurrentPolyIndexOffset;  // Œ»İ‚ÌƒŒƒCƒ„‚Ìƒ|ƒŠIDƒIƒtƒZƒbƒg
-  u32 CurrentPolyNum;          // Œ»İ‚ÌƒŒƒCƒ„‚Ìƒ|ƒŠ”
+  u32 CurrentPolyIndexOffset;  // ç¾åœ¨ã®ãƒ¬ã‚¤ãƒ¤ã®ãƒãƒªIDã‚ªãƒ•ã‚»ãƒƒãƒˆ
+  u32 CurrentPolyNum;          // ç¾åœ¨ã®ãƒ¬ã‚¤ãƒ¤ã®ãƒãƒªæ•°
 };
 
 } // end namespace scene

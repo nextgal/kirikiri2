@@ -29,7 +29,7 @@ namespace scene
 	public:
 
 		CIrrMeshWriter(video::IVideoDriver* driver, io::IFileSystem* fs);
-		virtual ~CIrrMeshWriter();
+		virtual ‾CIrrMeshWriter();
 
 		//! Returns the type of the mesh writer
 		virtual EMESH_WRITER_TYPE getType() const;

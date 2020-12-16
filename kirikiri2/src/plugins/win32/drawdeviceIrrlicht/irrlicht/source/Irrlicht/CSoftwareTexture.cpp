@@ -47,7 +47,7 @@ CSoftwareTexture::CSoftwareTexture(IImage* image, const char* name, bool renderT
 
 
 //! destructor
-CSoftwareTexture::~CSoftwareTexture()
+CSoftwareTexture::‾CSoftwareTexture()
 {
 	if (Image)
 		Image->drop();

@@ -97,7 +97,7 @@ public:
             }
         }
 
-        ~scoped_lock()
+        ‾scoped_lock()
         {
             InterlockedExchange(&m_.l_, 0);
 

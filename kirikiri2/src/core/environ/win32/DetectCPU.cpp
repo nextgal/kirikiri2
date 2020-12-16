@@ -61,8 +61,8 @@ static void TVPGetCPUTypeForOne()
 		{
 			// exception had been ocured
 			// execution of 'xorps' is failed (XMM registers not available)
-			TVPCPUFeatures &=~ TVP_CPU_HAS_SSE;
-			TVPCPUFeatures &=~ TVP_CPU_HAS_SSE2;
+			TVPCPUFeatures &=‾ TVP_CPU_HAS_SSE;
+			TVPCPUFeatures &=‾ TVP_CPU_HAS_SSE2;
 		}
 	}
 
@@ -89,7 +89,7 @@ public:
 		Resume();
 	}
 
-	~tTVPCPUCheckThread()
+	‾tTVPCPUCheckThread()
 	{
 	}
 
@@ -125,7 +125,7 @@ void tTVPCPUCheckThread::Execute(void)
 static ttstr TVPDumpCPUFeatures(tjs_uint32 features)
 {
 	ttstr ret;
-#define TVP_DUMP_CPU(x, n) { ret += TJS_W("  ") TJS_W(n);  \
+#define TVP_DUMP_CPU(x, n) { ret += TJS_W("  ") TJS_W(n);  ¥
 	if(features & x) ret += TJS_W(":yes"); else ret += TJS_W(":no"); }
 
 	TVP_DUMP_CPU(TVP_CPU_HAS_FPU, "FPU");
@@ -152,7 +152,7 @@ static ttstr TVPDumpCPUInfo(tjs_int cpu_num)
 	tjs_uint32 vendor = TVPCPUFeatures & TVP_CPU_VENDOR_MASK;
 
 #undef TVP_DUMP_CPU
-#define TVP_DUMP_CPU(x, n) { \
+#define TVP_DUMP_CPU(x, n) { ¥
 	if(vendor == x) features += TJS_W("  " n); }
 
 	TVP_DUMP_CPU(TVP_CPU_IS_INTEL, "Intel");
@@ -179,7 +179,7 @@ static ttstr TVPDumpCPUInfo(tjs_int cpu_num)
 	TVPAddImportantLog(features);
 
 	if(((TVPCPUID1_EAX >> 8) & 0x0f) <= 4)
-		throw Exception("CPU check failure: CPU family 4 or lesser is not supported\r\n"+
+		throw Exception("CPU check failure: CPU family 4 or lesser is not supported¥r¥n"+
 		features.AsAnsiString());
 
 	return features;
@@ -201,7 +201,7 @@ static void TVPDisableCPU(tjs_uint32 featurebit, const tjs_char *name)
 	{
 		str = val;
 		if(str == TJS_W("no"))
-			TVPCPUType &=~ featurebit;
+			TVPCPUType &=‾ featurebit;
 		else if(str == TJS_W("force"))
 			TVPCPUType |= featurebit;
 	}
@@ -235,7 +235,7 @@ void TVPDetectCPU()
 			bool succeeded = thread->GetSucceeded();
 			delete thread;
 			if(!succeeded) throw Exception("CPU check failure");
-			cpuinfo += TVPDumpCPUInfo(cpu) + TJS_W("\r\n");
+			cpuinfo += TVPDumpCPUInfo(cpu) + TJS_W("¥r¥n");
 
 			// mask features
 			if(first)
@@ -251,7 +251,7 @@ void TVPDetectCPU()
 		}
 	}
 
-	TVPCPUType &= ~ TVP_CPU_FEATURE_MASK;
+	TVPCPUType &= ‾ TVP_CPU_FEATURE_MASK;
 	TVPCPUType |= features;
 
 	// Disable or enable cpu features by option
@@ -264,7 +264,7 @@ void TVPDetectCPU()
 	TVPDisableCPU(TVP_CPU_HAS_SSE2, TJS_W("-cpusse2"));
 
 	if(TVPCPUType == 0)
-		throw Exception("CPU check failure: Not supported CPU\r\n" +
+		throw Exception("CPU check failure: Not supported CPU¥r¥n" +
 		cpuinfo.AsAnsiString());
 
 	TVPAddImportantLog(TJS_W("(info) finally detected CPU features : ") +

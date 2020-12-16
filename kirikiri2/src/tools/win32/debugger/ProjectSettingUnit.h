@@ -11,7 +11,7 @@
 //---------------------------------------------------------------------------
 class TProjectSettingForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TEdit *ExeEdit;
 	TLabel *ExeLabel;
 	TButton *BrowseExeButton;
@@ -31,7 +31,7 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall BrowseExeButtonClick(TObject *Sender);
 	void __fastcall BrowseProjectFolderButtonClick(TObject *Sender);
 	void __fastcall BrowseWorkingFolderButtonClick(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 
 	void __fastcall SetExePath( const AnsiString& val );
 	AnsiString __fastcall GetExePath() const;
@@ -45,7 +45,7 @@ private:	// ƒ†[ƒU[éŒ¾
 	AnsiString __fastcall GetScriptExt() const;
 
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TProjectSettingForm(TComponent* Owner);
 
 	__property AnsiString ExePath = { write=SetExePath,read=GetExePath };

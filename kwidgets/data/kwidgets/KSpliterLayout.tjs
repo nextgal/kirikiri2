@@ -3,7 +3,7 @@
 //
 
 /*----------------------------------------------------------------------
- * ƒXƒvƒŠƒbƒ^ƒnƒ“ƒhƒ‹
+ * ã‚¹ãƒ—ãƒªãƒƒã‚¿ãƒãƒ³ãƒ‰ãƒ«
  ----------------------------------------------------------------------*/
 class KSpliterHandle extends KWidget
 {
@@ -28,7 +28,7 @@ class KSpliterHandle extends KWidget
   
 
 /**----------------------------------------------------------------------
- * …•½ƒXƒvƒŠƒbƒ^[
+ * æ°´å¹³ã‚¹ãƒ—ãƒªãƒƒã‚¿ãƒ¼
  ----------------------------------------------------------------------*/
 class KHorizontalSpliterLayout extends KWidget
 {
@@ -45,10 +45,10 @@ class KHorizontalSpliterLayout extends KWidget
   var dict;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param window ƒEƒBƒ“ƒhƒE
-   * @param name –¼‘O
+   * @param window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param name åå‰
    ------------------------------*/
   function KHorizontalSpliterLayout(window, name) {
     super.KWidget(window, name);
@@ -62,7 +62,7 @@ class KHorizontalSpliterLayout extends KWidget
   }
 
   /*------------------------------
-   * ƒtƒ@ƒCƒiƒ‰ƒCƒU
+   * ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
    ------------------------------*/
   function finalize {
     if (dict) {
@@ -72,10 +72,10 @@ class KHorizontalSpliterLayout extends KWidget
   }
 
   /**------------------------------
-   * •ªŠ„—¦
+   * åˆ†å‰²ç‡
    * 
-   * @param v •ªŠ„—¦(0.0`1.0)
-   * @return •ªŠ„—¦
+   * @param v åˆ†å‰²ç‡(0.0ã€œ1.0)
+   * @return åˆ†å‰²ç‡
    ------------------------------*/
   property splitRatio {
     getter {
@@ -91,13 +91,13 @@ class KHorizontalSpliterLayout extends KWidget
   }
 
   /**------------------------------
-   * •ªŠ„ƒAƒ‰ƒCƒƒ“ƒg
+   * åˆ†å‰²ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
    *
-   * ƒEƒBƒWƒFƒbƒg‚ÌŠg‘åk¬‚ÉA‚Ç‚¿‚ç‚ÌƒyƒCƒ“‚ğƒƒCƒ“‚ÉŒ©‚é‚©B
-   * ALIGN_LEFT,ALIGN_CENTER,ALIGN_RIGHT‚Ì‚¢‚¸‚ê‚©‚ğw’è‚·‚éB
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®æ‹¡å¤§ç¸®å°æ™‚ã«ã€ã©ã¡ã‚‰ã®ãƒšã‚¤ãƒ³ã‚’ãƒ¡ã‚¤ãƒ³ã«è¦‹ã‚‹ã‹ã€‚
+   * ALIGN_LEFT,ALIGN_CENTER,ALIGN_RIGHTã®ã„ãšã‚Œã‹ã‚’æŒ‡å®šã™ã‚‹ã€‚
    * 
-   * @param ƒAƒ‰ƒCƒƒ“ƒg
-   * @return ƒAƒ‰ƒCƒƒ“ƒg
+   * @param ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
+   * @return ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
    ------------------------------*/
   property splitAlignment {
     getter {
@@ -111,9 +111,9 @@ class KHorizontalSpliterLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ’Ç‰Á‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’è¿½åŠ ã™ã‚‹
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function add(child) {
     childList.add(child);
@@ -123,10 +123,10 @@ class KHorizontalSpliterLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ‰ğ•ú‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’è§£æ”¾ã™ã‚‹
    * 
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(child, doInvalidate = true) {
     childList.add(child);
@@ -137,7 +137,7 @@ class KHorizontalSpliterLayout extends KWidget
   }
 
   /*------------------------------
-   * ‰i‘±‰»«‘‚ğ’l‚ÉƒoƒCƒ“ƒh‚·‚é
+   * æ°¸ç¶šåŒ–è¾æ›¸ã‚’å€¤ã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    ------------------------------*/
   function bindPersistentDictionary(dict) {
     if (name !== void) {
@@ -148,7 +148,7 @@ class KHorizontalSpliterLayout extends KWidget
   }
 
   /*------------------------------
-   * ‚±‚Á‚©‚çA‚’¼ƒXƒvƒŠƒbƒ^‚Æ…•½ƒXƒvƒŠƒbƒ^‚Ì·•ª‚ğ‹zû‚·‚é‚½‚ß‚ÌŠÖ”ŒQ
+   * ã“ã£ã‹ã‚‰ã€å‚ç›´ã‚¹ãƒ—ãƒªãƒƒã‚¿ã¨æ°´å¹³ã‚¹ãƒ—ãƒªãƒƒã‚¿ã®å·®åˆ†ã‚’å¸åã™ã‚‹ãŸã‚ã®é–¢æ•°ç¾¤
    ------------------------------*/
   function calcMinMaxSize {
     var result = [];
@@ -185,10 +185,10 @@ class KHorizontalSpliterLayout extends KWidget
   }
 
   /*------------------------------
-   * ‚±‚±‚Ü‚ÅB
+   * ã“ã“ã¾ã§ã€‚
    ------------------------------*/
 
-  // ƒŒƒCƒAƒEƒg‚Ì‚â‚è’¼‚µ
+  // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®ã‚„ã‚Šç›´ã—
   function invalidateLayout {
     if (childList.count < 2)
       return;
@@ -212,7 +212,7 @@ class KHorizontalSpliterLayout extends KWidget
       redraw();
   }
 
-  // Ä•`‰æ
+  // å†æç”»
   function redraw {
     if (childList.count < 2)
       return;
@@ -230,12 +230,12 @@ class KHorizontalSpliterLayout extends KWidget
     locate(w0, w1);
   }
 
-  // ƒTƒCƒY‚ª•Ï‚í‚Á‚½‚ÌŒÄ‚Ño‚µ
+  // ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã£ãŸæ™‚ã®å‘¼ã³å‡ºã—
   function onSizeModified(newWidth, newHeight, oldWidth, oldHeight) {
     if (childList.count < 2)
       return;
 
-    // ƒAƒ‰ƒCƒƒ“ƒg‚É‰‚¶‚ÄAƒXƒvƒŠƒbƒ^[‚ÌˆÊ’u‚ğ•â³
+    // ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆã«å¿œã˜ã¦ã€ã‚¹ãƒ—ãƒªãƒƒã‚¿ãƒ¼ã®ä½ç½®ã‚’è£œæ­£
     if (firstSplit) {
       firstSplit = false;
     } else {
@@ -267,17 +267,17 @@ class KHorizontalSpliterLayout extends KWidget
     redraw();
   }
 
-  // q‚Ìƒ}[ƒWƒ“•ÏX‚ğŒŸ’m
+  // å­ã®ãƒãƒ¼ã‚¸ãƒ³å¤‰æ›´ã‚’æ¤œçŸ¥
   function onChildMarginModified {
     invalidateLayout();
   }
 
-  // q‚ÌƒAƒ‰ƒCƒ“•ÏX‚ğŒŸ’m
+  // å­ã®ã‚¢ãƒ©ã‚¤ãƒ³å¤‰æ›´ã‚’æ¤œçŸ¥
   function onChildAlignModified {
     invalidateLayout();
   }
 
-  // q‚ÌƒTƒCƒY•ÏX‚ğŒŸ’m
+  // å­ã®ã‚µã‚¤ã‚ºå¤‰æ›´ã‚’æ¤œçŸ¥
   function onChildMinMaxSizeModified(child) {
     if (child == spliterHandle)
       return;
@@ -285,7 +285,7 @@ class KHorizontalSpliterLayout extends KWidget
   }
 
 
-  // ƒ}ƒEƒXƒ_ƒEƒ“‚Åƒhƒ‰ƒbƒOŠJn
+  // ãƒã‚¦ã‚¹ãƒ€ã‚¦ãƒ³ã§ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
   function onMouseDown(x, y, button) {
     if (childList.count < 2)
       return;
@@ -303,7 +303,7 @@ class KHorizontalSpliterLayout extends KWidget
     dragging = true;
   }
 
-  // ƒhƒ‰ƒbƒO‚µ‚ÄƒXƒvƒŠƒbƒ^‚ğˆÚ“®
+  // ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦ã‚¹ãƒ—ãƒªãƒƒã‚¿ã‚’ç§»å‹•
   function onMouseMove(x, y) {
     if (! dragging)
       return;
@@ -314,7 +314,7 @@ class KHorizontalSpliterLayout extends KWidget
     redraw();
   }
 
-  // ƒhƒ‰ƒbƒOI—¹
+  // ãƒ‰ãƒ©ãƒƒã‚°çµ‚äº†
   function onMouseUp {
     dragging = false;
   }
@@ -322,15 +322,15 @@ class KHorizontalSpliterLayout extends KWidget
 
 
 /**----------------------------------------------------------------------
- * ‚’¼ƒXƒvƒŠƒbƒ^[
+ * å‚ç›´ã‚¹ãƒ—ãƒªãƒƒã‚¿ãƒ¼
  ----------------------------------------------------------------------*/
 class KVerticalSpliterLayout extends KHorizontalSpliterLayout
 {
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param window ƒEƒBƒ“ƒhƒE
-   * @param name –¼‘O
+   * @param window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param name åå‰
    ------------------------------*/
   function KVerticalSpliterLayout(window, name) {
     super.KHorizontalSpliterLayout(window, name);

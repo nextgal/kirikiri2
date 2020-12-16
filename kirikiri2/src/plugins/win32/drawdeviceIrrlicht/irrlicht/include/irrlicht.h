@@ -139,11 +139,11 @@
 #include "SMeshBufferTangents.h"
 #include "SViewFrustum.h"
 
-/*! \mainpage Irrlicht Engine 1.4.2 API documentation
+/*! ¥mainpage Irrlicht Engine 1.4.2 API documentation
  *
  * <div align="center"><img src="logobig.png" ></div>
  *
- * \section intro Introduction
+ * ¥section intro Introduction
  *
  * Welcome to the Irrlicht Engine API documentation.
  * Here you'll find any information you'll need to develop applications with
@@ -158,14 +158,14 @@
  * (niko (at) irrlicht3d.org).
  *
  *
- * \section links Links
+ * ¥section links Links
  *
  * <A HREF="namespaces.html">Namespaces</A>: A very good place to start reading
  * the documentation.<BR>
  * <A HREF="annotated.html">Class list</A>: List of all classes with descriptions.<BR>
  * <A HREF="functions.html">Class members</A>: Good place to find forgotten features.<BR>
  *
- * \section irrexample Short example
+ * ¥section irrexample Short example
  *
  * A simple application, starting up the engine, loading a Quake 2 animated
  * model file and the corresponding texture, animating and displaying it
@@ -173,7 +173,7 @@
  * would look like the following code. I think this example shows the usage
  * of the engine quite well:
  *
- * \code
+ * ¥code
  * #include <irrlicht.h>
  * using namespace irr;
  *
@@ -214,21 +214,21 @@
  *	device->drop();
  *	return 0;
  * }
- * \endcode
+ * ¥endcode
  *
  * Irrlicht can load a lot of file formats automaticly, see irr::scene::ISceneManager::getMesh()
  * for a detailed list. So if you would like to replace the simple blue screen background by
  * a cool Quake 3 Map, optimized by an octtree, just insert this code
  * somewhere before the while loop:
  *
- * \code
+ * ¥code
  *	// add .pk3 archive to the file system
  *	device->getFileSystem()->addZipFileArchive("quake3map.pk3");
  *
  *	// load .bsp file and show it using an octtree
  *	scenemgr->addOctTreeSceneNode(
  *		scenemgr->getMesh("quake3map.bsp"));
- * \endcode
+ * ¥endcode
  *
  * As you can see, the engine uses namespaces. Everything in the engine is
  * placed into the namespace 'irr', but there are also 5 sub namespaces.
@@ -237,13 +237,13 @@
  * This is also a good place to start reading the documentation. If you
  * don't want to write the namespace names all the time, just use all namespaces like
  * this:
- * \code
+ * ¥code
  * using namespace core;
  * using namespace scene;
  * using namespace video;
  * using namespace io;
  * using namespace gui;
- * \endcode
+ * ¥endcode
  *
  * There is a lot more the engine can do, but I hope this gave a short
  * overview over the basic features of the engine. For more examples, please take
@@ -258,21 +258,21 @@ namespace irr
 	//! Creates an Irrlicht device. The Irrlicht device is the root object for using the engine.
 	/** If you need more parameters to be passed to the creation of the Irrlicht Engine device,
 	use the createDeviceEx() function.
-	\param deviceType: Type of the device. This can currently be video::EDT_NULL,
+	¥param deviceType: Type of the device. This can currently be video::EDT_NULL,
 	video::EDT_SOFTWARE, video::EDT_BURNINGSVIDEO, video::EDT_DIRECT3D8, video::EDT_DIRECT3D9 and video::EDT_OPENGL.
-	\param windowSize: Size of the window or the video mode in fullscreen mode.
-	\param bits: Bits per pixel in fullscreen mode. Ignored if windowed mode.
-	\param fullscreen: Should be set to true if the device should run in fullscreen. Otherwise
+	¥param windowSize: Size of the window or the video mode in fullscreen mode.
+	¥param bits: Bits per pixel in fullscreen mode. Ignored if windowed mode.
+	¥param fullscreen: Should be set to true if the device should run in fullscreen. Otherwise
 		the device runs in windowed mode.
-	\param stencilbuffer: Specifies if the stencil buffer should be enabled. Set this to true,
+	¥param stencilbuffer: Specifies if the stencil buffer should be enabled. Set this to true,
 	if you want the engine be able to draw stencil buffer shadows. Note that not all
 	devices are able to use the stencil buffer. If they don't no shadows will be drawn.
-	\param vsync: Specifies vertical syncronisation: If set to true, the driver will wait
+	¥param vsync: Specifies vertical syncronisation: If set to true, the driver will wait
 	for the vertical retrace period, otherwise not.
-	\param receiver: A user created event receiver.
-	\param sdk_version_do_not_use: Don't use or change this parameter. Always set it to
+	¥param receiver: A user created event receiver.
+	¥param sdk_version_do_not_use: Don't use or change this parameter. Always set it to
 	IRRLICHT_SDK_VERSION, which is done by default. This is needed for sdk version checks.
-	\return Returns pointer to the created IrrlichtDevice or null if the
+	¥return Returns pointer to the created IrrlichtDevice or null if the
 	device could not be created.
 	*/
 	IRRLICHT_API IrrlichtDevice* IRRCALLCONV createDevice(
@@ -290,9 +290,9 @@ namespace irr
 	/** Usually you should used createDevice() for creating an Irrlicht Engine device.
 	Use this function only if you wish to specify advanced parameters like a window
 	handle in which the device should be created.
-	\param parameters: Structure containing advanced parameters for the creation of the device.
+	¥param parameters: Structure containing advanced parameters for the creation of the device.
 	See irr::SIrrlichtCreationParameters for details.
-	\return Returns pointer to the created IrrlichtDevice or null if the
+	¥return Returns pointer to the created IrrlichtDevice or null if the
 	device could not be created. */
 	IRRLICHT_API IrrlichtDevice* IRRCALLCONV createDeviceEx(
 		const SIrrlichtCreationParameters& parameters);
@@ -329,8 +329,8 @@ namespace irr
 	}
 }
 
-/*! \file irrlicht.h
-	\brief Main header file of the irrlicht, the only file needed to include.
+/*! ¥file irrlicht.h
+	¥brief Main header file of the irrlicht, the only file needed to include.
 */
 
 #endif

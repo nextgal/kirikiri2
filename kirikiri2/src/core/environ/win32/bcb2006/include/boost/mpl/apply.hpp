@@ -31,7 +31,7 @@
 
 #include "boost/mpl/aux_/config/use_preprocessed.hpp"
 
-#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) \
+#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) ¥
  && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER apply.hpp
@@ -67,37 +67,37 @@ namespace boost {
 namespace mpl {
 
 // local macros, #undef-ined at the end of the header
-#   define AUX_APPLY_PARAMS(param) \
-    BOOST_MPL_PP_PARAMS( \
-          BOOST_MPL_METAFUNCTION_MAX_ARITY \
-        , param \
-        ) \
+#   define AUX_APPLY_PARAMS(param) ¥
+    BOOST_MPL_PP_PARAMS( ¥
+          BOOST_MPL_METAFUNCTION_MAX_ARITY ¥
+        , param ¥
+        ) ¥
     /**/
 
-#   define AUX_APPLY_DEFAULT_PARAMS(param, value) \
-    BOOST_MPL_PP_DEFAULT_PARAMS( \
-          BOOST_MPL_METAFUNCTION_MAX_ARITY \
-        , param \
-        , value \
-        ) \
+#   define AUX_APPLY_DEFAULT_PARAMS(param, value) ¥
+    BOOST_MPL_PP_DEFAULT_PARAMS( ¥
+          BOOST_MPL_METAFUNCTION_MAX_ARITY ¥
+        , param ¥
+        , value ¥
+        ) ¥
     /**/
 
-#   define AUX_APPLY_N_PARAMS(n, param) \
-    BOOST_MPL_PP_PARAMS(n, param) \
+#   define AUX_APPLY_N_PARAMS(n, param) ¥
+    BOOST_MPL_PP_PARAMS(n, param) ¥
     /**/
 
-#   define AUX_APPLY_N_COMMA_PARAMS(n, param) \
-    BOOST_PP_COMMA_IF(n) \
-    BOOST_MPL_PP_PARAMS(n, param) \
+#   define AUX_APPLY_N_COMMA_PARAMS(n, param) ¥
+    BOOST_PP_COMMA_IF(n) ¥
+    BOOST_MPL_PP_PARAMS(n, param) ¥
     /**/
 
-#   define AUX_APPLY_N_PARTIAL_SPEC_PARAMS(n, param, def) \
-    BOOST_PP_COMMA_IF(n) \
-    BOOST_MPL_PP_PARTIAL_SPEC_PARAMS(n, param, def) \
+#   define AUX_APPLY_N_PARTIAL_SPEC_PARAMS(n, param, def) ¥
+    BOOST_PP_COMMA_IF(n) ¥
+    BOOST_MPL_PP_PARTIAL_SPEC_PARAMS(n, param, def) ¥
     /**/
     
-#   define AUX_APPLY_N_SPEC_PARAMS(n, param) \
-    BOOST_MPL_PP_ENUM(BOOST_PP_INC(n), param) \
+#   define AUX_APPLY_N_SPEC_PARAMS(n, param) ¥
+    BOOST_MPL_PP_ENUM(BOOST_PP_INC(n), param) ¥
     /**/
 
 #   if !defined(BOOST_MPL_NO_APPLY_TEMPLATE)
@@ -116,7 +116,7 @@ template< BOOST_MPL_AUX_NTTP_DECL(int, arity_) > struct apply_impl_chooser;
 
 #   endif // BOOST_MPL_NO_APPLY_TEMPLATE
 
-#define BOOST_PP_ITERATION_PARAMS_1 \
+#define BOOST_PP_ITERATION_PARAMS_1 ¥
     (3,(0, BOOST_MPL_METAFUNCTION_MAX_ARITY, "boost/mpl/apply.hpp"))
 #include BOOST_PP_ITERATE()
 
@@ -218,7 +218,7 @@ template<
 struct BOOST_PP_CAT(apply_impl,i);
 }
 
-#define BOOST_PP_ITERATION_PARAMS_2 \
+#define BOOST_PP_ITERATION_PARAMS_2 ¥
     (3,(0, BOOST_MPL_METAFUNCTION_MAX_ARITY - i, "boost/mpl/apply.hpp"))
 #include BOOST_PP_ITERATE()
 

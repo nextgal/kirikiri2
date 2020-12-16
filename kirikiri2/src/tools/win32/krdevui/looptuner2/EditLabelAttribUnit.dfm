@@ -11,7 +11,7 @@ object EditLabelAttribFrame: TEditLabelAttribFrame
     Top = 8
     Width = 45
     Height = 12
-    Caption = 'ƒ‰ƒxƒ‹–¼'
+    Caption = 'ãƒ©ãƒ™ãƒ«å'
   end
   object LabelNameEdit: TEdit
     Left = 64

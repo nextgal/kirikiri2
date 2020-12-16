@@ -1,6 +1,6 @@
 // Boost Lambda Library -  function_adaptors.hpp ----------------------------
  
-// Copyright (C) 1999, 2000 Jaakko J‰rvi (jaakko.jarvi@cs.utu.fi)
+// Copyright (C) 1999, 2000 Jaakko JËàêvi (jaakko.jarvi@cs.utu.fi)
 //
 // Permission to copy, use, sell and distribute this software is granted
 // provided this copyright notice appears in all copies. 

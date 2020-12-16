@@ -24,8 +24,8 @@
 // no namespace issues from this.
 //
 #include <limits.h>
-# if !defined(BOOST_HAS_LONG_LONG)                                              \
-   && !(defined(BOOST_MSVC) && BOOST_MSVC <=1300) && !defined(__BORLANDC__)     \
+# if !defined(BOOST_HAS_LONG_LONG)                                              ¥
+   && !(defined(BOOST_MSVC) && BOOST_MSVC <=1300) && !defined(__BORLANDC__)     ¥
    && (defined(ULLONG_MAX) || defined(ULONG_LONG_MAX) || defined(ULONGLONG_MAX))
 #  define BOOST_HAS_LONG_LONG
 #endif
@@ -51,7 +51,7 @@
 //
 // If cv-qualified specializations are not allowed, then neither are cv-void ones:
 //
-#  if defined(BOOST_NO_CV_SPECIALIZATIONS) \
+#  if defined(BOOST_NO_CV_SPECIALIZATIONS) ¥
       && !defined(BOOST_NO_CV_VOID_SPECIALIZATIONS)
 #     define BOOST_NO_CV_VOID_SPECIALIZATIONS
 #  endif
@@ -60,7 +60,7 @@
 // If there is no numeric_limits template, then it can't have any compile time
 // constants either!
 //
-#  if defined(BOOST_NO_LIMITS) \
+#  if defined(BOOST_NO_LIMITS) ¥
       && !defined(BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS)
 #     define BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS
 #     define BOOST_NO_MS_INT64_NUMERIC_LIMITS
@@ -87,7 +87,7 @@
 // if member templates are supported then so is the
 // VC6 subset of member templates:
 //
-#  if !defined(BOOST_NO_MEMBER_TEMPLATES) \
+#  if !defined(BOOST_NO_MEMBER_TEMPLATES) ¥
        && !defined(BOOST_MSVC6_MEMBER_TEMPLATES)
 #     define BOOST_MSVC6_MEMBER_TEMPLATES
 #  endif
@@ -95,7 +95,7 @@
 //
 // Without partial specialization, can't test for partial specialisation bugs:
 //
-#  if defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) \
+#  if defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) ¥
       && !defined(BOOST_BCB_PARTIAL_SPECIALIZATION_BUG)
 #     define BOOST_BCB_PARTIAL_SPECIALIZATION_BUG
 #  endif
@@ -103,7 +103,7 @@
 //
 // Without partial specialization, std::iterator_traits can't work:
 //
-#  if defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) \
+#  if defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) ¥
       && !defined(BOOST_NO_STD_ITERATOR_TRAITS)
 #     define BOOST_NO_STD_ITERATOR_TRAITS
 #  endif
@@ -112,8 +112,8 @@
 // Without member template support, we can't have template constructors
 // in the standard library either:
 //
-#  if defined(BOOST_NO_MEMBER_TEMPLATES) \
-      && !defined(BOOST_MSVC6_MEMBER_TEMPLATES) \
+#  if defined(BOOST_NO_MEMBER_TEMPLATES) ¥
+      && !defined(BOOST_MSVC6_MEMBER_TEMPLATES) ¥
       && !defined(BOOST_NO_TEMPLATED_ITERATOR_CONSTRUCTORS)
 #     define BOOST_NO_TEMPLATED_ITERATOR_CONSTRUCTORS
 #  endif
@@ -122,8 +122,8 @@
 // Without member template support, we can't have a conforming
 // std::allocator template either:
 //
-#  if defined(BOOST_NO_MEMBER_TEMPLATES) \
-      && !defined(BOOST_MSVC6_MEMBER_TEMPLATES) \
+#  if defined(BOOST_NO_MEMBER_TEMPLATES) ¥
+      && !defined(BOOST_MSVC6_MEMBER_TEMPLATES) ¥
       && !defined(BOOST_NO_STD_ALLOCATOR)
 #     define BOOST_NO_STD_ALLOCATOR
 #  endif
@@ -175,7 +175,7 @@
 // threading support also, unless there is some other
 // thread API enabled:
 //
-#if defined(BOOST_DISABLE_WIN32) && defined(_WIN32) \
+#if defined(BOOST_DISABLE_WIN32) && defined(_WIN32) ¥
    && !defined(BOOST_DISABLE_THREADS) && !defined(BOOST_HAS_PTHREADS)
 #  define BOOST_DISABLE_THREADS
 #endif
@@ -186,7 +186,7 @@
 // limited number of macros that identify this (if there's any missing
 // from here then add to the appropriate compiler section):
 //
-#if (defined(__MT__) || defined(_MT) || defined(_REENTRANT) \
+#if (defined(__MT__) || defined(_MT) || defined(_REENTRANT) ¥
     || defined(_PTHREADS)) && !defined(BOOST_HAS_THREADS)
 #  define BOOST_HAS_THREADS
 #endif
@@ -201,8 +201,8 @@
 //
 // Turn threading support off if we don't recognise the threading API:
 //
-#if defined(BOOST_HAS_THREADS) && !defined(BOOST_HAS_PTHREADS)\
-      && !defined(BOOST_HAS_WINTHREADS) && !defined(BOOST_HAS_BETHREADS)\
+#if defined(BOOST_HAS_THREADS) && !defined(BOOST_HAS_PTHREADS)¥
+      && !defined(BOOST_HAS_WINTHREADS) && !defined(BOOST_HAS_BETHREADS)¥
       && !defined(BOOST_HAS_MPTASKS)
 #  undef BOOST_HAS_THREADS
 #endif
@@ -370,7 +370,7 @@ namespace std {
 #     define BOOST_STDLIB "Unknown ISO standard library"
 #  endif
 #  ifndef BOOST_PLATFORM
-#     if defined(unix) || defined(__unix) || defined(_XOPEN_SOURCE) \
+#     if defined(unix) || defined(__unix) || defined(_XOPEN_SOURCE) ¥
          || defined(_POSIX_SOURCE)
 #        define BOOST_PLATFORM "Generic Unix"
 #     else

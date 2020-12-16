@@ -104,11 +104,11 @@ Item2=c:\Program Files\Borland\CBuilder5\Projects\tvp2win32\environ\win32\
 Item3=c:\Program Files\Borland\CBuilder5\Projects\tvp2win32\environ\win32
 
 [Debugging]
-DebugSourceDirs=$(BCB)\source\vcl
+DebugSourceDirs=$(BCB)¥source¥vcl
 
 [Parameters]
 RunParams=
-HostApplication=C:\Program Files\Borland\CBuilder5\Projects\tvp2win32\kirikiri2\bin\win32\tvpwin32.exe
+HostApplication=C:¥Program Files¥Borland¥CBuilder5¥Projects¥tvp2win32¥kirikiri2¥bin¥win32¥tvpwin32.exe
 RemoteHost=
 RemotePath=
 RemoteDebug=0

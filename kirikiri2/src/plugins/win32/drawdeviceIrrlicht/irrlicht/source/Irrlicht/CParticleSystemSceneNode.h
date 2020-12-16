@@ -31,7 +31,7 @@ public:
 		const core::vector3df& scale);
 
 	//! destructor
-	virtual ~CParticleSystemSceneNode();
+	virtual ‾CParticleSystemSceneNode();
 
 	//! Gets the particle emitter, which creates the particles.
 	virtual IParticleEmitter* getEmitter();

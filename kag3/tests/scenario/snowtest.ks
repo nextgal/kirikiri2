@@ -1,7 +1,7 @@
 @call storage="snow.ks"
 @image layer=base page=fore storage=_24_3
-*start1|á‚Í”ñ•\¦
-á‚ğ‚Ó‚ç‚¹‚Ü‚·[l]
+*start1|é›ªã¯éè¡¨ç¤º
+é›ªã‚’ãµã‚‰ã›ã¾ã™[l]
 @backlay
 @snowinit forevisible=false backvisible=true
 @trans method=crossfade time=2000
@@ -9,8 +9,8 @@
 ;
 ;@jump target=*test
 ;
-*start2|á‚Í•\¦’†
-”wŒi‚ğ“ü‚ê‘Ö‚¦‚Ü‚·[l]
+*start2|é›ªã¯è¡¨ç¤ºä¸­
+èƒŒæ™¯ã‚’å…¥ã‚Œæ›¿ãˆã¾ã™[l]
 @backlay
 @image layer=base page=back storage=_24
 @trans method=crossfade time=2000
@@ -21,7 +21,7 @@
 @trans children=false method=crossfade time=2000
 @wt
 @l
-á‚ğ‚â‚Ü‚¹‚Ü‚·[l]
+é›ªã‚’ã‚„ã¾ã›ã¾ã™[l]
 @backlay
 @snowopt backvisible=false
 @trans method=crossfade time=2000

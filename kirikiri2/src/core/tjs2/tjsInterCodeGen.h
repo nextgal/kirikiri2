@@ -113,7 +113,7 @@ class tTJSExprNode
 
 public:
 	tTJSExprNode();
-	~tTJSExprNode() { Clear(); }
+	‾tTJSExprNode() { Clear(); }
 
 	void Clear();
 
@@ -154,7 +154,7 @@ class tTJSInterCodeContext : public tTJSCustomObject
 public:
 	tTJSInterCodeContext(tTJSInterCodeContext *parant,
 		const tjs_char *name, tTJSScriptBlock *block, tTJSContextType type);
-	virtual ~tTJSInterCodeContext();
+	virtual ‾tTJSInterCodeContext();
 
 	// is bytecode export
 	static bool IsBytecodeCompile;
@@ -235,7 +235,7 @@ private:
 				memcpy(Code, fixdata.Code, sizeof(tjs_int32)*NewSize);
 				return *this;
 			}
-		~tFixData() { if(Code) delete [] Code; }
+		‾tFixData() { if(Code) delete [] Code; }
 	};
 
 	struct tNonLocalFunctionDecl

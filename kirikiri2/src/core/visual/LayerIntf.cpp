@@ -67,7 +67,7 @@ private:
 		Bitmap.Fill(tTVPRect(0, 0, 32, 32), TVP_RGBA2COLOR(255, 255, 255, 0));
 	}
 
-	~tTVPTempBitmapHolder()
+	‾tTVPTempBitmapHolder()
 	{
 		std::vector<tTVPBaseBitmap*>::iterator i;
 		for(i = Temporaries.begin(); i != Temporaries.end(); i++)
@@ -199,48 +199,48 @@ const tTVPBaseBitmap & TVPGetInitialBitmap()
 //---------------------------------------------------------------------------
 // FOR EACH CHILD
 //---------------------------------------------------------------------------
-#define TVP_LAYER_FOR_EACH_CHILD_BEGIN(varname)              \
-	{ \
-		tObjectListSafeLockHolder<tTJSNI_BaseLayer> __holder(Children); \
-		tjs_int __count = Children.GetSafeLockedObjectCount(); \
-		tjs_int __i; \
-		for(__i = 0; __i < __count; __i++)                                 \
-		{                                                                  \
-			tTJSNI_BaseLayer * varname = Children.GetSafeLockedObjectAt(__i); \
+#define TVP_LAYER_FOR_EACH_CHILD_BEGIN(varname)              ¥
+	{ ¥
+		tObjectListSafeLockHolder<tTJSNI_BaseLayer> __holder(Children); ¥
+		tjs_int __count = Children.GetSafeLockedObjectCount(); ¥
+		tjs_int __i; ¥
+		for(__i = 0; __i < __count; __i++)                                 ¥
+		{                                                                  ¥
+			tTJSNI_BaseLayer * varname = Children.GetSafeLockedObjectAt(__i); ¥
 			if(!varname) continue;
                
-#define TVP_LAYER_FOR_EACH_CHILD_END \
-		} \
-		ChildrenArrayValid = false; \
-		ChildrenOrderIndexValid = false; \
-		if(Manager) Manager->InvalidateOverallIndex(); \
+#define TVP_LAYER_FOR_EACH_CHILD_END ¥
+		} ¥
+		ChildrenArrayValid = false; ¥
+		ChildrenOrderIndexValid = false; ¥
+		if(Manager) Manager->InvalidateOverallIndex(); ¥
 	}
 //---------------------------------------------------------------------------
 // for each child ( for static only access )
-#define TVP_LAYER_FOR_EACH_CHILD_NOLOCK_BEGIN(varname)              \
-	{ \
-		tjs_int __count = Children.GetCount(); \
-		tjs_int __i; \
-		for(__i = 0; __i < __count; __i++)                                 \
-		{                                                                  \
-			tTJSNI_BaseLayer * varname = Children[__i]; \
+#define TVP_LAYER_FOR_EACH_CHILD_NOLOCK_BEGIN(varname)              ¥
+	{ ¥
+		tjs_int __count = Children.GetCount(); ¥
+		tjs_int __i; ¥
+		for(__i = 0; __i < __count; __i++)                                 ¥
+		{                                                                  ¥
+			tTJSNI_BaseLayer * varname = Children[__i]; ¥
 			if(!varname) continue;
 
-#define TVP_LAYER_FOR_EACH_CHILD_NOLOCK_END \
-		} \
+#define TVP_LAYER_FOR_EACH_CHILD_NOLOCK_END ¥
+		} ¥
 	}
 
-#define TVP_LAYER_FOR_EACH_CHILD_NOLOCK_BACKWARD_BEGIN(varname)              \
-	{ \
-		tjs_int __count = Children.GetCount(); \
-		tjs_int __i; \
-		for(__i = __count-1; __i >= 0; __i--)                                 \
-		{                                                                  \
-			tTJSNI_BaseLayer * varname = Children[__i]; \
+#define TVP_LAYER_FOR_EACH_CHILD_NOLOCK_BACKWARD_BEGIN(varname)              ¥
+	{ ¥
+		tjs_int __count = Children.GetCount(); ¥
+		tjs_int __i; ¥
+		for(__i = __count-1; __i >= 0; __i--)                                 ¥
+		{                                                                  ¥
+			tTJSNI_BaseLayer * varname = Children[__i]; ¥
 			if(!varname) continue;
 
-#define TVP_LAYER_FOR_EACH_CHILD_NOLOCK_BACKWARD_END \
-		} \
+#define TVP_LAYER_FOR_EACH_CHILD_NOLOCK_BACKWARD_END ¥
+		} ¥
 	}
 //---------------------------------------------------------------------------
 
@@ -249,10 +249,10 @@ const tTVPBaseBitmap & TVPGetInitialBitmap()
 //---------------------------------------------------------------------------
 // Recursive Call
 //---------------------------------------------------------------------------
-#define TVP_LAYER_REC_CALL(funccall, action)              \
-	action;                                                        \
-	TVP_LAYER_FOR_EACH_CHILD_BEGIN(child)                  \
-		child -> funccall;                                  \
+#define TVP_LAYER_REC_CALL(funccall, action)              ¥
+	action;                                                        ¥
+	TVP_LAYER_FOR_EACH_CHILD_BEGIN(child)                  ¥
+		child -> funccall;                                  ¥
 	TVP_LAYER_FOR_EACH_CHILD_END
 //---------------------------------------------------------------------------
 
@@ -388,7 +388,7 @@ tTJSNI_BaseLayer::tTJSNI_BaseLayer()
 #endif
 }
 //---------------------------------------------------------------------------
-tTJSNI_BaseLayer::~tTJSNI_BaseLayer()
+tTJSNI_BaseLayer::‾tTJSNI_BaseLayer()
 {
 	tTVPTempBitmapHolder::Release();
 }
@@ -4754,7 +4754,7 @@ void tTJSNI_BaseLayer::SetFontBold(bool b)
 {
 	if((bool)(Font.Flags & TVP_TF_BOLD) != b)
 	{
-		Font.Flags &= ~TVP_TF_BOLD;
+		Font.Flags &= ‾TVP_TF_BOLD;
 		if(b) Font.Flags |= TVP_TF_BOLD;
 		FontChanged = true;
 	}
@@ -4769,7 +4769,7 @@ void tTJSNI_BaseLayer::SetFontItalic(bool b)
 {
 	if((bool)(Font.Flags & TVP_TF_ITALIC) != b)
 	{
-		Font.Flags &= ~TVP_TF_ITALIC;
+		Font.Flags &= ‾TVP_TF_ITALIC;
 		if(b) Font.Flags |= TVP_TF_ITALIC;
 		FontChanged = true;
 	}
@@ -4784,7 +4784,7 @@ void tTJSNI_BaseLayer::SetFontStrikeout(bool b)
 {
 	if((bool)(Font.Flags & TVP_TF_STRIKEOUT) != b)
 	{
-		Font.Flags &= ~TVP_TF_STRIKEOUT;
+		Font.Flags &= ‾TVP_TF_STRIKEOUT;
 		if(b) Font.Flags |= TVP_TF_STRIKEOUT;
 		FontChanged = true;
 	}
@@ -4799,7 +4799,7 @@ void tTJSNI_BaseLayer::SetFontUnderline(bool b)
 {
 	if((bool)(Font.Flags & TVP_TF_UNDERLINE) != b)
 	{
-		Font.Flags &= ~TVP_TF_UNDERLINE;
+		Font.Flags &= ‾TVP_TF_UNDERLINE;
 		if(b) Font.Flags |= TVP_TF_UNDERLINE;
 		FontChanged = true;
 	}
@@ -9622,7 +9622,7 @@ tTJSNI_Font::tTJSNI_Font()
 	Layer = NULL;
 }
 //---------------------------------------------------------------------------
-tTJSNI_Font::~tTJSNI_Font()
+tTJSNI_Font::‾tTJSNI_Font()
 {
 }
 //---------------------------------------------------------------------------
@@ -9968,7 +9968,7 @@ iTJSDispatch2 * TVPCreateFontObject(iTJSDispatch2 * layer)
 	{
 		iTJSDispatch2 * Obj;
 		tHolder() { Obj = new tTJSNC_Font(); }
-		~tHolder() { Obj->Release(); }
+		‾tHolder() { Obj->Release(); }
 	} static fontclass;
 
 	iTJSDispatch2 *out;

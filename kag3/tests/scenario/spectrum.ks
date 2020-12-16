@@ -1,14 +1,14 @@
 @if exp="typeof(global.spectrum_object) == 'undefined'"
 @iscript
 
-Plugins.link("fftgraph.dll"); // fftgraph.dll ‚ğ“Ç‚İ‚Ş
+Plugins.link("fftgraph.dll"); // fftgraph.dll ã‚’èª­ã¿è¾¼ã‚€
 
-// ƒXƒyƒAƒi‚ğ•\¦
+// ã‚¹ãƒšã‚¢ãƒŠã‚’è¡¨ç¤º
 
 
-class SpectrumPlugin extends KAGPlugin // uŒvvƒvƒ‰ƒOƒCƒ“ƒNƒ‰ƒX
+class SpectrumPlugin extends KAGPlugin // ã€Œæ™‚è¨ˆã€ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚¯ãƒ©ã‚¹
 {
-	var timer = void; // ƒ^ƒCƒ}
+	var timer = void; // ã‚¿ã‚¤ãƒ
 	var left = 0;
 	var top = 0;
 	var width = 64;
@@ -17,8 +17,8 @@ class SpectrumPlugin extends KAGPlugin // uŒvvƒvƒ‰ƒOƒCƒ“ƒNƒ‰ƒX
 
 	function SpectrumPlugin()
 	{
-		// SpectrumPlugin ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-		super.KAGPlugin(); // ƒX[ƒp[ƒNƒ‰ƒX‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğŒÄ‚Ô
+		// SpectrumPlugin ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+		super.KAGPlugin(); // ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‘¼ã¶
 	}
 
 	function finalize()
@@ -30,7 +30,7 @@ class SpectrumPlugin extends KAGPlugin // uŒvvƒvƒ‰ƒOƒCƒ“ƒNƒ‰ƒX
 
 	function setOptions(elm)
 	{
-		// ƒIƒvƒVƒ‡ƒ“‚ğİ’è
+		// ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’è¨­å®š
 		left = +elm.left if elm.left !== void;
 		top = +elm.top if elm.left !== void;
 		width = +elm.width if elm.width !== void;
@@ -40,7 +40,7 @@ class SpectrumPlugin extends KAGPlugin // uŒvvƒvƒ‰ƒOƒCƒ“ƒNƒ‰ƒX
 
 	function start()
 	{
-		// •\¦‚ğŠJn
+		// è¡¨ç¤ºã‚’é–‹å§‹
 		if(timer === void)
 		{
 			kag.bgm.buf1.useVisBuffer = true if kag.bgm.buf1 !== void;
@@ -54,7 +54,7 @@ class SpectrumPlugin extends KAGPlugin // uŒvvƒvƒ‰ƒOƒCƒ“ƒNƒ‰ƒX
 
 	function stop()
 	{
-		// •\¦‚ğ’â~
+		// è¡¨ç¤ºã‚’åœæ­¢
 		if(timer !== void)
 		{
 			kag.bgm.buf1.useVisBuffer = true if kag.bgm.buf1 !== void;
@@ -66,7 +66,7 @@ class SpectrumPlugin extends KAGPlugin // uŒvvƒvƒ‰ƒOƒCƒ“ƒNƒ‰ƒX
 
 	function onTimer()
 	{
-		var buf; // ‘ÎÛ‚Ì BGM ƒoƒbƒtƒ@
+		var buf; // å¯¾è±¡ã® BGM ãƒãƒƒãƒ•ã‚¡
 		if(kag.bgm.buf2 !== void && kag.bgm.buf2.status == "playing")
 			buf = kag.bgm.buf2;
 		else
@@ -77,21 +77,21 @@ class SpectrumPlugin extends KAGPlugin // uŒvvƒvƒ‰ƒOƒCƒ“ƒNƒ‰ƒX
 
 	function onRestore(f, clear, elm)
 	{
-		// x‚ğ“Ç‚İo‚·‚Æ‚«
-		stop(); // “®ì‚ğ’â~
+		// æ ã‚’èª­ã¿å‡ºã™ã¨ã
+		stop(); // å‹•ä½œã‚’åœæ­¢
 	}
 }
 
 kag.addPlugin(global.spectrum_object = new SpectrumPlugin(kag));
-	// ƒvƒ‰ƒOƒCƒ“ƒIƒuƒWƒFƒNƒg‚ğì¬‚µA“o˜^‚·‚é
+	// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã€ç™»éŒ²ã™ã‚‹
 
 @endscript
 @endif
 ;
-; ƒ}ƒNƒ‚Ì“o˜^
+; ãƒã‚¯ãƒ­ã®ç™»éŒ²
 @macro name="spectrumopt"
 @eval exp="spectrum_object.setOptions(mp)"
-; mp ‚ªƒ}ƒNƒ‚É“n‚³‚ê‚½‘®«‚ğ¦‚·«‘”z—ñƒIƒuƒWƒFƒNƒg
+; mp ãŒãƒã‚¯ãƒ­ã«æ¸¡ã•ã‚ŒãŸå±æ€§ã‚’ç¤ºã™è¾æ›¸é…åˆ—ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 @endmacro
 @macro name="spectrumstart"
 @eval exp="spectrum_object.start()"

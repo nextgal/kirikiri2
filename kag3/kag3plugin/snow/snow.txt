@@ -1,52 +1,52 @@
-�u��v�v���O�C��
+「雪」プラグイン
 
-�E�g�ݍ��ݕ�
+・組み込み方
 
-�@scenario\snow.ks �� image\ �̂��ׂẲ摜�����莝���� KAG3 �̃v���W�F�N�g
-�t�H���_�̊e�t�H���_�ɃR�s�[���Ă��������B
+　scenario¥snow.ks と image¥ のすべての画像をお手持ちの KAG3 のプロジェクト
+フォルダの各フォルダにコピーしてください。
 
-�E�g����
+・使い方
 
-�@�V�i���I�̐擪�Ȃǂ�
+　シナリオの先頭などで
 
 @call storage="snow.ks"
 
-�@�Ƃ��� snow.ks ���Ăяo���� snowinit �� snowopt �� snowuninit �Ƃ����R��
-�̃^�O����`����܂��B
-�@snow.ks �͂Q��ȏ�Ăяo���Ȃ��ł��������B�}�N���̒�`�Ɠ����ŁA�P��Ă�
-�o���΁A����ȍ~�A�@�\���g�p�\�ɂȂ�܂��B
+　として snow.ks を呼び出すと snowinit と snowopt と snowuninit という３つ
+のタグが定義されます。
+　snow.ks は２回以上呼び出さないでください。マクロの定義と同じで、１回呼び
+出せば、それ以降、機能が使用可能になります。
 
 
-�Esnowinit
+・snowinit
 
-�@forevisible �����́A�\��ʂ̐Ⴊ�\������Ă��邩�ǂ������w�肵�܂��B
-�@true ���w�肷��ƕ\������܂��Bfalse ���w�肷��Ɣ�\���ł��B
+　forevisible 属性は、表画面の雪が表示されているかどうかを指定します。
+　true を指定すると表示されます。false を指定すると非表示です。
 
-�@backvisible �����́A���l�ɗ���ʂł̐Ⴊ�\������Ă��邩�ǂ�����
-�@�w�肵�܂��B
+　backvisible 属性は、同様に裏画面での雪が表示されているかどうかを
+　指定します。
 
-�Esnowopt
+・snowopt
 
-�@��̃I�v�V�������w�肵�܂��Bforevisible �� backvisible ����������܂����A
-snowinit �^�O�̂��̂Ɠ����Ӗ��ł��B
+　雪のオプションを指定します。forevisible と backvisible 属性がありますが、
+snowinit タグのものと同じ意味です。
 
-�Esonwuninit
+・sonwuninit
 
-�@����~�炷�̂���߂܂��B��C�ɂ�݂܂��B
+　雪を降らすのをやめます。一気にやみます。
 
-�E��
+・例
 
 
 @call storage="snow.ks"
 @image layer=base page=fore storage=_24_3
-*start1|��͔�\��
-����ӂ点�܂�[l]
+*start1|雪は非表示
+雪をふらせます[l]
 @backlay
 @snowinit forevisible=false backvisible=true
 @trans method=crossfade time=2000
 @wt
-*start2|��͕\����
-�w�i�����ւ��܂�[l]
+*start2|雪は表示中
+背景を入れ替えます[l]
 @backlay
 @image layer=base page=back storage=_24
 @trans method=crossfade time=2000
@@ -57,7 +57,7 @@ snowinit �^�O�̂��̂Ɠ����Ӗ��ł��B
 @trans children=false method=crossfade time=2000
 @wt
 @l
-�����܂��܂�[l]
+雪をやませます[l]
 @backlay
 @snowopt backvisible=false
 @trans method=crossfade time=2000
@@ -66,6 +66,6 @@ snowinit �^�O�̂��̂Ɠ����Ӗ��ł��B
 @jump target=*start1
 
 
-�E���C�Z���X
+・ライセンス
 
-KAG3�ɏ����܂��B�܂�A�g�p�E���ώ��R�ł��B
+KAG3に準じます。つまり、使用・改変自由です。

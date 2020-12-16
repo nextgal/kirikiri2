@@ -263,14 +263,14 @@ namespace boost
         
 # if defined(BOOST_MSVC) && BOOST_MSVC <= 1200
         // MSVC6 can't static_cast  unsigned __int64 -> floating types
-#  define BOOST_UINT64_CAST(src_type)                                   \
-        static inline bool check(src_type x, unsigned __int64)          \
-        {                                                               \
-            if (x < 0) return false;                                    \
-            unsigned __int64 y = static_cast<unsigned __int64>(x);      \
-            bool odd = y & 0x1;                                         \
-            __int64 div2 = static_cast<__int64>(y >> 1);                \
-            return ((static_cast<src_type>(div2) * 2.0) + odd) != x;    \
+#  define BOOST_UINT64_CAST(src_type)                                   ¥
+        static inline bool check(src_type x, unsigned __int64)          ¥
+        {                                                               ¥
+            if (x < 0) return false;                                    ¥
+            unsigned __int64 y = static_cast<unsigned __int64>(x);      ¥
+            bool odd = y & 0x1;                                         ¥
+            __int64 div2 = static_cast<__int64>(y >> 1);                ¥
+            return ((static_cast<src_type>(div2) * 2.0) + odd) != x;    ¥
         }
 
         BOOST_UINT64_CAST(long double);
@@ -337,9 +337,9 @@ namespace boost
         typedef detail::fixed_numeric_limits<Source> arg_traits;
         typedef detail::fixed_numeric_limits<Target> result_traits;
         
-#if defined(BOOST_STRICT_CONFIG) \
-    || (!defined(__HP_aCC) || __HP_aCC > 33900) \
-         && (!defined(BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS) \
+#if defined(BOOST_STRICT_CONFIG) ¥
+    || (!defined(__HP_aCC) || __HP_aCC > 33900) ¥
+         && (!defined(BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS) ¥
              || defined(BOOST_SGI_CPP_LIMITS))
         // typedefs that act as compile time assertions
         // (to be replaced by boost compile time assertions

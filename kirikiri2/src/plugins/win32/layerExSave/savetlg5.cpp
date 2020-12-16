@@ -4,25 +4,25 @@
 #include <tlg5/slide.h>
 #define BLOCK_HEIGHT 4
 //---------------------------------------------------------------------------
-// ˆ³kˆ——p
+// åœ§ç¸®å‡¦ç†ç”¨
 
 /**
- * ‰æ‘œî•ñ‚Ì‘‚«o‚µ
- * @param width ‰æ‘œ‰¡•
- * @param height ‰æ‘œc•
- * @param buffer ‰æ‘œƒoƒbƒtƒ@
- * @param pitch ‰æ‘œƒf[ƒ^‚Ìƒsƒbƒ`
+ * ç”»åƒæƒ…å ±ã®æ›¸ãå‡ºã—
+ * @param width ç”»åƒæ¨ªå¹…
+ * @param height ç”»åƒç¸¦å¹…
+ * @param buffer ç”»åƒãƒãƒƒãƒ•ã‚¡
+ * @param pitch ç”»åƒãƒ‡ãƒ¼ã‚¿ã®ãƒ”ãƒƒãƒ
  */
 bool CompressTLG5::main(long width, long height, BufRefT buffer, long pitch) {
 
 	bool canceled = false;
 
-	// ARGB ŒÅ’è
+	// ARGB å›ºå®š
 	int colors = 4;
 
 	// header
 	{
-		writeBuffer("TLG5.0\x00raw\x1a\x00", 11);
+		writeBuffer("TLG5.0Â¥x00rawÂ¥x1aÂ¥x00", 11);
 		writeInt8(colors);
 		writeInt32(width);
 		writeInt32(height);
@@ -51,7 +51,7 @@ bool CompressTLG5::main(long width, long height, BufRefT buffer, long pitch) {
 		}
 		blocksizes = new int[blockcount];
 
-		// ƒuƒƒbƒNƒTƒCƒY‚ÌˆÊ’u‚ğ‹L˜^
+		// ãƒ–ãƒ­ãƒƒã‚¯ã‚µã‚¤ã‚ºã®ä½ç½®ã‚’è¨˜éŒ²
 		ULONG blocksizepos = cur;
 
 		cur += blockcount * 4;
@@ -145,7 +145,7 @@ bool CompressTLG5::main(long width, long height, BufRefT buffer, long pitch) {
 		}
 		
 		if (!canceled) {
-			// ƒuƒƒbƒNƒTƒCƒYŠi”[
+			// ãƒ–ãƒ­ãƒƒã‚¯ã‚µã‚¤ã‚ºæ ¼ç´
 			for (int i = 0; i < blockcount; i++) {
 				writeInt32(blocksizes[i], blocksizepos);
 				blocksizepos += 4;
@@ -174,25 +174,25 @@ bool CompressTLG5::main(long width, long height, BufRefT buffer, long pitch) {
 }
 
 /**
- * ‰æ‘œî•ñ‚Ì‘‚«o‚µ
- * @param width ‰æ‘œ‰¡•
- * @param height ‰æ‘œc•
- * @param buffer ‰æ‘œƒoƒbƒtƒ@
- * @param pitch ‰æ‘œƒf[ƒ^‚Ìƒsƒbƒ`
- * @param tagsDict ƒ^ƒOî•ñ
- * @return ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½‚ç true
+ * ç”»åƒæƒ…å ±ã®æ›¸ãå‡ºã—
+ * @param width ç”»åƒæ¨ªå¹…
+ * @param height ç”»åƒç¸¦å¹…
+ * @param buffer ç”»åƒãƒãƒƒãƒ•ã‚¡
+ * @param pitch ç”»åƒãƒ‡ãƒ¼ã‚¿ã®ãƒ”ãƒƒãƒ
+ * @param tagsDict ã‚¿ã‚°æƒ…å ±
+ * @return ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸã‚‰ true
  */
 bool CompressTLG5::compress(long width, long height, BufRefT buffer, long pitch, iTJSDispatch2 *tagsDict) {
 	
 	bool canceled = false;
 	
-	// æ“¾
+	// å–å¾—
 	ttstr tags;
 	if (tagsDict) {
 		/**
-		 * ƒ^ƒO“WŠJ—p
+		 * ã‚¿ã‚°å±•é–‹ç”¨
 		 */
-		class TagsCaller : public tTJSDispatch /** EnumMembers —p */ {
+		class TagsCaller : public tTJSDispatch /** EnumMembers ç”¨ */ {
 		protected:
 			ttstr *store;
 		public:
@@ -228,7 +228,7 @@ bool CompressTLG5::compress(long width, long height, BufRefT buffer, long pitch,
 	ULONG tagslen = tags.GetNarrowStrLen(); 
 	if (tagslen > 0) {
 		// write TLG0.0 Structured Data Stream header
-		writeBuffer("TLG0.0\x00sds\x1a\x00", 11);
+		writeBuffer("TLG0.0Â¥x00sdsÂ¥x1aÂ¥x00", 11);
 		ULONG rawlenpos = cur;
 		cur += 4;
 		// write raw TLG stream
@@ -253,13 +253,13 @@ bool CompressTLG5::compress(long width, long height, BufRefT buffer, long pitch,
 
 
 //---------------------------------------------------------------------------
-// ƒŒƒCƒ„Šg’£
+// ãƒ¬ã‚¤ãƒ¤æ‹¡å¼µ
 //---------------------------------------------------------------------------
 
 /**
- * TLG5 Œ`®‚Å‚Ì‰æ‘œ‚Ì•Û‘¶B’ˆÓ“_:ƒf[ƒ^‚Ì•Û‘¶‚ªI‚í‚é‚Ü‚Åˆ—‚ª‹A‚è‚Ü‚¹‚ñB
- * @param filename ƒtƒ@ƒCƒ‹–¼
- * @param tags ƒ^ƒOî•ñ
+ * TLG5 å½¢å¼ã§ã®ç”»åƒã®ä¿å­˜ã€‚æ³¨æ„ç‚¹:ãƒ‡ãƒ¼ã‚¿ã®ä¿å­˜ãŒçµ‚ã‚ã‚‹ã¾ã§å‡¦ç†ãŒå¸°ã‚Šã¾ã›ã‚“ã€‚
+ * @param filename ãƒ•ã‚¡ã‚¤ãƒ«å
+ * @param tags ã‚¿ã‚°æƒ…å ±
  */
 static tjs_error TJS_INTF_METHOD saveLayerImageTlg5Func(tTJSVariant *result,
 														tjs_int numparams,

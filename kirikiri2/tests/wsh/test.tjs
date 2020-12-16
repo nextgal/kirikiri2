@@ -1,5 +1,5 @@
 //
-// TJS ‚É‚æ‚é‹Lq
+// TJS ã«ã‚ˆã‚‹è¨˜è¿°
 //
 var win = new Window();
 win.setInnerSize(400,400);

@@ -41,14 +41,14 @@ public:
 		s32 userData);
 
 	//! Destructor
-	~CD3D9HLSLMaterialRenderer();
+	‾CD3D9HLSLMaterialRenderer();
 
 	//! sets a variable in the shader.
-	//! \param vertexShader: True if this should be set in the vertex shader, false if
+	//! ¥param vertexShader: True if this should be set in the vertex shader, false if
 	//! in the pixel shader.
-	//! \param name: Name of the variable
-	//! \param floats: Pointer to array of floats
-	//! \param count: Amount of floats in array.
+	//! ¥param name: Name of the variable
+	//! ¥param floats: Pointer to array of floats
+	//! ¥param count: Amount of floats in array.
 	virtual bool setVariable(bool vertexShader, const c8* name, const f32* floats, int count);
 
 	bool OnRender(IMaterialRendererServices* service, E_VERTEX_TYPE vtxtype);

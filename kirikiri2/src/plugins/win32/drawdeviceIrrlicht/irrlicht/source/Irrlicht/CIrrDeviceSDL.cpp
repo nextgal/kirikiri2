@@ -105,7 +105,7 @@ CIrrDeviceSDL::CIrrDeviceSDL(video::E_DRIVER_TYPE driverType,
 
 
 //! destructor
-CIrrDeviceSDL::~CIrrDeviceSDL()
+CIrrDeviceSDL::‾CIrrDeviceSDL()
 {
 	if (Screen)
 		SDL_FreeSurface(Screen);
@@ -348,7 +348,7 @@ void CIrrDeviceSDL::closeDevice()
 
 
 
-//! \return Returns a pointer to a list with all video modes supported
+//! ¥return Returns a pointer to a list with all video modes supported
 video::IVideoModeList* CIrrDeviceSDL::getVideoModeList()
 {
 	if (!VideoModeList.getVideoModeCount())
@@ -359,7 +359,7 @@ video::IVideoModeList* CIrrDeviceSDL::getVideoModeList()
 		if (modes != (SDL_Rect **)0)
 		{
 			if (modes == (SDL_Rect **)-1)
-				os::Printer::log("All modes available.\n");
+				os::Printer::log("All modes available.¥n");
 			else
 			{
 				for (u32 i=0; modes[i]; ++i)
@@ -381,7 +381,7 @@ void CIrrDeviceSDL::setResizeAble(bool resize)
 		if (resize)
 			SDL_Flags |= SDL_RESIZABLE;
 		else
-			SDL_Flags &= ~SDL_RESIZABLE;
+			SDL_Flags &= ‾SDL_RESIZABLE;
 		SDL_FreeSurface(Screen);
 		Screen = SDL_SetVideoMode( Width, Height, Depth, SDL_Flags );
 		Resizeable = resize;

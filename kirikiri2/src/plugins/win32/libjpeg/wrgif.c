@@ -92,10 +92,10 @@ flush_packet (gif_dest_ptr dinfo)
 
 
 /* Add a character to current packet; flush to disk if necessary */
-#define CHAR_OUT(dinfo,c)  \
-	{ (dinfo)->packetbuf[++(dinfo)->bytesinpkt] = (char) (c);  \
-	    if ((dinfo)->bytesinpkt >= 255)  \
-	      flush_packet(dinfo);  \
+#define CHAR_OUT(dinfo,c)  ¥
+	{ (dinfo)->packetbuf[++(dinfo)->bytesinpkt] = (char) (c);  ¥
+	    if ((dinfo)->bytesinpkt >= 255)  ¥
+	      flush_packet(dinfo);  ¥
 	}
 
 

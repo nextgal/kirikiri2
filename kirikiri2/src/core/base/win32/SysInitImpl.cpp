@@ -788,7 +788,7 @@ void TVPInitializeBaseSystems()
 		char dir[MAXDIR];
 		fnsplit(_argv[0], drive, dir, NULL, NULL);
 		ttstr curdir(ttstr(drive)  + ttstr(dir));
-		if(curdir.GetLastChar() != TJS_W('\\')) curdir += TJS_W('\\');
+		if(curdir.GetLastChar() != TJS_W('¥¥')) curdir += TJS_W('¥¥');
 		TVPSetCurrentDirectory(curdir);
 	}
 
@@ -903,9 +903,9 @@ void TVPBeforeSystemInit()
 				{
 					// TODO: set the current directory
 					strncpy(buf, _argv[i], MAX_PATH-1);
-					buf[MAX_PATH-1] = '\0';
+					buf[MAX_PATH-1] = '¥0';
 					if(DirectoryExists(buf)) // is directory?
-						strcat(buf, "\\");
+						strcat(buf, "¥¥");
 
 					TVPProjectDirSelected = true;
 					bufset = true;
@@ -940,7 +940,7 @@ void TVPBeforeSystemInit()
 		strcat(tmp, "content-data");
 		if(DirectoryExists(tmp))
 		{
-			strcat(tmp, "\\");
+			strcat(tmp, "¥¥");
 			strcpy(buf, tmp);
 			TVPProjectDirSelected = true;
 			bufset = true;
@@ -999,7 +999,7 @@ void TVPBeforeSystemInit()
 		strcat(tmp, "data");
 		if(DirectoryExists(tmp))
 		{
-			strcat(tmp, "\\");
+			strcat(tmp, "¥¥");
 			strcpy(buf, tmp);
 			TVPProjectDirSelected = true;
 			bufset = true;
@@ -1013,7 +1013,7 @@ void TVPBeforeSystemInit()
 		if(forcedataxp3) throw EAbort("Aborted");
 		strcpy(buf, ExtractFileDir(ParamStr(0)).c_str());
 		int curdirlen = strlen(buf);
-		if(buf[curdirlen-1] != '\\') buf[curdirlen] = '\\', buf[curdirlen+1] = 0;
+		if(buf[curdirlen-1] != '¥¥') buf[curdirlen] = '¥¥', buf[curdirlen+1] = 0;
 	}
 
 	if(!forcedataxp3 && (!nosel || forcesel))
@@ -1023,7 +1023,7 @@ void TVPBeforeSystemInit()
 		if(!krdevui)
 		{
 			AnsiString toolspath = (IncludeTrailingBackslash(
-					ExtractFilePath(ParamStr(0))) + "tools\\krdevui.dll");
+					ExtractFilePath(ParamStr(0))) + "tools¥¥krdevui.dll");
 			krdevui = LoadLibrary(toolspath.c_str());
 		}
 
@@ -1092,7 +1092,7 @@ void TVPBeforeSystemInit()
 	tjs_int buflen = strlen(buf);
 	if(buflen >= 1)
 	{
-		if(buf[buflen-1] != '\\') buf[buflen] = TVPArchiveDelimiter, buf[buflen+1] = 0;
+		if(buf[buflen-1] != '¥¥') buf[buflen] = TVPArchiveDelimiter, buf[buflen+1] = 0;
 	}
 
 	TVPProjectDir = TVPNormalizeStorageName(buf);
@@ -1360,7 +1360,7 @@ static TStringList * TVPGetEmbeddedOptions()
 			stream->Read(buf, size - TVP_FIND_OPTION_MIN_OFS);
 
 			// search "XOPT_EMBED_AREA_" ( aligned by 16 )
-			static char XPT_1[] = "XOPT_EMBED\0\0";
+			static char XPT_1[] = "XOPT_EMBED¥0¥0";
 			static char XPT_2[] = "_AREA_";
 			char mark[17];
 			strcpy(mark, XPT_1);
@@ -1427,11 +1427,11 @@ static TStringList * TVPGetConfigFileOptions(AnsiString filename)
 	}
 
 	if(errmsg != "")
-		TVPAddImportantLog(ttstr("(info) Loading configuration file \"") + filename.c_str() +
-			"\" failed (ignoring) : " + errmsg.c_str());
+		TVPAddImportantLog(ttstr("(info) Loading configuration file ¥"") + filename.c_str() +
+			"¥" failed (ignoring) : " + errmsg.c_str());
 	else
-		TVPAddImportantLog(ttstr("(info) Loading configuration file \"") + filename.c_str() +
-			"\" succeeded.");
+		TVPAddImportantLog(ttstr("(info) Loading configuration file ¥"") + filename.c_str() +
+			"¥" succeeded.");
 
 	return ret;
 }
@@ -1453,7 +1453,7 @@ static ttstr TVPParseCommandLineOne(const ttstr &i)
 
 	ttstr optname(o, p - o);
 
-	if(*p == TJS_W('\'') || *p == TJS_W('\"'))
+	if(*p == TJS_W('¥'') || *p == TJS_W('¥"'))
 	{
 		// as an escaped string
 		tTJSVariant v;
@@ -1692,7 +1692,7 @@ bool TVPCheckPrintDataPath()
 		if(!strcmp(_argv[i], "-printdatapath")) // this does not refer TVPGetCommandLine
 		{
 			TVPInitProgramArgumentsAndDataPath(true);
-			printf("%s\n", TVPNativeDataPath.c_str());
+			printf("%s¥n", TVPNativeDataPath.c_str());
 
 			return true; // processed
 		}

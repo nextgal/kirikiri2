@@ -210,9 +210,9 @@ namespace boost
 
 //  64-bit types + intmax_t and uintmax_t  ----------------------------------//
 
-# if defined(BOOST_HAS_LONG_LONG) && \
-   !defined(BOOST_MSVC) && !defined(__BORLANDC__) && \
-   (!defined(__GLIBCPP__) || defined(_GLIBCPP_USE_LONG_LONG)) && \
+# if defined(BOOST_HAS_LONG_LONG) && ¥
+   !defined(BOOST_MSVC) && !defined(__BORLANDC__) && ¥
+   (!defined(__GLIBCPP__) || defined(_GLIBCPP_USE_LONG_LONG)) && ¥
    (defined(ULLONG_MAX) || defined(ULONG_LONG_MAX) || defined(ULONGLONG_MAX))
 #    if defined(__hpux)
      // HP-UX's value of ULONG_LONG_MAX is unusable in preprocessor expressions
@@ -338,13 +338,13 @@ BOOST_HAS_STDINT_H is defined (John Maddock).
 
 //  64-bit types + intmax_t and uintmax_t  ----------------------------------//
 
-#  if defined(BOOST_HAS_LONG_LONG) && \
+#  if defined(BOOST_HAS_LONG_LONG) && ¥
     (defined(ULLONG_MAX) || defined(ULONG_LONG_MAX) || defined(ULONGLONG_MAX))
 
 #    if defined(__hpux)
      // HP-UX's value of ULONG_LONG_MAX is unusable in preprocessor expressions
-#    elif (defined(ULLONG_MAX) && ULLONG_MAX == 18446744073709551615U) ||  \
-        (defined(ULONG_LONG_MAX) && ULONG_LONG_MAX == 18446744073709551615U) ||  \
+#    elif (defined(ULLONG_MAX) && ULLONG_MAX == 18446744073709551615U) ||  ¥
+        (defined(ULONG_LONG_MAX) && ULONG_LONG_MAX == 18446744073709551615U) ||  ¥
         (defined(ULONGLONG_MAX) && ULONGLONG_MAX == 18446744073709551615U)
 
 #    else

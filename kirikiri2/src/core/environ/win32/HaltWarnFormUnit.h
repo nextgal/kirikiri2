@@ -19,7 +19,7 @@
 //---------------------------------------------------------------------------
 class TTVPHaltWarnForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TLabel *Label1;
 	TLabel *Label2;
 	TLabel *Label3;
@@ -31,8 +31,8 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall ContinueButtonClick(TObject *Sender);
 	void __fastcall ExitButtonClick(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
-private:	// ƒ†[ƒU[éŒ¾
-public:		// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TTVPHaltWarnForm(TComponent* Owner);
 };
 //---------------------------------------------------------------------------

@@ -33,7 +33,7 @@ public:
 	CD3D9Texture(CD3D9Driver* driver, core::dimension2d<s32> size, const char* name);
 
 	//! destructor
-	virtual ~CD3D9Texture();
+	virtual ‾CD3D9Texture();
 
 	//! lock function
 	virtual void* lock();

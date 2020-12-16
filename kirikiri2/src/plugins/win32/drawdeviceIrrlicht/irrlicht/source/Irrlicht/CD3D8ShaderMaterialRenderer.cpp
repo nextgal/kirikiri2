@@ -60,7 +60,7 @@ CD3D8ShaderMaterialRenderer::CD3D8ShaderMaterialRenderer(IDirect3DDevice8* d3dde
 
 
 //! Destructor
-CD3D8ShaderMaterialRenderer::~CD3D8ShaderMaterialRenderer()
+CD3D8ShaderMaterialRenderer::‾CD3D8ShaderMaterialRenderer()
 {
 	if (CallBack)
 		CallBack->drop();

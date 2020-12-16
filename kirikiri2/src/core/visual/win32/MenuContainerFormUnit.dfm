@@ -1,4 +1,4 @@
-object TVPMenuContainerForm: TTVPMenuContainerForm
+ï»¿object TVPMenuContainerForm: TTVPMenuContainerForm
   Left = 16
   Top = 152
   BorderStyle = bsNone
@@ -10,7 +10,7 @@ object TVPMenuContainerForm: TTVPMenuContainerForm
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   OnDestroy = FormDestroy

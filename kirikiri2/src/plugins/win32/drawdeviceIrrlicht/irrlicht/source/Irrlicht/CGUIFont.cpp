@@ -43,7 +43,7 @@ CGUIFont::CGUIFont(IGUIEnvironment *env, const c8* filename)
 
 
 //! destructor
-CGUIFont::~CGUIFont()
+CGUIFont::‾CGUIFont()
 {
 	if (Driver)
 		Driver->drop();
@@ -447,13 +447,13 @@ core::dimension2d<s32> CGUIFont::getDimension(const wchar_t* text) const
 	for (const wchar_t* p = text; *p; ++p)
 	{
 		bool lineBreak=false;
-		if (*p == L'\r') // Mac or Windows breaks
+		if (*p == L'¥r') // Mac or Windows breaks
 		{
 			lineBreak = true;
-			if (p[1] == L'\n') // Windows breaks
+			if (p[1] == L'¥n') // Windows breaks
 				++p;
 		}
-		else if (*p == L'\n') // Unix breaks
+		else if (*p == L'¥n') // Unix breaks
 		{
 			lineBreak = true;
 		}

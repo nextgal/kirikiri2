@@ -142,11 +142,11 @@ namespace boost
     //      WARNING: INTERNAL USE ONLY. NOT FOR PUBLIC CONSUMPTION.
     //
     ///////////////////////////////////////////////////////////////////////////
-    #define BOOST_SPIRIT_CONTEXT_PARSE(scan, this_, scanner_t, context_t, result_t) \
-            scanner_t scan_wrap(scan);                                              \
-            context_t context_wrap(this_);                                          \
-            context_wrap.pre_parse(this_, scan_wrap);                               \
-            result_t hit = parse_main(scan);                                        \
+    #define BOOST_SPIRIT_CONTEXT_PARSE(scan, this_, scanner_t, context_t, result_t) ¥
+            scanner_t scan_wrap(scan);                                              ¥
+            context_t context_wrap(this_);                                          ¥
+            context_wrap.pre_parse(this_, scan_wrap);                               ¥
+            result_t hit = parse_main(scan);                                        ¥
             return context_wrap.post_parse(hit, this_, scan_wrap);
 
     } // namespace spirit

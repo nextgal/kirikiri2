@@ -46,7 +46,7 @@ CQ3LevelMesh::CQ3LevelMesh(io::IFileSystem* fs, video::IVideoDriver* driver, sce
 
 
 //! destructor
-CQ3LevelMesh::~CQ3LevelMesh()
+CQ3LevelMesh::‾CQ3LevelMesh()
 {
 	delete [] Textures;
 	delete [] LightMaps;
@@ -371,7 +371,7 @@ void CQ3LevelMesh::loadLeafBrushes(tBSPLump* l, io::IReadFile* file)
 
 inline bool isQ3WhiteSpace ( const u8 symbol )
 {
-	return symbol == ' ' || symbol == '\t' || symbol == '\r';
+	return symbol == ' ' || symbol == '¥t' || symbol == '¥r';
 }
 
 
@@ -434,14 +434,14 @@ void CQ3LevelMesh::parser_nextToken ()
 					}
 					symbol = Parser.source [ Parser.index ];
 					Parser.index += 1;
-				} while ( symbol != '\n' );
+				} while ( symbol != '¥n' );
 				Parser.tokenresult = Q3_TOKEN_COMMENT;
 				return;
 			}
 			// take /[name] as valid token..?!?!?. mhmm, maybe
 			break;
 
-		case '\n':
+		case '¥n':
 			Parser.tokenresult = Q3_TOKEN_EOL;
 			return;
 		case '{':
@@ -1820,7 +1820,7 @@ void CQ3LevelMesh::loadTextures2()
 
 
 //! Returns an axis aligned bounding box of the mesh.
-//! \return A bounding box of this mesh is returned.
+//! ¥return A bounding box of this mesh is returned.
 const core::aabbox3d<f32>& CQ3LevelMesh::getBoundingBox() const
 {
 	return Mesh[0]->getBoundingBox();

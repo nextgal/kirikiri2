@@ -68,10 +68,10 @@ void __fastcall TRelSettingsForm::FormDestroy(TObject *Sender)
 //---------------------------------------------------------------------------
 AnsiString __fastcall TRelSettingsForm::GetKrKrFileName()
 {
-	AnsiString fn = ExtractFileDir(ParamStr(0)) + "\\krkr.eXe";
+	AnsiString fn = ExtractFileDir(ParamStr(0)) + "¥¥krkr.eXe";
 	if(!FileExists(fn))
 	{
-		fn = ExtractFileDir(ParamStr(0)) + "\\..\\krkr.eXe";
+		fn = ExtractFileDir(ParamStr(0)) + "¥¥..¥¥krkr.eXe";
 		if(!FileExists(fn)) return "";
 	}
 	return fn;
@@ -119,7 +119,7 @@ void __fastcall TRelSettingsForm::SetExtList(TStringList *list)
 			!ext.AnsiCompareIC(".kep") ||
 			!ext.AnsiCompareIC(".cf")  ||
 			!ext.AnsiCompareIC(".cfu") ||
-			ext == "" || !strncmp(ext.c_str(), ".~", 2))
+			ext == "" || !strncmp(ext.c_str(), ".‾", 2))
 		{
 			if(ext == "") ext = NoExtNameLabel->Caption;
 			DiscardExtList->Items->Add(ext);
@@ -795,14 +795,14 @@ void __fastcall TRelSettingsForm::CreateArchive(void)
 	}
 
 	// write a header
-	stream.WriteBuffer("XP3\r\n \n\x1a ", 8);
-	stream.WriteBuffer("\x8b\x67\x01", 3);
+	stream.WriteBuffer("XP3¥r¥n ¥n¥x1a ", 8);
+	stream.WriteBuffer("¥x8b¥x67¥x01", 3);
 	stream.WriteInt64(11+4+8); // to cushion header
-	stream.WriteBuffer("\x01\x00\x00\x00", 4); // header minor version
+	stream.WriteBuffer("¥x01¥x00¥x00¥x00", 4); // header minor version
 
 	// cushion header
-	stream.WriteBuffer("\x80", 1); // continue
-	stream.WriteBuffer("\0\0\0\0\0\0\0\0", 8); // index size = 0
+	stream.WriteBuffer("¥x80", 1); // continue
+	stream.WriteBuffer("¥0¥0¥0¥0¥0¥0¥0¥0", 8); // index size = 0
 	unsigned __int64 index_pointer_pos = stream.GetPosition();
 	stream.WriteBuffer("        ", 8); // to real header
 
@@ -810,63 +810,63 @@ void __fastcall TRelSettingsForm::CreateArchive(void)
 	if(ProtectCheck->Checked)
 	{
         static char dummy_png [] =
-		"\x89\x50\x4e\x47\x0a\x1a\x0a\x00\x00\x00\x0d\x49\x48\x44\x52\x00"
-		"\x00\x00\x01\x00\x00\x00\x01\x08\x02\x00\x00\x00\x90\x77\x53\xde"
-		"\x00\x00\x00\xa5\x74\x45\x58\x74\x57\x61\x72\x6e\x69\x6e\x67\x00"
-		"\x57\x61\x72\x6e\x69\x6e\x67\x3a\x20\x45\x78\x74\x72\x61\x63\x74"
-		"\x69\x6e\x67\x20\x74\x68\x69\x73\x20\x61\x72\x63\x68\x69\x76\x65"
-		"\x20\x6d\x61\x79\x20\x69\x6e\x66\x72\x69\x6e\x67\x65\x20\x6f\x6e"
-		"\x20\x61\x75\x74\x68\x6f\x72\x27\x73\x20\x72\x69\x67\x68\x74\x73"
-		"\x2e\x20\x8c\x78\x8d\x90\x20\x3a\x20\x82\xb1\x82\xcc\x83\x41\x81"
-		"\x5b\x83\x4a\x83\x43\x83\x75\x82\xf0\x93\x57\x8a\x4a\x82\xb7\x82"
-		"\xe9\x82\xb1\x82\xc6\x82\xc9\x82\xe6\x82\xe8\x81\x41\x82\xa0\x82"
-		"\xc8\x82\xbd\x82\xcd\x92\x98\x8d\xec\x8e\xd2\x82\xcc\x8c\xa0\x97"
-		"\x98\x82\xf0\x90\x4e\x8a\x51\x82\xb7\x82\xe9\x82\xa8\x82\xbb\x82"
-		"\xea\x82\xaa\x82\xa0\x82\xe8\x82\xdc\x82\xb7\x81\x42\x4b\x49\x44"
-		"\x27\x00\x00\x00\x0c\x49\x44\x41\x54\x78\x9c\x63\xf8\xff\xff\x3f"
-		"\x00\x05\xfe\x02\xfe\x0d\xef\x46\xb8\x00\x00\x00\x00\x49\x45\x4e"
-		"\x44\xae\x42\x60\x82\x89\x50\x4e\x47\x0a\x1a\x0a\x00\x00\x00\x0d"
-		"\x49\x48\x44\x52\x00\x00\x01\xef\x00\x00\x00\x13\x01\x03\x00\x00"
-		"\x00\x83\x60\x17\x58\x00\x00\x00\x06\x50\x4c\x54\x45\x00\x00\x00"
-		"\xff\xff\xff\xa5\xd9\x9f\xdd\x00\x00\x02\x4f\x49\x44\x41\x54\x78"
-		"\xda\xd5\xd3\x31\x6b\xdb\x40\x14\x07\x70\x1d\x0a\x55\xb3\x44\x6d"
-		"\xb2\xc4\x20\xac\x14\x9b\x78\x15\xf1\x12\x83\xf1\x0d\x1d\x4a\x21"
-		"\x44\x1f\xa2\xa1\x5a\xd3\x78\x49\xc0\x44\x86\x14\xb2\x04\xec\xc4"
-		"\x53\x40\xf8\xbe\x8a\x4c\x42\x6a\x83\xf0\x7d\x05\xb9\x15\xba\x55"
-		"\xe8\x2d\x3e\x10\x7a\x3d\x25\xf9\x06\x19\x4a\x6f\x38\x74\x9c\x7e"
-		"\xf7\x7f\x8f\xe3\x34\xc4\x37\x8c\x52\x7b\x8b\xfe\xe7\x3c\xe3\x8b"
-		"\xd7\xef\x02\x45\x06\x99\xae\x99\x02\x11\x10\x39\xa2\x2c\x7d\x2e"
-		"\x68\x3b\xf7\x53\x1f\x27\x65\x17\xd6\xba\x44\x51\xed\x31\x79\xcd"
-		"\xd4\xff\xbc\xd4\x62\xa2\x78\x3c\xb0\x48\xb5\xcc\x00\xc0\xe1\x82"
-		"\xc4\x7d\x89\xbc\xf1\xc2\x0f\xb5\x33\x3f\xbd\x34\xc7\x4e\x02\x12"
-		"\xd4\xd9\x04\x0a\xe3\x56\xf1\xdb\x67\x9e\x6d\x0e\x6d\xc4\xb5\x2b"
-		"\x15\x5f\x92\xe1\xa9\xae\xbd\x27\x80\x00\x06\xdf\xc4\x70\xd7\x20"
-		"\x73\xb3\x9d\xea\x5a\xb1\xbf\x51\x24\xc3\x33\xbd\x33\x27\x10\xd2"
-		"\xe5\xc6\xfa\x88\xfc\x0c\x1d\x5d\xf1\x46\x47\x15\x9e\x7b\xf7\x18"
-		"\x9b\x4c\x8a\xdc\x55\xe9\xaa\xc0\x1d\x9c\xd5\x54\x7a\x9f\x73\x1a"
-		"\x25\x2c\x91\xed\xe1\x87\xa6\x00\x45\x85\x00\xc6\x6e\x56\x26\xbb"
-		"\x79\x4e\x2f\xbf\xaa\x3a\x15\x9f\xb0\x82\xdb\x72\x55\xf5\x6e\xcc"
-		"\x70\xdd\x47\xde\xc1\xac\x77\x11\xba\x5d\x32\x9b\x6a\xb5\xf6\x66"
-		"\x37\x59\xc5\x44\xa2\x31\x03\x4e\x03\xd9\xd2\x83\xb0\x6e\x56\xbd"
-		"\x6b\x26\x62\xea\x4d\xc2\x6e\x64\xcb\xc7\x03\x97\x2e\xbd\x00\x25"
-		"\x54\x3c\xb6\x04\xe3\xf4\x41\x5c\x09\x68\x6f\x9f\x9f\x3c\x3a\x52"
-		"\xdb\xf2\x82\xec\x50\xb7\xe4\x3e\x09\x8a\x82\xbf\x5e\x9c\x48\xbd"
-		"\x6b\x2c\x16\x0c\xe6\x19\xd9\x3b\xf6\x7a\x1e\xbc\xf0\x23\xc5\x0f"
-		"\x35\x8f\x0d\xfb\x07\xda\x6e\x73\x9e\xeb\x58\x7a\xbd\x6f\x8c\x5a"
-		"\xb0\xbf\xf1\xc2\xd7\x46\x48\x91\xa7\x1e\x43\xc9\x19\x64\xf9\x8e"
-		"\xc3\x8d\x27\x57\x40\xcf\xec\xe0\x3c\xba\x9e\x44\xbd\x8e\x98\x6e"
-		"\xf5\x0f\xb6\x4f\x93\x0c\x5a\x21\x35\x9e\x3e\x4f\x2f\x2d\x68\xde"
-		"\x04\x71\x69\xd6\x55\x3a\xa7\x9c\x27\x82\x56\x5c\x24\xf9\x97\x3d"
-		"\x57\xdc\xb9\x22\x1f\x3c\x48\x16\x2d\x1a\xad\xc5\x2e\x11\x57\xe1"
-		"\x59\x7f\x6c\x15\x09\x8c\x38\x15\x77\x15\x6f\x77\xa3\x22\xa2\xcb"
-		"\x63\x95\xce\x55\xba\xa3\x26\xe0\x8c\xab\x2e\x1c\xce\xc7\xbc\x95"
-		"\x0f\x16\xc0\x17\xf7\x9f\x5a\x2b\xb3\x23\xd8\xf2\xdc\xbb\x1b\x14"
-		"\x02\x5a\x2a\x6a\xfc\x30\xf5\x83\x66\xf7\x5e\x46\x6c\x7a\xac\x49"
-		"\xa1\x8a\x8f\x2f\xea\x3e\xa6\x36\xb3\xb3\xe6\xc7\xe6\xc8\x9e\xc5"
-		"\xa7\xb5\x77\xf6\x2f\xf1\x9b\x8e\xb2\x13\x9f\x08\x16\x0e\x46\x63"
-		"\x6b\x9d\x39\x3f\x42\x6a\xcf\x12\x6a\x4c\xbf\x5f\x36\xfe\xac\x4a"
-		"\x5a\x57\xe9\xff\xf1\x8b\x7b\x1b\xff\x0b\x28\x8d\x8d\xf8\xb3\xe9"
-		"\xa1\xdf\x00\x00\x00\x00\x49\x45\x4e\x44\xae\x42\x60\x82";
+		"¥x89¥x50¥x4e¥x47¥x0a¥x1a¥x0a¥x00¥x00¥x00¥x0d¥x49¥x48¥x44¥x52¥x00"
+		"¥x00¥x00¥x01¥x00¥x00¥x00¥x01¥x08¥x02¥x00¥x00¥x00¥x90¥x77¥x53¥xde"
+		"¥x00¥x00¥x00¥xa5¥x74¥x45¥x58¥x74¥x57¥x61¥x72¥x6e¥x69¥x6e¥x67¥x00"
+		"¥x57¥x61¥x72¥x6e¥x69¥x6e¥x67¥x3a¥x20¥x45¥x78¥x74¥x72¥x61¥x63¥x74"
+		"¥x69¥x6e¥x67¥x20¥x74¥x68¥x69¥x73¥x20¥x61¥x72¥x63¥x68¥x69¥x76¥x65"
+		"¥x20¥x6d¥x61¥x79¥x20¥x69¥x6e¥x66¥x72¥x69¥x6e¥x67¥x65¥x20¥x6f¥x6e"
+		"¥x20¥x61¥x75¥x74¥x68¥x6f¥x72¥x27¥x73¥x20¥x72¥x69¥x67¥x68¥x74¥x73"
+		"¥x2e¥x20¥x8c¥x78¥x8d¥x90¥x20¥x3a¥x20¥x82¥xb1¥x82¥xcc¥x83¥x41¥x81"
+		"¥x5b¥x83¥x4a¥x83¥x43¥x83¥x75¥x82¥xf0¥x93¥x57¥x8a¥x4a¥x82¥xb7¥x82"
+		"¥xe9¥x82¥xb1¥x82¥xc6¥x82¥xc9¥x82¥xe6¥x82¥xe8¥x81¥x41¥x82¥xa0¥x82"
+		"¥xc8¥x82¥xbd¥x82¥xcd¥x92¥x98¥x8d¥xec¥x8e¥xd2¥x82¥xcc¥x8c¥xa0¥x97"
+		"¥x98¥x82¥xf0¥x90¥x4e¥x8a¥x51¥x82¥xb7¥x82¥xe9¥x82¥xa8¥x82¥xbb¥x82"
+		"¥xea¥x82¥xaa¥x82¥xa0¥x82¥xe8¥x82¥xdc¥x82¥xb7¥x81¥x42¥x4b¥x49¥x44"
+		"¥x27¥x00¥x00¥x00¥x0c¥x49¥x44¥x41¥x54¥x78¥x9c¥x63¥xf8¥xff¥xff¥x3f"
+		"¥x00¥x05¥xfe¥x02¥xfe¥x0d¥xef¥x46¥xb8¥x00¥x00¥x00¥x00¥x49¥x45¥x4e"
+		"¥x44¥xae¥x42¥x60¥x82¥x89¥x50¥x4e¥x47¥x0a¥x1a¥x0a¥x00¥x00¥x00¥x0d"
+		"¥x49¥x48¥x44¥x52¥x00¥x00¥x01¥xef¥x00¥x00¥x00¥x13¥x01¥x03¥x00¥x00"
+		"¥x00¥x83¥x60¥x17¥x58¥x00¥x00¥x00¥x06¥x50¥x4c¥x54¥x45¥x00¥x00¥x00"
+		"¥xff¥xff¥xff¥xa5¥xd9¥x9f¥xdd¥x00¥x00¥x02¥x4f¥x49¥x44¥x41¥x54¥x78"
+		"¥xda¥xd5¥xd3¥x31¥x6b¥xdb¥x40¥x14¥x07¥x70¥x1d¥x0a¥x55¥xb3¥x44¥x6d"
+		"¥xb2¥xc4¥x20¥xac¥x14¥x9b¥x78¥x15¥xf1¥x12¥x83¥xf1¥x0d¥x1d¥x4a¥x21"
+		"¥x44¥x1f¥xa2¥xa1¥x5a¥xd3¥x78¥x49¥xc0¥x44¥x86¥x14¥xb2¥x04¥xec¥xc4"
+		"¥x53¥x40¥xf8¥xbe¥x8a¥x4c¥x42¥x6a¥x83¥xf0¥x7d¥x05¥xb9¥x15¥xba¥x55"
+		"¥xe8¥x2d¥x3e¥x10¥x7a¥x3d¥x25¥xf9¥x06¥x19¥x4a¥x6f¥x38¥x74¥x9c¥x7e"
+		"¥xf7¥x7f¥x8f¥xe3¥x34¥xc4¥x37¥x8c¥x52¥x7b¥x8b¥xfe¥xe7¥x3c¥xe3¥x8b"
+		"¥xd7¥xef¥x02¥x45¥x06¥x99¥xae¥x99¥x02¥x11¥x10¥x39¥xa2¥x2c¥x7d¥x2e"
+		"¥x68¥x3b¥xf7¥x53¥x1f¥x27¥x65¥x17¥xd6¥xba¥x44¥x51¥xed¥x31¥x79¥xcd"
+		"¥xd4¥xff¥xbc¥xd4¥x62¥xa2¥x78¥x3c¥xb0¥x48¥xb5¥xcc¥x00¥xc0¥xe1¥x82"
+		"¥xc4¥x7d¥x89¥xbc¥xf1¥xc2¥x0f¥xb5¥x33¥x3f¥xbd¥x34¥xc7¥x4e¥x02¥x12"
+		"¥xd4¥xd9¥x04¥x0a¥xe3¥x56¥xf1¥xdb¥x67¥x9e¥x6d¥x0e¥x6d¥xc4¥xb5¥x2b"
+		"¥x15¥x5f¥x92¥xe1¥xa9¥xae¥xbd¥x27¥x80¥x00¥x06¥xdf¥xc4¥x70¥xd7¥x20"
+		"¥x73¥xb3¥x9d¥xea¥x5a¥xb1¥xbf¥x51¥x24¥xc3¥x33¥xbd¥x33¥x27¥x10¥xd2"
+		"¥xe5¥xc6¥xfa¥x88¥xfc¥x0c¥x1d¥x5d¥xf1¥x46¥x47¥x15¥x9e¥x7b¥xf7¥x18"
+		"¥x9b¥x4c¥x8a¥xdc¥x55¥xe9¥xaa¥xc0¥x1d¥x9c¥xd5¥x54¥x7a¥x9f¥x73¥x1a"
+		"¥x25¥x2c¥x91¥xed¥xe1¥x87¥xa6¥x00¥x45¥x85¥x00¥xc6¥x6e¥x56¥x26¥xbb"
+		"¥x79¥x4e¥x2f¥xbf¥xaa¥x3a¥x15¥x9f¥xb0¥x82¥xdb¥x72¥x55¥xf5¥x6e¥xcc"
+		"¥x70¥xdd¥x47¥xde¥xc1¥xac¥x77¥x11¥xba¥x5d¥x32¥x9b¥x6a¥xb5¥xf6¥x66"
+		"¥x37¥x59¥xc5¥x44¥xa2¥x31¥x03¥x4e¥x03¥xd9¥xd2¥x83¥xb0¥x6e¥x56¥xbd"
+		"¥x6b¥x26¥x62¥xea¥x4d¥xc2¥x6e¥x64¥xcb¥xc7¥x03¥x97¥x2e¥xbd¥x00¥x25"
+		"¥x54¥x3c¥xb6¥x04¥xe3¥xf4¥x41¥x5c¥x09¥x68¥x6f¥x9f¥x9f¥x3c¥x3a¥x52"
+		"¥xdb¥xf2¥x82¥xec¥x50¥xb7¥xe4¥x3e¥x09¥x8a¥x82¥xbf¥x5e¥x9c¥x48¥xbd"
+		"¥x6b¥x2c¥x16¥x0c¥xe6¥x19¥xd9¥x3b¥xf6¥x7a¥x1e¥xbc¥xf0¥x23¥xc5¥x0f"
+		"¥x35¥x8f¥x0d¥xfb¥x07¥xda¥x6e¥x73¥x9e¥xeb¥x58¥x7a¥xbd¥x6f¥x8c¥x5a"
+		"¥xb0¥xbf¥xf1¥xc2¥xd7¥x46¥x48¥x91¥xa7¥x1e¥x43¥xc9¥x19¥x64¥xf9¥x8e"
+		"¥xc3¥x8d¥x27¥x57¥x40¥xcf¥xec¥xe0¥x3c¥xba¥x9e¥x44¥xbd¥x8e¥x98¥x6e"
+		"¥xf5¥x0f¥xb6¥x4f¥x93¥x0c¥x5a¥x21¥x35¥x9e¥x3e¥x4f¥x2f¥x2d¥x68¥xde"
+		"¥x04¥x71¥x69¥xd6¥x55¥x3a¥xa7¥x9c¥x27¥x82¥x56¥x5c¥x24¥xf9¥x97¥x3d"
+		"¥x57¥xdc¥xb9¥x22¥x1f¥x3c¥x48¥x16¥x2d¥x1a¥xad¥xc5¥x2e¥x11¥x57¥xe1"
+		"¥x59¥x7f¥x6c¥x15¥x09¥x8c¥x38¥x15¥x77¥x15¥x6f¥x77¥xa3¥x22¥xa2¥xcb"
+		"¥x63¥x95¥xce¥x55¥xba¥xa3¥x26¥xe0¥x8c¥xab¥x2e¥x1c¥xce¥xc7¥xbc¥x95"
+		"¥x0f¥x16¥xc0¥x17¥xf7¥x9f¥x5a¥x2b¥xb3¥x23¥xd8¥xf2¥xdc¥xbb¥x1b¥x14"
+		"¥x02¥x5a¥x2a¥x6a¥xfc¥x30¥xf5¥x83¥x66¥xf7¥x5e¥x46¥x6c¥x7a¥xac¥x49"
+		"¥xa1¥x8a¥x8f¥x2f¥xea¥x3e¥xa6¥x36¥xb3¥xb3¥xe6¥xc7¥xe6¥xc8¥x9e¥xc5"
+		"¥xa7¥xb5¥x77¥xf6¥x2f¥xf1¥x9b¥x8e¥xb2¥x13¥x9f¥x08¥x16¥x0e¥x46¥x63"
+		"¥x6b¥x9d¥x39¥x3f¥x42¥x6a¥xcf¥x12¥x6a¥x4c¥xbf¥x5f¥x36¥xfe¥xac¥x4a"
+		"¥x5a¥x57¥xe9¥xff¥xf1¥x8b¥x7b¥x1b¥xff¥x0b¥x28¥x8d¥x8d¥xf8¥xb3¥xe9"
+		"¥xa1¥xdf¥x00¥x00¥x00¥x00¥x49¥x45¥x4e¥x44¥xae¥x42¥x60¥x82";
 		const int dummy_png_text_start = 0x30;
 		const int dummy_png_text_length = 157;
 
@@ -1252,7 +1252,7 @@ void __fastcall TRelSettingsForm::CreateArchive(void)
 				wchar_t *p = tstr;
 				while(*p)
 				{
-					if(*p == '\\') *p = '/';
+					if(*p == '¥¥') *p = '/';
 					p++;
 				}
 				memcpy(index_buf, tstr, str.Length() * 2);

@@ -8,7 +8,7 @@ class CompressPNG : public CompressBase {
 public:
 	CompressPNG()                               : CompressBase()           {}
 	CompressPNG(ProgressFunc *prog, void *data) : CompressBase(prog, data) {}
-	virtual ~CompressPNG() {}
+	virtual ‾CompressPNG() {}
 
 	virtual bool compress(long width, long height, BufRefT buffer, long pitch, iTJSDispatch2 *tagsDict);
 

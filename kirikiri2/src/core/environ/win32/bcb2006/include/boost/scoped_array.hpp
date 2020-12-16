@@ -55,7 +55,7 @@ public:
 #endif
     }
 
-    ~scoped_array() // never throws
+    ‾scoped_array() // never throws
     {
 #if defined(BOOST_SP_ENABLE_DEBUG_HOOKS)
         boost::sp_array_destructor_hook(ptr);

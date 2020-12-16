@@ -71,7 +71,7 @@ CGUIEditBox::CGUIEditBox(const wchar_t* text, bool border, IGUIEnvironment* envi
 
 
 //! destructor
-CGUIEditBox::~CGUIEditBox()
+CGUIEditBox::‾CGUIEditBox()
 {
 	if (OverrideFont)
 		OverrideFont->drop();
@@ -370,7 +370,7 @@ bool CGUIEditBox::processKey(const SEvent& event)
 			{
 				p = getLineFromPos(CursorPos);
 				p = BrokenTextPositions[p] + (s32)BrokenText[p].size();
-				if (p > 0 && (Text[p-1] == L'\r' || Text[p-1] == L'\n' ))
+				if (p > 0 && (Text[p-1] == L'¥r' || Text[p-1] == L'¥n' ))
 					p-=1;
 			}
 
@@ -418,7 +418,7 @@ bool CGUIEditBox::processKey(const SEvent& event)
 	case KEY_RETURN:
 		if (MultiLine)
 		{
-			inputChar(L'\n');
+			inputChar(L'¥n');
 		}
 		else
 		{
@@ -855,7 +855,7 @@ void CGUIEditBox::setText(const wchar_t* text)
 
 
 //! Enables or disables automatic scrolling with cursor position
-//! \param enable: If set to true, the text will move around with the cursor position
+//! ¥param enable: If set to true, the text will move around with the cursor position
 void CGUIEditBox::setAutoScroll(bool enable)
 {
 	AutoScroll = enable;
@@ -863,7 +863,7 @@ void CGUIEditBox::setAutoScroll(bool enable)
 
 
 //! Checks to see if automatic scrolling is enabled
-//! \return true if automatic scrolling is enabled, false if not
+//! ¥return true if automatic scrolling is enabled, false if not
 bool CGUIEditBox::isAutoScrollEnabled() const
 {
 	_IRR_IMPLEMENT_MANAGED_MARSHALLING_BUGFIX;
@@ -871,7 +871,7 @@ bool CGUIEditBox::isAutoScrollEnabled() const
 }
 
 //! Gets the area of the text in the edit box
-//! \return Returns the size in pixels of the text
+//! ¥return Returns the size in pixels of the text
 core::dimension2di CGUIEditBox::getTextDimension()
 {
 	core::rect<s32> ret;
@@ -891,7 +891,7 @@ core::dimension2di CGUIEditBox::getTextDimension()
 
 
 //! Sets the maximum amount of characters which may be entered in the box.
-//! \param max: Maximum amount of characters. If 0, the character amount is
+//! ¥param max: Maximum amount of characters. If 0, the character amount is
 //! infinity.
 void CGUIEditBox::setMax(u32 max)
 {
@@ -1057,17 +1057,17 @@ void CGUIEditBox::breakText()
 		c = Text[i];
 		bool lineBreak = false;
 
-		if (c == L'\r') // Mac or Windows breaks
+		if (c == L'¥r') // Mac or Windows breaks
 		{
 			lineBreak = true;
 			c = ' ';
-			if (Text[i+1] == L'\n') // Windows breaks
+			if (Text[i+1] == L'¥n') // Windows breaks
 			{
 				Text.erase(i+1);
 				--size;
 			}
 		}
-		else if (c == L'\n') // Unix breaks
+		else if (c == L'¥n') // Unix breaks
 		{
 			lineBreak = true;
 			c = ' ';

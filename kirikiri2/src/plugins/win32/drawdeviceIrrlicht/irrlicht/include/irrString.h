@@ -179,7 +179,7 @@ public:
 
 
 	//! destructor
-	~string()
+	‾string()
 	{
 		allocator.deallocate(array); // delete [] array;
 	}
@@ -346,7 +346,7 @@ public:
 
 
 	//! Returns length of string
-	/** \return Returns length of the string in characters. */
+	/** ¥return Returns length of the string in characters. */
 	u32 size() const
 	{
 		return used-1;
@@ -355,7 +355,7 @@ public:
 
 
 	//! Returns character string
-	/** \return Returns pointer to C-style zero terminated string. */
+	/** ¥return Returns pointer to C-style zero terminated string. */
 	const T* c_str() const
 	{
 		return array;
@@ -389,8 +389,8 @@ public:
 
 
 	//! Compares the string ignoring case.
-	/** \param other: Other string to compare.
-	\return Returns true if the string are equal ignoring case. */
+	/** ¥param other: Other string to compare.
+	¥return Returns true if the string are equal ignoring case. */
 	bool equals_ignore_case(const string<T>& other) const
 	{
 		for(u32 i=0; array[i] && other[i]; ++i)
@@ -401,8 +401,8 @@ public:
 	}
 
 	//! Compares the string ignoring case.
-	/** \param other: Other string to compare.
-	\return Returns true if the string is smaller ignoring case. */
+	/** ¥param other: Other string to compare.
+	¥return Returns true if the string is smaller ignoring case. */
 	bool lower_ignore_case(const string<T>& other) const
 	{
 		for(u32 i=0; array[i] && other.array[i]; ++i)
@@ -448,7 +448,7 @@ public:
 
 
 	//! Appends a character to this string
-	/** \param character: Character to append. */
+	/** ¥param character: Character to append. */
 	void append(T character)
 	{
 		if (used + 1 > allocated)
@@ -461,7 +461,7 @@ public:
 	}
 
 	//! Appends a char string to this string
-	/** \param other: Char string to append. */
+	/** ¥param other: Char string to append. */
 	void append(const T* const other)
 	{
 		if (!other)
@@ -489,7 +489,7 @@ public:
 
 
 	//! Appends a string to this string
-	/** \param other: String to append. */
+	/** ¥param other: String to append. */
 	void append(const string<T>& other)
 	{
 		--used;
@@ -506,8 +506,8 @@ public:
 
 
 	//! Appends a string of the length l to this string.
-	/** \param other: other String to append to this string.
-	\param length: How much characters of the other string to add to this one. */
+	/** ¥param other: other String to append to this string.
+	¥param length: How much characters of the other string to add to this one. */
 	void append(const string<T>& other, u32 length)
 	{
 		if (other.size() < length)
@@ -532,7 +532,7 @@ public:
 
 
 	//! Reserves some memory.
-	/** \param count: Amount of characters to reserve. */
+	/** ¥param count: Amount of characters to reserve. */
 	void reserve(u32 count)
 	{
 		if (count < allocated)
@@ -543,8 +543,8 @@ public:
 
 
 	//! finds first occurrence of character in string
-	/** \param c: Character to search for.
-	\return Returns position where the character has been found,
+	/** ¥param c: Character to search for.
+	¥return Returns position where the character has been found,
 	or -1 if not found. */
 	s32 findFirst(T c) const
 	{
@@ -556,11 +556,11 @@ public:
 	}
 
 	//! finds first occurrence of a character of a list in string
-	/** \param c: List of characters to find. For example if the method
+	/** ¥param c: List of characters to find. For example if the method
 	should find the first occurrence of 'a' or 'b', this parameter should be "ab".
-	\param count: Amount of characters in the list. Usually,
+	¥param count: Amount of characters in the list. Usually,
 	this should be strlen(c)
-	\return Returns position where one of the characters has been found,
+	¥return Returns position where one of the characters has been found,
 	or -1 if not found. */
 	s32 findFirstChar(const T* const c, u32 count) const
 	{
@@ -577,11 +577,11 @@ public:
 
 
 	//! Finds first position of a character not in a given list.
-	/** \param c: List of characters not to find. For example if the method
+	/** ¥param c: List of characters not to find. For example if the method
 	should find the first occurrence of a character not 'a' or 'b', this parameter should be "ab".
-	\param count: Amount of characters in the list. Usually,
+	¥param count: Amount of characters in the list. Usually,
 	this should be strlen(c)
-	\return Returns position where the character has been found,
+	¥return Returns position where the character has been found,
 	or -1 if not found. */
 	template <class B>
 	s32 findFirstCharNotInList(const B* const c, u32 count) const
@@ -601,11 +601,11 @@ public:
 	}
 
 	//! Finds last position of a character not in a given list.
-	/** \param c: List of characters not to find. For example if the method
+	/** ¥param c: List of characters not to find. For example if the method
 	should find the first occurrence of a character not 'a' or 'b', this parameter should be "ab".
-	\param count: Amount of characters in the list. Usually,
+	¥param count: Amount of characters in the list. Usually,
 	this should be strlen(c)
-	\return Returns position where the character has been found,
+	¥return Returns position where the character has been found,
 	or -1 if not found. */
 	template <class B>
 	s32 findLastCharNotInList(const B* const c, u32 count) const
@@ -625,9 +625,9 @@ public:
 	}
 
 	//! finds next occurrence of character in string
-	/** \param c: Character to search for.
-	\param startPos: Position in string to start searching.
-	\return Returns position where the character has been found,
+	/** ¥param c: Character to search for.
+	¥param startPos: Position in string to start searching.
+	¥return Returns position where the character has been found,
 	or -1 if not found. */
 	s32 findNext(T c, u32 startPos) const
 	{
@@ -640,9 +640,9 @@ public:
 
 
 	//! finds last occurrence of character in string
-	//! \param c: Character to search for.
-	//! \param start: start to search reverse ( default = -1, on end )
-	//! \return Returns position where the character has been found,
+	//! ¥param c: Character to search for.
+	//! ¥param start: start to search reverse ( default = -1, on end )
+	//! ¥return Returns position where the character has been found,
 	//! or -1 if not found.
 	s32 findLast(T c, s32 start = -1) const
 	{
@@ -655,11 +655,11 @@ public:
 	}
 
 	//! finds last occurrence of a character of a list in string
-	/** \param c: List of strings to find. For example if the method
+	/** ¥param c: List of strings to find. For example if the method
 	should find the last occurrence of 'a' or 'b', this parameter should be "ab".
-	\param count: Amount of characters in the list. Usually,
+	¥param count: Amount of characters in the list. Usually,
 	this should be strlen(c)
-	\return Returns position where one of the characters has been found,
+	¥return Returns position where one of the characters has been found,
 	or -1 if not found. */
 	s32 findLastChar(const T* const c, u32 count) const
 	{
@@ -676,8 +676,8 @@ public:
 
 
 	//! finds another string in this string
-	//! \param str: Another string
-	//! \return Returns positions where the string has been found,
+	//! ¥param str: Another string
+	//! ¥return Returns positions where the string has been found,
 	//! or -1 if not found.
 	template <class B>
 	s32 find(const B* const str) const
@@ -709,8 +709,8 @@ public:
 
 
 	//! Returns a substring
-	//! \param begin: Start of substring.
-	//! \param length: Length of substring.
+	//! ¥param begin: Start of substring.
+	//! ¥param length: Length of substring.
 	string<T> subString(u32 begin, s32 length) const
 	{
 		if ((length+begin) > size())
@@ -806,7 +806,7 @@ public:
 	/** Removes whitespace from begin and end of the string. */
 	string<T>& trim()
 	{
-		const c8 whitespace[] = " \t\n\r";
+		const c8 whitespace[] = " ¥t¥n¥r";
 		const u32 whitespacecount = 4;
 
 		// find start and end of real string without whitespace
@@ -822,7 +822,7 @@ public:
 
 	//! Erases a character from the string. May be slow, because all elements
 	//! following after the erased element have to be copied.
-	//! \param index: Index of element to be erased.
+	//! ¥param index: Index of element to be erased.
 	void erase(u32 index)
 	{
 		_IRR_DEBUG_BREAK_IF(index>=used) // access violation

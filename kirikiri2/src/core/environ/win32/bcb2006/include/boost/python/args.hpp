@@ -96,12 +96,12 @@ namespace detail
 }
 
 #  define BOOST_PYTHON_ASSIGN_NAME(z, n, _) result.elements[n].name = name##n;
-#  define BOOST_PP_LOCAL_MACRO(n)                                               \
-inline detail::keywords<n> args(BOOST_PP_ENUM_PARAMS_Z(1, n, char const* name)) \
-{                                                                               \
-    detail::keywords<n> result;                                                 \
-    BOOST_PP_REPEAT_1(n, BOOST_PYTHON_ASSIGN_NAME, _)                           \
-    return result;                                                              \
+#  define BOOST_PP_LOCAL_MACRO(n)                                               ¥
+inline detail::keywords<n> args(BOOST_PP_ENUM_PARAMS_Z(1, n, char const* name)) ¥
+{                                                                               ¥
+    detail::keywords<n> result;                                                 ¥
+    BOOST_PP_REPEAT_1(n, BOOST_PYTHON_ASSIGN_NAME, _)                           ¥
+    return result;                                                              ¥
 }
 #  define BOOST_PP_LOCAL_LIMITS (1, BOOST_PYTHON_MAX_ARITY)
 #  include BOOST_PP_LOCAL_ITERATE()

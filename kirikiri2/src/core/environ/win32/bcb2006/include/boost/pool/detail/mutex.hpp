@@ -63,7 +63,7 @@ class win32_mutex
     win32_mutex()
     { InitializeCriticalSection(&mtx); }
 
-    ~win32_mutex()
+    ‾win32_mutex()
     { DeleteCriticalSection(&mtx); }
 
     void lock()
@@ -89,7 +89,7 @@ class pthread_mutex
     pthread_mutex()
     { pthread_mutex_init(&mtx, 0); }
 
-    ~pthread_mutex()
+    ‾pthread_mutex()
     { pthread_mutex_destroy(&mtx); }
 
     void lock()

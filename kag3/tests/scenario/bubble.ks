@@ -2,47 +2,47 @@
 @iscript
 
 /*
-	–A‚ğ‚Ó‚ç‚¹‚éƒvƒ‰ƒOƒCƒ“
+	æ³¡ã‚’ãµã‚‰ã›ã‚‹ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
 */
 
 class BubbleGrain
 {
-	// –A—±‚ÌƒNƒ‰ƒX
+	// æ³¡ç²’ã®ã‚¯ãƒ©ã‚¹
 
-	var fore; // •\‰æ–Ê‚Ì–A—±ƒIƒuƒWƒFƒNƒg
-	var back; // — ‰æ–Ê‚Ì–A—±ƒIƒuƒWƒFƒNƒg
-	var xvelo; // ‰¡‘¬“x
-	var yvelo; // c‘¬“x
-	var xaccel; // ‰¡‰Á‘¬
-	var l, t; // ‰¡ˆÊ’u‚ÆcˆÊ’u
-	var ownwer; // ‚±‚ÌƒIƒuƒWƒFƒNƒg‚ğŠ—L‚·‚é BubblePlugin ƒIƒuƒWƒFƒNƒg
-	var spawned = false; // –A—±‚ªoŒ»‚µ‚Ä‚¢‚é‚©
-	var window; // ƒEƒBƒ“ƒhƒEƒIƒuƒWƒFƒNƒg‚Ö‚ÌQÆ
+	var fore; // è¡¨ç”»é¢ã®æ³¡ç²’ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	var back; // è£ç”»é¢ã®æ³¡ç²’ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	var xvelo; // æ¨ªé€Ÿåº¦
+	var yvelo; // ç¸¦é€Ÿåº¦
+	var xaccel; // æ¨ªåŠ é€Ÿ
+	var l, t; // æ¨ªä½ç½®ã¨ç¸¦ä½ç½®
+	var ownwer; // ã“ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ‰€æœ‰ã™ã‚‹ BubblePlugin ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	var spawned = false; // æ³¡ç²’ãŒå‡ºç¾ã—ã¦ã„ã‚‹ã‹
+	var window; // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®å‚ç…§
 
 	function BubbleGrain(window, n, owner)
 	{
-		// BubbleGrain ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		// BubbleGrain ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		this.owner = owner;
 		this.window = window;
 
 		fore = new Layer(window, window.fore.base);
 		back = new Layer(window, window.back.base);
 
-		fore.absolute = 2000000-1; // d‚Ë‡‚í‚¹‡˜‚ÍƒƒbƒZ[ƒW—š—ğ‚æ‚è‚à‰œ
+		fore.absolute = 2000000-1; // é‡ã­åˆã‚ã›é †åºã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å±¥æ­´ã‚ˆã‚Šã‚‚å¥¥
 		back.absolute = fore.absolute;
 
 		fore.hitType = htMask;
-		fore.hitThreshold = 256; // ƒ}ƒEƒXƒƒbƒZ[ƒW‚Í‘Sˆæ“§‰ß
+		fore.hitThreshold = 256; // ãƒã‚¦ã‚¹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯å…¨åŸŸé€é
 		back.hitType = htMask;
 		back.hitThreshold = 256;
 
-		fore.loadImages("bubble_" + n); // ‰æ‘œ‚ğ“Ç‚İ‚Ş
+		fore.loadImages("bubble_" + n); // ç”»åƒã‚’èª­ã¿è¾¼ã‚€
 		back.assignImages(fore);
-		fore.setSizeToImageSize(); // ƒŒƒCƒ„‚ÌƒTƒCƒY‚ğ‰æ‘œ‚ÌƒTƒCƒY‚Æ“¯‚¶‚É
+		fore.setSizeToImageSize(); // ãƒ¬ã‚¤ãƒ¤ã®ã‚µã‚¤ã‚ºã‚’ç”»åƒã®ã‚µã‚¤ã‚ºã¨åŒã˜ã«
 		back.setSizeToImageSize();
-		xvelo = 0; // ‰¡•ûŒü‘¬“x
-		yvelo = -(n*0.6 + 1.9 + Math.random() * 0.2); // c•ûŒü‘¬“x
-		xaccel = Math.random(); // ‰Šú‰Á‘¬“x
+		xvelo = 0; // æ¨ªæ–¹å‘é€Ÿåº¦
+		yvelo = -(n*0.6 + 1.9 + Math.random() * 0.2); // ç¸¦æ–¹å‘é€Ÿåº¦
+		xaccel = Math.random(); // åˆæœŸåŠ é€Ÿåº¦
 	}
 
 	function finalize()
@@ -53,19 +53,19 @@ class BubbleGrain
 
 	function spawn()
 	{
-		// oŒ»
-		l = Math.random() * window.primaryLayer.width; // ‰¡‰ŠúˆÊ’u
-		t = window.primaryLayer.height; // c‰ŠúˆÊ’u
+		// å‡ºç¾
+		l = Math.random() * window.primaryLayer.width; // æ¨ªåˆæœŸä½ç½®
+		t = window.primaryLayer.height; // ç¸¦åˆæœŸä½ç½®
 		spawned = true;
 		fore.setPos(l, t);
-		back.setPos(l, t); // — ‰æ–Ê‚ÌˆÊ’u‚à“¯‚¶‚É
+		back.setPos(l, t); // è£ç”»é¢ã®ä½ç½®ã‚‚åŒã˜ã«
 		fore.visible = owner.foreVisible;
 		back.visible = owner.backVisible;
 	}
 
 	function resetVisibleState()
 	{
-		// •\¦E”ñ•\¦‚Ìó‘Ô‚ğÄİ’è‚·‚é
+		// è¡¨ç¤ºãƒ»éè¡¨ç¤ºã®çŠ¶æ…‹ã‚’å†è¨­å®šã™ã‚‹
 		if(spawned)
 		{
 			fore.visible = owner.foreVisible;
@@ -80,10 +80,10 @@ class BubbleGrain
 
 	function move()
 	{
-		// –A—±‚ğ“®‚©‚·
+		// æ³¡ç²’ã‚’å‹•ã‹ã™
 		if(!spawned)
 		{
-			// oŒ»‚µ‚Ä‚¢‚È‚¢‚Ì‚ÅoŒ»‚·‚é‹@‰ï‚ğ‚¤‚©‚ª‚¤
+			// å‡ºç¾ã—ã¦ã„ãªã„ã®ã§å‡ºç¾ã™ã‚‹æ©Ÿä¼šã‚’ã†ã‹ãŒã†
 			if(Math.random() < 0.002) spawn();
 		}
 		else
@@ -102,13 +102,13 @@ class BubbleGrain
 				l = Math.random() * window.primaryLayer.width;
 			}
 			fore.setPos(l, t);
-			back.setPos(l, t); // — ‰æ–Ê‚ÌˆÊ’u‚à“¯‚¶‚É
+			back.setPos(l, t); // è£ç”»é¢ã®ä½ç½®ã‚‚åŒã˜ã«
 		}
 	}
 
 	function exchangeForeBack()
 	{
-		// •\‚Æ— ‚ÌŠÇ—î•ñ‚ğŒğŠ·‚·‚é
+		// è¡¨ã¨è£ã®ç®¡ç†æƒ…å ±ã‚’äº¤æ›ã™ã‚‹
 		var tmp = fore;
 		fore = back;
 		back = tmp;
@@ -117,13 +117,13 @@ class BubbleGrain
 
 class BubblePlugin extends KAGPlugin
 {
-	// –A‚ğU‚ç‚·ƒvƒ‰ƒOƒCƒ“ƒNƒ‰ƒX
+	// æ³¡ã‚’æŒ¯ã‚‰ã™ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚¯ãƒ©ã‚¹
 
-	var bubbles = []; // –A—±
-	var timer; // ƒ^ƒCƒ}
-	var window; // ƒEƒBƒ“ƒhƒE‚Ö‚ÌQÆ
-	var foreVisible = true; // •\‰æ–Ê‚ª•\¦ó‘Ô‚©‚Ç‚¤‚©
-	var backVisible = true; // — ‰æ–Ê‚ª•\¦ó‘Ô‚©‚Ç‚¤‚©
+	var bubbles = []; // æ³¡ç²’
+	var timer; // ã‚¿ã‚¤ãƒ
+	var window; // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¸ã®å‚ç…§
+	var foreVisible = true; // è¡¨ç”»é¢ãŒè¡¨ç¤ºçŠ¶æ…‹ã‹ã©ã†ã‹
+	var backVisible = true; // è£ç”»é¢ãŒè¡¨ç¤ºçŠ¶æ…‹ã‹ã©ã†ã‹
 
 	function BubblePlugin(window)
 	{
@@ -133,8 +133,8 @@ class BubblePlugin extends KAGPlugin
 
 	function finalize()
 	{
-		// finalize ƒƒ\ƒbƒh
-		// ‚±‚ÌƒNƒ‰ƒX‚ÌŠÇ—‚·‚é‚·‚×‚Ä‚ÌƒIƒuƒWƒFƒNƒg‚ğ–¾¦“I‚É”jŠü
+		// finalize ãƒ¡ã‚½ãƒƒãƒ‰
+		// ã“ã®ã‚¯ãƒ©ã‚¹ã®ç®¡ç†ã™ã‚‹ã™ã¹ã¦ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ˜ç¤ºçš„ã«ç ´æ£„
 		for(var i = 0; i < bubbles.count; i++)
 			invalidate bubbles[i];
 		invalidate bubbles;
@@ -146,31 +146,31 @@ class BubblePlugin extends KAGPlugin
 
 	function init(num, options)
 	{
-		// num ŒÂ‚Ì–A—±‚ğoŒ»‚³‚¹‚é
-		if(timer !== void) return; // ‚·‚Å‚É–A—±‚Í‚Å‚Ä‚¢‚é
+		// num å€‹ã®æ³¡ç²’ã‚’å‡ºç¾ã•ã›ã‚‹
+		if(timer !== void) return; // ã™ã§ã«æ³¡ç²’ã¯ã§ã¦ã„ã‚‹
 
-		// –A—±‚ğì¬
+		// æ³¡ç²’ã‚’ä½œæˆ
 		for(var i = 0; i < num; i++)
 		{
-			var n = intrandom(0, 4); // –A—±‚Ì‘å‚«‚³ ( ƒ‰ƒ“ƒ_ƒ€ )
+			var n = intrandom(0, 4); // æ³¡ç²’ã®å¤§ãã• ( ãƒ©ãƒ³ãƒ€ãƒ  )
 			bubbles[i] = new BubbleGrain(window, n, this);
 		}
-		bubbles[0].spawn(); // Å‰‚Ì–A—±‚¾‚¯‚ÍÅ‰‚©‚ç•\¦
+		bubbles[0].spawn(); // æœ€åˆã®æ³¡ç²’ã ã‘ã¯æœ€åˆã‹ã‚‰è¡¨ç¤º
 
-		// ƒ^ƒCƒ}[‚ğì¬
+		// ã‚¿ã‚¤ãƒãƒ¼ã‚’ä½œæˆ
 		timer = new Timer(onTimer, '');
 		timer.interval = 80;
 		timer.enabled = true;
 
 		foreVisible = true;
 		backVisible = true;
-		setOptions(options); // ƒIƒvƒVƒ‡ƒ“‚ğİ’è
+		setOptions(options); // ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’è¨­å®š
 	}
 
 	function uninit()
 	{
-		// –A—±‚ğÁ‚·
-		if(timer === void) return; // –A—±‚Í‚Å‚Ä‚¢‚È‚¢
+		// æ³¡ç²’ã‚’æ¶ˆã™
+		if(timer === void) return; // æ³¡ç²’ã¯ã§ã¦ã„ãªã„
 
 		for(var i = 0; i < bubbles.count; i++)
 			invalidate bubbles[i];
@@ -182,7 +182,7 @@ class BubblePlugin extends KAGPlugin
 
 	function setOptions(elm)
 	{
-		// ƒIƒvƒVƒ‡ƒ“‚ğİ’è‚·‚é
+		// ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’è¨­å®šã™ã‚‹
 		foreVisible = +elm.forevisible if elm.forevisible !== void;
 		backVisible = +elm.backvisible if elm.backvisible !== void;
 		resetVisibleState();
@@ -190,23 +190,23 @@ class BubblePlugin extends KAGPlugin
 
 	function onTimer()
 	{
-		// ƒ^ƒCƒ}[‚ÌüŠú‚²‚Æ‚ÉŒÄ‚Î‚ê‚é
+		// ã‚¿ã‚¤ãƒãƒ¼ã®å‘¨æœŸã”ã¨ã«å‘¼ã°ã‚Œã‚‹
 		var bubblecount = bubbles.count;
 		for(var i = 0; i < bubblecount; i++)
-			bubbles[i].move(); // move ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·
+			bubbles[i].move(); // move ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™
 	}
 
 	function resetVisibleState()
 	{
-		// ‚·‚×‚Ä‚Ì–A—±‚Ì •\¦E”ñ•\¦‚Ìó‘Ô‚ğÄİ’è‚·‚é
+		// ã™ã¹ã¦ã®æ³¡ç²’ã® è¡¨ç¤ºãƒ»éè¡¨ç¤ºã®çŠ¶æ…‹ã‚’å†è¨­å®šã™ã‚‹
 		var bubblecount = bubbles.count;
 		for(var i = 0; i < bubblecount; i++)
-			bubbles[i].resetVisibleState(); // resetVisibleState ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·
+			bubbles[i].resetVisibleState(); // resetVisibleState ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™
 	}
 
 	function onStore(f, elm)
 	{
-		// x‚ğ•Û‘¶‚·‚é‚Æ‚«
+		// æ ã‚’ä¿å­˜ã™ã‚‹ã¨ã
 		var dic = f.bubbles = %[];
 		dic.init = timer !== void;
 		dic.foreVisible = foreVisible;
@@ -216,16 +216,16 @@ class BubblePlugin extends KAGPlugin
 
 	function onRestore(f, clear, elm)
 	{
-		// x‚ğ“Ç‚İo‚·‚Æ‚«
+		// æ ã‚’èª­ã¿å‡ºã™ã¨ã
 		var dic = f.bubbles;
 		if(dic === void || !+dic.init)
 		{
-			// –A‚Í‚Å‚Ä‚¢‚È‚¢
+			// æ³¡ã¯ã§ã¦ã„ãªã„
 			uninit();
 		}
 		else if(dic !== void && +dic.init)
 		{
-			// –A‚Í‚Å‚Ä‚¢‚½
+			// æ³¡ã¯ã§ã¦ã„ãŸ
 			init(dic.bubbleCount, %[ forevisible : dic.foreVisible, backvisible : dic.backVisible ] );
 		}
 	}
@@ -240,16 +240,16 @@ class BubblePlugin extends KAGPlugin
 
 	function onCopyLayer(toback)
 	{
-		// ƒŒƒCƒ„‚Ì•\©¨— î•ñ‚ÌƒRƒs[
-		// ‚±‚Ìƒvƒ‰ƒOƒCƒ“‚Å‚ÍƒRƒs[‚·‚×‚«î•ñ‚Í•\¦E”ñ•\¦‚Ìî•ñ‚¾‚¯
+		// ãƒ¬ã‚¤ãƒ¤ã®è¡¨â†â†’è£æƒ…å ±ã®ã‚³ãƒ”ãƒ¼
+		// ã“ã®ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã§ã¯ã‚³ãƒ”ãƒ¼ã™ã¹ãæƒ…å ±ã¯è¡¨ç¤ºãƒ»éè¡¨ç¤ºã®æƒ…å ±ã ã‘
 		if(toback)
 		{
-			// •\¨— 
+			// è¡¨â†’è£
 			backVisible = foreVisible;
 		}
 		else
 		{
-			// — ¨•\
+			// è£â†’è¡¨
 			foreVisible = backVisible;
 		}
 		resetVisibleState();
@@ -257,19 +257,19 @@ class BubblePlugin extends KAGPlugin
 
 	function onExchangeForeBack()
 	{
-		// — ‚Æ•\‚ÌŠÇ—î•ñ‚ğŒğŠ·
+		// è£ã¨è¡¨ã®ç®¡ç†æƒ…å ±ã‚’äº¤æ›
 		var bubblecount = bubbles.count;
 		for(var i = 0; i < bubblecount; i++)
-			bubbles[i].exchangeForeBack(); // exchangeForeBack ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·
+			bubbles[i].exchangeForeBack(); // exchangeForeBack ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™
 	}
 }
 
 kag.addPlugin(global.bubble_object = new BubblePlugin(kag));
-	// ƒvƒ‰ƒOƒCƒ“ƒIƒuƒWƒFƒNƒg‚ğì¬‚µA“o˜^‚·‚é
+	// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã€ç™»éŒ²ã™ã‚‹
 
 @endscript
 @endif
-; ƒ}ƒNƒ“o˜^
+; ãƒã‚¯ãƒ­ç™»éŒ²
 @macro name="bubbleinit"
 @eval exp="bubble_object.init(17, mp)"
 @endmacro

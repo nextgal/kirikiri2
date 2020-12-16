@@ -8,14 +8,14 @@ object FolderSelectorForm: TFolderSelectorForm
   VertScrollBar.Tracking = True
   VertScrollBar.Visible = False
   ActiveControl = ShellTreeView
-  Caption = 'ƒtƒHƒ‹ƒ_/ƒA[ƒJƒCƒu‚Ì‘I‘ğ'
+  Caption = 'ãƒ•ã‚©ãƒ«ãƒ€/ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã®é¸æŠ'
   Color = clBtnFace
   Constraints.MinHeight = 225
   Constraints.MinWidth = 300
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   Icon.Data = {
     000001000B00404000000100200028420000B600000040400000010008002816
@@ -1449,7 +1449,7 @@ object FolderSelectorForm: TFolderSelectorForm
     Top = 8
     Width = 216
     Height = 12
-    Caption = 'ƒtƒHƒ‹ƒ_/ƒA[ƒJƒCƒu‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢(&F) :'
+    Caption = 'ãƒ•ã‚©ãƒ«ãƒ€/ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã‚’é¸æŠã—ã¦ãã ã•ã„(&F) :'
     FocusControl = ShellTreeView
   end
   object Label2: TLabel
@@ -1458,14 +1458,14 @@ object FolderSelectorForm: TFolderSelectorForm
     Width = 42
     Height = 12
     Anchors = [akLeft, akBottom]
-    Caption = '‘I‘ğ’† :'
+    Caption = 'é¸æŠä¸­ :'
   end
   object FileLabel: TLabel
     Left = 120
     Top = 384
     Width = 53
     Height = 12
-    Caption = ' (ƒtƒ@ƒCƒ‹)'
+    Caption = ' (ãƒ•ã‚¡ã‚¤ãƒ«)'
     Visible = False
   end
   object FolderLabel: TLabel
@@ -1473,7 +1473,7 @@ object FolderSelectorForm: TFolderSelectorForm
     Top = 384
     Width = 55
     Height = 12
-    Caption = ' (ƒtƒHƒ‹ƒ_)'
+    Caption = ' (ãƒ•ã‚©ãƒ«ãƒ€)'
     Visible = False
   end
   object NothingLabel: TLabel
@@ -1481,7 +1481,7 @@ object FolderSelectorForm: TFolderSelectorForm
     Top = 384
     Width = 28
     Height = 12
-    Caption = '(‚È‚µ)'
+    Caption = '(ãªã—)'
     Visible = False
   end
   object ViewPanel: TPanel
@@ -1556,7 +1556,7 @@ object FolderSelectorForm: TFolderSelectorForm
     Height = 25
     Anchors = [akRight, akBottom]
     Cancel = True
-    Caption = 'ƒLƒƒƒ“ƒZƒ‹'
+    Caption = 'ã‚­ãƒ£ãƒ³ã‚»ãƒ«'
     ModalResult = 2
     TabOrder = 1
   end
@@ -1566,7 +1566,7 @@ object FolderSelectorForm: TFolderSelectorForm
     Width = 81
     Height = 25
     Anchors = [akLeft, akBottom]
-    Caption = '‘I‘ğ‚µ‚È‚¢(&N)'
+    Caption = 'é¸æŠã—ãªã„(&N)'
     ModalResult = 3
     TabOrder = 2
   end
@@ -1608,7 +1608,7 @@ object FolderSelectorForm: TFolderSelectorForm
     Left = 288
     Top = 192
     object SelectItemMenuItem: TMenuItem
-      Caption = '‹g—¢‹g—¢‚ÅÀs'
+      Caption = 'å‰é‡Œå‰é‡Œã§å®Ÿè¡Œ'
       Default = True
       OnClick = SelectItemMenuItemClick
     end
@@ -1622,7 +1622,7 @@ object FolderSelectorForm: TFolderSelectorForm
     Left = 184
     Top = 192
     object SelectFolderMenuItem: TMenuItem
-      Caption = '‹g—¢‹g—¢‚ÅÀs'
+      Caption = 'å‰é‡Œå‰é‡Œã§å®Ÿè¡Œ'
       OnClick = SelectItemMenuItemClick
     end
     object N3: TMenuItem

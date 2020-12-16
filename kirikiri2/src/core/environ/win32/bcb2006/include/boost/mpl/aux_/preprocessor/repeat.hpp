@@ -23,8 +23,8 @@
 
 #   include "boost/preprocessor/cat.hpp"
 
-#   define BOOST_MPL_PP_REPEAT(n,f,param) \
-    BOOST_PP_CAT(BOOST_MPL_PP_REPEAT_,n)(f,param) \
+#   define BOOST_MPL_PP_REPEAT(n,f,param) ¥
+    BOOST_PP_CAT(BOOST_MPL_PP_REPEAT_,n)(f,param) ¥
     /**/
     
 #   define BOOST_MPL_PP_REPEAT_0(f,p)
@@ -43,8 +43,8 @@
 
 #   include "boost/preprocessor/repeat.hpp"
 
-#   define BOOST_MPL_PP_REPEAT(n,f,param) \
-    BOOST_PP_REPEAT_1(n,f,param) \
+#   define BOOST_MPL_PP_REPEAT(n,f,param) ¥
+    BOOST_PP_REPEAT_1(n,f,param) ¥
     /**/
 
 #endif // BOOST_MPL_NO_OWN_PP_PRIMITIVES

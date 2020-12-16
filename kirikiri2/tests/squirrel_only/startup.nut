@@ -1,14 +1,14 @@
-// ‘S—áŠO‚ğ•\¦‚·‚é
+// å…¨ä¾‹å¤–ã‚’è¡¨ç¤ºã™ã‚‹
 notifyAllExceptions(1);
-printf("squirrel test start\n");
+printf("squirrel test startÂ¥n");
 
 local cnt=0;
 while (cnt < vargc) {
 	print(format("arg%d:%s",cnt,vargv[cnt++]));
 }
 
-// ƒNƒ‰ƒX‚ğQÆ
-Window <- ::createTJSClass("TestWindow", "Window"); // Œp³ƒNƒ‰ƒX‚Í—v—ñ‹“
+// ã‚¯ãƒ©ã‚¹ã‚’å‚ç…§
+Window <- ::createTJSClass("TestWindow", "Window"); // ç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã¯è¦åˆ—æŒ™
 Layer  <- ::createTJSClass("Layer");
 System <- ::createTJSClass("System");
 
@@ -16,15 +16,15 @@ local WIDTH=800;
 local HEIGHT=600;
 
 /**
- * ƒEƒCƒ“ƒhƒEƒNƒ‰ƒX
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹
  */
 class MyWindow extends Window
 {
-	base = null;  //< ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„
-	layer = null; //< •\¦ƒŒƒCƒ„
+	base = null;  //< ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤
+	layer = null; //< è¡¨ç¤ºãƒ¬ã‚¤ãƒ¤
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 */
 	constructor(w, h) {
 		::Window.constructor();
@@ -35,60 +35,60 @@ class MyWindow extends Window
 		base.setSize(w, h);
 		add(base);
 
-		// •\¦—pƒŒƒCƒ„
+		// è¡¨ç¤ºç”¨ãƒ¬ã‚¤ãƒ¤
 		layer = Layer(this, base);
 		layer.setSize(100,100);
 		layer.fillRect(0,0,100,100,0xffff0000);
 		layer.setPos(400,100);
 		layer.visible = true;
 
-		// ƒCƒxƒ“ƒg‚ğó—‚Å‚«‚é‚æ‚¤‚ÉTJSƒCƒ“ƒXƒ^ƒ“ƒX‚ğã‘‚«‚·‚é
+		// ã‚¤ãƒ™ãƒ³ãƒˆã‚’å—ç†ã§ãã‚‹ã‚ˆã†ã«TJSã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä¸Šæ›¸ãã™ã‚‹
 
-		//tjsOverride("onMouseDown", onMouseDown);   // ‚±‚ê‚¾‚ÆƒRƒ“ƒeƒLƒXƒg‚ª global
-		//tjsOverride("onMouseDown", onMouseDown.bindenv(this));   // ‚±‚ê‚ª‘Ã“–
-		tjsOverride("onMouseDown"); // ‚±‚Ì‹Lq‚Í©“®“I‚É bindenv(this) ‚µ‚½©•ª‚Ì onMouseDown ‚ğæ“¾
+		//tjsOverride("onMouseDown", onMouseDown);   // ã“ã‚Œã ã¨ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãŒ global
+		//tjsOverride("onMouseDown", onMouseDown.bindenv(this));   // ã“ã‚ŒãŒå¦¥å½“
+		tjsOverride("onMouseDown"); // ã“ã®è¨˜è¿°ã¯è‡ªå‹•çš„ã« bindenv(this) ã—ãŸè‡ªåˆ†ã® onMouseDown ã‚’å–å¾—
 
-		//ƒRƒƒ“ƒgƒAƒEƒg‚·‚é‚ÆƒNƒ[ƒY‹‘”Û
+		//ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã™ã‚‹ã¨ã‚¯ãƒ­ãƒ¼ã‚ºæ‹’å¦
 		//tjsOverride("onCloseQuery");
 
-		// onKeyDown ‚É‚Â‚¢‚Ä‚Í TJS‘¤‚É callSQ ‚É‚æ‚éŒÄ‚Ño‚µƒuƒŠƒbƒW‹Lq‚ª‚ ‚é
+		// onKeyDown ã«ã¤ã„ã¦ã¯ TJSå´ã« callSQ ã«ã‚ˆã‚‹å‘¼ã³å‡ºã—ãƒ–ãƒªãƒƒã‚¸è¨˜è¿°ãŒã‚ã‚‹
 	}
 
 	/**
-	 * Àsˆ—
+	 * å®Ÿè¡Œå‡¦ç†
 	 */
 	function main() {
-		// ƒƒCƒ“ƒ‹[ƒv‚ğ\’z
+		// ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—ã‚’æ§‹ç¯‰
 		while (tjsIsValid()) {
 			if (System.getKeyState(13)) { // VK_RETURN
 				break;
 			}
 			local tick = ::getCurrentTick();
 			layer.left = 400 + 200*sin(2 * PI * tick / 1000);
-			// ‚±‚ê‚É‚æ‚è•`‰æˆ—‚ª‚¢‚Á‚½‚ñ‹g—¢‹g—¢‚É–ß‚é
+			// ã“ã‚Œã«ã‚ˆã‚Šæç”»å‡¦ç†ãŒã„ã£ãŸã‚“å‰é‡Œå‰é‡Œã«æˆ»ã‚‹
 			::suspend();
 		}
 	};
 	
 	/**
-	 * ƒ}ƒEƒX‰Ÿ‚µ‰º‚°ƒCƒxƒ“ƒg
+	 * ãƒã‚¦ã‚¹æŠ¼ã—ä¸‹ã’ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	function onMouseDown(x, y, button, shift) {
-		printf("%s:onMouseDown:%d,%d,%d,%d\n", this, x, y, button, shift);
+		printf("%s:onMouseDown:%d,%d,%d,%dÂ¥n", this, x, y, button, shift);
 	}
 
 	/**
-	 * ƒL[‰Ÿ‚µ‰º‚°ƒCƒxƒ“ƒg
+	 * ã‚­ãƒ¼æŠ¼ã—ä¸‹ã’ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	function onKeyDown(key,shift) {
-		printf("%s:onKeyDown:%02x,%02x\n", this, key, shift);
+		printf("%s:onKeyDown:%02x,%02xÂ¥n", this, key, shift);
 	}
 
 	/**
-	 * I—¹Šm”FƒCƒxƒ“ƒg
+	 * çµ‚äº†ç¢ºèªã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	function onCloseQuery(onclose) {
-		// I—¹‚³‚¹‚È‚¢
+		// çµ‚äº†ã•ã›ãªã„
 		::Window.onCloseQuery(false);
 	}
 

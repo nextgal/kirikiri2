@@ -6,13 +6,13 @@ typedef std::basic_string<TCHAR> tstring;
 typedef std::tr1::basic_regex<TCHAR> tregex;
 typedef std::tr1::match_results<tstring::const_iterator> tmatch;
 
-// Content-Type ƒƒ^ƒ^ƒO‚ğƒ}ƒbƒ`ƒ“ƒO‚·‚é³‹K•\Œ»B‘å•¶š¬•¶š‚Í–³‹
-static tregex regctype(_T("<meta[ \\t]+http-equiv=(\\\"content-type\\\"|'content-type'|content-type)[ \\t]+content=(\\\"[^\\\"]*\\\"|'[^']*'|[^ \\t>]+).*>"), tregex::icase);
+// Content-Type ãƒ¡ã‚¿ã‚¿ã‚°ã‚’ãƒãƒƒãƒãƒ³ã‚°ã™ã‚‹æ­£è¦è¡¨ç¾ã€‚å¤§æ–‡å­—å°æ–‡å­—ã¯ç„¡è¦–
+static tregex regctype(_T("<meta[ Â¥Â¥t]+http-equiv=(Â¥Â¥Â¥"content-typeÂ¥Â¥Â¥"|'content-type'|content-type)[ Â¥Â¥t]+content=(Â¥Â¥Â¥"[^Â¥Â¥Â¥"]*Â¥Â¥Â¥"|'[^']*'|[^ Â¥Â¥t>]+).*>"), tregex::icase);
 
 /**
- * text ’†‚©‚ç Content-Type ‚Ìƒƒ^ƒ^ƒO‚ğ’T‚µ‚ÄAw’è‚³‚ê‚Ä‚é’l (content=) ‚ğ•Ô‚·B
- * @param text ’T¸‘ÎÛ
- * @param ctype Œ‹‰ÊŠi”[æ
+ * text ä¸­ã‹ã‚‰ Content-Type ã®ãƒ¡ã‚¿ã‚¿ã‚°ã‚’æ¢ã—ã¦ã€æŒ‡å®šã•ã‚Œã¦ã‚‹å€¤ (content=) ã‚’è¿”ã™ã€‚
+ * @param text æ¢æŸ»å¯¾è±¡
+ * @param ctype çµæœæ ¼ç´å…ˆ
  */
 bool
 matchContentType(tstring &text, tstring &ctype)
@@ -23,8 +23,8 @@ matchContentType(tstring &text, tstring &ctype)
 		int len = str.size();
 		const TCHAR *buf = str.c_str();
 		if (len > 0) {
-			if (buf[0] == '\'' || buf[0] == '"') {
-				// ƒNƒI[ƒg‚³‚ê‚Ä‚éê‡‚Í‚»‚ê‚ğæ‚èœ‚­
+			if (buf[0] == 'Â¥'' || buf[0] == '"') {
+				// ã‚¯ã‚ªãƒ¼ãƒˆã•ã‚Œã¦ã‚‹å ´åˆã¯ãã‚Œã‚’å–ã‚Šé™¤ã
 				ctype = tstring(buf+1, len-2);
 			} else {
 				ctype = tstring(buf, len);

@@ -4,9 +4,9 @@
 #pragma hdrstop
 USERES("sigchk.res");
 USEFORM("MainUnit.cpp", MainForm);
-USEUNIT("krkrsiglib\KrkrExecutableUnit.cpp");
-USEUNIT("krkrsiglib\KrkrSignatureUnit.cpp");
-USELIB("..\..\..\..\..\..\..\Lib\libtomcrypt1.lib");
+USEUNIT("krkrsiglib¥KrkrExecutableUnit.cpp");
+USEUNIT("krkrsiglib¥KrkrSignatureUnit.cpp");
+USELIB("..¥..¥..¥..¥..¥..¥..¥Lib¥libtomcrypt1.lib");
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {

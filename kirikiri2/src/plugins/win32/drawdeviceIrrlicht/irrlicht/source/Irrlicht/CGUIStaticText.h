@@ -25,7 +25,7 @@ namespace gui
 			bool background = false);
 
 		//! destructor
-		virtual ~CGUIStaticText();
+		virtual ‾CGUIStaticText();
 
 		//! draws the element and its children
 		virtual void draw();

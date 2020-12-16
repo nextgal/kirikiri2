@@ -61,7 +61,7 @@ public:
 			bit ++;
 			for(; bit <= 31; bit++)
 			{
-				tam &= ~(1<<bit);
+				tam &= ‾(1<<bit);
 			}
 
 			SetThreadAffinityMask(GetHandle(), tam);
@@ -70,7 +70,7 @@ public:
 		Resume();
 	}
 
-	~tTVPEmergencyExitThread()
+	‾tTVPEmergencyExitThread()
 	{
 		Terminate();
 		Event.Set();

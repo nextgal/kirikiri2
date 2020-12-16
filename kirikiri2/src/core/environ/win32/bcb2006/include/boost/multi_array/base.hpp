@@ -153,7 +153,7 @@ protected:
   }
 
   value_accessor_n() { }
-  ~value_accessor_n() { }
+  ‾value_accessor_n() { }
 };
 
 
@@ -187,7 +187,7 @@ protected:
   }
 
   value_accessor_one() { }
-  ~value_accessor_one() { }
+  ‾value_accessor_one() { }
 };
 
 
@@ -311,7 +311,7 @@ protected:
   typedef iterator_base<T,const T*> const_iter_base;
 
   multi_array_impl_base() { }
-  ~multi_array_impl_base() { }
+  ‾multi_array_impl_base() { }
 
   // Used by operator() in our array classes
   template <typename Reference, typename IndexList, typename TPtr>

@@ -31,7 +31,7 @@ namespace video
 			bool stencibuffer, io::IFileSystem* io, bool pureSoftware=false);
 
 		//! destructor
-		virtual ~CD3D9Driver();
+		virtual ‾CD3D9Driver();
 
 		//! applications must call this method before performing any rendering. returns false if failed.
 		virtual bool beginScene(bool backBuffer, bool zBuffer, SColor color);
@@ -93,7 +93,7 @@ namespace video
 				u32 bits, bool fullScreen, bool pureSoftware,
 				bool highPrecisionFPU, bool vsync, bool antiAlias);
 
-		//! \return Returns the name of the video driver. Example: In case of the DIRECT3D8
+		//! ¥return Returns the name of the video driver. Example: In case of the DIRECT3D8
 		//! driver, it would return "Direct3D8.1".
 		virtual const wchar_t* getName() const;
 
@@ -108,7 +108,7 @@ namespace video
 
 		//! Sets the dynamic ambient light color. The default color is
 		//! (0,0,0,0) which means it is dark.
-		//! \param color: New color of the ambient light.
+		//! ¥param color: New color of the ambient light.
 		virtual void setAmbientLight(const SColorf& color);
 
 		//! Draws a shadow volume into the stencil buffer. To draw a stencil shadow, do
@@ -181,15 +181,15 @@ namespace video
 
 		//! Set/unset a clipping plane.
 		//! There are at least 6 clipping planes available for the user to set at will.
-		//! \param index: The plane index. Must be between 0 and MaxUserClipPlanes.
-		//! \param plane: The plane itself.
-		//! \param enable: If true, enable the clipping plane else disable it.
+		//! ¥param index: The plane index. Must be between 0 and MaxUserClipPlanes.
+		//! ¥param plane: The plane itself.
+		//! ¥param enable: If true, enable the clipping plane else disable it.
 		virtual bool setClipPlane(u32 index, const core::plane3df& plane, bool enable=false);
 
 		//! Enable/disable a clipping plane.
 		//! There are at least 6 clipping planes available for the user to set at will.
-		//! \param index: The plane index. Must be between 0 and MaxUserClipPlanes.
-		//! \param enable: If true, enable the clipping plane else disable it.
+		//! ¥param index: The plane index. Must be between 0 and MaxUserClipPlanes.
+		//! ¥param enable: If true, enable the clipping plane else disable it.
 		virtual void enableClipPlane(u32 index, bool enable);
 
 	private:

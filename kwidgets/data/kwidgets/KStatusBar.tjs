@@ -4,7 +4,7 @@
 
 
 /**----------------------------------------------------------------------
- * ƒXƒe[ƒ^ƒXƒo[
+ * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼
  ----------------------------------------------------------------------*/
 class KStatusBar extends KWidget
 {
@@ -13,13 +13,13 @@ class KStatusBar extends KWidget
   var _attachToWindow;
 
   /*------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param name åå‰
    ------------------------------*/
   function KStatusBar(win, name = "") {
-    // eƒNƒ‰ƒXŒÄ‚Ño‚µ
+    // è¦ªã‚¯ãƒ©ã‚¹å‘¼ã³å‡ºã—
     super.KWidget(win, name);
     _label = "";
     _defaultLabel = "";
@@ -29,10 +29,10 @@ class KStatusBar extends KWidget
   }
   
   /**------------------------------
-   * ƒfƒtƒHƒ‹ƒgƒ‰ƒxƒ‹‚Ì’l
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ©ãƒ™ãƒ«ã®å€¤
    *
-   * @return ƒfƒtƒHƒ‹ƒgƒ‰ƒxƒ‹‚Ì’l
-   * @param v V‹K‚ÌƒfƒtƒHƒ‹ƒgƒ‰ƒxƒ‹‚Ì’l
+   * @return ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ©ãƒ™ãƒ«ã®å€¤
+   * @param v æ–°è¦ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ©ãƒ™ãƒ«ã®å€¤
    ------------------------------*/
   property defaultLabel {
     getter {
@@ -40,21 +40,21 @@ class KStatusBar extends KWidget
     }
 
     setter(v) {
-      // “à—e‚ªXV‚³‚ê‚Ä‚¢‚é‚¾‚¯ˆ—
+      // å†…å®¹ãŒæ›´æ–°ã•ã‚Œã¦ã„ã‚‹æ™‚ã ã‘å‡¦ç†
       if (_defaultLabel == v)
         return;
-      // ’l‚ğXV
+      // å€¤ã‚’æ›´æ–°
       _defaultLabel = v;
-      // Ä•`‰æ
+      // å†æç”»
       drawContent();
     }
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹‚Ì’l
+   * ãƒ©ãƒ™ãƒ«ã®å€¤
    *
-   * @return ƒ‰ƒxƒ‹‚Ì’l
-   * @param v V‹K‚Ìƒ‰ƒxƒ‹‚Ì’l
+   * @return ãƒ©ãƒ™ãƒ«ã®å€¤
+   * @param v æ–°è¦ã®ãƒ©ãƒ™ãƒ«ã®å€¤
    ------------------------------*/
   property label {
     getter {
@@ -62,18 +62,18 @@ class KStatusBar extends KWidget
     }
 
     setter(v) {
-      // “à—e‚ªXV‚³‚ê‚Ä‚¢‚é‚¾‚¯ˆ—
+      // å†…å®¹ãŒæ›´æ–°ã•ã‚Œã¦ã„ã‚‹æ™‚ã ã‘å‡¦ç†
       if (_label == v)
         return;
-      // ’l‚ğXV
+      // å€¤ã‚’æ›´æ–°
       _label = v;
-      // Ä•`‰æ
+      // å†æç”»
       drawContent();
     }
   }
 
   /**------------------------------
-   * ƒEƒBƒ“ƒhƒE‚ÉƒAƒ^ƒbƒ`‚·‚é‚©‚Ç‚¤‚©
+   * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ã‚¢ã‚¿ãƒƒãƒã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   property attachToWindow {
     getter {
@@ -92,46 +92,46 @@ class KStatusBar extends KWidget
     }
   }
 
-  // ƒŒƒCƒAƒEƒg‚â‚è’¼‚µ
+  // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚„ã‚Šç›´ã—
   function invalidateLayout {
     setMinMaxSize(1, fontHeight, maxWidth, fontHeight);
   }
 
-  // Ä•`‰æ
+  // å†æç”»
   function drawContent {
-    // “§–¾‚É“h‚è‚Â‚Ô‚µ
+    // é€æ˜ã«å¡—ã‚Šã¤ã¶ã—
     fillRect(0, 0, width, height, 0);
-    // •‚ÅƒeƒLƒXƒg•`‰æ
+    // é»’ã§ãƒ†ã‚­ã‚¹ãƒˆæç”»
     drawText(0, 0, _label.length ? _label : _defaultLabel, fontColor, 255);
   }
 
-  // ƒtƒHƒ“ƒgƒJƒ‰[‚ª•ÏX‚³‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ³ãƒˆã‚«ãƒ©ãƒ¼ãŒå¤‰æ›´ã•ã‚ŒãŸã‚‰å†æç”»
   function onFontColorModified {
     drawContent();
   }
 
-  // ƒtƒHƒ“ƒgƒtƒFƒCƒX‚ª•ÏX‚³‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚§ã‚¤ã‚¹ãŒå¤‰æ›´ã•ã‚ŒãŸã‚‰å†æç”»
   function onFontFaceModified {
     drawContent();
   }
 
-  // ƒtƒHƒ“ƒgƒwƒCƒg‚ª•ÏX‚³‚ê‚½‚çƒŒƒCƒAƒEƒg‚â‚è’¼‚µ
+  // ãƒ•ã‚©ãƒ³ãƒˆãƒ˜ã‚¤ãƒˆãŒå¤‰æ›´ã•ã‚ŒãŸã‚‰ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚„ã‚Šç›´ã—
   function onFontHeightModified {
     invalidateLayout();
     drawContent();
   }
 
-  // ƒTƒCƒY‚ª•Ï‚í‚Á‚½‚çÄ•`‰æ
+  // ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã£ãŸã‚‰å†æç”»
   function onSizeModified {
     drawContent();
   }
 
-  // enabled==true‚È‚ç‚»‚Ì‚Ü‚Ü•\¦
+  // enabled==trueãªã‚‰ãã®ã¾ã¾è¡¨ç¤º
   function onNodeEnabled {
     opacity = 255;
   }
 
-  // enabled=false‚È‚ç”¼“§–¾‚Å•\¦
+  // enabled=falseãªã‚‰åŠé€æ˜ã§è¡¨ç¤º
   function onNodeDisabled {
     opacity = 64;
   }

@@ -26,7 +26,7 @@ sub copy_file
 {
 	my $src = $_[0];
 	my $dest = $_[1];
-	print "Copying $src to $dest ...\n";
+	print "Copying $src to $dest ...¥n";
     open(SRC, $src) or die "Can't open '$src': $!";
     open(DEST, ">$dest") or die "Can't open '$dest': $!";
 	binmode SRC;

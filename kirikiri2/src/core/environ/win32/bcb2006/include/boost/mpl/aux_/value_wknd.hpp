@@ -19,7 +19,7 @@
 
 #include "boost/mpl/aux_/config/eti.hpp"
 
-#if defined(__BORLANDC__) && (__BORLANDC__ <= 0x561 || !defined(BOOST_STRICT_CONFIG)) \
+#if defined(__BORLANDC__) && (__BORLANDC__ <= 0x561 || !defined(BOOST_STRICT_CONFIG)) ¥
  || defined(BOOST_MPL_MSVC_60_ETI_BUG)
  
 #   include "boost/mpl/int.hpp"

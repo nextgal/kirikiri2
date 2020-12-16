@@ -65,7 +65,7 @@ tTJSScriptBlock::tTJSScriptBlock( tTJS* owner,  const tjs_char* name, tjs_int li
 	Owner->AddScriptBlock(this);
 }
 //---------------------------------------------------------------------------
-tTJSScriptBlock::~tTJSScriptBlock()
+tTJSScriptBlock::‾tTJSScriptBlock()
 {
 	if(TopLevelContext) TopLevelContext->Release(), TopLevelContext = NULL;
 	while(ContextStack.size())
@@ -232,7 +232,7 @@ void tTJSScriptBlock::SetText(tTJSVariant *result, const tjs_char *text,
 	if(!text) return;
 	if(!text[0]) return;
 
-	TJS_D((TJS_W("Counting lines ...\n")))
+	TJS_D((TJS_W("Counting lines ...¥n")))
 
 	Script = new tjs_char[TJS_strlen(text)+1];
 	TJS_strcpy(Script, text);
@@ -242,11 +242,11 @@ void tTJSScriptBlock::SetText(tTJSVariant *result, const tjs_char *text,
 	tjs_char *p = Script;
 	while(*p)
 	{
-		if(*p == TJS_W('\r') || *p == TJS_W('\n'))
+		if(*p == TJS_W('¥r') || *p == TJS_W('¥n'))
 		{
 			LineVector.push_back(int(ls - Script));
 			LineLengthVector.push_back(int(p - ls));
-			if(*p == TJS_W('\r') && p[1] == TJS_W('\n')) p++;
+			if(*p == TJS_W('¥r') && p[1] == TJS_W('¥n')) p++;
 			p++;
 			ls = p;
 		}
@@ -583,10 +583,10 @@ void tTJSScriptBlock::Compile( const tjs_char *text, bool isexpression, bool isr
 		tjs_char *ls = Script;
 		tjs_char *p = Script;
 		while( *p ) {
-			if(*p == TJS_W('\r') || *p == TJS_W('\n')) {
+			if(*p == TJS_W('¥r') || *p == TJS_W('¥n')) {
 				LineVector.push_back(int(ls - Script));
 				LineLengthVector.push_back(int(p - ls));
-				if(*p == TJS_W('\r') && p[1] == TJS_W('\n')) p++;
+				if(*p == TJS_W('¥r') && p[1] == TJS_W('¥n')) p++;
 				p++;
 				ls = p;
 			} else {
@@ -626,7 +626,7 @@ void tTJSScriptBlock::Compile( const tjs_char *text, bool isexpression, bool isr
 #define TJS_OFFSET_VM_REG_ADDR( x ) ( (x) = TJS_FROM_VM_REG_ADDR(x) )
 #define TJS_OFFSET_VM_CODE_ADDR( x ) ( (x) = TJS_FROM_VM_CODE_ADDR(x) )
 /**
- * �o�C�g�R�[�h���̃A�h���X�͔z��̃C���f�b�N�X���w���̂ŁA����ɍ��킹�ĕϊ�
+ * バイトコード中のアドレスは配列のインデックスを指すので、それに合わせて変換
  */
 void tTJSScriptBlock::TranslateCodeAddress( tjs_int32* code, const tjs_int32 codeSize )
 {
@@ -642,11 +642,11 @@ void tTJSScriptBlock::TranslateCodeAddress( tjs_int32* code, const tjs_int32 cod
 			size = 3;
 			break;
 
-#define OP2_DISASM(c) \
-	case c: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		size = 3; \
+#define OP2_DISASM(c) ¥
+	case c: ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); ¥
+		size = 3; ¥
 		break
 
 		OP2_DISASM(VM_CP);
@@ -657,31 +657,31 @@ void tTJSScriptBlock::TranslateCodeAddress( tjs_int32* code, const tjs_int32 cod
 		OP2_DISASM(VM_CHKINS);
 #undef OP2_DISASM
 
-#define OP2_DISASM(c) \
-	case c: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		size = 3; \
-		break; \
-	case c+1: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+3]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+4]); \
-		size = 5; \
-		break; \
-	case c+2: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+3]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+4]); \
-		size = 5; \
-		break; \
-	case c+3: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+3]); \
-		size = 4; \
+#define OP2_DISASM(c) ¥
+	case c: ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); ¥
+		size = 3; ¥
+		break; ¥
+	case c+1: ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+3]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+4]); ¥
+		size = 5; ¥
+		break; ¥
+	case c+2: ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+3]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+4]); ¥
+		size = 5; ¥
+		break; ¥
+	case c+3: ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+3]); ¥
+		size = 4; ¥
 		break
 
 		OP2_DISASM(VM_LOR);
@@ -728,27 +728,27 @@ void tTJSScriptBlock::TranslateCodeAddress( tjs_int32* code, const tjs_int32 cod
 			size = 3;
 			break;
 
-#define OP1_DISASM(c) \
-	case c: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		size = 2; \
-		break; \
-	case c+1: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+3]); \
-		size = 4; \
-		break; \
-	case c+2: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+3]); \
-		size = 4; \
-		break; \
-	case c+3: \
-		TJS_OFFSET_VM_REG_ADDR(code[i+1]); \
-		TJS_OFFSET_VM_REG_ADDR(code[i+2]); \
-		size = 3; \
+#define OP1_DISASM(c) ¥
+	case c: ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); ¥
+		size = 2; ¥
+		break; ¥
+	case c+1: ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+3]); ¥
+		size = 4; ¥
+		break; ¥
+	case c+2: ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+3]); ¥
+		size = 4; ¥
+		break; ¥
+	case c+3: ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+1]); ¥
+		TJS_OFFSET_VM_REG_ADDR(code[i+2]); ¥
+		size = 3; ¥
 		break
 
 		OP1_DISASM(VM_INC);

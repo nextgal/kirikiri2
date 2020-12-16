@@ -23,7 +23,7 @@ void SaveTLGWithMetaInfo(TStrings *names, Graphics::TBitmap *in,
 		else
 		{
 			// write TLG0.0 Structured Data Stream header
-			filestream->WriteBuffer("TLG0.0\x00sds\x1a\x00", 11);
+			filestream->WriteBuffer("TLG0.0¥x00sds¥x1a¥x00", 11);
 			unsigned int rawlenpos = filestream->Position;
 			filestream->WriteBuffer("0000", 4);
 

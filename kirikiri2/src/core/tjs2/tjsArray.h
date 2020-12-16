@@ -34,7 +34,7 @@ class tTJSStringAppender
 
 public:
 	tTJSStringAppender();
-	~tTJSStringAppender();
+	‾tTJSStringAppender();
 
 	tjs_int GetLen() const { return DataLen; }
 	const tjs_char * GetData() const { return Data; }
@@ -66,7 +66,7 @@ class tTJSArrayClass : public tTJSNativeClass
 
 public:
 	tTJSArrayClass();
-	~tTJSArrayClass();
+	‾tTJSArrayClass();
 
 protected:
 	tTJSNativeInstance *CreateNativeInstance();
@@ -152,7 +152,7 @@ class tTJSArrayObject : public tTJSCustomObject
 
 public:
 	tTJSArrayObject();
-	~tTJSArrayObject();
+	‾tTJSArrayObject();
 
 protected:
 	void Finalize(); // Finalize override

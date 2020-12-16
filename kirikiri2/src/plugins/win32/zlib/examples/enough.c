@@ -296,7 +296,7 @@ local int beenhere(int syms, int len, int left, int mem, int rem)
 
         /* in either case, bail if we can't get the memory */
         if (vector == NULL) {
-            fputs("abort: unable to allocate enough memory\n", stderr);
+            fputs("abort: unable to allocate enough memory¥n", stderr);
             cleanup();
             exit(1);
         }
@@ -342,7 +342,7 @@ local void examine(int syms, int len, int left, int mem, int rem)
             for (use = root + 1; use <= max; use++)
                 if (code[use])
                     printf("%d[%d] ", code[use], use);
-            putchar('\n');
+            putchar('¥n');
             fflush(stdout);
         }
 
@@ -427,7 +427,7 @@ local void enough(int syms)
             }
 
     /* done */
-    printf("done: maximum of %d table entries\n", large);
+    printf("done: maximum of %d table entries¥n", large);
 }
 
 /*
@@ -477,7 +477,7 @@ int main(int argc, char **argv)
                 }
     }
     if (argc > 4 || syms < 2 || root < 1 || max < 1) {
-        fputs("invalid arguments, need: [sym >= 2 [root >= 1 [max >= 1]]]\n",
+        fputs("invalid arguments, need: [sym >= 2 [root >= 1 [max >= 1]]]¥n",
                           stderr);
         return 1;
     }
@@ -493,13 +493,13 @@ int main(int argc, char **argv)
 
     /* make sure that the calculation of most will not overflow */
     if (max > n || syms - 2 >= (((code_t)0 - 1) >> (max - 1))) {
-        fputs("abort: code length too long for internal types\n", stderr);
+        fputs("abort: code length too long for internal types¥n", stderr);
         return 1;
     }
 
     /* reject impossible code requests */
     if (syms - 1 > ((code_t)1 << max) - 1) {
-        fprintf(stderr, "%d symbols cannot be coded in %d bits\n",
+        fprintf(stderr, "%d symbols cannot be coded in %d bits¥n",
                 syms, max);
         return 1;
     }
@@ -507,7 +507,7 @@ int main(int argc, char **argv)
     /* allocate code vector */
     code = calloc(max + 1, sizeof(int));
     if (code == NULL) {
-        fputs("abort: unable to allocate enough memory\n", stderr);
+        fputs("abort: unable to allocate enough memory¥n", stderr);
         return 1;
     }
 
@@ -521,7 +521,7 @@ int main(int argc, char **argv)
                 (size *= n, size > ((size_t)0 - 1) / (n = max - 1)) ||
                 (size *= n, size > ((size_t)0 - 1) / sizeof(big_t)) ||
                 (num = calloc(size, sizeof(big_t))) == NULL) {
-            fputs("abort: unable to allocate enough memory\n", stderr);
+            fputs("abort: unable to allocate enough memory¥n", stderr);
             cleanup();
             return 1;
         }
@@ -533,15 +533,15 @@ int main(int argc, char **argv)
         got = count(n, 1, 2);
         sum += got;
         if (got == -1 || sum < got) {       /* overflow */
-            fputs("abort: can't count that high!\n", stderr);
+            fputs("abort: can't count that high!¥n", stderr);
             cleanup();
             return 1;
         }
-        printf("%llu %d-codes\n", got, n);
+        printf("%llu %d-codes¥n", got, n);
     }
     printf("%llu total codes for 2 to %d symbols", sum, syms);
     if (max < syms - 1)
-        printf(" (%d-bit length limit)\n", max);
+        printf(" (%d-bit length limit)¥n", max);
     else
         puts(" (no length limit)");
 
@@ -550,7 +550,7 @@ int main(int argc, char **argv)
         done = NULL;
     else if (size > ((size_t)0 - 1) / sizeof(struct tab) ||
              (done = calloc(size, sizeof(struct tab))) == NULL) {
-        fputs("abort: unable to allocate enough memory\n", stderr);
+        fputs("abort: unable to allocate enough memory¥n", stderr);
         cleanup();
         return 1;
     }

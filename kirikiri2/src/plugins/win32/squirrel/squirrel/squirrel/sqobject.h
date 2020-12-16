@@ -59,7 +59,7 @@ enum SQMetaMethod{
 struct SQRefCounted
 {
 	SQRefCounted() { _uiRef = 0; _weakref = NULL; }
-	virtual ~SQRefCounted();
+	virtual ‾SQRefCounted();
 	SQWeakRef *GetWeakRef(SQObjectType type);
 	SQUnsignedInteger _uiRef;
 	struct SQWeakRef *_weakref;
@@ -76,27 +76,27 @@ struct SQWeakRef : SQRefCounted
 
 struct SQObjectPtr;
 
-#define __AddRef(type,unval) if(ISREFCOUNTED(type))	\
-		{ \
-			unval.pRefCounted->_uiRef++; \
+#define __AddRef(type,unval) if(ISREFCOUNTED(type))	¥
+		{ ¥
+			unval.pRefCounted->_uiRef++; ¥
 		}  
 
-#define __Release(type,unval) if(ISREFCOUNTED(type) && ((--unval.pRefCounted->_uiRef)<=0))	\
-		{	\
-			unval.pRefCounted->Release();	\
+#define __Release(type,unval) if(ISREFCOUNTED(type) && ((--unval.pRefCounted->_uiRef)<=0))	¥
+		{	¥
+			unval.pRefCounted->Release();	¥
 		}
 
-#define __ObjRelease(obj) { \
-	if((obj)) {	\
-		(obj)->_uiRef--; \
-		if((obj)->_uiRef == 0) \
-			(obj)->Release(); \
-		(obj) = NULL;	\
-	} \
+#define __ObjRelease(obj) { ¥
+	if((obj)) {	¥
+		(obj)->_uiRef--; ¥
+		if((obj)->_uiRef == 0) ¥
+			(obj)->Release(); ¥
+		(obj) = NULL;	¥
+	} ¥
 }
 
-#define __ObjAddRef(obj) { \
-	(obj)->_uiRef++; \
+#define __ObjAddRef(obj) { ¥
+	(obj)->_uiRef++; ¥
 }
 
 #define type(obj) ((obj)._type)
@@ -271,7 +271,7 @@ struct SQObjectPtr : public SQObject
 		_type=OT_USERPOINTER;
 		_unVal.pUserPointer=pUserPointer;
 	}
-	~SQObjectPtr()
+	‾SQObjectPtr()
 	{
 		__Release(_type,_unVal);
 	}

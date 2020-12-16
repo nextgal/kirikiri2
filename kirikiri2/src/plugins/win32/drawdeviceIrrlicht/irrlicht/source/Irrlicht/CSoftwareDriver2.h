@@ -24,7 +24,7 @@ namespace video
 		CSoftwareDriver2(const core::dimension2d<s32>& windowSize, bool fullscreen, io::IFileSystem* io, video::IImagePresenter* presenter);
 
 		//! destructor
-		virtual ~CSoftwareDriver2();
+		virtual ‾CSoftwareDriver2();
 
 		//! presents the rendered scene on the screen, returns false if failed
 		virtual bool endScene( s32 windowId = 0, core::rect<s32>* sourceRect=0, core::rect<s32>* destRect=0, void* destDC=0 );
@@ -65,7 +65,7 @@ namespace video
 
 		//! Sets the dynamic ambient light color. The default color is
 		//! (0,0,0,0) which means it is dark.
-		//! \param color: New color of the ambient light.
+		//! ¥param color: New color of the ambient light.
 		virtual void setAmbientLight(const SColorf& color);
 
 		//! draws a vertex primitive list
@@ -96,7 +96,7 @@ namespace video
 					const core::position2d<s32>& end,
 					SColor color=SColor(255,255,255,255));
 
-		//! \return Returns the name of the video driver. Example: In case of the DirectX8
+		//! ¥return Returns the name of the video driver. Example: In case of the DirectX8
 		//! driver, it would return "Direct3D8.1".
 		virtual const wchar_t* getName() const;
 

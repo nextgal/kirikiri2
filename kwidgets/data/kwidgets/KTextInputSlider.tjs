@@ -4,26 +4,26 @@
 
 
 /**----------------------------------------------------------------------
- * ƒeƒLƒXƒgƒCƒ“ƒvƒbƒgƒXƒ‰ƒCƒ_[
+ * ãƒ†ã‚­ã‚¹ãƒˆã‚¤ãƒ³ãƒ—ãƒƒãƒˆã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼
  ----------------------------------------------------------------------*/
 class KTextInputSlider extends KGridLayout
 {
   var _value;
   var textInput;
   var slider;
-  // «‘
+  // è¾æ›¸
   var dict;
 
   /*------------------------------
-   * ƒeƒLƒXƒgƒCƒ“ƒvƒbƒg‚ÆƒXƒ‰ƒCƒ_[‚ğ‡¬‚µ‚½ƒEƒBƒWƒFƒbƒg‚Å‚·B
+   * ãƒ†ã‚­ã‚¹ãƒˆã‚¤ãƒ³ãƒ—ãƒƒãƒˆã¨ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã‚’åˆæˆã—ãŸã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã§ã™ã€‚
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param w •
-   * @param h ‚‚³
-   * @param minValue ’l‚ÌÅ¬’l
-   * @param maxValue ’l‚ÌÅ‘å’l
-   * @param name –¼‘O
-   * @param step ‚İ•
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param w å¹…
+   * @param h é«˜ã•
+   * @param minValue å€¤ã®æœ€å°å€¤
+   * @param maxValue å€¤ã®æœ€å¤§å€¤
+   * @param name åå‰
+   * @param step åˆ»ã¿å¹…
    ------------------------------*/
   function KTextInputSlider(win, w, h, leftValue, rightValue, step = 1, name = "") {
     super.KGridLayout(win, name);
@@ -38,7 +38,7 @@ class KTextInputSlider extends KGridLayout
   }
 
   /*------------------------------
-   * ƒtƒ@ƒCƒiƒ‰ƒCƒU
+   * ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
    ------------------------------*/
   function finalize {
     if (dict) {
@@ -48,7 +48,7 @@ class KTextInputSlider extends KGridLayout
   }
 
   /*------------------------------
-   * ‰i‘±‰»«‘‚ğ’l‚ÉƒoƒCƒ“ƒh‚·‚é
+   * æ°¸ç¶šåŒ–è¾æ›¸ã‚’å€¤ã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    ------------------------------*/
   function bindPersistentDictionary(dict) {
     if (name !== void) {
@@ -58,9 +58,9 @@ class KTextInputSlider extends KGridLayout
   }
 
   /**------------------------------
-   * ƒCƒxƒ“ƒg‚ğ”­¶‚³‚¹‹­§“I‚ÉŒ»İ‚Ì’l‚ğ’Ê’m‚·‚éB
+   * ã‚¤ãƒ™ãƒ³ãƒˆã‚’ç™ºç”Ÿã•ã›å¼·åˆ¶çš„ã«ç¾åœ¨ã®å€¤ã‚’é€šçŸ¥ã™ã‚‹ã€‚
    *
-   * Œ»İ‚Ì’l‚Å onValueModified‚ğŒÄ‚Ñ‚Ü‚·B
+   * ç¾åœ¨ã®å€¤ã§ onValueModifiedã‚’å‘¼ã³ã¾ã™ã€‚
    ------------------------------*/
   function invalidateValue {
     if (nodeEnabled)
@@ -68,10 +68,10 @@ class KTextInputSlider extends KGridLayout
   }
 
   /**------------------------------
-   * ’l‚ğİ’è‚·‚é
+   * å€¤ã‚’è¨­å®šã™ã‚‹
    *
-   * @param v ’l
-   * @return ’l
+   * @param v å€¤
+   * @return å€¤
    ------------------------------*/
   property value {
     getter {
@@ -90,9 +90,9 @@ class KTextInputSlider extends KGridLayout
   }
 
   /*------------------------------
-   * q‘·ƒEƒBƒWƒFƒbƒg‚©‚ç“Á’è‚Ì–¼‘O‚ğ‚Á‚½qƒEƒBƒWƒFƒbƒg‚ğ‘{‚·
+   * å­å­«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‹ã‚‰ç‰¹å®šã®åå‰ã‚’æŒã£ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æœã™
    *
-   * q‚Ìu–¼‘Ov‚ğE‚í‚È‚¢‚æ‚¤‚Éƒgƒ‰ƒbƒvB
+   * å­ã®ã€Œåå‰ã€ã‚’æ‹¾ã‚ãªã„ã‚ˆã†ã«ãƒˆãƒ©ãƒƒãƒ—ã€‚
    ------------------------------*/
   function find(name) {
     if (this.name === name)
@@ -109,10 +109,10 @@ class KTextInputSlider extends KGridLayout
   }
 
   /**------------------------------
-   * ’l‚Ì•Ï‰»—Ê‚ğİ’è‚·‚é
+   * å€¤ã®å¤‰åŒ–é‡ã‚’è¨­å®šã™ã‚‹
    *
-   * @param v ’l
-   * @return ’l
+   * @param v å€¤
+   * @return å€¤
    ------------------------------*/
   property step {
     getter {
@@ -123,17 +123,17 @@ class KTextInputSlider extends KGridLayout
       {
         var l = leftValue, r = rightValue;
         slider.step = v;
-        leftValue = l; // step ‚Ì•Ï‰»‚É”º‚¤AÄİ’è
+        leftValue = l; // step ã®å¤‰åŒ–ã«ä¼´ã†ã€å†è¨­å®š
         rightValue = r;
         invalidateSliderRange();
         textInput.type = v == int(v) ? TEXT_DIGIT : TEXT_REAL;
-        value = value; // ’l‚ÌÄİ’è
+        value = value; // å€¤ã®å†è¨­å®š
       }
     }
   }
 
   /**------------------------------
-   * ƒXƒ‰ƒCƒ_[‚ÌÅ­Å‘å”ÍˆÍ‚ğÄŒvZ
+   * ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®æœ€å°‘æœ€å¤§ç¯„å›²ã‚’å†è¨ˆç®—
    ------------------------------*/
   function invalidateSliderRange() {
     slider.minValue = int(Math.min(slider.leftValue, slider.rightValue));
@@ -141,10 +141,10 @@ class KTextInputSlider extends KGridLayout
   }
 
   /**------------------------------
-   * ¶’l‚ğİ’è‚·‚é
+   * å·¦å€¤ã‚’è¨­å®šã™ã‚‹
    *
-   * @param v ’l
-   * @return ’l
+   * @param v å€¤
+   * @return å€¤
    ------------------------------*/
   property leftValue {
     getter {
@@ -153,15 +153,15 @@ class KTextInputSlider extends KGridLayout
     setter(v) {
       slider.leftValue = int(v / step);
       invalidateSliderRange();
-      value = value; // ’l‚ÌÄİ’è
+      value = value; // å€¤ã®å†è¨­å®š
     }
   }
 
   /**------------------------------
-   * ‰E’l‚ğİ’è‚·‚é
+   * å³å€¤ã‚’è¨­å®šã™ã‚‹
    *
-   * @param v ’l
-   * @return ’l
+   * @param v å€¤
+   * @return å€¤
    ------------------------------*/
   property rightValue {
     getter {
@@ -170,15 +170,15 @@ class KTextInputSlider extends KGridLayout
     setter(v) {
       slider.rightValue = int(v / step);
       invalidateSliderRange(); 
-      value = value; // ’l‚ÌÄİ’è
+      value = value; // å€¤ã®å†è¨­å®š
     }
   }
 
   /**------------------------------
-   * Å¬’l‚ğİ’è‚·‚é
+   * æœ€å°å€¤ã‚’è¨­å®šã™ã‚‹
    *
-   * @param v ’l
-   * @return ’l
+   * @param v å€¤
+   * @return å€¤
    ------------------------------*/
   property minValue {
     getter {
@@ -190,15 +190,15 @@ class KTextInputSlider extends KGridLayout
       else
         slider.rightValue = int(v / step);
       invalidateSliderRange();
-      value = value; // ’l‚ÌÄİ’è
+      value = value; // å€¤ã®å†è¨­å®š
     }
   }
 
   /**------------------------------
-   * Å‘å’l‚ğİ’è‚·‚é
+   * æœ€å¤§å€¤ã‚’è¨­å®šã™ã‚‹
    *
-   * @param v ’l
-   * @return ’l
+   * @param v å€¤
+   * @return å€¤
    ------------------------------*/
   property maxValue {
     getter {
@@ -210,7 +210,7 @@ class KTextInputSlider extends KGridLayout
       else
         slider.leftValue = int(v / step);
       invalidateSliderRange();
-      value = value; // ’l‚ÌÄİ’è
+      value = value; // å€¤ã®å†è¨­å®š
     }
   }
 };

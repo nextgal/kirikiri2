@@ -12,17 +12,17 @@ function dm(msg) {
 class MyLayer extends Layer {
 	function MyLayer() {
         super.Layer(...);
-		dm("ƒŒƒCƒ„¶¬ŒÄ‚Ño‚µ!");
+		dm("ãƒ¬ã‚¤ãƒ¤ç”Ÿæˆå‘¼ã³å‡ºã—!");
     }
 
     function setSize(w,h) {
         super.setSize(w,h);
-        dm("ƒTƒCƒYw’è:", w, h);
+        dm("ã‚µã‚¤ã‚ºæŒ‡å®š:", w, h);
     }
 
     function setPos(x,y) {
         super.setPos(x,y);
-        dm("êŠw’è:", x, y);
+        dm("å ´æ‰€æŒ‡å®š:", x, y);
     }
 };
 
@@ -37,18 +37,18 @@ class MyWindow extends Window
 		super.Window();
 		setInnerSize(WIDTH, HEIGHT);
 
-		// ƒx[ƒXƒŒƒCƒ„
+		// ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
 		base = new Layer(this, null);
 		base.visible=true;
 		base.setSize(WIDTH,HEIGHT);
 		base.fillRect(0,0,WIDTH,HEIGHT,0x000000);
 		add(base);
 
-		// squirrel —p‚ÌƒƒCƒ“ˆ—‚ğ‹ì“®‚³‚¹‚é
+		// squirrel ç”¨ã®ãƒ¡ã‚¤ãƒ³å‡¦ç†ã‚’é§†å‹•ã•ã›ã‚‹
 		prevTick = System.getTickCount();
 		System.addContinuousHandler(sqmain);
 
-		// ˆ—ŠJn
+		// å‡¦ç†é–‹å§‹
 		initTrigger = new AsyncTrigger(init, "");
 		initTrigger.cached = true;
 		initTrigger.mode = atmExclusive;
@@ -61,7 +61,7 @@ class MyWindow extends Window
 	}
 
 	/**
-	 * squirrel—p‚ÌƒƒCƒ“•”
+	 * squirrelç”¨ã®ãƒ¡ã‚¤ãƒ³éƒ¨
 	 */
 	function sqmain(tick) {
 		var threadCount = Scripts.driveSQ(tick - prevTick);
@@ -73,7 +73,7 @@ class MyWindow extends Window
 	}
 
 	/**
-	 * I—¹ˆ—
+	 * çµ‚äº†å‡¦ç†
 	 */
 	function onKeyDown(key, shift) {
 		if(key == VK_ESCAPE) {
@@ -86,7 +86,7 @@ class MyWindow extends Window
 
 	function init() {
 
-		dm("‚±‚ê‚ÍƒeƒXƒg‚Å‚·");
+		dm("ã“ã‚Œã¯ãƒ†ã‚¹ãƒˆã§ã™");
 		dm(Scripts.execSQ("local a=10; return a;"));
 		
 		layer1 = new MyLayer(this, base);
@@ -96,29 +96,29 @@ class MyWindow extends Window
 		layer1.visible = true;
 		
 		layer2 = Scripts.execStorageSQ("test.nut");
-		dm("İ’è‚³‚ê‚½’l:" + c);
+		dm("è¨­å®šã•ã‚ŒãŸå€¤:" + c);
 		
 		dm("Squirrel Global:" + sqglobal);
 		dm("Squirrel test:" + sqglobal.test);
 		
-		sqglobal.test = "’l‚ğ•ÏX";
+		sqglobal.test = "å€¤ã‚’å¤‰æ›´";
 		dm("Squirrel test:" + sqglobal.test);
 		
-		// ŠÖ”ŒÄ‚Ño‚µ(’¼ÚQÆ)
+		// é–¢æ•°å‘¼ã³å‡ºã—(ç›´æ¥å‚ç…§)
 		sqglobal.hoge("test");
 		
-		// ŠÖ”ŒÄ‚Ño‚µ(ƒtƒ@ƒ“ƒNƒVƒ‡ƒ“ƒIƒuƒWƒFƒNƒgŒo—R)
+		// é–¢æ•°å‘¼ã³å‡ºã—(ãƒ•ã‚¡ãƒ³ã‚¯ã‚·ãƒ§ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆçµŒç”±)
 		var sqhoge = new SQFunction("hoge");
 		sqhoge.call("test2");
 		
-		// ‘¶İ‚µ‚È‚¢ŠÖ”‚ÌŒÄ‚Ño‚µ
+		// å­˜åœ¨ã—ãªã„é–¢æ•°ã®å‘¼ã³å‡ºã—
 		try {
 			var sqhoge = new SQFunction("xxx");
 		} catch(e) {
-			dm("ŠÖ”ŒÄ‚Ño‚µ¶¬‚É¸”s:" + e.message);
+			dm("é–¢æ•°å‘¼ã³å‡ºã—ç”Ÿæˆã«å¤±æ•—:" + e.message);
 		}
 		
-		// Squirrel‘¤ƒNƒ‰ƒX¶¬
+		// Squirrelå´ã‚¯ãƒ©ã‚¹ç”Ÿæˆ
 		var foo = new sqglobal.Foo();
 		foo.print();
 		dm(foo.data);
@@ -128,25 +128,25 @@ class MyWindow extends Window
 		dm("Squirrel convert:" + Scripts.toSQString(a));
 		Scripts.saveSQ("a.nut", a);
 		
-		dm("ƒRƒ“ƒpƒCƒ‹ˆ—Às");
+		dm("ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«å‡¦ç†å®Ÿè¡Œ");
 		Scripts.compileStorageSQ("test2.nut", "test2.nutb");
 		
-		dm("ƒoƒCƒiƒŠƒtƒ@ƒCƒ‹‚©‚çÀs");
+		dm("ãƒã‚¤ãƒŠãƒªãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å®Ÿè¡Œ");
 		Scripts.execStorageSQ("test2.nutb");
 		
 		//var cont = new SQContinuous("main");
 		//cont.start();
 
-		// property ƒeƒXƒg
+		// property ãƒ†ã‚¹ãƒˆ
 		Scripts.execStorageSQ("property.nut");
 		
-		// delegate ƒeƒXƒg
+		// delegate ãƒ†ã‚¹ãƒˆ
 		Scripts.execStorageSQ("delegate.nut");
 
-		// tjsobj ƒeƒXƒg
+		// tjsobj ãƒ†ã‚¹ãƒˆ
 		Scripts.execStorageSQ("tjsobj.nut");
 		
-		// fork ƒeƒXƒg
+		// fork ãƒ†ã‚¹ãƒˆ
 		Scripts.forkStorageSQ("forktest.nut");
 	}
 };

@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 		GetProcAddress(mod, "Query_sizeof_OggVorbis_File");
 	if(!Query_sizeof_OggVorbis_File) return 3;
 
-	printf("%d\n", Query_sizeof_OggVorbis_File());
+	printf("%d¥n", Query_sizeof_OggVorbis_File());
 
 	return 0;
 }

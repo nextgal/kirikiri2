@@ -21,14 +21,14 @@ struct System
 		if(numparams < 2)
 			return TJS_E_BADPARAMCOUNT;
 
-		// ƒ‹[ƒgƒL[‚ðŠm’è
+		// ãƒ«ãƒ¼ãƒˆã‚­ãƒ¼ã‚’ç¢ºå®š
 		ttstr		key	= param[0]->AsStringNoAddRef();
 		tjs_int		len = key.length();
 		ttstr		hkey= "";
 		tjs_int		i;
 		for(i=0; i<len; i++)
 		{
-			if(key[i] == '\\')
+			if(key[i] == 'Â¥Â¥')
 				break;
 			hkey	+= key[i];
 		}
@@ -53,11 +53,11 @@ struct System
 		else if(hkey[5] == 'D')
 			hKey	= HKEY_DYN_DATA;
 
-		//	ƒL[–¼A’l–¼‚ðŽæ‚èo‚·
+		//	ã‚­ãƒ¼åã€å€¤åã‚’å–ã‚Šå‡ºã™
 		tjs_int	j;
 		for(j=len-1; j>=0; j--)
 		{
-			if(key[j] == '\\')
+			if(key[j] == 'Â¥Â¥')
 				break;
 		}
 		ttstr	keyname	= "";
@@ -112,7 +112,7 @@ struct System
 			if (!tmp) return TJS_E_FAIL;
 			ZeroMemory(tmp, len);
 			DWORD res = ::GetEnvironmentVariableW(name.c_str(), tmp, len);
-			//		if (res != len-1) TVPAddImportantLog(TJS_W("ŠÂ‹«•Ï”’·‚ªˆê’v‚µ‚Ü‚¹‚ñ"));
+			//		if (res != len-1) TVPAddImportantLog(TJS_W("ç’°å¢ƒå¤‰æ•°é•·ãŒä¸€è‡´ã—ã¾ã›ã‚“"));
 			*r = ttstr(tmp);
 			delete[] tmp;
 		}
@@ -134,7 +134,7 @@ struct System
 				if (!tmp) return TJS_E_FAIL;
 				ZeroMemory(tmp, len);
 				::GetEnvironmentVariableW(name.c_str(), tmp, len);
-				//		if (res != len-1) TVPAddImportantLog(TJS_W("ŠÂ‹«•Ï”’·‚ªˆê’v‚µ‚Ü‚¹‚ñ"));
+				//		if (res != len-1) TVPAddImportantLog(TJS_W("ç’°å¢ƒå¤‰æ•°é•·ãŒä¸€è‡´ã—ã¾ã›ã‚“"));
 				*r = ttstr(tmp);
 				delete[] tmp;
 			}
@@ -156,14 +156,14 @@ struct System
 			if (!tmp) return TJS_E_FAIL;
 			ZeroMemory(tmp, len);
 			DWORD res = ::ExpandEnvironmentStrings(src.c_str(), tmp, len);
-			//		if (res != len) TVPAddImportantLog(TJS_W("“WŠJ’·‚ªˆê’v‚µ‚Ü‚¹‚ñ"));
+			//		if (res != len) TVPAddImportantLog(TJS_W("å±•é–‹é•·ãŒä¸€è‡´ã—ã¾ã›ã‚“"));
 			*r = ttstr(tmp);
 			delete[] tmp;
 		}
 		return TJS_S_OK;
 	}
 
-	// urlencodeˆ—
+	// urlencodeå‡¦ç†
 	static tjs_error TJS_INTF_METHOD urlencode(tTJSVariant *result,
 											   tjs_int numparams,
 											   tTJSVariant **param,
@@ -179,7 +179,7 @@ struct System
 				dat = new char [len+1];
 				try {
 					TVPWideCharToUtf8String(s, dat);
-					dat[len] = '\0';
+					dat[len] = 'Â¥0';
 				}
 				catch(...)	{
 					delete [] dat;
@@ -202,7 +202,7 @@ struct System
 				char c = dat[i];
 				if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ||
 					(c >= '0' && c <= '9') ||
-					c == '-' || c == '_' || c == '.' || c == '~') {
+					c == '-' || c == '_' || c == '.' || c == 'â€¾') {
 					os += c;
 				} else {
 					os += (tjs_char) '%';
@@ -217,7 +217,7 @@ struct System
 	}
 
 	
-	// urldecodeˆ—
+	// urldecodeå‡¦ç†
 	static tjs_error TJS_INTF_METHOD urldecode(tTJSVariant *result,
 											   tjs_int numparams,
 											   tTJSVariant **param,
@@ -240,7 +240,7 @@ struct System
 					char buf[3];
 					buf[0] = (char)str[i+1];
 					buf[1] = (char)str[i+2];
-					buf[2] = '\0';
+					buf[2] = 'Â¥0';
 					long n = strtol(buf, NULL, 16);
 					if (errno == ERANGE) {
 						return TJS_E_INVALIDPARAM;
@@ -258,7 +258,7 @@ struct System
 					tjs_char *dat = new tjs_char[len+1];
 					try {
 						TVPUtf8ToWideCharString(s, dat);
-						dat[len] = TJS_W('\0');
+						dat[len] = TJS_W('Â¥0');
 					}
 					catch(...) {
 						delete [] dat;
@@ -274,7 +274,7 @@ struct System
 		return TJS_S_OK;
 	}
 
-	// ‚Í‚¢‚¢‚¢‚¦‚ÌŠm”F
+	// ã¯ã„ã„ã„ãˆã®ç¢ºèª
 	static tjs_error TJS_INTF_METHOD confirm(tTJSVariant *result,
 											 tjs_int numparams,
 											 tTJSVariant **param,
@@ -302,7 +302,7 @@ struct System
 		return TJS_S_OK;
 	}
 
-	// Mutex‚ªÁ‚¦‚é‚Ì‚ð‘Ò‚Â
+	// MutexãŒæ¶ˆãˆã‚‹ã®ã‚’å¾…ã¤
 	static tjs_error TJS_INTF_METHOD waitForAppLock(tTJSVariant *result,
 													tjs_int numparams,
 													tTJSVariant **param,

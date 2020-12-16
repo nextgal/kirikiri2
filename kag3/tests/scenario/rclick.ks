@@ -1,28 +1,28 @@
 *sub1
 @tempsave
-; ªˆê“I‚Éó‘Ô‚ğ•Û‘¶
+; â†‘ä¸€æ™‚çš„ã«çŠ¶æ…‹ã‚’ä¿å­˜
 @history output=false
-; ªƒƒbƒZ[ƒW—š—ğ‚Ö‚Ìo—Í‚ğ–³Œø‚É
+; â†‘ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å±¥æ­´ã¸ã®å‡ºåŠ›ã‚’ç„¡åŠ¹ã«
 @mapdisable layer=0 page=fore
-; ªƒNƒŠƒbƒJƒuƒ‹ƒ}ƒbƒv‚ğ‚à‚µg‚Á‚Ä‚¢‚éê‡‚Í‚±‚Ì‚æ‚¤‚É‚µ‚Ä–³Œø‰»‚·‚é
+; â†‘ã‚¯ãƒªãƒƒã‚«ãƒ–ãƒ«ãƒãƒƒãƒ—ã‚’ã‚‚ã—ä½¿ã£ã¦ã„ã‚‹å ´åˆã¯ã“ã®ã‚ˆã†ã«ã—ã¦ç„¡åŠ¹åŒ–ã™ã‚‹
 @backlay
 @layopt layer=message1 page=back visible=true
-; ª‚±‚ÌƒTƒuƒ‹[ƒ`ƒ““à‚Å‚ÍƒƒbƒZ[ƒWƒŒƒCƒ„1‚ğg‚¤
+; â†‘ã“ã®ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³å†…ã§ã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ¬ã‚¤ãƒ¤1ã‚’ä½¿ã†
 @layopt layer=message0 page=back visible=false
 @current layer=message1 page=back
 @position left=0 top=0 width=640 height=480
 @eval exp="f.r_first=true"
-; ª‚±‚Ìƒ‹[ƒ`ƒ“‚É“ü‚Á‚½‚Æ‚«‚É‚¾‚¯ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğs‚¤‚æ‚¤‚É
+; â†‘ã“ã®ãƒ«ãƒ¼ãƒãƒ³ã«å…¥ã£ãŸã¨ãã«ã ã‘ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’è¡Œã†ã‚ˆã†ã«
 ;
 *menu
 @er
 @nowait
-[link target=*hide]ƒƒbƒZ[ƒW‚ğÁ‚·[endlink][r]
-[link target=*history]ƒƒbƒZ[ƒW—š—ğ‚ğŒ©‚é[endlink][r]
-[link target=*load]x‚ğ‚½‚Ç‚é[endlink][r]
-[link target=*save]x‚ğ‚Í‚³‚Ş[endlink][r]
-[link target=*gotostart]Å‰‚É–ß‚é[endlink][r]
-[link target=*ret]–ß‚é[endlink][r]
+[link target=*hide]ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ¶ˆã™[endlink][r]
+[link target=*history]ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å±¥æ­´ã‚’è¦‹ã‚‹[endlink][r]
+[link target=*load]æ ã‚’ãŸã©ã‚‹[endlink][r]
+[link target=*save]æ ã‚’ã¯ã•ã‚€[endlink][r]
+[link target=*gotostart]æœ€åˆã«æˆ»ã‚‹[endlink][r]
+[link target=*ret]æˆ»ã‚‹[endlink][r]
 @endnowait
 @current layer=message1 page=fore
 @if exp="f.r_first"
@@ -33,25 +33,25 @@
 @s
 
 *ret
-; ƒTƒuƒ‹[ƒ`ƒ“‚©‚ç–ß‚é
+; ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³ã‹ã‚‰æˆ»ã‚‹
 @tempload bgm=false se=false backlay=true
 @trans time=500 rule=trans1 vague=128
 @wt
 @return
 
 *hide
-; ƒƒbƒZ[ƒW‚ğÁ‚·
+; ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ¶ˆã™
 @hidemessage
 @jump target=*menu
 
 *history
-; ƒƒbƒZ[ƒW—š—ğ‚ğŒ©‚é
+; ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å±¥æ­´ã‚’è¦‹ã‚‹
 @showhistory
 @jump target=*menu
 
 *load
-; x‚ğ‚½‚Ç‚é
-; emb exp= .... ‚É‚Â‚¢‚Ä‚Í TJS‚ğ‚à‚Á‚Æg‚¤‚½‚ß‚É ‚ğQÆ
+; æ ã‚’ãŸã©ã‚‹
+; emb exp= .... ã«ã¤ã„ã¦ã¯ TJSã‚’ã‚‚ã£ã¨ä½¿ã†ãŸã‚ã« ã‚’å‚ç…§
 @er
 @nowait
 [link target=*lt0][emb exp="kag.getBookMarkPageName(0)"][endlink][r]
@@ -59,7 +59,7 @@
 [link target=*lt2][emb exp="kag.getBookMarkPageName(2)"][endlink][r]
 [link target=*lt3][emb exp="kag.getBookMarkPageName(3)"][endlink][r]
 [link target=*lt4][emb exp="kag.getBookMarkPageName(4)"][endlink][r]
-[link target=*menu]–ß‚é[endlink][r]
+[link target=*menu]æˆ»ã‚‹[endlink][r]
 @endnowait
 @s
 
@@ -80,8 +80,8 @@
 @jump target=*menu
 
 *save
-; x‚ğ‚Í‚³‚Ş
-; emb exp= .... ‚É‚Â‚¢‚Ä‚Í TJS Tips ‚ğQÆ
+; æ ã‚’ã¯ã•ã‚€
+; emb exp= .... ã«ã¤ã„ã¦ã¯ TJS Tips ã‚’å‚ç…§
 @er
 @nowait
 [link target=*st0][emb exp="kag.getBookMarkPageName(0)"][endlink][r]
@@ -89,7 +89,7 @@
 [link target=*st2][emb exp="kag.getBookMarkPageName(2)"][endlink][r]
 [link target=*st3][emb exp="kag.getBookMarkPageName(3)"][endlink][r]
 [link target=*st4][emb exp="kag.getBookMarkPageName(4)"][endlink][r]
-[link target=*menu]–ß‚é[endlink][r]
+[link target=*menu]æˆ»ã‚‹[endlink][r]
 @endnowait
 @s
 
@@ -111,6 +111,6 @@
 
 
 *gotostart
-; uÅ‰‚É–ß‚év
+; ã€Œæœ€åˆã«æˆ»ã‚‹ã€
 @gotostart ask=true
 @jump target=*menu

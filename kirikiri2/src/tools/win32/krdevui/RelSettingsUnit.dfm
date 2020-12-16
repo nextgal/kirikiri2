@@ -7,14 +7,14 @@ object RelSettingsForm: TRelSettingsForm
   HorzScrollBar.Visible = False
   VertScrollBar.Tracking = True
   VertScrollBar.Visible = False
-  Caption = '‹g—¢‹g—¢ Releaser - İ’è'
+  Caption = 'å‰é‡Œå‰é‡Œ Releaser - è¨­å®š'
   Color = clBtnFace
   Constraints.MinHeight = 440
   Constraints.MinWidth = 630
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   Icon.Data = {
     0000010004002020100000000000E80200004600000010101000000000002801
@@ -178,7 +178,7 @@ object RelSettingsForm: TRelSettingsForm
     Width = 64
     Height = 12
     Anchors = [akRight, akBottom]
-    Caption = '(Šg’£q‚È‚µ)'
+    Caption = '(æ‹¡å¼µå­ãªã—)'
     Visible = False
   end
   object InterruptNameLabel: TLabel
@@ -187,7 +187,7 @@ object RelSettingsForm: TRelSettingsForm
     Width = 24
     Height = 12
     Anchors = [akRight, akBottom]
-    Caption = '’†’f'
+    Caption = 'ä¸­æ–­'
     Visible = False
   end
   object ExitNameLabel: TLabel
@@ -196,7 +196,7 @@ object RelSettingsForm: TRelSettingsForm
     Width = 24
     Height = 12
     Anchors = [akRight, akBottom]
-    Caption = 'I—¹'
+    Caption = 'çµ‚äº†'
     Visible = False
   end
   object ArchiveCreatedNameLabel: TLabel
@@ -205,7 +205,7 @@ object RelSettingsForm: TRelSettingsForm
     Width = 128
     Height = 12
     Anchors = [akRight, akBottom]
-    Caption = 'ƒA[ƒJƒCƒu‚ğì¬‚µ‚Ü‚µ‚½'
+    Caption = 'ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã‚’ä½œæˆã—ã¾ã—ãŸ'
     Visible = False
   end
   object InterruptedNameLabel: TLabel
@@ -214,7 +214,7 @@ object RelSettingsForm: TRelSettingsForm
     Width = 64
     Height = 12
     Anchors = [akRight, akBottom]
-    Caption = '’†’f‚µ‚Ü‚µ‚½'
+    Caption = 'ä¸­æ–­ã—ã¾ã—ãŸ'
     Visible = False
   end
   object ProgressLabel: TLabel
@@ -231,7 +231,7 @@ object RelSettingsForm: TRelSettingsForm
     Top = 304
     Width = 212
     Height = 12
-    Caption = 'EXE Œ`®Às‰Â”\ƒtƒ@ƒCƒ‹‚ğì¬‚µ‚Ü‚µ‚½'
+    Caption = 'EXE å½¢å¼å®Ÿè¡Œå¯èƒ½ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ã¾ã—ãŸ'
     Visible = False
   end
   object OKButton: TButton
@@ -240,7 +240,7 @@ object RelSettingsForm: TRelSettingsForm
     Width = 75
     Height = 25
     Anchors = [akRight, akBottom]
-    Caption = 'ì¬'
+    Caption = 'ä½œæˆ'
     Default = True
     TabOrder = 0
     OnClick = OKButtonClick
@@ -252,7 +252,7 @@ object RelSettingsForm: TRelSettingsForm
     Height = 25
     Anchors = [akRight, akBottom]
     Cancel = True
-    Caption = 'ƒLƒƒƒ“ƒZƒ‹'
+    Caption = 'ã‚­ãƒ£ãƒ³ã‚»ãƒ«'
     TabOrder = 1
     OnClick = CancelButtonClick
   end
@@ -262,7 +262,7 @@ object RelSettingsForm: TRelSettingsForm
     Width = 137
     Height = 25
     Anchors = [akLeft, akBottom]
-    Caption = 'ƒtƒHƒ‹ƒ_‘I‘ğ‚É–ß‚é(&B)'
+    Caption = 'ãƒ•ã‚©ãƒ«ãƒ€é¸æŠã«æˆ»ã‚‹(&B)'
     ModalResult = 4
     TabOrder = 2
   end
@@ -275,13 +275,13 @@ object RelSettingsForm: TRelSettingsForm
     Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 3
     object OutputSheel: TTabSheet
-      Caption = 'o—Í'
+      Caption = 'å‡ºåŠ›'
       object SpecifyOutputNameLabel: TLabel
         Left = 8
         Top = 136
         Width = 169
         Height = 12
-        Caption = 'o—Íƒtƒ@ƒCƒ‹–¼‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢'
+        Caption = 'å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒ‡å®šã—ã¦ãã ã•ã„'
         Visible = False
       end
       object ConfirmOverwriteLabel: TLabel
@@ -289,7 +289,7 @@ object RelSettingsForm: TRelSettingsForm
         Top = 136
         Width = 197
         Height = 12
-        Caption = ' ‚ÍŠù‚É‘¶İ‚µ‚Ü‚·B ã‘‚«‚µ‚Ü‚·‚©H'
+        Caption = ' ã¯æ—¢ã«å­˜åœ¨ã—ã¾ã™ã€‚ ä¸Šæ›¸ãã—ã¾ã™ã‹ï¼Ÿ'
         Visible = False
       end
       object ProtectWarnLabel: TLabel
@@ -299,8 +299,8 @@ object RelSettingsForm: TRelSettingsForm
         Height = 12
         Caption = 
           'Warning: Extracting this archive may infringe on author'#39's right.' +
-          ' Œx : ‚±‚ÌƒA[ƒJƒCƒu‚ğ“WŠJ‚·‚é‚±‚Æ‚É‚æ‚èA‚ ‚È‚½‚Í’˜ìÒ‚ÌŒ —˜' +
-          '‚ğNŠQ‚·‚é‚¨‚»‚ê‚ª‚ ‚è‚Ü‚·B'
+          ' è­¦å‘Š : ã“ã®ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã‚’å±•é–‹ã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šã€ã‚ãªãŸã¯è‘—ä½œè€…ã®æ¨©åˆ©' +
+          'ã‚’ä¾µå®³ã™ã‚‹ãŠãã‚ŒãŒã‚ã‚Šã¾ã™ã€‚'
         Visible = False
       end
       object ProtectWarnFileNameLabel1: TLabel
@@ -309,8 +309,8 @@ object RelSettingsForm: TRelSettingsForm
         Width = 656
         Height = 12
         Caption = 
-          '$$$ This is a protected archive. $$$ ’˜ìÒ‚Í‚±‚ÌƒA[ƒJƒCƒu‚ª³' +
-          '‹K‚Ì—˜—p•û–@ˆÈŠO‚Ì•û–@‚Å“WŠJ‚³‚ê‚é‚±‚Æ‚ğ–]‚ñ‚Å‚¢‚Ü‚¹‚ñB '
+          '$$$ This is a protected archive. $$$ è‘—ä½œè€…ã¯ã“ã®ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ãŒæ­£' +
+          'è¦ã®åˆ©ç”¨æ–¹æ³•ä»¥å¤–ã®æ–¹æ³•ã§å±•é–‹ã•ã‚Œã‚‹ã“ã¨ã‚’æœ›ã‚“ã§ã„ã¾ã›ã‚“ã€‚ '
         Visible = False
       end
       object ProtectWarnFileNameLabel2: TLabel
@@ -320,8 +320,8 @@ object RelSettingsForm: TRelSettingsForm
         Height = 12
         Caption = 
           '$$$ Warning! Extracting this archive may infringe on author'#39's ri' +
-          'ghts. Œx ‚±‚ÌƒA[ƒJƒCƒu‚ğ“WŠJ‚·‚é‚±‚Æ‚É‚æ‚èA‚ ‚È‚½‚Í’˜ìÒ‚Ì' +
-          'Œ —˜‚ğNŠQ‚·‚é‚¨‚»‚ê‚ª‚ ‚è‚Ü‚·B.txt'
+          'ghts. è­¦å‘Š ã“ã®ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã‚’å±•é–‹ã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šã€ã‚ãªãŸã¯è‘—ä½œè€…ã®' +
+          'æ¨©åˆ©ã‚’ä¾µå®³ã™ã‚‹ãŠãã‚ŒãŒã‚ã‚Šã¾ã™ã€‚.txt'
         Visible = False
       end
       object Label6: TLabel
@@ -330,7 +330,7 @@ object RelSettingsForm: TRelSettingsForm
         Width = 87
         Height = 12
         Anchors = [akLeft, akBottom]
-        Caption = '“ü—ÍƒfƒBƒŒƒNƒgƒŠ :'
+        Caption = 'å…¥åŠ›ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª :'
       end
       object OutputFileGroup: TGroupBox
         Left = 8
@@ -338,7 +338,7 @@ object RelSettingsForm: TRelSettingsForm
         Width = 580
         Height = 57
         Anchors = [akLeft, akTop, akRight]
-        Caption = 'o—Íƒtƒ@ƒCƒ‹(&F)'
+        Caption = 'å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«(&F)'
         TabOrder = 0
         object OutputFileNameEdit: TEdit
           Left = 8
@@ -354,7 +354,7 @@ object RelSettingsForm: TRelSettingsForm
           Width = 57
           Height = 20
           Anchors = [akTop, akRight]
-          Caption = 'QÆ ...'
+          Caption = 'å‚ç…§ ...'
           TabOrder = 1
           OnClick = SetFileNameButtonClick
         end
@@ -365,7 +365,7 @@ object RelSettingsForm: TRelSettingsForm
         Width = 580
         Height = 57
         Anchors = [akLeft, akTop, akRight]
-        Caption = 'o—ÍŒ`®(&T)'
+        Caption = 'å‡ºåŠ›å½¢å¼(&T)'
         TabOrder = 1
         object MissingKrKrEXELabel: TLabel
           Left = 64
@@ -373,8 +373,8 @@ object RelSettingsForm: TRelSettingsForm
           Width = 383
           Height = 12
           Caption = 
-            'krkr.eXe ‚ªŒ©‚Â‚©‚ç‚È‚¢‚½‚ßAEXE Œ`®Às‰Â”\ƒtƒ@ƒCƒ‹‚ğo—Í‚Å‚«' +
-            '‚Ü‚¹‚ñ'
+            'krkr.eXe ãŒè¦‹ã¤ã‹ã‚‰ãªã„ãŸã‚ã€EXE å½¢å¼å®Ÿè¡Œå¯èƒ½ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡ºåŠ›ã§ã' +
+            'ã¾ã›ã‚“'
           Visible = False
         end
         object XP3ArchiveRadio: TRadioButton
@@ -382,7 +382,7 @@ object RelSettingsForm: TRelSettingsForm
           Top = 24
           Width = 169
           Height = 17
-          Caption = '.XP3 Œ`® ƒA[ƒJƒCƒu(&A)'
+          Caption = '.XP3 å½¢å¼ ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–(&A)'
           Checked = True
           TabOrder = 0
           TabStop = True
@@ -393,7 +393,7 @@ object RelSettingsForm: TRelSettingsForm
           Top = 24
           Width = 193
           Height = 17
-          Caption = '.EXE Œ`® Às‰Â”\ƒtƒ@ƒCƒ‹(&E)'
+          Caption = '.EXE å½¢å¼ å®Ÿè¡Œå¯èƒ½ãƒ•ã‚¡ã‚¤ãƒ«(&E)'
           TabOrder = 1
           OnClick = ExecutableRadioClick
         end
@@ -412,14 +412,14 @@ object RelSettingsForm: TRelSettingsForm
       end
     end
     object FileTypeSheet: TTabSheet
-      Caption = 'ƒtƒ@ƒCƒ‹'
+      Caption = 'ãƒ•ã‚¡ã‚¤ãƒ«'
       ImageIndex = 1
       object Label1: TLabel
         Left = 8
         Top = 24
         Width = 80
         Height = 12
-        Caption = 'ˆ³k‚·‚é•¨(&C) :'
+        Caption = 'åœ§ç¸®ã™ã‚‹ç‰©(&C) :'
         FocusControl = CompressExtList
       end
       object Label2: TLabel
@@ -427,7 +427,7 @@ object RelSettingsForm: TRelSettingsForm
         Top = 24
         Width = 98
         Height = 12
-        Caption = 'ˆ³k‚ğ‚µ‚È‚¢•¨(&T) :'
+        Caption = 'åœ§ç¸®ã‚’ã—ãªã„ç‰©(&T) :'
         FocusControl = StoreExtList
       end
       object Label3: TLabel
@@ -435,21 +435,21 @@ object RelSettingsForm: TRelSettingsForm
         Top = 8
         Width = 123
         Height = 12
-        Caption = 'ƒA[ƒJƒCƒu‚É‚ÍŠÜ‚ß‚é‚ª'
+        Caption = 'ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã«ã¯å«ã‚ã‚‹ãŒ'
       end
       object Label4: TLabel
         Left = 296
         Top = 8
         Width = 77
         Height = 12
-        Caption = 'ƒA[ƒJƒCƒu‚É‚Í'
+        Caption = 'ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã«ã¯'
       end
       object Label5: TLabel
         Left = 296
         Top = 24
         Width = 79
         Height = 12
-        Caption = 'ŠÜ‚ß‚È‚¢•¨(&E) :'
+        Caption = 'å«ã‚ãªã„ç‰©(&E) :'
         FocusControl = DiscardExtList
       end
       object Label7: TLabel
@@ -458,7 +458,7 @@ object RelSettingsForm: TRelSettingsForm
         Width = 111
         Height = 12
         Anchors = [akRight, akBottom]
-        Caption = '¦ƒhƒ‰ƒbƒO•ƒhƒƒbƒv‚Å'
+        Caption = 'â€»ãƒ‰ãƒ©ãƒƒã‚°ï¼†ãƒ‰ãƒ­ãƒƒãƒ—ã§'
       end
       object Label8: TLabel
         Left = 478
@@ -466,7 +466,7 @@ object RelSettingsForm: TRelSettingsForm
         Width = 104
         Height = 12
         Anchors = [akRight, akBottom]
-        Caption = 'Še€–ÚŠÔ‚ğˆÚ“®‚·‚é'
+        Caption = 'å„é …ç›®é–“ã‚’ç§»å‹•ã™ã‚‹'
       end
       object Label9: TLabel
         Left = 478
@@ -474,7 +474,7 @@ object RelSettingsForm: TRelSettingsForm
         Width = 73
         Height = 12
         Anchors = [akRight, akBottom]
-        Caption = '‚±‚Æ‚à‚Å‚«‚Ü‚·'
+        Caption = 'ã“ã¨ã‚‚ã§ãã¾ã™'
       end
       object CompressExtList: TListBox
         Left = 8
@@ -523,7 +523,7 @@ object RelSettingsForm: TRelSettingsForm
         Top = 72
         Width = 25
         Height = 25
-        Caption = '©'
+        Caption = 'â†'
         TabOrder = 3
         OnClick = Button1Click
       end
@@ -532,7 +532,7 @@ object RelSettingsForm: TRelSettingsForm
         Top = 104
         Width = 25
         Height = 25
-        Caption = '¨'
+        Caption = 'â†’'
         TabOrder = 4
         OnClick = Button2Click
       end
@@ -541,7 +541,7 @@ object RelSettingsForm: TRelSettingsForm
         Top = 72
         Width = 25
         Height = 25
-        Caption = '©'
+        Caption = 'â†'
         TabOrder = 5
         OnClick = Button3Click
       end
@@ -550,25 +550,25 @@ object RelSettingsForm: TRelSettingsForm
         Top = 104
         Width = 25
         Height = 25
-        Caption = '¨'
+        Caption = 'â†’'
         TabOrder = 6
         OnClick = Button4Click
       end
     end
     object OptionSheet: TTabSheet
-      Caption = 'ƒIƒvƒVƒ‡ƒ“'
+      Caption = 'ã‚ªãƒ—ã‚·ãƒ§ãƒ³'
       ImageIndex = 2
       object CompressLimitSizeLabel: TLabel
         Left = 312
         Top = 18
         Width = 43
         Height = 12
-        Caption = 'KB ˆÈã'
+        Caption = 'KB ä»¥ä¸Š'
         Color = clBtnFace
         Font.Charset = SHIFTJIS_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
-        Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+        Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
         Font.Style = []
         ParentColor = False
         ParentFont = False
@@ -578,7 +578,7 @@ object RelSettingsForm: TRelSettingsForm
         Top = 16
         Width = 217
         Height = 17
-        Caption = '‘å‚«‚Èƒtƒ@ƒCƒ‹‚Íˆ³k‚ğs‚í‚È‚¢(&L) :'
+        Caption = 'å¤§ããªãƒ•ã‚¡ã‚¤ãƒ«ã¯åœ§ç¸®ã‚’è¡Œã‚ãªã„(&L) :'
         Checked = True
         State = cbChecked
         TabOrder = 0
@@ -589,7 +589,7 @@ object RelSettingsForm: TRelSettingsForm
         Top = 56
         Width = 121
         Height = 17
-        Caption = '“WŠJƒvƒƒeƒNƒg(&P)'
+        Caption = 'å±•é–‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ(&P)'
         TabOrder = 1
       end
       object CompressLimitSizeEdit: TEdit
@@ -607,7 +607,7 @@ object RelSettingsForm: TRelSettingsForm
         Top = 96
         Width = 209
         Height = 17
-        Caption = 'OggVorbis ƒR[ƒhƒuƒbƒN‹¤—L‰»(&C)'
+        Caption = 'OggVorbis ã‚³ãƒ¼ãƒ‰ãƒ–ãƒƒã‚¯å…±æœ‰åŒ–(&C)'
         Checked = True
         State = cbChecked
         TabOrder = 3
@@ -617,7 +617,7 @@ object RelSettingsForm: TRelSettingsForm
         Top = 136
         Width = 169
         Height = 17
-        Caption = 'ƒCƒ“ƒfƒbƒNƒX‚ğˆ³k‚·‚é(&I)'
+        Caption = 'ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’åœ§ç¸®ã™ã‚‹(&I)'
         Checked = True
         State = cbChecked
         TabOrder = 4
@@ -627,12 +627,12 @@ object RelSettingsForm: TRelSettingsForm
         Top = 176
         Width = 265
         Height = 17
-        Caption = 'xp3enc.dll ‚ğg‚¤(&E)'
+        Caption = 'xp3enc.dll ã‚’ä½¿ã†(&E)'
         TabOrder = 5
       end
     end
     object ExeOptionsSheet: TTabSheet
-      Caption = 'Às‰Â”\ƒtƒ@ƒCƒ‹İ’è'
+      Caption = 'å®Ÿè¡Œå¯èƒ½ãƒ•ã‚¡ã‚¤ãƒ«è¨­å®š'
       ImageIndex = 3
       inline ConfMainFrame: TConfMainFrame
         Left = 8
@@ -686,7 +686,7 @@ object RelSettingsForm: TRelSettingsForm
     Width = 76
     Height = 18
     Anchors = [akTop, akRight]
-    Caption = '•Û‘¶(&S)'
+    Caption = 'ä¿å­˜(&S)'
     TabOrder = 4
     OnClick = SaveProfileButtonClick
   end
@@ -696,7 +696,7 @@ object RelSettingsForm: TRelSettingsForm
     Width = 76
     Height = 18
     Anchors = [akTop, akRight]
-    Caption = '“Ç‚İ‚İ(&L)'
+    Caption = 'èª­ã¿è¾¼ã¿(&L)'
     TabOrder = 5
     OnClick = LoadProfileButtonClick
   end
@@ -707,22 +707,22 @@ object RelSettingsForm: TRelSettingsForm
     Height = 16
     Alignment = taRightJustify
     Anchors = [akTop, akRight]
-    Caption = 'ƒvƒƒtƒ@ƒCƒ‹ :'
+    Caption = 'ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ« :'
     TabOrder = 6
   end
   object SaveDialog: TSaveDialog
     Filter = 
-      'XP3 ƒA[ƒJƒCƒu ( *.xp3 )|*.xp3|.EXE Às‰Â”\ƒtƒ@ƒCƒ‹ ( *.exe )|*' +
-      '.exe|‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹|*.*'
+      'XP3 ã‚¢ãƒ¼ã‚«ã‚¤ãƒ– ( *.xp3 )|*.xp3|.EXE å®Ÿè¡Œå¯èƒ½ãƒ•ã‚¡ã‚¤ãƒ« ( *.exe )|*' +
+      '.exe|ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«|*.*'
     Options = [ofHideReadOnly, ofPathMustExist, ofEnableSizing]
-    Title = 'o—Íƒtƒ@ƒCƒ‹‚Ìw’è'
+    Title = 'å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã®æŒ‡å®š'
     Left = 492
     Top = 239
   end
   object SaveProfileDialog: TSaveDialog
     DefaultExt = 'rpf'
     Filter = 
-      'Releaser ƒvƒƒtƒ@ƒCƒ‹ ( *.rpf )|*.rpf|‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹ ( *.* )|*' +
+      'Releaser ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ« ( *.rpf )|*.rpf|ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ« ( *.* )|*' +
       '.*'
     Options = [ofOverwritePrompt, ofHideReadOnly, ofPathMustExist, ofEnableSizing]
     Left = 440
@@ -731,7 +731,7 @@ object RelSettingsForm: TRelSettingsForm
   object OpenProfileDialog: TOpenDialog
     DefaultExt = 'rpf'
     Filter = 
-      'Releaser ƒvƒƒtƒ@ƒCƒ‹ ( *.rpf )|*.rpf|‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹ ( *.* )|*' +
+      'Releaser ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ« ( *.rpf )|*.rpf|ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ« ( *.* )|*' +
       '.*'
     Options = [ofHideReadOnly, ofPathMustExist, ofFileMustExist, ofEnableSizing]
     Left = 512

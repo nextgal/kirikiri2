@@ -1,62 +1,62 @@
 @loadplugin module=extrans.dll
-[position left=16 top=16 width=&(640-32) height=&(480-32)]\
-[image storage="_24" page=fore layer=base]\
+[position left=16 top=16 width=&(640-32) height=&(480-32)]Â¥
+[image storage="_24" page=fore layer=base]Â¥
 *loop1|loop1
 @cm
-1:ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğŠJn‚µ‚Ü‚·(method=wave)B[l]
-[backlay]\
-[image storage="_24_3" page=back layer=base]\
-[trans method=wave time=2500]\
-[wt]\
+1:ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ã¾ã™(method=wave)ã€‚[l]
+[backlay]Â¥
+[image storage="_24_3" page=back layer=base]Â¥
+[trans method=wave time=2500]Â¥
+[wt]Â¥
 @l
 @cm
-1:ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğŠJn‚µ‚Ü‚·(method=mosaic)B[l]
-[backlay]\
-[image storage="_24" page=back layer=base]\
-[trans method=mosaic time=2500]\
-[wt]\
+1:ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ã¾ã™(method=mosaic)ã€‚[l]
+[backlay]Â¥
+[image storage="_24" page=back layer=base]Â¥
+[trans method=mosaic time=2500]Â¥
+[wt]Â¥
 @l
 @cm
-1:ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğŠJn‚µ‚Ü‚·(method=turn)B[l]
-[backlay]\
-[image storage="_24_3" page=back layer=base]\
-[trans method=turn time=2500]\
-[wt]\
+1:ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ã¾ã™(method=turn)ã€‚[l]
+[backlay]Â¥
+[image storage="_24_3" page=back layer=base]Â¥
+[trans method=turn time=2500]Â¥
+[wt]Â¥
 @l
 @cm
-1:ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğŠJn‚µ‚Ü‚·(method=rotatezoom factor=0 accel=-2 twistaccel=-2)B[l]
-[backlay]\
-[image storage="_24" page=back layer=base]\
-[trans method=rotatezoom time=2500 factor=0 accel=-2 twistaccel=-2]\
-[wt]\
+1:ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ã¾ã™(method=rotatezoom factor=0 accel=-2 twistaccel=-2)ã€‚[l]
+[backlay]Â¥
+[image storage="_24" page=back layer=base]Â¥
+[trans method=rotatezoom time=2500 factor=0 accel=-2 twistaccel=-2]Â¥
+[wt]Â¥
 @l
 @cm
-1:ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğŠJn‚µ‚Ü‚·(method=rotatezoom factor=5 accel=2)B[l]
-[backlay]\
-[image storage="_24_3" page=back layer=base]\
-[trans method=rotatezoom time=2500 factor=5 accel=2]\
-[wt]\
+1:ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ã¾ã™(method=rotatezoom factor=5 accel=2)ã€‚[l]
+[backlay]Â¥
+[image storage="_24_3" page=back layer=base]Â¥
+[trans method=rotatezoom time=2500 factor=5 accel=2]Â¥
+[wt]Â¥
 @l
 @cm
-1:ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğŠJn‚µ‚Ü‚·(method=rotatezoom factor=5 accel=2 twist=1)B[l]
-[backlay]\
-[image storage="_24" page=back layer=base]\
-[trans method=rotatezoom time=2500 factor=5 accel=2 twist=1]\
-[wt]\
+1:ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ã¾ã™(method=rotatezoom factor=5 accel=2 twist=1)ã€‚[l]
+[backlay]Â¥
+[image storage="_24" page=back layer=base]Â¥
+[trans method=rotatezoom time=2500 factor=5 accel=2 twist=1]Â¥
+[wt]Â¥
 @l
 @cm
-1:ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğŠJn‚µ‚Ü‚·(method=rotatevanish)B[l]
-[backlay]\
-[image storage="_24_3" page=back layer=base]\
-[trans method=rotatevanish time=2500]\
-[wt]\
+1:ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ã¾ã™(method=rotatevanish)ã€‚[l]
+[backlay]Â¥
+[image storage="_24_3" page=back layer=base]Â¥
+[trans method=rotatevanish time=2500]Â¥
+[wt]Â¥
 @l
 @cm
-1:ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğŠJn‚µ‚Ü‚·(method=rotateswap)B[l]
-[backlay]\
-[image storage="_24" page=back layer=base]\
-[trans method=rotateswap time=2500]\
-[wt]\
+1:ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ã¾ã™(method=rotateswap)ã€‚[l]
+[backlay]Â¥
+[image storage="_24" page=back layer=base]Â¥
+[trans method=rotateswap time=2500]Â¥
+[wt]Â¥
 @l
-[link target=*loop1]‚à‚¤ˆê‰ñ[endlink]\
+[link target=*loop1]ã‚‚ã†ä¸€å›[endlink]Â¥
 @s

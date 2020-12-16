@@ -1,21 +1,21 @@
-KAG �v���O�C�����쐬����Ƃ��ɎQ�l�ɂȂ邩������Ȃ����̂ł��B
-�쐬���̎Q�l���x�̂��̂Ȃ̂ŁA���p�I�łȂ�������A�f�U�C������������������
-�肵�܂��B
+KAG プラグインを作成するときに参考になるかもしれないものです。
+作成時の参考程度のものなので、実用的でなかったり、デザインがいい加減だった
+りします。
 
-clock.ks �͎��v��\������T���v���ł��B
-clocktest.ks �͂��̃e�X�g�p�V�i���I�B
-clock.ks �́A�Ȃɂ�����\������悤�ȃ��C������ɉ�ʏ�ɕ\��������悤��
-�v���O�C���������Ƃ��ɎQ�l�ɂȂ�Ǝv���܂��B
+clock.ks は時計を表示するサンプルです。
+clocktest.ks はそのテスト用シナリオ。
+clock.ks は、なにか情報を表示するようなレイヤを常に画面上に表示させるような
+プラグインを書くときに参考になると思います。
 
-systembutton.ks �́A��ʂɁu�Z�[�u�v�u���[�h�v�̃{�^����\������T���v��
-�ł��B
-systembuttontest.ks �͂��̃e�X�g�p�V�i���I�ł��B
-���b�Z�[�W�g�̒[�����ȂǂɃZ�[�u�⃍�[�h�Ȃǂ̃{�^����t���Ă݂����Ƃ���
-�T���v���ɂȂ�Ǝv���܂��B
+systembutton.ks は、画面に「セーブ」「ロード」のボタンを表示するサンプル
+です。
+systembuttontest.ks はそのテスト用シナリオです。
+メッセージ枠の端っこなどにセーブやロードなどのボタンを付けてみたいときの
+サンプルになると思います。
 
-rclick_tjs.ks �͉E�N���b�N���[�`���� TJS2 �ŋL�q����Ƃ��̃T���v���ł��B
-rclick_tjs_test.ks �͂��̃e�X�g�p�V�i���I�B
-���G�Ȑݒ��ʂȂǂ� TJS2 �ŏ������������I�ł��B
-���̃T���v���ł́A�Z�[�u�f�[�^�ɃR�����g���L�q�ł�����A��������Z�[�u
-�f�[�^�ɏ㏑�����邱�Ƃ�h���u�f�[�^�ی�v�̐ݒ�����邱�Ƃ��ł��܂��B
+rclick_tjs.ks は右クリックルーチンを TJS2 で記述するときのサンプルです。
+rclick_tjs_test.ks はそのテスト用シナリオ。
+複雑な設定画面などは TJS2 で書く方が効率的です。
+このサンプルでは、セーブデータにコメントを記述できたり、うっかりセーブ
+データに上書きすることを防ぐ「データ保護」の設定をすることができます。
 

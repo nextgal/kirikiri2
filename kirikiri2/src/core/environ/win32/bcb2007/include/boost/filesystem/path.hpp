@@ -154,11 +154,11 @@ namespace boost
     //
     //  Any characters are allowed except:
     //
-    //     Those characters < ' ', including '\0'. These are the so-called
+    //     Those characters < ' ', including '¥0'. These are the so-called
     //     control characters, in both ASCII (and its decendents) and EBCDIC.
     //     Hard to imagine how these could be useful in a generic path name.
     //
-    //     < > : " / \ | * ?  These have special meaning to enough operating
+    //     < > : " / ¥ | * ?  These have special meaning to enough operating
     //     systems that use in a generic name would be a serious problem.
     //
     //  The names "." and ".." are not allowed.

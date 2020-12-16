@@ -1,9 +1,9 @@
-// ƒŒƒCƒ„d‚Ë‡‚í‚¹‚ÌƒXƒgƒŒƒXƒeƒXƒg
+// ãƒ¬ã‚¤ãƒ¤é‡ã­åˆã‚ã›ã®ã‚¹ãƒˆãƒ¬ã‚¹ãƒ†ã‚¹ãƒˆ
 
 class TestWindow extends Window
 {
-	var fore; // ƒvƒ‰ƒCƒ}ƒŠ
-	var layers = []; // ƒŒƒCƒ„
+	var fore; // ãƒ—ãƒ©ã‚¤ãƒãƒª
+	var layers = []; // ãƒ¬ã‚¤ãƒ¤
 
 	function TestWindow()
 	{

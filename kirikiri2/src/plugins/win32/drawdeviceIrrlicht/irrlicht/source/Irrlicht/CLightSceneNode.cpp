@@ -85,14 +85,14 @@ void CLightSceneNode::setLightData(const video::SLight& light)
 }
 
 
-//! \return Returns the light data.
+//! ¥return Returns the light data.
 const video::SLight& CLightSceneNode::getLightData() const
 {
 	return LightData;
 }
 
 
-//! \return Returns the light data.
+//! ¥return Returns the light data.
 video::SLight& CLightSceneNode::getLightData()
 {
 	return LightData;

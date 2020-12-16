@@ -29,7 +29,7 @@ template< class e > class El
 public :
     El() : m_pNext( NULL ) { }
 
-    ~El()
+    ‾El()
     {
         m_elem.Cleanup();
     }
@@ -87,7 +87,7 @@ public:
         m_pStart = m_pCur = m_pIter = m_pEnd = NULL;
         m_wSize = 0;
     }
-    ~CTSimpleList()
+    ‾CTSimpleList()
     {
         while( NULL != m_pStart )
         {

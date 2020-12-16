@@ -84,14 +84,14 @@ namespace irr
 		Default this is set to 0.
 		To make Irrlicht run inside the custom window, you still will have to draw Irrlicht
 		on your own. You can use this loop, as usual:
-		\code
+		¥code
 		while (device->run())
 		{
 			driver->beginScene(true, true, 0);
 			smgr->drawAll();
 			driver->endScene();
 		}
-		\endcode
+		¥endcode
 		Instead of this, you can also simply use your own message loop
 		using GetMessage, DispatchMessage and whatever. Calling
 		IrrlichtDevice::run() will cause Irrlicht to dispatch messages internally too.
@@ -101,7 +101,7 @@ namespace irr
 		messages, DirectInput, or whatever. Also, you'll have to increment the Irrlicht timer.
 		An alternative, own message dispatching loop without device->run() would
 		look like this:
-		\code
+		¥code
 		MSG msg;
 		while (true)
 		{
@@ -122,7 +122,7 @@ namespace irr
 			smgr->drawAll();
 			driver->endScene();
 		}
-		\endcode
+		¥endcode
 		However, there is no need to draw the picture this often. Just do it how you like.
 		*/
 		void* WindowId;

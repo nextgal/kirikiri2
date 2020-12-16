@@ -20,7 +20,7 @@ namespace video
 		CDepthBuffer(const core::dimension2d<s32>& size);
 
 		//! destructor
-		virtual ~CDepthBuffer();
+		virtual ‾CDepthBuffer();
 
 		//! clears the zbuffer
 		virtual void clear();

@@ -5,14 +5,14 @@
 
 
 //---------------------------------------------------------------------------
-// BMP ‚Å‚Ì‰æ‘œ•Û‘¶
+// BMP ã§ã®ç”»åƒä¿å­˜
 //---------------------------------------------------------------------------
 void SaveAsBMP(const ttstr & name, tjs_int width, tjs_int height,
 	const tjs_uint8 * bufferptr, tjs_int bufferpitch)
 {
-	// BMP ‚Å‰æ‘œ‚ğ•Û‘¶‚·‚é
+	// BMP ã§ç”»åƒã‚’ä¿å­˜ã™ã‚‹
 
-	// ƒXƒgƒŠ[ƒ€‚ğŠJ‚­
+	// ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’é–‹ã
 	IStream * out = TVPCreateIStream(name, TJS_BS_WRITE);
 	if(!out)
 		TVPThrowExceptionMessage((ttstr(TJS_W("cannot open : ")) +
@@ -21,13 +21,13 @@ void SaveAsBMP(const ttstr & name, tjs_int width, tjs_int height,
 
 	try
 	{
-		// ‹g—¢‹g—¢“à•”‚Ì‰æ‘œƒLƒƒƒbƒVƒ…‚ğƒNƒŠƒA
-		// ‚±‚ê‚ğs‚í‚È‚¢‚ÆA‰æ‘œ‚ğƒtƒ@ƒCƒ‹‚É‘‚«‚ñ‚Å‚à
-		// ‹g—¢‹g—¢“à•”‚ÌƒLƒƒƒbƒVƒ…‚ğQÆ‚µ‚Ä‚µ‚Ü‚¤
+		// å‰é‡Œå‰é‡Œå†…éƒ¨ã®ç”»åƒã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’ã‚¯ãƒªã‚¢
+		// ã“ã‚Œã‚’è¡Œã‚ãªã„ã¨ã€ç”»åƒã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚“ã§ã‚‚
+		// å‰é‡Œå‰é‡Œå†…éƒ¨ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’å‚ç…§ã—ã¦ã—ã¾ã†
 		TVPClearGraphicCache();
 
 
-		// ƒwƒbƒ_‚ğ€”õ
+		// ãƒ˜ãƒƒãƒ€ã‚’æº–å‚™
 		tjs_uint pitch = width*4;
 		tjs_uint srcpitch = bufferpitch < 0 ? -bufferpitch : bufferpitch;
 
@@ -64,7 +64,7 @@ void SaveAsBMP(const ttstr & name, tjs_int width, tjs_int height,
 				ttstr(name)).c_str());
 
 
-		// ƒrƒbƒgƒ}ƒbƒv‚ğo—Í
+		// ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã‚’å‡ºåŠ›
 		buf = new tjs_uint8 [pitch];
 		bufferptr += bufferpitch * (height-1);
 
@@ -75,7 +75,7 @@ void SaveAsBMP(const ttstr & name, tjs_int width, tjs_int height,
 			if(written != pitch)
 				TVPThrowExceptionMessage((ttstr(TJS_W("write failed : ")) +
 					ttstr(name)).c_str());
-			bufferptr -= bufferpitch; // ã‰º‚ğ‹t‚É•Û‘¶‚·‚é‚Ì‚Å
+			bufferptr -= bufferpitch; // ä¸Šä¸‹ã‚’é€†ã«ä¿å­˜ã™ã‚‹ã®ã§
 		}
 
 	}
@@ -93,7 +93,7 @@ void SaveAsBMP(const ttstr & name, tjs_int width, tjs_int height,
 
 
 //---------------------------------------------------------------------------
-// ƒŒƒCƒ„‚Ì‰æ‘œ‚ğ•Û‘¶‚·‚é‚½‚ß‚ÌŠÖ” ( TJS ŠÖ” )
+// ãƒ¬ã‚¤ãƒ¤ã®ç”»åƒã‚’ä¿å­˜ã™ã‚‹ãŸã‚ã®é–¢æ•° ( TJS é–¢æ•° )
 //---------------------------------------------------------------------------
 class tSaveLayerImageFunction : public tTJSDispatch
 {
@@ -104,7 +104,7 @@ class tSaveLayerImageFunction : public tTJSDispatch
 	{
 		if(membername) return TJS_E_MEMBERNOTFOUND;
 
-		// ˆø” : ƒŒƒCƒ„, ƒtƒ@ƒCƒ‹–¼, ‰æ‘œŒ`® [, ‰æ‘œŒÅ—LƒIƒvƒVƒ‡ƒ“ ...]
+		// å¼•æ•° : ãƒ¬ã‚¤ãƒ¤, ãƒ•ã‚¡ã‚¤ãƒ«å, ç”»åƒå½¢å¼ [, ç”»åƒå›ºæœ‰ã‚ªãƒ—ã‚·ãƒ§ãƒ³ ...]
 		if(numparams < 3) return TJS_E_BADPARAMCOUNT;
 
 		const tjs_uint8 * bufferptr;
@@ -112,7 +112,7 @@ class tSaveLayerImageFunction : public tTJSDispatch
 		tjs_int width;
 		tjs_int height;
 
-		// ‰æ‘œ‚ÌƒTƒCƒYAƒsƒNƒZƒ‹ƒoƒbƒtƒ@‚Ö‚Ìƒ|ƒCƒ“ƒ^Aƒsƒbƒ`‚ğ“¾‚é
+		// ç”»åƒã®ã‚µã‚¤ã‚ºã€ãƒ”ã‚¯ã‚»ãƒ«ãƒãƒƒãƒ•ã‚¡ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã€ãƒ”ãƒƒãƒã‚’å¾—ã‚‹
 		iTJSDispatch2 * layerobj = param[0]->AsObjectNoAddRef();
 
 		tTJSVariant val;
@@ -132,11 +132,11 @@ class tSaveLayerImageFunction : public tTJSDispatch
 			TVPThrowExceptionMessage(TJS_W("invoking of Layer.mainImageBufferPitch failed."));
 		bufferpitch = val;
 
-		// ‰æ‘œŒ`®‚ğƒ`ƒFƒbƒN
+		// ç”»åƒå½¢å¼ã‚’ãƒã‚§ãƒƒã‚¯
 		ttstr format = *param[2];
 		if(format == TJS_W("bmp"))
 		{
-			// BMP ‚Å•Û‘¶
+			// BMP ã§ä¿å­˜
 			SaveAsBMP(*param[1], width, height, bufferptr, bufferpitch);
 		}
 		else
@@ -144,10 +144,10 @@ class tSaveLayerImageFunction : public tTJSDispatch
 			TVPThrowExceptionMessage(TJS_W("Not supported format."));
 		}
 
-		// –ß‚è’l‚Í void
+		// æˆ»ã‚Šå€¤ã¯ void
 		if(result) result->Clear();
 
-		// –ß‚é
+		// æˆ»ã‚‹
 		return TJS_S_OK;
 	}
 } * SaveLayerImageFunction;
@@ -166,94 +166,94 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void* lpReserved
 static tjs_int GlobalRefCountAtInit = 0;
 extern "C" HRESULT _stdcall _export V2Link(iTVPFunctionExporter *exporter)
 {
-	// ƒXƒ^ƒu‚Ì‰Šú‰»(•K‚¸‹Lq‚·‚é)
+	// ã‚¹ã‚¿ãƒ–ã®åˆæœŸåŒ–(å¿…ãšè¨˜è¿°ã™ã‚‹)
 	TVPInitImportStub(exporter);
 
-	// SaveLayerImageFunction ‚Ìì¬‚Æ“o˜^
+	// SaveLayerImageFunction ã®ä½œæˆã¨ç™»éŒ²
 	tTJSVariant val;
 
-	// TJS ‚ÌƒOƒ[ƒoƒ‹ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚é
+	// TJS ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹
 	iTJSDispatch2 * global = TVPGetScriptDispatch();
 
-	// 1 ‚Ü‚¸ƒIƒuƒWƒFƒNƒg‚ğì¬
+	// 1 ã¾ãšã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆ
 	SaveLayerImageFunction = new tSaveLayerImageFunction();
 
-	// 2 SaveLayerImageFunction ‚ğ tTJSVariant Œ^‚É•ÏŠ·
+	// 2 SaveLayerImageFunction ã‚’ tTJSVariant å‹ã«å¤‰æ›
 	val = tTJSVariant(SaveLayerImageFunction);
 
-	// 3 ‚·‚Å‚É val ‚ª SaveLayerImageFunction ‚ğ•Û‚µ‚Ä‚¢‚é‚Ì‚ÅA
-	// SaveLayerImageFunction ‚Í Release ‚·‚é
+	// 3 ã™ã§ã« val ãŒ SaveLayerImageFunction ã‚’ä¿æŒã—ã¦ã„ã‚‹ã®ã§ã€
+	// SaveLayerImageFunction ã¯ Release ã™ã‚‹
 	SaveLayerImageFunction->Release();
 
 
-	// 4 global ‚Ì PropSet ƒƒ\ƒbƒh‚ğ—p‚¢AƒIƒuƒWƒFƒNƒg‚ğ“o˜^‚·‚é
+	// 4 global ã® PropSet ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”¨ã„ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç™»éŒ²ã™ã‚‹
 	global->PropSet(
-		TJS_MEMBERENSURE, // ƒƒ“ƒo‚ª‚È‚©‚Á‚½ê‡‚É‚Íì¬‚·‚é‚æ‚¤‚É‚·‚éƒtƒ‰ƒO
-		TJS_W("saveLayerImage"), // ƒƒ“ƒo–¼ ( ‚©‚È‚ç‚¸ TJS_W( ) ‚ÅˆÍ‚Ş )
-		NULL, // ƒqƒ“ƒg ( –{—ˆ‚Íƒƒ“ƒo–¼‚ÌƒnƒbƒVƒ…’l‚¾‚ªANULL ‚Å‚à‚æ‚¢ )
-		&val, // “o˜^‚·‚é’l
-		global // ƒRƒ“ƒeƒLƒXƒg ( global ‚Å‚æ‚¢ )
+		TJS_MEMBERENSURE, // ãƒ¡ãƒ³ãƒãŒãªã‹ã£ãŸå ´åˆã«ã¯ä½œæˆã™ã‚‹ã‚ˆã†ã«ã™ã‚‹ãƒ•ãƒ©ã‚°
+		TJS_W("saveLayerImage"), // ãƒ¡ãƒ³ãƒå ( ã‹ãªã‚‰ãš TJS_W( ) ã§å›²ã‚€ )
+		NULL, // ãƒ’ãƒ³ãƒˆ ( æœ¬æ¥ã¯ãƒ¡ãƒ³ãƒåã®ãƒãƒƒã‚·ãƒ¥å€¤ã ãŒã€NULL ã§ã‚‚ã‚ˆã„ )
+		&val, // ç™»éŒ²ã™ã‚‹å€¤
+		global // ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ ( global ã§ã‚ˆã„ )
 		);
 
 
-	// - global ‚ğ Release ‚·‚é
+	// - global ã‚’ Release ã™ã‚‹
 	global->Release();
 
-	// val ‚ğƒNƒŠƒA‚·‚éB
-	// ‚±‚ê‚Í•K‚¸s‚¤B‚»‚¤‚µ‚È‚¢‚Æ val ‚ª•Û‚µ‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg
-	// ‚ª Release ‚³‚ê‚¸AŸ‚Ég‚¤ TVPPluginGlobalRefCount ‚ª³Šm‚É‚È‚ç‚È‚¢B
+	// val ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹ã€‚
+	// ã“ã‚Œã¯å¿…ãšè¡Œã†ã€‚ãã†ã—ãªã„ã¨ val ãŒä¿æŒã—ã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	// ãŒ Release ã•ã‚Œãšã€æ¬¡ã«ä½¿ã† TVPPluginGlobalRefCount ãŒæ­£ç¢ºã«ãªã‚‰ãªã„ã€‚
 	val.Clear();
 
 
-	// ‚±‚Ì“_‚Å‚Ì TVPPluginGlobalRefCount ‚Ì’l‚ğ
+	// ã“ã®æ™‚ç‚¹ã§ã® TVPPluginGlobalRefCount ã®å€¤ã‚’
 	GlobalRefCountAtInit = TVPPluginGlobalRefCount;
 	TVPAddLog(TVPPluginGlobalRefCount);
-	// ‚Æ‚µ‚ÄT‚¦‚Ä‚¨‚­BTVPPluginGlobalRefCount ‚Í‚±‚Ìƒvƒ‰ƒOƒCƒ““à‚Å
-	// ŠÇ—‚³‚ê‚Ä‚¢‚é tTJSDispatch ”h¶ƒIƒuƒWƒFƒNƒg‚ÌQÆƒJƒEƒ“ƒ^‚Ì‘Œv‚ÅA
-	// ‰ğ•ú‚É‚Í‚±‚ê‚Æ“¯‚¶‚©A‚±‚ê‚æ‚è‚à­‚È‚­‚È‚Á‚Ä‚È‚¢‚Æ‚È‚ç‚È‚¢B
-	// ‚»‚¤‚È‚Á‚Ä‚È‚¯‚ê‚ÎA‚Ç‚±‚©•Ê‚Ì‚Æ‚±‚ë‚ÅŠÖ”‚È‚Ç‚ªQÆ‚³‚ê‚Ä‚¢‚ÄA
-	// ƒvƒ‰ƒOƒCƒ“‚Í‰ğ•ú‚Å‚«‚È‚¢‚ÆŒ¾‚¤‚±‚Æ‚É‚È‚éB
+	// ã¨ã—ã¦æ§ãˆã¦ãŠãã€‚TVPPluginGlobalRefCount ã¯ã“ã®ãƒ—ãƒ©ã‚°ã‚¤ãƒ³å†…ã§
+	// ç®¡ç†ã•ã‚Œã¦ã„ã‚‹ tTJSDispatch æ´¾ç”Ÿã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å‚ç…§ã‚«ã‚¦ãƒ³ã‚¿ã®ç·è¨ˆã§ã€
+	// è§£æ”¾æ™‚ã«ã¯ã“ã‚Œã¨åŒã˜ã‹ã€ã“ã‚Œã‚ˆã‚Šã‚‚å°‘ãªããªã£ã¦ãªã„ã¨ãªã‚‰ãªã„ã€‚
+	// ãã†ãªã£ã¦ãªã‘ã‚Œã°ã€ã©ã“ã‹åˆ¥ã®ã¨ã“ã‚ã§é–¢æ•°ãªã©ãŒå‚ç…§ã•ã‚Œã¦ã„ã¦ã€
+	// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã¯è§£æ”¾ã§ããªã„ã¨è¨€ã†ã“ã¨ã«ãªã‚‹ã€‚
 
 	return S_OK;
 }
 //---------------------------------------------------------------------------
 extern "C" HRESULT _stdcall _export V2Unlink()
 {
-	// ‹g—¢‹g—¢‘¤‚©‚çAƒvƒ‰ƒOƒCƒ“‚ğ‰ğ•ú‚µ‚æ‚¤‚Æ‚·‚é‚Æ‚«‚ÉŒÄ‚Î‚ê‚éŠÖ”B
+	// å‰é‡Œå‰é‡Œå´ã‹ã‚‰ã€ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’è§£æ”¾ã—ã‚ˆã†ã¨ã™ã‚‹ã¨ãã«å‘¼ã°ã‚Œã‚‹é–¢æ•°ã€‚
 
-	// ‚à‚µ‰½‚ç‚©‚ÌğŒ‚Åƒvƒ‰ƒOƒCƒ“‚ğ‰ğ•ú‚Å‚«‚È‚¢ê‡‚Í
-	// ‚±‚Ì“_‚Å E_FAIL ‚ğ•Ô‚·‚æ‚¤‚É‚·‚éB
-	// ‚±‚±‚Å‚ÍATVPPluginGlobalRefCount ‚ª GlobalRefCountAtInit ‚æ‚è‚à
-	// ‘å‚«‚­‚È‚Á‚Ä‚¢‚ê‚Î¸”s‚Æ‚¢‚¤‚±‚Æ‚É‚·‚éB
+	// ã‚‚ã—ä½•ã‚‰ã‹ã®æ¡ä»¶ã§ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’è§£æ”¾ã§ããªã„å ´åˆã¯
+	// ã“ã®æ™‚ç‚¹ã§ E_FAIL ã‚’è¿”ã™ã‚ˆã†ã«ã™ã‚‹ã€‚
+	// ã“ã“ã§ã¯ã€TVPPluginGlobalRefCount ãŒ GlobalRefCountAtInit ã‚ˆã‚Šã‚‚
+	// å¤§ãããªã£ã¦ã„ã‚Œã°å¤±æ•—ã¨ã„ã†ã“ã¨ã«ã™ã‚‹ã€‚
 	TVPAddLog(TVPPluginGlobalRefCount);
 	if(TVPPluginGlobalRefCount > GlobalRefCountAtInit) return E_FAIL;
-		// E_FAIL ‚ª‹A‚é‚ÆAPlugins.unlink ƒƒ\ƒbƒh‚Í‹U‚ğ•Ô‚·
+		// E_FAIL ãŒå¸°ã‚‹ã¨ã€Plugins.unlink ãƒ¡ã‚½ãƒƒãƒ‰ã¯å½ã‚’è¿”ã™
 
-	// TJS ‚ÌƒOƒ[ƒoƒ‹ƒIƒuƒWƒFƒNƒg‚É“o˜^‚µ‚½ saveLayerImage ŠÖ”‚ğíœ‚·‚é
+	// TJS ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ç™»éŒ²ã—ãŸ saveLayerImage é–¢æ•°ã‚’å‰Šé™¤ã™ã‚‹
 
-	// - ‚Ü‚¸ATJS ‚ÌƒOƒ[ƒoƒ‹ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚é
+	// - ã¾ãšã€TJS ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹
 	iTJSDispatch2 * global = TVPGetScriptDispatch();
 
-	// - global ‚Ì DeleteMember ƒƒ\ƒbƒh‚ğ—p‚¢AƒIƒuƒWƒFƒNƒg‚ğíœ‚·‚é
+	// - global ã® DeleteMember ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”¨ã„ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å‰Šé™¤ã™ã‚‹
 	if(global)
 	{
-		// TJS ©‘Ì‚ªŠù‚É‰ğ•ú‚³‚ê‚Ä‚¢‚½‚Æ‚«‚È‚Ç‚Í
-		// global ‚Í NULL ‚É‚È‚è“¾‚é‚Ì‚Å global ‚ª NULL ‚Å‚È‚¢
-		// ‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚é
+		// TJS è‡ªä½“ãŒæ—¢ã«è§£æ”¾ã•ã‚Œã¦ã„ãŸã¨ããªã©ã¯
+		// global ã¯ NULL ã«ãªã‚Šå¾—ã‚‹ã®ã§ global ãŒ NULL ã§ãªã„
+		// ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹
 
 		global->DeleteMember(
-			0, // ƒtƒ‰ƒO ( 0 ‚Å‚æ‚¢ )
-			TJS_W("saveLayerImage"), // ƒƒ“ƒo–¼
-			NULL, // ƒqƒ“ƒg
-			global // ƒRƒ“ƒeƒLƒXƒg
+			0, // ãƒ•ãƒ©ã‚° ( 0 ã§ã‚ˆã„ )
+			TJS_W("saveLayerImage"), // ãƒ¡ãƒ³ãƒå
+			NULL, // ãƒ’ãƒ³ãƒˆ
+			global // ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
 			);
-			// “o˜^‚µ‚½ŠÖ”‚ª•¡”‚ ‚éê‡‚Í ‚±‚ê‚ğŒJ‚è•Ô‚·
+			// ç™»éŒ²ã—ãŸé–¢æ•°ãŒè¤‡æ•°ã‚ã‚‹å ´åˆã¯ ã“ã‚Œã‚’ç¹°ã‚Šè¿”ã™
 	}
 
-	// - global ‚ğ Release ‚·‚é
+	// - global ã‚’ Release ã™ã‚‹
 	if(global) global->Release();
 
-	// ƒXƒ^ƒu‚Ìg—pI—¹(•K‚¸‹Lq‚·‚é)
+	// ã‚¹ã‚¿ãƒ–ã®ä½¿ç”¨çµ‚äº†(å¿…ãšè¨˜è¿°ã™ã‚‹)
 	TVPUninitImportStub();
 
 	return S_OK;

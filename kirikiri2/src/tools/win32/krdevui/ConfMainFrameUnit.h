@@ -30,7 +30,7 @@ class TLayeredOption
 
 public:
 	TLayeredOption();
-	virtual ~TLayeredOption();
+	virtual â€¾TLayeredOption();
 
 	void Clear();
 
@@ -59,7 +59,7 @@ public:
 //---------------------------------------------------------------------------
 class TConfMainFrame : public TFrame
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TGroupBox *IconGroupBox;
 	TCheckBox *ChangeIconCheck;
 	TButton *RefIconButton;
@@ -89,15 +89,15 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall RestoreDefaultButtonClick(TObject *Sender);
 	void __fastcall InvisibleCheckBoxClick(TObject *Sender);
 	void __fastcall OptionValueEditChange(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	bool DescGot;
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	AnsiString SourceExe;
 	AnsiString TargetExe;
 
 	__fastcall TConfMainFrame(TComponent* Owner);
-	__fastcall ~TConfMainFrame();
+	__fastcall â€¾TConfMainFrame();
 
 	void __fastcall SetUserConfMode();
 	bool __fastcall GetUserConfMode() const { return UserConfMode; }

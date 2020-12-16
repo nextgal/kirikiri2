@@ -19,7 +19,7 @@
 #
 # define BOOST_PP_SEQ_SPLIT(n, seq) BOOST_PP_SEQ_SPLIT_D(n, seq)
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
 #    define BOOST_PP_SEQ_SPLIT_D(n, seq) (BOOST_PP_SEQ_SPLIT_ ## n seq)
 # else
 #    define BOOST_PP_SEQ_SPLIT_D(n, seq) (BOOST_PP_SEQ_SPLIT_ ## n ## seq)

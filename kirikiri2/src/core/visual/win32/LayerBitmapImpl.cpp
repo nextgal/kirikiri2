@@ -131,7 +131,7 @@ private:
 
 public:
 	tTVPPrerenderedFont(const ttstr &storage);
-	~tTVPPrerenderedFont();
+	‾tTVPPrerenderedFont();
 	void AddRef();
 	void Release();
 
@@ -204,7 +204,7 @@ tTVPPrerenderedFont::tTVPPrerenderedFont(const ttstr &storage) :
 		}
 
 		// check header
-		if(memcmp("TVP pre-rendered font\x1a", Image, 22))
+		if(memcmp("TVP pre-rendered font¥x1a", Image, 22))
 		{
 			TVPThrowExceptionMessage(TVPPrerenderedFontMappingFailed,
 				TJS_W("Signature not found or invalid pre-rendered font file."));
@@ -240,7 +240,7 @@ tTVPPrerenderedFont::tTVPPrerenderedFont(const ttstr &storage) :
 	TVPPrerenderedFonts.Add(storage, this);
 }
 //---------------------------------------------------------------------------
-tTVPPrerenderedFont::~tTVPPrerenderedFont()
+tTVPPrerenderedFont::‾tTVPPrerenderedFont()
 {
 	UnmapViewOfFile(Image);
 	CloseHandle(MappingHandle);
@@ -532,7 +532,7 @@ public:
 
 public:
 	tTVPCharacterData() { RefCount = 1; Data = NULL; }
-	~tTVPCharacterData() { if(Data) delete [] Data; }
+	‾tTVPCharacterData() { if(Data) delete [] Data; }
 
 	void Alloc(tjs_int size)
 	{
@@ -1132,7 +1132,7 @@ static tTVPCharacterData * TVPGetCharacter(const tTVPFontAndCharacterData & font
 
 			if(format == GGO_GRAY8_BITMAP)
 			{
-				data->Pitch = (size / gm.gmBlackBoxY) & ~0x03;
+				data->Pitch = (size / gm.gmBlackBoxY) & ‾0x03;
 					// data is aligned to DWORD
 				/*
 					data->Pitch = (((gm.gmBlackBoxX -1)>>2)+1)<<2 seems to be proper,
@@ -1266,8 +1266,8 @@ static void * TVPAllocBitmapBits(tjs_uint size, tjs_uint width, tjs_uint height)
 	record->sentinel_backup2 = rand() + (rand() << 16);
 
 	// set sentinel
-	*(tjs_uint32*)(ptr - sizeof(tjs_uint32)) = ~record->sentinel_backup1;
-	*(tjs_uint32*)(ptr + size              ) = ~record->sentinel_backup2;
+	*(tjs_uint32*)(ptr - sizeof(tjs_uint32)) = ‾record->sentinel_backup1;
+	*(tjs_uint32*)(ptr + size              ) = ‾record->sentinel_backup2;
 		// Stored sentinels are nagated, to avoid that the sentinel backups in
 		// tTVPLayerBitmapMemoryRecord becomes the same value as the sentinels.
 		// This trick will make the detection of the memory corruption easier.
@@ -1289,10 +1289,10 @@ static void TVPFreeBitmapBits(void *ptr)
 			(bptr - sizeof(tTVPLayerBitmapMemoryRecord) - sizeof(tjs_uint32));
 
 		// check sentinel
-		if(~(*(tjs_uint32*)(bptr - sizeof(tjs_uint32))) != record->sentinel_backup1)
+		if(‾(*(tjs_uint32*)(bptr - sizeof(tjs_uint32))) != record->sentinel_backup1)
 			TVPThrowExceptionMessage(
 				TJS_W("Layer bitmap: Buffer underrun detected. Check your drawing code!"));
-		if(~(*(tjs_uint32*)(bptr + record->size      )) != record->sentinel_backup2)
+		if(‾(*(tjs_uint32*)(bptr + record->size      )) != record->sentinel_backup2)
 			TVPThrowExceptionMessage(
 				TJS_W("Layer bitmap: Buffer overrun detected. Check your drawing code!"));
 
@@ -1329,7 +1329,7 @@ tTVPBitmap::tTVPBitmap(tjs_uint width, tjs_uint height, tjs_uint bpp)
 	Allocate(width, height, bpp); // allocate initial bitmap
 }
 //---------------------------------------------------------------------------
-tTVPBitmap::~tTVPBitmap()
+tTVPBitmap::‾tTVPBitmap()
 {
 	if(TVPUseDIBSection)
 	{
@@ -1475,7 +1475,7 @@ void * tTVPBitmap::GetScanLine(tjs_uint l) const
 //---------------------------------------------------------------------------
 // default LOGFONT retrieve function
 //---------------------------------------------------------------------------
-static const char * const TVPDefaultFontName = TJS_N("�l�r �o�S�V�b�N"); // TODO: i18n
+static const char * const TVPDefaultFontName = TJS_N("ＭＳ Ｐゴシック"); // TODO: i18n
 static LOGFONT TVPDefaultLOGFONT;
 static tTVPFont TVPDefaultFont;
 static bool TVPDefaultLOGFONTCreated = false;
@@ -1785,7 +1785,7 @@ tTVPNativeBaseBitmap::tTVPNativeBaseBitmap(const tTVPNativeBaseBitmap & r)
 	TextWidth = TextHeight = 0;
 }
 //---------------------------------------------------------------------------
-tTVPNativeBaseBitmap::~tTVPNativeBaseBitmap()
+tTVPNativeBaseBitmap::‾tTVPNativeBaseBitmap()
 {
 	Bitmap->Release();
 	if(PrerenderedFont) PrerenderedFont->Release();
@@ -2348,7 +2348,7 @@ struct tTVPCharacterDrawData
 		if(Shadow) Shadow->AddRef();
 	}
 
-	~tTVPCharacterDrawData()
+	‾tTVPCharacterDrawData()
 	{
 		if(Data) Data->Release();
 		if(Shadow) Shadow->Release();

@@ -2,21 +2,21 @@
 @macro name=cl
 @call *
 @endmacro
-*test1|ƒZ[ƒu1
+*test1|ã‚»ãƒ¼ãƒ–1
 @startanchor
 @ct
-ƒTƒuƒ‹[ƒ`ƒ“‚ÌƒeƒXƒg[l]
+ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³ã®ãƒ†ã‚¹ãƒˆ[l]
 @disablestore
-disablestore‚µ‚Ä‚İ‚½[l]
+disablestoreã—ã¦ã¿ãŸ[l]
 @cl target=*test2
-ƒTƒuƒ‹[ƒ`ƒ“‚©‚ç–ß‚Á‚½ subtest_test1[l]
+ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³ã‹ã‚‰æˆ»ã£ãŸ subtest_test1[l]
 0 -> 5[copybookmark from=0 to=5][l]
 erase 5[erasebookmark place=5][s]
 
 
-*test2|ƒZ[ƒu2
+*test2|ã‚»ãƒ¼ãƒ–2
 @ct
-ƒTƒuƒ‹[ƒ`ƒ“‚ÌƒeƒXƒg[l]
+ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³ã®ãƒ†ã‚¹ãƒˆ[l]
 @load place=0 ask=true
 @gotostart ask=true
 @store enabled=false
@@ -25,6 +25,6 @@ store enabled=false[l]
 store enabled=true[l]
 @save place=4 ask=true
 @cl target=*test3 storage=subtest2.ks
-ƒTƒuƒ‹[ƒ`ƒ“‚©‚ç–ß‚Á‚½ subtest_test2[l]
+ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³ã‹ã‚‰æˆ»ã£ãŸ subtest_test2[l]
 @return
 

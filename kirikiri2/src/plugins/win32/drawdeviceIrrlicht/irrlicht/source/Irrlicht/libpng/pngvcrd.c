@@ -86,7 +86,7 @@ NOT_SUPPORTED:
   }
 
   //mmx_supported_local=0; // test code for force don't support MMX
-  //printf("MMX : %u (1=MMX supported)\n",mmx_supported_local);
+  //printf("MMX : %u (1=MMX supported)¥n",mmx_supported_local);
 
   mmx_supported = mmx_supported_local;
   return mmx_supported_local;
@@ -113,7 +113,7 @@ png_combine_row(png_structp png_ptr, png_bytep row, int mask)
    const int png_pass_inc[7] = {8, 8, 4, 4, 2, 2, 1};
 #endif
 
-   png_debug(1,"in png_combine_row_asm\n");
+   png_debug(1,"in png_combine_row_asm¥n");
 
    if (mmx_supported == 2) {
 #if !defined(PNG_1_0_X)
@@ -321,8 +321,8 @@ png_combine_row(png_structp png_ptr, png_bytep row, int mask)
                srcptr = png_ptr->row_buf + 1;
                dstptr = row;
                m = 0x80;
-               unmask = ~mask;
-               len  = png_ptr->width &~7;  //reduce to multiple of 8
+               unmask = ‾mask;
+               len  = png_ptr->width &‾7;  //reduce to multiple of 8
                diff = png_ptr->width & 7;  //amount lost
 
                _asm
@@ -426,8 +426,8 @@ end8:
                srcptr = png_ptr->row_buf + 1;
                dstptr = row;
 
-               unmask = ~mask;
-               len     = (png_ptr->width)&~7;
+               unmask = ‾mask;
+               len     = (png_ptr->width)&‾7;
                diff = (png_ptr->width)&7;
                _asm
                {
@@ -537,8 +537,8 @@ end16:
             srcptr = png_ptr->row_buf + 1;
             dstptr = row;
 
-            unmask = ~mask;
-            len     = (png_ptr->width)&~7;
+            unmask = ‾mask;
+            len     = (png_ptr->width)&‾7;
             diff = (png_ptr->width)&7;
 
 #if !defined(PNG_1_0_X)
@@ -673,8 +673,8 @@ end24:
             srcptr = png_ptr->row_buf + 1;
             dstptr = row;
 
-            unmask = ~mask;
-            len     = (png_ptr->width)&~7;
+            unmask = ‾mask;
+            len     = (png_ptr->width)&‾7;
             diff = (png_ptr->width)&7;
 
 #if !defined(PNG_1_0_X)
@@ -826,8 +826,8 @@ end32:
                srcptr = png_ptr->row_buf + 1;
                dstptr = row;
 
-               unmask = ~mask;
-               len     = (png_ptr->width)&~7;
+               unmask = ‾mask;
+               len     = (png_ptr->width)&‾7;
                diff = (png_ptr->width)&7;
                _asm
                {
@@ -1008,7 +1008,7 @@ png_do_read_interlace(png_structp png_ptr)
    const int png_pass_inc[7] = {8, 8, 4, 4, 2, 2, 1};
 #endif
 
-   png_debug(1,"in png_do_read_interlace\n");
+   png_debug(1,"in png_do_read_interlace¥n");
 
    if (mmx_supported == 2) {
 #if !defined(PNG_1_0_X)
@@ -3690,7 +3690,7 @@ png_read_filter_row(png_structp png_ptr, png_row_infop row_info, png_bytep
    }
 
 #ifdef PNG_DEBUG
-   png_debug(1, "in png_read_filter_row\n");
+   png_debug(1, "in png_read_filter_row¥n");
    switch (filter)
    {
       case 0: sprintf(filnm, "none");

@@ -97,7 +97,7 @@ public:
     {
     }
 
-    virtual ~sp_counted_base() // nothrow
+    virtual ‾sp_counted_base() // nothrow
     {
     }
 
@@ -371,7 +371,7 @@ public:
 
 #endif 
 
-    ~shared_count() // nothrow
+    ‾shared_count() // nothrow
     {
         if(pi_ != 0) pi_->release();
 #if defined(BOOST_SP_ENABLE_DEBUG_HOOKS)
@@ -474,7 +474,7 @@ public:
         if(pi_ != 0) pi_->weak_add_ref();
     }
 
-    ~weak_count() // nothrow
+    ‾weak_count() // nothrow
     {
         if(pi_ != 0) pi_->weak_release();
 #if defined(BOOST_SP_ENABLE_DEBUG_HOOKS)

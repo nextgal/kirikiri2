@@ -1,6 +1,6 @@
 // Boost Lambda Library  - operator_lambda_func_base.hpp -----------------
 //
-// Copyright (C) 1999, 2000 Jaakko J�rvi (jaakko.jarvi@cs.utu.fi)
+// Copyright (C) 1999, 2000 Jaakko J舐vi (jaakko.jarvi@cs.utu.fi)
 //
 // Permission to copy, use, sell and distribute this software is granted
 // provided this copyright notice appears in all copies. 
@@ -150,62 +150,62 @@ public:
 };  
 
 
-#define BOOST_LAMBDA_BINARY_ACTION(SYMBOL, ACTION_CLASS)  \
-template<class Args>                                                      \
-class lambda_functor_base<ACTION_CLASS, Args> {                           \
-public:                                                                   \
-  Args args;                                                              \
-public:                                                                   \
-  explicit lambda_functor_base(const Args& a) : args(a) {}                \
-                                                                          \
-  template<class RET, CALL_TEMPLATE_ARGS>                                 \
-  RET call(CALL_FORMAL_ARGS) const {                                      \
-    return detail::select(boost::tuples::get<0>(args), CALL_ACTUAL_ARGS)  \
-           SYMBOL                                                         \
-           detail::select(boost::tuples::get<1>(args), CALL_ACTUAL_ARGS); \
-  }                                                                       \
-  template<class SigArgs> struct sig {                                    \
-    typedef typename                                                      \
-      detail::binary_rt<ACTION_CLASS, Args, SigArgs>::type type;          \
-  };                                                                      \
+#define BOOST_LAMBDA_BINARY_ACTION(SYMBOL, ACTION_CLASS)  ¥
+template<class Args>                                                      ¥
+class lambda_functor_base<ACTION_CLASS, Args> {                           ¥
+public:                                                                   ¥
+  Args args;                                                              ¥
+public:                                                                   ¥
+  explicit lambda_functor_base(const Args& a) : args(a) {}                ¥
+                                                                          ¥
+  template<class RET, CALL_TEMPLATE_ARGS>                                 ¥
+  RET call(CALL_FORMAL_ARGS) const {                                      ¥
+    return detail::select(boost::tuples::get<0>(args), CALL_ACTUAL_ARGS)  ¥
+           SYMBOL                                                         ¥
+           detail::select(boost::tuples::get<1>(args), CALL_ACTUAL_ARGS); ¥
+  }                                                                       ¥
+  template<class SigArgs> struct sig {                                    ¥
+    typedef typename                                                      ¥
+      detail::binary_rt<ACTION_CLASS, Args, SigArgs>::type type;          ¥
+  };                                                                      ¥
 };  
 
-#define BOOST_LAMBDA_PREFIX_UNARY_ACTION(SYMBOL, ACTION_CLASS)            \
-template<class Args>                                                      \
-class lambda_functor_base<ACTION_CLASS, Args> {                           \
-public:                                                                   \
-  Args args;                                                              \
-public:                                                                   \
-  explicit lambda_functor_base(const Args& a) : args(a) {}                \
-                                                                          \
-  template<class RET, CALL_TEMPLATE_ARGS>                                 \
-  RET call(CALL_FORMAL_ARGS) const {                                      \
-    return SYMBOL                                                         \
-           detail::select(boost::tuples::get<0>(args), CALL_ACTUAL_ARGS); \
-  }                                                                       \
-  template<class SigArgs> struct sig {                                    \
-    typedef typename                                                      \
-      detail::unary_rt<ACTION_CLASS, Args, SigArgs>::type type;           \
-  };                                                                      \
+#define BOOST_LAMBDA_PREFIX_UNARY_ACTION(SYMBOL, ACTION_CLASS)            ¥
+template<class Args>                                                      ¥
+class lambda_functor_base<ACTION_CLASS, Args> {                           ¥
+public:                                                                   ¥
+  Args args;                                                              ¥
+public:                                                                   ¥
+  explicit lambda_functor_base(const Args& a) : args(a) {}                ¥
+                                                                          ¥
+  template<class RET, CALL_TEMPLATE_ARGS>                                 ¥
+  RET call(CALL_FORMAL_ARGS) const {                                      ¥
+    return SYMBOL                                                         ¥
+           detail::select(boost::tuples::get<0>(args), CALL_ACTUAL_ARGS); ¥
+  }                                                                       ¥
+  template<class SigArgs> struct sig {                                    ¥
+    typedef typename                                                      ¥
+      detail::unary_rt<ACTION_CLASS, Args, SigArgs>::type type;           ¥
+  };                                                                      ¥
 };  
 
-#define BOOST_LAMBDA_POSTFIX_UNARY_ACTION(SYMBOL, ACTION_CLASS)           \
-template<class Args>                                                      \
-class lambda_functor_base<ACTION_CLASS, Args> {                           \
-public:                                                                   \
-  Args args;                                                              \
-public:                                                                   \
-  explicit lambda_functor_base(const Args& a) : args(a) {}                \
-                                                                          \
-  template<class RET, CALL_TEMPLATE_ARGS>                                 \
-  RET call(CALL_FORMAL_ARGS) const {                                      \
-    return                                                                \
-    detail::select(boost::tuples::get<0>(args), CALL_ACTUAL_ARGS) SYMBOL; \
-  }                                                                       \
-  template<class SigArgs> struct sig {                                    \
-    typedef typename                                                      \
-      detail::unary_rt<ACTION_CLASS, Args, SigArgs>::type type;           \
-  };                                                                      \
+#define BOOST_LAMBDA_POSTFIX_UNARY_ACTION(SYMBOL, ACTION_CLASS)           ¥
+template<class Args>                                                      ¥
+class lambda_functor_base<ACTION_CLASS, Args> {                           ¥
+public:                                                                   ¥
+  Args args;                                                              ¥
+public:                                                                   ¥
+  explicit lambda_functor_base(const Args& a) : args(a) {}                ¥
+                                                                          ¥
+  template<class RET, CALL_TEMPLATE_ARGS>                                 ¥
+  RET call(CALL_FORMAL_ARGS) const {                                      ¥
+    return                                                                ¥
+    detail::select(boost::tuples::get<0>(args), CALL_ACTUAL_ARGS) SYMBOL; ¥
+  }                                                                       ¥
+  template<class SigArgs> struct sig {                                    ¥
+    typedef typename                                                      ¥
+      detail::unary_rt<ACTION_CLASS, Args, SigArgs>::type type;           ¥
+  };                                                                      ¥
 };  
 
 BOOST_LAMBDA_BINARY_ACTION(+,arithmetic_action<plus_action>)
@@ -244,7 +244,7 @@ BOOST_LAMBDA_BINARY_ACTION(=,other_action< assignment_action>)
 
 BOOST_LAMBDA_PREFIX_UNARY_ACTION(+, unary_arithmetic_action<plus_action>)
 BOOST_LAMBDA_PREFIX_UNARY_ACTION(-, unary_arithmetic_action<minus_action>)
-BOOST_LAMBDA_PREFIX_UNARY_ACTION(~, bitwise_action<not_action>)
+BOOST_LAMBDA_PREFIX_UNARY_ACTION(‾, bitwise_action<not_action>)
 BOOST_LAMBDA_PREFIX_UNARY_ACTION(!, logical_action<not_action>)
 BOOST_LAMBDA_PREFIX_UNARY_ACTION(++, pre_increment_decrement_action<increment_action>)
 BOOST_LAMBDA_PREFIX_UNARY_ACTION(--, pre_increment_decrement_action<decrement_action>)

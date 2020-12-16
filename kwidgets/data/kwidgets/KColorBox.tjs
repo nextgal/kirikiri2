@@ -4,7 +4,7 @@
 
 
 /**------------------------------
- * ƒJƒ‰[ƒ{ƒbƒNƒX
+ * ã‚«ãƒ©ãƒ¼ãƒœãƒƒã‚¯ã‚¹
  ------------------------------*/
 class KColorBox extends KValueWidget
 {
@@ -15,15 +15,15 @@ class KColorBox extends KValueWidget
   var pressing = false;
 
   /**------------------------------
-   * ƒJƒ‰[ƒ{ƒbƒNƒX
+   * ã‚«ãƒ©ãƒ¼ãƒœãƒƒã‚¯ã‚¹
    *
-   * uFv‚ğ•ÒW‰Â”\‚ÈƒJƒ‰[ƒ{ƒbƒNƒX‚ÌƒEƒBƒWƒFƒbƒg‚Å‚·B
-   * ƒ{ƒbƒNƒX‚ğƒNƒŠƒbƒN‚·‚é‚ÆƒJƒ‰[ƒsƒbƒJ[‚ª•\¦‚³‚ê‚ÄF‚ğ•ÒW‚Å‚«‚Ü‚·B
+   * ã€Œè‰²ã€ã‚’ç·¨é›†å¯èƒ½ãªã‚«ãƒ©ãƒ¼ãƒœãƒƒã‚¯ã‚¹ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã§ã™ã€‚
+   * ãƒœãƒƒã‚¯ã‚¹ã‚’ã‚¯ãƒªãƒƒã‚¯ã™ã‚‹ã¨ã‚«ãƒ©ãƒ¼ãƒ”ãƒƒã‚«ãƒ¼ãŒè¡¨ç¤ºã•ã‚Œã¦è‰²ã‚’ç·¨é›†ã§ãã¾ã™ã€‚
    *
-   * @param window ƒEƒBƒ“ƒhƒE
-   * @param width •
-   * @param height ‚‚³
-   * @param name –¼‘O
+   * @param window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param width å¹…
+   * @param height é«˜ã•
+   * @param name åå‰
    ------------------------------*/
   function KColorBox(window, width, height, name = "") {
     super.KWidget(window, name);
@@ -36,15 +36,15 @@ class KColorBox extends KValueWidget
   }
 
   /**------------------------------
-   * ƒ¿‚Ì—L–³
+   * Î±ã®æœ‰ç„¡
    *
-   * F‚Ì•\Œ»‚Éƒ¿’l‚ğŠÜ‚Ş‚©‚Ç‚¤‚©‚ğw’è‚µ‚Ü‚·B
-   * ƒ¿’l‚ğŠÜ‚Şê‡‚Í0xAARRGGBBŒ`®A
-   * ŠÜ‚Ü‚È‚¢ê‡‚Í0xRRGGBBŒ`®‚Ì®”‚ÅF‚ğw’è‚µ‚Ü‚·B
-   * ƒfƒtƒHƒ‹ƒgİ’è‚Ífalse(ƒ¿‚ğŠÜ‚Ü‚È‚¢)‚Å‚·B
+   * è‰²ã®è¡¨ç¾ã«Î±å€¤ã‚’å«ã‚€ã‹ã©ã†ã‹ã‚’æŒ‡å®šã—ã¾ã™ã€‚
+   * Î±å€¤ã‚’å«ã‚€å ´åˆã¯0xAARRGGBBå½¢å¼ã€
+   * å«ã¾ãªã„å ´åˆã¯0xRRGGBBå½¢å¼ã®æ•´æ•°ã§è‰²ã‚’æŒ‡å®šã—ã¾ã™ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆè¨­å®šã¯false(Î±ã‚’å«ã¾ãªã„)ã§ã™ã€‚
    *
-   * @return ƒ¿‚Ì—L–³
-   * @param v ƒ¿‚Ì—L–³
+   * @return Î±ã®æœ‰ç„¡
+   * @param v Î±ã®æœ‰ç„¡
    ------------------------------*/
   property hasAlpha {
     getter {
@@ -63,13 +63,13 @@ class KColorBox extends KValueWidget
   }
 
   /**------------------------------
-   * ƒJƒ‰[‚Ì’l
+   * ã‚«ãƒ©ãƒ¼ã®å€¤
    *
-   * hasAlpha = true‚Ì‚Í 0xAARRGGBBA
-   * hasAlpha = false‚Ì‚Í0xRRGGBBŒ`®‚Ì®”‚ÅF‚ğw’è‚µ‚Ü‚·B
+   * hasAlpha = trueã®æ™‚ã¯ 0xAARRGGBBã€
+   * hasAlpha = falseã®æ™‚ã¯0xRRGGBBå½¢å¼ã®æ•´æ•°ã§è‰²ã‚’æŒ‡å®šã—ã¾ã™ã€‚
    *
-   * @return ƒJƒ‰[‚Ì’l
-   * @param v ƒJƒ‰[‚Ì’l
+   * @return ã‚«ãƒ©ãƒ¼ã®å€¤
+   * @param v ã‚«ãƒ©ãƒ¼ã®å€¤
    ------------------------------*/
   property value {
     getter {
@@ -84,10 +84,10 @@ class KColorBox extends KValueWidget
   }
 
   /**------------------------------
-   * F‚ğ16i”‚ÌƒeƒLƒXƒg‚Æ‚µ‚Ä•\Œ»
+   * è‰²ã‚’16é€²æ•°ã®ãƒ†ã‚­ã‚¹ãƒˆã¨ã—ã¦è¡¨ç¾
    *
-   * @return ƒJƒ‰[ƒeƒLƒXƒg
-   * @param v ƒJƒ‰[ƒeƒLƒXƒg
+   * @return ã‚«ãƒ©ãƒ¼ãƒ†ã‚­ã‚¹ãƒˆ
+   * @param v ã‚«ãƒ©ãƒ¼ãƒ†ã‚­ã‚¹ãƒˆ
    ------------------------------*/
   property asText {
     getter {
@@ -99,13 +99,13 @@ class KColorBox extends KValueWidget
   }
 
   /**------------------------------
-   * ƒJƒ‰[ƒsƒbƒJ[‚Ì«‘
+   * ã‚«ãƒ©ãƒ¼ãƒ”ãƒƒã‚«ãƒ¼ã®è¾æ›¸
    *
-   * @param dict «‘
-   * @return «‘
+   * @param dict è¾æ›¸
+   * @return è¾æ›¸
    *
-   * ƒJƒ‰[ƒsƒbƒJ[‚ğŠJ‚­A‚»‚ÌˆÊ’u‚ğ‹L˜^‚·‚é«‘‚ğw’è‚µ‚Ü‚·B
-   * w’è‚ğÈ—ª‚·‚é‚ÆAKColorBox‚ÉƒoƒCƒ“ƒh‚³‚ê‚Ä‚¢‚é«‘‚ªg‚í‚ê‚Ü‚·B
+   * ã‚«ãƒ©ãƒ¼ãƒ”ãƒƒã‚«ãƒ¼ã‚’é–‹ãæ™‚ã€ãã®ä½ç½®ã‚’è¨˜éŒ²ã™ã‚‹è¾æ›¸ã‚’æŒ‡å®šã—ã¾ã™ã€‚
+   * æŒ‡å®šã‚’çœç•¥ã™ã‚‹ã¨ã€KColorBoxã«ãƒã‚¤ãƒ³ãƒ‰ã•ã‚Œã¦ã„ã‚‹è¾æ›¸ãŒä½¿ã‚ã‚Œã¾ã™ã€‚
    ------------------------------*/
   property pickerDict {
     getter {
@@ -117,13 +117,13 @@ class KColorBox extends KValueWidget
   }
 
   /**------------------------------
-   * ƒJƒ‰[ƒsƒbƒJ[‚Ì–¼‘O
+   * ã‚«ãƒ©ãƒ¼ãƒ”ãƒƒã‚«ãƒ¼ã®åå‰
    *
-   * @param name –¼‘O
-   * @return –¼‘O
+   * @param name åå‰
+   * @return åå‰
    *
-   * ƒJƒ‰[ƒsƒbƒJ[‚ğ«‘‚É‹L˜^‚·‚éÛ‚Ì–¼‘O‚ğw’è‚µ‚Ü‚·B
-   * w’è‚ğÈ—ª‚·‚é‚ÆAƒfƒtƒHƒ‹ƒg–¼ucolorPickerv‚ªg‚í‚ê‚Ü‚·B
+   * ã‚«ãƒ©ãƒ¼ãƒ”ãƒƒã‚«ãƒ¼ã‚’è¾æ›¸ã«è¨˜éŒ²ã™ã‚‹éš›ã®åå‰ã‚’æŒ‡å®šã—ã¾ã™ã€‚
+   * æŒ‡å®šã‚’çœç•¥ã™ã‚‹ã¨ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆåã€ŒcolorPickerã€ãŒä½¿ã‚ã‚Œã¾ã™ã€‚
    ------------------------------*/
   property pickerName {
     getter {
@@ -134,7 +134,7 @@ class KColorBox extends KValueWidget
     }
   }
 
-  // Ä•`‰æ
+  // å†æç”»
   function onPaint {
     if (hasAlpha) {
       fillChecker(width < 16 ? int(width / 2) : 8);
@@ -144,7 +144,7 @@ class KColorBox extends KValueWidget
     }
   }
 
-  // ƒ}ƒEƒX‚ª‰Ÿ‚³‚ê‚½‚çƒ_ƒCƒAƒƒO‚ğŠJ‚­
+  // ãƒã‚¦ã‚¹ãŒæŠ¼ã•ã‚ŒãŸã‚‰ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’é–‹ã
   function onMouseDown(x, y, button) {
     super.onMouseDown(...);
     if (button == mbLeft) {
@@ -172,12 +172,12 @@ class KColorBox extends KValueWidget
       _pickerDict = dict;
   }
 
-  // enabled==true‚È‚ç‚»‚Ì‚Ü‚Ü•\¦
+  // enabled==trueãªã‚‰ãã®ã¾ã¾è¡¨ç¤º
   function onNodeEnabled {
     opacity = 255;
   } 
 
-  // enabled=false‚È‚ç”¼“§–¾‚Å•\¦
+  // enabled=falseãªã‚‰åŠé€æ˜ã§è¡¨ç¤º
   function onNodeDisabled {
     opacity = 64;
   }

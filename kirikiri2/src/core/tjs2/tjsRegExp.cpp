@@ -32,7 +32,7 @@ static tjs_uint32 TJSRegExpFlagToValue(tjs_char ch, tjs_uint32 prev)
 {
 	// converts flag letter to internal flag value.
 	// this returns modified prev.
-	// when ch is '\0', returns default flag value and prev is ignored.
+	// when ch is '¥0', returns default flag value and prev is ignored.
 
 	if(ch == 0)
 	{
@@ -49,7 +49,7 @@ static tjs_uint32 TJSRegExpFlagToValue(tjs_char ch, tjs_uint32 prev)
 	case TJS_W('i'): // ignore case
 		prev|=regbase::icase; return prev;
 	case TJS_W('l'): // use localized collation
-		prev &= ~regbase::nocollate; return prev;
+		prev &= ‾regbase::nocollate; return prev;
 	default:
 		return prev;
 	}
@@ -363,7 +363,7 @@ TJS_BEGIN_NATIVE_METHOD_DECL(/*func. name*/_compile)
 
 	try
 	{
-		_this->RegEx.assign(exprstart, (wregex::flag_type)(flags& ~tjsflagsmask));
+		_this->RegEx.assign(exprstart, (wregex::flag_type)(flags& ‾tjsflagsmask));
 	}
 	catch(std::exception &e)
 	{
@@ -439,7 +439,7 @@ TJS_BEGIN_NATIVE_METHOD_DECL(/*func. name*/exec)
 	/*
 		same as the match except for the internal status' change.
 		var ar;
-		var pat = /:(\d+):(\d+):/g;
+		var pat = /:(¥d+):(¥d+):/g;
 		while((ar = pat.match(target)).count)
 		{
 			// ...
@@ -712,7 +712,7 @@ void tTJSNC_RegExp::Compile(tjs_int numparams, tTJSVariant **param, tTJSNI_RegEx
 
 	try
 	{
-		_this->RegEx.assign(expr.c_str(), (wregex::flag_type)(flags& ~tjsflagsmask));
+		_this->RegEx.assign(expr.c_str(), (wregex::flag_type)(flags& ‾tjsflagsmask));
 	}
 	catch(std::exception &e)
 	{

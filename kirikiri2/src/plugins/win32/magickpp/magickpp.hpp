@@ -8,7 +8,7 @@
 
 typedef std::string StringT;
 
-// exception ƒtƒbƒN
+// exception ãƒ•ãƒƒã‚¯
 template <>
 struct ncbNativeClassMethodBase::invokeHookAll<true> {
 	template <typename T>
@@ -27,10 +27,10 @@ struct ncbNativeClassMethodBase::invokeHookAll<true> {
 	}
 };
 
-// ˆø‚«”‚Æ•Ô‚è’l‚É std::string ‚ğƒTƒ|[ƒg‚³‚¹‚é
+// å¼•ãæ•°ã¨è¿”ã‚Šå€¤ã« std::string ã‚’ã‚µãƒãƒ¼ãƒˆã•ã›ã‚‹
 NCB_TYPECONV_STL_STRING(StringT);
 
-// ˆø‚«”‚Æ•Ô‚è’l‚É enum ‚ğƒTƒ|[ƒgi–Ê“|‚È‚Ì‚Å”’l•ÏŠ·j
+// å¼•ãæ•°ã¨è¿”ã‚Šå€¤ã« enum ã‚’ã‚µãƒãƒ¼ãƒˆï¼ˆé¢å€’ãªã®ã§æ•°å€¤å¤‰æ›ï¼‰
 #define MAGICK_INTEGER(e) using Magick::e; NCB_TYPECONV_CAST_INTEGER(e)
 MAGICK_INTEGER(ChannelType); //##
 MAGICK_INTEGER(ClassType); //##
@@ -38,7 +38,7 @@ MAGICK_INTEGER(ColorspaceType); //##
 MAGICK_INTEGER(CompositeOperator); //##
 MAGICK_INTEGER(CompressionType); //##
 MAGICK_INTEGER(EndianType); //##
-MAGICK_INTEGER(FillRule); //## •Û—¯
+MAGICK_INTEGER(FillRule); //## ä¿ç•™
 MAGICK_INTEGER(FilterTypes); //##
 MAGICK_INTEGER(ImageType); //##
 MAGICK_INTEGER(InterlaceType); //##
@@ -70,26 +70,26 @@ MAGICK_OBJECT(Geometry);
 MAGICK_OBJECT(Image);
 MAGICK_OBJECT(TypeMetric);
 
-#define MAGICK_SUBCLASS(cls) \
+#define MAGICK_SUBCLASS(cls) Â¥
 	NCB_REGISTER_SUBCLASS_DELAY(cls)
 
-#define MAGICK_ENUM(e) \
+#define MAGICK_ENUM(e) Â¥
 	NCB_REGISTER_SUBCLASS_DELAY(e)
 
 #define ENUM(n) struct prop ## n { static Class Get() { return n; } }; Property(TJS_W(# n), & prop ## n::Get, 0)
 
 
-// “Ç‚İæ‚èê—pƒvƒƒpƒeƒB’Zk—p
+// èª­ã¿å–ã‚Šå°‚ç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£çŸ­ç¸®ç”¨
 #define PROP_RO(prop) NCB_PROPERTY_RO(prop, prop)
 #define PROP_WO(prop) NCB_PROPERTY_WO(prop, prop)
 #define PROP_RW(type, prop) PROP_RW_TAG(prop, type, Const, type, Class)
 #define PROP_rw(type, prop) PROP_RW_TAG(prop, type, Class, type, Class)
 
-#define PROP_RW_TAG(prop, typeR, tagR, typeW, tagW) \
-	NCB_PROPERTY_DETAIL(prop, \
-						tagR, typeR, ClassT::prop, (), \
+#define PROP_RW_TAG(prop, typeR, tagR, typeW, tagW) Â¥
+	NCB_PROPERTY_DETAIL(prop, Â¥
+						tagR, typeR, ClassT::prop, (), Â¥
 						tagW, void,  ClassT::prop, (typeW))
-#define PROP_RW_TYPE(type, prop) \
+#define PROP_RW_TYPE(type, prop) Â¥
 	PROP_RW_TAG(prop, type, Const, type const&, Class)
 
 #define PROP_BLOB(prop)     PROP_RW_TYPE(Blob,     prop)
@@ -98,7 +98,7 @@ MAGICK_OBJECT(TypeMetric);
 #define PROP_IMAGE(prop)    PROP_RW_TYPE(Image,    prop)
 #define PROP_STRING(prop)   PROP_RW_TYPE(StringT,  prop)
 
-#define SUBCLASS(cls) \
+#define SUBCLASS(cls) Â¥
 	NCB_SUBCLASS(cls, cls);
 
 #endif

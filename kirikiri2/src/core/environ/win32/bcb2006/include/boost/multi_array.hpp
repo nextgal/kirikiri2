@@ -241,7 +241,7 @@ public:
   }
 
 
-  ~multi_array() {
+  ‾multi_array() {
     deallocate_space();
   }
 

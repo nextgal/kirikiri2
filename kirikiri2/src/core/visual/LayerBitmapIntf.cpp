@@ -88,15 +88,15 @@ static tjs_int GetAdaptiveThreadNum(tjs_int pixelNum, float factor)
 }
 //---------------------------------------------------------------------------
 #define RET_VOID
-#define BOUND_CHECK(x) \
-{ \
-	tjs_int i; \
-	if(rect.left < 0) rect.left = 0; \
-	if(rect.top < 0) rect.top = 0; \
-	if(rect.right > (i=GetWidth())) rect.right = i; \
-	if(rect.bottom > (i=GetHeight())) rect.bottom = i; \
-	if(rect.right - rect.left <= 0 || rect.bottom - rect.top <= 0) \
-		return x; \
+#define BOUND_CHECK(x) ¥
+{ ¥
+	tjs_int i; ¥
+	if(rect.left < 0) rect.left = 0; ¥
+	if(rect.top < 0) rect.top = 0; ¥
+	if(rect.right > (i=GetWidth())) rect.right = i; ¥
+	if(rect.bottom > (i=GetHeight())) rect.bottom = i; ¥
+	if(rect.right - rect.left <= 0 || rect.bottom - rect.top <= 0) ¥
+		return x; ¥
 }
 
 //---------------------------------------------------------------------------
@@ -107,7 +107,7 @@ tTVPBaseBitmap::tTVPBaseBitmap(tjs_uint w, tjs_uint h, tjs_uint bpp) :
 {
 }
 //---------------------------------------------------------------------------
-tTVPBaseBitmap::~tTVPBaseBitmap()
+tTVPBaseBitmap::‾tTVPBaseBitmap()
 {
 }
 //---------------------------------------------------------------------------
@@ -1032,37 +1032,37 @@ void tTVPBaseBitmap::PartialBlt(const PartialBltParam *param)
   dest += dy * dpitch + dx * sizeof(tjs_uint32);
   src  += sy * spitch + sx * sizeof(tjs_uint32);
 
-#define TVP_BLEND_4(basename) /* blend for 4 types (normal, opacity, HDA, HDA opacity) */ \
-	if(opa == 255)                                                            \
-	{                                                                         \
-		if(!hda)                                                              \
-		{                                                                     \
-			while(h--)                                                        \
-				basename((tjs_uint32*)dest, (tjs_uint32*)src, w),             \
-				dest+=dpitch, src+=spitch;                                    \
-                                                                              \
-		}                                                                     \
-		else                                                                  \
-		{                                                                     \
-			while(h--)                                                        \
-				basename##_HDA((tjs_uint32*)dest, (tjs_uint32*)src, w),       \
-				dest+=dpitch, src+=spitch;                                    \
-		}                                                                     \
-	}                                                                         \
-	else                                                                      \
-	{                                                                         \
-		if(!hda)                                                              \
-		{                                                                     \
-			while(h--)                                                        \
-				basename##_o((tjs_uint32*)dest, (tjs_uint32*)src, w, opa),    \
-				dest+=dpitch, src+=spitch;                                    \
-		}                                                                     \
-		else                                                                  \
-		{                                                                     \
-			while(h--)                                                        \
-				basename##_HDA_o((tjs_uint32*)dest, (tjs_uint32*)src, w, opa),\
-				dest+=dpitch, src+=spitch;                                    \
-		}                                                                     \
+#define TVP_BLEND_4(basename) /* blend for 4 types (normal, opacity, HDA, HDA opacity) */ ¥
+	if(opa == 255)                                                            ¥
+	{                                                                         ¥
+		if(!hda)                                                              ¥
+		{                                                                     ¥
+			while(h--)                                                        ¥
+				basename((tjs_uint32*)dest, (tjs_uint32*)src, w),             ¥
+				dest+=dpitch, src+=spitch;                                    ¥
+                                                                              ¥
+		}                                                                     ¥
+		else                                                                  ¥
+		{                                                                     ¥
+			while(h--)                                                        ¥
+				basename##_HDA((tjs_uint32*)dest, (tjs_uint32*)src, w),       ¥
+				dest+=dpitch, src+=spitch;                                    ¥
+		}                                                                     ¥
+	}                                                                         ¥
+	else                                                                      ¥
+	{                                                                         ¥
+		if(!hda)                                                              ¥
+		{                                                                     ¥
+			while(h--)                                                        ¥
+				basename##_o((tjs_uint32*)dest, (tjs_uint32*)src, w, opa),    ¥
+				dest+=dpitch, src+=spitch;                                    ¥
+		}                                                                     ¥
+		else                                                                  ¥
+		{                                                                     ¥
+			while(h--)                                                        ¥
+				basename##_HDA_o((tjs_uint32*)dest, (tjs_uint32*)src, w, opa),¥
+				dest+=dpitch, src+=spitch;                                    ¥
+		}                                                                     ¥
 	}
 
 
@@ -1369,15 +1369,15 @@ public:
 	}
 };
 
-#define TVP_DEFINE_BILINEAR_STRETCH_FUNCTION(func, one) class \
-t##func##FunctionObject : \
-	public tTVPBilinearStretchFunctionObject \
-{ \
-public: \
-	t##func##FunctionObject() : \
-		tTVPBilinearStretchFunctionObject(func) {;} \
-	void DoOnePixel(tjs_uint32 *dest, tjs_uint32 color) \
-	{ one; } \
+#define TVP_DEFINE_BILINEAR_STRETCH_FUNCTION(func, one) class ¥
+t##func##FunctionObject : ¥
+	public tTVPBilinearStretchFunctionObject ¥
+{ ¥
+public: ¥
+	t##func##FunctionObject() : ¥
+		tTVPBilinearStretchFunctionObject(func) {;} ¥
+	void DoOnePixel(tjs_uint32 *dest, tjs_uint32 color) ¥
+	{ one; } ¥
 };
 
 
@@ -1396,15 +1396,15 @@ public:
 	}
 };
 
-#define TVP_DEFINE_BILINEAR_STRETCH_WITH_OPACITY_FUNCTION(func, one) class \
-t##func##FunctionObject : \
-	public tTVPBilinearStretchWithOpacityFunctionObject \
-{ \
-public: \
-	t##func##FunctionObject(tjs_int opa) : \
-		tTVPBilinearStretchWithOpacityFunctionObject(func, opa) {;} \
-	void DoOnePixel(tjs_uint32 *dest, tjs_uint32 color) \
-	{ one; } \
+#define TVP_DEFINE_BILINEAR_STRETCH_WITH_OPACITY_FUNCTION(func, one) class ¥
+t##func##FunctionObject : ¥
+	public tTVPBilinearStretchWithOpacityFunctionObject ¥
+{ ¥
+public: ¥
+	t##func##FunctionObject(tjs_int opa) : ¥
+		tTVPBilinearStretchWithOpacityFunctionObject(func, opa) {;} ¥
+	void DoOnePixel(tjs_uint32 *dest, tjs_uint32 color) ¥
+	{ one; } ¥
 };
 
 //---------------------------------------------------------------------------
@@ -1429,8 +1429,8 @@ TVP_DEFINE_BILINEAR_STRETCH_WITH_OPACITY_FUNCTION(
 //---------------------------------------------------------------------------
 
 // declare stretching loop function
-#define TVP_DoStretchLoop_ARGS  x_ref_start, y_ref_start, x_len, y_len, \
-						destp, destpitch, x_step, \
+#define TVP_DoStretchLoop_ARGS  x_ref_start, y_ref_start, x_len, y_len, ¥
+						destp, destpitch, x_step, ¥
 						y_step, refp, refpitch
 template <typename tFunc>
 void tTVPBaseBitmap::TVPDoStretchLoop(
@@ -1460,9 +1460,9 @@ void tTVPBaseBitmap::TVPDoStretchLoop(
 
 // declare stretching loop function for bilinear interpolation
 
-#define TVP_DoBilinearStretchLoop_ARGS  rw, rh, dw, dh, \
-						srccliprect, x_ref_start, y_ref_start, x_len, y_len, \
-						destp, destpitch, x_step, \
+#define TVP_DoBilinearStretchLoop_ARGS  rw, rh, dw, dh, ¥
+						srccliprect, x_ref_start, y_ref_start, x_len, y_len, ¥
+						destp, destpitch, x_step, ¥
 						y_step, refp, refpitch
 template <typename tStretchFunc>
 void tTVPBaseBitmap::TVPDoBiLinearStretchLoop(
@@ -2122,15 +2122,15 @@ public:
 	}
 };
 
-#define TVP_DEFINE_BILINEAR_AFFINE_FUNCTION(func, one) class \
-t##func##FunctionObject : \
-	public tTVPBilinearAffineFunctionObject \
-{ \
-public: \
-	t##func##FunctionObject() : \
-		tTVPBilinearAffineFunctionObject(func) {;} \
-	void DoOnePixel(tjs_uint32 *dest, tjs_uint32 color) \
-	{ one; } \
+#define TVP_DEFINE_BILINEAR_AFFINE_FUNCTION(func, one) class ¥
+t##func##FunctionObject : ¥
+	public tTVPBilinearAffineFunctionObject ¥
+{ ¥
+public: ¥
+	t##func##FunctionObject() : ¥
+		tTVPBilinearAffineFunctionObject(func) {;} ¥
+	void DoOnePixel(tjs_uint32 *dest, tjs_uint32 color) ¥
+	{ one; } ¥
 };
 
 
@@ -2149,15 +2149,15 @@ public:
 	}
 };
 
-#define TVP_DEFINE_BILINEAR_AFFINE_WITH_OPACITY_FUNCTION(func, one) class \
-t##func##FunctionObject : \
-	public tTVPBilinearAffineWithOpacityFunctionObject \
-{ \
-public: \
-	t##func##FunctionObject(tjs_int opa) : \
-		tTVPBilinearAffineWithOpacityFunctionObject(func, opa) {;} \
-	void DoOnePixel(tjs_uint32 *dest, tjs_uint32 color) \
-	{ one; } \
+#define TVP_DEFINE_BILINEAR_AFFINE_WITH_OPACITY_FUNCTION(func, one) class ¥
+t##func##FunctionObject : ¥
+	public tTVPBilinearAffineWithOpacityFunctionObject ¥
+{ ¥
+public: ¥
+	t##func##FunctionObject(tjs_int opa) : ¥
+		tTVPBilinearAffineWithOpacityFunctionObject(func, opa) {;} ¥
+	void DoOnePixel(tjs_uint32 *dest, tjs_uint32 color) ¥
+	{ one; } ¥
 };
 
 //---------------------------------------------------------------------------
@@ -2183,7 +2183,7 @@ TVP_DEFINE_BILINEAR_AFFINE_WITH_OPACITY_FUNCTION(
 //---------------------------------------------------------------------------
 
 // declare affine loop function
-#define TVP_DoAffineLoop_ARGS  sxs, sys, \
+#define TVP_DoAffineLoop_ARGS  sxs, sys, ¥
 		dest, l, len, src, srcpitch, sxl, syl, srcrect
 template <typename tFuncStretch, typename tFuncAffine>
 void tTVPBaseBitmap::TVPDoAffineLoop(
@@ -2261,7 +2261,7 @@ void tTVPBaseBitmap::TVPDoAffineLoop(
 //---------------------------------------------------------------------------
 // declare affine loop function for bilinear interpolation
 
-#define TVP_DoBilinearAffineLoop_ARGS  sxs, sys, \
+#define TVP_DoBilinearAffineLoop_ARGS  sxs, sys, ¥
 		dest, l, len, src, srcpitch, sxl, syl, srccliprect, srcrect
 template <typename tFuncStretch, typename tFuncAffine>
 void tTVPBaseBitmap::TVPDoBilinearAffineLoop(
@@ -2334,14 +2334,14 @@ void tTVPBaseBitmap::TVPDoBilinearAffineLoop(
 	sxl -= 32768; // take back the original
 	syl -= 32768; // take back the original
 
-#define FIX_SX_SY	\
-	if(sx < srccliprect.left) \
-		sx = srccliprect.left, fixed_count ++; \
-	if(sx >= srccliprect.right) \
-		sx = srccliprect.right - 1, fixed_count++; \
-	if(sy < srccliprect.top) \
-		sy = srccliprect.top, fixed_count++; \
-	if(sy >= srccliprect.bottom) \
+#define FIX_SX_SY	¥
+	if(sx < srccliprect.left) ¥
+		sx = srccliprect.left, fixed_count ++; ¥
+	if(sx >= srccliprect.right) ¥
+		sx = srccliprect.right - 1, fixed_count++; ¥
+	if(sy < srccliprect.top) ¥
+		sy = srccliprect.top, fixed_count++; ¥
+	if(sy >= srccliprect.bottom) ¥
 		sy = srccliprect.bottom - 1, fixed_count++;
 
 

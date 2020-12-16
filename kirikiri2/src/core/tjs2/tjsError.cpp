@@ -63,7 +63,7 @@ eTJSScriptError::tScriptBlockHolder::tScriptBlockHolder(tTJSScriptBlock *block)
 	Block->AddRef();
 }
 //---------------------------------------------------------------------------
-eTJSScriptError::tScriptBlockHolder::~tScriptBlockHolder()
+eTJSScriptError::tScriptBlockHolder::‾tScriptBlockHolder()
 {
 	Block->Release();
 }

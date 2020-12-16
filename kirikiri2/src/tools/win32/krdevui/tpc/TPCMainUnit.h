@@ -17,7 +17,7 @@
 //---------------------------------------------------------------------------
 class TTPCMainForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TGroupBox *TranspOuputFormatGroupBox;
 	TRadioButton *TranspBMPFormatRadioButton;
 	TRadioButton *TranspPNGFormatRadioButton;
@@ -76,14 +76,14 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall ExpandButtonClick(TObject *Sender);
 	void __fastcall TranspOutputAddAlphaFormatCheckBoxClick(TObject *Sender);
 	void __fastcall TranspAssumeInputIsAddAlphaCheckBoxClick(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	int TranspMainJPEGQuality;
 	int TranspMaskJPEGQuality;
 	int OpaqueJPEGQuality;
 	int OrgClientHeight;
 	int OrgCloseButtonTop;
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TTPCMainForm(TComponent* Owner);
 
 private:

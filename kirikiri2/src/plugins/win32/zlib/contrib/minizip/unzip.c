@@ -357,9 +357,9 @@ local int strcmpcasenosensitive_internal (const char* fileName1, const char* fil
             c1 -= 0x20;
         if ((c2>='a') && (c2<='z'))
             c2 -= 0x20;
-        if (c1=='\0')
-            return ((c2=='\0') ? 0 : -1);
-        if (c2=='\0')
+        if (c1=='¥0')
+            return ((c2=='¥0') ? 0 : -1);
+        if (c2=='¥0')
             return 1;
         if (c1<c2)
             return -1;
@@ -575,7 +575,7 @@ local ZPOS64_T unz64local_SearchCentralDir64(const zlib_filefunc64_32_def* pzlib
 
 /*
   Open a Zip file. path contain the full pathname (by example,
-     on a Windows NT computer "c:\\test\\zlib114.zip" or on an Unix computer
+     on a Windows NT computer "c:¥¥test¥¥zlib114.zip" or on an Unix computer
      "zlib/zlib114.zip".
      If the zipfile cannot be opened (file doesn't exist or in not valid), the
        return value is NULL.
@@ -970,7 +970,7 @@ local int unz64local_GetCurrentFileInfoInternal (unzFile file,
         uLong uSizeRead ;
         if (file_info.size_filename<fileNameBufferSize)
         {
-            *(szFileName+file_info.size_filename)='\0';
+            *(szFileName+file_info.size_filename)='¥0';
             uSizeRead = file_info.size_filename;
         }
         else
@@ -1082,7 +1082,7 @@ local int unz64local_GetCurrentFileInfoInternal (unzFile file,
         uLong uSizeRead ;
         if (file_info.size_file_comment<commentBufferSize)
         {
-            *(szComment+file_info.size_file_comment)='\0';
+            *(szComment+file_info.size_file_comment)='¥0';
             uSizeRead = file_info.size_file_comment;
         }
         else
@@ -2105,13 +2105,13 @@ extern int ZEXPORT unzGetGlobalComment (unzFile file, char * szComment, uLong uS
 
     if (uReadThis>0)
     {
-      *szComment='\0';
+      *szComment='¥0';
       if (ZREAD64(s->z_filefunc,s->filestream,szComment,uReadThis)!=uReadThis)
         return UNZ_ERRNO;
     }
 
     if ((szComment != NULL) && (uSizeBuf > s->gi.size_comment))
-        *(szComment+s->gi.size_comment)='\0';
+        *(szComment+s->gi.size_comment)='¥0';
     return (int)uReadThis;
 }
 

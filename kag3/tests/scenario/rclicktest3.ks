@@ -1,47 +1,47 @@
-*first|Å‰
+*first|æœ€åˆ
 @startanchor
-[rclick name="ƒTƒuƒ‹[ƒ`ƒ“‚ÌƒeƒXƒg" call=true target=*sub1]\
-‰EƒNƒŠƒbƒN‚ÌƒeƒXƒg‚È‚è[[l]
-‚È‚è[[l]
+[rclick name="ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³ã®ãƒ†ã‚¹ãƒˆ" call=true target=*sub1]Â¥
+å³ã‚¯ãƒªãƒƒã‚¯ã®ãƒ†ã‚¹ãƒˆãªã‚Šãƒ¼[l]
+ãªã‚Šãƒ¼[l]
 
 *a
-[link target=*hogera]‘I‘ğˆ‚P[endlink]
-[link]‘I‘ğˆ‚Q[endlink]
+[link target=*hogera]é¸æŠè‚¢ï¼‘[endlink]
+[link]é¸æŠè‚¢ï¼’[endlink]
 [s]
 
 *hogera
-‚ [l]
+ã‚[l]
 @jump target=*a
 
 *sub1
 @locksnapshot
-; ªƒXƒiƒbƒvƒVƒ‡ƒbƒg‚ğƒƒbƒN‚·‚é
+; â†‘ã‚¹ãƒŠãƒƒãƒ—ã‚·ãƒ§ãƒƒãƒˆã‚’ãƒ­ãƒƒã‚¯ã™ã‚‹
 @tempsave
-; ªˆê“I‚Éó‘Ô‚ğ•Û‘¶
+; â†‘ä¸€æ™‚çš„ã«çŠ¶æ…‹ã‚’ä¿å­˜
 @history output=false
-; ªƒƒbƒZ[ƒW—š—ğ‚Ö‚Ìo—Í‚ğ–³Œø‚É
+; â†‘ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å±¥æ­´ã¸ã®å‡ºåŠ›ã‚’ç„¡åŠ¹ã«
 @mapdisable layer=0 page=fore
-; ªƒNƒŠƒbƒJƒuƒ‹ƒ}ƒbƒv‚ğ‚à‚µg‚Á‚Ä‚¢‚éê‡‚Í‚±‚Ì‚æ‚¤‚É‚µ‚Ä–³Œø‰»‚·‚é
+; â†‘ã‚¯ãƒªãƒƒã‚«ãƒ–ãƒ«ãƒãƒƒãƒ—ã‚’ã‚‚ã—ä½¿ã£ã¦ã„ã‚‹å ´åˆã¯ã“ã®ã‚ˆã†ã«ã—ã¦ç„¡åŠ¹åŒ–ã™ã‚‹
 ;@locklink
-; ª ‘I‘ğˆ‘I‘ğ‚ÌƒƒbƒN
+; â†‘ é¸æŠè‚¢é¸æŠã®ãƒ­ãƒƒã‚¯
 @backlay
 @layopt layer=message1 page=back visible=true
-; ª‚±‚ÌƒTƒuƒ‹[ƒ`ƒ““à‚Å‚ÍƒƒbƒZ[ƒWƒŒƒCƒ„1‚ğg‚¤
+; â†‘ã“ã®ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³å†…ã§ã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ¬ã‚¤ãƒ¤1ã‚’ä½¿ã†
 @layopt layer=message0 page=back visible=false
 @current layer=message1 page=back
 @position left=0 top=0 width=640 height=480
 @eval exp="f.r_first=true"
-; ª‚±‚Ìƒ‹[ƒ`ƒ“‚É“ü‚Á‚½‚Æ‚«‚É‚¾‚¯ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğs‚¤‚æ‚¤‚É
+; â†‘ã“ã®ãƒ«ãƒ¼ãƒãƒ³ã«å…¥ã£ãŸã¨ãã«ã ã‘ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’è¡Œã†ã‚ˆã†ã«
 ;
 *menu
 @er
 @nowait
-[link target=*hide]ƒƒbƒZ[ƒW‚ğÁ‚·[endlink][r]
-[link target=*history]ƒƒbƒZ[ƒW—š—ğ‚ğŒ©‚é[endlink][r]
-[link exp="kag.loadBookMarkFromFileWithAsk()"]x‚ğ‚½‚Ç‚é[endlink][r]
-[link exp="kag.saveBookMarkToFileWithAsk()"]x‚ğ‚Í‚³‚Ş[endlink][r]
-[link target=*gotostart]Å‰‚É–ß‚é[endlink][r]
-[link target=*ret]–ß‚é[endlink][r]
+[link target=*hide]ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ¶ˆã™[endlink][r]
+[link target=*history]ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å±¥æ­´ã‚’è¦‹ã‚‹[endlink][r]
+[link exp="kag.loadBookMarkFromFileWithAsk()"]æ ã‚’ãŸã©ã‚‹[endlink][r]
+[link exp="kag.saveBookMarkToFileWithAsk()"]æ ã‚’ã¯ã•ã‚€[endlink][r]
+[link target=*gotostart]æœ€åˆã«æˆ»ã‚‹[endlink][r]
+[link target=*ret]æˆ»ã‚‹[endlink][r]
 @endnowait
 @current layer=message1 page=fore
 @if exp="f.r_first"
@@ -52,7 +52,7 @@
 @s
 
 *ret
-; ƒTƒuƒ‹[ƒ`ƒ“‚©‚ç–ß‚é
+; ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³ã‹ã‚‰æˆ»ã‚‹
 @tempload bgm=false se=false backlay=true
 @trace exp="kag.back.layers[0].loadedProvinceActions"
 @trans time=500 rule=trans1 vague=128
@@ -61,16 +61,16 @@
 @return
 
 *hide
-; ƒƒbƒZ[ƒW‚ğÁ‚·
+; ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ¶ˆã™
 @hidemessage
 @jump target=*menu
 
 *history
-; ƒƒbƒZ[ƒW—š—ğ‚ğŒ©‚é
+; ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å±¥æ­´ã‚’è¦‹ã‚‹
 @showhistory
 @jump target=*menu
 
 *gotostart
-; uÅ‰‚É–ß‚év
+; ã€Œæœ€åˆã«æˆ»ã‚‹ã€
 @gotostart ask=true
 @jump target=*menu

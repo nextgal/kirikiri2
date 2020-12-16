@@ -17,8 +17,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\..\..\..\bin\win32\plugin"
-			IntermediateDirectory="obj\Release\deflate"
+			OutputDirectory="..¥..¥..¥..¥..¥bin¥win32¥plugin"
+			IntermediateDirectory="obj¥Release¥deflate"
 			ConfigurationType="4"
 			CharacterSet="2"
 			>
@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\..\..\tools\win32\krdevui\tpc;..\..\ncbind;..\..\zlib;..\..;..\LodePNG;..\..\zlib"
+				AdditionalIncludeDirectories="..¥..¥..¥..¥tools¥win32¥krdevui¥tpc;..¥..¥ncbind;..¥..¥zlib;..¥..;..¥LodePNG;..¥..¥zlib"
 				PreprocessorDefinitions="NDEBUG"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -48,7 +48,7 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="false"
-				ProgramDataBaseFileName="$(OutDir)\deflate.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥deflate.pdb"
 				DebugInformationFormat="0"
 			/>
 			<Tool
@@ -57,14 +57,14 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG"
-				AdditionalIncludeDirectories="..\..\..\..\tools\win32\krdevui\tpc;..\..\ncbind;..\..\zlib;..\..;..\LodePNG;..\..\zlib"
+				AdditionalIncludeDirectories="..¥..¥..¥..¥tools¥win32¥krdevui¥tpc;..¥..¥ncbind;..¥..¥zlib;..¥..;..¥LodePNG;..¥..¥zlib"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\deflate.lib"
+				OutputFile="$(OutDir)¥deflate.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -93,8 +93,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\bin"
-			IntermediateDirectory="obj\Debug\deflate"
+			OutputDirectory="..¥bin"
+			IntermediateDirectory="obj¥Debug¥deflate"
 			ConfigurationType="4"
 			CharacterSet="2"
 			>
@@ -116,7 +116,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\..\tools\win32\krdevui\tpc;..\..\ncbind;..\..\zlib;..\..;..\LodePNG;..\..\zlib"
+				AdditionalIncludeDirectories="..¥..¥..¥..¥tools¥win32¥krdevui¥tpc;..¥..¥ncbind;..¥..¥zlib;..¥..;..¥LodePNG;..¥..¥zlib"
 				PreprocessorDefinitions="_DEBUG"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -124,7 +124,7 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="false"
-				ProgramDataBaseFileName="$(OutDir)\deflate-d.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥deflate-d.pdb"
 				DebugInformationFormat="4"
 			/>
 			<Tool
@@ -133,14 +133,14 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG"
-				AdditionalIncludeDirectories="..\..\..\..\tools\win32\krdevui\tpc;..\..\ncbind;..\..\zlib;..\..;..\LodePNG;..\..\zlib"
+				AdditionalIncludeDirectories="..¥..¥..¥..¥tools¥win32¥krdevui¥tpc;..¥..¥ncbind;..¥..¥zlib;..¥..;..¥LodePNG;..¥..¥zlib"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\deflate-d.lib"
+				OutputFile="$(OutDir)¥deflate-d.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -176,7 +176,7 @@
 			Filter=""
 			>
 			<File
-				RelativePath="..\..\zlib\adler32.c"
+				RelativePath="..¥..¥zlib¥adler32.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -196,7 +196,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\zlib\compress.c"
+				RelativePath="..¥..¥zlib¥compress.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -216,7 +216,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\zlib\crc32.c"
+				RelativePath="..¥..¥zlib¥crc32.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -236,7 +236,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\zlib\deflate.c"
+				RelativePath="..¥..¥zlib¥deflate.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -256,7 +256,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\zlib\trees.c"
+				RelativePath="..¥..¥zlib¥trees.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -276,7 +276,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\zlib\zutil.c"
+				RelativePath="..¥..¥zlib¥zutil.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"

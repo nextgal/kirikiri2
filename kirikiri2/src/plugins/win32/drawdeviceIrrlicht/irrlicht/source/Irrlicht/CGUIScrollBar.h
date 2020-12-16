@@ -26,7 +26,7 @@ namespace gui
 			bool noclip=false);
 
 		//! destructor
-		virtual ~CGUIScrollBar();
+		virtual ‾CGUIScrollBar();
 
 		//! called if an event happened.
 		virtual bool OnEvent(const SEvent& event);

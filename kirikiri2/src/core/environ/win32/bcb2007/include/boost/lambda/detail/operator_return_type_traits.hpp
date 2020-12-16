@@ -1,6 +1,6 @@
 //  operator_return_type_traits.hpp -- Boost Lambda Library ------------------
 
-// Copyright (C) 1999, 2000 Jaakko J�rvi (jaakko.jarvi@cs.utu.fi)
+// Copyright (C) 1999, 2000 Jaakko J舐vi (jaakko.jarvi@cs.utu.fi)
 //
 // Permission to copy, use, sell and distribute this software is granted
 // provided this copyright notice appears in all copies. 
@@ -130,7 +130,7 @@ struct plain_return_type_1<bitwise_action<not_action>, A> {
   typedef A type;
 };
 
-// bitwise not, operator~()
+// bitwise not, operator‾()
 template<class A> struct return_type_1<bitwise_action<not_action>, A> {
   typedef 
     typename plain_return_type_1<

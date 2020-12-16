@@ -48,7 +48,7 @@ CCubeSceneNode::CCubeSceneNode(f32 size, ISceneNode* parent, ISceneManager* mgr,
 
 
 //! destructor
-CCubeSceneNode::~CCubeSceneNode()
+CCubeSceneNode::‾CCubeSceneNode()
 {
 }
 

@@ -2,12 +2,12 @@
 // $Id: KUtils.tjs,v 1.4 2007/09/16 13:36:03 cvs Exp $
 //
 
-// —LŒø‚ÈƒIƒuƒWƒF‚ğ–³Œø‰»‚·‚é
+// æœ‰åŠ¹ãªã‚ªãƒ–ã‚¸ã‚§ã‚’ç„¡åŠ¹åŒ–ã™ã‚‹
 function discard(obj) {
   invalidate obj if obj !== void && (obj isvalid);
 }
 
-// ”z—ñ“à‚ÌƒIƒuƒWƒF‚ğ‘S‚Ä–³Œø‰»‚·‚é
+// é…åˆ—å†…ã®ã‚ªãƒ–ã‚¸ã‚§ã‚’å…¨ã¦ç„¡åŠ¹åŒ–ã™ã‚‹
 function discardArray(array) {
   var i, num;
   num = array.count;
@@ -15,7 +15,7 @@ function discardArray(array) {
     discard(array[i]);
 }
 
-// «‘“à‚ÌƒIƒuƒWƒF‚ğ‘S‚Ä–³Œø‰»‚·‚é
+// è¾æ›¸å†…ã®ã‚ªãƒ–ã‚¸ã‚§ã‚’å…¨ã¦ç„¡åŠ¹åŒ–ã™ã‚‹
 function discardDictionary(hash) {
   var a;
   a = [];
@@ -27,17 +27,17 @@ function discardDictionary(hash) {
 }
 
 //----------------------------------------------------------------------
-// ˆÈ‰º‚ÌŠÖ”ŒQ‚ÍC++ƒvƒ‰ƒOƒCƒ“‚ÖÀ‘•‚ğ•ÏX‚µ‚½B
-// d—l‚ÌƒŠƒtƒ@ƒŒƒ“ƒX‚Æ‚µ‚Ä‹Lq‚ğc‚µ‚Ä’u‚­B
+// ä»¥ä¸‹ã®é–¢æ•°ç¾¤ã¯C++ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã¸å®Ÿè£…ã‚’å¤‰æ›´ã—ãŸã€‚
+// ä»•æ§˜ã®ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã¨ã—ã¦è¨˜è¿°ã‚’æ®‹ã—ã¦ç½®ãã€‚
 
 @if(0)
-// ”z—ñ‚Ì‘S‚Ä‚Ì—v‘f‚É‚Â‚¢‚ÄŠÖ”Às
+// é…åˆ—ã®å…¨ã¦ã®è¦ç´ ã«ã¤ã„ã¦é–¢æ•°å®Ÿè¡Œ
 function eachArray(array, func, args*) {
   for (var i = 0; i < array.count; i++)
     func(i, array[i], args*);
 }
 
-// «‘‚Ì‘S‚Ä‚Ì—v‘f‚É‚Â‚¢‚ÄŠÖ”Às
+// è¾æ›¸ã®å…¨ã¦ã®è¦ç´ ã«ã¤ã„ã¦é–¢æ•°å®Ÿè¡Œ
 function eachDictionary(dict, func, args*) {
   var array = [];
   array.assign(dict);
@@ -47,7 +47,7 @@ function eachDictionary(dict, func, args*) {
   }
 }
 
-// «‘‚ÌƒL[‚ğ”z—ñ‚É‚µ‚Ä•Ô‚·
+// è¾æ›¸ã®ã‚­ãƒ¼ã‚’é…åˆ—ã«ã—ã¦è¿”ã™
 function dictionaryKeys(dict) {
   var array = [], result = [];
   array.assign(dict);
@@ -56,7 +56,7 @@ function dictionaryKeys(dict) {
   return result;
 }
 
-// «‘‚Ì—v‘f‚ğ”z—ñ‚É‚µ‚Ä•Ô‚·
+// è¾æ›¸ã®è¦ç´ ã‚’é…åˆ—ã«ã—ã¦è¿”ã™
 function dictionaryValues(dict) {
   var array = [], result = [];
   array.assign(dict);
@@ -65,7 +65,7 @@ function dictionaryValues(dict) {
   return result;
 }
 
-// ”z—ñ‚Ì—v‘f‚ğƒL[‚É‚Â«‘‚ğì‚é
+// é…åˆ—ã®è¦ç´ ã‚’ã‚­ãƒ¼ã«æŒã¤è¾æ›¸ã‚’ä½œã‚‹
 function arrayHash(array) {
   var result = %[];
   for (var i = 0; i < array.count; i++) 
@@ -73,7 +73,7 @@ function arrayHash(array) {
   return result;
 }
 
-// «‘‚ÌŒ‹‡
+// è¾æ›¸ã®çµåˆ
 function unionDictionary(d1, d2) {
   var result = %[];
   eachDictionary(d1, function (key, value, result) { result[key] = value; }, result);
@@ -81,7 +81,7 @@ function unionDictionary(d1, d2) {
   return result;
 }
 
-// ˜aW‡(‘˜a)
+// å’Œé›†åˆ(ç·å’Œ)
 function unionSet(a1, a2) {
   var result = [];
   result.assign(a1);
@@ -92,7 +92,7 @@ function unionSet(a1, a2) {
   return result;
 }
  
-// ÏW‡(‹¤’Ê•”)
+// ç©é›†åˆ(å…±é€šéƒ¨)
 function intersectionSet(a1, a2) {
   var result = [];
   var a2Hash = arrayHash(a2);
@@ -102,7 +102,7 @@ function intersectionSet(a1, a2) {
   return result;
 }
 
-// ·W‡(a1‚Ì‚İ‚É‚ ‚é—v‘f)
+// å·®é›†åˆ(a1ã®ã¿ã«ã‚ã‚‹è¦ç´ )
 function differenceSet(a1, a2) {
   var result = [];
   var a2Hash = arrayHash(a2);
@@ -112,7 +112,7 @@ function differenceSet(a1, a2) {
   return result;
 }
 
-// ”z—ñ‚ÌØ‚èo‚µ
+// é…åˆ—ã®åˆ‡ã‚Šå‡ºã—
 function sliceArray(a1, from, size) {
   var result = [];
   for (var i = 0; i < size; i++)
@@ -120,7 +120,7 @@ function sliceArray(a1, from, size) {
   return result;
 }
 
-// \‘¢‘Ì‚Ì”äŠr
+// æ§‹é€ ä½“ã®æ¯”è¼ƒ
 function equalStruct(s1, s2) {
   if (! s1 instanceof "Function"
       && ! s2 instanceof "Function") {
@@ -172,7 +172,7 @@ function equalStruct(s1, s2) {
 }
 @endif
 
-// ƒfƒBƒŒƒNƒgƒŠ‚©‚Ç‚¤‚©‚Ì”»’è
+// ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‹ã©ã†ã‹ã®åˆ¤å®š
 function isDir(path, filename = void) {
   if (filename === void) {
     filename = Storages.extractStorageName(path);
@@ -181,7 +181,7 @@ function isDir(path, filename = void) {
   return getDirList(path).find(filename + "/") != -1;
 }
 
-// ƒJƒ‰[•\Œ»‚ÌƒeƒLƒXƒg•\Œ»‚Ö‚Ì•ÏŠ·
+// ã‚«ãƒ©ãƒ¼è¡¨ç¾ã®ãƒ†ã‚­ã‚¹ãƒˆè¡¨ç¾ã¸ã®å¤‰æ›
 function convertColorToText(color, hasAlpha = false)
 {
   if (hasAlpha)
@@ -191,13 +191,13 @@ function convertColorToText(color, hasAlpha = false)
 
 }
 
-// ƒeƒLƒXƒg•\Œ»‚ÌƒJƒ‰[•\Œ»‚Ö‚Ì•ÏŠ·
+// ãƒ†ã‚­ã‚¹ãƒˆè¡¨ç¾ã®ã‚«ãƒ©ãƒ¼è¡¨ç¾ã¸ã®å¤‰æ›
 function convertTextToColor(text, hasAlpha = false)
 {
   return +("0x" + text);
 }
 
-// \‘¢‘Ì‚Ì•¡»
+// æ§‹é€ ä½“ã®è¤‡è£½
 function duplicateStruct(s) {
   if (s instanceof "Function") 
     return s;
@@ -214,7 +214,7 @@ function duplicateStruct(s) {
   return s;
 }
 
-// ƒNƒ‰ƒX‚Ìƒ~ƒbƒNƒXƒCƒ“
+// ã‚¯ãƒ©ã‚¹ã®ãƒŸãƒƒã‚¯ã‚¹ã‚¤ãƒ³
 function mixin(dstClass, srcClass)
 {
   var elms = [];
@@ -226,7 +226,7 @@ function mixin(dstClass, srcClass)
   }
 }
 
-// ƒtƒ@ƒ“ƒNƒR[ƒ‹
+// ãƒ•ã‚¡ãƒ³ã‚¯ã‚³ãƒ¼ãƒ«
 class FuncCall
 {
   var func;
@@ -249,7 +249,7 @@ function funccall {
   return obj.call;
 }
 
-// ’x‰„ŒÄo‚µ
+// é…å»¶å‘¼å‡ºã—
 class AsyncCaller 
 {
   var funcs = [];
@@ -269,7 +269,7 @@ class AsyncCaller
   }
 
   function callOnce(func, args*) {
-    // “¯‚¶“à—e‚ÌŒÄ‚Ño‚µ‚ª‘¶İ‚·‚ê‚ÎA“o˜^‚µ‚È‚¢
+    // åŒã˜å†…å®¹ã®å‘¼ã³å‡ºã—ãŒå­˜åœ¨ã™ã‚Œã°ã€ç™»éŒ²ã—ãªã„
     var pair = [ func, args ];
     for (var i = 0; i < funcs.count; i++)
       if (equalStruct(funcs[i], pair))
@@ -296,9 +296,9 @@ class AsyncCaller
       try {
         func(args*);
       } catch (e) {
-        if (e.message == "ƒIƒuƒWƒFƒNƒg‚Í‚·‚Å‚É–³Œø‰»‚³‚ê‚Ä‚¢‚Ü‚·"
-            || e.message == "null ƒIƒuƒWƒFƒNƒg‚ÉƒAƒNƒZƒX‚µ‚æ‚¤‚Æ‚µ‚Ü‚µ‚½")
-          Debug.message("’x‰„ŒÄ‚Ño‚µ‚ğó‚¯‚½ƒIƒuƒWƒFƒNƒg‚ª–³Œø‰»‚³‚ê‚Ä‚¢‚Ü‚µ‚½");
+        if (e.message == "ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯ã™ã§ã«ç„¡åŠ¹åŒ–ã•ã‚Œã¦ã„ã¾ã™"
+            || e.message == "null ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã‚ˆã†ã¨ã—ã¾ã—ãŸ")
+          Debug.message("é…å»¶å‘¼ã³å‡ºã—ã‚’å—ã‘ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç„¡åŠ¹åŒ–ã•ã‚Œã¦ã„ã¾ã—ãŸ");
         else
           throw e;
       }          

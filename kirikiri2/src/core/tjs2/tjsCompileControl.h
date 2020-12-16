@@ -22,7 +22,7 @@ class tTJSPPExprParser
 {
 public:
 	tTJSPPExprParser(tTJS *tjs, const tjs_char *script);
-	~tTJSPPExprParser();
+	‾tTJSPPExprParser();
 
 	tjs_int32 Parse();
 

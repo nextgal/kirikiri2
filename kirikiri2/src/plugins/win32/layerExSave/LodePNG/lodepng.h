@@ -632,7 +632,7 @@ typedef struct LodePNGState
   unsigned error;
 #ifdef LODEPNG_COMPILE_CPP
   /* For the lodepng::State subclass. */
-  virtual ~LodePNGState(){}
+  virtual ‾LodePNGState(){}
 #endif
 } LodePNGState;
 
@@ -822,7 +822,7 @@ class State : public LodePNGState
   public:
     State();
     State(const State& other);
-    virtual ~State();
+    virtual ‾State();
     State& operator=(const State& other);
 };
 
@@ -1549,7 +1549,7 @@ int main(int argc, char *argv[])
 
   error = lodepng_decode32_file(&image, &width, &height, filename);
 
-  if(error) printf("decoder error %u: %s\n", error, lodepng_error_text(error));
+  if(error) printf("decoder error %u: %s¥n", error, lodepng_error_text(error));
 
   / * use image here * /
 

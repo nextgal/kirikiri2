@@ -122,8 +122,8 @@ class optional
         construct(*rhs);
     }
 
-    // No-throw (assuming T::~T() doesn't)
-    ~optional() { destroy() ; }
+    // No-throw (assuming T::‾T() doesn't)
+    ‾optional() { destroy() ; }
 
 #ifndef BOOST_OPTIONAL_NO_CONVERTING_ASSIGNMENT
     // Assigns from another convertible optional<U> (converts && deep-copies the rhs value)
@@ -160,7 +160,7 @@ class optional
       }
 
     // Destroys the current value, if any, leaving this UNINITIALIZED
-    // No-throw (assuming T::~T() doesn't)
+    // No-throw (assuming T::‾T() doesn't)
     void reset()
       {
         destroy();
@@ -212,7 +212,7 @@ class optional
      {
        if ( m_initialized )
        {
-         get()->~T() ;
+         get()->‾T() ;
          m_initialized = false ;
        }
      }

@@ -23,8 +23,8 @@
 // agurt, 15/jan/02: full-fledged implementation requires both 
 // template template parameters _and_ partial specialization
 
-#if defined(BOOST_NO_TEMPLATE_TEMPLATE_PARAMETERS) \
- || defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) \
+#if defined(BOOST_NO_TEMPLATE_TEMPLATE_PARAMETERS) ¥
+ || defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) ¥
  && !defined(BOOST_MPL_NO_FULL_LAMBDA_SUPPORT)
 #   define BOOST_MPL_NO_FULL_LAMBDA_SUPPORT
 #endif

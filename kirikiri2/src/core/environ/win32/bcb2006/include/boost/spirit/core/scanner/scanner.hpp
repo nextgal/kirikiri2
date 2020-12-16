@@ -27,11 +27,11 @@
 
 #if defined(BOOST_MSVC) && (BOOST_MSVC <= 1300)
 #define BOOST_SPIRIT_IT_NS impl
-#define BOOST_SPIRIT_MP_TYPE_COMPUTER_ARGS \
+#define BOOST_SPIRIT_MP_TYPE_COMPUTER_ARGS ¥
     typename T, typename Pizza = nil_t
-#define BOOST_SPIRIT_P_TYPE_COMPUTER_ARGS \
+#define BOOST_SPIRIT_P_TYPE_COMPUTER_ARGS ¥
     typename PoliciesT2, typename Pizza = nil_t
-#define BOOST_SPIRIT_I_TYPE_COMPUTER_ARGS \
+#define BOOST_SPIRIT_I_TYPE_COMPUTER_ARGS ¥
     typename IteratorT2, typename Pizza = nil_t
 #else
 #define BOOST_SPIRIT_IT_NS std

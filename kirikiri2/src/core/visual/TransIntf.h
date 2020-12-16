@@ -27,7 +27,7 @@ class tTVPSimpleOptionProvider : public iTVPSimpleOptionProvider
 
 public:
 	tTVPSimpleOptionProvider(tTJSVariantClosure object);
-	~tTVPSimpleOptionProvider();
+	‾tTVPSimpleOptionProvider();
 
 	tjs_error TJS_INTF_METHOD AddRef();
 	tjs_error TJS_INTF_METHOD Release();
@@ -85,7 +85,7 @@ class tTVPScanLineProviderForBaseBitmap : public iTVPScanLineProvider
 
 public:
 	tTVPScanLineProviderForBaseBitmap(tTVPBaseBitmap *bmp, bool own = false);
-	~tTVPScanLineProviderForBaseBitmap();
+	‾tTVPScanLineProviderForBaseBitmap();
 
 	void Attach(tTVPBaseBitmap *bmp); // attach bitmap
 

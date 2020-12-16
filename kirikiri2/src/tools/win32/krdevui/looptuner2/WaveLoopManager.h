@@ -50,7 +50,7 @@
 		CRITICAL_SECTION CS;
 	public:
 		tTJSCriticalSection() { InitializeCriticalSection(&CS); }
-		~tTJSCriticalSection() { DeleteCriticalSection(&CS); }
+		‾tTJSCriticalSection() { DeleteCriticalSection(&CS); }
 
 		void Enter() { EnterCriticalSection(&CS); }
 		void Leave() { LeaveCriticalSection(&CS); }
@@ -68,7 +68,7 @@
 			Section->Enter();
 		}
 
-		~tTJSCriticalSectionHolder()
+		‾tTJSCriticalSectionHolder()
 		{
 			Section->Leave();
 		}
@@ -276,7 +276,7 @@ class tTVPWaveLoopManager
 
 public:
 	tTVPWaveLoopManager();
-	virtual ~tTVPWaveLoopManager();
+	virtual ‾tTVPWaveLoopManager();
 
 	void SetDecoder(tTVPWaveDecoder * decoder);
 

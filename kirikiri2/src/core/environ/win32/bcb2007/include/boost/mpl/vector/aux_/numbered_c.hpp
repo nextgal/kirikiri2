@@ -29,10 +29,10 @@
 
 #if defined(BOOST_MPL_TYPEOF_BASED_VECTOR_IMPL)
 
-#   define MPL_AUX_VECTOR_TAIL(vector, i, C) \
-    BOOST_PP_CAT(BOOST_PP_CAT(vector,BOOST_PP_DEC(i)),_c)<T \
-      BOOST_PP_COMMA_IF(BOOST_PP_DEC(i)) BOOST_PP_ENUM_SHIFTED_PARAMS(i, C) \
-    > \
+#   define MPL_AUX_VECTOR_TAIL(vector, i, C) ¥
+    BOOST_PP_CAT(BOOST_PP_CAT(vector,BOOST_PP_DEC(i)),_c)<T ¥
+      BOOST_PP_COMMA_IF(BOOST_PP_DEC(i)) BOOST_PP_ENUM_SHIFTED_PARAMS(i, C) ¥
+    > ¥
     /**/
 
 template<
@@ -52,9 +52,9 @@ struct BOOST_PP_CAT(BOOST_PP_CAT(vector,i),_c)
 
 #else // "brute force" implementation
 
-#   define MPL_AUX_VECTOR_C_PARAM_FUNC(unused, i, param) \
-    BOOST_PP_COMMA_IF(i) \
-    integral_c<T,BOOST_PP_CAT(param,i)> \
+#   define MPL_AUX_VECTOR_C_PARAM_FUNC(unused, i, param) ¥
+    BOOST_PP_COMMA_IF(i) ¥
+    integral_c<T,BOOST_PP_CAT(param,i)> ¥
     /**/
 
 template<

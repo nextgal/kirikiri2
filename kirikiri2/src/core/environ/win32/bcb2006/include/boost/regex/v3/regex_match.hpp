@@ -199,7 +199,7 @@ public:
 
    _priv_match_data(const match_results_base<iterator, Allocator>&, iterator, iterator, std::size_t);
    
-   ~_priv_match_data()
+   ‾_priv_match_data()
    {
       m_free();
    }
@@ -474,7 +474,7 @@ bool query_match_aux(iterator first,
                // the start of our "buffer".
                iterator t(first);
                --t;
-               if(traits::is_separator(*t) && !((*t == '\r') && (*first == '\n')) )
+               if(traits::is_separator(*t) && !((*t == '¥r') && (*first == '¥n')) )
                {
                   ptr = ptr->next.p;
                   continue;
@@ -496,10 +496,10 @@ bool query_match_aux(iterator first,
          {
             if((first != base) || (flags & match_prev_avail))
             {
-               // check that we're not in the middle of \r\n sequence
+               // check that we're not in the middle of ¥r¥n sequence
                iterator t(first);
                --t;
-               if((*t == '\r') && (*first == '\n'))
+               if((*t == '¥r') && (*first == '¥n'))
                {
                   goto failure;
                }
@@ -509,7 +509,7 @@ bool query_match_aux(iterator first,
          }
          goto failure;
       case syntax_element_wild:
-         // anything except possibly NULL or \n:
+         // anything except possibly NULL or ¥n:
          if(traits::is_separator(*first))
          {
             if(flags & match_not_dot_newline)
@@ -1138,7 +1138,7 @@ void _skip_and_inc(unsigned int& clines, iterator& last_line, iterator& first, c
 {
    while(first != last)
    {
-      if(*first == '\n')
+      if(*first == '¥n')
       {
          last_line = ++first;
          ++clines;
@@ -1155,7 +1155,7 @@ void _skip_and_dec(unsigned int& clines, iterator& last_line, iterator& first, i
    for(std::size_t i = 0; i < len; ++i)
    {
       --first;
-      if(*first == '\n')
+      if(*first == '¥n')
       {
          need_line = true;
          --clines;
@@ -1171,9 +1171,9 @@ void _skip_and_dec(unsigned int& clines, iterator& last_line, iterator& first, i
       else
          return;
 
-      while((last_line != base) && (*last_line != '\n'))
+      while((last_line != base) && (*last_line != '¥n'))
          --last_line;
-      if(*last_line == '\n')
+      if(*last_line == '¥n')
          ++last_line;
    }
 }
@@ -1181,7 +1181,7 @@ void _skip_and_dec(unsigned int& clines, iterator& last_line, iterator& first, i
 template <class iterator>
 inline void _inc_one(unsigned int& clines, iterator& last_line, iterator& first)
 {
-   if(*first == '\n')
+   if(*first == '¥n')
    {
       last_line = ++first;
       ++clines;
@@ -1492,7 +1492,7 @@ unsigned int reg_grep2(Predicate foo, I first, I last, const reg_expression<char
       while(first != last)
       {
          --first;
-         if(*first == '\n')
+         if(*first == '¥n')
             --clines;
          // skip the word characters:
          while((first != last) && traits_inst.is_class(*first, traits::char_class_word))
@@ -1504,7 +1504,7 @@ unsigned int reg_grep2(Predicate foo, I first, I last, const reg_expression<char
             //
             // hack to work around gcc optimisation bug
             // just expand the contents of _inc_one here:
-            if(*first == '\n')
+            if(*first == '¥n')
             {
                last_line = ++first;
                ++clines;
@@ -1583,9 +1583,9 @@ unsigned int reg_grep2(Predicate foo, I first, I last, const reg_expression<char
       {
          // find first charcter after a line break:
          --first;
-         if(*first == '\n')
+         if(*first == '¥n')
             --clines;
-         while((first != last) && (*first != '\n'))
+         while((first != last) && (*first != '¥n'))
             ++first;
          if(first == last)
             break;

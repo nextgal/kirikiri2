@@ -35,7 +35,7 @@ tTVPThread::tTVPThread(bool suspended)
 	if(Handle == INVALID_HANDLE_VALUE) TVPThrowInternalError;
 }
 //---------------------------------------------------------------------------
-tTVPThread::~tTVPThread()
+tTVPThread::‾tTVPThread()
 {
 	CloseHandle(Handle);
 }
@@ -111,7 +111,7 @@ tTVPThreadEvent::tTVPThreadEvent(bool manualreset)
 	if(!Handle) TVPThrowInternalError;
 }
 //---------------------------------------------------------------------------
-tTVPThreadEvent::~tTVPThreadEvent()
+tTVPThreadEvent::‾tTVPThreadEvent()
 {
 	CloseHandle(Handle);
 }

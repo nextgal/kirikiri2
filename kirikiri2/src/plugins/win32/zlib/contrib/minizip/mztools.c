@@ -15,16 +15,16 @@
 #define READ_16(adr) ( READ_8(adr) | (READ_8(adr+1) << 8) )
 #define READ_32(adr) ( READ_16(adr) | (READ_16((adr)+2) << 16) )
 
-#define WRITE_8(buff, n) do { \
-  *((unsigned char*)(buff)) = (unsigned char) ((n) & 0xff); \
+#define WRITE_8(buff, n) do { ¥
+  *((unsigned char*)(buff)) = (unsigned char) ((n) & 0xff); ¥
 } while(0)
-#define WRITE_16(buff, n) do { \
-  WRITE_8((unsigned char*)(buff), n); \
-  WRITE_8(((unsigned char*)(buff)) + 1, (n) >> 8); \
+#define WRITE_16(buff, n) do { ¥
+  WRITE_8((unsigned char*)(buff), n); ¥
+  WRITE_8(((unsigned char*)(buff)) + 1, (n) >> 8); ¥
 } while(0)
-#define WRITE_32(buff, n) do { \
-  WRITE_16((unsigned char*)(buff), (n) & 0xffff); \
-  WRITE_16((unsigned char*)(buff) + 2, (n) >> 16); \
+#define WRITE_32(buff, n) do { ¥
+  WRITE_16((unsigned char*)(buff), (n) & 0xffff); ¥
+  WRITE_16((unsigned char*)(buff) + 2, (n) >> 16); ¥
 } while(0)
 
 extern int ZEXPORT unzRepair(file, fileOut, fileOutTmp, nRecovered, bytesRecovered)
@@ -61,7 +61,7 @@ uLong* bytesRecovered;
         unsigned int uncpsize = READ_32(header + 22); /* uncompressed sz */
         unsigned int fnsize = READ_16(header + 26); /* file name length */
         unsigned int extsize = READ_16(header + 28); /* extra field length */
-        filename[0] = extra[0] = '\0';
+        filename[0] = extra[0] = '¥0';
 
         /* Header */
         if (fwrite(header, 1, 30, fpOut) == 30) {

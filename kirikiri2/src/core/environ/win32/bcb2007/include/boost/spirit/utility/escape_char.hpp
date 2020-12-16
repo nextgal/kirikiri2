@@ -93,10 +93,10 @@ private:
 //      The C style escaped character parser is generated, when the template
 //      parameter 'Flags' is equal to 'c_escapes' (a constant defined in the
 //      file impl/escape_char.ipp). This parser recognizes all valid C escape
-//      character sequences: '\t', '\b', '\f', '\n', '\r', '\"', '\'', '\\'
-//      and the numeric style escapes '\120' (octal) and '\x2f' (hexadecimal)
+//      character sequences: '¥t', '¥b', '¥f', '¥n', '¥r', '¥"', '¥'', '¥¥'
+//      and the numeric style escapes '¥120' (octal) and '¥x2f' (hexadecimal)
 //      and converts these to their character equivalent, for instance the
-//      sequence of a backslash and a 'b' is parsed as the character '\b'.
+//      sequence of a backslash and a 'b' is parsed as the character '¥b'.
 //      All other escaped characters are rejected by this parser.
 //
 //      The LEX style escaped character parser is generated, when the template
@@ -105,7 +105,7 @@ private:
 //      escaped character sequences (as described above) and additionally
 //      does not reject all other escape sequences. All not mentioned escape
 //      sequences are converted by the parser to the plain character, for
-//      instance '\a' will be parsed as 'a'.
+//      instance '¥a' will be parsed as 'a'.
 //
 //      All not escaped characters are parsed without modification.
 //

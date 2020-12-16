@@ -53,7 +53,7 @@ public:
                     {
                         impl::construct_chset(ptr, definition);
                     }
-                    ~chset();
+                    ‾chset();
 
     chset&          operator=(chset const& rhs);
     chset&          operator=(CharT rhs);

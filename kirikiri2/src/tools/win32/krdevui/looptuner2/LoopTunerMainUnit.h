@@ -36,7 +36,7 @@
 //---------------------------------------------------------------------------
 class TTSSLoopTuner2MainForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TMainMenu *MainMenu;
 	TActionList *ActionList;
 	TMenuItem *FileMenu;
@@ -193,7 +193,7 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall ShowToolBarActionExecute(TObject *Sender);
 	void __fastcall ClearAllLabelsActionExecute(TObject *Sender);
 	void __fastcall NewLinkOnPlayActionExecute(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	TWaveReader * Reader;
 	TWaveView *WaveView;
 	TTotalView *TotalView;
@@ -202,9 +202,9 @@ private:	// ƒ†[ƒU[éŒ¾
 
 	bool ResettingFlags;
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TTSSLoopTuner2MainForm(TComponent* Owner);
-	__fastcall ~TTSSLoopTuner2MainForm();
+	__fastcall â€¾TTSSLoopTuner2MainForm();
 
 	void __fastcall ReadFromIni();
 	void __fastcall WriteToIni();

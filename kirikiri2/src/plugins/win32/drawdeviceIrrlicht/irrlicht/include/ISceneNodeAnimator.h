@@ -31,11 +31,11 @@ namespace scene
 	public:
 
 		//! Destructor
-		virtual ~ISceneNodeAnimator() {}
+		virtual ‾ISceneNodeAnimator() {}
 
 		//! Animates a scene node.
-		/** \param node Node to animate.
-		\param timeMs Current time in milli seconds. */
+		/** ¥param node Node to animate.
+		¥param timeMs Current time in milli seconds. */
 		virtual void animateNode(ISceneNode* node, u32 timeMs) = 0;
 
 		//! Creates a clone of this animator.

@@ -30,7 +30,7 @@ CSphereSceneNode::CSphereSceneNode(f32 radius, u32 polyCountX, u32 polyCountY, I
 
 
 //! destructor
-CSphereSceneNode::~CSphereSceneNode()
+CSphereSceneNode::‾CSphereSceneNode()
 {
 	if (Mesh)
 		Mesh->drop();

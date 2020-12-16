@@ -84,7 +84,7 @@ static FILE * outfile;		/* output JPEG file */
 
 
 /* Error exit handler */
-#define ERREXIT(msg)  (fprintf(stderr, "%s\n", msg), exit(EXIT_FAILURE))
+#define ERREXIT(msg)  (fprintf(stderr, "%s¥n", msg), exit(EXIT_FAILURE))
 
 
 /* Read one byte, testing for EOF */
@@ -203,7 +203,7 @@ next_marker (void)
   } while (c == 0xFF);
 
   if (discarded_bytes != 0) {
-    fprintf(stderr, "Warning: garbage data found in JPEG file\n");
+    fprintf(stderr, "Warning: garbage data found in JPEG file¥n");
   }
 
   return c;
@@ -351,29 +351,29 @@ static void
 usage (void)
 /* complain about bad command line */
 {
-  fprintf(stderr, "wrjpgcom inserts a textual comment in a JPEG file.\n");
-  fprintf(stderr, "You can add to or replace any existing comment(s).\n");
+  fprintf(stderr, "wrjpgcom inserts a textual comment in a JPEG file.¥n");
+  fprintf(stderr, "You can add to or replace any existing comment(s).¥n");
 
   fprintf(stderr, "Usage: %s [switches] ", progname);
 #ifdef TWO_FILE_COMMANDLINE
-  fprintf(stderr, "inputfile outputfile\n");
+  fprintf(stderr, "inputfile outputfile¥n");
 #else
-  fprintf(stderr, "[inputfile]\n");
+  fprintf(stderr, "[inputfile]¥n");
 #endif
 
-  fprintf(stderr, "Switches (names may be abbreviated):\n");
-  fprintf(stderr, "  -replace         Delete any existing comments\n");
-  fprintf(stderr, "  -comment \"text\"  Insert comment with given text\n");
-  fprintf(stderr, "  -cfile name      Read comment from named file\n");
-  fprintf(stderr, "Notice that you must put quotes around the comment text\n");
-  fprintf(stderr, "when you use -comment.\n");
-  fprintf(stderr, "If you do not give either -comment or -cfile on the command line,\n");
-  fprintf(stderr, "then the comment text is read from standard input.\n");
-  fprintf(stderr, "It can be multiple lines, up to %u characters total.\n",
+  fprintf(stderr, "Switches (names may be abbreviated):¥n");
+  fprintf(stderr, "  -replace         Delete any existing comments¥n");
+  fprintf(stderr, "  -comment ¥"text¥"  Insert comment with given text¥n");
+  fprintf(stderr, "  -cfile name      Read comment from named file¥n");
+  fprintf(stderr, "Notice that you must put quotes around the comment text¥n");
+  fprintf(stderr, "when you use -comment.¥n");
+  fprintf(stderr, "If you do not give either -comment or -cfile on the command line,¥n");
+  fprintf(stderr, "then the comment text is read from standard input.¥n");
+  fprintf(stderr, "It can be multiple lines, up to %u characters total.¥n",
 	  (unsigned int) MAX_COM_LENGTH);
 #ifndef TWO_FILE_COMMANDLINE
-  fprintf(stderr, "You must specify an input JPEG file name when supplying\n");
-  fprintf(stderr, "comment text from standard input.\n");
+  fprintf(stderr, "You must specify an input JPEG file name when supplying¥n");
+  fprintf(stderr, "comment text from standard input.¥n");
 #endif
 
   exit(EXIT_FAILURE);
@@ -389,8 +389,8 @@ keymatch (char * arg, const char * keyword, int minchars)
   register int ca, ck;
   register int nmatched = 0;
 
-  while ((ca = *arg++) != '\0') {
-    if ((ck = *keyword++) == '\0')
+  while ((ca = *arg++) != '¥0') {
+    if ((ck = *keyword++) == '¥0')
       return 0;			/* arg longer than keyword, no good */
     if (isupper(ca))		/* force arg to lcase (assume ck is already) */
       ca = tolower(ca);
@@ -440,7 +440,7 @@ main (int argc, char **argv)
     } else if (keymatch(arg, "cfile", 2)) {
       if (++argn >= argc) usage();
       if ((comment_file = fopen(argv[argn], "r")) == NULL) {
-	fprintf(stderr, "%s: can't open %s\n", progname, argv[argn]);
+	fprintf(stderr, "%s: can't open %s¥n", progname, argv[argn]);
 	exit(EXIT_FAILURE);
       }
     } else if (keymatch(arg, "comment", 1)) {
@@ -457,7 +457,7 @@ main (int argc, char **argv)
 	for (;;) {
 	  comment_length = (unsigned int) strlen(comment_arg);
 	  if (comment_length > 0 && comment_arg[comment_length-1] == '"') {
-	    comment_arg[comment_length-1] = '\0'; /* zap terminating quote */
+	    comment_arg[comment_length-1] = '¥0'; /* zap terminating quote */
 	    break;
 	  }
 	  if (++argn >= argc)
@@ -483,7 +483,7 @@ main (int argc, char **argv)
   /* Open the input file. */
   if (argn < argc) {
     if ((infile = fopen(argv[argn], READ_BINARY)) == NULL) {
-      fprintf(stderr, "%s: can't open %s\n", progname, argv[argn]);
+      fprintf(stderr, "%s: can't open %s¥n", progname, argv[argn]);
       exit(EXIT_FAILURE);
     }
   } else {
@@ -493,7 +493,7 @@ main (int argc, char **argv)
 #endif
 #ifdef USE_FDOPEN		/* need to re-open in binary mode? */
     if ((infile = fdopen(fileno(stdin), READ_BINARY)) == NULL) {
-      fprintf(stderr, "%s: can't open stdin\n", progname);
+      fprintf(stderr, "%s: can't open stdin¥n", progname);
       exit(EXIT_FAILURE);
     }
 #else
@@ -505,18 +505,18 @@ main (int argc, char **argv)
 #ifdef TWO_FILE_COMMANDLINE
   /* Must have explicit output file name */
   if (argn != argc-2) {
-    fprintf(stderr, "%s: must name one input and one output file\n",
+    fprintf(stderr, "%s: must name one input and one output file¥n",
 	    progname);
     usage();
   }
   if ((outfile = fopen(argv[argn+1], WRITE_BINARY)) == NULL) {
-    fprintf(stderr, "%s: can't open %s\n", progname, argv[argn+1]);
+    fprintf(stderr, "%s: can't open %s¥n", progname, argv[argn+1]);
     exit(EXIT_FAILURE);
   }
 #else
   /* Unix style: expect zero or one file name */
   if (argn < argc-1) {
-    fprintf(stderr, "%s: only one input file\n", progname);
+    fprintf(stderr, "%s: only one input file¥n", progname);
     usage();
   }
   /* default output file is stdout */
@@ -525,7 +525,7 @@ main (int argc, char **argv)
 #endif
 #ifdef USE_FDOPEN		/* need to re-open in binary mode? */
   if ((outfile = fdopen(fileno(stdout), WRITE_BINARY)) == NULL) {
-    fprintf(stderr, "%s: can't open stdout\n", progname);
+    fprintf(stderr, "%s: can't open stdout¥n", progname);
     exit(EXIT_FAILURE);
   }
 #else
@@ -545,7 +545,7 @@ main (int argc, char **argv)
     src_file = (comment_file != NULL ? comment_file : stdin);
     while ((c = getc(src_file)) != EOF) {
       if (comment_length >= (unsigned int) MAX_COM_LENGTH) {
-	fprintf(stderr, "Comment text may not exceed %u bytes\n",
+	fprintf(stderr, "Comment text may not exceed %u bytes¥n",
 		(unsigned int) MAX_COM_LENGTH);
 	exit(EXIT_FAILURE);
       }

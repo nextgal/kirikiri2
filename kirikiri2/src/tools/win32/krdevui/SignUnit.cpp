@@ -31,7 +31,7 @@ AnsiString Split64(AnsiString s)
 	while(len > 0)
 	{
 		int one_size = len > 64 ? 64  : len;
-		ret += AnsiString(p, one_size) + "\r\n";
+		ret += AnsiString(p, one_size) + "¥r¥n";
 		p += one_size;
 		len -= one_size;
 	}
@@ -100,9 +100,9 @@ static void ImportKey(AnsiString inkey, AnsiString startline, AnsiString endline
 {
 	const char *pkey = inkey.c_str();
 	const char *start = strstr(pkey, startline.c_str());
-	if(!start) throw Exception("Cannot find \"" + startline + "\" in the key string");
+	if(!start) throw Exception("Cannot find ¥"" + startline + "¥" in the key string");
 	const char *end = strstr(pkey, endline.c_str());
-	if(!end) throw Exception("Cannot find \"" + endline + "\" in the key string");
+	if(!end) throw Exception("Cannot find ¥"" + endline + "¥" in the key string");
 
 	start += startline.Length();
 	char buf[10240];
@@ -163,7 +163,7 @@ bool SignFile(AnsiString privkey, AnsiString signfn, int ignorestart, int ignore
 		if(errnum != CRYPT_OK) throw Exception(error_to_string(errnum));
 		buf_asc[buf_asc_len] = 0;
 
-		AnsiString sign = AnsiString("-- SIGNATURE - " HASH_METHOD_STRING "/PSS/RSA --\r\n") +
+		AnsiString sign = AnsiString("-- SIGNATURE - " HASH_METHOD_STRING "/PSS/RSA --¥r¥n") +
 			Split64(buf_asc);
 
 		// write it to the file
@@ -187,7 +187,7 @@ bool SignFile(AnsiString privkey, AnsiString signfn, int ignorestart, int ignore
 			if(ofs != -1)
 			{
 				// write a null terminater
-				st->Write("\0", 1);
+				st->Write("¥0", 1);
 			}
 		}
 		catch(...)

@@ -22,18 +22,18 @@ sub sjis
 	my($text);
 	$text = $_[0];
 	$text = Jcode->new($text, "utf8")->sjis;
-	$text =~ s/---yen---/\\/g;
-	$text =~ s/---tilde---/\~/g;
-	$text =~ s/---nami---/�`/g;
-	$text =~ s/&/&amp;/g;
-	$text =~ s/</&lt;/g;
-	$text =~ s/>/&gt;/g;
+	$text =‾ s/---yen---/¥¥/g;
+	$text =‾ s/---tilde---/¥‾/g;
+	$text =‾ s/---nami---/〜/g;
+	$text =‾ s/&/&amp;/g;
+	$text =‾ s/</&lt;/g;
+	$text =‾ s/>/&gt;/g;
 if($cv_nbsp)
 {
-	$text =~ s/ /&nbsp;/g;
-	$text =~ s/\t/&nbsp;&nbsp;&nbsp;&nbsp;/g;
+	$text =‾ s/ /&nbsp;/g;
+	$text =‾ s/¥t/&nbsp;&nbsp;&nbsp;&nbsp;/g;
 }
-	$text =~ s/\"/&quot;/g;  #"
+	$text =‾ s/¥"/&quot;/g;  #"
 	return $text;
 }
 
@@ -41,15 +41,15 @@ sub html
 {
 	my($text);
 	$text = $_[0];
-	$text =~ s/&/&amp;/g;
-	$text =~ s/</&lt;/g;
-	$text =~ s/>/&gt;/g;
+	$text =‾ s/&/&amp;/g;
+	$text =‾ s/</&lt;/g;
+	$text =‾ s/>/&gt;/g;
 if($cv_nbsp)
 {
-	$text =~ s/ /&nbsp;/g;
-	$text =~ s/\t/&nbsp;&nbsp;&nbsp;&nbsp;/g;
+	$text =‾ s/ /&nbsp;/g;
+	$text =‾ s/¥t/&nbsp;&nbsp;&nbsp;&nbsp;/g;
 }
-	$text =~ s/\"/&quot;/g; #"
+	$text =‾ s/¥"/&quot;/g; #"
 	return $text;
 }
 
@@ -58,9 +58,9 @@ sub sjis_noquote
 	my($text);
 	$text = $_[0];
 	$text = Jcode->new($text, "utf8")->sjis;
-	$text =~ s/---yen---/\\/g;
-	$text =~ s/---tilde---/\~/g;
-	$text =~ s/---nami---/�`/g;
+	$text =‾ s/---yen---/¥¥/g;
+	$text =‾ s/---tilde---/¥‾/g;
+	$text =‾ s/---nami---/〜/g;
 	return $text;
 }
 
@@ -69,10 +69,10 @@ sub get_title
 {
 	my $file = $_[0];
 	my $fn;
-	$fn = "..\\" . $file . ".xml";
+	$fn = "..¥¥" . $file . ".xml";
 	if(!open(LFH, $fn))
 	{
-		$fn = "..\\" . $file . ".tag";
+		$fn = "..¥¥" . $file . ".tag";
 		if(!open(LFH, $fn))
 		{
 			return "";
@@ -81,7 +81,7 @@ sub get_title
 	my @all = <LFH>;
 	my $all = join('', @all);
 	close LFH;
-	$all =~ /\<title\>(.*?)\<\/title\>/;
+	$all =‾ /¥<title¥>(.*?)¥<¥/title¥>/;
 	return $1;
 }
 
@@ -117,7 +117,7 @@ EOF
 		elsif($name eq "descimg")
 		{
 			my $title = sjis(($node->getElementsByTagName("dititle"))[0]->getFirstChild->getData);
-			print OH "<div class=\"descimg\"";
+			print OH "<div class=¥"descimg¥"";
 			foreach my $child ($node->getChildNodes) { &gen_html($child); }
 			print OH "$title</div>";
 		}
@@ -125,18 +125,18 @@ EOF
 		{
 			$unique ++;
 			my $word = $node->getFirstChild->getData;
-			$word = sjis_noquote($word) . "\t" . "id$unique" . "\t" . $outfile . "\t";
+			$word = sjis_noquote($word) . "¥t" . "id$unique" . "¥t" . $outfile . "¥t";
 			$word .= "$curplace";
 			push (@keywords, $word);
-			print OH "<a class=\"targanchor\" name=\"id$unique\" id=\"id$unique\">";
+			print OH "<a class=¥"targanchor¥" name=¥"id$unique¥" id=¥"id$unique¥">";
 			foreach my $child ($node->getChildNodes) { &gen_html($child); }
 			print OH "</a>";
 		}
 		elsif($name eq "bq")
 		{
-			print OH "<div class=\"bq\">";
+			print OH "<div class=¥"bq¥">";
 			foreach my $child ($node->getChildNodes) { &gen_html($child); }
-			print OH "</div>\n";
+			print OH "</div>¥n";
 		}
 		elsif($name eq "desc")
 		{
@@ -150,32 +150,32 @@ EOF
 				my $w;
 				my $h;
 				($w, $h) = imgsize($filename);
-				print OH "<img width=\"$w\" height=\"$h\" src=\"". sjis($node->getAttribute("src"))."\" />";
+				print OH "<img width=¥"$w¥" height=¥"$h¥" src=¥"". sjis($node->getAttribute("src"))."¥" />";
 			}
 			else
 			{
-				print OH "<img src=\"".sjis($filename)."\" />";
+				print OH "<img src=¥"".sjis($filename)."¥" />";
 			}
 		}
 		elsif($name eq "ref")
 		{
 			my $link = $node->getFirstChild->getData;
 			my $org = $link;
-			$link =~ tr/\./_/;
-			print OH "<a class=\"jump\" href=\"f_". $link. ".html\">$org</a>";
+			$link =‾ tr/¥./_/;
+			print OH "<a class=¥"jump¥" href=¥"f_". $link. ".html¥">$org</a>";
 		}
 		elsif($name eq "example")
 		{
 			my $org_cv_nbsp = $cv_nbsp;
 			$cv_nbsp = 1;
-			print OH "<code class=\"bq\"><span class=\"weak\">��:</span><br />";
+			print OH "<code class=¥"bq¥"><span class=¥"weak¥">例:</span><br />";
 			foreach my $child ($node->getChildNodes) { &gen_html($child); }
-			print OH "</code>\n";
+			print OH "</code>¥n";
 			$cv_nbsp = $org_cv_nbsp;
 		}
 		elsif($name eq "a")
 		{
-			print OH "<a class=\"jump\" href=\"" . sjis($node->getAttribute("href")) . "\">";
+			print OH "<a class=¥"jump¥" href=¥"" . sjis($node->getAttribute("href")) . "¥">";
 			foreach my $child ($node->getChildNodes) { &gen_html($child); }
 			print OH "</a>";
 		}
@@ -183,22 +183,22 @@ EOF
 		{
 			if($node->getAttribute("target") ne '')
 			{
-				print OH "<a target=\"" . $node->getAttribute("target") . "\" class=\"jump\" href=\"" . sjis($node->getAttribute("href")) . "\">";
+				print OH "<a target=¥"" . $node->getAttribute("target") . "¥" class=¥"jump¥" href=¥"" . sjis($node->getAttribute("href")) . "¥">";
 			}
 			else
 			{
-				print OH "<a target=\"$a_target\" class=\"jump\" href=\"" . sjis($node->getAttribute("href")) . "\">";
+				print OH "<a target=¥"$a_target¥" class=¥"jump¥" href=¥"" . sjis($node->getAttribute("href")) . "¥">";
 			}
 			foreach my $child ($node->getChildNodes) { &gen_html($child); }
 			print OH "</a>";
 		}
 		elsif($name eq "r")
 		{
-			print OH "<br />\n";
+			print OH "<br />¥n";
 		}
 		elsif($name eq "tt")
 		{
-			print OH "<span class=\"script\">";
+			print OH "<span class=¥"script¥">";
 			foreach my $child ($node->getChildNodes) { &gen_html($child); }
 			print OH "</span>";
 		}
@@ -208,7 +208,7 @@ EOF
 			my $title = get_title($href);
 			if($title ne '')
 			{
-				print OH "<a target=\"$a_target\" class=\"jump\" href=\"${href}.html\">$title</a>";
+				print OH "<a target=¥"$a_target¥" class=¥"jump¥" href=¥"${href}.html¥">$title</a>";
 			}
 		}
 		elsif($name eq "comlink")
@@ -217,7 +217,7 @@ EOF
 			my $title = get_title($href);
 			if($title ne '')
 			{
-				print OH "<font size=\"-1\"> ( �� <a target=\"$a_target\" class=\"jump\" href=\"${href}.html\">$title</a> ) </font>";
+				print OH "<font size=¥"-1¥"> ( → <a target=¥"$a_target¥" class=¥"jump¥" href=¥"${href}.html¥">$title</a> ) </font>";
 			}
 		}
 		else
@@ -230,8 +230,8 @@ EOF
 	elsif($type == TEXT_NODE)
 	{
 		my $text = $node->getData;
-		$text =~ s/^\n//s;
-		$text =~ s/\n$//s;
+		$text =‾ s/^¥n//s;
+		$text =‾ s/¥n$//s;
 		$text = sjis($text);
 		print OH $text;
 	}
@@ -269,8 +269,8 @@ sub toplevel
 		{
 			;# title
 			$curtitle = sjis($node->getFirstChild->getData);
-			$curplace = $curtitle . "�N���X";
-			print "title: $curtitle\n";
+			$curplace = $curtitle . "クラス";
+			print "title: $curtitle¥n";
 		}
 		elsif($name eq "anchor")
 		{
@@ -298,14 +298,14 @@ sub write_html_header
 	<meta name="author" content="W.Dee" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
-	<link href="funcref.css" type="text/css" rel="stylesheet" title="�N���X���t�@�����X�p�W���X�^�C��" />
-	<link href="mailto:dee\@kikyou.info" rev="Made" />
-	<link href="index.html" target="_top" rel="Start" title="�g�b�v�y�[�W" />
+	<link href="funcref.css" type="text/css" rel="stylesheet" title="クラスリファレンス用標準スタイル" />
+	<link href="mailto:dee¥@kikyou.info" rev="Made" />
+	<link href="index.html" target="_top" rel="Start" title="トップページ" />
 EOF
 
 	if($parent ne "")
 	{
-		print OH "\t<link href=\"$parent\" title=\"$parenttitle\" rel=\"Parent\" />\n";
+		print OH "¥t<link href=¥"$parent¥" title=¥"$parenttitle¥" rel=¥"Parent¥" />¥n";
 	}
 
 	print OH <<EOF;
@@ -375,16 +375,16 @@ sub member
 
 	open OH, ">$outfile";
 
-	&write_html_header($name . ' - ' . getdata($node, 'shortdesc'), $orgfile, "f_${curtitle}.html", "$curtitle�N���X");
+	&write_html_header($name . ' - ' . getdata($node, 'shortdesc'), $orgfile, "f_${curtitle}.html", "$curtitleクラス");
 
-	push @keywords, $name . "\t". "top". "\t". $outfile ."\t". $curtitle . "�N���X";
+	push @keywords, $name . "¥t". "top". "¥t". $outfile ."¥t". $curtitle . "クラス";
 
-	&write_paragraph_header('<span class="fheader">' . "<a name=\"". "top" . "\" id=\"". "top" . "\">".$curtitle . '.' . $name . '</a></span>');
+	&write_paragraph_header('<span class="fheader">' . "<a name=¥"". "top" . "¥" id=¥"". "top" . "¥">".$curtitle . '.' . $name . '</a></span>');
 
-	print OH "<dl>\n";
+	print OH "<dl>¥n";
 
 	print OH <<EOF;
-<dt>�@\x94\x5c/�Ӗ�</dt>
+<dt>機¥x94¥x5c/意味</dt>
 <dd>
 EOF
 	print OH getdata($node, 'shortdesc');
@@ -395,41 +395,41 @@ EOF
 
 
 	print OH <<EOF;
-<dt>�^�C�v</dt>
+<dt>タイプ</dt>
 <dd>
 EOF
-	print OH "<a class=\"jump\" href=\"f_$curtitle".".html\">$curtitle�N���X</a>��";
+	print OH "<a class=¥"jump¥" href=¥"f_$curtitle".".html¥">$curtitleクラス</a>の";
 	my $type = getdata($node, 'type');
 	if($type eq 'constructor')
 	{
-		print OH '�R���X�g���N�^';
+		print OH 'コンストラクタ';
 	}
 	elsif($type eq 'method')
 	{
-		print OH '���\�b�h';
+		print OH 'メソッド';
 	}
 	elsif($type eq 'property')
 	{
-		print OH '�v���p�e�B';
+		print OH 'プロパティ';
 		my $access = getdata($node, 'access');
 		if($access eq 'r')
 		{
-			print OH ' (�ǂݏo����p)';
+			print OH ' (読み出し専用)';
 		}
 		elsif($access eq 'r/w' || $access eq 'w/r')
 		{
-			print OH ' (�ǂݏ����\)';
+			print OH ' (読み書き可能)';
 		}
 		elsif($access eq 'w')
 		{
-			print OH ' (�������ݐ�p)';
+			print OH ' (書き込み専用)';
 		}
 	}
 	elsif($type eq 'event')
 	{
-		print OH '�C�x���g';
+		print OH 'イベント';
 	}
-	print OH "<br />\n";
+	print OH "<br />¥n";
 	print OH <<EOF;
 </dd>
 EOF
@@ -437,52 +437,52 @@ EOF
 	if($type eq 'method' || $type eq 'constructor' || $type eq 'event')
 	{
 		print OH <<EOF;
-<dt>\x8d\x5c��</dt>
+<dt>¥x8d¥x5c文</dt>
 <dd>
 EOF
-		print OH "<span class=\"funcdecl\">$name(";
+		print OH "<span class=¥"funcdecl¥">$name(";
 		@list = $node->getElementsByTagName('argitem');
 		$first = 1;
 		foreach my $arg (@list)
 		{
 			if(!$first) { print OH ", "; }
 			$first = 0;
-			print OH "<span class=\"arg\">";
+			print OH "<span class=¥"arg¥">";
 			print OH getdata($arg, 'name');
 			print OH "</span>";
 			my $def = getdata($arg, 'default');
 			if($def ne '')
 			{
-				print OH "<span class=\"defarg\">=";
-				print OH "<span class=\"defargval\">$def</span></span>";
+				print OH "<span class=¥"defarg¥">=";
+				print OH "<span class=¥"defargval¥">$def</span></span>";
 			}
 		}
-		print OH ")</span><br />\n";
+		print OH ")</span><br />¥n";
 		print OH <<EOF;
 </dd>
 EOF
 
 		print OH <<EOF;
-<dt>����</dt>
+<dt>引数</dt>
 <dd>
 EOF
 		if($#list == -1)
 		{
-			print OH "�Ȃ�<br />\n";
+			print OH "なし<br />¥n";
 		}
 		else
 		{
 			print OH <<EOF;
-<table rules="all" frame="box" cellpadding="3" summary="$name �̈���">
+<table rules="all" frame="box" cellpadding="3" summary="$name の引数">
 EOF
 			foreach my $arg (@list)
 			{
-				print OH "<tr><td valign=\"top\"><span class=\"argname\">";
+				print OH "<tr><td valign=¥"top¥"><span class=¥"argname¥">";
 				print OH getdata($arg, 'name');
-				print OH "</span></td>\n";
+				print OH "</span></td>¥n";
 				print OH "<td>";
 				&gen_html($arg->getElementsByTagName("desc"));
-				print OH "</td></tr>\n";
+				print OH "</td></tr>¥n";
 			}
 
 			print OH <<EOF;
@@ -499,13 +499,13 @@ EOF
 	{
 
 		print OH <<EOF;
-<dt>�߂�l</dt>
+<dt>戻り値</dt>
 <dd>
 EOF
 		my $result = getdata($node, 'result');
 		if($result eq '')
 		{
-			print OH "�Ȃ� (void)<br />\n";
+			print OH "なし (void)<br />¥n";
 		}
 		else
 		{
@@ -518,7 +518,7 @@ EOF
 	}
 
 	print OH <<EOF;
-<dt>����</dt>
+<dt>説明</dt>
 <dd>
 EOF
 
@@ -534,22 +534,22 @@ EOF
 	if($#list != -1)
 	{
 		print OH <<EOF;
-<dt>�Q��</dt>
+<dt>参照</dt>
 <dd>
 EOF
 		foreach my $ref (@list)
 		{
 			my $targ = sjis($ref->getFirstChild->getData);
 			my $link = $targ;
-			$link =~ tr/\./_/;
-			print OH "<a class=\"jump\" href=\"f_". $link. ".html\">$targ</a><br />\n";
+			$link =‾ tr/¥./_/;
+			print OH "<a class=¥"jump¥" href=¥"f_". $link. ".html¥">$targ</a><br />¥n";
 		}
 		print OH <<EOF;
 </dd>
 EOF
 	}
 
-	print OH "</dl>\n";
+	print OH "</dl>¥n";
 
 	&write_paragraph_trailer;
 
@@ -572,9 +572,9 @@ sub document
 
 	&write_html_header($curtitle, $orgfile, '', '');
 
-	push @keywords, $curplace . "�T�v". "\t". "top". "\t". $outfile ."\t". $curplace;
+	push @keywords, $curplace . "概要". "¥t". "top". "¥t". $outfile ."¥t". $curplace;
 
-	&write_paragraph_header("<a name=\"". "top" . "\" id=\"". "top" . "\">" . $curtitle . "</a>");
+	&write_paragraph_header("<a name=¥"". "top" . "¥" id=¥"". "top" . "¥">" . $curtitle . "</a>");
 
 	&gen_html($topdesc);
 
@@ -582,13 +582,13 @@ sub document
 
 	;# create member list
 
-	&write_paragraph_header("�����o");
+	&write_paragraph_header("メンバ");
 
 	@names = ();
 
 	print OH <<EOF;
 <dl>
-<dt>�R���X�g���N�^</dt>
+<dt>コンストラクタ</dt>
 <dd>
 EOF
 	foreach my $member (@members)
@@ -602,14 +602,14 @@ EOF
 	if($#names == -1)
 	{
 		print OH <<EOF;
-<span class="weak">�Ȃ�</span>
+<span class="weak">なし</span>
 EOF
 	}
 	else
 	{
 		foreach my $member (@names)
 		{
-			print OH "<a class=\"jump\" href=\"f_". $curtitle.'_'.$member.".html\">$member</a><br />\n";
+			print OH "<a class=¥"jump¥" href=¥"f_". $curtitle.'_'.$member.".html¥">$member</a><br />¥n";
 		}
 	}
 
@@ -620,7 +620,7 @@ EOF
 	@names = ();
 
 	print OH <<EOF;
-<dt>��\x83\x5c�b�h</dt>
+<dt>メ¥x83¥x5cッド</dt>
 <dd>
 EOF
 	foreach my $member (@members)
@@ -628,15 +628,15 @@ EOF
 		if(sjis(($member->getElementsByTagName("type"))[0]->getFirstChild->getData) eq "method")
 		{
 			my $name = sjis(($member->getElementsByTagName("name"))[0]->getFirstChild->getData);
-			push(@names, "<a class=\"jump\" href=\"f_". $curtitle.'_'.$name.".html\">$name</a> ( ".
-				sjis(($member->getElementsByTagName("shortdesc"))[0]->getFirstChild->getData)." )<br />\n");
+			push(@names, "<a class=¥"jump¥" href=¥"f_". $curtitle.'_'.$name.".html¥">$name</a> ( ".
+				sjis(($member->getElementsByTagName("shortdesc"))[0]->getFirstChild->getData)." )<br />¥n");
 		}
 	}
 	@names = sort @names;
 	if($#names == -1)
 	{
 		print OH <<EOF;
-<span class="weak">�Ȃ�</span>
+<span class="weak">なし</span>
 EOF
 	}
 	else
@@ -654,7 +654,7 @@ EOF
 	@names = ();
 
 	print OH <<EOF;
-<dt>�v���p�e�B</dt>
+<dt>プロパティ</dt>
 <dd>
 EOF
 	foreach my $member (@members)
@@ -662,15 +662,15 @@ EOF
 		if(sjis(($member->getElementsByTagName("type"))[0]->getFirstChild->getData) eq "property")
 		{
 			my $name = sjis(($member->getElementsByTagName("name"))[0]->getFirstChild->getData);
-			push(@names, "<a class=\"jump\" href=\"f_". $curtitle.'_'.$name.".html\">$name</a> ( ".
-				sjis(($member->getElementsByTagName("shortdesc"))[0]->getFirstChild->getData)." )<br />\n");
+			push(@names, "<a class=¥"jump¥" href=¥"f_". $curtitle.'_'.$name.".html¥">$name</a> ( ".
+				sjis(($member->getElementsByTagName("shortdesc"))[0]->getFirstChild->getData)." )<br />¥n");
 		}
 	}
 	@names = sort @names;
 	if($#names == -1)
 	{
 		print OH <<EOF;
-<span class="weak">�Ȃ�</span>
+<span class="weak">なし</span>
 EOF
 	}
 	else
@@ -688,7 +688,7 @@ EOF
 	@names = ();
 
 	print OH <<EOF;
-<dt>�C�x���g</dt>
+<dt>イベント</dt>
 <dd>
 EOF
 	foreach my $member (@members)
@@ -696,15 +696,15 @@ EOF
 		if(sjis(($member->getElementsByTagName("type"))[0]->getFirstChild->getData) eq "event")
 		{
 			my $name = sjis(($member->getElementsByTagName("name"))[0]->getFirstChild->getData);
-			push(@names, "<a class=\"jump\" href=\"f_". $curtitle.'_'.$name.".html\">$name</a> ( ".
-				sjis(($member->getElementsByTagName("shortdesc"))[0]->getFirstChild->getData)." )<br />\n");
+			push(@names, "<a class=¥"jump¥" href=¥"f_". $curtitle.'_'.$name.".html¥">$name</a> ( ".
+				sjis(($member->getElementsByTagName("shortdesc"))[0]->getFirstChild->getData)." )<br />¥n");
 		}
 	}
 	@names = sort @names;
 	if($#names == -1)
 	{
 		print OH <<EOF;
-<span class="weak">�Ȃ�</span>
+<span class="weak">なし</span>
 EOF
 	}
 	else
@@ -719,7 +719,7 @@ EOF
 </dd>
 EOF
 
-	print OH "</dl>\n";
+	print OH "</dl>¥n";
 
 	&write_paragraph_trailer;
 
@@ -741,7 +741,7 @@ sub process
 {
 	my $fn = $_[0];
 	my $of = $fn;
-	$of =~ s/\.xml/\.html/;
+	$of =‾ s/¥.xml/¥.html/;
 
 	$orgfile = $fn;
 	$outfile = $of;
@@ -753,12 +753,12 @@ sub process
 
 	my $parser = new XML::DOM::Parser;
 
-	$content =~ s/�`/---nami---/g;
+	$content =‾ s/〜/---nami---/g;
 	$content = Jcode->new($content, "sjis")->euc;
-	$content =~ s/\\/---yen---/g;
-	$content =~ s/\~/---tilde---/g;
+	$content =‾ s/¥¥/---yen---/g;
+	$content =‾ s/¥‾/---tilde---/g;
 	$content = Jcode->new($content, "euc")->sjis;
-	$content =~ s/Shift_JIS/x-sjis-unicode/;
+	$content =‾ s/Shift_JIS/x-sjis-unicode/;
 	my $doc = $parser->parse($content);
 
 	&document($doc);
@@ -768,11 +768,11 @@ my @list = <*.xml>;
 
 foreach my $each (@list)
 {
-	print $each, "\n";
+	print $each, "¥n";
 	&process($each);
 }
 
 open OH, ">keys.txt";
-print OH join("\n", @keywords);
-print OH "\n";
+print OH join("¥n", @keywords);
+print OH "¥n";
 

@@ -1,16 +1,16 @@
 Title: videoEncoder plugin
 Author: Takenori Imoto
 
-������͂ȂɁH
+●これはなに？
 
-Layer �� WMV �`���̃��[�r�[�Ƃ��ĕۑ����邽�߂̃v���O�C���ł�
+Layer を WMV 形式のムービーとして保存するためのプラグインです
 
-���g����
+●使い方
 
-manual.tjs �Q��
+manual.tjs 参照
 
-�����C�Z���X
+●ライセンス
 
-���̃v���O�C���̃��C�Z���X�͋g���g���{�̂ɏ������Ă��������B
+このプラグインのライセンスは吉里吉里本体に準拠してください。
 
 

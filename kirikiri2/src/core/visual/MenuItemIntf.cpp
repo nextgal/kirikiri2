@@ -585,7 +585,7 @@ iTJSDispatch2 * TVPCreateMenuItemObject(iTJSDispatch2 * window)
 	{
 		iTJSDispatch2 * Obj;
 		tHolder() { Obj = new tTJSNC_MenuItem(); }
-		~tHolder() { Obj->Release(); }
+		‾tHolder() { Obj->Release(); }
 	} static menuitemclass;
 
 	iTJSDispatch2 *out;

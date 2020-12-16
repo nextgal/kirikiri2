@@ -3,29 +3,29 @@
 
 [playbgm storage="bgm01.ogg"]
 [cm]
-“ª‚©‚çBGMŠJŽn[p]
+é ­ã‹ã‚‰BGMé–‹å§‹[p]
 
-[playbgm storage="bgm01.ogg" start=ƒ‰ƒxƒ‹0 loop=false]
+[playbgm storage="bgm01.ogg" start=ãƒ©ãƒ™ãƒ«0 loop=false]
 [setbgmstop target=*bgmend]
-[setbgmlabel name=ƒ‰ƒxƒ‹1 exp='dm("BGMƒ‰ƒxƒ‹1’Ê‰ß")']
-[setbgmlabel name=ƒ‰ƒxƒ‹2 target=*bgmlabel2 exp='dm("BGMƒ‰ƒxƒ‹2’Ê‰ß")']
+[setbgmlabel name=ãƒ©ãƒ™ãƒ«1 exp='dm("BGMãƒ©ãƒ™ãƒ«1é€šéŽ")']
+[setbgmlabel name=ãƒ©ãƒ™ãƒ«2 target=*bgmlabel2 exp='dm("BGMãƒ©ãƒ™ãƒ«2é€šéŽ")']
 [cm]
-“r’†‚©‚çBGMŠJŽn[p]
+é€”ä¸­ã‹ã‚‰BGMé–‹å§‹[p]
 [cm]
-‘Ò‚¿’†
+å¾…ã¡ä¸­
 [s]
 
 *bgmlabel2|
-BGM‚Ìƒ‰ƒxƒ‹2‚ð’Ê‰ß‚µ‚½‚Ì‚ÅƒWƒƒƒ“ƒv‚µ‚Ä‚«‚½
+BGMã®ãƒ©ãƒ™ãƒ«2ã‚’é€šéŽã—ãŸã®ã§ã‚¸ãƒ£ãƒ³ãƒ—ã—ã¦ããŸ
 [s]
 
 *bgmend|
-BGM‚ªI—¹‚µ‚½‚Ì‚ÅƒWƒƒƒ“ƒv‚µ‚Ä‚«‚½[p]
+BGMãŒçµ‚äº†ã—ãŸã®ã§ã‚¸ãƒ£ãƒ³ãƒ—ã—ã¦ããŸ[p]
 
 *start|
 [cm]
-V‹KƒWƒƒƒ“ƒvˆ—‚ÌƒeƒXƒg[r]
-[link target=*link]’Êí‚ÌƒŠƒ“ƒN[endlink]
+æ–°è¦ã‚¸ãƒ£ãƒ³ãƒ—å‡¦ç†ã®ãƒ†ã‚¹ãƒˆ[r]
+[link target=*link]é€šå¸¸ã®ãƒªãƒ³ã‚¯[endlink]
 [timeout time=5000 target=*timeout se=musicbox.ogg]
 [wheel   target=*wheel   se=musicbox.ogg]
 [click    target=*click   se=musicbox.ogg]
@@ -33,20 +33,20 @@ BGM‚ªI—¹‚µ‚½‚Ì‚ÅƒWƒƒƒ“ƒv‚µ‚Ä‚«‚½[p]
 
 *link|
 [cm]
-ƒŠƒ“ƒN‚ª‚æ‚Î‚ê‚Ü‚µ‚½[p]
+ãƒªãƒ³ã‚¯ãŒã‚ˆã°ã‚Œã¾ã—ãŸ[p]
 [jump target=*start]
 
 *timeout|
 [cm]
-ƒ^ƒCƒ€ƒAƒEƒg‚ª‚æ‚Î‚ê‚Ü‚µ‚½[p]
+ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆãŒã‚ˆã°ã‚Œã¾ã—ãŸ[p]
 [jump target=*start]
 
 *wheel|
 [cm]
-ƒzƒC[ƒ‹‚ª‚æ‚Î‚ê‚Ü‚µ‚½[p]
+ãƒ›ã‚¤ãƒ¼ãƒ«ãŒã‚ˆã°ã‚Œã¾ã—ãŸ[p]
 [jump target=*start]
 
 *click|
 [cm]
-ƒNƒŠƒbƒN‚ª‚æ‚Î‚ê‚Ü‚µ‚½[p]
+ã‚¯ãƒªãƒƒã‚¯ãŒã‚ˆã°ã‚Œã¾ã—ãŸ[p]
 [jump target=*start]

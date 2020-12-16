@@ -23,19 +23,19 @@ namespace scene
 			const core::vector3df& lookat = core::vector3df(0,0,100));
 
 		//! destructor
-		virtual ~CCameraSceneNode();
+		virtual ‾CCameraSceneNode();
 
 		//! Sets the projection matrix of the camera. The core::matrix4 class has some methods
 		//! to build a projection matrix. e.g: core::matrix4::buildProjectionMatrixPerspectiveFovLH
-		//! \param projection: The new projection matrix of the camera. 
+		//! ¥param projection: The new projection matrix of the camera. 
 		virtual void setProjectionMatrix(const core::matrix4& projection);
 
 		//! Gets the current projection matrix of the camera
-		//! \return Returns the current projection matrix of the camera.
+		//! ¥return Returns the current projection matrix of the camera.
 		virtual const core::matrix4& getProjectionMatrix() const;
 
 		//! Gets the current view matrix of the camera
-		//! \return Returns the current view matrix of the camera.
+		//! ¥return Returns the current view matrix of the camera.
 		virtual const core::matrix4& getViewMatrix() const;
 
 		//! It is possible to send mouse and key events to the camera. Most cameras
@@ -46,35 +46,35 @@ namespace scene
 		virtual bool OnEvent(const SEvent& event);
 
 		//! sets the look at target of the camera
-		//! \param pos: Look at target of the camera.
+		//! ¥param pos: Look at target of the camera.
 		virtual void setTarget(const core::vector3df& pos);
 
 		//! Gets the current look at target of the camera
-		//! \return Returns the current look at target of the camera
+		//! ¥return Returns the current look at target of the camera
 		virtual core::vector3df getTarget() const;
 
 		//! Sets the up vector of the camera.
-		//! \param pos: New upvector of the camera.
+		//! ¥param pos: New upvector of the camera.
 		virtual void setUpVector(const core::vector3df& pos);
 
 		//! Gets the up vector of the camera.
-		//! \return Returns the up vector of the camera.
+		//! ¥return Returns the up vector of the camera.
 		virtual core::vector3df getUpVector() const;
 
 		//! Gets distance from the camera to the near plane.
-		//! \return Value of the near plane of the camera.
+		//! ¥return Value of the near plane of the camera.
 		virtual f32 getNearValue() const;
 
 		//! Gets the distance from the camera to the far plane.
-		//! \return Value of the far plane of the camera.
+		//! ¥return Value of the far plane of the camera.
 		virtual f32 getFarValue() const;
 
 		//! Get the aspect ratio of the camera.
-		//! \return The aspect ratio of the camera.
+		//! ¥return The aspect ratio of the camera.
 		virtual f32 getAspectRatio() const;
 
 		//! Gets the field of view of the camera.
-		//! \return Field of view of the camera
+		//! ¥return Field of view of the camera
 		virtual f32 getFOV() const;
 
 		//! Sets the value of the near clipping plane. (default: 1.0f)

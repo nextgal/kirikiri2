@@ -22,7 +22,7 @@ protected:
 
 public:
 	__fastcall TCustomWaveContext() { };
-	virtual __fastcall ~TCustomWaveContext() { };
+	virtual __fastcall ‾TCustomWaveContext() { };
 
 	virtual bool __fastcall Start(AnsiString filename) = 0;
 	virtual int __fastcall Read(__int16 * dest, int destsize) = 0;

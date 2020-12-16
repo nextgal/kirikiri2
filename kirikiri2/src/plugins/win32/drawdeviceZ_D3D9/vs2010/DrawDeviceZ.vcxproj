@@ -15,7 +15,7 @@
     <RootNamespace>DrawDeviceZ</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)¥Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -26,19 +26,19 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)¥Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(UserRootDir)¥Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)¥Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(UserRootDir)¥Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)¥Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>..\..\..\..\..\bin\win32\plugin\</OutDir>
-    <IntDir>obj\Release\</IntDir>
+    <OutDir>..¥..¥..¥..¥..¥bin¥win32¥plugin¥</OutDir>
+    <IntDir>obj¥Release¥</IntDir>
     <TargetName>DrawDeviceZ</TargetName>
     <TargetExt>.dll</TargetExt>
     <IgnoreImportLibrary>false</IgnoreImportLibrary>
@@ -46,8 +46,8 @@
     <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>..\bin\</OutDir>
-    <IntDir>obj\Debug\</IntDir>
+    <OutDir>..¥bin¥</OutDir>
+    <IntDir>obj¥Debug¥</IntDir>
     <TargetName>DrawDeviceZ-d</TargetName>
     <TargetExt>.dll</TargetExt>
     <IgnoreImportLibrary>false</IgnoreImportLibrary>
@@ -57,7 +57,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..;..\..\00_simplebinder;..\fakeFiles;..\drawdeviceZ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..¥..;..¥..¥00_simplebinder;..¥fakeFiles;..¥drawdeviceZ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
@@ -69,7 +69,7 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..;..\..\00_simplebinder;..\fakeFiles;..\drawdeviceZ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..¥..;..¥..¥00_simplebinder;..¥fakeFiles;..¥drawdeviceZ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -78,13 +78,13 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>d3d9.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)DrawDeviceZ.dll</OutputFile>
-      <ImportLibrary>..\..\..\..\..\bin\win32\plugin\DrawDeviceZ.lib</ImportLibrary>
+      <ImportLibrary>..¥..¥..¥..¥..¥bin¥win32¥plugin¥DrawDeviceZ.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..;..\..\00_simplebinder;..\fakeFiles;..\drawdeviceZ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..¥..;..¥..¥00_simplebinder;..¥fakeFiles;..¥drawdeviceZ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -97,29 +97,29 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..;..\..\00_simplebinder;..\fakeFiles;..\drawdeviceZ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..¥..;..¥..¥00_simplebinder;..¥fakeFiles;..¥drawdeviceZ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>d3d9.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)DrawDeviceZ-d.dll</OutputFile>
-      <ImportLibrary>..\bin\DrawDeviceZ-d.lib</ImportLibrary>
+      <ImportLibrary>..¥bin¥DrawDeviceZ-d.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\tp_stub.cpp">
+    <ClCompile Include="..¥..¥tp_stub.cpp">
     </ClCompile>
-    <ClCompile Include="..\..\00_simplebinder\v2link.cpp">
+    <ClCompile Include="..¥..¥00_simplebinder¥v2link.cpp">
     </ClCompile>
-    <ClCompile Include="..\fakeFiles\DrawDevice.cpp">
+    <ClCompile Include="..¥fakeFiles¥DrawDevice.cpp">
     </ClCompile>
-    <ClCompile Include="..\Main.cpp">
+    <ClCompile Include="..¥Main.cpp">
     </ClCompile>
-    <ClCompile Include="..\errmsgs.cpp">
+    <ClCompile Include="..¥errmsgs.cpp">
     </ClCompile>
   </ItemGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(VCTargetsPath)¥Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>

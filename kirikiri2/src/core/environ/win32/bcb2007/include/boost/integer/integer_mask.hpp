@@ -52,7 +52,7 @@ struct low_bits_mask_t
     typedef typename uint_t<Bits>::least  least;
     typedef typename uint_t<Bits>::fast   fast;
 
-    BOOST_STATIC_CONSTANT( least, sig_bits = (~( ~(least( 0u )) << Bits )) );
+    BOOST_STATIC_CONSTANT( least, sig_bits = (‾( ‾(least( 0u )) << Bits )) );
     BOOST_STATIC_CONSTANT( fast, sig_bits_fast = fast(sig_bits) );
 
     BOOST_STATIC_CONSTANT( std::size_t, bit_count = Bits );
@@ -60,14 +60,14 @@ struct low_bits_mask_t
 };  // boost::low_bits_mask_t
 
 
-#define BOOST_LOW_BITS_MASK_SPECIALIZE( Type )                                  \
-  template <  >  struct low_bits_mask_t< std::numeric_limits<Type>::digits >  { \
-      typedef std::numeric_limits<Type>           limits_type;                  \
-      typedef uint_t<limits_type::digits>::least  least;                        \
-      typedef uint_t<limits_type::digits>::fast   fast;                         \
-      BOOST_STATIC_CONSTANT( least, sig_bits = (~( least(0u) )) );              \
-      BOOST_STATIC_CONSTANT( fast, sig_bits_fast = fast(sig_bits) );            \
-      BOOST_STATIC_CONSTANT( std::size_t, bit_count = limits_type::digits );    \
+#define BOOST_LOW_BITS_MASK_SPECIALIZE( Type )                                  ¥
+  template <  >  struct low_bits_mask_t< std::numeric_limits<Type>::digits >  { ¥
+      typedef std::numeric_limits<Type>           limits_type;                  ¥
+      typedef uint_t<limits_type::digits>::least  least;                        ¥
+      typedef uint_t<limits_type::digits>::fast   fast;                         ¥
+      BOOST_STATIC_CONSTANT( least, sig_bits = (‾( least(0u) )) );              ¥
+      BOOST_STATIC_CONSTANT( fast, sig_bits_fast = fast(sig_bits) );            ¥
+      BOOST_STATIC_CONSTANT( std::size_t, bit_count = limits_type::digits );    ¥
   }
 
 BOOST_LOW_BITS_MASK_SPECIALIZE( unsigned char );

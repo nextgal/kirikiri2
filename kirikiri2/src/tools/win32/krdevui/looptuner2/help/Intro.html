@@ -1,46 +1,46 @@
 <HTML>
 <HEAD>
-<TITLE>Loop Tuner ���t�@�����X - ���[�v�`���[�i�Ƃ�</TITLE>
+<TITLE>Loop Tuner リファレンス - ループチューナとは</TITLE>
 </HEAD>
 <BODY BGCOLOR="white" TEXT="black" LINK="black" VLINK="#414141" ALINK="#E80005">
 <IMG SRC="hline.png" width=100% height=1><BR>
-<CENTER>�� ���[�v�`���[�i ��</CENTER>
+<CENTER>■ ループチューナ ■</CENTER>
 <IMG SRC="hline.png" width=100% height=1><BR>
 <BR>
-�@���[�v�`���[�i�́APCM �����[�v������Ƃ��̃��[�v�̌p���ڂ�T���c�[���ł��B<BR>
-�@PCM ��P�Ƀ��[�v�����邾���Ȃ�΁A�P��� PCM �𓪂���Ō�܂ŌJ��Ԃ��čĐ����邾���ł��ǂ��̂ł����A���Ƃ��΂��� PCM �̓���Ō�ɖ�������������΃��[�v�̎��ɋȂ��Ƃ���Ă��܂��܂����A�Ȃ����������A�J��Ԃ������ɕ�����Ă���ƁA�P��� PCM �𓪂���Ō�܂ŌJ��Ԃ��čĐ����邾���ł́A�J��Ԃ��Ƃ��ɂ܂�������������Đ����邱�ƂɂȂ�܂��B<BR>
-�@���[�v�`���[�i�́A���̂悤�ȏꍇ�ɁAPCM �̌J��Ԃ����������܂������邱�Ƃɂ���āA�p���ڂ����������Ȃ�(�V�[�����X��)���[�v���쐬���邽�߂Ɏg���܂��BBGM �� PCM �ōĐ�����Ƃ��Ƀ��[�v���������Ƃ���A���߂̌��ʉ������[�v���������Ƃ��Ɍ��ʂ𔭊�����Ǝv���܂��B<BR><BR>
+　ループチューナは、PCM をループさせるときのループの継ぎ目を探すツールです。<BR>
+　PCM を単にループさせるだけならば、単一の PCM を頭から最後まで繰り返して再生するだけでも良いのですが、たとえばその PCM の頭や最後に無音部分があればループの時に曲がとぎれてしまいますし、曲が導入部分、繰り返し部分に分かれていると、単一の PCM を頭から最後まで繰り返して再生するだけでは、繰り返すときにまた導入部分から再生することになります。<BR>
+　ループチューナは、このような場合に、PCM の繰り返し部分をうまく見つけることによって、継ぎ目を感じさせない(シームレスな)ループを作成するために使います。BGM を PCM で再生するときにループさせたいときや、長めの効果音をループさせたいときに効果を発揮すると思います。<BR><BR>
 <BR>
-�@���[�v�`���[�i�́A�g���g���p�Ɋg���q�� .sli �̃t�@�C�����쐬���܂��B�g���g���͂����������ƃ��[�v���t�@�C���Ƃ��ēǂݍ��݁APCM �����[�v������Ƃ��ɗ��p���܂��B<BR>
-�@.sli �t�@�C���̏����͒P���ł��̂ŁA�ق��̃v���O�����ɂ����p�ł��邩�Ǝv���܂��B<BR>
+　ループチューナは、吉里吉里用に拡張子が .sli のファイルを作成します。吉里吉里はこれを見つけるとループ情報ファイルとして読み込み、PCM をループさせるときに利用します。<BR>
+　.sli ファイルの書式は単純ですので、ほかのプログラムにも流用できるかと思います。<BR>
 <BR>
-�@�Ȃ��A���[�v�`���[�i�͊O���� Wave �ҏW�\�t�g�ɂ悭�ɂĂ��܂����A<B>Wave �ҏW�\�t�g�ł͂���܂���</B>�BWave ��ҏW����ꍇ�́A�s�̂��邢�̓I�����C���� Wave �ҏW�\�t�g��ʂɗp�ӂ��Ă������� ( �Ƃ����킯�� �ҏW�@�\�����Ă���A�Ƃ����v�]�����ق��Ă�������(��) )�B<BR>
+　なお、ループチューナは外見は Wave 編集ソフトによくにていますが、<B>Wave 編集ソフトではありません</B>。Wave を編集する場合は、市販あるいはオンラインの Wave 編集ソフトを別に用意してください ( というわけで 編集機能をつけてくれ、という要望も勘弁してください(汗) )。<BR>
 <BR>
 <BR>
 <IMG SRC="hline.png" width=100% height=1><BR>
-<CENTER>�� ���� ��</CENTER>
+<CENTER>■ 原理 ■</CENTER>
 <IMG SRC="hline.png" width=100% height=1><BR>
 <BR>
-�@�����ƌ����قǂ̕��ł��Ȃ��ł�(^^;
+　原理と言うほどの物でもないです(^^;
 <BR>
-�@���[�v�`���[�i�ł́A�T�E���h�ɂ́u���[�v�܂ł̕����v�Ɓu���[�v���镔���v(���[�v�̈�)������ƍl���܂� ( ���m�ɂ́u�Đ�����Ȃ��]���ȕ����v������܂��� )�B<BR>
+　ループチューナでは、サウンドには「ループまでの部分」と「ループする部分」(ループ領域)があると考えます ( 正確には「再生されない余分な部分」もありますが )。<BR>
 <BR>
-�@�T�E���h�́A�܂��u���[�v�܂ł̕����v�����ʂɍĐ�����܂��B���ɁA�u���[�v���镔���v�����̂܂܍Đ�����܂��B�����āu���[�v���镔���v�̍Ō�ɂ����Ƃ��A���́u���[�v���镔���v�̍ŏ��ɍĐ��ʒu���ڂ�A���Ƃ͂��̂܂܃��[�v�������J��Ԃ��Đ����܂��B<BR>
+　サウンドは、まず「ループまでの部分」が普通に再生されます。次に、「ループする部分」もそのまま再生されます。そして「ループする部分」の最後にきたとき、次は「ループする部分」の最初に再生位置が移り、あとはそのままループ部分を繰り返し再生します。<BR>
 <BR>
 <CENTER>
 <IMG SRC="loop0.png" width=406 height=122><BR>
-<FONT COLOR=gray>���[�v�̊T�O �V �}</font>
+<FONT COLOR=gray>ループの概念 之 図</font>
 </CENTER>
 <BR>
-�@���[�v�`���[�i�́A���́u���[�v����v�������A�T�E���h�̒�����I�����邱�Ƃɂ���ă��[�v���w�肵�܂��B���[�v�܂ł̕����������āA�T�E���h�̐擪���烋�[�v���J�n����Ă����܂��܂���B<BR>
-�@���[�v�I���_�ɒB����Ƃ����Ƀ��[�v�J�n�_�ɗ��܂��̂ŁA�V�[�����X�ȃ��[�v�����ꍇ�͂��̃��[�v�J�n�_�ƃ��[�v�I���_�̊ԂɂȂ��ڂ����������Ȃ��悤�Ȉʒu��T���Ďw�肵�Ȃ���΂Ȃ�܂���B�ꍇ�ɂ���Ă� PCM �� �P �T���v���P�ʂŌ����ɒ������Ȃ��ƃ��[�v�ʒu�Ńm�C�Y������A�ȂǂƂ������Ƃ����蓾�܂��B<BR>
+　ループチューナは、この「ループする」部分を、サウンドの中から選択することによってループを指定します。ループまでの部分が無くて、サウンドの先頭からループが開始されてもかまいません。<BR>
+　ループ終了点に達するとすぐにループ開始点に来ますので、シームレスなループを作る場合はこのループ開始点とループ終了点の間につなぎ目を感じさせないような位置を探して指定しなければなりません。場合によっては PCM の １ サンプル単位で厳密に調整しないとループ位置でノイズが入る、などということもあり得ます。<BR>
 <BR>
-�@���[�v�����邽�߂� BGM �Ȃǂ����ꍇ���A���[�v����邱�Ƃ��l�����č��Ȃ��ƂȂ�܂���(^^;<BR>
+　ループさせるための BGM などを作る場合も、ループされることを考慮して作らないとなりません(^^;<BR>
 <BR>
 <BR>
 <IMG SRC="hline.png" width=100% height=1><BR>
 <BR>
-<CENTER>�� <A HREF="index.html">�ڎ��ɖ߂�</A> ��</CENTER>
+<CENTER>▲ <A HREF="index.html">目次に戻る</A> ▲</CENTER>
 <BR>
 <IMG SRC="hline.png" width=100% height=1><BR>
 

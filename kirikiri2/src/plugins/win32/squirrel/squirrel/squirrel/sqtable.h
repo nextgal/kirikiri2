@@ -52,11 +52,11 @@ public:
 	}
 	void Finalize();
 	SQTable *Clone();
-	~SQTable()
+	‾SQTable()
 	{
 		SetDelegate(NULL);
 		REMOVE_FROM_CHAIN(&_sharedstate->_gc_chain, this);
-		for (SQInteger i = 0; i < _numofnodes; i++) _nodes[i].~_HashNode();
+		for (SQInteger i = 0; i < _numofnodes; i++) _nodes[i].‾_HashNode();
 		SQ_FREE(_nodes, _numofnodes * sizeof(_HashNode));
 	}
 #ifndef NO_GARBAGE_COLLECTOR 

@@ -4,14 +4,14 @@ object LogViewerForm: TLogViewerForm
   Width = 463
   Height = 328
   BorderWidth = 10
-  Caption = 'ÉçÉO'
+  Caption = '„É≠„Ç∞'
   Color = clBtnFace
   Constraints.MinHeight = 100
   Constraints.MinWidth = 200
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = 'ÇlÇr ÇoÉSÉVÉbÉN'
+  Font.Name = 'Ôº≠Ôº≥ Ôº∞„Ç¥„Ç∑„ÉÉ„ÇØ'
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
@@ -31,7 +31,7 @@ object LogViewerForm: TLogViewerForm
       Top = 8
       Width = 75
       Height = 25
-      Caption = 'ï¬Ç∂ÇÈ'
+      Caption = 'Èñâ„Åò„Çã'
       Default = True
       ModalResult = 1
       TabOrder = 0

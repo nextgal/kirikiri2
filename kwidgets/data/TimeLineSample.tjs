@@ -3,70 +3,70 @@
 //
 
 /*----------------------------------------------------------------------
-  ‘€ì•û–@
+  æ“ä½œæ–¹æ³•
  
-  = ‰æ–ÊƒŒƒCƒAƒEƒg
-  == ƒLƒƒƒ“ƒoƒX ‰æ–Êã•”AƒIƒuƒWƒFƒNƒg‚ð‘€ì‚·‚é‹óŠÔ
-  == ƒŒƒCƒ„ƒcƒŠ[     ‰æ–Ê‰º•”¶AƒŒƒCƒ„ƒcƒŠ[‚Ì\¬}
-  == ƒ^ƒCƒ€ƒƒP[ƒ^[ ‰æ–Ê‰º•”ãAŒ»Ý‚ÌŽžŠÔ‚ð•\Ž¦‚·‚éƒ‰ƒCƒ“
-  == ƒ^ƒCƒ€ƒ‰ƒCƒ“     ‰æ–Ê‰º•”’†‰›AŠeƒŒƒCƒ„‚Ìƒ^ƒCƒ€ƒ‰ƒCƒ“
+  = ç”»é¢ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
+  == ã‚­ãƒ£ãƒ³ãƒã‚¹ ç”»é¢ä¸Šéƒ¨ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ“ä½œã™ã‚‹ç©ºé–“
+  == ãƒ¬ã‚¤ãƒ¤ãƒ„ãƒªãƒ¼     ç”»é¢ä¸‹éƒ¨å·¦ã€ãƒ¬ã‚¤ãƒ¤ãƒ„ãƒªãƒ¼ã®æ§‹æˆå›³
+  == ã‚¿ã‚¤ãƒ ãƒ­ã‚±ãƒ¼ã‚¿ãƒ¼ ç”»é¢ä¸‹éƒ¨ä¸Šã€ç¾åœ¨ã®æ™‚é–“ã‚’è¡¨ç¤ºã™ã‚‹ãƒ©ã‚¤ãƒ³
+  == ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³     ç”»é¢ä¸‹éƒ¨ä¸­å¤®ã€å„ãƒ¬ã‚¤ãƒ¤ã®ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³
 
-  = ‚»‚Ì‘¼‚Ì‘€ì
-  == ƒ^ƒCƒ€ƒ‰ƒCƒ“ã•”‚ÌuMv‚Æ‘‚¢‚Ä‚ ‚éƒ{ƒ^ƒ“‚ð‰Ÿ‚·¨uSvuMvuLv‚ÌŠÔ‚Åƒ‹[ƒvBƒ^ƒCƒ€ƒ‰ƒCƒ“‚ÌƒOƒŠƒbƒhƒTƒCƒY‚ð•ÏX‚Å‚«‚éB
+  = ãã®ä»–ã®æ“ä½œ
+  == ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ä¸Šéƒ¨ã®ã€ŒMã€ã¨æ›¸ã„ã¦ã‚ã‚‹ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™â†’ã€ŒSã€ã€ŒMã€ã€ŒLã€ã®é–“ã§ãƒ«ãƒ¼ãƒ—ã€‚ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã®ã‚°ãƒªãƒƒãƒ‰ã‚µã‚¤ã‚ºã‚’å¤‰æ›´ã§ãã‚‹ã€‚
 
-  = ƒcƒŠ[•”‚Ì‘€ì
-  == ƒcƒŠ[‚Ìƒ‹[ƒgA‚à‚µ‚­‚ÍŠù‘¶‚ÌƒŒƒCƒ„ã‚Å‰EƒNƒŠƒbƒN¨uV‹KƒŒƒCƒ„v‚ÅƒŒƒCƒ„ì¬
-  == ƒŒƒCƒ„ã‚Å‰EƒNƒŠƒbƒN¨uíœv‚ÅƒŒƒCƒ„‚Ìíœ
-  == ƒŒƒCƒ„‚ðƒhƒ‰ƒbƒO‚µ‚Äƒ‹[ƒg‚à‚µ‚­‚Í•Ê‚ÌƒŒƒCƒ„‚Éƒhƒƒbƒv¨ƒhƒƒbƒv‚µ‚½ƒŒƒCƒ„‚ÌŽq‚Æ‚µ‚ÄˆÚ“®
-  == Ctrl+C‚à‚µ‚­‚ÍƒŒƒCƒ„‚ð‰EƒNƒŠƒbƒN¨uƒŒƒCƒ„‚ÌƒRƒs[v‚ÅŽ©•ªŽ©g‚ÆŽq‚ð‚Ü‚Æ‚ß‚ÄƒRƒs[
-  == Ctrl+V‚à‚µ‚­‚ÍƒŒƒCƒ„‚ð‰EƒNƒŠƒbƒv¨uƒŒƒCƒ„‚Ìƒy[ƒXƒgv‚ÅƒNƒŠƒbƒvƒ{[ƒh‚Ì“à—e‚ðƒy[ƒXƒg
-  == ƒŒƒCƒ„ã‚ÅCtrl+ƒJ[ƒ\ƒ‹¨ƒŒƒCƒ„‚ÌŠK‘w‚ðˆÚ“®B
+  = ãƒ„ãƒªãƒ¼éƒ¨ã®æ“ä½œ
+  == ãƒ„ãƒªãƒ¼ã®ãƒ«ãƒ¼ãƒˆã€ã‚‚ã—ãã¯æ—¢å­˜ã®ãƒ¬ã‚¤ãƒ¤ä¸Šã§å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œæ–°è¦ãƒ¬ã‚¤ãƒ¤ã€ã§ãƒ¬ã‚¤ãƒ¤ä½œæˆ
+  == ãƒ¬ã‚¤ãƒ¤ä¸Šã§å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œå‰Šé™¤ã€ã§ãƒ¬ã‚¤ãƒ¤ã®å‰Šé™¤
+  == ãƒ¬ã‚¤ãƒ¤ã‚’ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦ãƒ«ãƒ¼ãƒˆã‚‚ã—ãã¯åˆ¥ã®ãƒ¬ã‚¤ãƒ¤ã«ãƒ‰ãƒ­ãƒƒãƒ—â†’ãƒ‰ãƒ­ãƒƒãƒ—ã—ãŸãƒ¬ã‚¤ãƒ¤ã®å­ã¨ã—ã¦ç§»å‹•
+  == Ctrl+Cã‚‚ã—ãã¯ãƒ¬ã‚¤ãƒ¤ã‚’å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œãƒ¬ã‚¤ãƒ¤ã®ã‚³ãƒ”ãƒ¼ã€ã§è‡ªåˆ†è‡ªèº«ã¨å­ã‚’ã¾ã¨ã‚ã¦ã‚³ãƒ”ãƒ¼
+  == Ctrl+Vã‚‚ã—ãã¯ãƒ¬ã‚¤ãƒ¤ã‚’å³ã‚¯ãƒªãƒƒãƒ—â†’ã€Œãƒ¬ã‚¤ãƒ¤ã®ãƒšãƒ¼ã‚¹ãƒˆã€ã§ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã®å†…å®¹ã‚’ãƒšãƒ¼ã‚¹ãƒˆ
+  == ãƒ¬ã‚¤ãƒ¤ä¸Šã§Ctrl+ã‚«ãƒ¼ã‚½ãƒ«â†’ãƒ¬ã‚¤ãƒ¤ã®éšŽå±¤ã‚’ç§»å‹•ã€‚
   
-  = ƒ^ƒCƒ€ƒ‰ƒCƒ“‘€ìEƒ‹[ƒg
-  == ‰EƒNƒŠƒbƒN‚µ‚ÄAƒ‹[ƒvƒ|ƒCƒ“ƒg‚ðÝ’è‚·‚éB
-  == ƒ‹[ƒvƒ|ƒCƒ“ƒg‚Ì¶’[‚ðƒhƒ‰ƒbƒO‚µ‚ÄˆÚ“®‚·‚é‚±‚Æ‚ào—ˆ‚éB
+  = ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³æ“ä½œãƒ»ãƒ«ãƒ¼ãƒˆ
+  == å³ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã€ãƒ«ãƒ¼ãƒ—ãƒã‚¤ãƒ³ãƒˆã‚’è¨­å®šã™ã‚‹ã€‚
+  == ãƒ«ãƒ¼ãƒ—ãƒã‚¤ãƒ³ãƒˆã®å·¦ç«¯ã‚’ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦ç§»å‹•ã™ã‚‹ã“ã¨ã‚‚å‡ºæ¥ã‚‹ã€‚
 
-  = ƒ^ƒCƒ€ƒ‰ƒCƒ“‘€ìEƒŒƒCƒ„
-  == ƒtƒŒ[ƒ€‚Ì‹«ŠE‚ðƒhƒ‰ƒbƒO‚µ‚ÄƒtƒŒ[ƒ€‚ðL’·B
-  == Ctrl+ƒtƒŒ[ƒ€‚Ì‹«ŠE‚ðƒhƒ‰ƒbƒO‚µ‚ÄAŒã•û‚ÌƒtƒŒ[ƒ€‚Ì’·‚³‚ð•Û‚Á‚½‚Ü‚ÜƒtƒŒ[ƒ€‚ðL’·B
-  == ƒhƒ‰ƒbƒO‚Å”ÍˆÍ‘I‘ðB
-  == Ctrl‚ð‰Ÿ‚µ‚È‚ª‚ç‘I‘ð”ÍˆÍ‚ðƒhƒ‰ƒbƒO‚·‚é‚±‚Æ‚ÅA‘I‘ð”ÍˆÍ“à‚ÌƒtƒŒ[ƒ€‚ÌˆÚ“®
-  == Ctrl+C‚à‚µ‚­‚Í‘I‘ð”ÍˆÍ‚ð‰EƒNƒŠƒbƒN¨uƒRƒs[‚·‚év‚Å”ÍˆÍ“à‚ÌƒtƒŒ[ƒ€‚ÌƒRƒs[
-  == Ctrl+X‚à‚µ‚­‚Í‘I‘ð”ÍˆÍ‚ð‰EƒNƒŠƒbƒN¨uƒJƒbƒg‚·‚év‚Å”ÍˆÍ“à‚ÌƒtƒŒ[ƒ€‚ÌƒJƒbƒg
-  == Ctrl+V‚à‚µ‚­‚Í‘I‘ð”ÍˆÍ‚ð‰EƒNƒŠƒbƒN¨uƒy[ƒXƒg‚·‚év‚Å”ÍˆÍ“à‚ÌƒtƒŒ[ƒ€‚Ìƒy[ƒXƒg
-  == Insert‚à‚µ‚­‚ÍƒL[ƒtƒŒ[ƒ€‚ð‰EƒNƒŠƒbƒN¨uƒL[ƒtƒŒ[ƒ€‚ð‘}“ü‚·‚év‚ÅV‹KƒL[ƒtƒŒ[ƒ€‚ð‘}“ü
-  == Delete‚à‚µ‚­‚ÍƒL[ƒtƒŒ[ƒ€‚ð‰EƒNƒŠƒbƒN¨uƒL[ƒtƒŒ[ƒ€‚ðíœ‚·‚év‚ÅƒL[ƒtƒŒ[ƒ€‚ðíœ
-  == Home‚à‚µ‚­‚ÍƒtƒŒ[ƒ€ŠÔ‚ð‰EƒNƒŠƒbƒN¨uƒtƒŒ[ƒ€‚ð•ªŠ„‚·‚év‚ÅƒtƒŒ[ƒ€‚ð•âŠ®‚·‚éˆÊ’u‚Å•ªŠ„‚·‚é
-  == End‚à‚µ‚­‚ÍƒtƒŒ[ƒ€ŠÔ‚ð‰EƒNƒŠƒbƒN¨u‹óƒtƒŒ[ƒ€‚ð‘}“ü‚·‚év‚ÅŽw’èˆÊ’u‚É‹óƒtƒŒ[ƒ€‚ð‘}“ü‚·‚é
-  == Ctrl+C‚à‚µ‚­‚Í‰EƒNƒŠƒbƒN¨uƒtƒŒ[ƒ€‚ðƒRƒs[‚·‚év‚ÅƒtƒŒ[ƒ€‚Ì“à—e‚ðƒRƒs[
-  == Ctrl+X‚à‚µ‚­‚Í‰EƒNƒŠƒbƒN¨uƒtƒŒ[ƒ€‚ðƒJƒbƒg‚·‚év‚ÅƒtƒŒ[ƒ€‚Ì“à—e‚ðƒJƒbƒg
-  == Ctrl+V‚à‚µ‚­‚Í‰EƒNƒŠƒbƒN¨uƒtƒŒ[ƒ€‚ðƒy[ƒXƒg‚·‚év‚ÅƒNƒŠƒbƒvƒ{[ƒh‚Ì“à—e‚ðƒy[ƒXƒg
-  == ƒJ[ƒ\ƒ‹ƒL[‚ÅƒJ[ƒ\ƒ‹‚ðˆÚ“®
-  == Shift‚ð‰Ÿ‚µ‚È‚ª‚çƒJ[ƒ\ƒ‹‚Å”ÍˆÍ‘I‘ð
-  == Ctrl‚ð‰Ÿ‚µ‚È‚ª‚çƒJ[ƒ\ƒ‹‚ÅA‘I‘ð”ÍˆÍ‚ðˆÚ“®
+  = ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³æ“ä½œãƒ»ãƒ¬ã‚¤ãƒ¤
+  == ãƒ•ãƒ¬ãƒ¼ãƒ ã®å¢ƒç•Œã‚’ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ä¼¸é•·ã€‚
+  == Ctrl+ãƒ•ãƒ¬ãƒ¼ãƒ ã®å¢ƒç•Œã‚’ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦ã€å¾Œæ–¹ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã®é•·ã•ã‚’ä¿ã£ãŸã¾ã¾ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ä¼¸é•·ã€‚
+  == ãƒ‰ãƒ©ãƒƒã‚°ã§ç¯„å›²é¸æŠžã€‚
+  == Ctrlã‚’æŠ¼ã—ãªãŒã‚‰é¸æŠžç¯„å›²ã‚’ãƒ‰ãƒ©ãƒƒã‚°ã™ã‚‹ã“ã¨ã§ã€é¸æŠžç¯„å›²å†…ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã®ç§»å‹•
+  == Ctrl+Cã‚‚ã—ãã¯é¸æŠžç¯„å›²ã‚’å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œã‚³ãƒ”ãƒ¼ã™ã‚‹ã€ã§ç¯„å›²å†…ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã®ã‚³ãƒ”ãƒ¼
+  == Ctrl+Xã‚‚ã—ãã¯é¸æŠžç¯„å›²ã‚’å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œã‚«ãƒƒãƒˆã™ã‚‹ã€ã§ç¯„å›²å†…ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã®ã‚«ãƒƒãƒˆ
+  == Ctrl+Vã‚‚ã—ãã¯é¸æŠžç¯„å›²ã‚’å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œãƒšãƒ¼ã‚¹ãƒˆã™ã‚‹ã€ã§ç¯„å›²å†…ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒšãƒ¼ã‚¹ãƒˆ
+  == Insertã‚‚ã—ãã¯ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æŒ¿å…¥ã™ã‚‹ã€ã§æ–°è¦ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æŒ¿å…¥
+  == Deleteã‚‚ã—ãã¯ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‰Šé™¤ã™ã‚‹ã€ã§ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‰Šé™¤
+  == Homeã‚‚ã—ãã¯ãƒ•ãƒ¬ãƒ¼ãƒ é–“ã‚’å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œãƒ•ãƒ¬ãƒ¼ãƒ ã‚’åˆ†å‰²ã™ã‚‹ã€ã§ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’è£œå®Œã™ã‚‹ä½ç½®ã§åˆ†å‰²ã™ã‚‹
+  == Endã‚‚ã—ãã¯ãƒ•ãƒ¬ãƒ¼ãƒ é–“ã‚’å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œç©ºãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æŒ¿å…¥ã™ã‚‹ã€ã§æŒ‡å®šä½ç½®ã«ç©ºãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æŒ¿å…¥ã™ã‚‹
+  == Ctrl+Cã‚‚ã—ãã¯å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹ã€ã§ãƒ•ãƒ¬ãƒ¼ãƒ ã®å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
+  == Ctrl+Xã‚‚ã—ãã¯å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚«ãƒƒãƒˆã™ã‚‹ã€ã§ãƒ•ãƒ¬ãƒ¼ãƒ ã®å†…å®¹ã‚’ã‚«ãƒƒãƒˆ
+  == Ctrl+Vã‚‚ã—ãã¯å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ãƒšãƒ¼ã‚¹ãƒˆã™ã‚‹ã€ã§ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã®å†…å®¹ã‚’ãƒšãƒ¼ã‚¹ãƒˆ
+  == ã‚«ãƒ¼ã‚½ãƒ«ã‚­ãƒ¼ã§ã‚«ãƒ¼ã‚½ãƒ«ã‚’ç§»å‹•
+  == Shiftã‚’æŠ¼ã—ãªãŒã‚‰ã‚«ãƒ¼ã‚½ãƒ«ã§ç¯„å›²é¸æŠž
+  == Ctrlã‚’æŠ¼ã—ãªãŒã‚‰ã‚«ãƒ¼ã‚½ãƒ«ã§ã€é¸æŠžç¯„å›²ã‚’ç§»å‹•
 
-  = ƒ^ƒCƒ€ƒƒP[ƒ^[
-  == ƒNƒŠƒbƒN‚·‚é‚±‚Æ‚ÅŽžŠÔŽw’è
-  == Ctrl+ƒhƒ‰ƒbƒO‚ÅA‘S‚Ä‚ÌƒtƒŒ[ƒ€‚ð‚Ü‚Æ‚ß‚ÄˆÚ“®B
-  == ‰EƒNƒŠƒbƒN¨uƒtƒŒ[ƒ€ƒcƒŠ[‚ðƒRƒs[‚·‚év‚ÅƒcƒŠ[“à‚Ì‘SƒŒƒCƒ„‚ÌƒtƒŒ[ƒ€‚ðˆêŠ‡ƒRƒs[
-  == ‰EƒNƒŠƒbƒN¨uƒtƒŒ[ƒ€ƒcƒŠ[‚ðƒy[ƒXƒg‚·‚év‚ÅƒNƒŠƒbƒvƒ{[ƒh‚Ì“à—e‚ðƒy[ƒXƒg
+  = ã‚¿ã‚¤ãƒ ãƒ­ã‚±ãƒ¼ã‚¿ãƒ¼
+  == ã‚¯ãƒªãƒƒã‚¯ã™ã‚‹ã“ã¨ã§æ™‚é–“æŒ‡å®š
+  == Ctrl+ãƒ‰ãƒ©ãƒƒã‚°ã§ã€å…¨ã¦ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã¾ã¨ã‚ã¦ç§»å‹•ã€‚
+  == å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œãƒ•ãƒ¬ãƒ¼ãƒ ãƒ„ãƒªãƒ¼ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹ã€ã§ãƒ„ãƒªãƒ¼å†…ã®å…¨ãƒ¬ã‚¤ãƒ¤ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ä¸€æ‹¬ã‚³ãƒ”ãƒ¼
+  == å³ã‚¯ãƒªãƒƒã‚¯â†’ã€Œãƒ•ãƒ¬ãƒ¼ãƒ ãƒ„ãƒªãƒ¼ã‚’ãƒšãƒ¼ã‚¹ãƒˆã™ã‚‹ã€ã§ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã®å†…å®¹ã‚’ãƒšãƒ¼ã‚¹ãƒˆ
 
-  = ƒLƒƒƒ“ƒoƒX
-  == ƒŒƒCƒ„‚ÉƒtƒŒ[ƒ€‚ð’Ç‰Á‚·‚é‚Æ‘Î‰ž‚·‚éƒIƒuƒWƒFƒNƒg‚ªƒLƒƒƒ“ƒoƒX‚É‚ ‚ç‚í‚ê‚éB
-  == ƒ^ƒCƒ€ƒ‰ƒCƒ“‚ÅƒL[ƒtƒŒ[ƒ€‚É‚È‚Á‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg‚ðƒhƒ‰ƒbƒO‚µ‚ÄˆÚ“®‚·‚éB
-  == ƒJ[ƒ\ƒ‹ƒL[‚ÅA‘I‘ð‚³‚ê‚Ä‚¢‚éƒXƒtƒBƒA‚ðˆÚ“®B
-  == CTRL+ƒJ[ƒ\ƒ‹ƒL[‚Å‘å‚«‚­ˆÚ“®B
-  == ƒŒƒCƒ„‚ÍeŽqŠÖŒW‚ðŽ‚¿AŽq‚ÌˆÚ“®—Ê‚Íe‚ÌˆÚ“®—Ê‚É‘Î‚·‚éƒIƒtƒZƒbƒg‚É‚È‚Á‚Ä‚¢‚éB
-  == ƒL[ƒtƒŒ[ƒ€‚Å–³‚¢ƒtƒŒ[ƒ€‚ÌƒIƒuƒWƒFƒNƒg‚ÍAƒ_ƒuƒ‹ƒNƒŠƒbƒN‚·‚é‚Æ‚»‚Ìê‚ÅƒL[ƒtƒŒ[ƒ€‚ð’Ç‰Áo—ˆ‚é(ƒŒƒCƒ„ƒ^ƒCƒ€ƒ‰ƒCƒ“‚ÌuƒtƒŒ[ƒ€‚ð•ªŠ„‚·‚év‚Æ“¯ˆê‚Ì“®ì)B
-  == ƒŒƒCƒ„‚ªd‚È‚Á‚Ä‚¢‚éê‡‚ÍA‰EƒNƒŠƒbƒN‚Åƒƒjƒ…[‚ð•\Ž¦‚µ‚ÄƒŒƒCƒ„‚ð‘I‘ð‚·‚éB
-  == ‰E‰º‚ÌÄ¶ƒ{ƒ^ƒ“‚ð‰Ÿ‚·‚ÆƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ¶ŠJŽn
-  == ’âŽ~ƒ{ƒ^ƒ“‚ð‰Ÿ‚·‚ÆƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ¶’âŽ~
-  == Šª‚«–ß‚µƒ{ƒ^ƒ“‚ð‰Ÿ‚·‚ÆŽžŠÔ0‚ÉŠª‚«–ß‚µ
-  == ƒ‹[ƒv‚ªÝ’è‚µ‚Ä‚ ‚é‚ÆA––”ö‚©‚ç‚»‚Ì’n“_‚ÖƒAƒjƒ[ƒVƒ‡ƒ“‚ªƒ‹[ƒv‚·‚é
+  = ã‚­ãƒ£ãƒ³ãƒã‚¹
+  == ãƒ¬ã‚¤ãƒ¤ã«ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’è¿½åŠ ã™ã‚‹ã¨å¯¾å¿œã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒã‚­ãƒ£ãƒ³ãƒã‚¹ã«ã‚ã‚‰ã‚ã‚Œã‚‹ã€‚
+  == ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã§ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã«ãªã£ã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦ç§»å‹•ã™ã‚‹ã€‚
+  == ã‚«ãƒ¼ã‚½ãƒ«ã‚­ãƒ¼ã§ã€é¸æŠžã•ã‚Œã¦ã„ã‚‹ã‚¹ãƒ•ã‚£ã‚¢ã‚’ç§»å‹•ã€‚
+  == CTRL+ã‚«ãƒ¼ã‚½ãƒ«ã‚­ãƒ¼ã§å¤§ããç§»å‹•ã€‚
+  == ãƒ¬ã‚¤ãƒ¤ã¯è¦ªå­é–¢ä¿‚ã‚’æŒã¡ã€å­ã®ç§»å‹•é‡ã¯è¦ªã®ç§»å‹•é‡ã«å¯¾ã™ã‚‹ã‚ªãƒ•ã‚»ãƒƒãƒˆã«ãªã£ã¦ã„ã‚‹ã€‚
+  == ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã§ç„¡ã„ãƒ•ãƒ¬ãƒ¼ãƒ ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯ã€ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã™ã‚‹ã¨ãã®å ´ã§ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’è¿½åŠ å‡ºæ¥ã‚‹(ãƒ¬ã‚¤ãƒ¤ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã®ã€Œãƒ•ãƒ¬ãƒ¼ãƒ ã‚’åˆ†å‰²ã™ã‚‹ã€ã¨åŒä¸€ã®å‹•ä½œ)ã€‚
+  == ãƒ¬ã‚¤ãƒ¤ãŒé‡ãªã£ã¦ã„ã‚‹å ´åˆã¯ã€å³ã‚¯ãƒªãƒƒã‚¯ã§ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã—ã¦ãƒ¬ã‚¤ãƒ¤ã‚’é¸æŠžã™ã‚‹ã€‚
+  == å³ä¸‹ã®å†ç”Ÿãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®å†ç”Ÿé–‹å§‹
+  == åœæ­¢ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®å†ç”Ÿåœæ­¢
+  == å·»ãæˆ»ã—ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨æ™‚é–“0ã«å·»ãæˆ»ã—
+  == ãƒ«ãƒ¼ãƒ—ãŒè¨­å®šã—ã¦ã‚ã‚‹ã¨ã€æœ«å°¾ã‹ã‚‰ãã®åœ°ç‚¹ã¸ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãŒãƒ«ãƒ¼ãƒ—ã™ã‚‹
   ----------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------
- * ’è”
+ * å®šæ•°
  ----------------------------------------------------------------------*/
 global.TYPE_FRAME_TREE =  "application/x-kwidgets.timelinesample.frameTree";
 global.TYPE_LAYER =       "application/x-kwidgets.timelinesample.layer";
@@ -74,15 +74,15 @@ global.TYPE_LAYER_RANGE = "application/x-kwidgets.timelinesample.layerRange";
 global.DD_LAYER = "dd.timelinesample.layer";
 
 /*----------------------------------------------------------------------
- * ƒ}ƒEƒXƒCƒxƒ“ƒgƒLƒƒƒvƒ`ƒƒ
+ * ãƒžã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã‚­ãƒ£ãƒ—ãƒãƒ£
  ----------------------------------------------------------------------*/
 class TimeLineSampleMouseEventCapture extends Layer
 {
-  // ƒ^[ƒQƒbƒg
+  // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆ
   var target;
 
   //------------------------------
-  // ƒ}ƒEƒXƒCƒxƒ“ƒg‚ð‘S‚ÄƒLƒƒƒvƒ`ƒƒ‚µ‚Äƒ^[ƒQƒbƒg‚Ö“]‘—‚·‚é
+  // ãƒžã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã‚’å…¨ã¦ã‚­ãƒ£ãƒ—ãƒãƒ£ã—ã¦ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã¸è»¢é€ã™ã‚‹
   //------------------------------
   function TimeLineSampleMouseEventCapture {
     super.Layer(...);
@@ -108,25 +108,25 @@ class TimeLineSampleMouseEventCapture extends Layer
 }
 
 /*----------------------------------------------------------------------
- * ƒXƒtƒBƒA(ƒŒƒCƒ„‚É‘Î‰ž‚µ‚½‹…‘ÌƒIƒuƒWƒFƒNƒg)
+ * ã‚¹ãƒ•ã‚£ã‚¢(ãƒ¬ã‚¤ãƒ¤ã«å¯¾å¿œã—ãŸçƒä½“ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ)
  ----------------------------------------------------------------------*/
 class TimeLineSampleSphere extends KWidget
 {
-  // ƒoƒCƒ“ƒh‚³‚ê‚½ƒŒƒCƒ„ƒAƒCƒeƒ€
+  // ãƒã‚¤ãƒ³ãƒ‰ã•ã‚ŒãŸãƒ¬ã‚¤ãƒ¤ã‚¢ã‚¤ãƒ†ãƒ 
   var layerItem;
-  // Œ»Ý‚ÌƒtƒŒ[ƒ€
+  // ç¾åœ¨ã®ãƒ•ãƒ¬ãƒ¼ãƒ 
   var curFrame;
-  // ƒhƒ‰ƒbƒO’†
+  // ãƒ‰ãƒ©ãƒƒã‚°ä¸­
   var dragging;
-  // ƒtƒŒ[ƒ€‚ÌŒ³À•W
+  // ãƒ•ãƒ¬ãƒ¼ãƒ ã®å…ƒåº§æ¨™
   var frameOrigLeft, frameOrigTop;
-  // ƒ}ƒEƒX‰Ÿ‰ºŽž‚ÌÀ•W
+  // ãƒžã‚¦ã‚¹æŠ¼ä¸‹æ™‚ã®åº§æ¨™
   var mouseDownX, mouseDownY;
-  // ƒtƒŒ[ƒ€‚Ìƒpƒ‰ƒ[ƒ^
+  // ãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
   var params = %[];
 
   //------------------------------
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   //------------------------------
   function TimeLineSampleSphere(window, parent) {
     super.KWidget(window);
@@ -137,7 +137,7 @@ class TimeLineSampleSphere extends KWidget
   }
 
   //------------------------------
-  // ƒXƒtƒBƒA‚ðƒŒƒCƒ„‚ÆŒ‹‚Ñ‚Â‚¯‚é
+  // ã‚¹ãƒ•ã‚£ã‚¢ã‚’ãƒ¬ã‚¤ãƒ¤ã¨çµã³ã¤ã‘ã‚‹
   //------------------------------
   function bindLayerItem(layerItem, curFrame, keyFrame, editable) {
     this.layerItem = layerItem;
@@ -149,7 +149,7 @@ class TimeLineSampleSphere extends KWidget
                 selected: layerItem.selected,
                 editable: editable,
                 label: layerItem.label ];
-    // ƒpƒ‰ƒ[ƒ^‚ª•Ï‚í‚Á‚½‚ç‰æ‘œ‚ðÄ•`‰æ
+    // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒå¤‰ã‚ã£ãŸã‚‰ç”»åƒã‚’å†æç”»
     if (! equalStruct(prevParams, params)) {
       loadImages("sphere");
       if (params.editable) {
@@ -168,10 +168,10 @@ class TimeLineSampleSphere extends KWidget
   }
 
   //------------------------------
-  // ƒ}ƒEƒXƒ_ƒEƒ“
+  // ãƒžã‚¦ã‚¹ãƒ€ã‚¦ãƒ³
   //------------------------------
   function onMouseDown {
-    // ƒNƒŠƒbƒN‚µ‚½‚ç‚»‚ÌƒŒƒCƒ„‚ð‘I‘ð
+    // ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚‰ãã®ãƒ¬ã‚¤ãƒ¤ã‚’é¸æŠž
     if (params.editable) {
       layerItem.select();
       parent.focus();
@@ -180,10 +180,10 @@ class TimeLineSampleSphere extends KWidget
   }
 
   //------------------------------
-  // ƒhƒ‰ƒbƒOŠJŽn
+  // ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
   //------------------------------
   function onDragEnter {
-    // ƒL[ƒtƒŒ[ƒ€‚Ì‚Ýƒhƒ‰ƒbƒO‰Â”\
+    // ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã®ã¿ãƒ‰ãƒ©ãƒƒã‚°å¯èƒ½
     if (! params.editable
         || ! params.keyFrame)
       return;
@@ -195,7 +195,7 @@ class TimeLineSampleSphere extends KWidget
   }
 
   //------------------------------
-  // ƒhƒ‰ƒbƒO’†
+  // ãƒ‰ãƒ©ãƒƒã‚°ä¸­
   //------------------------------
   function onDragMove {
     if (dragging) {
@@ -206,14 +206,14 @@ class TimeLineSampleSphere extends KWidget
   }
 
   //------------------------------
-  // ƒhƒ‰ƒbƒOI—¹
+  // ãƒ‰ãƒ©ãƒƒã‚°çµ‚äº†
   //------------------------------
   function onDragLeave {
     dragging = false;
   }
 
   //------------------------------
-  // ƒ_ƒuƒ‹ƒNƒŠƒbƒN‚Å‚»‚ÌƒtƒŒ[ƒ€‚ðƒL[ƒtƒŒ[ƒ€‚É•ÏŠ·
+  // ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã§ãã®ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã«å¤‰æ›
   //------------------------------
   function onDoubleClick {
     if (params.editable
@@ -225,7 +225,7 @@ class TimeLineSampleSphere extends KWidget
   }
 
   //------------------------------
-  // ‰EƒNƒŠƒbƒN‚Åd‚È‚Á‚Ä‚¢‚éƒŒƒCƒ„‚©‚ç1‚Â‚ð‘I‘ð‚·‚éƒƒjƒ…[‚ð•\Ž¦
+  // å³ã‚¯ãƒªãƒƒã‚¯ã§é‡ãªã£ã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤ã‹ã‚‰1ã¤ã‚’é¸æŠžã™ã‚‹ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤º
   //------------------------------
   function onRightClick {
     var menu = new KContextMenu();
@@ -245,7 +245,7 @@ class TimeLineSampleSphere extends KWidget
   }
 
   //------------------------------
-  // ƒAƒCƒeƒ€‘I‘ð
+  // ã‚¢ã‚¤ãƒ†ãƒ é¸æŠž
   //------------------------------
   function onSelectItem(item) {
     item.select();
@@ -254,19 +254,19 @@ class TimeLineSampleSphere extends KWidget
 }
 
 /*----------------------------------------------------------------------
- * ƒLƒƒƒ“ƒoƒX(ƒXƒtƒBƒA‚ð”z’u‚·‚é—Ìˆæ)
+ * ã‚­ãƒ£ãƒ³ãƒã‚¹(ã‚¹ãƒ•ã‚£ã‚¢ã‚’é…ç½®ã™ã‚‹é ˜åŸŸ)
  ----------------------------------------------------------------------*/
 class TimeLineSampleCanvas extends KVirtualWidget
 {
-  // ƒXƒtƒBƒA”z—ñ
+  // ã‚¹ãƒ•ã‚£ã‚¢é…åˆ—
   var sphereList;
-  // ‹ó‚«ƒXƒtƒBƒA‚Ì”
+  // ç©ºãã‚¹ãƒ•ã‚£ã‚¢ã®æ•°
   var freeSphereCount;
-  // ƒ}ƒEƒXƒCƒxƒ“ƒgƒLƒƒƒvƒ`ƒƒ
+  // ãƒžã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã‚­ãƒ£ãƒ—ãƒãƒ£
   var mouseEventCapture;
 
   //------------------------------
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   //------------------------------
   function TimeLineSampleCanvas(window, name) {
     super.KVirtualWidget(...);
@@ -278,10 +278,10 @@ class TimeLineSampleCanvas extends KVirtualWidget
   }
 
   //------------------------------
-  // Ž©•ªŽ©g‚Ì•`‰æˆ—
+  // è‡ªåˆ†è‡ªèº«ã®æç”»å‡¦ç†
   //------------------------------
   function onDraw(l, t, w, h) {
-    // ”wŒi‚ÉŽs¼–Í—l‚ð•`‰æ
+    // èƒŒæ™¯ã«å¸‚æ¾æ¨¡æ§˜ã‚’æç”»
     var unitPixel = 10;
     var fromX, toX, fromY, toY;
     fromX = int(l / unitPixel);
@@ -296,31 +296,31 @@ class TimeLineSampleCanvas extends KVirtualWidget
   }
 
   //------------------------------
-  // ƒtƒH[ƒJƒX
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹
   //------------------------------
   function onFocus {
     redrawAll();
   }
 
   //------------------------------
-  // ƒuƒ‰[
+  // ãƒ–ãƒ©ãƒ¼
   //------------------------------
   function onBlur {
     redrawAll();
   }
 
   //------------------------------
-  // ƒŒƒ“ƒ_ƒŠƒ“ƒO‘Oˆ—
+  // ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°å‰å‡¦ç†
   //------------------------------
   function beforeRender {
-    // ‘S‚Ä‚ÌƒXƒtƒBƒA‚ð”ñ•\Ž¦‚É‚·‚é
+    // å…¨ã¦ã®ã‚¹ãƒ•ã‚£ã‚¢ã‚’éžè¡¨ç¤ºã«ã™ã‚‹
     for (var i = 0; i < sphereList.count; i++)
       sphereList[i].visible = false;
     freeSphereCount = 0;
   }
 
   //------------------------------
-  // ƒXƒtƒBƒAŠ„‚è“–‚Ä
+  // ã‚¹ãƒ•ã‚£ã‚¢å‰²ã‚Šå½“ã¦
   //------------------------------
   function allocSphere {
     if (freeSphereCount >= sphereList.count) 
@@ -329,11 +329,11 @@ class TimeLineSampleCanvas extends KVirtualWidget
   }
 
   //------------------------------
-  // ƒŒƒ“ƒ_ƒŠƒ“ƒOŒãˆ—
+  // ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°å¾Œå‡¦ç†
   //------------------------------
   function afterRender {
-    // •\Ž¦‚³‚ê‚½ƒXƒtƒBƒA‚Ì—Dæ“x‚ðÝ’è‚µA
-    // ‘I‘ðó‘Ô‚ÌƒŒƒCƒ„‚É‘Î‰ž‚µ‚½ƒXƒtƒBƒA‚ÉAƒ}ƒEƒXƒCƒxƒ“ƒgƒLƒƒƒvƒ`ƒƒ‚ðÝ’è‚·‚éB
+    // è¡¨ç¤ºã•ã‚ŒãŸã‚¹ãƒ•ã‚£ã‚¢ã®å„ªå…ˆåº¦ã‚’è¨­å®šã—ã€
+    // é¸æŠžçŠ¶æ…‹ã®ãƒ¬ã‚¤ãƒ¤ã«å¯¾å¿œã—ãŸã‚¹ãƒ•ã‚£ã‚¢ã«ã€ãƒžã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã‚­ãƒ£ãƒ—ãƒãƒ£ã‚’è¨­å®šã™ã‚‹ã€‚
     mouseEventCapture.visible = false;
     for (var i = 0; i < freeSphereCount; i++) {
       var sphere = sphereList[i];
@@ -350,7 +350,7 @@ class TimeLineSampleCanvas extends KVirtualWidget
   }
 
   //------------------------------
-  // ƒL[ˆ—
+  // ã‚­ãƒ¼å‡¦ç†
   //------------------------------
   function onKeyDown(key, shift) {
     var activeSphere = void;
@@ -398,15 +398,15 @@ class TimeLineSampleCanvas extends KVirtualWidget
 }
 
 /*----------------------------------------------------------------------
- * ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒTƒ“ƒvƒ‹ƒAƒCƒeƒ€(ƒ‹[ƒgƒAƒCƒeƒ€‚ÆƒŒƒCƒ„ƒAƒCƒeƒ€‚ÌŠî’ê)
+ * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚µãƒ³ãƒ—ãƒ«ã‚¢ã‚¤ãƒ†ãƒ (ãƒ«ãƒ¼ãƒˆã‚¢ã‚¤ãƒ†ãƒ ã¨ãƒ¬ã‚¤ãƒ¤ã‚¢ã‚¤ãƒ†ãƒ ã®åŸºåº•)
  ----------------------------------------------------------------------*/
 class TimeLineSampleItem extends KTimeLineItem
 {
-  // À•W
+  // åº§æ¨™
   var curLeft, curTop;
 
   //------------------------------
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   //------------------------------
   function TimeLineSampleItem(label, name) {
     super.KTimeLineItem(...);
@@ -414,7 +414,7 @@ class TimeLineSampleItem extends KTimeLineItem
   }
 
   //------------------------------
-  // ƒŒƒCƒ„ƒAƒCƒeƒ€‚Ìƒhƒƒbƒv‰Â”\
+  // ãƒ¬ã‚¤ãƒ¤ã‚¢ã‚¤ãƒ†ãƒ ã®ãƒ‰ãƒ­ãƒƒãƒ—å¯èƒ½
   //------------------------------
   function isPacketAcceptable(packet) {
     return (packet.name == DD_LAYER
@@ -422,7 +422,7 @@ class TimeLineSampleItem extends KTimeLineItem
   }
 
   //------------------------------
-  // ƒŒƒCƒ„ƒAƒCƒeƒ€‚ðƒhƒƒbƒv‚µ‚½‚çŽqƒAƒCƒeƒ€‚É‚·‚é
+  // ãƒ¬ã‚¤ãƒ¤ã‚¢ã‚¤ãƒ†ãƒ ã‚’ãƒ‰ãƒ­ãƒƒãƒ—ã—ãŸã‚‰å­ã‚¢ã‚¤ãƒ†ãƒ ã«ã™ã‚‹
   //------------------------------
   function onPacketDrop(x, y, packet) {
     var item = packet.arg;
@@ -431,7 +431,7 @@ class TimeLineSampleItem extends KTimeLineItem
   }
 
   //------------------------------
-  // ƒLƒƒƒ“ƒoƒX‚ÉƒAƒCƒeƒ€‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚ðs‚¤
+  // ã‚­ãƒ£ãƒ³ãƒã‚¹ã«ã‚¢ã‚¤ãƒ†ãƒ ã®ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚’è¡Œã†
   //------------------------------
   function renderCanvas(canvas, time, editable) {
     for (var i = 0; i < childCount; i++)
@@ -439,7 +439,7 @@ class TimeLineSampleItem extends KTimeLineItem
   }
 
   //------------------------------
-  // ƒcƒŠ[\‘¢‚ðƒIƒuƒWƒFƒNƒg‚É‚µ‚Ä•Ô‚·
+  // ãƒ„ãƒªãƒ¼æ§‹é€ ã‚’ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã—ã¦è¿”ã™
   //------------------------------
   function buildTreeStructure {
     var data = %[];
@@ -451,7 +451,7 @@ class TimeLineSampleItem extends KTimeLineItem
   }
 
   //------------------------------
-  // ƒcƒŠ[‚ÌƒtƒŒ[ƒ€î•ñ‚ð‘S‚ÄƒIƒuƒWƒFƒNƒg‚É‚µ‚Ä•Ô‚·
+  // ãƒ„ãƒªãƒ¼ã®ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’å…¨ã¦ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã—ã¦è¿”ã™
   //------------------------------
   function buildContentTree(time) {
     var data = %[];
@@ -470,7 +470,7 @@ class TimeLineSampleItem extends KTimeLineItem
   }
 
   //------------------------------
-  // ƒIƒuƒWƒFƒNƒg‚©‚çƒcƒŠ[‚ÌƒtƒŒ[ƒ€î•ñ‚ðÄ\¬‚·‚é
+  // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ãƒ„ãƒªãƒ¼ã®ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’å†æ§‹æˆã™ã‚‹
   //------------------------------
   function restoreContentTree(time, data) {
     if (data.content !== void)
@@ -480,19 +480,19 @@ class TimeLineSampleItem extends KTimeLineItem
   }
 
   //------------------------------
-  // ƒtƒŒ[ƒ€î•ñ‚Ìƒy[ƒXƒgŽž‚ÉŒÄ‚Î‚ê‚éƒCƒxƒ“ƒgŠÖ”
+  // ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã®ãƒšãƒ¼ã‚¹ãƒˆæ™‚ã«å‘¼ã°ã‚Œã‚‹ã‚¤ãƒ™ãƒ³ãƒˆé–¢æ•°
   //------------------------------
   function onPasteContent(time, type, content) {
   }
 }
 
 /*----------------------------------------------------------------------
- * ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒ‹[ƒgƒAƒCƒeƒ€(‚±‚Ìƒ^ƒCƒ€ƒ‰ƒCƒ“‚Å‚Íƒ‹[ƒvÝ’è‚ðs‚¤)
+ * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ãƒ«ãƒ¼ãƒˆã‚¢ã‚¤ãƒ†ãƒ (ã“ã®ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã§ã¯ãƒ«ãƒ¼ãƒ—è¨­å®šã‚’è¡Œã†)
  ----------------------------------------------------------------------*/
 class TimeLineSampleRootItem extends TimeLineSampleItem
 {
   //------------------------------
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   //------------------------------
   function TimeLineSampleRootItem(label, name) {
     super.TimeLineSampleItem(...);
@@ -501,26 +501,26 @@ class TimeLineSampleRootItem extends TimeLineSampleItem
   }
 
   //------------------------------
-  // ƒLƒƒƒ“ƒoƒX‚ÉƒŒƒ“ƒ_ƒŠƒ“ƒO‚·‚é
+  // ã‚­ãƒ£ãƒ³ãƒã‚¹ã«ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã™ã‚‹
   //------------------------------
   function renderCanvas(canvas, time, editable) {
-    // À•W‚ðƒLƒƒƒ“ƒoƒX‚ÌŒ´“_‚ÉÝ’è‚·‚é
+    // åº§æ¨™ã‚’ã‚­ãƒ£ãƒ³ãƒã‚¹ã®åŽŸç‚¹ã«è¨­å®šã™ã‚‹
     curLeft = int(canvas.width / 2);
     curTop = int(canvas.height / 2);
     super.renderCanvas(canvas, time, editable);
   }
 
   //------------------------------
-  // ƒŒƒCƒ„ƒŠƒXƒg‚ð‰EƒNƒŠƒbƒNŽž‚ÌƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[
+  // ãƒ¬ã‚¤ãƒ¤ãƒªã‚¹ãƒˆã‚’å³ã‚¯ãƒªãƒƒã‚¯æ™‚ã®ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼
   //------------------------------
   function onRightClick {
     var menu = new KContextMenu();
-    menu.addItem("ƒŒƒCƒ„‚ð’Ç‰Á‚·‚é", "", true, this.onNewLayer);
+    menu.addItem("ãƒ¬ã‚¤ãƒ¤ã‚’è¿½åŠ ã™ã‚‹", "", true, this.onNewLayer);
     menu.show();
   }
 
   //------------------------------
-  // ƒŒƒCƒ„V‹Kì¬
+  // ãƒ¬ã‚¤ãƒ¤æ–°è¦ä½œæˆ
   //------------------------------
   function onNewLayer {
     add(new TimeLineSampleLayerItem(root.window.newLayerLabel));
@@ -528,15 +528,15 @@ class TimeLineSampleRootItem extends TimeLineSampleItem
 }
 
 /*----------------------------------------------------------------------
- * ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒŒƒCƒ„ƒAƒCƒeƒ€
+ * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ãƒ¬ã‚¤ãƒ¤ã‚¢ã‚¤ãƒ†ãƒ 
  ----------------------------------------------------------------------*/
 class TimeLineSampleLayerItem extends TimeLineSampleItem
 {
-  // ƒoƒCƒ“ƒh‚µ‚½ƒXƒtƒBƒA
+  // ãƒã‚¤ãƒ³ãƒ‰ã—ãŸã‚¹ãƒ•ã‚£ã‚¢
   var sphere;
 
   //------------------------------
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   //------------------------------
   function TimeLineSampleLayerItem(label, name) {
     super.TimeLineSampleItem(...);
@@ -544,14 +544,14 @@ class TimeLineSampleLayerItem extends TimeLineSampleItem
   }
 
   //------------------------------
-  // ƒtƒŒ[ƒ€î•ñ‚Ì‰Šú’l
+  // ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã®åˆæœŸå€¤
   //------------------------------
   function createFrameContent {
     return %[ left: 0, top: 0 ];
   }
 
   //------------------------------
-  // ƒtƒŒ[ƒ€î•ñ‚ð•âŠ®‚·‚é
+  // ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’è£œå®Œã™ã‚‹
   //------------------------------
   function tweenFrameContent(from, to, ratio) {
     return %[ left: tweenIntValue(from.left, to.left, ratio),
@@ -559,11 +559,11 @@ class TimeLineSampleLayerItem extends TimeLineSampleItem
   }
 
   //------------------------------
-  // ƒLƒƒƒ“ƒoƒX‚ÉƒXƒtƒBƒA‚ð•`‰æ
+  // ã‚­ãƒ£ãƒ³ãƒã‚¹ã«ã‚¹ãƒ•ã‚£ã‚¢ã‚’æç”»
   //------------------------------
   function renderCanvas(canvas, time, editable) {
-    // À•W‚Íe‚©‚ç‚ÌƒIƒtƒZƒbƒgB
-    // ƒXƒtƒBƒA‚ðV‚½‚ÉŠm•Û‚µ‚ÄƒoƒCƒ“ƒhB
+    // åº§æ¨™ã¯è¦ªã‹ã‚‰ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆã€‚
+    // ã‚¹ãƒ•ã‚£ã‚¢ã‚’æ–°ãŸã«ç¢ºä¿ã—ã¦ãƒã‚¤ãƒ³ãƒ‰ã€‚
     curLeft = parent.curLeft;
     curTop = parent.curTop;
     var curContent = getCompleteFrameContent(time);
@@ -580,45 +580,45 @@ class TimeLineSampleLayerItem extends TimeLineSampleItem
   }
 
   //------------------------------
-  // ƒŒƒCƒ„ƒŠƒXƒg‚ð‰EƒNƒŠƒbƒNŽž‚ÌƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[
+  // ãƒ¬ã‚¤ãƒ¤ãƒªã‚¹ãƒˆã‚’å³ã‚¯ãƒªãƒƒã‚¯æ™‚ã®ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼
   //------------------------------
   function onRightClick {
     var menu = new KContextMenu();
-    menu.addItem("ƒŒƒCƒ„‚ð’Ç‰Á‚·‚é", "", true, this.onNewLayer);
+    menu.addItem("ãƒ¬ã‚¤ãƒ¤ã‚’è¿½åŠ ã™ã‚‹", "", true, this.onNewLayer);
     menu.addSeparator();
-    menu.addItem("íœ‚·‚é", "", true, this.onRemove);
+    menu.addItem("å‰Šé™¤ã™ã‚‹", "", true, this.onRemove);
     menu.addSeparator();
-    menu.addItem("ƒŒƒCƒ„‚ðƒRƒs[‚·‚é", "copyLayerItem", true, funccall(this.onCopy));
+    menu.addItem("ãƒ¬ã‚¤ãƒ¤ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹", "copyLayerItem", true, funccall(this.onCopy));
     var canPaste = Clipboard.hasFormat(cbfTJS) && Clipboard.asTJS.type == TYPE_LAYER;
-    menu.addItem("ƒŒƒCƒ„‚ðƒy[ƒXƒg‚·‚é", "pasteLayerItem", canPaste, canPaste ? funccall(this.onPaste, Clipboard.asTJS.body) : void);
+    menu.addItem("ãƒ¬ã‚¤ãƒ¤ã‚’ãƒšãƒ¼ã‚¹ãƒˆã™ã‚‹", "pasteLayerItem", canPaste, canPaste ? funccall(this.onPaste, Clipboard.asTJS.body) : void);
     menu.copyLayerItem.shortcut = "Ctrl+C";
     menu.pasteLayerItem.shortcut = "Ctrl+P";
     menu.show();
   }
 
   //------------------------------
-  // V‹KƒŒƒCƒ„
+  // æ–°è¦ãƒ¬ã‚¤ãƒ¤
   //------------------------------
   function onNewLayer {
     add(new global.TimeLineSampleLayerItem(root.window.newLayerLabel));
   }
 
   //------------------------------
-  // Ž©•ªŽ©g‚ðíœ
+  // è‡ªåˆ†è‡ªèº«ã‚’å‰Šé™¤
   //------------------------------
   function onRemove {
     removeSelf();
   }
 
   //------------------------------
-  // ƒŒƒCƒ„(ŽqƒŒƒCƒ„ŠÜ‚Þ)‚Ì“à—e‚ðƒRƒs[
+  // ãƒ¬ã‚¤ãƒ¤(å­ãƒ¬ã‚¤ãƒ¤å«ã‚€)ã®å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
   //------------------------------
   function onCopy {
     Clipboard.asTJS = %[ type: TYPE_LAYER, body: serialize() ];
   }
 
   //------------------------------
-  // ƒNƒŠƒbƒvƒ{[ƒh‚Ì“à—e‚ðƒy[ƒXƒg
+  // ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã®å†…å®¹ã‚’ãƒšãƒ¼ã‚¹ãƒˆ
   //------------------------------
   function onPaste(body) {
     removeAll(true);
@@ -626,29 +626,29 @@ class TimeLineSampleLayerItem extends TimeLineSampleItem
   }
 
   //------------------------------
-  // ƒŒƒCƒ„ƒhƒ‰ƒbƒOŠJŽn
+  // ãƒ¬ã‚¤ãƒ¤ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
   //------------------------------
   function onDragEnter {
     beginDragPacket(new KPacket(DD_LAYER, this));
   }
 
   //------------------------------
-  // ƒL[‘€ì
+  // ã‚­ãƒ¼æ“ä½œ
   //------------------------------
   function onKeyDown(key, shift) {
     if (shift & ssCtrl) {
       switch (key) {
-      // Ctrl+UP‚ÅƒŒƒCƒ„ã‚É
+      // Ctrl+UPã§ãƒ¬ã‚¤ãƒ¤ä¸Šã«
       case VK_UP:
         if (index > 0)
           index --;
         return;
-      // Ctrl+UP‚ÅƒŒƒCƒ„‰º‚É
+      // Ctrl+UPã§ãƒ¬ã‚¤ãƒ¤ä¸‹ã«
       case VK_DOWN:
         if (index < parent.childCount - 1)
           index++;
         return;
-      // Ctrl+¶‚ÅŠK‘wã‚É
+      // Ctrl+å·¦ã§éšŽå±¤ä¸Šã«
       case VK_LEFT:
         if (parent.className == "TimeLineSampleLayerItem") {
           var newIndex = parent.index + 1;
@@ -659,7 +659,7 @@ class TimeLineSampleLayerItem extends TimeLineSampleItem
           select();
         }
         return;
-      // Ctrl+‰E‚ÅŠK‘w‰º‚É
+      // Ctrl+å³ã§éšŽå±¤ä¸‹ã«
       case VK_RIGHT:
         if (index > 0) {
           var newParent = parent.childAt(index - 1);
@@ -669,11 +669,11 @@ class TimeLineSampleLayerItem extends TimeLineSampleItem
           select();
         }
         return;
-      // Ctrl+C‚ÅƒRƒs[
+      // Ctrl+Cã§ã‚³ãƒ”ãƒ¼
       case VK_C:
         onCopy();
         break;
-      // Ctrl+V‚Åƒy[ƒXƒg
+      // Ctrl+Vã§ãƒšãƒ¼ã‚¹ãƒˆ
       case VK_V:
         if (Clipboard.hasFormat(cbfTJS) && Clipboard.asTJS.type == TYPE_LAYER) 
           onPaste(Clipboard.asTJS.body);
@@ -684,20 +684,20 @@ class TimeLineSampleLayerItem extends TimeLineSampleItem
   }
 
   //------------------------------
-  // ƒ^ƒCƒ€ƒ‰ƒCƒ“‚ð‰EƒNƒŠƒbƒNŽž‚ÌƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[
+  // ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚’å³ã‚¯ãƒªãƒƒã‚¯æ™‚ã®ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼
   //------------------------------
   function onTimeLineRightClick(time) {
     var menu = new KContextMenu();
     var frame = frameAt(findFrame(time));
-    menu.addItem("ƒL[ƒtƒŒ[ƒ€‚ð‘}“ü‚·‚é", "insertKeyFrameItem", (frame !== void && frame.type != TIMELINE_FRAME_TYPE_NULL && frame.time != time) || (frame !== void && frame.type == TIMELINE_FRAME_TYPE_NULL) || frame === void, funccall(this.onInsertFrame, time));
-    menu.addItem("ƒL[ƒtƒŒ[ƒ€‚ðíœ‚·‚é", "deleteKeyFrameItem", frame !== void && frame.type != TIMELINE_FRAME_TYPE_NULL && frame.time == time, funccall(this.onDeleteFrame, time));
-    menu.addItem("ƒtƒŒ[ƒ€‚ð•ªŠ„‚·‚é", "splitFrameItem", frame !== void && frame.type != TIMELINE_FRAME_TYPE_NULL && frame.time != time, funccall(this.onSplitFrame, time));
-    menu.addItem("‹óƒtƒŒ[ƒ€‚ð‘}“ü‚·‚é", "nullFrameItem", (frame !== void && frame.type != TIMELINE_FRAME_TYPE_NULL), funccall(this.onNullFrame, time));
+    menu.addItem("ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æŒ¿å…¥ã™ã‚‹", "insertKeyFrameItem", (frame !== void && frame.type != TIMELINE_FRAME_TYPE_NULL && frame.time != time) || (frame !== void && frame.type == TIMELINE_FRAME_TYPE_NULL) || frame === void, funccall(this.onInsertFrame, time));
+    menu.addItem("ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‰Šé™¤ã™ã‚‹", "deleteKeyFrameItem", frame !== void && frame.type != TIMELINE_FRAME_TYPE_NULL && frame.time == time, funccall(this.onDeleteFrame, time));
+    menu.addItem("ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’åˆ†å‰²ã™ã‚‹", "splitFrameItem", frame !== void && frame.type != TIMELINE_FRAME_TYPE_NULL && frame.time != time, funccall(this.onSplitFrame, time));
+    menu.addItem("ç©ºãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æŒ¿å…¥ã™ã‚‹", "nullFrameItem", (frame !== void && frame.type != TIMELINE_FRAME_TYPE_NULL), funccall(this.onNullFrame, time));
     menu.addSeparator();
-    menu.addItem("‘S‘I‘ð", "selectAllItem", true, this.onSelectAll);
-    menu.addItem("ƒtƒŒ[ƒ€‚ðƒRƒs[‚·‚é", "copyFrameItem", true, this.onCopyFrame);
-    menu.addItem("ƒtƒŒ[ƒ€‚ðƒJƒbƒg[‚·‚é", "cutFrameItem", true, this.onCutFrame);
-    menu.addItem("ƒtƒŒ[ƒ€‚ðƒy[ƒXƒg‚·‚é", "pasteFrameItem", root.window.isLayerRangeAvailableToPaste, root.window.onPasteLayerRange);
+    menu.addItem("å…¨é¸æŠž", "selectAllItem", true, this.onSelectAll);
+    menu.addItem("ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹", "copyFrameItem", true, this.onCopyFrame);
+    menu.addItem("ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚«ãƒƒãƒˆãƒ¼ã™ã‚‹", "cutFrameItem", true, this.onCutFrame);
+    menu.addItem("ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ãƒšãƒ¼ã‚¹ãƒˆã™ã‚‹", "pasteFrameItem", root.window.isLayerRangeAvailableToPaste, root.window.onPasteLayerRange);
     menu.insertKeyFrameItem.shortcut = "Ins";
     menu.deleteKeyFrameItem.shortcut = "Del";
     menu.splitFrameItem.shortcut = "Home";
@@ -710,53 +710,53 @@ class TimeLineSampleLayerItem extends TimeLineSampleItem
   }
 
   //------------------------------
-  // ƒ^ƒCƒ€ƒ‰ƒCƒ“ã‚ÅƒL[‚ð‰Ÿ‚µ‚½Û‚Ìˆ—
+  // ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ä¸Šã§ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸéš›ã®å‡¦ç†
   //------------------------------
   function onTimeLineKeyDown(key, shift) {
     switch (key) {
-      // Ctrl+A‚Å‘S‘I‘ð
+      // Ctrl+Aã§å…¨é¸æŠž
     case VK_A:
       if (shift & ssCtrl) 
 	onSelectAll();
       break;
 
-      // Ctrl+C‚ÅƒtƒŒ[ƒ€‚ðƒRƒs[
+      // Ctrl+Cã§ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚³ãƒ”ãƒ¼
     case VK_C:
       if (shift & ssCtrl)
         onCopyFrame();
       break;
-      // Ctrl+X‚ÅƒtƒŒ[ƒ€‚ðƒJƒbƒg
+      // Ctrl+Xã§ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚«ãƒƒãƒˆ
     case VK_X:
       if (shift & ssCtrl)
         onCutFrame();
-      // Ctrl+V‚ÅƒtƒŒ[ƒ€‚ðƒy[ƒXƒg
+      // Ctrl+Vã§ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ãƒšãƒ¼ã‚¹ãƒˆ
     case VK_V:
       if ((shift & ssCtrl)
           && root.window.isLayerRangeAvailableToPaste)
         root.window.onPasteLayerRange();
       break;
-      // Insert‚ÅƒL[ƒtƒŒ[ƒ€‘}“ü
+      // Insertã§ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ æŒ¿å…¥
     case VK_INSERT:
       var time = root.owner.selectedTime;
       var frame = frameAt(findFrame(time));
       if ((frame !== void && frame.type != TIMELINE_FRAME_TYPE_NULL && frame.time != time) || (frame !== void && frame.type == TIMELINE_FRAME_TYPE_NULL) || frame === void)
         onInsertFrame(time);
       break;
-      // Insert‚ÅƒL[ƒtƒŒ[ƒ€íœ
+      // Insertã§ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ å‰Šé™¤
     case VK_DELETE:
       var time = root.owner.selectedTime;
       var frame = frameAt(findFrame(time));
       if (frame !== void && frame.type != TIMELINE_FRAME_TYPE_NULL && frame.time == time)
         onDeleteFrame(time);
       break;
-      // Insert‚ÅƒL[ƒtƒŒ[ƒ€‘}“ü
+      // Insertã§ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ æŒ¿å…¥
     case VK_HOME:
       var time = root.owner.selectedTime;
       var frame = frameAt(findFrame(time));
       if (frame !== void && frame.type != TIMELINE_FRAME_TYPE_NULL && frame.time != time)
         onSplitFrame(time);
       break;
-      // END‚Å‹óƒtƒŒ[ƒ€‘}“ü
+      // ENDã§ç©ºãƒ•ãƒ¬ãƒ¼ãƒ æŒ¿å…¥
     case VK_END:
       var time = root.owner.selectedTime;
       var frame = frameAt(findFrame(time));
@@ -767,56 +767,56 @@ class TimeLineSampleLayerItem extends TimeLineSampleItem
   }
 
   //------------------------------
-  // ƒL[ƒtƒŒ[ƒ€‘}“ü
+  // ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ æŒ¿å…¥
   //------------------------------
   function onInsertFrame(time) {
     insertKeyFrame(time, TIMELINE_FRAME_TYPE_TWEEN, createFrameContent());
   }
 
   //------------------------------
-  // ƒL[ƒtƒŒ[ƒ€íœ
+  // ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ å‰Šé™¤
   //------------------------------
   function onDeleteFrame(time) {
     deleteKeyFrame(time);
   }
 
   //------------------------------
-  // ƒtƒŒ[ƒ€•ªŠ„
+  // ãƒ•ãƒ¬ãƒ¼ãƒ åˆ†å‰²
   //------------------------------
   function onSplitFrame(time) {
     splitFrame(time);
   }
 
   //------------------------------
-  // ƒkƒ‹ƒtƒŒ[ƒ€‘}“ü
+  // ãƒŒãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ æŒ¿å…¥
   //------------------------------
   function onNullFrame(time) {
     insertKeyFrame(time, TIMELINE_FRAME_TYPE_NULL);
   }
 
   //------------------------------
-  // ‘S‘I‘ð
+  // å…¨é¸æŠž
   //------------------------------
   function onSelectAll {
     root.owner.selectAll();
   }
 
   //------------------------------
-  // ƒtƒŒ[ƒ€‚ðƒRƒs[‚·‚é
+  // ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹
   //------------------------------
   function onCopyFrame {
     Clipboard.asTJS = %[ type: TYPE_LAYER_RANGE, body: [ copyFrameRange(root.owner.selectedTime, root.owner.selectedTime + 1) ] ];
   }
 
   //------------------------------
-  // ƒtƒŒ[ƒ€‚ðƒJƒbƒg‚·‚é
+  // ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚«ãƒƒãƒˆã™ã‚‹
   //------------------------------
   function onCutFrame {
     Clipboard.asTJS = %[ type: TYPE_LAYER_RANGE, body: [ cutFrameRange(root.owner.selectedTime, root.owner.selectedTime + 1) ] ];
   }
 
   //------------------------------
-  // ƒtƒŒ[ƒ€ƒy[ƒXƒgŽžˆ—
+  // ãƒ•ãƒ¬ãƒ¼ãƒ ãƒšãƒ¼ã‚¹ãƒˆæ™‚å‡¦ç†
   //------------------------------
   function onPasteContent(time, type, content) {
     insertKeyFrame(time, type);
@@ -826,26 +826,26 @@ class TimeLineSampleLayerItem extends TimeLineSampleItem
 }
 
 /*----------------------------------------------------------------------
- * ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒTƒ“ƒvƒ‹
+ * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚µãƒ³ãƒ—ãƒ«
  ----------------------------------------------------------------------*/
 class TimeLineSample extends KWindow
 {
-  // V‹KƒŒƒCƒ„ì¬Žž‚ÌƒCƒ“ƒfƒbƒNƒX(’P’²‘‰Á‚·‚é®”)
+  // æ–°è¦ãƒ¬ã‚¤ãƒ¤ä½œæˆæ™‚ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹(å˜èª¿å¢—åŠ ã™ã‚‹æ•´æ•°)
   var newLayerIndex;
 
   //------------------------------
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   //------------------------------
   function TimeLineSample {
     super.KWindow("timelineSample");
 
-    // ƒEƒBƒ“ƒhƒE‰ŠúÝ’è
-    caption = 'ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒTƒ“ƒvƒ‹';
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦åˆæœŸè¨­å®š
+    caption = 'ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚µãƒ³ãƒ—ãƒ«';
     imeMode = imDontCare;
     defaultAlignVertical = ALIGN_TOP;
     defaultFocusable = true;
 
-    // ƒEƒBƒWƒFƒbƒg‚ð”z’u
+    // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’é…ç½®
     primaryWidget.add(new KGridLayout(this, "rootGrid"));
 
     rootGrid.add(0, 0, new KVerticalSpliterLayout(this, "vsplit"));
@@ -858,7 +858,7 @@ class TimeLineSample extends KWindow
           buttonGrid.add(2, 0, new KImageButton(this, "button_rewind", "rewind"));
       vsplit.add(new KTimeLineControl(this, "timelineControl"));
 
-    // ƒpƒ‰ƒ[ƒ^‰Šú‰»
+    // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿åˆæœŸåŒ–
     buttonGrid.margin = 13;
     buttonGrid.space = 3;
     buttonGrid.alignHorizontal = ALIGN_RIGHT;
@@ -870,33 +870,33 @@ class TimeLineSample extends KWindow
     vsplit.splitRatio = 1.0;
     timelineControl.resize = true;
     timelineControl.framePerSecond = 60;
-    timelineControl.add(new KTimeLineLoopItem("ƒ‹[ƒv", "loopItem"));
-    timelineControl.add(new TimeLineSampleRootItem("ƒ‹[ƒg", "rootItem"));
+    timelineControl.add(new KTimeLineLoopItem("ãƒ«ãƒ¼ãƒ—", "loopItem"));
+    timelineControl.add(new TimeLineSampleRootItem("ãƒ«ãƒ¼ãƒˆ", "rootItem"));
 
     timelineControl.onRenderFrame = this.onRenderFrame;
     timelineControl.onTimeLocatorRightClick = this.onTimeLocatorRightClick;
     timelineControl.onTimeLineSelectionRightClick = this.onTimeLineSelectionRightClick;
     timelineControl.onTimeLineSelectionKeyDown = this.onTimeLineSelectionKeyDown;
 
-    // ƒLƒƒƒ“ƒoƒX‚Ì’†‰›‚ð•\Ž¦
+    // ã‚­ãƒ£ãƒ³ãƒã‚¹ã®ä¸­å¤®ã‚’è¡¨ç¤º
     canvasScroll.setChildViewPos((canvas.width - canvasScroll.childViewWidth) / 2,
                                  (canvas.height - canvasScroll.childViewHeight) / 2);
 
 
-    // ‰i‘±‰»Ž«‘‚Ìì¬
+    // æ°¸ç¶šåŒ–è¾žæ›¸ã®ä½œæˆ
     var dict = new KPersistentDictionary(System.dataPath + "timelinesample_dict.txt");
     add(dict);
     bindPersistentDictionary(dict);
 
-    // ‰Šú•`‰æ
+    // åˆæœŸæç”»
     renderCanvas();
 
-    // •\Ž¦
+    // è¡¨ç¤º
     visible = true;
   }
 
   //------------------------------
-  // ƒtƒ@ƒCƒiƒ‰ƒCƒU
+  // ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
   //------------------------------
   function finalize {
     if (dict) {
@@ -908,7 +908,7 @@ class TimeLineSample extends KWindow
   }
 
   //------------------------------
-  // Ž«‘‚ÆƒoƒCƒ“ƒh
+  // è¾žæ›¸ã¨ãƒã‚¤ãƒ³ãƒ‰
   //------------------------------
   function bindPersistentDictionary(dict) {
     super.bindPersistentDictionary(dict);
@@ -918,31 +918,31 @@ class TimeLineSample extends KWindow
   }
 
   //------------------------------
-  // V‹KƒŒƒCƒ„‚Ìƒ‰ƒxƒ‹‚ð¶¬‚·‚é
+  // æ–°è¦ãƒ¬ã‚¤ãƒ¤ã®ãƒ©ãƒ™ãƒ«ã‚’ç”Ÿæˆã™ã‚‹
   //------------------------------
   property newLayerLabel {
     getter {
       newLayerIndex++;
-      return "ƒŒƒCƒ„" + newLayerIndex;
+      return "ãƒ¬ã‚¤ãƒ¤" + newLayerIndex;
     }
   }
 
   //------------------------------
-  // ƒtƒŒ[ƒ€ƒŒƒ“ƒ_ƒŠƒ“ƒOƒCƒxƒ“ƒg
+  // ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚¤ãƒ™ãƒ³ãƒˆ
   //------------------------------
   function onRenderFrame {
     renderCanvas();
   }
 
   //------------------------------
-  // ƒLƒƒƒ“ƒoƒX‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚ðƒLƒbƒN
+  // ã‚­ãƒ£ãƒ³ãƒã‚¹ã®ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚’ã‚­ãƒƒã‚¯
   //------------------------------
   function renderCanvas {
     asyncCaller.callOnce(this.doRenderCanvas);
   }
 
   //------------------------------
-  // ƒLƒƒƒ“ƒoƒX‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚ðŽÀs
+  // ã‚­ãƒ£ãƒ³ãƒã‚¹ã®ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚’å®Ÿè¡Œ
   //------------------------------
   function doRenderCanvas {
     canvas.beforeRender();
@@ -951,7 +951,7 @@ class TimeLineSample extends KWindow
   }
 
   //------------------------------
-  // Ä¶E’âŽ~E‘‘—‚èƒ{ƒ^ƒ“‚ðƒnƒ“ƒhƒŠƒ“ƒO
+  // å†ç”Ÿãƒ»åœæ­¢ãƒ»æ—©é€ã‚Šãƒœã‚¿ãƒ³ã‚’ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°
   //------------------------------
   function onChildValueModified(child, value) {
     switch (child.name) {
@@ -962,14 +962,14 @@ class TimeLineSample extends KWindow
   }
 
   //------------------------------
-  // Šª‚«–ß‚µˆ—
+  // å·»ãæˆ»ã—å‡¦ç†
   //------------------------------
   function onRewindPress {
     timelineControl.selectedTime = 0;
   }
 
   //------------------------------
-  // Ä¶ŠJŽnˆ—
+  // å†ç”Ÿé–‹å§‹å‡¦ç†
   //------------------------------
   function onPlayPress {
     if (timelineControl.selectedTime >= timelineControl.lastTime) 
@@ -978,39 +978,39 @@ class TimeLineSample extends KWindow
   }
 
   //------------------------------
-  // Ä¶’âŽ~ˆ—
+  // å†ç”Ÿåœæ­¢å‡¦ç†
   //------------------------------
   function onStopPress {
     timelineControl.stop();
   }
 
   //------------------------------
-  // ƒ^ƒCƒ€ƒƒP[ƒ^[‰EƒNƒŠƒbƒNŽž‚ÌƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[
+  // ã‚¿ã‚¤ãƒ ãƒ­ã‚±ãƒ¼ã‚¿ãƒ¼å³ã‚¯ãƒªãƒƒã‚¯æ™‚ã®ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼
   //------------------------------
   function onTimeLocatorRightClick(time) {
     var menu = new KContextMenu();
-    menu.addItem("ƒtƒŒ[ƒ€ƒcƒŠ[‚ðƒRƒs[‚·‚é", "", true, funccall(this.onCopyFrameTree, time));
+    menu.addItem("ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ„ãƒªãƒ¼ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹", "", true, funccall(this.onCopyFrameTree, time));
     var canPaste = Clipboard.hasFormat(cbfTJS) && Clipboard.asTJS.type == TYPE_FRAME_TREE && equalStruct(Clipboard.asTJS.body.structure, rootItem.buildTreeStructure());
-    menu.addItem("ƒtƒŒ[ƒ€ƒcƒŠ[‚ðƒy[ƒXƒg‚·‚é", "", canPaste, canPaste ? funccall(this.onPasteFrameTree, time, Clipboard.asTJS.body.contents) : void);
+    menu.addItem("ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ„ãƒªãƒ¼ã‚’ãƒšãƒ¼ã‚¹ãƒˆã™ã‚‹", "", canPaste, canPaste ? funccall(this.onPasteFrameTree, time, Clipboard.asTJS.body.contents) : void);
     menu.show();
   }
 
   //------------------------------
-  // ‚±‚ÌŽžŠÔ‚ÌƒtƒŒ[ƒ€\‘¢‚ð‚Ü‚Æ‚ß‚ÄƒRƒs[
+  // ã“ã®æ™‚é–“ã®ãƒ•ãƒ¬ãƒ¼ãƒ æ§‹é€ ã‚’ã¾ã¨ã‚ã¦ã‚³ãƒ”ãƒ¼
   //------------------------------
   function onCopyFrameTree(time, onlySelected = false) {
     Clipboard.asTJS = %[ type: TYPE_FRAME_TREE, body: %[ structure: rootItem.buildTreeStructure(), contents: rootItem.buildContentTree(time, onlySelected) ] ];
   }
 
   //------------------------------
-  // ƒNƒŠƒbƒvƒ{[ƒh‚Ì“à—e‚ðƒy[ƒXƒg
+  // ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã®å†…å®¹ã‚’ãƒšãƒ¼ã‚¹ãƒˆ
   //------------------------------
   function onPasteFrameTree(time, data) {
     rootItem.restoreContentTree(time, data);
   }
 
   //------------------------------
-  // ƒŒƒCƒ„[”ÍˆÍƒRƒs[‰Â”\
+  // ãƒ¬ã‚¤ãƒ¤ãƒ¼ç¯„å›²ã‚³ãƒ”ãƒ¼å¯èƒ½
   //------------------------------
   property isLayerRangeAvailableToCopy {
     getter {
@@ -1020,7 +1020,7 @@ class TimeLineSample extends KWindow
   }
 
   //------------------------------
-  // ƒŒƒCƒ„[”ÍˆÍƒy[ƒXƒg‰Â”\
+  // ãƒ¬ã‚¤ãƒ¤ãƒ¼ç¯„å›²ãƒšãƒ¼ã‚¹ãƒˆå¯èƒ½
   //------------------------------
   property isLayerRangeAvailableToPaste {
     getter {
@@ -1031,14 +1031,14 @@ class TimeLineSample extends KWindow
   }
 
   //------------------------------
-  // ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒZƒŒƒNƒVƒ‡ƒ“‰EƒNƒŠƒbƒNŽž‚ÌƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[
+  // ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚»ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å³ã‚¯ãƒªãƒƒã‚¯æ™‚ã®ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼
   //------------------------------
   function onTimeLineSelectionRightClick {
     var menu = new KContextMenu();
-    menu.addItem("‘S‘I‘ð", "selectAllItem", true, onSelectAll);
-    menu.addItem("ƒRƒs[‚·‚é",   "copyLayerRangeItem", isLayerRangeAvailableToCopy, funccall(this.onCopyLayerRange));
-    menu.addItem("ƒJƒbƒg‚·‚é",   "cutLayerRangeItem",  isLayerRangeAvailableToCopy, funccall(this.onCutLayerRange));
-    menu.addItem("ƒy[ƒXƒg‚·‚é", "pasteLayerRangeItem", isLayerRangeAvailableToPaste, funccall(this.onPasteLayerRange));
+    menu.addItem("å…¨é¸æŠž", "selectAllItem", true, onSelectAll);
+    menu.addItem("ã‚³ãƒ”ãƒ¼ã™ã‚‹",   "copyLayerRangeItem", isLayerRangeAvailableToCopy, funccall(this.onCopyLayerRange));
+    menu.addItem("ã‚«ãƒƒãƒˆã™ã‚‹",   "cutLayerRangeItem",  isLayerRangeAvailableToCopy, funccall(this.onCutLayerRange));
+    menu.addItem("ãƒšãƒ¼ã‚¹ãƒˆã™ã‚‹", "pasteLayerRangeItem", isLayerRangeAvailableToPaste, funccall(this.onPasteLayerRange));
     menu.selectAllItem.shortcut = "Ctrl+A";
     menu.copyLayerRangeItem.shortcut = "Ctrl+C";
     menu.cutLayerRangeItem.shortcut = "Ctrl+X";
@@ -1047,7 +1047,7 @@ class TimeLineSample extends KWindow
   }
 
   //------------------------------
-  // ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒZƒŒƒNƒVƒ‡ƒ“ƒL[ˆ—
+  // ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚»ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚­ãƒ¼å‡¦ç†
   //------------------------------
   function onTimeLineSelectionKeyDown(key, shift) {
     if (key == VK_A && shift == ssCtrl)
@@ -1068,7 +1068,7 @@ class TimeLineSample extends KWindow
   }
 
   //------------------------------
-  // ƒŒƒCƒ„”ÍˆÍ‚ðƒRƒs[
+  // ãƒ¬ã‚¤ãƒ¤ç¯„å›²ã‚’ã‚³ãƒ”ãƒ¼
   //------------------------------
   function onCopyLayerRange {
     var body = [];
@@ -1082,7 +1082,7 @@ class TimeLineSample extends KWindow
   }
 
   //------------------------------
-  // ƒŒƒCƒ„”ÍˆÍ‚ðƒJƒbƒg
+  // ãƒ¬ã‚¤ãƒ¤ç¯„å›²ã‚’ã‚«ãƒƒãƒˆ
   //------------------------------
   function onCutLayerRange {
     var body = [];
@@ -1096,7 +1096,7 @@ class TimeLineSample extends KWindow
   }
 
   //------------------------------
-  // ƒŒƒCƒ„”ÍˆÍ‚ðƒy[ƒXƒg
+  // ãƒ¬ã‚¤ãƒ¤ç¯„å›²ã‚’ãƒšãƒ¼ã‚¹ãƒˆ
   //------------------------------
   function onPasteLayerRange {
     var body = Clipboard.asTJS.body;
@@ -1110,7 +1110,7 @@ class TimeLineSample extends KWindow
 };
 
 //----------------------------------------------------------------------
-// ƒTƒ“ƒvƒ‹•\Ž¦E”ñ•\Ž¦‚ÌØ‚è‘Ö‚¦
+// ã‚µãƒ³ãƒ—ãƒ«è¡¨ç¤ºãƒ»éžè¡¨ç¤ºã®åˆ‡ã‚Šæ›¿ãˆ
 global.timelineSample = void;
 
 function showTimeLineSample

@@ -53,7 +53,7 @@ namespace scene
 		static const s32 VERSION_4_1;
 
 		Header(){ clear(); }
-		virtual ~Header(){ clear(); }
+		virtual ‾Header(){ clear(); }
 
 		s32 getVersion() const{ return version; }
 		void clear(){ version = 0; }
@@ -73,7 +73,7 @@ namespace scene
 	public:
 
 		Group(){ clear(); }
-		virtual ~Group(){ clear(); }
+		virtual ‾Group(){ clear(); }
 
 		void clear();
 		void load(BinaryFileReader* pReader);
@@ -100,7 +100,7 @@ namespace scene
 	public:
 
 		VisGroup(){ clear(); }
-		virtual ~VisGroup(){ clear(); }
+		virtual ‾VisGroup(){ clear(); }
 		void clear();
 		void load(BinaryFileReader* pReader);
 
@@ -124,7 +124,7 @@ namespace scene
 	public:
 
 		LightMap() : pixelData(0){ clear(); }
-		virtual ~LightMap(){ clear(); }
+		virtual ‾LightMap(){ clear(); }
 		void clear();
 		void load(BinaryFileReader* pReader);
 		s32 getWidth() const{ return width; }
@@ -155,7 +155,7 @@ namespace scene
 	public:
 
 		Vertex(){ clear(); }
-		virtual ~Vertex(){ clear(); }
+		virtual ‾Vertex(){ clear(); }
 		void clear();
 		void load(BinaryFileReader* pReader);
 
@@ -180,7 +180,7 @@ namespace scene
 	public:
 
 		Surface() { clear(); }
-		virtual ~Surface(){ clear(); }
+		virtual ‾Surface(){ clear(); }
 
 		void clear();
 		void load(BinaryFileReader *pReader);
@@ -216,7 +216,7 @@ namespace scene
 	public:
 
 		Mesh(){ clear(); }
-		virtual ~Mesh(){ clear(); }
+		virtual ‾Mesh(){ clear(); }
 
 		void clear();
 		void load(BinaryFileReader* pReader, bool bReadVisGroups);
@@ -247,7 +247,7 @@ namespace scene
 	public:
 
 		Entity() { clear(); }
-		virtual ~Entity() { clear(); }
+		virtual ‾Entity() { clear(); }
 
 		void clear();
 		void load(BinaryFileReader* pReader);
@@ -270,7 +270,7 @@ namespace scene
 	public:
 
 		CameraData(){ clear(); }
-		virtual ~CameraData(){ clear(); }
+		virtual ‾CameraData(){ clear(); }
 
 		void clear();
 		void load(BinaryFileReader* pReader);
@@ -294,7 +294,7 @@ namespace scene
 	public:
 
 		CSMFile(){ clear(); }
-		virtual ~CSMFile(){ clear(); }
+		virtual ‾CSMFile(){ clear(); }
 		void clear();
 		void load(BinaryFileReader* pReader);
 
@@ -337,7 +337,7 @@ namespace scene
 	public:
 
 		BinaryFileReader(io::IReadFile* pFile, bool closeWhenDone=true);
-		virtual ~BinaryFileReader();
+		virtual ‾BinaryFileReader();
 
 		virtual s32 readBuffer(void* buffer, s32 len);
 
@@ -362,7 +362,7 @@ namespace scene
 	{
 	}
 
-	CCSMLoader::~CCSMLoader()
+	CCSMLoader::‾CCSMLoader()
 	{
 	}
 
@@ -804,7 +804,7 @@ namespace scene
 	{
 	}
 
-	BinaryFileReader::~BinaryFileReader()
+	BinaryFileReader::‾BinaryFileReader()
 	{
 		if(autoClose && file)
 		{

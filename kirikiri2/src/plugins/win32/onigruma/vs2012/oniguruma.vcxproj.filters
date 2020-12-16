@@ -6,10 +6,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\tp_stub.cpp" />
-    <ClCompile Include="..\..\00_simplebinder\v2link.cpp">
+    <ClCompile Include="..¥..¥tp_stub.cpp" />
+    <ClCompile Include="..¥..¥00_simplebinder¥v2link.cpp">
       <Filter>00_simplebinder</Filter>
     </ClCompile>
-    <ClCompile Include="..\Main.cpp" />
+    <ClCompile Include="..¥Main.cpp" />
   </ItemGroup>
 </Project>

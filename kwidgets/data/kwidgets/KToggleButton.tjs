@@ -4,54 +4,54 @@
 
 
 /**----------------------------------------------------------------------
- * ƒgƒOƒ‹ƒ{ƒ^ƒ“
+ * ãƒˆã‚°ãƒ«ãƒœã‚¿ãƒ³
  ----------------------------------------------------------------------*/
 class KToggleButton extends KValueWidget
 {
-  // ƒ‰ƒxƒ‹ƒEƒBƒWƒFƒbƒg
+  // ãƒ©ãƒ™ãƒ«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
   var child;
-  // ƒ{ƒ^ƒ“ƒCƒ[ƒW•`‰æ—p‚Ìƒx[ƒXƒŒƒCƒ„
+  // ãƒœã‚¿ãƒ³ã‚¤ãƒ¡ãƒ¼ã‚¸æç”»ç”¨ã®ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
   var baseLayer;
-  // ’l
+  // å€¤
   var _value;
 
   /*------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param labelWidget ƒ{ƒ^ƒ“‚Ì^‚ñ’†‚É•\¦‚·‚éƒ‰ƒxƒ‹ƒEƒBƒWƒFƒbƒg
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param labelWidget ãƒœã‚¿ãƒ³ã®çœŸã‚“ä¸­ã«è¡¨ç¤ºã™ã‚‹ãƒ©ãƒ™ãƒ«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param name åå‰
    ------------------------------*/
   function KToggleButton(win, labelWidget, name) {
     // super
     super.KWidget(win, name);
 
-    // ƒx[ƒXƒŒƒCƒ„‚ğƒZƒbƒgƒAƒb‚¤
+    // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤ã‚’ã‚»ãƒƒãƒˆã‚¢ãƒƒã†
     baseLayer = new global.KWidget(win);
     baseLayer.parent = this;
     baseLayer.hitThreshold = 256;
 
-    // child‚ğƒZƒbƒgƒAƒbƒv
+    // childã‚’ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—
     child = labelWidget;
     child.parent = this;
     child.hitThreshold = 256;
 
-    // ƒfƒtƒHƒ‹ƒgƒtƒH[ƒJƒX
+    // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹
     focusable = win.defaultFocusable;
 
-    // •Ó‚è”»’èƒI[ƒ‹ó‚¯‚Â‚¯
+    // è¾ºã‚Šåˆ¤å®šã‚ªãƒ¼ãƒ«å—ã‘ã¤ã‘
     hitThreshold = 0;
 
-    // ©•ª©g‚ÍƒCƒ[ƒW‚½‚¸
+    // è‡ªåˆ†è‡ªèº«ã¯ã‚¤ãƒ¡ãƒ¼ã‚¸æŒãŸãš
     hasImage = false;
-    // ’l‚Ífalse‚©‚ç
+    // å€¤ã¯falseã‹ã‚‰
     _value = false;
 
-    // ƒŒƒCƒAƒEƒgÄİ’è
+    // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆå†è¨­å®š
     invalidateLayout();
   }
 
-  // ƒŒƒCƒAƒEƒg‚ğ‚â‚è’¼‚·
+  // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ã‚„ã‚Šç›´ã™
   function invalidateLayout {
     setMinMaxSize(child.minWidth + child.marginHorizontal + 2,
                   child.minHeight + child.marginVertical + 2,
@@ -60,31 +60,31 @@ class KToggleButton extends KValueWidget
     drawContent();
   }
 
-  // “à—e‚ğ•`‰æ‚·‚é
+  // å†…å®¹ã‚’æç”»ã™ã‚‹
   function drawContent {
     if (! _value) {
-      // ƒx[ƒXƒŒƒCƒ„‚É•‚‚«o‚µ‚½˜g‚ğ•`‰æ
+      // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤ã«æµ®ãå‡ºã—ãŸæ ã‚’æç”»
       baseLayer.setFixedSize(width, height);
       baseLayer.fillRect(0, 0, width, height, focused ? WIN_HIGHLIGHT : 0);
       baseLayer.drawRaisedFrame(1, 1, width - 2, height - 2);
-      // qƒŒƒCƒ„‚ÌƒTƒCƒYEˆÊ’u‚ğÄİ’è
+      // å­ãƒ¬ã‚¤ãƒ¤ã®ã‚µã‚¤ã‚ºãƒ»ä½ç½®ã‚’å†è¨­å®š
       child.setSize(width - 2 - child.marginHorizontal, height - 2 - child.marginVertical);
       locateChild(1, 1, width - 2, height - 2, child);
     } else {
-      // ƒx[ƒXƒŒƒCƒ„‚É‚Ğ‚Á‚±‚ñ‚¾˜g‚ğ•`‰æ
+      // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤ã«ã²ã£ã“ã‚“ã æ ã‚’æç”»
       baseLayer.setFixedSize(width, height);
       baseLayer.fillRect(0, 0, width, height, focused ? WIN_HIGHLIGHT : 0);
       baseLayer.drawSunkenFrame(1, 1, width - 2, height - 2);
-      // qƒŒƒCƒ„‚ÌƒTƒCƒYEˆÊ’u‚ğÄİ’è
+      // å­ãƒ¬ã‚¤ãƒ¤ã®ã‚µã‚¤ã‚ºãƒ»ä½ç½®ã‚’å†è¨­å®š
       child.setSize(width - 2 - child.marginHorizontal, height - 2 - child.marginVertical);
       locateChild(2, 2, width - 2, height - 2, child);
     }
   }  
 
   /*------------------------------
-   * ƒ}ƒEƒXƒ{ƒ^ƒ“‚É”½‰‚·‚é
+   * ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ã«åå¿œã™ã‚‹
    *
-   * ƒ}ƒEƒXƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ä’l‚ª•Ï‚í‚é‚ÆA onValueModified ‚ªŒÄ‚Î‚ê‚Ü‚·
+   * ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦å€¤ãŒå¤‰ã‚ã‚‹ã¨ã€ onValueModified ãŒå‘¼ã°ã‚Œã¾ã™
    ------------------------------*/
   function onClick {
     focus();
@@ -97,9 +97,9 @@ class KToggleButton extends KValueWidget
   }
 
   /*------------------------------
-   * ƒL[ƒ{[ƒh‚É”½‰‚·‚é
+   * ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã«åå¿œã™ã‚‹
    *
-   * ƒL[ƒ{[ƒh‚ğ‰Ÿ‚µ‚Ä’l‚ª•Ï‚í‚é‚ÆA onValueModified ‚ªŒÄ‚Î‚ê‚Ü‚·
+   * ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã‚’æŠ¼ã—ã¦å€¤ãŒå¤‰ã‚ã‚‹ã¨ã€ onValueModified ãŒå‘¼ã°ã‚Œã¾ã™
    ------------------------------*/
   function onKeyDown(key, shift) {
     if (key == VK_SPACE || key == VK_RETURN) {
@@ -111,78 +111,78 @@ class KToggleButton extends KValueWidget
   }
 
   /*------------------------------
-   * ’l‚ğİ’è‚·‚é
+   * å€¤ã‚’è¨­å®šã™ã‚‹
    *
-   * @param v ’l
-   * @return ’l
+   * @param v å€¤
+   * @return å€¤
    ------------------------------*/
   property value {
     getter {
       return _value;
     }
     setter(v) {
-      // •ÏX‚ª‚ ‚Á‚½ê‡‚Ì‚İXV‚ğ‚·‚é
+      // å¤‰æ›´ãŒã‚ã£ãŸå ´åˆã®ã¿æ›´æ–°ã‚’ã™ã‚‹
       if (_value == v)
         return;
-      // ’l‚ğXV
+      // å€¤ã‚’æ›´æ–°
       _value = v;
-      // Ä•`‰æ
+      // å†æç”»
       drawContent();
     }
   }
 
-  // q‚ÌÅ¬Å‘åƒTƒCƒY‚ª•Ï‚í‚Á‚½‚çƒŒƒCƒAƒEƒg‚â‚è’¼‚µ
+  // å­ã®æœ€å°æœ€å¤§ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã£ãŸã‚‰ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚„ã‚Šç›´ã—
   function onChildMinMaxSizeModified(child) {
     if (child == baseLayer)
       return;
     invalidateLayout();
   }
 
-  // q‚Ìƒ}[ƒWƒ“‚ª•Ï‚í‚Á‚½‚çƒŒƒCƒAƒEƒg‚â‚è’¼‚µ
+  // å­ã®ãƒãƒ¼ã‚¸ãƒ³ãŒå¤‰ã‚ã£ãŸã‚‰ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚„ã‚Šç›´ã—
   function onChildMarginModified {
     invalidateLayout();
   }
 
-  // ƒTƒCƒY‚ª•Ï‚í‚Á‚½‚çÄ•`‰æ
+  // ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã£ãŸã‚‰å†æç”»
   function onSizeModified {
     drawContent();
   }
 
-  // ƒtƒH[ƒJƒX‚³‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã•ã‚ŒãŸã‚‰å†æç”»
   function onFocus {
     drawContent();
   }
 
-  // ƒtƒH[ƒJƒX‚ªŠO‚ê‚½‚çÄ•`‰æ
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒå¤–ã‚ŒãŸã‚‰å†æç”»
   function onBlur {
     drawContent();
   }
   
-  // enabled==true‚È‚ç‚»‚Ì‚Ü‚Ü•\¦
+  // enabled==trueãªã‚‰ãã®ã¾ã¾è¡¨ç¤º
   function onNodeEnabled {
     baseLayer.opacity = 255;
   } 
 
-  // enabled=false‚È‚ç”¼“§–¾‚Å•\¦
+  // enabled=falseãªã‚‰åŠé€æ˜ã§è¡¨ç¤º
   function onNodeDisabled {
     baseLayer.opacity = 64;
   }
 }  
 
 /*----------------------------------------------------------------------
- * ƒeƒLƒXƒgƒgƒOƒ‹ƒ{ƒ^ƒ“
+ * ãƒ†ã‚­ã‚¹ãƒˆãƒˆã‚°ãƒ«ãƒœã‚¿ãƒ³
  *
- * ƒeƒLƒXƒg‚ğƒ‰ƒxƒ‹‚É‚Á‚½ƒgƒOƒ‹ƒ{ƒ^ƒ“B
- * “à•”“I‚É KTextLabel ‚ğƒ‰ƒxƒ‹‚Æ‚µ‚Ä•Û‚µ‚Ä‚¢‚Ü‚·B
+ * ãƒ†ã‚­ã‚¹ãƒˆã‚’ãƒ©ãƒ™ãƒ«ã«æŒã£ãŸãƒˆã‚°ãƒ«ãƒœã‚¿ãƒ³ã€‚
+ * å†…éƒ¨çš„ã« KTextLabel ã‚’ãƒ©ãƒ™ãƒ«ã¨ã—ã¦ä¿æŒã—ã¦ã„ã¾ã™ã€‚
  ----------------------------------------------------------------------*/
 class KTextToggleButton extends KToggleButton
 {
   /*------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param label ƒ‰ƒxƒ‹
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param label ãƒ©ãƒ™ãƒ«
+   * @param name åå‰
    ------------------------------*/
    function KTextToggleButton(win, label, name) {
     var labelWidget = new KTextLabel(win, label);
@@ -191,10 +191,10 @@ class KTextToggleButton extends KToggleButton
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹‚Ì’l
+   * ãƒ©ãƒ™ãƒ«ã®å€¤
    *
-   * @return ƒ‰ƒxƒ‹‚Ì’l
-   * @param v V‹K‚Ìƒ‰ƒxƒ‹‚Ì’l
+   * @return ãƒ©ãƒ™ãƒ«ã®å€¤
+   * @param v æ–°è¦ã®ãƒ©ãƒ™ãƒ«ã®å€¤
    ------------------------------*/
   property label {
     getter {
@@ -207,19 +207,19 @@ class KTextToggleButton extends KToggleButton
 }
 
 /*----------------------------------------------------------------------
- * ƒCƒ[ƒWƒ{ƒ^ƒ“
+ * ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒœã‚¿ãƒ³
  *
- * ƒCƒ[ƒW‚ğƒ‰ƒxƒ‹‚É‚Á‚½ƒ{ƒ^ƒ“B
- * “à•”“I‚É KImageLabel ‚ğƒ‰ƒxƒ‹‚Æ‚µ‚Ä•Û‚µ‚Ä‚¢‚Ü‚·B
+ * ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ãƒ©ãƒ™ãƒ«ã«æŒã£ãŸãƒœã‚¿ãƒ³ã€‚
+ * å†…éƒ¨çš„ã« KImageLabel ã‚’ãƒ©ãƒ™ãƒ«ã¨ã—ã¦ä¿æŒã—ã¦ã„ã¾ã™ã€‚
  ----------------------------------------------------------------------*/
 class KImageToggleButton extends KToggleButton
 {
   /*------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param label ƒCƒ[ƒWƒtƒ@ƒCƒ‹–¼
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param label ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«å
+   * @param name åå‰
    ------------------------------*/
   function KImageToggleButton(win, label, name) {
     var labelWidget = new KImageLabel(win, label);
@@ -228,10 +228,10 @@ class KImageToggleButton extends KToggleButton
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹‚Ì’l
+   * ãƒ©ãƒ™ãƒ«ã®å€¤
    *
-   * @return ƒ‰ƒxƒ‹‚Ì’l
-   * @param v V‹K‚Ìƒ‰ƒxƒ‹‚Ì’l
+   * @return ãƒ©ãƒ™ãƒ«ã®å€¤
+   * @param v æ–°è¦ã®ãƒ©ãƒ™ãƒ«ã®å€¤
    ------------------------------*/
   property label {
     getter {

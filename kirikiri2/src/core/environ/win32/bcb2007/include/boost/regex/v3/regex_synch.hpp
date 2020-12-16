@@ -119,7 +119,7 @@ public:
    lock_guard(lock_type& m, bool aq = true)
       : mut(m), owned(false){ acquire(aq); }
 
-   ~lock_guard()
+   ‾lock_guard()
    { acquire(false); }
 
    void BOOST_REGEX_CALL acquire(bool aq = true)
@@ -155,7 +155,7 @@ public:
    const critical_section& BOOST_REGEX_CALL operator=(const critical_section&)
    {return *this;}
 
-   ~critical_section()
+   ‾critical_section()
    {DeleteCriticalSection(&hmutex);}
 
 private:

@@ -35,14 +35,14 @@ typedef sqvector<ExpState> ExpStateVec;
 
 #define _exst (_expstates.top())
 
-#define BEGIN_BREAKBLE_BLOCK()	SQInteger __nbreaks__=_fs->_unresolvedbreaks.size(); \
-							SQInteger __ncontinues__=_fs->_unresolvedcontinues.size(); \
+#define BEGIN_BREAKBLE_BLOCK()	SQInteger __nbreaks__=_fs->_unresolvedbreaks.size(); ¥
+							SQInteger __ncontinues__=_fs->_unresolvedcontinues.size(); ¥
 							_fs->_breaktargets.push_back(0);_fs->_continuetargets.push_back(0);
 
-#define END_BREAKBLE_BLOCK(continue_target) {__nbreaks__=_fs->_unresolvedbreaks.size()-__nbreaks__; \
-					__ncontinues__=_fs->_unresolvedcontinues.size()-__ncontinues__; \
-					if(__ncontinues__>0)ResolveContinues(_fs,__ncontinues__,continue_target); \
-					if(__nbreaks__>0)ResolveBreaks(_fs,__nbreaks__); \
+#define END_BREAKBLE_BLOCK(continue_target) {__nbreaks__=_fs->_unresolvedbreaks.size()-__nbreaks__; ¥
+					__ncontinues__=_fs->_unresolvedcontinues.size()-__ncontinues__; ¥
+					if(__ncontinues__>0)ResolveContinues(_fs,__ncontinues__,continue_target); ¥
+					if(__nbreaks__>0)ResolveBreaks(_fs,__nbreaks__); ¥
 					_fs->_breaktargets.pop_back();_fs->_continuetargets.pop_back();}
 
 class SQCompiler
@@ -138,7 +138,7 @@ public:
 		Lex();
 		return ret;
 	}
-	bool IsEndOfStatement() { return ((_lex._prevtoken == _SC('\n')) || (_token == SQUIRREL_EOB) || (_token == _SC('}')) || (_token == _SC(';'))); }
+	bool IsEndOfStatement() { return ((_lex._prevtoken == _SC('¥n')) || (_token == SQUIRREL_EOB) || (_token == _SC('}')) || (_token == _SC(';'))); }
 	void OptionalSemicolon()
 	{
 		if(_token == _SC(';')) { Lex(); return; }
@@ -547,7 +547,7 @@ public:
 				}
 				break;
 			case _SC('['):
-				if(_lex._prevtoken == _SC('\n')) Error(_SC("cannot brake deref/or comma needed after [exp]=exp slot declaration"));
+				if(_lex._prevtoken == _SC('¥n')) Error(_SC("cannot brake deref/or comma needed after [exp]=exp slot declaration"));
 				Lex(); Expression(); Expect(_SC(']')); 
 				pos = -1;
 				if(NeedGet()) Emit2ArgsOP(_OP_GET);
@@ -647,7 +647,7 @@ public:
 						}
 						_exst._deref = _fs->PushTarget();
 						SQObjectType ctype = type(constval);
-						if(ctype == OT_INTEGER && (_integer(constval) & (~0x7FFFFFFF)) == 0) {
+						if(ctype == OT_INTEGER && (_integer(constval) & (‾0x7FFFFFFF)) == 0) {
 							_fs->AddInstruction(_OP_LOADINT, _exst._deref,_integer(constval));
 						}
 						else if(ctype == OT_FLOAT && sizeof(SQFloat) == sizeof(SQInt32)) {
@@ -687,7 +687,7 @@ public:
 			Lex();
 			break;
 		case TK_INTEGER: {
-			if((_lex._nvalue & (~0x7FFFFFFF)) == 0) { //does it fit in 32 bits?
+			if((_lex._nvalue & (‾0x7FFFFFFF)) == 0) { //does it fit in 32 bits?
 				_fs->AddInstruction(_OP_LOADINT, _fs->PushTarget(),_lex._nvalue);
 			}
 			else {
@@ -734,7 +734,7 @@ public:
 		case TK_CLASS: Lex(); ClassExp();break;
 		case _SC('-'): UnaryOP(_OP_NEG); break;
 		case _SC('!'): UnaryOP(_OP_NOT); break;
-		case _SC('~'): UnaryOP(_OP_BWNOT); break;
+		case _SC('‾'): UnaryOP(_OP_BWNOT); break;
 		case TK_TYPEOF : UnaryOP(_OP_TYPEOF); break;
 		case TK_RESUME : UnaryOP(_OP_RESUME); break;
 		case TK_CLONE : UnaryOP(_OP_CLONE); break;
@@ -1311,7 +1311,7 @@ public:
 		SQFuncState *currchunk = _fs;
 		_fs = funcstate;
 		Statement();
-		funcstate->AddLineInfos(_lex._prevtoken == _SC('\n')?_lex._lasttokenline:_lex._currentline, _lineinfo, true);
+		funcstate->AddLineInfos(_lex._prevtoken == _SC('¥n')?_lex._lasttokenline:_lex._currentline, _lineinfo, true);
         funcstate->AddInstruction(_OP_RETURN, -1);
 		funcstate->SetStackSize(0);
 		//_fs->->_stacksize = _fs->_stacksize;

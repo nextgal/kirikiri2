@@ -15,10 +15,10 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\..\..\..\..\bin\win32"
-			IntermediateDirectory=".\Release"
+			OutputDirectory=".¥..¥..¥..¥..¥..¥bin¥win32"
+			IntermediateDirectory=".¥Release"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults¥UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="2"
@@ -41,7 +41,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\..\..\..\..\..\bin\win32/krmovie.tlb"
+				TypeLibraryName=".¥..¥..¥..¥..¥..¥bin¥win32/krmovie.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -51,16 +51,16 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="true"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft SDKs\Windows\v6.0\Samples\Multimedia\DirectShow\BaseClasses&quot;;..\;..\..\..\..\plugins\win32;&quot;C:\WMSDK\WMFSDK9\include&quot;;"
+				AdditionalIncludeDirectories="&quot;C:¥Program Files¥Microsoft SDKs¥Windows¥v6.0¥Samples¥Multimedia¥DirectShow¥BaseClasses&quot;;..¥;..¥..¥..¥..¥plugins¥win32;&quot;C:¥WMSDK¥WMFSDK9¥include&quot;;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;KRMOVIE_EXPORTS;_WIN32_WINNT=0x0400;WINVER=0x0500;NO_DSHOW_STRSAFE"
 				StringPooling="true"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
 				EnableEnhancedInstructionSet="0"
-				PrecompiledHeaderFile=".\Release/krmovie.pch"
-				AssemblerListingLocation=".\Release/"
-				ObjectFile=".\Release/"
-				ProgramDataBaseFileName=".\Release/"
+				PrecompiledHeaderFile=".¥Release/krmovie.pch"
+				AssemblerListingLocation=".¥Release/"
+				ObjectFile=".¥Release/"
+				ProgramDataBaseFileName=".¥Release/"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				CallingConvention="2"
@@ -79,17 +79,17 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/COMMENT:&quot;(--has-option--)&quot;"
-				AdditionalDependencies="odbc32.lib odbccp32.lib version.lib winmm.lib strmiids.lib quartz.lib &quot;C:\Program Files\Microsoft SDKs\Windows\v6.0\Samples\Multimedia\DirectShow\BaseClasses\Release_MBCS\strmbase.lib&quot; dmoguids.lib"
-				OutputFile=".\..\..\..\..\..\bin\win32/krmovie.dll"
+				AdditionalDependencies="odbc32.lib odbccp32.lib version.lib winmm.lib strmiids.lib quartz.lib &quot;C:¥Program Files¥Microsoft SDKs¥Windows¥v6.0¥Samples¥Multimedia¥DirectShow¥BaseClasses¥Release_MBCS¥strmbase.lib&quot; dmoguids.lib"
+				OutputFile=".¥..¥..¥..¥..¥..¥bin¥win32/krmovie.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
 				IgnoreDefaultLibraryNames=""
-				ModuleDefinitionFile=".\krmovie.def"
-				ProgramDatabaseFile=".\..\..\..\..\..\bin\win32/krmovie.pdb"
+				ModuleDefinitionFile=".¥krmovie.def"
+				ProgramDatabaseFile=".¥..¥..¥..¥..¥..¥bin¥win32/krmovie.pdb"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				BaseAddress="0x62000000"
-				ImportLibrary=".\..\..\..\..\..\bin\win32/krmovie.lib"
+				ImportLibrary=".¥..¥..¥..¥..¥..¥bin¥win32/krmovie.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -119,10 +119,10 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\..\..\..\..\..\bin\win32"
-			IntermediateDirectory=".\Debug"
+			OutputDirectory=".¥..¥..¥..¥..¥..¥bin¥win32"
+			IntermediateDirectory=".¥Debug"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults¥UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="2"
@@ -145,20 +145,20 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\..\..\..\..\..\bin\win32/krmovie.tlb"
+				TypeLibraryName=".¥..¥..¥..¥..¥..¥bin¥win32/krmovie.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft DirectX SDK (February 2007)\Samples\C++\DirectShow\BaseClasses&quot;;..\..\..\..\plugins\win32;&quot;C:\WMSDK\WMFSDK9\include&quot;;"
+				AdditionalIncludeDirectories="&quot;C:¥Program Files¥Microsoft DirectX SDK (February 2007)¥Samples¥C++¥DirectShow¥BaseClasses&quot;;..¥..¥..¥..¥plugins¥win32;&quot;C:¥WMSDK¥WMFSDK9¥include&quot;;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;KRMOVIE_EXPORTS;DEBUG;_WIN32_WINNT=0x400"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				PrecompiledHeaderFile=".\Debug/krmovie.pch"
-				AssemblerListingLocation=".\Debug/"
-				ObjectFile=".\Debug/"
-				ProgramDataBaseFileName=".\Debug/"
+				PrecompiledHeaderFile=".¥Debug/krmovie.pch"
+				AssemblerListingLocation=".¥Debug/"
+				ObjectFile=".¥Debug/"
+				ProgramDataBaseFileName=".¥Debug/"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="4"
@@ -178,16 +178,16 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/COMMENT:&quot;(--has-option--)&quot;"
-				AdditionalDependencies="odbc32.lib odbccp32.lib version.lib winmm.lib strmiids.lib quartz.lib &quot;C:\Program Files\Microsoft DirectX SDK (February 2007)\Samples\C++\DirectShow\BaseClasses\Debug\strmbasd.lib&quot; dmoguids.lib"
-				OutputFile=".\..\..\..\..\..\bin\win32/krmovie.dll"
+				AdditionalDependencies="odbc32.lib odbccp32.lib version.lib winmm.lib strmiids.lib quartz.lib &quot;C:¥Program Files¥Microsoft DirectX SDK (February 2007)¥Samples¥C++¥DirectShow¥BaseClasses¥Debug¥strmbasd.lib&quot; dmoguids.lib"
+				OutputFile=".¥..¥..¥..¥..¥..¥bin¥win32/krmovie.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
 				IgnoreDefaultLibraryNames=""
-				ModuleDefinitionFile=".\krmovie.def"
+				ModuleDefinitionFile=".¥krmovie.def"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile=".\..\..\..\..\..\bin\win32/krmovie.pdb"
+				ProgramDatabaseFile=".¥..¥..¥..¥..¥..¥bin¥win32/krmovie.pdb"
 				BaseAddress="0x62000000"
-				ImportLibrary=".\..\..\..\..\..\bin\win32/krmovie.lib"
+				ImportLibrary=".¥..¥..¥..¥..¥..¥bin¥win32/krmovie.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -270,75 +270,75 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\BufferRenderer.cpp"
+				RelativePath=".¥BufferRenderer.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\CDemuxOutputPin.cpp"
+				RelativePath=".¥CDemuxOutputPin.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\CDemuxSource.cpp"
+				RelativePath=".¥CDemuxSource.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\CMediaSeekingProxy.cpp"
+				RelativePath=".¥CMediaSeekingProxy.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\CVMRCustomAllocatorPresenter9.cpp"
+				RelativePath=".¥CVMRCustomAllocatorPresenter9.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\CWMAllocator.cpp"
+				RelativePath=".¥CWMAllocator.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\CWMBuffer.cpp"
+				RelativePath=".¥CWMBuffer.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\CWMReader.cpp"
+				RelativePath=".¥CWMReader.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\DShowException.cpp"
+				RelativePath=".¥DShowException.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\dslayerd.cpp"
+				RelativePath=".¥dslayerd.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\dsmixer.cpp"
+				RelativePath=".¥dsmixer.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\dsmovie.cpp"
+				RelativePath=".¥dsmovie.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\dsoverlay.cpp"
+				RelativePath=".¥dsoverlay.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\IBufferRenderer_i.c"
+				RelativePath=".¥IBufferRenderer_i.c"
 				>
 			</File>
 			<File
-				RelativePath=".\IRendererBufferAccess_i.c"
+				RelativePath=".¥IRendererBufferAccess_i.c"
 				>
 			</File>
 			<File
-				RelativePath=".\IRendererBufferVideo_i.c"
+				RelativePath=".¥IRendererBufferVideo_i.c"
 				>
 			</File>
 			<File
-				RelativePath=".\krlmovie.cpp"
+				RelativePath=".¥krlmovie.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\krmmovie.cpp"
+				RelativePath=".¥krmmovie.cpp"
 				>
 			</File>
 			<File
@@ -373,11 +373,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\StdAfx.cpp"
+				RelativePath=".¥StdAfx.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\plugins\win32\tp_stub.cpp"
+				RelativePath="..¥..¥..¥..¥plugins¥win32¥tp_stub.cpp"
 				>
 			</File>
 		</Filter>
@@ -394,95 +394,95 @@
 				>
 			</File>
 			<File
-				RelativePath=".\BufferRenderer.h"
+				RelativePath=".¥BufferRenderer.h"
 				>
 			</File>
 			<File
-				RelativePath=".\CDemuxOutputPin.h"
+				RelativePath=".¥CDemuxOutputPin.h"
 				>
 			</File>
 			<File
-				RelativePath=".\CDemuxSource.h"
+				RelativePath=".¥CDemuxSource.h"
 				>
 			</File>
 			<File
-				RelativePath=".\CDLLLoader.h"
+				RelativePath=".¥CDLLLoader.h"
 				>
 			</File>
 			<File
-				RelativePath=".\CIStream.h"
+				RelativePath=".¥CIStream.h"
 				>
 			</File>
 			<File
-				RelativePath=".\CMediaSeekingProxy.h"
+				RelativePath=".¥CMediaSeekingProxy.h"
 				>
 			</File>
 			<File
-				RelativePath=".\CVMRCustomAllocatorPresenter9.h"
+				RelativePath=".¥CVMRCustomAllocatorPresenter9.h"
 				>
 			</File>
 			<File
-				RelativePath=".\CWMAllocator.h"
+				RelativePath=".¥CWMAllocator.h"
 				>
 			</File>
 			<File
-				RelativePath=".\CWMBuffer.h"
+				RelativePath=".¥CWMBuffer.h"
 				>
 			</File>
 			<File
-				RelativePath=".\CWMReader.h"
+				RelativePath=".¥CWMReader.h"
 				>
 			</File>
 			<File
-				RelativePath=".\DShowException.h"
+				RelativePath=".¥DShowException.h"
 				>
 			</File>
 			<File
-				RelativePath=".\dslayerd.h"
+				RelativePath=".¥dslayerd.h"
 				>
 			</File>
 			<File
-				RelativePath=".\dsmixer.h"
+				RelativePath=".¥dsmixer.h"
 				>
 			</File>
 			<File
-				RelativePath=".\dsmovie.h"
+				RelativePath=".¥dsmovie.h"
 				>
 			</File>
 			<File
-				RelativePath=".\dsoverlay.h"
+				RelativePath=".¥dsoverlay.h"
 				>
 			</File>
 			<File
-				RelativePath=".\IBufferRenderer.h"
+				RelativePath=".¥IBufferRenderer.h"
 				>
 			</File>
 			<File
-				RelativePath=".\IDemuxReader.h"
+				RelativePath=".¥IDemuxReader.h"
 				>
 			</File>
 			<File
-				RelativePath=".\IRendererBufferAccess.h"
+				RelativePath=".¥IRendererBufferAccess.h"
 				>
 			</File>
 			<File
-				RelativePath=".\IRendererBufferVideo.h"
+				RelativePath=".¥IRendererBufferVideo.h"
 				>
 			</File>
 			<File
-				RelativePath=".\OptionInfo.h"
+				RelativePath=".¥OptionInfo.h"
 				>
 			</File>
 			<File
-				RelativePath=".\resource.h"
+				RelativePath=".¥resource.h"
 				>
 			</File>
 			<File
-				RelativePath=".\StdAfx.h"
+				RelativePath=".¥StdAfx.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\plugins\win32\tp_stub.h"
+				RelativePath="..¥..¥..¥..¥plugins¥win32¥tp_stub.h"
 				>
 			</File>
 		</Filter>

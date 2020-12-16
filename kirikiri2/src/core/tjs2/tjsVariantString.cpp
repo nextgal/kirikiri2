@@ -229,7 +229,7 @@ void TJSDumpStringHeap(void)
 					// using cell
 					tTJSNarrowStringHolder narrow(h[i].LongString?h[i].LongString:h[i].ShortString);
 
-					fprintf(f, "%s\n", (const char*)narrow);
+					fprintf(f, "%s¥n", (const char*)narrow);
 				}
 			}
 		}
@@ -670,7 +670,7 @@ class tTVPVariantStringHolder
 public:
 	tTVPVariantStringHolder()
 	{ String = TJSAllocVariantString(TJS_W("This is a dummy.")); }
-	~tTVPVariantStringHolder()
+	‾tTVPVariantStringHolder()
 	{ String->Release(); }
 } static TVPVariantStringHolder;
 //---------------------------------------------------------------------------
@@ -706,12 +706,12 @@ tTJSVariantString * TJSFormatString(const tjs_char *format, tjs_uint numparams,
 
 	tjs_uint in = 0;
 
-#define check_alloc \
-			if(s >= allocsize) \
-			{ \
-				ret->AppendBuffer(TJS_VS_FS_OUT_INC_SIZE); \
-				o = const_cast<tjs_char*>(ret->operator const tjs_char*()); \
-				allocsize += TJS_VS_FS_OUT_INC_SIZE; \
+#define check_alloc ¥
+			if(s >= allocsize) ¥
+			{ ¥
+				ret->AppendBuffer(TJS_VS_FS_OUT_INC_SIZE); ¥
+				o = const_cast<tjs_char*>(ret->operator const tjs_char*()); ¥
+				allocsize += TJS_VS_FS_OUT_INC_SIZE; ¥
 			}
 
 	for(;*f;)

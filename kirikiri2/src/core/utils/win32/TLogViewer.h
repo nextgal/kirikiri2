@@ -58,7 +58,7 @@ class TLogViewer : public TCustomControl
 public:
 	// constructor/destructor and initializers
 	__fastcall TLogViewer(TWinControl *owner);
-	__fastcall ~TLogViewer();
+	__fastcall ‾TLogViewer();
 
 	void __fastcall CreateParams(TCreateParams &params);
 

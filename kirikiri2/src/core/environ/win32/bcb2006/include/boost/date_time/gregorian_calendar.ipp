@@ -22,7 +22,7 @@ namespace date_time {
     unsigned short y = ymd.year - a;
     unsigned short m = ymd.month + 12*a - 2;
     unsigned short d = (ymd.day + y + (y/4) - (y/100) + (y/400) + (31*m)/12) % 7;
-    //std::cout << year << "-" << month << "-" << day << " is day: " << d << "\n";
+    //std::cout << year << "-" << month << "-" << day << " is day: " << d << "¥n";
     return d;
   }
 
@@ -120,7 +120,7 @@ namespace date_time {
     unsigned short day = e - ((153*m + 2)/5) + 1;
     unsigned short month = m + 3 - 12 * (m/10);
     date_int_type year = 100*b + d - 4800 + (m/10);
-    //std::cout << year << "-" << month << "-" << day << "\n";
+    //std::cout << year << "-" << month << "-" << day << "¥n";
 
     return ymd_type(year,month,day);
   }
@@ -140,7 +140,7 @@ namespace date_time {
     unsigned short day = e - ((153*m + 2)/5) + 1;
     unsigned short month = m + 3 - 12 * (m/10);
     date_int_type year = 100*b + d - 4800 + (m/10);
-    //std::cout << year << "-" << month << "-" << day << "\n";
+    //std::cout << year << "-" << month << "-" << day << "¥n";
     
     return ymd_type(year,month,day);
   }

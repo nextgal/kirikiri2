@@ -11,11 +11,11 @@
 
 #  define N BOOST_PP_ITERATION()
 
-#  define BOOST_PYTHON_MAKE_TUPLE_ARG(z, N, ignored)    \
-    PyTuple_SET_ITEM(                                   \
-        result.ptr()                                    \
-        , N                                             \
-        , python::incref(python::object(a##N).ptr())    \
+#  define BOOST_PYTHON_MAKE_TUPLE_ARG(z, N, ignored)    ¥
+    PyTuple_SET_ITEM(                                   ¥
+        result.ptr()                                    ¥
+        , N                                             ¥
+        , python::incref(python::object(a##N).ptr())    ¥
         );
 
     template <BOOST_PP_ENUM_PARAMS_Z(1, N, class A)>

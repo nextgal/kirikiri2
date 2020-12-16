@@ -23,7 +23,7 @@ namespace io
 		}
 
 		//! destructor
-		virtual ~CIrrXMLFileReadCallBack()
+		virtual ‾CIrrXMLFileReadCallBack()
 		{
 			ReadFile->drop();
 		}

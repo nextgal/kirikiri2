@@ -11,10 +11,10 @@
 @pimage layer=0 page=back storage=ch_a.png dx=160 dy=210 sx=0 sy=0 mode=lighten opacity=255
 @pimage layer=0 page=back storage=ball.png dx=160 dy=100 sx=32 sy=32 sw=32 sh=32
 @pimage layer=0 page=back storage=ball.png dx=200 dy=100 sx=32 sy=32 sw=32 sh=32 opacity=128
-@ptext x=0 y=0 layer=0 page=back text="ほげほげほげら" size=50 color=0xff0000 edge=true edgecolor=0x00ff00 angle=-200
-@ptext x=30 y=5 layer=0 page=back text="ほげほげほげら" vertical=true size=20
+@ptext x=0 y=0 layer=0 page=back text="縺ｻ縺偵⊇縺偵⊇縺偵ｉ" size=50 color=0xff0000 edge=true edgecolor=0x00ff00 angle=-200
+@ptext x=30 y=5 layer=0 page=back text="縺ｻ縺偵⊇縺偵⊇縺偵ｉ" vertical=true size=20
 @pimage layer=0 page=back storage=ball.png dx=3 dy=4 sx=32 sy=32 sw=32 sh=32 opacity=128
 @trans method=crossfade time=1000
 @wt
-*saveable|セーブ可能
+*saveable|繧ｻ繝ｼ繝門庄閭ｽ
 @s

@@ -132,8 +132,8 @@ unsigned start;         /* inflate()'s starting value for strm->avail_out */
         op = (unsigned)(here.op);
         if (op == 0) {                          /* literal */
             Tracevv((stderr, here.val >= 0x20 && here.val < 0x7f ?
-                    "inflate:         literal '%c'\n" :
-                    "inflate:         literal 0x%02x\n", here.val));
+                    "inflate:         literal '%c'¥n" :
+                    "inflate:         literal 0x%02x¥n", here.val));
             PUP(out) = (unsigned char)(here.val);
         }
         else if (op & 16) {                     /* length base */
@@ -148,7 +148,7 @@ unsigned start;         /* inflate()'s starting value for strm->avail_out */
                 hold >>= op;
                 bits -= op;
             }
-            Tracevv((stderr, "inflate:         length %u\n", len));
+            Tracevv((stderr, "inflate:         length %u¥n", len));
             if (bits < 15) {
                 hold += (unsigned long)(PUP(in)) << bits;
                 bits += 8;
@@ -182,7 +182,7 @@ unsigned start;         /* inflate()'s starting value for strm->avail_out */
 #endif
                 hold >>= op;
                 bits -= op;
-                Tracevv((stderr, "inflate:         distance %u\n", dist));
+                Tracevv((stderr, "inflate:         distance %u¥n", dist));
                 op = (unsigned)(out - beg);     /* max distance in output */
                 if (dist > op) {                /* see if copy from window */
                     op = dist - op;             /* distance back in window */
@@ -295,7 +295,7 @@ unsigned start;         /* inflate()'s starting value for strm->avail_out */
             goto dolen;
         }
         else if (op & 32) {                     /* end-of-block */
-            Tracevv((stderr, "inflate:         end of block\n"));
+            Tracevv((stderr, "inflate:         end of block¥n"));
             state->mode = TYPE;
             break;
         }

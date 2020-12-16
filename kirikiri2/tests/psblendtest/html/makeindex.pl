@@ -27,9 +27,9 @@ open FH , ">index.html" or die;
 
 print FH <<EOF;
 <body><html>
-<p><img src="grad_base.png"> �̏�� <img src="grad_fore.png"> ��l�X�ȃ��[�h�ŏd�ˍ��킹�����ł��B</p>
-<p>A�͑S�s�N�Z���̕s�����x�� 100% �ɂ��ă��C���̕s�����x 100% �ŏd�ˍ��킹�����AB�͑S�s�N�Z���̕s�����x�� 100% �ɂ��ă��C���̕s�����x�� 50% �ɂ��ďd�ˍ��킹�����AC�͑S�s�N�Z���̕s�����x�� 50% �ɂ��ă��C���̕s�����x�� 100% �ɂ��ďd�ˍ��킹�����̂ł��B</p>
-<p>�摜�́A���Z���ʂ�������₷���悤��16�F�Ɍ��F���Ă���܂��B</p>
+<p><img src="grad_base.png"> の上に <img src="grad_fore.png"> を様々なモードで重ね合わせた物です。</p>
+<p>Aは全ピクセルの不透明度を 100% にしてレイヤの不透明度 100% で重ね合わせた物、Bは全ピクセルの不透明度を 100% にしてレイヤの不透明度を 50% にして重ね合わせた物、Cは全ピクセルの不透明度を 50% にしてレイヤの不透明度を 100% にして重ね合わせたものです。</p>
+<p>画像は、演算結果が分かりやすいように16色に減色してあります。</p>
 
 <table>
 	<tr>
@@ -49,29 +49,29 @@ EOF
 
 foreach $mode (@mode_list)
 {
-	print FH "<tr><td style=\"background:#ffd0ff; color:black;\">PhotoShop<br>$mode</td>";
-	print FH "<td style=\"background:#ffd0ff; color:black;\">";
-	print FH "<img src=\"ps/reduced/$mode.png\">";
+	print FH "<tr><td style=¥"background:#ffd0ff; color:black;¥">PhotoShop<br>$mode</td>";
+	print FH "<td style=¥"background:#ffd0ff; color:black;¥">";
+	print FH "<img src=¥"ps/reduced/$mode.png¥">";
 	print FH "</td>";
-	print FH "<td style=\"background:#ffd0ff; color:black;\">";
-	print FH "<img src=\"ps/reduced/${mode}_o.png\">";
+	print FH "<td style=¥"background:#ffd0ff; color:black;¥">";
+	print FH "<img src=¥"ps/reduced/${mode}_o.png¥">";
 	print FH "</td>";
-	print FH "<td style=\"background:#ffd0ff; color:black;\">";
-	print FH "<img src=\"ps/reduced/${mode}_h.png\">";
+	print FH "<td style=¥"background:#ffd0ff; color:black;¥">";
+	print FH "<img src=¥"ps/reduced/${mode}_h.png¥">";
 	print FH "</td>";
-	print FH "</tr>\n";
+	print FH "</tr>¥n";
 
-	print FH "<tr><td style=\"background:#d0ffff; color:black;\">�g���g��<br>$mode</td>";
-	print FH "<td style=\"background:#d0ffff; color:black;\">";
-	print FH "<img src=\"kirikiri/reduced/$mode.png\">";
+	print FH "<tr><td style=¥"background:#d0ffff; color:black;¥">吉里吉里<br>$mode</td>";
+	print FH "<td style=¥"background:#d0ffff; color:black;¥">";
+	print FH "<img src=¥"kirikiri/reduced/$mode.png¥">";
 	print FH "</td>";
-	print FH "<td style=\"background:#d0ffff; color:black;\">";
-	print FH "<img src=\"kirikiri/reduced/${mode}_o.png\">";
+	print FH "<td style=¥"background:#d0ffff; color:black;¥">";
+	print FH "<img src=¥"kirikiri/reduced/${mode}_o.png¥">";
 	print FH "</td>";
-	print FH "<td style=\"background:#d0ffff; color:black;\">";
-	print FH "<img src=\"kirikiri/reduced/${mode}_h.png\">";
+	print FH "<td style=¥"background:#d0ffff; color:black;¥">";
+	print FH "<img src=¥"kirikiri/reduced/${mode}_h.png¥">";
 	print FH "</td>";
-	print FH "</tr>\n";
+	print FH "</tr>¥n";
 
 
 }
@@ -87,8 +87,8 @@ open FH , ">index2.html" or die;
 
 print FH <<EOF;
 <body><html>
-<p>A �� <img src="grad_base.png"> �̏�� <img src="grad_fore.png"> ��s�����x 50% �ŏd�ˍ��킹���摜�ł��B</p>
-<p>B �� <img src="grad_fore.png"> �̏�� <img src="grad_base.png"> ��s�����x 50% �ŏd�ˍ��킹���摜�ł��B</p>
+<p>A は <img src="grad_base.png"> の上に <img src="grad_fore.png"> を不透明度 50% で重ね合わせた画像です。</p>
+<p>B は <img src="grad_fore.png"> の上に <img src="grad_base.png"> を不透明度 50% で重ね合わせた画像です。</p>
 
 <table>
 	<tr>
@@ -105,14 +105,14 @@ EOF
 
 foreach $mode (@mode_list)
 {
-	print FH "<tr><td style=\"background:#d0ffff; color:black;\">�g���g��<br>$mode</td>";
-	print FH "<td style=\"background:#d0ffff; color:black;\">";
-	print FH "<img src=\"kirikiri/reduced/${mode}_o.png\">";
+	print FH "<tr><td style=¥"background:#d0ffff; color:black;¥">吉里吉里<br>$mode</td>";
+	print FH "<td style=¥"background:#d0ffff; color:black;¥">";
+	print FH "<img src=¥"kirikiri/reduced/${mode}_o.png¥">";
 	print FH "</td>";
-	print FH "<td style=\"background:#d0ffff; color:black;\">";
-	print FH "<img src=\"kirikiri/reduced/${mode}_c.png\">";
+	print FH "<td style=¥"background:#d0ffff; color:black;¥">";
+	print FH "<img src=¥"kirikiri/reduced/${mode}_c.png¥">";
 	print FH "</td>";
-	print FH "</tr>\n";
+	print FH "</tr>¥n";
 
 
 }

@@ -53,7 +53,7 @@ namespace irr
 			const char* version);
 
 		//! destructor
-		virtual ~CIrrDeviceLinux();
+		virtual ‾CIrrDeviceLinux();
 
 		//! runs the device. Returns false if device wants to be deleted
 		virtual bool run();
@@ -77,7 +77,7 @@ namespace irr
 		//! notifies the device that it should close itself
 		virtual void closeDevice();
 
-		//! \return Returns a pointer to a list with all video modes
+		//! ¥return Returns a pointer to a list with all video modes
 		//! supported by the gfx adapter.
 		video::IVideoModeList* getVideoModeList();
 

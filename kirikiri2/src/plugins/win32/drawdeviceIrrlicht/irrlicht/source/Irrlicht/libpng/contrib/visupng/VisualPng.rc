@@ -29,19 +29,19 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 1 TEXTINCLUDE DISCARDABLE 
 BEGIN
-    "resource.h\0"
+    "resource.h¥0"
 END
 
 2 TEXTINCLUDE DISCARDABLE 
 BEGIN
-    "#include ""afxres.h""\r\n"
-    "\0"
+    "#include ""afxres.h""¥r¥n"
+    "¥0"
 END
 
 3 TEXTINCLUDE DISCARDABLE 
 BEGIN
-    "\r\n"
-    "\0"
+    "¥r¥n"
+    "¥0"
 END
 
 #endif    // APSTUDIO_INVOKED
@@ -56,13 +56,13 @@ VISUALPNG MENU DISCARDABLE
 BEGIN
     POPUP "&File"
     BEGIN
-        MENUITEM "&Open Image...\tCtrl+O",      IDM_FILE_OPEN
+        MENUITEM "&Open Image...¥tCtrl+O",      IDM_FILE_OPEN
         MENUITEM "Save &As...",                 IDM_FILE_SAVE
         MENUITEM SEPARATOR
-        MENUITEM "&Next Image\tCtrl+N",         IDM_FILE_NEXT
-        MENUITEM "Pre&vious Image\tCtrl+V",     IDM_FILE_PREVIOUS
+        MENUITEM "&Next Image¥tCtrl+N",         IDM_FILE_NEXT
+        MENUITEM "Pre&vious Image¥tCtrl+V",     IDM_FILE_PREVIOUS
         MENUITEM SEPARATOR
-        MENUITEM "E&xit\tAlt+X",                IDM_FILE_EXIT
+        MENUITEM "E&xit¥tAlt+X",                IDM_FILE_EXIT
     END
     POPUP "&Options"
     BEGIN

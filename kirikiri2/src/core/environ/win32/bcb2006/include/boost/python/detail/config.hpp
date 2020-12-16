@@ -68,8 +68,8 @@
 #  define BOOST_PYTHON_DYNAMIC_LIB
 #endif
 
-#if defined(__MWERKS__) \
-  || (defined(__DECCXX_VER) && __DECCXX_VER <= 60590002) \
+#if defined(__MWERKS__) ¥
+  || (defined(__DECCXX_VER) && __DECCXX_VER <= 60590002) ¥
   || (defined(__sgi) && defined(_COMPILER_VERSION) && _COMPILER_VERSION <= 730)
 # define BOOST_PYTHON_NO_TEMPLATE_EXPORT
 #endif
@@ -105,7 +105,7 @@
 
 #if (defined(__DECCXX_VER) && __DECCXX_VER <= 60590031)
 // Replace broken Tru64/cxx offsetof macro
-# define BOOST_PYTHON_OFFSETOF(s_name, s_member) \
+# define BOOST_PYTHON_OFFSETOF(s_name, s_member) ¥
         ((size_t)__INTADDR__(&(((s_name *)0)->s_member)))
 #else
 # define BOOST_PYTHON_OFFSETOF offsetof

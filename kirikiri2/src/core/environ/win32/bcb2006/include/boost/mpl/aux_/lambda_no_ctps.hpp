@@ -31,7 +31,7 @@
 
 #include "boost/mpl/aux_/config/use_preprocessed.hpp"
 
-#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) && \
+#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) && ¥
     !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER lambda_no_ctps.hpp
@@ -54,8 +54,8 @@ namespace boost {
 namespace mpl {
 
 // local macros, #undef-ined at the end of the header
-#   define AUX_LAMBDA_PARAMS(i, param) \
-    BOOST_MPL_PP_PARAMS(i, param) \
+#   define AUX_LAMBDA_PARAMS(i, param) ¥
+    BOOST_MPL_PP_PARAMS(i, param) ¥
     /**/
 
 namespace aux {
@@ -68,7 +68,7 @@ template< BOOST_MPL_AUX_NTTP_DECL(int, arity_), bool Protect > struct lambda_imp
     };
 };
 
-#define BOOST_PP_ITERATION_PARAMS_1 \
+#define BOOST_PP_ITERATION_PARAMS_1 ¥
     (3,(1, BOOST_MPL_METAFUNCTION_MAX_ARITY, "boost/mpl/aux_/lambda_no_ctps.hpp"))
 #include BOOST_PP_ITERATE()
 
@@ -100,11 +100,11 @@ struct lambda
 #else
 #define i BOOST_PP_FRAME_ITERATION(1)
 
-#   define AUX_LAMBDA_INVOCATION(unused, i, T) \
-    , typename lambda< \
-          typename F::BOOST_PP_CAT(arg,BOOST_PP_INC(i)) \
-        , false \
-        >::type \
+#   define AUX_LAMBDA_INVOCATION(unused, i, T) ¥
+    , typename lambda< ¥
+          typename F::BOOST_PP_CAT(arg,BOOST_PP_INC(i)) ¥
+        , false ¥
+        >::type ¥
     /**/
 
 template<> struct lambda_impl<i,false>

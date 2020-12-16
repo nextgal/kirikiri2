@@ -102,7 +102,7 @@ namespace phoenix {
 //
 //          Unary operators:
 //
-//              prefix:   ~, !, -, +, ++, --, & (reference), * (dereference)
+//              prefix:   ‾, !, -, +, ++, --, & (reference), * (dereference)
 //              postfix:  ++, --
 //
 //          Binary operators:
@@ -123,7 +123,7 @@ namespace phoenix {
 //      specializations conform to the canonical operator rules modeled
 //      by the behavior of integers and pointers:
 //
-//          Prefix -, + and ~ accept constant arguments and return an
+//          Prefix -, + and ‾ accept constant arguments and return an
 //          object by value.
 //
 //          The ! accept constant arguments and returns a boolean
@@ -250,7 +250,7 @@ struct unary_operator<invert_op, T> {
 
     typedef T const result_type;
     static result_type eval(T const& v)
-    { return ~v; }
+    { return ‾v; }
 };
 
 //////////////////////////////////
@@ -827,7 +827,7 @@ operator!(actor<BaseT> const& _0)
 
 ///////////////////////////////////////////////////////////////////////////////
 //
-//  invert lazy operator (prefix ~)
+//  invert lazy operator (prefix ‾)
 //
 ///////////////////////////////////////////////////////////////////////////////
 struct invert_op {
@@ -847,7 +847,7 @@ struct invert_op {
 //////////////////////////////////
 template <typename BaseT>
 inline typename impl::make_unary<invert_op, BaseT>::type
-operator~(actor<BaseT> const& _0)
+operator‾(actor<BaseT> const& _0)
 {
     return impl::make_unary<invert_op, BaseT>::construct(_0);
 }

@@ -222,7 +222,7 @@ public:
 		SetPriority(ttpTimeCritical);
 	};
 
-	~tTVPMIDIThread()
+	‾tTVPMIDIThread()
 	{
 		Terminate();
 		Resume();
@@ -365,7 +365,7 @@ class tTVPSMFTrack
 public:
 	tTVPSMFTrack(tTJSNI_MIDISoundBuffer *owner, tTJSBinaryStream *instream, tjs_int n);
 
-	~tTVPSMFTrack();
+	‾tTVPSMFTrack();
 
 	void Rewind(void);
 	void ProcessEvent();
@@ -393,7 +393,7 @@ tTVPSMFTrack::tTVPSMFTrack(tTJSNI_MIDISoundBuffer *owner, tTJSBinaryStream *inst
 	Rewind();
 }
 //---------------------------------------------------------------------------
-tTVPSMFTrack::~tTVPSMFTrack()
+tTVPSMFTrack::‾tTVPSMFTrack()
 {
 	delete [] Data;
 }
@@ -460,7 +460,7 @@ void tTVPSMFTrack::ProcessEvent()
 						(tjs_uint32)1<<(*Position%32);
 				else
 					Owner->UsingNote[ev&0x0f][*Position/32] &=
-						~((tjs_uint32)1<<(*Position%32));
+						‾((tjs_uint32)1<<(*Position%32));
 			}
 			b1 = *(Position++);
 			b2 = *(Position++);
@@ -469,7 +469,7 @@ void tTVPSMFTrack::ProcessEvent()
 		case 0x8:
 			if(*Position < 128)
 				Owner->UsingNote[ev&0x0f][*Position/32] &=
-					~((tjs_uint32)1<<(*Position%32));
+					‾((tjs_uint32)1<<(*Position%32));
 			// no "break" here
 		case 0xa:
 		case 0xe:

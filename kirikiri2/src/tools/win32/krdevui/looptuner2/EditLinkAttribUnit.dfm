@@ -11,14 +11,14 @@ object EditLinkAttribFrame: TEditLinkAttribFrame
     Top = 8
     Width = 67
     Height = 12
-    Caption = '”Ô‚Ìƒtƒ‰ƒO‚ª'
+    Caption = 'ç•ªã®ãƒ•ãƒ©ã‚°ãŒ'
   end
   object EnableConditionCheckBox: TCheckBox
     Left = 8
     Top = 6
     Width = 81
     Height = 17
-    Caption = 'ğŒ•t‚«'
+    Caption = 'æ¡ä»¶ä»˜ã'
     TabOrder = 0
     OnClick = EnableConditionCheckBoxClick
     OnKeyDown = ConditionComboBoxKeyDown
@@ -76,11 +76,11 @@ object EditLinkAttribFrame: TEditLinkAttribFrame
     OnChange = ConditionComboBoxChange
     OnKeyDown = ConditionComboBoxKeyDown
     Items.Strings = (
-      '‚Æ“¯‚¶‚Æ‚«'
-      '‚Å‚È‚¢‚Æ‚«'
-      '‚æ‚è‘å‚«‚¢‚Æ‚«'
-      'ˆÈã‚Ì‚Æ‚«'
-      '‚æ‚è¬‚³‚¢‚Æ‚«'
-      'ˆÈ‰º‚Ì‚Æ‚«')
+      'ã¨åŒã˜ã¨ã'
+      'ã§ãªã„ã¨ã'
+      'ã‚ˆã‚Šå¤§ãã„ã¨ã'
+      'ä»¥ä¸Šã®ã¨ã'
+      'ã‚ˆã‚Šå°ã•ã„ã¨ã'
+      'ä»¥ä¸‹ã®ã¨ã')
   end
 end

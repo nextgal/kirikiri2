@@ -1,75 +1,75 @@
 @if exp="typeof(global.clock_object) == 'undefined'"
 @iscript
 
-// ���v��\������ ( KAG Plugin �T���v�� )
+// 時計を表示する ( KAG Plugin サンプル )
 
 
-class ClockPlugin extends KAGPlugin // �u���v�v�v���O�C���N���X
+class ClockPlugin extends KAGPlugin // 「時計」プラグインクラス
 {
-	var fore, back; // �\��ʂ̃��C���Ɨ���ʂ̃��C��
-	var timer; // �^�C�}
-	var window; // �E�B���h�E�ւ̎Q��
+	var fore, back; // 表画面のレイヤと裏画面のレイヤ
+	var timer; // タイマ
+	var window; // ウィンドウへの参照
 
 	function ClockPlugin(window)
 	{
-		// ClockPlugin �R���X�g���N�^
-		super.KAGPlugin(); // �X�[�p�[�N���X�̃R���X�g���N�^���Ă�
+		// ClockPlugin コンストラクタ
+		super.KAGPlugin(); // スーパークラスのコンストラクタを呼ぶ
 
 		fore = new Layer(window, window.fore.base);
-			// �\��ʗp�̃��C����\�w�i���C����e�ɂ��č쐬
+			// 表画面用のレイヤを表背景レイヤを親にして作成
 		back = new Layer(window, window.back.base);
-			// ����ʗp�̃��C���𗠔w�i���C����e�ɂ��č쐬
+			// 裏画面用のレイヤを裏背景レイヤを親にして作成
 		fore.absolute = back.absolute = 2000000-2;
-			// �d�ˍ��킹�����̓��b�Z�[�W����������
-			// (�u��v�v���O�C���̐ᗱ������)
+			// 重ね合わせ順序はメッセージ履歴よりも奥
+			// (「雪」プラグインの雪粒よりも奥)
 		fore.hitType = back.hitType = htMask;
 		fore.hitThreshold = back.hitThreshold = 256;
-			// �}�E�X���b�Z�[�W�͑S�擧��
+			// マウスメッセージは全域透過
 
 		fore.setPos(510, 0);
 		back.setPos(510, 0);
-			// �����ʒu
+			// 初期位置
 
 		fore.setImageSize(130, 36);
 		fore.setSizeToImageSize();
 		fore.fillRect(0, 0, fore.imageWidth, fore.imageHeight, 0);
-			// �\�̃T�C�Y�����Ɠh��Ԃ� ( ���S���� )
+			// 表のサイズ調整と塗りつぶし ( 完全透明 )
 		back.assignImages(fore);
 		back.setSizeToImageSize();
-			// ���̉摜��\����R�s�[���ė��̃T�C�Y����
+			// 裏の画像を表からコピーして裏のサイズ調整
 		fore.visible = back.visible = fore.seen = back.seen = false;
-			// �\��������\����Ԃ�
-		fore.font.face = back.font.face = "�l�r �S�V�b�N";
+			// 表も裏も非表示状態に
+		fore.font.face = back.font.face = "ＭＳ ゴシック";
 		fore.font.height = back.font.height = 28;
-			// �t�H���g�ƃT�C�Y��ݒ�
+			// フォントとサイズを設定
 
 		timer = new Timer(onTimer, '');
-			// �^�C�}�I�u�W�F�N�g���쐬
-			// (onTimer ���C�x���g�n���h���Ƃ���)
+			// タイマオブジェクトを作成
+			// (onTimer をイベントハンドラとする)
 		timer.interval = 1000;
 		timer.enabled = true;
-			// �����ƗL��/������ݒ�
+			// 周期と有効/無効を設定
 
-		this.window = window; // window �ւ̎Q�Ƃ�ۑ�����
+		this.window = window; // window への参照を保存する
 	}
 
 	function finalize()
 	{
 		invalidate fore;
 		invalidate back;
-			// �\/���̃��C���𖳌���
+			// 表/裏のレイヤを無効化
 		invalidate timer;
-			// �^�C�}�𖳌���
+			// タイマを無効化
 		super.finalize(...);
 	}
 
 	function setOptions(elm)
 	{
-		// �I�v�V������ݒ�
+		// オプションを設定
 		fore.visible = fore.seen = +elm.forevisible if elm.forevisible !== void;
-			// �\�̉�/�s��
+			// 表の可視/不可視
 		back.visible = back.seen = +elm.backvisible if elm.backvisible !== void;
-			// ���̉�/�s��
+			// 裏の可視/不可視
 		var l = fore.left;
 		var t = fore.top;
 		var poschanged = false;
@@ -79,73 +79,73 @@ class ClockPlugin extends KAGPlugin // �u���v�v�v���O�C���N���X
 		{
 			fore.setPos(l, t);
 			back.setPos(l, t);
-				// �\���ʒu�̕ύX
+				// 表示位置の変更
 		}
-		onTimer(); // �\�����X�V
+		onTimer(); // 表示を更新
 	}
 
 	function onTimer()
 	{
-		// �^�C�}�̎������ƂɌĂ΂��
+		// タイマの周期ごとに呼ばれる
 		if(!fore.seen && !back.seen) return;
 		var current = new Date();
-			// ���t�I�u�W�F�N�g���쐬
+			// 日付オブジェクトを作成
 		var time = "%02d:%02d:%02d".sprintf(
 			current.getHours(), current.getMinutes(),
 			current.getSeconds());
-			// ���t��������
+			// 日付を書式化
 		fore.fillRect(0, 0, fore.imageWidth, fore.imageHeight, 0);
-			// ���n���N���A
+			// 下地をクリア
 		fore.drawText(5, 5, time, 0xffffff, 255, true, 512, 0, 5, 2, 2);
-			// ������`��
+			// 文字を描画
 		back.assignImages(fore);
-			// ����ʂɉ摜���R�s�[
-			// assignImages �͓����I�ɂ͉摜�����L����悤�ɂȂ邾����
-			// ���s�R�X�g�̑傫�����\�b�h�ł͂Ȃ�
+			// 裏画面に画像をコピー
+			// assignImages は内部的には画像を共有するようになるだけで
+			// 実行コストの大きいメソッドではない
 	}
 
 	function onStore(f, elm)
 	{
-		// �x��ۑ�����Ƃ�
+		// 栞を保存するとき
 		var dic = f.clock = %[];
-			// f.clock �Ɏ����z����쐬
+			// f.clock に辞書配列を作成
 		dic.foreVisible = fore.seen;
 		dic.backVisible = back.seen;
 		dic.left = fore.left;
 		dic.top = fore.top;
-			// �e���������z��ɋL�^
+			// 各情報を辞書配列に記録
 	}
 
 	function onRestore(f, clear, elm)
 	{
-		// �x��ǂݏo���Ƃ�
+		// 栞を読み出すとき
 		var dic = f.clock;
 		if(dic === void)
 		{
-			// clock �̏�񂪞x�ɕۑ�����Ă��Ȃ�
+			// clock の情報が栞に保存されていない
 			fore.visible = fore.seen = false;
 			back.visible = back.seen = false;
 		}
 		else
 		{
-			// clock �̏�񂪞x�ɕۑ�����Ă���
+			// clock の情報が栞に保存されている
 			setOptions(%[ forevisible : dic.foreVisible, backvisible : dic.backVisible,
 				left : dic.left, top : dic.top]);
-				// �I�v�V������ݒ�
+				// オプションを設定
 		}
 	}
 
 	function onStableStateChanged(stable)
 	{
-		// �u����v( s l p �̊e�^�O�Œ�~�� ) ���A
-		// �u���s���v ( ����ȊO ) ���̏�Ԃ��ς�����Ƃ��ɌĂ΂��
+		// 「安定」( s l p の各タグで停止中 ) か、
+		// 「走行中」 ( それ以外 ) かの状態が変わったときに呼ばれる
 	}
 
 	function onMessageHiddenStateChanged(hidden)
 	{
-		// ���b�Z�[�W���C�������[�U�̑���ɂ���ĉB�����Ƃ��A�����Ƃ���
-		// �Ă΂��B���b�Z�[�W���C���ƂƂ��ɕ\��/��\����؂�ւ������Ƃ���
-		// �����Őݒ肷��B
+		// メッセージレイヤがユーザの操作によって隠されるとき、現れるときに
+		// 呼ばれる。メッセージレイヤとともに表示/非表示を切り替えたいときは
+		// ここで設定する。
 		if(hidden)
 		{
 			fore.visible = back.visible = false;
@@ -159,22 +159,22 @@ class ClockPlugin extends KAGPlugin // �u���v�v�v���O�C���N���X
 
 	function onCopyLayer(toback)
 	{
-		// ���C���̕\�������̏��̃R�s�[
+		// レイヤの表←→裏の情報のコピー
 
-		// backlay �^�O��g�����W�V�����̏I�����ɌĂ΂��
+		// backlay タグやトランジションの終了時に呼ばれる
 
-		// �����Ń��C���Ɋւ��ăR�s�[���ׂ��Ȃ̂�
-		// �\��/��\���̏�񂾂�
+		// ここでレイヤに関してコピーすべきなのは
+		// 表示/非表示の情報だけ
 
 		if(toback)
 		{
-			// �\����
+			// 表→裏
 			back.visible = fore.visible;
 			back.seen = fore.seen;
 		}
 		else
 		{
-			// �����\
+			// 裏→表
 			fore.visible = back.visible;
 			fore.seen = back.seen;
 		}
@@ -182,16 +182,16 @@ class ClockPlugin extends KAGPlugin // �u���v�v�v���O�C���N���X
 
 	function onExchangeForeBack()
 	{
-		// ���ƕ\�̊Ǘ���������
+		// 裏と表の管理情報を交換
 
-		// children = true �̃g�����W�V�����ł́A�g�����W�V�����I������
-		// �\��ʂƗ���ʂ̃��C���\���������������ւ��̂ŁA
-		// ����܂� �\��ʂ��Ǝv���Ă������̂�����ʂɁA����ʂ��Ǝv����
-		// �������̂��\��ʂɂȂ��Ă��܂��B�����̃^�C�~���O�ł��̏���
-		// ����ւ���΁A�����͐����Ȃ��ōςށB
+		// children = true のトランジションでは、トランジション終了時に
+		// 表画面と裏画面のレイヤ構造がそっくり入れ替わるので、
+		// それまで 表画面だと思っていたものが裏画面に、裏画面だと思って
+		// いたものが表画面になってしまう。ここのタイミングでその情報を
+		// 入れ替えれば、矛盾は生じないで済む。
 
-		// �����ŕ\��ʁA����ʂ̃��C���Ɋւ��ĊǗ����ׂ��Ȃ̂�
-		// fore �� back �̕ϐ�����
+		// ここで表画面、裏画面のレイヤに関して管理すべきなのは
+		// fore と back の変数だけ
 		var tmp;
 		tmp = back;
 		back = fore;
@@ -201,14 +201,14 @@ class ClockPlugin extends KAGPlugin // �u���v�v�v���O�C���N���X
 }
 
 kag.addPlugin(global.clock_object = new ClockPlugin(kag));
-	// �v���O�C���I�u�W�F�N�g���쐬���A�o�^����
+	// プラグインオブジェクトを作成し、登録する
 
 @endscript
 @endif
 ;
-; �}�N���̓o�^
+; マクロの登録
 @macro name="clockopt"
 @eval exp="clock_object.setOptions(mp)"
-; mp ���}�N���ɓn���ꂽ���������������z��I�u�W�F�N�g
+; mp がマクロに渡された属性を示す辞書配列オブジェクト
 @endmacro
 @return

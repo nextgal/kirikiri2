@@ -49,7 +49,7 @@ RSC=rc.exe
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /O2 /D "WIN32" /D "NDEBUG" /FD /c
 # SUBTRACT BASE CPP /YX
-# ADD CPP /nologo /MD /W3 /O2 /I "..\..\..\zlib" /D "WIN32" /D "NDEBUG" /D "PNG_DLL" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /c
+# ADD CPP /nologo /MD /W3 /O2 /I "..¥..¥..¥zlib" /D "WIN32" /D "NDEBUG" /D "PNG_DLL" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /c
 # SUBTRACT CPP /YX
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
@@ -58,12 +58,12 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:console /machine:I386
-# ADD LINK32 Win32_DLL_Release\libpng13.lib ..\..\..\zlib\projects\visualc6\Win32_DLL_Release\zlib1.lib /nologo /subsystem:console /machine:I386
+# ADD LINK32 Win32_DLL_Release¥libpng13.lib ..¥..¥..¥zlib¥projects¥visualc6¥Win32_DLL_Release¥zlib1.lib /nologo /subsystem:console /machine:I386
 # Begin Special Build Tool
-OutDir=.\Win32_DLL_Release
+OutDir=.¥Win32_DLL_Release
 SOURCE="$(InputPath)"
 PostBuild_Desc=[Run Test]
-PostBuild_Cmds=set path=$(outdir);..\..\..\zlib\projects\visualc6\Win32_DLL_Release;	$(outdir)\pngtest.exe ..\..\pngtest.png
+PostBuild_Cmds=set path=$(outdir);..¥..¥..¥zlib¥projects¥visualc6¥Win32_DLL_Release;	$(outdir)¥pngtest.exe ..¥..¥pngtest.png
 # End Special Build Tool
 
 !ELSEIF  "$(CFG)" == "pngtest - Win32 DLL Debug"
@@ -81,7 +81,7 @@ PostBuild_Cmds=set path=$(outdir);..\..\..\zlib\projects\visualc6\Win32_DLL_Rele
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /ZI /Od /D "WIN32" /D "_DEBUG" /FD /GZ /c
 # SUBTRACT BASE CPP /YX
-# ADD CPP /nologo /MDd /W3 /Gm /ZI /Od /I "..\..\..\zlib" /D "WIN32" /D "_DEBUG" /D "PNG_DLL" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /ZI /Od /I "..¥..¥..¥zlib" /D "WIN32" /D "_DEBUG" /D "PNG_DLL" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /GZ /c
 # SUBTRACT CPP /YX
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
@@ -90,12 +90,12 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 Win32_DLL_Debug\libpng13d.lib ..\..\..\zlib\projects\visualc6\Win32_DLL_Debug\zlib1d.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
+# ADD LINK32 Win32_DLL_Debug¥libpng13d.lib ..¥..¥..¥zlib¥projects¥visualc6¥Win32_DLL_Debug¥zlib1d.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
 # Begin Special Build Tool
-OutDir=.\Win32_DLL_Debug
+OutDir=.¥Win32_DLL_Debug
 SOURCE="$(InputPath)"
 PostBuild_Desc=[Run Test]
-PostBuild_Cmds=set path=$(outdir);..\..\..\zlib\projects\visualc6\Win32_DLL_Debug;	$(outdir)\pngtest.exe ..\..\pngtest.png
+PostBuild_Cmds=set path=$(outdir);..¥..¥..¥zlib¥projects¥visualc6¥Win32_DLL_Debug;	$(outdir)¥pngtest.exe ..¥..¥pngtest.png
 # End Special Build Tool
 
 !ELSEIF  "$(CFG)" == "pngtest - Win32 DLL ASM Release"
@@ -113,7 +113,7 @@ PostBuild_Cmds=set path=$(outdir);..\..\..\zlib\projects\visualc6\Win32_DLL_Debu
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /O2 /D "WIN32" /D "NDEBUG" /FD /c
 # SUBTRACT BASE CPP /YX
-# ADD CPP /nologo /MD /W3 /O2 /I "..\..\..\zlib" /D "WIN32" /D "NDEBUG" /D "PNG_DLL" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /c
+# ADD CPP /nologo /MD /W3 /O2 /I "..¥..¥..¥zlib" /D "WIN32" /D "NDEBUG" /D "PNG_DLL" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /c
 # SUBTRACT CPP /YX
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
@@ -122,12 +122,12 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:console /machine:I386
-# ADD LINK32 Win32_DLL_ASM_Release\libpng13.lib ..\..\..\zlib\projects\visualc6\Win32_DLL_ASM_Release\zlib1.lib /nologo /subsystem:console /machine:I386
+# ADD LINK32 Win32_DLL_ASM_Release¥libpng13.lib ..¥..¥..¥zlib¥projects¥visualc6¥Win32_DLL_ASM_Release¥zlib1.lib /nologo /subsystem:console /machine:I386
 # Begin Special Build Tool
-OutDir=.\Win32_DLL_ASM_Release
+OutDir=.¥Win32_DLL_ASM_Release
 SOURCE="$(InputPath)"
 PostBuild_Desc=[Run Test]
-PostBuild_Cmds=set path=$(outdir);..\..\..\zlib\projects\visualc6\Win32_DLL_ASM_Release;	$(outdir)\pngtest.exe ..\..\pngtest.png
+PostBuild_Cmds=set path=$(outdir);..¥..¥..¥zlib¥projects¥visualc6¥Win32_DLL_ASM_Release;	$(outdir)¥pngtest.exe ..¥..¥pngtest.png
 # End Special Build Tool
 
 !ELSEIF  "$(CFG)" == "pngtest - Win32 DLL ASM Debug"
@@ -145,7 +145,7 @@ PostBuild_Cmds=set path=$(outdir);..\..\..\zlib\projects\visualc6\Win32_DLL_ASM_
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /ZI /Od /D "WIN32" /D "_DEBUG" /FD /GZ /c
 # SUBTRACT BASE CPP /YX
-# ADD CPP /nologo /MDd /W3 /Gm /ZI /Od /I "..\..\..\zlib" /D "WIN32" /D "_DEBUG" /D "PNG_DLL" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /ZI /Od /I "..¥..¥..¥zlib" /D "WIN32" /D "_DEBUG" /D "PNG_DLL" /D "PNG_NO_STDIO" /D "PNG_NO_GLOBAL_ARRAYS" /FD /GZ /c
 # SUBTRACT CPP /YX
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
@@ -154,12 +154,12 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 Win32_DLL_ASM_Debug\libpng13d.lib ..\..\..\zlib\projects\visualc6\Win32_DLL_ASM_Debug\zlib1d.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
+# ADD LINK32 Win32_DLL_ASM_Debug¥libpng13d.lib ..¥..¥..¥zlib¥projects¥visualc6¥Win32_DLL_ASM_Debug¥zlib1d.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
 # Begin Special Build Tool
-OutDir=.\Win32_DLL_ASM_Debug
+OutDir=.¥Win32_DLL_ASM_Debug
 SOURCE="$(InputPath)"
 PostBuild_Desc=[Run Test]
-PostBuild_Cmds=set path=$(outdir);..\..\..\zlib\projects\visualc6\Win32_DLL_ASM_Debug;	$(outdir)\pngtest.exe ..\..\pngtest.png
+PostBuild_Cmds=set path=$(outdir);..¥..¥..¥zlib¥projects¥visualc6¥Win32_DLL_ASM_Debug;	$(outdir)¥pngtest.exe ..¥..¥pngtest.png
 # End Special Build Tool
 
 !ELSEIF  "$(CFG)" == "pngtest - Win32 LIB Release"
@@ -177,7 +177,7 @@ PostBuild_Cmds=set path=$(outdir);..\..\..\zlib\projects\visualc6\Win32_DLL_ASM_
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /O2 /D "WIN32" /D "NDEBUG" /FD /c
 # SUBTRACT BASE CPP /YX
-# ADD CPP /nologo /MD /W3 /O2 /I "..\..\..\zlib" /D "WIN32" /D "NDEBUG" /FD /c
+# ADD CPP /nologo /MD /W3 /O2 /I "..¥..¥..¥zlib" /D "WIN32" /D "NDEBUG" /FD /c
 # SUBTRACT CPP /YX
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
@@ -186,12 +186,12 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:console /machine:I386
-# ADD LINK32 Win32_LIB_Release\libpng.lib ..\..\..\zlib\projects\visualc6\Win32_LIB_Release\zlib.lib /nologo /subsystem:console /machine:I386
+# ADD LINK32 Win32_LIB_Release¥libpng.lib ..¥..¥..¥zlib¥projects¥visualc6¥Win32_LIB_Release¥zlib.lib /nologo /subsystem:console /machine:I386
 # Begin Special Build Tool
-OutDir=.\Win32_LIB_Release
+OutDir=.¥Win32_LIB_Release
 SOURCE="$(InputPath)"
 PostBuild_Desc=[Run Test]
-PostBuild_Cmds=$(outdir)\pngtest.exe ..\..\pngtest.png
+PostBuild_Cmds=$(outdir)¥pngtest.exe ..¥..¥pngtest.png
 # End Special Build Tool
 
 !ELSEIF  "$(CFG)" == "pngtest - Win32 LIB Debug"
@@ -209,7 +209,7 @@ PostBuild_Cmds=$(outdir)\pngtest.exe ..\..\pngtest.png
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /ZI /Od /D "WIN32" /D "_DEBUG" /FD /GZ /c
 # SUBTRACT BASE CPP /YX
-# ADD CPP /nologo /MDd /W3 /Gm /ZI /Od /I "..\..\..\zlib" /D "WIN32" /D "_DEBUG" /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /ZI /Od /I "..¥..¥..¥zlib" /D "WIN32" /D "_DEBUG" /FD /GZ /c
 # SUBTRACT CPP /YX
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
@@ -218,12 +218,12 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 Win32_LIB_Debug\libpngd.lib ..\..\..\zlib\projects\visualc6\Win32_LIB_Debug\zlibd.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
+# ADD LINK32 Win32_LIB_Debug¥libpngd.lib ..¥..¥..¥zlib¥projects¥visualc6¥Win32_LIB_Debug¥zlibd.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
 # Begin Special Build Tool
-OutDir=.\Win32_LIB_Debug
+OutDir=.¥Win32_LIB_Debug
 SOURCE="$(InputPath)"
 PostBuild_Desc=[Run Test]
-PostBuild_Cmds=$(outdir)\pngtest.exe ..\..\pngtest.png
+PostBuild_Cmds=$(outdir)¥pngtest.exe ..¥..¥pngtest.png
 # End Special Build Tool
 
 !ELSEIF  "$(CFG)" == "pngtest - Win32 LIB ASM Release"
@@ -241,7 +241,7 @@ PostBuild_Cmds=$(outdir)\pngtest.exe ..\..\pngtest.png
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /O2 /D "WIN32" /D "NDEBUG" /FD /c
 # SUBTRACT BASE CPP /YX
-# ADD CPP /nologo /MD /W3 /O2 /I "..\..\..\zlib" /D "WIN32" /D "NDEBUG" /FD /c
+# ADD CPP /nologo /MD /W3 /O2 /I "..¥..¥..¥zlib" /D "WIN32" /D "NDEBUG" /FD /c
 # SUBTRACT CPP /YX
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
@@ -250,12 +250,12 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:console /machine:I386
-# ADD LINK32 Win32_LIB_ASM_Release\libpng.lib ..\..\..\zlib\projects\visualc6\Win32_LIB_ASM_Release\zlib.lib /nologo /subsystem:console /machine:I386
+# ADD LINK32 Win32_LIB_ASM_Release¥libpng.lib ..¥..¥..¥zlib¥projects¥visualc6¥Win32_LIB_ASM_Release¥zlib.lib /nologo /subsystem:console /machine:I386
 # Begin Special Build Tool
-OutDir=.\Win32_LIB_ASM_Release
+OutDir=.¥Win32_LIB_ASM_Release
 SOURCE="$(InputPath)"
 PostBuild_Desc=[Run Test]
-PostBuild_Cmds=$(outdir)\pngtest.exe ..\..\pngtest.png
+PostBuild_Cmds=$(outdir)¥pngtest.exe ..¥..¥pngtest.png
 # End Special Build Tool
 
 !ELSEIF  "$(CFG)" == "pngtest - Win32 LIB ASM Debug"
@@ -273,7 +273,7 @@ PostBuild_Cmds=$(outdir)\pngtest.exe ..\..\pngtest.png
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /ZI /Od /D "WIN32" /D "_DEBUG" /FD /GZ /c
 # SUBTRACT BASE CPP /YX
-# ADD CPP /nologo /MDd /W3 /Gm /ZI /Od /I "..\..\..\zlib" /D "WIN32" /D "_DEBUG" /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /ZI /Od /I "..¥..¥..¥zlib" /D "WIN32" /D "_DEBUG" /FD /GZ /c
 # SUBTRACT CPP /YX
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
@@ -282,12 +282,12 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 Win32_LIB_ASM_Debug\libpngd.lib ..\..\..\zlib\projects\visualc6\Win32_LIB_ASM_Debug\zlibd.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
+# ADD LINK32 Win32_LIB_ASM_Debug¥libpngd.lib ..¥..¥..¥zlib¥projects¥visualc6¥Win32_LIB_ASM_Debug¥zlibd.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
 # Begin Special Build Tool
-OutDir=.\Win32_LIB_ASM_Debug
+OutDir=.¥Win32_LIB_ASM_Debug
 SOURCE="$(InputPath)"
 PostBuild_Desc=[Run Test]
-PostBuild_Cmds=$(outdir)\pngtest.exe ..\..\pngtest.png
+PostBuild_Cmds=$(outdir)¥pngtest.exe ..¥..¥pngtest.png
 # End Special Build Tool
 
 !ENDIF 
@@ -307,7 +307,7 @@ PostBuild_Cmds=$(outdir)\pngtest.exe ..\..\pngtest.png
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=..\..\pngtest.c
+SOURCE=..¥..¥pngtest.c
 # End Source File
 # End Group
 # End Target

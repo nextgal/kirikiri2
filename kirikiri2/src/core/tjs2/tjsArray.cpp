@@ -91,7 +91,7 @@ tTJSStringAppender::tTJSStringAppender()
 	DataCapacity = 0;
 }
 //---------------------------------------------------------------------------
-tTJSStringAppender::~tTJSStringAppender()
+tTJSStringAppender::‾tTJSStringAppender()
 {
 	if(Data) TJSVS_free(Data);
 }
@@ -280,12 +280,12 @@ TJS_BEGIN_NATIVE_METHOD_DECL(/* func. name */load)
 		tjs_uint lines = 0;
 		while(*p)
 		{
-			if(*p == TJS_W('\r') || *p == TJS_W('\n'))
+			if(*p == TJS_W('¥r') || *p == TJS_W('¥n'))
 			{
 				tjs_uint l = p - sp;
 
 				p++;
-				if(p[-1] == TJS_W('\r') && p[0] == TJS_W('\n')) p++;
+				if(p[-1] == TJS_W('¥r') && p[0] == TJS_W('¥n')) p++;
 
 				lines++;
 
@@ -314,12 +314,12 @@ TJS_BEGIN_NATIVE_METHOD_DECL(/* func. name */load)
 		{
 			while(*p)
 			{
-				if(*p == TJS_W('\r') || *p == TJS_W('\n'))
+				if(*p == TJS_W('¥r') || *p == TJS_W('¥n'))
 				{
 					tjs_uint l = p - sp;
 
 					p++;
-					if(p[-1] == TJS_W('\r') && p[0] == TJS_W('\n')) p++;
+					if(p[-1] == TJS_W('¥r') && p[0] == TJS_W('¥n')) p++;
 
 					vs = TJSAllocVariantString(sp, l);
 					ni->Items[lines++] = vs;
@@ -377,9 +377,9 @@ TJS_BEGIN_NATIVE_METHOD_DECL(/* func. name */save)
 	{
 		tTJSArrayNI::tArrayItemIterator i = ni->Items.begin();
 #ifdef TJS_TEXT_OUT_CRLF
-		const static ttstr cr(TJS_W("\r\n"));
+		const static ttstr cr(TJS_W("¥r¥n"));
 #else
-		const static ttstr cr(TJS_W("\n"));
+		const static ttstr cr(TJS_W("¥n"));
 #endif
 
 		while( i != ni->Items.end())
@@ -970,7 +970,7 @@ TJS_END_NATIVE_PROP_DECL(length)
 	TJS_END_NATIVE_MEMBERS
 }
 //---------------------------------------------------------------------------
-tTJSArrayClass::~tTJSArrayClass()
+tTJSArrayClass::‾tTJSArrayClass()
 {
 }
 //---------------------------------------------------------------------------
@@ -1060,9 +1060,9 @@ void tTJSArrayNI::SaveStructuredData(std::vector<iTJSDispatch2 *> &stack,
                                      iTJSTextWriteStream &stream, const ttstr &indentstr)
 {
 #ifdef TJS_TEXT_OUT_CRLF
-	stream.Write(TJS_W("(const) [\r\n"));
+	stream.Write(TJS_W("(const) [¥r¥n"));
 #else
-	stream>Write(TJS_W("(const) [\n"));
+	stream>Write(TJS_W("(const) [¥n"));
 #endif
 
 	ttstr indentstr2 = indentstr + TJS_W(" ");
@@ -1086,14 +1086,14 @@ void tTJSArrayNI::SaveStructuredData(std::vector<iTJSDispatch2 *> &stack,
 		}
 #ifdef TJS_TEXT_OUT_CRLF
 		if(c != Items.size() -1) // unless last
-			stream.Write(TJS_W(",\r\n"));
+			stream.Write(TJS_W(",¥r¥n"));
 		else
-			stream.Write(TJS_W("\r\n"));
+			stream.Write(TJS_W("¥r¥n"));
 #else
 		if(c != Items.size() -1) // unless last
-			stream.Write(TJS_W(",\n"));
+			stream.Write(TJS_W(",¥n"));
 		else
-			stream.Write(TJS_W("\n"));
+			stream.Write(TJS_W("¥n"));
 #endif
 
 		c++;
@@ -1141,10 +1141,10 @@ void tTJSArrayNI::SaveStructuredDataForObject(iTJSDispatch2 *dsp,
 	else if(dsp != NULL)
 	{
 		// other objects
-		stream.Write(TJS_W("null /* (object) \"")); // stored as a null
+		stream.Write(TJS_W("null /* (object) ¥"")); // stored as a null
 		tTJSVariant val(dsp,dsp);
 		stream.Write(ttstr(val).EscapeC());
-		stream.Write(TJS_W("\" */"));
+		stream.Write(TJS_W("¥" */"));
 	}
 	else
 	{
@@ -1337,22 +1337,22 @@ tTJSArrayObject::tTJSArrayObject() : tTJSCustomObject(TJS_ARRAY_BASE_HASH_BITS)
 	CallFinalize = false;
 }
 //---------------------------------------------------------------------------
-tTJSArrayObject::~tTJSArrayObject()
+tTJSArrayObject::‾tTJSArrayObject()
 {
 }
 //---------------------------------------------------------------------------
 
-#define ARRAY_GET_NI \
-	tTJSArrayNI *ni; \
-	if(TJS_FAILED(objthis->NativeInstanceSupport(TJS_NIS_GETINSTANCE, \
-		ClassID_Array, (iTJSNativeInstance**)&ni))) \
+#define ARRAY_GET_NI ¥
+	tTJSArrayNI *ni; ¥
+	if(TJS_FAILED(objthis->NativeInstanceSupport(TJS_NIS_GETINSTANCE, ¥
+		ClassID_Array, (iTJSNativeInstance**)&ni))) ¥
 			return TJS_E_NATIVECLASSCRASH;
 static tTJSVariant VoidValue;
-#define ARRAY_GET_VAL \
-	tjs_int membercount = (tjs_int)(ni->Items.size()); \
-	if(num < 0) num = membercount + num; \
-	if((flag & TJS_MEMBERMUSTEXIST) && (num < 0 || membercount <= num)) \
-		return TJS_E_MEMBERNOTFOUND; \
+#define ARRAY_GET_VAL ¥
+	tjs_int membercount = (tjs_int)(ni->Items.size()); ¥
+	if(num < 0) num = membercount + num; ¥
+	if((flag & TJS_MEMBERMUSTEXIST) && (num < 0 || membercount <= num)) ¥
+		return TJS_E_MEMBERNOTFOUND; ¥
 	tTJSVariant val ( (membercount<=num || num < 0) ?VoidValue:ni->Items[num]);
 		// Do not take reference of the element (because the element *might*
 		// disappear in function call, property handler etc.) So here must be
@@ -1804,7 +1804,7 @@ iTJSDispatch2 * TJSCreateArrayObject(iTJSDispatch2 **classout)
 	{
 		iTJSDispatch2 * Obj;
 		tHolder() { Obj = new tTJSArrayClass(); }
-		~tHolder() { Obj->Release(); }
+		‾tHolder() { Obj->Release(); }
 	} static arrayclass;
 
 	if(classout) *classout = arrayclass.Obj, arrayclass.Obj->AddRef();

@@ -164,7 +164,7 @@ TJS_END_NATIVE_STATIC_METHOD_DECL(/*func.name*/clear)
 	TJS_END_NATIVE_MEMBERS
 }
 //---------------------------------------------------------------------------
-tTJSDictionaryClass::~tTJSDictionaryClass()
+tTJSDictionaryClass::‾tTJSDictionaryClass()
 {
 }
 //---------------------------------------------------------------------------
@@ -237,7 +237,7 @@ tTJSDictionaryNI::tTJSDictionaryNI()
 	Owner = NULL;
 }
 //---------------------------------------------------------------------------
-tTJSDictionaryNI::~tTJSDictionaryNI()
+tTJSDictionaryNI::‾tTJSDictionaryNI()
 {
 }
 //---------------------------------------------------------------------------
@@ -336,9 +336,9 @@ void tTJSDictionaryNI::SaveStructuredData(std::vector<iTJSDispatch2 *> &stack,
 	iTJSTextWriteStream & stream, const ttstr &indentstr)
 {
 #ifdef TJS_TEXT_OUT_CRLF
-	stream.Write(TJS_W("(const) %[\r\n"));
+	stream.Write(TJS_W("(const) %[¥r¥n"));
 #else
-	stream.Write(TJS_W("(const) %[\n"));
+	stream.Write(TJS_W("(const) %[¥n"));
 #endif
 	ttstr indentstr2 = indentstr + TJS_W(" ");
 
@@ -351,9 +351,9 @@ void tTJSDictionaryNI::SaveStructuredData(std::vector<iTJSDispatch2 *> &stack,
 	Owner->EnumMembers(TJS_IGNOREPROP, &tTJSVariantClosure(&callback, NULL), Owner);
 
 #ifdef TJS_TEXT_OUT_CRLF
-	if(!callback.First) stream.Write(TJS_W("\r\n"));
+	if(!callback.First) stream.Write(TJS_W("¥r¥n"));
 #else
-	if(!callback.First) stream.Write(TJS_W("\n"));
+	if(!callback.First) stream.Write(TJS_W("¥n"));
 #endif
 	stream.Write(indentstr);
 	stream.Write(TJS_W("]"));
@@ -377,18 +377,18 @@ tjs_error TJS_INTF_METHOD tTJSDictionaryNI::tSaveStructCallback::FuncCall(
 	}
 
 #ifdef TJS_TEXT_OUT_CRLF
-	if(!First) Stream->Write(TJS_W(",\r\n"));
+	if(!First) Stream->Write(TJS_W(",¥r¥n"));
 #else
-	if(!First) Stream->Write(TJS_W(",\n"));
+	if(!First) Stream->Write(TJS_W(",¥n"));
 #endif
 
 	First = false;
 
 	Stream->Write(*IndentStr);
 
-	Stream->Write(TJS_W("\""));
+	Stream->Write(TJS_W("¥""));
 	Stream->Write(ttstr(*param[0]).EscapeC());
-	Stream->Write(TJS_W("\" => "));
+	Stream->Write(TJS_W("¥" => "));
 
 	tTJSVariantType type = param[2]->Type();
 	if(type == tvtObject)
@@ -641,7 +641,7 @@ tTJSDictionaryObject::tTJSDictionaryObject(tjs_int hashbits) : tTJSCustomObject(
 	CallFinalize = false;
 }
 //---------------------------------------------------------------------------
-tTJSDictionaryObject::~tTJSDictionaryObject()
+tTJSDictionaryObject::‾tTJSDictionaryObject()
 {
 }
 //---------------------------------------------------------------------------
@@ -727,7 +727,7 @@ iTJSDispatch2 * TJSCreateDictionaryObject(iTJSDispatch2 **classout)
 	{
 		iTJSDispatch2 * Obj;
 		tHolder() { Obj = new tTJSDictionaryClass(); }
-		~tHolder() { Obj->Release(); }
+		‾tHolder() { Obj->Release(); }
 	} static dictionaryclass;
 
 	if(classout) *classout = dictionaryclass.Obj, dictionaryclass.Obj->AddRef();

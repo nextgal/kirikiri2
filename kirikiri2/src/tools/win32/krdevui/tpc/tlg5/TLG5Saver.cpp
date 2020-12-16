@@ -48,7 +48,7 @@ static void Compress(Graphics::TBitmap *bmp, TStream * out)
 
 	// header
 	{
-		out->WriteBuffer("TLG5.0\x00raw\x1a\x00", 11);
+		out->WriteBuffer("TLG5.0¥x00raw¥x1a¥x00", 11);
 		out->WriteBuffer(&colors, 1);
 		int width = bmp->Width;
 		int height = bmp->Height;
@@ -167,7 +167,7 @@ static void Compress(Graphics::TBitmap *bmp, TStream * out)
 					cmpoutbuf[c], wrote);
 				if(wrote < inp)
 				{
-					out->WriteBuffer("\x00", 1);
+					out->WriteBuffer("¥x00", 1);
 					WriteInt32(wrote, out);
 					out->WriteBuffer(cmpoutbuf[c], wrote);
 					blocksize += wrote + 4 + 1;
@@ -175,7 +175,7 @@ static void Compress(Graphics::TBitmap *bmp, TStream * out)
 				else
 				{
 					compressor->Restore();
-					out->WriteBuffer("\x01", 1);
+					out->WriteBuffer("¥x01", 1);
 					WriteInt32(inp, out);
 					out->WriteBuffer(cmpinbuf[c], inp);
 					blocksize += inp + 4 + 1;

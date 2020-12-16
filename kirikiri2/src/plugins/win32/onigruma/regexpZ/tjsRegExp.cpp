@@ -32,7 +32,7 @@ static tjs_uint32 TJSRegExpFlagToValue(tjs_char ch, tjs_uint32 prev)
 {
 	// converts flag letter to internal flag value.
 	// this returns modified prev.
-	// when ch is '\0', returns default flag value and prev is ignored.
+	// when ch is '¥0', returns default flag value and prev is ignored.
 
 	if(ch == 0) {
 		return ONIG_OPTION_DEFAULT|ONIG_OPTION_CAPTURE_GROUP|ONIG_OPTION_FIND_NOT_EMPTY;
@@ -45,7 +45,7 @@ static tjs_uint32 TJSRegExpFlagToValue(tjs_char ch, tjs_uint32 prev)
 	case TJS_W('i'): // ignore case
 		prev|=ONIG_OPTION_IGNORECASE; return prev;
 	case TJS_W('l'): // use localized collation
-		/*prev &= ~regbase::nocollate;*/ return prev; // ignore
+		/*prev &= ‾regbase::nocollate;*/ return prev; // ignore
 	default:
 		return prev;
 	}
@@ -174,7 +174,7 @@ tTJSNI_RegExp::tTJSNI_RegExp() : RegEx(NULL)
 	LastIndex = 0;
 }
 //---------------------------------------------------------------------------
-tTJSNI_RegExp::~tTJSNI_RegExp() {
+tTJSNI_RegExp::‾tTJSNI_RegExp() {
 	if( RegEx ) {
 		onig_free(RegEx);
 		RegEx = NULL;
@@ -361,7 +361,7 @@ TJS_BEGIN_NATIVE_METHOD_DECL(/*func. name*/exec)
 	/*
 		same as the match except for the internal status' change.
 		var ar;
-		var pat = /:(\d+):(\d+):/g;
+		var pat = /:(¥d+):(¥d+):/g;
 		while((ar = pat.match(target)).count)
 		{
 			// ...

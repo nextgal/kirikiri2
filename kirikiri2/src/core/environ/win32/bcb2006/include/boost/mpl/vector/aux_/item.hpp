@@ -37,7 +37,7 @@ struct vector_item
 
 // agurt, 29/sep/02: Borland 5.5.1 does a poor job on partial 
 // specialization here
-#   if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) \
+#   if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) ¥
     && !defined(BOOST_NO_NON_TYPE_TEMPLATE_PARTIAL_SPECIALIZATION)
 
 // forward declaration

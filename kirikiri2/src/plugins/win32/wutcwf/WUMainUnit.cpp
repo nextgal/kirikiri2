@@ -16,20 +16,20 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void* lpReserved
 
 struct TTCWFHeader
 {
-	char mark[6];  // = "TCWF0\x1a"
-	BYTE channels; // ƒ`ƒƒƒlƒ‹”
+	char mark[6];  // = "TCWF0Â¥x1a"
+	BYTE channels; // ãƒãƒ£ãƒãƒ«æ•°
 	BYTE reserved;
-	LONG frequency; // ƒTƒ“ƒvƒŠƒ“ƒOü”g”
-	LONG numblocks; // ƒuƒƒbƒN”
-	LONG bytesperblock; // ƒuƒƒbƒN‚²‚Æ‚ÌƒoƒCƒg”
-	LONG samplesperblock; // ƒuƒƒbƒN‚²‚Æ‚ÌƒTƒ“ƒvƒ‹”
+	LONG frequency; // ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°å‘¨æ³¢æ•°
+	LONG numblocks; // ãƒ–ãƒ­ãƒƒã‚¯æ•°
+	LONG bytesperblock; // ãƒ–ãƒ­ãƒƒã‚¯ã”ã¨ã®ãƒã‚¤ãƒˆæ•°
+	LONG samplesperblock; // ãƒ–ãƒ­ãƒƒã‚¯ã”ã¨ã®ã‚µãƒ³ãƒ—ãƒ«æ•°
 };
 struct TTCWUnexpectedPeak
 {
 	unsigned short int pos;
 	short int revise;
 };
-struct TTCWBlockHeader  // ƒuƒƒbƒNƒwƒbƒ_ ( ƒXƒeƒŒƒI‚Ìê‡‚ÍƒuƒƒbƒN‚ª‰EE¶‚Ì‡‚É‚Q‚Â‘±‚­)
+struct TTCWBlockHeader  // ãƒ–ãƒ­ãƒƒã‚¯ãƒ˜ãƒƒãƒ€ ( ã‚¹ãƒ†ãƒ¬ã‚ªã®å ´åˆã¯ãƒ–ãƒ­ãƒƒã‚¯ãŒå³ãƒ»å·¦ã®é †ã«ï¼’ã¤ç¶šã)
 {
 	short int ms_sample0;
 	short int ms_sample1;
@@ -76,7 +76,7 @@ static int ima_step_size [89] =
 void strcpy_limit(LPWSTR dest, LPWSTR  src, int n)
 {
 	wcsncpy(dest, src, n-1);
-	dest[n-1] = '\0';
+	dest[n-1] = 'Â¥0';
 }
 //---------------------------------------------------------------------------
 ITSSStorageProvider *StorageProvider = NULL;
@@ -87,7 +87,7 @@ class TCWFModule : public ITSSModule
 
 public:
 	TCWFModule();
-	~TCWFModule();
+	â€¾TCWFModule();
 
 public:
 	// IUnknown
@@ -110,7 +110,7 @@ public:
 class TCWFDecoder : public ITSSWaveDecoder
 {
 	ULONG RefCount;
-	TTCWFHeader Header; // ƒwƒbƒ_î•ñ
+	TTCWFHeader Header; // ãƒ˜ãƒƒãƒ€æƒ…å ±
 	IStream *InputStream;
 	__int64 StreamPos;
 	short int *SamplePos;
@@ -124,7 +124,7 @@ class TCWFDecoder : public ITSSWaveDecoder
 
 public:
 	TCWFDecoder();
-	~TCWFDecoder();
+	â€¾TCWFDecoder();
 
 public:
 	// IUnkown
@@ -138,19 +138,19 @@ public:
 			unsigned long *rendered, unsigned long *status);
 	HRESULT __stdcall SetPosition(unsigned __int64 samplepos);
 
-	// ‚»‚Ì‚Ù‚©
+	// ãã®ã»ã‹
 	HRESULT Open(wchar_t * url);
 	bool ReadBlock(int , int );
 };
 //---------------------------------------------------------------------------
-// TCWFModule ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ########################################
+// TCWFModule ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ########################################
 //---------------------------------------------------------------------------
 TCWFModule::TCWFModule()
 {
 	RefCount = 1;
 }
 //---------------------------------------------------------------------------
-TCWFModule::~TCWFModule()
+TCWFModule::â€¾TCWFModule()
 {
 }
 //---------------------------------------------------------------------------
@@ -207,7 +207,7 @@ HRESULT __stdcall TCWFModule::GetSupportExts(unsigned long index, LPWSTR mediash
 												LPWSTR buf, unsigned long buflen )
 {
 	if(index >= 1) return S_FALSE;
-	wcscpy(mediashortname, L"TCWF ƒtƒ@ƒCƒ‹");
+	wcscpy(mediashortname, L"TCWF ãƒ•ã‚¡ã‚¤ãƒ«");
 	strcpy_limit(buf, L".tcw", buflen);
 	return S_OK;
 }
@@ -238,7 +238,7 @@ HRESULT __stdcall TCWFModule::GetMediaInstance(LPWSTR url, IUnknown ** instance 
 	return S_OK;
 }
 //---------------------------------------------------------------------------
-// TCWFDecoder ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ #######################################
+// TCWFDecoder ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ #######################################
 //---------------------------------------------------------------------------
 TCWFDecoder::TCWFDecoder()
 {
@@ -248,7 +248,7 @@ TCWFDecoder::TCWFDecoder()
 	Samples=NULL;
 }
 //---------------------------------------------------------------------------
-TCWFDecoder::~TCWFDecoder()
+TCWFDecoder::â€¾TCWFDecoder()
 {
 	if(InputStream)
 	{
@@ -305,7 +305,7 @@ HRESULT __stdcall TCWFDecoder::GetFormat(TSSWaveFormat *format)
 HRESULT __stdcall TCWFDecoder::Render(void *buf, unsigned long bufsamplelen,
             unsigned long *rendered, unsigned long *status)
 {
-	// “WŠJ
+	// å±•é–‹
 	unsigned long n;
 	short int *pbuf=(short int*)buf;
 	for(n=0;n<bufsamplelen;n++)
@@ -342,8 +342,8 @@ HRESULT __stdcall TCWFDecoder::Render(void *buf, unsigned long bufsamplelen,
 HRESULT __stdcall TCWFDecoder::SetPosition(unsigned __int64 samplepos)
 {
 
-	// pos (ms’PˆÊ) ‚ÉˆÚ“®‚·‚é
-	// Œ»İˆÊ’u‚ğ•Û‘¶
+	// pos (mså˜ä½) ã«ç§»å‹•ã™ã‚‹
+	// ç¾åœ¨ä½ç½®ã‚’ä¿å­˜
 	LARGE_INTEGER newpos;
 	ULARGE_INTEGER result;
 	newpos.QuadPart=0;
@@ -352,18 +352,18 @@ HRESULT __stdcall TCWFDecoder::SetPosition(unsigned __int64 samplepos)
 	__int64 bytepossave=(long)newpos.QuadPart;
 	__int64 samplepossave=Pos;
 
-	// V‚µ‚¢ˆÊ’u‚ğ“Á’è
+	// æ–°ã—ã„ä½ç½®ã‚’ç‰¹å®š
 	long newbytepos = samplepos / (Header.samplesperblock);
 	long remnant = samplepos - newbytepos * (Header.samplesperblock);
 	Pos = samplepos;
 	newbytepos *= Header.bytesperblock * Header.channels;
 
-	// ƒV[ƒN
+	// ã‚·ãƒ¼ã‚¯
 	newpos.QuadPart=DataStart+newbytepos;
 	InputStream->Seek(newpos,0,&result);
 	if(result.QuadPart != (unsigned __int64) newpos.QuadPart)
 	{
-		// ƒV[ƒN¸”s
+		// ã‚·ãƒ¼ã‚¯å¤±æ•—
 		newpos.QuadPart=bytepossave;
 		InputStream->Seek(newpos,0,&result);
 		Pos=samplepossave;
@@ -386,7 +386,7 @@ HRESULT __stdcall TCWFDecoder::SetPosition(unsigned __int64 samplepos)
 //---------------------------------------------------------------------------
 HRESULT TCWFDecoder::Open(wchar_t * url)
 {
-	// url ‚Åw’è‚³‚ê‚½ URL ‚ğŠJ‚«‚Ü‚·
+	// url ã§æŒ‡å®šã•ã‚ŒãŸ URL ã‚’é–‹ãã¾ã™
 	InputStream = NULL;
 
 	HRESULT hr;
@@ -409,18 +409,18 @@ HRESULT TCWFDecoder::Open(wchar_t * url)
 	InputStream->Seek(newpos,0,&result);
 	if(result.QuadPart != (unsigned __int64) newpos.QuadPart) return E_FAIL;
 
-	// TCWF0 ƒ`ƒFƒbƒN
+	// TCWF0 ãƒã‚§ãƒƒã‚¯
 	InputStream->Read(&Header, sizeof(Header), &read);
 	if(read!=sizeof(Header)) return E_FAIL;
-	if(memcmp(Header.mark,"TCWF0\x1a", 6)) return E_FAIL; // ƒ}[ƒN
+	if(memcmp(Header.mark,"TCWF0Â¥x1a", 6)) return E_FAIL; // ãƒãƒ¼ã‚¯
 
-	// Œ»İˆÊ’u‚ğæ“¾
+	// ç¾åœ¨ä½ç½®ã‚’å–å¾—
 	newpos.QuadPart=0;
 	InputStream->Seek(newpos,1,&result);
 	StreamPos=(long)result.QuadPart;
 	DataStart=StreamPos;
 
-	// ‚»‚Ì‘¼A‰Šú‰»
+	// ãã®ä»–ã€åˆæœŸåŒ–
 	BufferRemain=0;
 	Pos=0;
 
@@ -438,7 +438,7 @@ HRESULT TCWFDecoder::Open(wchar_t * url)
 bool TCWFDecoder::ReadBlock(int numchans, int chan)
 {
 
-	// ƒƒ‚ƒŠŠm•Û
+	// ãƒ¡ãƒ¢ãƒªç¢ºä¿
 	if(!BlockBuffer)
 		BlockBuffer=new BYTE[Header.bytesperblock];
 	if(!this->Samples)
@@ -447,7 +447,7 @@ bool TCWFDecoder::ReadBlock(int numchans, int chan)
 	short int * Samples = this->Samples + chan;
 
 
-	// ƒV[ƒN
+	// ã‚·ãƒ¼ã‚¯
 	LARGE_INTEGER newpos;
 	ULARGE_INTEGER result;
 	newpos.QuadPart=0;
@@ -460,7 +460,7 @@ bool TCWFDecoder::ReadBlock(int numchans, int chan)
 	}
 
 
-	// ƒuƒƒbƒNƒwƒbƒ_“Ç‚İ‚İ
+	// ãƒ–ãƒ­ãƒƒã‚¯ãƒ˜ãƒƒãƒ€èª­ã¿è¾¼ã¿
 	TTCWBlockHeader bheader;
 	ULONG read;
 	InputStream->Read(&bheader,sizeof(bheader),&read);
@@ -470,17 +470,17 @@ bool TCWFDecoder::ReadBlock(int numchans, int chan)
 	StreamPos+=read;
 	if((ULONG)Header.bytesperblock- sizeof(bheader)!=read) return false;
 
-	// ƒfƒR[ƒh
+	// ãƒ‡ã‚³ãƒ¼ãƒ‰
 	Samples[0*numchans] = bheader.ms_sample0;
 	Samples[1*numchans] = bheader.ms_sample1;
 	int idelta = bheader.ms_idelta;
 	int bpred = bheader.ms_bpred;
-	if(bpred>=7) return false; // ‚¨‚»‚ç‚­“¯Šú‚ª‚Æ‚ê‚Ä‚¢‚È‚¢
+	if(bpred>=7) return false; // ãŠãã‚‰ãåŒæœŸãŒã¨ã‚Œã¦ã„ãªã„
 
 	int k;
 	int p;
 
-	//MS ADPCM ƒfƒR[ƒh
+	//MS ADPCM ãƒ‡ã‚³ãƒ¼ãƒ‰
 	int predict;
 	int bytecode;
 	for (k = 2, p = 0 ; k < Header.samplesperblock ; k ++, p++)
@@ -505,7 +505,7 @@ bool TCWFDecoder::ReadBlock(int numchans, int chan)
 		Samples [k*numchans] = (short int) current ;
 	};
 
-	//IMA ADPCM ƒfƒR[ƒh
+	//IMA ADPCM ãƒ‡ã‚³ãƒ¼ãƒ‰
 	int step;
 	int stepindex = bheader.ima_stepindex;
 	int prev = 0;
@@ -547,7 +547,7 @@ bool TCWFDecoder::ReadBlock(int numchans, int chan)
 		Samples[k*numchans] =n;
 	};
 
-	// unexpected peak ‚ÌC³
+	// unexpected peak ã®ä¿®æ­£
 	int i;
 	for(i=0; i<6; i++)
 	{

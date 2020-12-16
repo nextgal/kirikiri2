@@ -28,7 +28,7 @@ CZBuffer::CZBuffer(const core::dimension2d<s32>& size)
 
 
 //! destructor
-CZBuffer::~CZBuffer()
+CZBuffer::‾CZBuffer()
 {
 	delete [] Buffer;
 }

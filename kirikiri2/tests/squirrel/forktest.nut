@@ -1,4 +1,4 @@
-print("fork‚ÌƒeƒXƒg");
+print("forkã®ãƒ†ã‚¹ãƒˆ");
 
 function forktest1() {
 	print("fork1 start");

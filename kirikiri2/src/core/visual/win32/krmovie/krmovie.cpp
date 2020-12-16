@@ -17,7 +17,7 @@
 
 
 #include "dsoverlay.h"
-#include "..\krmovie.h"
+#include "..¥krmovie.h"
 
 #include "asyncio.h"
 #include "asyncrdr.h"
@@ -68,11 +68,11 @@ void __stdcall GetAPIVersion(DWORD *ver)
 //---------------------------------------------------------------------------
 HRESULT __stdcall V2Link(iTVPFunctionExporter *exporter)
 {
-// �������m�ۈʒu�Ńu���[�N��\��ɂ͈ȉ��̃��\�b�h�Ŋm�۔ԍ����w�肷��B
-// �u���[�N������������́A�Ăяo������(�R�[���X�^�b�N)�����āA�ǂ��Ŋm�ۂ��ꂽ�����������[�N���Ă��邩�T��B
-// _CrtDumpMemoryLeaks �Ńf�o�b�O�o�͂Ƀ��[�N�����������̊m�۔ԍ����o��̂ŁA����������OK
-// �m�ۏ����s�m��ȏꍇ�͐h�����A�X�N���v�g���Œ肷��΂قړ������Ŋm�ۂ����͂��B
-//	_CrtSetBreakAlloc(53);	// �w�肳�ꂽ�񐔖ڂ̃������m�ێ��Ƀu���[�N��\��
+// メモリ確保位置でブレークを貼るには以下のメソッドで確保番号を指定する。
+// ブレークがかかった後は、呼び出し履歴(コールスタック)を見て、どこで確保されたメモリがリークしているか探る。
+// _CrtDumpMemoryLeaks でデバッグ出力にリークしたメモリの確保番号が出るので、それを入れればOK
+// 確保順が不確定な場合は辛いが、スクリプトを固定すればほぼ同じ順で確保されるはず。
+//	_CrtSetBreakAlloc(53);	// 指定された回数目のメモリ確保時にブレークを貼る
 
 	TVPInitImportStub(exporter);
 

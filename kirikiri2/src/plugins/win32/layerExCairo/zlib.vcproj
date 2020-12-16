@@ -18,7 +18,7 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)ﾂ･$(ProjectName)"
 			ConfigurationType="4"
 			CharacterSet="1"
 			>
@@ -80,7 +80,7 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)ﾂ･$(ProjectName)"
 			ConfigurationType="4"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
@@ -142,123 +142,123 @@
 	</References>
 	<Files>
 		<Filter
-			Name="ソース ファイル"
+			Name="繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\zlib\adler32.c"
+				RelativePath=".ﾂ･zlibﾂ･adler32.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\compress.c"
+				RelativePath=".ﾂ･zlibﾂ･compress.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\crc32.c"
+				RelativePath=".ﾂ･zlibﾂ･crc32.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\deflate.c"
+				RelativePath=".ﾂ･zlibﾂ･deflate.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\gzio.c"
+				RelativePath=".ﾂ･zlibﾂ･gzio.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\infblock.c"
+				RelativePath=".ﾂ･zlibﾂ･infblock.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\infcodes.c"
+				RelativePath=".ﾂ･zlibﾂ･infcodes.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\inffast.c"
+				RelativePath=".ﾂ･zlibﾂ･inffast.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\inflate.c"
+				RelativePath=".ﾂ･zlibﾂ･inflate.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\inftrees.c"
+				RelativePath=".ﾂ･zlibﾂ･inftrees.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\infutil.c"
+				RelativePath=".ﾂ･zlibﾂ･infutil.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\maketree.c"
+				RelativePath=".ﾂ･zlibﾂ･maketree.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\trees.c"
+				RelativePath=".ﾂ･zlibﾂ･trees.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\uncompr.c"
+				RelativePath=".ﾂ･zlibﾂ･uncompr.c"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\zutil.c"
+				RelativePath=".ﾂ･zlibﾂ･zutil.c"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="ヘッダー ファイル"
+			Name="繝倥ャ繝繝ｼ 繝輔ぃ繧､繝ｫ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\zlib\deflate.h"
+				RelativePath=".ﾂ･zlibﾂ･deflate.h"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\infblock.h"
+				RelativePath=".ﾂ･zlibﾂ･infblock.h"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\infcodes.h"
+				RelativePath=".ﾂ･zlibﾂ･infcodes.h"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\inffast.h"
+				RelativePath=".ﾂ･zlibﾂ･inffast.h"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\inffixed.h"
+				RelativePath=".ﾂ･zlibﾂ･inffixed.h"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\inftrees.h"
+				RelativePath=".ﾂ･zlibﾂ･inftrees.h"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\infutil.h"
+				RelativePath=".ﾂ･zlibﾂ･infutil.h"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\trees.h"
+				RelativePath=".ﾂ･zlibﾂ･trees.h"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\zconf.h"
+				RelativePath=".ﾂ･zlibﾂ･zconf.h"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\zlib.h"
+				RelativePath=".ﾂ･zlibﾂ･zlib.h"
 				>
 			</File>
 			<File
-				RelativePath=".\zlib\zutil.h"
+				RelativePath=".ﾂ･zlibﾂ･zutil.h"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="リソース ファイル"
+			Name="繝ｪ繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>

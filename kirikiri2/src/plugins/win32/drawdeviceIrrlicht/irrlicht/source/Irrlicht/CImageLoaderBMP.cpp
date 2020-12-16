@@ -170,7 +170,7 @@ void CImageLoaderBMP::decompress4BitRLE(u8*& bmpData, s32 size, s32 width, s32 h
 						}
 
 						u8 mask = 0x0f << shift;
-						*d = (*d & (~mask)) | ((color << shift) & mask);
+						*d = (*d & (‾mask)) | ((color << shift) & mask);
 
 						shift -= 4;
 						if (shift < 0)
@@ -197,7 +197,7 @@ void CImageLoaderBMP::decompress4BitRLE(u8*& bmpData, s32 size, s32 width, s32 h
 			{
 				u8 mask = 0x0f << shift;
 				u8 toSet = (shift==0 ? color1 : color2) << shift;
-				*d = (*d & (~mask)) | (toSet & mask);
+				*d = (*d & (‾mask)) | (toSet & mask);
 
 				shift -= 4;
 				if (shift < 0)

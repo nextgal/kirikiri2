@@ -65,7 +65,7 @@ static FILE * infile;		/* input JPEG file */
 
 
 /* Error exit handler */
-#define ERREXIT(msg)  (fprintf(stderr, "%s\n", msg), exit(EXIT_FAILURE))
+#define ERREXIT(msg)  (fprintf(stderr, "%s¥n", msg), exit(EXIT_FAILURE))
 
 
 /* Read one byte, testing for EOF */
@@ -154,7 +154,7 @@ next_marker (void)
   } while (c == 0xFF);
 
   if (discarded_bytes != 0) {
-    fprintf(stderr, "Warning: garbage data found in JPEG file\n");
+    fprintf(stderr, "Warning: garbage data found in JPEG file¥n");
   }
 
   return c;
@@ -234,26 +234,26 @@ process_COM (void)
   while (length > 0) {
     ch = read_1_byte();
     /* Emit the character in a readable form.
-     * Nonprintables are converted to \nnn form,
-     * while \ is converted to \\.
+     * Nonprintables are converted to ¥nnn form,
+     * while ¥ is converted to ¥¥.
      * Newlines in CR, CR/LF, or LF form will be printed as one newline.
      */
-    if (ch == '\r') {
-      printf("\n");
-    } else if (ch == '\n') {
-      if (lastch != '\r')
-	printf("\n");
-    } else if (ch == '\\') {
-      printf("\\\\");
+    if (ch == '¥r') {
+      printf("¥n");
+    } else if (ch == '¥n') {
+      if (lastch != '¥r')
+	printf("¥n");
+    } else if (ch == '¥¥') {
+      printf("¥¥¥¥");
     } else if (isprint(ch)) {
       putc(ch, stdout);
     } else {
-      printf("\\%03o", ch);
+      printf("¥¥%03o", ch);
     }
     lastch = ch;
     length--;
   }
-  printf("\n");
+  printf("¥n");
 }
 
 
@@ -295,9 +295,9 @@ process_SOFn (int marker)
   default:	process = "Unknown";  break;
   }
 
-  printf("JPEG image is %uw * %uh, %d color components, %d bits per sample\n",
+  printf("JPEG image is %uw * %uh, %d color components, %d bits per sample¥n",
 	 image_width, image_height, num_components, data_precision);
-  printf("JPEG process: %s\n", process);
+  printf("JPEG process: %s¥n", process);
 
   if (length != (unsigned int) (8 + num_components * 3))
     ERREXIT("Bogus SOF marker length");
@@ -370,7 +370,7 @@ scan_JPEG_header (int verbose)
        * APP12 markers, so we print those out too when in -verbose mode.
        */
       if (verbose) {
-	printf("APP12 contains:\n");
+	printf("APP12 contains:¥n");
 	process_COM();
       } else
 	skip_variable();
@@ -393,12 +393,12 @@ static void
 usage (void)
 /* complain about bad command line */
 {
-  fprintf(stderr, "rdjpgcom displays any textual comments in a JPEG file.\n");
+  fprintf(stderr, "rdjpgcom displays any textual comments in a JPEG file.¥n");
 
-  fprintf(stderr, "Usage: %s [switches] [inputfile]\n", progname);
+  fprintf(stderr, "Usage: %s [switches] [inputfile]¥n", progname);
 
-  fprintf(stderr, "Switches (names may be abbreviated):\n");
-  fprintf(stderr, "  -verbose    Also display dimensions of JPEG image\n");
+  fprintf(stderr, "Switches (names may be abbreviated):¥n");
+  fprintf(stderr, "  -verbose    Also display dimensions of JPEG image¥n");
 
   exit(EXIT_FAILURE);
 }
@@ -413,8 +413,8 @@ keymatch (char * arg, const char * keyword, int minchars)
   register int ca, ck;
   register int nmatched = 0;
 
-  while ((ca = *arg++) != '\0') {
-    if ((ck = *keyword++) == '\0')
+  while ((ca = *arg++) != '¥0') {
+    if ((ck = *keyword++) == '¥0')
       return 0;			/* arg longer than keyword, no good */
     if (isupper(ca))		/* force arg to lcase (assume ck is already) */
       ca = tolower(ca);
@@ -464,12 +464,12 @@ main (int argc, char **argv)
   /* Open the input file. */
   /* Unix style: expect zero or one file name */
   if (argn < argc-1) {
-    fprintf(stderr, "%s: only one input file\n", progname);
+    fprintf(stderr, "%s: only one input file¥n", progname);
     usage();
   }
   if (argn < argc) {
     if ((infile = fopen(argv[argn], READ_BINARY)) == NULL) {
-      fprintf(stderr, "%s: can't open %s\n", progname, argv[argn]);
+      fprintf(stderr, "%s: can't open %s¥n", progname, argv[argn]);
       exit(EXIT_FAILURE);
     }
   } else {
@@ -479,7 +479,7 @@ main (int argc, char **argv)
 #endif
 #ifdef USE_FDOPEN		/* need to re-open in binary mode? */
     if ((infile = fdopen(fileno(stdin), READ_BINARY)) == NULL) {
-      fprintf(stderr, "%s: can't open stdin\n", progname);
+      fprintf(stderr, "%s: can't open stdin¥n", progname);
       exit(EXIT_FAILURE);
     }
 #else

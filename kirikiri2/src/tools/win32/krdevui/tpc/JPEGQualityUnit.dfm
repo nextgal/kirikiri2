@@ -2,14 +2,14 @@ object JPEGQualityForm: TJPEGQualityForm
   Left = 214
   Top = 359
   BorderStyle = bsDialog
-  Caption = 'JPEG ƒIƒvƒVƒ‡ƒ“'
+  Caption = 'JPEG ã‚ªãƒ—ã‚·ãƒ§ãƒ³'
   ClientHeight = 113
   ClientWidth = 382
   Color = clBtnFace
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
@@ -20,7 +20,7 @@ object JPEGQualityForm: TJPEGQualityForm
     Top = 8
     Width = 71
     Height = 12
-    Caption = 'ƒNƒIƒŠƒeƒB(&Q) :'
+    Caption = 'ã‚¯ã‚ªãƒªãƒ†ã‚£(&Q) :'
     FocusControl = TrackBar
   end
   object Label2: TLabel
@@ -28,28 +28,28 @@ object JPEGQualityForm: TJPEGQualityForm
     Top = 32
     Width = 46
     Height = 12
-    Caption = '‰æ¿ : ‚'
+    Caption = 'ç”»è³ª : é«˜'
   end
   object Label3: TLabel
     Left = 264
     Top = 48
     Width = 97
     Height = 12
-    Caption = 'ƒtƒ@ƒCƒ‹ƒTƒCƒY : ‘å'
+    Caption = 'ãƒ•ã‚¡ã‚¤ãƒ«ã‚µã‚¤ã‚º : å¤§'
   end
   object Label4: TLabel
     Left = 56
     Top = 32
     Width = 46
     Height = 12
-    Caption = '‰æ¿ : ’á'
+    Caption = 'ç”»è³ª : ä½'
   end
   object Label5: TLabel
     Left = 8
     Top = 48
     Width = 97
     Height = 12
-    Caption = 'ƒtƒ@ƒCƒ‹ƒTƒCƒY : ¬'
+    Caption = 'ãƒ•ã‚¡ã‚¤ãƒ«ã‚µã‚¤ã‚º : å°'
   end
   object QualityLabel: TLabel
     Left = 88
@@ -81,7 +81,7 @@ object JPEGQualityForm: TJPEGQualityForm
     Top = 80
     Width = 123
     Height = 25
-    Caption = 'ƒfƒtƒHƒ‹ƒg‚É–ß‚·(&D)'
+    Caption = 'ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã«æˆ»ã™(&D)'
     TabOrder = 1
     OnClick = RestoreDefaultButtonClick
   end
@@ -101,7 +101,7 @@ object JPEGQualityForm: TJPEGQualityForm
     Width = 75
     Height = 25
     Cancel = True
-    Caption = 'ƒLƒƒƒ“ƒZƒ‹'
+    Caption = 'ã‚­ãƒ£ãƒ³ã‚»ãƒ«'
     ModalResult = 2
     TabOrder = 3
   end

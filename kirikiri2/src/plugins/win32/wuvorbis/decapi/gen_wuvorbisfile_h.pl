@@ -1,65 +1,65 @@
 
-# wuvorbisfile.h ‚È‚Ç‚ğo—Í‚·‚é‚½‚ß‚ÌƒXƒNƒŠƒvƒg
+# wuvorbisfile.h ãªã©ã‚’å‡ºåŠ›ã™ã‚‹ãŸã‚ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
 
 
 $file = "../vorbis/include/vorbis/vorbisfile.h";
 $codec_h = "../vorbis/include/vorbis/codec.h";
 $cpulib = "../../../../core/visual/IA32/tvpgl_ia32_intf.h";
 $dll = "../../../../../bin/win32/plugin/wuvorbis.dll";
-$def = "..\\wuvorbis.def";
+$def = "..Â¥Â¥wuvorbis.def";
 
 open FH, $file or die;
 undef $/;
-$file = <FH>; # ƒtƒ@ƒCƒ‹‚ğˆê‹C‚É“Ç‚İ‚İ
+$file = <FH>; # ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¸€æ°—ã«èª­ã¿è¾¼ã¿
 
 open FH, $codec_h or die;
 undef $/;
-$codec_h = <FH>; # ƒtƒ@ƒCƒ‹‚ğˆê‹C‚É“Ç‚İ‚İ
+$codec_h = <FH>; # ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¸€æ°—ã«èª­ã¿è¾¼ã¿
 
 open FH, $cpulib or die;
 undef $/;
-$cpulib = <FH>; # ƒtƒ@ƒCƒ‹‚ğˆê‹C‚É“Ç‚İ‚İ
+$cpulib = <FH>; # ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¸€æ°—ã«èª­ã¿è¾¼ã¿
 
-if($file !~ /pragma pack/)
+if($file !â€¾ /pragma pack/)
 {
-	# pragma pack ‚ÍDLL‚Æ‚»‚ê‚ğ—˜—p‚·‚é‘¤‚Å³í‚ÉƒoƒCƒiƒŠƒŒƒCƒAƒEƒg‚ª
-	# ˆê’v‚·‚é‚½‚ß‚É•K—vB
-	# vorbisfile.h ‚Ì \‘¢‘Ì‚Í #pragma pack(push, 4) ‚ÅˆÍ‚Ü‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚éB
+	# pragma pack ã¯DLLã¨ãã‚Œã‚’åˆ©ç”¨ã™ã‚‹å´ã§æ­£å¸¸ã«ãƒã‚¤ãƒŠãƒªãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆãŒ
+	# ä¸€è‡´ã™ã‚‹ãŸã‚ã«å¿…è¦ã€‚
+	# vorbisfile.h ã® æ§‹é€ ä½“ã¯ #pragma pack(push, 4) ã§å›²ã¾ã‚Œã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
 	die "`pragma pack` not found in vorbisfile.h (foget patching ?)";
 }
-if($codec_h !~ /pragma pack/)
+if($codec_h !â€¾ /pragma pack/)
 {
-	# pragma pack ‚ÍDLL‚Æ‚»‚ê‚ğ—˜—p‚·‚é‘¤‚Å³í‚ÉƒoƒCƒiƒŠƒŒƒCƒAƒEƒg‚ª
-	# ˆê’v‚·‚é‚½‚ß‚É•K—vB
-	# vorbisfile.h ‚Ì \‘¢‘Ì‚Í #pragma pack(push, 4) ‚ÅˆÍ‚Ü‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚éB
+	# pragma pack ã¯DLLã¨ãã‚Œã‚’åˆ©ç”¨ã™ã‚‹å´ã§æ­£å¸¸ã«ãƒã‚¤ãƒŠãƒªãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆãŒ
+	# ä¸€è‡´ã™ã‚‹ãŸã‚ã«å¿…è¦ã€‚
+	# vorbisfile.h ã® æ§‹é€ ä½“ã¯ #pragma pack(push, 4) ã§å›²ã¾ã‚Œã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
 	die "`pragma pack` not found in codec.h (foget patching ?)";
 }
 
-if($file !~ /_cdecl/)
+if($file !â€¾ /_cdecl/)
 {
-	# ŒÄ‚Ño‚µ‹K–ñ‚ÌÕ“Ë(wuvorbis.dll “à‚Å‚Í__fastcall ‚È‚Ì‚Å) ‚ğ
-	# –h‚®‚½‚ß‚É _cdecl ŒÄ‚Ño‚µ‹K–ñ‚ª ov_callbacks \‘¢‘Ì“à‚Ì
-	# ŠeŠÖ”‚É•K—vB
+	# å‘¼ã³å‡ºã—è¦ç´„ã®è¡çª(wuvorbis.dll å†…ã§ã¯__fastcall ãªã®ã§) ã‚’
+	# é˜²ããŸã‚ã« _cdecl å‘¼ã³å‡ºã—è¦ç´„ãŒ ov_callbacks æ§‹é€ ä½“å†…ã®
+	# å„é–¢æ•°ã«å¿…è¦ã€‚
 	die "`_cdecl` not found in vorbisfile.h (foget patching ?)";
 }
 
-# Œ^‚ğ•ÏŠ·
+# å‹ã‚’å¤‰æ›
 
-$file =~ s/ogg_int64_t/wu_ogg_int64_t/gs;
-$file =~ s/OggVorbis_File/wu_OggVorbis_File/gs;
-$file =~ s/ov_callbacks/wu_ov_callbacks/gs;
-$codec_h =~ s/vorbis_info/wu_vorbis_info/gs;
-$codec_h =~ s/vorbis_comment/wu_vorbis_comment/gs;
-$file =~ s/vorbis_info/wu_vorbis_info/gs;
-$file =~ s/vorbis_comment/wu_vorbis_comment/gs;
+$file =â€¾ s/ogg_int64_t/wu_ogg_int64_t/gs;
+$file =â€¾ s/OggVorbis_File/wu_OggVorbis_File/gs;
+$file =â€¾ s/ov_callbacks/wu_ov_callbacks/gs;
+$codec_h =â€¾ s/vorbis_info/wu_vorbis_info/gs;
+$codec_h =â€¾ s/vorbis_comment/wu_vorbis_comment/gs;
+$file =â€¾ s/vorbis_info/wu_vorbis_info/gs;
+$file =â€¾ s/vorbis_comment/wu_vorbis_comment/gs;
 
-# ƒtƒ@ƒCƒ‹‚ğŠJ‚­
+# ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
 
-open FH, ">include\\wuvorbisfile.h";
-open FC, ">..\\wuvorbisfile_stub.c";
+open FH, ">includeÂ¥Â¥wuvorbisfile.h";
+open FC, ">..Â¥Â¥wuvorbisfile_stub.c";
 open FD, ">$def";
 
-# wuvorbis.def ‚Ì‹¤’Ê•”•ª‚ğo—Í
+# wuvorbis.def ã®å…±é€šéƒ¨åˆ†ã‚’å‡ºåŠ›
 print FD <<EOF;
 EXPORTS
 	GetModuleInstance
@@ -70,7 +70,7 @@ EXPORTS
 EOF
 
 
-# ƒwƒbƒ_‚ğo—Í
+# ãƒ˜ãƒƒãƒ€ã‚’å‡ºåŠ›
 
 print FH <<EOF;
 
@@ -102,7 +102,7 @@ extern int  (_stdcall* Query_sizeof_OggVorbis_File)(void);
 EOF
 
 
-# wuvorbismainunit.cpp “à‘ ‚ÌŠÖ”‚ğ’Ç‰Á
+# wuvorbismainunit.cpp å†…è”µã®é–¢æ•°ã‚’è¿½åŠ 
 $file .= <<EOF;
 
 extern void SetCPUType(unsigned __int32 type);
@@ -112,32 +112,32 @@ extern void ScaleOutput(float scale);
 EOF
 
 
-# OggVorbis_File ‚Ì\‘¢‘ÌƒTƒCƒY‚ğƒ`ƒFƒbƒN
-# \‘¢‘Ì‚ÌƒTƒCƒY‚ÍAÀÛ‚É DLL ’†‚Ì Query_sizeof_OggVorbis_File
-# ‚Æ‚¢‚¤ŠÖ”‚ğŒÄ‚Ño‚µ‚Ä“¾‚éBQuery_sizeof_OggVorbis_File ‚Í
-# ˆÈ‰º‚Ì‚æ‚¤‚È’Pƒ‚ÈŠÖ”‚ÅA
+# OggVorbis_File ã®æ§‹é€ ä½“ã‚µã‚¤ã‚ºã‚’ãƒã‚§ãƒƒã‚¯
+# æ§‹é€ ä½“ã®ã‚µã‚¤ã‚ºã¯ã€å®Ÿéš›ã« DLL ä¸­ã® Query_sizeof_OggVorbis_File
+# ã¨ã„ã†é–¢æ•°ã‚’å‘¼ã³å‡ºã—ã¦å¾—ã‚‹ã€‚Query_sizeof_OggVorbis_File ã¯
+# ä»¥ä¸‹ã®ã‚ˆã†ãªå˜ç´”ãªé–¢æ•°ã§ã€
 # extern "C" int _stdcall _export Query_sizeof_OggVorbis_File()
 # {
 #	// returns sizeof(OggVorbis_File)
 #	return sizeof(OggVorbis_File);
 # }
-# OggVorbis_File \‘¢‘Ì‚ÌƒTƒCƒY‚ğ“¾‚é‚Ì‚Ég‚¤B
+# OggVorbis_File æ§‹é€ ä½“ã®ã‚µã‚¤ã‚ºã‚’å¾—ã‚‹ã®ã«ä½¿ã†ã€‚
 $size = - - `query_sizeof_oggvorbis_file.exe $dll`;
 if($size == 0)
 {
-	# wuvorbis.dll ‚Æ gen_wuvorbisfile_h.pl ‚Í‘ŠŒİ‚ÉˆË‘¶‚µ‚Ä‚¢‚Ü‚·B
-	# ‚±‚±‚Å¸”s‚µ‚½ê‡‚ÍA‚¢‚Á‚½‚ñ‚»‚Ì‚Ü‚Ü wuvorbis.dll ‚ğ\’z‚µ‚Ä‚©‚ç
-	# ‚à‚¤ˆê“x gen_wuvorbisfile_h.pl ‚ğÀs‚µA‚»‚ê‚©‚ç‚à‚¤ˆê“x
-	# wuvorbis.dll ‚ğ\’z‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B
-	print "Warning: query_sizeof_oggvorbis_file.exe failed.\n";
-	print "         You must once build wuvorbis.dll and re-run this script,\n";
-	print "         then build wuvorbis.dll again.\n";
+	# wuvorbis.dll ã¨ gen_wuvorbisfile_h.pl ã¯ç›¸äº’ã«ä¾å­˜ã—ã¦ã„ã¾ã™ã€‚
+	# ã“ã“ã§å¤±æ•—ã—ãŸå ´åˆã¯ã€ã„ã£ãŸã‚“ãã®ã¾ã¾ wuvorbis.dll ã‚’æ§‹ç¯‰ã—ã¦ã‹ã‚‰
+	# ã‚‚ã†ä¸€åº¦ gen_wuvorbisfile_h.pl ã‚’å®Ÿè¡Œã—ã€ãã‚Œã‹ã‚‰ã‚‚ã†ä¸€åº¦
+	# wuvorbis.dll ã‚’æ§‹ç¯‰ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
+	print "Warning: query_sizeof_oggvorbis_file.exe failed.Â¥n";
+	print "         You must once build wuvorbis.dll and re-run this script,Â¥n";
+	print "         then build wuvorbis.dll again.Â¥n";
 }
 
-# OggVorbis_File \‘¢‘Ì‚ğo—Í
-# \‘¢‘ÌƒTƒCƒY‚É +256 ‚ğ‚µ‚Ä‚¢‚é‚Ì‚ÍA«—ˆ‚Ì
-# wuvorbis.dll ‚Ìd—l•ÏX‚É_“î‚É‘Î‰o—ˆ‚é‚æ‚¤‚É‚·‚é‚½‚ß
-# OggVorbis_File ‚ÌƒTƒCƒY‚ª‚·‚±‚µ‚®‚ç‚¢‘‚¦‚Ä‚à–â‘è‚É‚È‚ç‚È‚¢‚æ‚¤‚É
+# OggVorbis_File æ§‹é€ ä½“ã‚’å‡ºåŠ›
+# æ§‹é€ ä½“ã‚µã‚¤ã‚ºã« +256 ã‚’ã—ã¦ã„ã‚‹ã®ã¯ã€å°†æ¥ã®
+# wuvorbis.dll ã®ä»•æ§˜å¤‰æ›´ã«æŸ”è»Ÿã«å¯¾å¿œå‡ºæ¥ã‚‹ã‚ˆã†ã«ã™ã‚‹ãŸã‚
+# OggVorbis_File ã®ã‚µã‚¤ã‚ºãŒã™ã“ã—ãã‚‰ã„å¢—ãˆã¦ã‚‚å•é¡Œã«ãªã‚‰ãªã„ã‚ˆã†ã«
 
 print FH <<EOF;
 
@@ -151,53 +151,53 @@ typedef struct
 EOF
 
 
-# ov_callback \‘¢‘Ì‚ğo—Í
+# ov_callback æ§‹é€ ä½“ã‚’å‡ºåŠ›
 
-$file =~ /(typedef struct \{.*?wu_ov_callbacks)/s;
-
-$struct = $1;
-
-print FH "$struct;\n\n";
-
-# vorbis_info \‘¢‘Ì‚ğo—Í
-
-$codec_h =~ /(typedef struct wu_vorbis_info.*?wu_vorbis_info;)/s;
+$file =â€¾ /(typedef struct Â¥{.*?wu_ov_callbacks)/s;
 
 $struct = $1;
 
-$struct =~ s/\/\*.*?\*\///gs; # ƒRƒƒ“ƒg‚Ííœ‚³‚¹‚Ä’¸‚­
-$struct =~ s/\n\s*\n+/\n/gs; # ‹ós‚à
+print FH "$struct;Â¥nÂ¥n";
 
-print FH "$struct\n\n";
+# vorbis_info æ§‹é€ ä½“ã‚’å‡ºåŠ›
 
-# vorbis_comment \‘¢‘Ì‚ğo—Í
-
-$codec_h =~ /(typedef struct wu_vorbis_comment.*wu_vorbis_comment;)/s;
+$codec_h =â€¾ /(typedef struct wu_vorbis_info.*?wu_vorbis_info;)/s;
 
 $struct = $1;
 
-$struct =~ s/\/\*.*?\*\///gs; # ƒRƒƒ“ƒg‚Ííœ‚³‚¹‚Ä’¸‚­
-$struct =~ s/\n\s*\n+/\n/gs; # ‹ós‚à
+$struct =â€¾ s/Â¥/Â¥*.*?Â¥*Â¥///gs; # ã‚³ãƒ¡ãƒ³ãƒˆã¯å‰Šé™¤ã•ã›ã¦é ‚ã
+$struct =â€¾ s/Â¥nÂ¥s*Â¥n+/Â¥n/gs; # ç©ºè¡Œã‚‚
 
-print FH "$struct\n\n";
+print FH "$structÂ¥nÂ¥n";
 
-# define ’è‹`‚ğo—Í
+# vorbis_comment æ§‹é€ ä½“ã‚’å‡ºåŠ›
 
-while($file =~ /(#define\s+)(\w+)(\s+\d+)/g)
+$codec_h =â€¾ /(typedef struct wu_vorbis_comment.*wu_vorbis_comment;)/s;
+
+$struct = $1;
+
+$struct =â€¾ s/Â¥/Â¥*.*?Â¥*Â¥///gs; # ã‚³ãƒ¡ãƒ³ãƒˆã¯å‰Šé™¤ã•ã›ã¦é ‚ã
+$struct =â€¾ s/Â¥nÂ¥s*Â¥n+/Â¥n/gs; # ç©ºè¡Œã‚‚
+
+print FH "$structÂ¥nÂ¥n";
+
+# define å®šç¾©ã‚’å‡ºåŠ›
+
+while($file =â€¾ /(#defineÂ¥s+)(Â¥w+)(Â¥s+Â¥d+)/g)
 {
-	print FH "${1}WU_$2$3\n";
+	print FH "${1}WU_$2$3Â¥n";
 }
-while($codec_h =~ /(#define\s+)(\w+)(\s+\-?\d+)/g)
+while($codec_h =â€¾ /(#defineÂ¥s+)(Â¥w+)(Â¥s+Â¥-?Â¥d+)/g)
 {
-	print FH "${1}WU_$2$3\n";
+	print FH "${1}WU_$2$3Â¥n";
 }
-while($cpulib =~ /(#define\s+)(\w+)(\s+0x[0-9A-Fa-f]+)/g)
+while($cpulib =â€¾ /(#defineÂ¥s+)(Â¥w+)(Â¥s+0x[0-9A-Fa-f]+)/g)
 {
 	$def = $1;
 	$name = $2;
 	$val = $3;
-	$name =~ s/TVP_/WU_/g;
-	print FH "$def$name$val\n";
+	$name =â€¾ s/TVP_/WU_/g;
+	print FH "$def$name$valÂ¥n";
 }
 
 print FH <<EOF;
@@ -207,44 +207,44 @@ print FH <<EOF;
 EOF
 
 
-# ŠeŠÖ”’è‹`‚ğo—Í
+# å„é–¢æ•°å®šç¾©ã‚’å‡ºåŠ›
 print FH <<EOF;
 #ifndef IN_WUVORBISMAINUNIT
 EOF
 
-while($file =~ /(extern\s+[^\"].*?;)/gs) # "
+while($file =â€¾ /(externÂ¥s+[^Â¥"].*?;)/gs) # "
 {
 	$func = $1;
-	$func =~ s/\n//gs;
-	$func =~ /extern (.*?)(\w+)\((.*?)\);/;
+	$func =â€¾ s/Â¥n//gs;
+	$func =â€¾ /extern (.*?)(Â¥w+)Â¥((.*?)Â¥);/;
 
 	$rettype = $1;
 	$funcname = $2;
 	$args = $3;
 
-	if($args =~ /FILE/) { next; } # FILE \‘¢‘Ì‚Íˆµ‚¦‚Ü‚¹‚ñ
+	if($args =â€¾ /FILE/) { next; } # FILE æ§‹é€ ä½“ã¯æ‰±ãˆã¾ã›ã‚“
 
 	push (@impfuncs, "wu_$funcname");
 
-	print FH "extern $rettype (_cdecl *wu_$funcname)($args);\n";
+	print FH "extern $rettype (_cdecl *wu_$funcname)($args);Â¥n";
 
-	$impstub .= "$rettype (_cdecl *wu_$funcname)($args) = NULL;\n";
+	$impstub .= "$rettype (_cdecl *wu_$funcname)($args) = NULL;Â¥n";
 
-	# fc ‚ÉŒÄ‚Ño‚µ‹K–ñ•ÏŠ·—p‚ÌƒXƒ^ƒu‚ğo—Í‚·‚é
-	print FC "extern $rettype _cdecl wu_$funcname ($args){\n";
+	# fc ã«å‘¼ã³å‡ºã—è¦ç´„å¤‰æ›ç”¨ã®ã‚¹ã‚¿ãƒ–ã‚’å‡ºåŠ›ã™ã‚‹
+	print FC "extern $rettype _cdecl wu_$funcname ($args){Â¥n";
 
-	$rettype =~ /^\s*(.*?)\s*$/;
+	$rettype =â€¾ /^Â¥s*(.*?)Â¥s*$/;
 	$rettype = $1;
 	if($rettype ne "void")
 	{
-		print FC "\treturn ($rettype) $funcname(";
+		print FC "Â¥treturn ($rettype) $funcname(";
 	}
 	else
 	{
-		print FC "\t$funcname(";
+		print FC "Â¥t$funcname(";
 	}
 
-	$args =~ /^\s*(.*?)\s*$/;
+	$args =â€¾ /^Â¥s*(.*?)Â¥s*$/;
 	$args = $1;
 	if($args ne "void")
 	{
@@ -253,19 +253,19 @@ while($file =~ /(extern\s+[^\"].*?;)/gs) # "
 		$first = 1;
 		foreach $each (@args)
 		{
-			$each =~ /^\s*(.*?)\s*$/;
+			$each =â€¾ /^Â¥s*(.*?)Â¥s*$/;
 			$each = $1;
-			$each =~ /(.*?)(\w+)$/;
+			$each =â€¾ /(.*?)(Â¥w+)$/;
 			$type = $1;
 			$value = $2;
 
-			$type =~ /^\s*(.*?)\s*$/;
+			$type =â€¾ /^Â¥s*(.*?)Â¥s*$/;
 			$type = $1;
-			$type =~ s/wu_(\w+)/$1/;
+			$type =â€¾ s/wu_(Â¥w+)/$1/;
 
 			if($type eq "ov_callbacks")
 			{
-				# \‘¢‘Ì“n‚µ‚È‚Ì‚Å‚¿‚å‚¢‚Æ•¡G
+				# æ§‹é€ ä½“æ¸¡ã—ãªã®ã§ã¡ã‚‡ã„ã¨è¤‡é›‘
 				$cast = "*(ov_callbacks*)&"
 			}
 			else
@@ -278,11 +278,11 @@ while($file =~ /(extern\s+[^\"].*?;)/gs) # "
 			print FC "$cast$value";
 		}
 	}
-	print FC ");\n";
-	print FC "}\n";
+	print FC ");Â¥n";
+	print FC "}Â¥n";
 
-	# FD ‚ÉŠÖ”–¼‚ğo—Í
-	print FD "\twu_$funcname\n";
+	# FD ã«é–¢æ•°åã‚’å‡ºåŠ›
+	print FD "Â¥twu_$funcnameÂ¥n";
 }
 
 print FH <<EOF;
@@ -290,7 +290,7 @@ print FH <<EOF;
 EOF
 
 
-# ƒtƒbƒ^‚ğo—Í
+# ãƒ•ãƒƒã‚¿ã‚’å‡ºåŠ›
 
 print FH <<EOF;
 
@@ -303,9 +303,9 @@ print FH <<EOF;
 
 EOF
 
-# ƒCƒ“ƒ|[ƒgƒXƒ^ƒu‚ğì¬
+# ã‚¤ãƒ³ãƒãƒ¼ãƒˆã‚¹ã‚¿ãƒ–ã‚’ä½œæˆ
 
-open FI, ">lib\\wuvorbisfile.c";
+open FI, ">libÂ¥Â¥wuvorbisfile.c";
 
 print FI <<EOF;
 
@@ -356,8 +356,8 @@ EOF
 
 	foreach $each (@impfuncs)
 	{
-		print FI "\t*(void**)&$each = GetProcAddress(WuVorbisDLL, \"$each\");\n";
-		print FI "\tif(!$each) goto fail;\n";
+		print FI "Â¥t*(void**)&$each = GetProcAddress(WuVorbisDLL, Â¥"$eachÂ¥");Â¥n";
+		print FI "Â¥tif(!$each) goto fail;Â¥n";
 	}
 
 
@@ -389,7 +389,7 @@ int WuVorbisUninit(void)
 EOF
 	foreach $each (@impfuncs)
 	{
-		print FI "\t$each = NULL;\n";
+		print FI "Â¥t$each = NULL;Â¥n";
 	}
 
 print FI <<EOF;

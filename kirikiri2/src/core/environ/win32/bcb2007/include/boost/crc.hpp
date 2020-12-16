@@ -50,10 +50,10 @@ namespace boost { namespace detail {
      bool ReflectIn, bool ReflectRem >
     struct dummy_crc_argument  { };
 } }
-#define BOOST_CRC_DUMMY_PARM_TYPE   , detail::dummy_crc_argument<Bits, \
+#define BOOST_CRC_DUMMY_PARM_TYPE   , detail::dummy_crc_argument<Bits, ¥
  TruncPoly, InitRem, FinalXor, ReflectIn, ReflectRem> *p_
 #define BOOST_CRC_DUMMY_INIT        BOOST_CRC_DUMMY_PARM_TYPE = 0
-#define BOOST_ACRC_DUMMY_PARM_TYPE  , detail::dummy_crc_argument<Bits, \
+#define BOOST_ACRC_DUMMY_PARM_TYPE  , detail::dummy_crc_argument<Bits, ¥
  TruncPoly, 0, 0, false, false> *p_
 #define BOOST_ACRC_DUMMY_INIT       BOOST_ACRC_DUMMY_PARM_TYPE = 0
 #endif
@@ -340,7 +340,7 @@ namespace detail
         BOOST_STATIC_CONSTANT( fast, high_bit_fast = base_type::high_bit_fast );
         #endif
 
-        BOOST_STATIC_CONSTANT( least, sig_bits = (~( ~(least( 0u )) << Bits )) );
+        BOOST_STATIC_CONSTANT( least, sig_bits = (‾( ‾(least( 0u )) << Bits )) );
         BOOST_STATIC_CONSTANT( fast, sig_bits_fast = fast(sig_bits) );
 
     };  // boost::detail::mask_uint_t
@@ -362,7 +362,7 @@ namespace detail
         BOOST_STATIC_CONSTANT( fast, high_bit_fast = base_type::high_bit_fast );
         #endif
 
-        BOOST_STATIC_CONSTANT( least, sig_bits = (~( least(0u) )) );
+        BOOST_STATIC_CONSTANT( least, sig_bits = (‾( least(0u) )) );
         BOOST_STATIC_CONSTANT( fast, sig_bits_fast = fast(sig_bits) );
 
     };  // boost::detail::mask_uint_t
@@ -385,7 +385,7 @@ namespace detail
         BOOST_STATIC_CONSTANT( fast, high_bit_fast = base_type::high_bit_fast );
         #endif
 
-        BOOST_STATIC_CONSTANT( least, sig_bits = (~( least(0u) )) );
+        BOOST_STATIC_CONSTANT( least, sig_bits = (‾( least(0u) )) );
         BOOST_STATIC_CONSTANT( fast, sig_bits_fast = fast(sig_bits) );
 
     };  // boost::detail::mask_uint_t
@@ -409,7 +409,7 @@ namespace detail
         BOOST_STATIC_CONSTANT( fast, high_bit_fast = base_type::high_bit_fast );
         #endif
 
-        BOOST_STATIC_CONSTANT( least, sig_bits = (~( least(0u) )) );
+        BOOST_STATIC_CONSTANT( least, sig_bits = (‾( least(0u) )) );
         BOOST_STATIC_CONSTANT( fast, sig_bits_fast = fast(sig_bits) );
 
     };  // boost::detail::mask_uint_t
@@ -433,7 +433,7 @@ namespace detail
         BOOST_STATIC_CONSTANT( fast, high_bit_fast = base_type::high_bit_fast );
         #endif
 
-        BOOST_STATIC_CONSTANT( least, sig_bits = (~( least(0u) )) );
+        BOOST_STATIC_CONSTANT( least, sig_bits = (‾( least(0u) )) );
         BOOST_STATIC_CONSTANT( fast, sig_bits_fast = fast(sig_bits) );
 
     };  // boost::detail::mask_uint_t
@@ -784,7 +784,7 @@ crc_basic<Bits>::checksum
 //  Optimized CRC class function definitions  --------------------------------//
 
 // Macro to compact code
-#define BOOST_CRC_OPTIMAL_NAME  crc_optimal<Bits, TruncPoly, InitRem, \
+#define BOOST_CRC_OPTIMAL_NAME  crc_optimal<Bits, TruncPoly, InitRem, ¥
  FinalXor, ReflectIn, ReflectRem>
 
 template < std::size_t Bits, BOOST_CRC_PARM_TYPE TruncPoly,

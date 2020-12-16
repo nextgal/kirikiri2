@@ -6,7 +6,7 @@
  *    template <typename Container>
  *    void stringtok (Container &l,
  *                    string const &s,
- *                    char const * const ws = " \t\n");
+ *                    char const * const ws = " ¥t¥n");
  *
  * A nondestructive version of strtok() that handles its own memory and can
  * be broken up by any character(s).  Does all the work at once rather than
@@ -32,11 +32,11 @@
  *
  * [Example:
  *       list<string>       ls;
- *       stringtok (ls, " this  \t is\t\n  a test  ");
+ *       stringtok (ls, " this  ¥t is¥t¥n  a test  ");
  *       for (list<string>::const_iterator i = ls.begin();
  *            i != ls.end(); ++i)
  *       {
- *            cerr << ':' << (*i) << ":\n";
+ *            cerr << ':' << (*i) << ":¥n";
  *       }
  *
  *  would print
@@ -79,7 +79,7 @@ namespace boost {
 */
 template <typename Container>
 void
-stringtok (Container &l, std::string const &s, char const * const ws = " \t\n")
+stringtok (Container &l, std::string const &s, char const * const ws = " ¥t¥n")
 {
   typedef std::string::size_type size_type;
     const size_type  S = s.size();

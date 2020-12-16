@@ -4,21 +4,21 @@
 
 
 /*----------------------------------------------------------------------
- * ƒo[ƒ`ƒƒƒ‹ƒXƒNƒ[ƒ‹
+ * ãƒãƒ¼ãƒãƒ£ãƒ«ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
  ----------------------------------------------------------------------*/
 class KVirtualImage extends KVirtualWidget
 {
-  // ƒ\[ƒXƒCƒ[ƒW‚ğ•Û‚·‚éƒŒƒCƒ„
+  // ã‚½ãƒ¼ã‚¹ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ä¿æŒã™ã‚‹ãƒ¬ã‚¤ãƒ¤
   var imageLayer;
 
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   function KVirtualImage(win, filename, name) {
     super.KVirtualWidget(win, name);
-    // ƒ\[ƒXƒCƒ[ƒW‚ğ“Ç‚İ‚İ
+    // ã‚½ãƒ¼ã‚¹ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’èª­ã¿è¾¼ã¿
     imageLayer = new global.Layer(win, this);
     imageLayer.loadImages(filename);
     imageLayer.setSizeToImageSize();
-    // ƒ\[ƒX‚Ì3~3ƒTƒCƒY‚ğ‰¼‘zƒLƒƒƒ“ƒoƒX‚Éİ’è
+    // ã‚½ãƒ¼ã‚¹ã®3Ã—3ã‚µã‚¤ã‚ºã‚’ä»®æƒ³ã‚­ãƒ£ãƒ³ãƒã‚¹ã«è¨­å®š
     setFixedSize(imageLayer.width * 3, imageLayer.height * 3);
   }
 
@@ -27,19 +27,19 @@ class KVirtualImage extends KVirtualWidget
     super.finalize(...);
   }
 
-  // Ä•`‰æ
+  // å†æç”»
   function onDraw(vleft, vtop, vwidth, vheight) {
     var srcRect = new KRect(vleft, vtop, vwidth, vheight);
-    // ƒ\[ƒX‚©‚ç3~3‰ñAƒCƒ[ƒW‚ğƒRƒs[
+    // ã‚½ãƒ¼ã‚¹ã‹ã‚‰3Ã—3å›ã€ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ã‚³ãƒ”ãƒ¼
     for (var x = 0; x < 3; x++)
       for (var y = 0; y < 3; y++) {
-        // •`‰æ‘ÎÛ—Ìˆæ‚ğŒˆ’è
+        // æç”»å¯¾è±¡é ˜åŸŸã‚’æ±ºå®š
         var dstRect = new KRect(x * imageLayer.width, y * imageLayer.height, imageLayer.width, imageLayer.height);
-        // Ä•`‰æ—Ìˆæ‚Æ‚ÌŒğ·‚ğ‹‚ß‚é
+        // å†æç”»é ˜åŸŸã¨ã®äº¤å·®ã‚’æ±‚ã‚ã‚‹
         dstRect.intersectWith(srcRect);
-        // Œğ·‚ª‚ ‚ê‚ÎÀÛ‚É•`‰æ‚ğs‚¤
+        // äº¤å·®ãŒã‚ã‚Œã°å®Ÿéš›ã«æç”»ã‚’è¡Œã†
         if (dstRect.isValid) {
-          // Ä•`‰æ
+          // å†æç”»
           copyRect(dstRect.left, dstRect.top,
                    imageLayer,
                    dstRect.left % imageLayer.width, dstRect.top % imageLayer.height, dstRect.width, dstRect.height);
@@ -49,33 +49,33 @@ class KVirtualImage extends KVirtualWidget
 }
 
 /*----------------------------------------------------------------------
- * ƒXƒNƒ[ƒ‹ƒTƒ“ƒvƒ‹
+ * ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚µãƒ³ãƒ—ãƒ«
  ----------------------------------------------------------------------*/
 class ScrollSample extends KWindow
 {
   function ScrollSample {
     super.KWindow("scrollsample");
 
-    // ƒEƒBƒ“ƒhƒE‰Šúİ’è
-    caption = 'ƒXƒNƒ[ƒ‹ƒTƒ“ƒvƒ‹';
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦åˆæœŸè¨­å®š
+    caption = 'ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚µãƒ³ãƒ—ãƒ«';
     imeMode = imDontCare;
 
-    // ƒAƒ‰ƒCƒƒ“ƒg‚ğ‰Šúİ’è
+    // ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆã‚’åˆæœŸè¨­å®š
     defaultAlignHorizontal = ALIGN_LEFT;
     defaultAlignVertical = ALIGN_TOP;
 
-    // ƒEƒBƒWƒFƒbƒg‚ğì¬A”z’u
+    // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ä½œæˆã€é…ç½®
     var hspliter, vspliter, abs, scroll, frame, rel;
 
-    // ‰¡•ûŒü‚ÌƒXƒvƒŠƒbƒ^
+    // æ¨ªæ–¹å‘ã®ã‚¹ãƒ—ãƒªãƒƒã‚¿
     hspliter = new KHorizontalSpliterLayout(this, "hspliter");
     hspliter.splitAlignment = ALIGN_LEFT;
 
-    // c•ûŒü‚ÌƒXƒvƒŠƒbƒ^
+    // ç¸¦æ–¹å‘ã®ã‚¹ãƒ—ãƒªãƒƒã‚¿
     vspliter = new KVerticalSpliterLayout(this, "vspliter");
     hspliter.add(vspliter);
 
-    // ƒXƒvƒŠƒbƒ^‚ÉƒXƒNƒ[ƒ‹ƒo[‚Â‚«ƒCƒ[ƒWƒ‰ƒxƒ‹‚ğ‹l‚ß‚İ
+    // ã‚¹ãƒ—ãƒªãƒƒã‚¿ã«ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã¤ãã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ©ãƒ™ãƒ«ã‚’è©°ã‚è¾¼ã¿
       frame = new KFrameLayout(this, FRAME_SUNKEN);
         scroll = new KScrollLayout(this);
         scroll.add(new KImageLabel(this, "cg02"));
@@ -91,13 +91,13 @@ class ScrollSample extends KWindow
        frame.add(scroll);
     vspliter.add(frame);
 
-    // ƒKƒ“ƒ}•â³‚Ì‘–¸‘ÎÛ‚É‚È‚éƒCƒ[ƒW‚ğuimagev‚Ì–¼‘O‚Å‹l‚ß‚İ
+    // ã‚¬ãƒ³ãƒè£œæ­£ã®èµ°æŸ»å¯¾è±¡ã«ãªã‚‹ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ã€Œimageã€ã®åå‰ã§è©°ã‚è¾¼ã¿
     abs = new KAbsoluteLayout(this);
       scroll = new KScrollLayout(this);
       scroll.add(new KImageLabel(this, "cg01", "image"));
     abs.add(scroll);
 
-    // RGBƒOƒŠƒbƒh
+    // RGBã‚°ãƒªãƒƒãƒ‰
     var rgbGrid = new KGridLayout(this);
     rgbGrid.marginLeft = 20;
     rgbGrid.marginTop = 20;
@@ -130,26 +130,26 @@ class ScrollSample extends KWindow
 
     primaryWidget.add(grid);
 
-    // ‰Šú’lİ’è
+    // åˆæœŸå€¤è¨­å®š
     image.alignVertical = ALIGN_CENTER;
     image.alignHorizontal = ALIGN_CENTER;
     r.value = 10;
     g.value = 10;
     b.value = 10;
 
-    // ‰i‘±‰»«‘‚Ìì¬
+    // æ°¸ç¶šåŒ–è¾æ›¸ã®ä½œæˆ
     var dict = new KPersistentDictionary(System.dataPath + "scrollsample_dict.txt");
     add(dict);
     bindPersistentDictionary(dict);
 
-    // ƒJƒ‰[‚Ì‰Šú‰»
+    // ã‚«ãƒ©ãƒ¼ã®åˆæœŸåŒ–
     invalidateColor();
 
-    // •\¦
+    // è¡¨ç¤º
     visible = true;
   }
 
-  // ƒEƒBƒWƒFƒbƒg‚Ì’l‚ªXV‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+  // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®å€¤ãŒæ›´æ–°ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
   function onChildValueModified(child, value) {
     switch (child.name) {
     default:
@@ -163,11 +163,11 @@ class ScrollSample extends KWindow
     }
   }
 
-  // ‰æ‘œ‚ÌƒKƒ“ƒ}‚ğXV‚·‚é
+  // ç”»åƒã®ã‚¬ãƒ³ãƒã‚’æ›´æ–°ã™ã‚‹
   function invalidateColor {
-    // ‰æ‘œÄ“Ç‚İ‚İ
+    // ç”»åƒå†èª­ã¿è¾¼ã¿
     image.label = "cg01";
-    // ƒKƒ“ƒ}•â³
+    // ã‚¬ãƒ³ãƒè£œæ­£
     image.adjustGamma(r.value / 10, 0, 255,
 		      g.value / 10, 0, 255,
 		      b.value / 10, 0, 255);
@@ -175,7 +175,7 @@ class ScrollSample extends KWindow
 }
 
 //----------------------------------------------------------------------
-// ƒTƒ“ƒvƒ‹•\¦E”ñ•\¦‚ÌØ‚è‘Ö‚¦
+// ã‚µãƒ³ãƒ—ãƒ«è¡¨ç¤ºãƒ»éè¡¨ç¤ºã®åˆ‡ã‚Šæ›¿ãˆ
 global.scrollSample = void;
 
 function showScrollSample

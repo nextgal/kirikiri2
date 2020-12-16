@@ -37,7 +37,7 @@ public:
 	CGUIFont(IGUIEnvironment* env, const c8* filename);
 
 	//! destructor
-	virtual ~CGUIFont();
+	virtual ‾CGUIFont();
 
 	//! loads a font from a texture file
 	bool load(const c8* filename);

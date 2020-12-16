@@ -87,10 +87,10 @@ enum float_denorm_style {
 // take their addresses.  We choose the former workaround.
 
 #ifdef BOOST_NO_INCLASS_MEMBER_INITIALIZATION
-# define BOOST_STL_DECLARE_LIMITS_MEMBER(__mem_type, __mem_name, __mem_value) \
+# define BOOST_STL_DECLARE_LIMITS_MEMBER(__mem_type, __mem_name, __mem_value) ¥
   enum { __mem_name = __mem_value }
 #else /* BOOST_NO_INCLASS_MEMBER_INITIALIZATION */
-# define BOOST_STL_DECLARE_LIMITS_MEMBER(__mem_type, __mem_name, __mem_value) \
+# define BOOST_STL_DECLARE_LIMITS_MEMBER(__mem_type, __mem_name, __mem_value) ¥
   static const __mem_type __mem_name = __mem_value
 #endif /* BOOST_NO_INCLASS_MEMBER_INITIALIZATION */
 

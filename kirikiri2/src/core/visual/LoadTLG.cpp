@@ -436,12 +436,12 @@ static void TVPInternalLoadTLG(void* formatdata, void *callbackdata, tTVPGraphic
 	src->ReadBuffer(mark, 11);
 
 	// check for TLG raw data
-	if(!memcmp("TLG5.0\x00raw\x1a\x00", mark, 11))
+	if(!memcmp("TLG5.0¥x00raw¥x1a¥x00", mark, 11))
 	{
 		TVPLoadTLG5(formatdata, callbackdata, sizecallback,
 			scanlinecallback, src, keyidx, mode);
 	}
-	else if(!memcmp("TLG6.0\x00raw\x1a\x00", mark, 11))
+	else if(!memcmp("TLG6.0¥x00raw¥x1a¥x00", mark, 11))
 	{
 		TVPLoadTLG6(formatdata, callbackdata, sizecallback,
 			scanlinecallback, src, keyidx, mode);
@@ -463,7 +463,7 @@ void TVPLoadTLG(void* formatdata, void *callbackdata, tTVPGraphicSizeCallback si
 	src->ReadBuffer(mark, 11);
 
 	// check for TLG0.0 sds
-	if(!memcmp("TLG0.0\x00sds\x1a\x00", mark, 11))
+	if(!memcmp("TLG0.0¥x00sds¥x1a¥x00", mark, 11))
 	{
 		// read TLG0.0 Structured Data Stream
 
@@ -515,7 +515,7 @@ void TVPLoadTLG(void* formatdata, void *callbackdata, tTVPGraphicSizeCallback si
 							tagp ++;
 							name = new char [namelen + 1];
 							memcpy(name, tagp, namelen);
-							name[namelen] = '\0';
+							name[namelen] = '¥0';
 							tagp += namelen;
 							if(*tagp != '=') TVPThrowExceptionMessage(TVPTLGLoadError,
 								TJS_W("Malformed TLG SDS tag structure, missing equals after name"));
@@ -528,7 +528,7 @@ void TVPLoadTLG(void* formatdata, void *callbackdata, tTVPGraphicSizeCallback si
 							tagp++;
 							value = new char [valuelen + 1];
 							memcpy(value, tagp, valuelen);
-							value[valuelen] = '\0';
+							value[valuelen] = '¥0';
 							tagp += valuelen;
 							if(*tagp != ',') TVPThrowExceptionMessage(TVPTLGLoadError,
 								TJS_W("Malformed TLG SDS tag structure, missing comma after a tag"));

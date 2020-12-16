@@ -8,8 +8,8 @@ struct ColorProxy {
 	typedef Magick::ColorMono ColorMono;
 	typedef Magick::Quantum   Quantum;
 
-#define PROP_PROXY(type, base, tag, method) \
-	static type Get ## tag(Color const *c)   { return base(*c).method(); } \
+#define PROP_PROXY(type, base, tag, method) ¥
+	static type Get ## tag(Color const *c)   { return base(*c).method(); } ¥
 	static void Set ## tag(Color *c, type v) { base tmp(*c); tmp.method(v); *c = tmp; }
 
 

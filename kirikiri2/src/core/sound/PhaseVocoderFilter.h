@@ -32,7 +32,7 @@ class tTJSNI_PhaseVocoder :
 
 public:
 	tTJSNI_PhaseVocoder();
-	~tTJSNI_PhaseVocoder();
+	‾tTJSNI_PhaseVocoder();
 	tjs_error TJS_INTF_METHOD
 		Construct(tjs_int numparams, tTJSVariant **param,
 			iTJSDispatch2 *tjs_obj);

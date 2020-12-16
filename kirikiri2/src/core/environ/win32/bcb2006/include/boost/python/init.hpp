@@ -43,21 +43,21 @@
 #include <utility>
 
 ///////////////////////////////////////////////////////////////////////////////
-#define BOOST_PYTHON_OVERLOAD_TYPES_WITH_DEFAULT                                \
-    BOOST_PP_ENUM_PARAMS_WITH_A_DEFAULT(                                        \
-        BOOST_PYTHON_MAX_ARITY,                                                 \
-        class T,                                                                \
-        mpl::void_)                                                             \
+#define BOOST_PYTHON_OVERLOAD_TYPES_WITH_DEFAULT                                ¥
+    BOOST_PP_ENUM_PARAMS_WITH_A_DEFAULT(                                        ¥
+        BOOST_PYTHON_MAX_ARITY,                                                 ¥
+        class T,                                                                ¥
+        mpl::void_)                                                             ¥
 
-#define BOOST_PYTHON_OVERLOAD_TYPES                                             \
-    BOOST_PP_ENUM_PARAMS_Z(1,                                                   \
-        BOOST_PYTHON_MAX_ARITY,                                                 \
-        class T)                                                                \
+#define BOOST_PYTHON_OVERLOAD_TYPES                                             ¥
+    BOOST_PP_ENUM_PARAMS_Z(1,                                                   ¥
+        BOOST_PYTHON_MAX_ARITY,                                                 ¥
+        class T)                                                                ¥
 
-#define BOOST_PYTHON_OVERLOAD_ARGS                                              \
-    BOOST_PP_ENUM_PARAMS_Z(1,                                                   \
-        BOOST_PYTHON_MAX_ARITY,                                                 \
-        T)                                                                      \
+#define BOOST_PYTHON_OVERLOAD_ARGS                                              ¥
+    BOOST_PP_ENUM_PARAMS_Z(1,                                                   ¥
+        BOOST_PYTHON_MAX_ARITY,                                                 ¥
+        T)                                                                      ¥
 
 ///////////////////////////////////////////////////////////////////////////////
 namespace boost { namespace python {

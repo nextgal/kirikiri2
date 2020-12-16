@@ -96,7 +96,7 @@ public:
 
     symbols();
     symbols(symbols const& other);
-    ~symbols();
+    ‾symbols();
 
     symbols&
     operator=(symbols const& other);

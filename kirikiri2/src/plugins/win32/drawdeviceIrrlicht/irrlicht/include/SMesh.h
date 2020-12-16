@@ -26,7 +26,7 @@ namespace scene
 		}
 
 		//! destructor
-		virtual ~SMesh()
+		virtual ‾SMesh()
 		{
 			// drop buffers
 			for (u32 i=0; i<MeshBuffers.size(); ++i)

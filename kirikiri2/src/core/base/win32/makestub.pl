@@ -3,7 +3,7 @@ $copyright = <<EOF;
 /*
 
 	TVP2 ( T Visual Presenter 2 )  A script authoring tool
-	Copyright (C) 2000-2009 W.Dee <dee\@kikyou.info> and contributors
+	Copyright (C) 2000-2009 W.Dee <dee¥@kikyou.info> and contributors
 
 	See details of license at "license.txt"
 */
@@ -27,13 +27,13 @@ sub normalize_string
 {
 	local($str, $ret, @array, @array2);
 	$str = $_[0];
-	$str =~ s/^\s*(.*?)\s*$/$1/;
-	$str =~ s/\*\*/\* \*/g;
-	$str =~ s/\*\*/\* \*/g;
-	@array = split(/\s|\b/, $str);
+	$str =‾ s/^¥s*(.*?)¥s*$/$1/;
+	$str =‾ s/¥*¥*/¥* ¥*/g;
+	$str =‾ s/¥*¥*/¥* ¥*/g;
+	@array = split(/¥s|¥b/, $str);
 	foreach $str (@array)
 	{
-		if($str !~ /\s/ && $str ne '')
+		if($str !‾ /¥s/ && $str ne '')
 		{
 			push(@array2, $str);
 		}
@@ -50,13 +50,13 @@ sub get_arg_names
 	$args = '';
 	foreach $arg ( @array )
 	{
-		$arg =~ s/^\s*(.*?)\s*$/$1/;
-		if($arg =~ /^(.*)=(.*)$/)
+		$arg =‾ s/^¥s*(.*?)¥s*$/$1/;
+		if($arg =‾ /^(.*)=(.*)$/)
 		{
 			$arg = $1;
 		}
-		$arg =~ s/^\s*(.*?)\s*$/$1/;
-		$arg =~ /(\w+)$/;
+		$arg =‾ s/^¥s*(.*?)¥s*$/$1/;
+		$arg =‾ /(¥w+)$/;
 		$args .= ', ' if $args ne '';
 		$args .= $1;
 	}
@@ -71,14 +71,14 @@ sub except_arg_names
 	$args = '';
 	foreach $arg ( @array )
 	{
-		$arg =~ s/^\s*(.*?)\s*$/$1/;
-		if($arg =~ /^(.*)=(.*)$/)
+		$arg =‾ s/^¥s*(.*?)¥s*$/$1/;
+		if($arg =‾ /^(.*)=(.*)$/)
 		{
 			$arg = $1;
 		}
-		$arg =~ s/^\s*(.*?)\s*$/$1/;
-		$arg =~ s/(.*?)(\w+)$/$1/;
-		$arg =~ s/^\s*(.*?)\s*$/$1/;
+		$arg =‾ s/^¥s*(.*?)¥s*$/$1/;
+		$arg =‾ s/(.*?)(¥w+)$/$1/;
+		$arg =‾ s/^¥s*(.*?)¥s*$/$1/;
 		$args .= ',' if $args ne '';
 		$args .= normalize_string($1);
 	}
@@ -95,7 +95,7 @@ sub get_ret_type
 	{
 		return 'void';
 	}
-	elsif($type =~ /${prefix}_METHOD_RET\((.*?)\)/)
+	elsif($type =‾ /${prefix}_METHOD_RET¥((.*?)¥)/)
 	{
 		return normalize_string($1);
 	}
@@ -114,40 +114,40 @@ sub make_func_stub
 	$isconst = $_[5];
 	$isstatic = $_[6];
 
-	$rettype =~ s/\n/ /gs;
-	$rettype =~ s/\t/ /gs;
-	$name =~ s/\n/ /gs;
-	$name =~ s/\t/ /gs;
-	$arg =~ s/\n/ /gs;
-	$arg =~ s/\t/ /gs;
+	$rettype =‾ s/¥n/ /gs;
+	$rettype =‾ s/¥t/ /gs;
+	$name =‾ s/¥n/ /gs;
+	$name =‾ s/¥t/ /gs;
+	$arg =‾ s/¥n/ /gs;
+	$arg =‾ s/¥t/ /gs;
 
 	$func_exp_name = 
-		($rettype =~ /^${prefix}_METHOD_RET/ ? '' : normalize_string($rettype).' ').
+		($rettype =‾ /^${prefix}_METHOD_RET/ ? '' : normalize_string($rettype).' ').
 		$type.'::'.normalize_string($name).'('.except_arg_names($arg).')'.($isconst ? ' const':'');
 
 	$md5 = md5_hex($func_exp_name);
 
-	$mangled = "TVP_Stub_$md5\t";
+	$mangled = "TVP_Stub_$md5¥t";
 	$mangled .= $func_exp_name;
-	$mangled .= "\t".get_ret_type($rettype, $prefix).
+	$mangled .= "¥t".get_ret_type($rettype, $prefix).
 		"(__stdcall *  __TVP_Stub_$md5)($type *_this".($arg ne '' ? ', ' : '').normalize_string($arg).")";
-	$mangled .= "\t".($rettype =~ /^${prefix}_METHOD_RET/ ? '' : normalize_string($rettype)) .
+	$mangled .= "¥t".($rettype =‾ /^${prefix}_METHOD_RET/ ? '' : normalize_string($rettype)) .
 		" ".normalize_string($type)."::".normalize_string($name). "(".normalize_string($arg).")";
-	$mangled .= "\tTVP_Stub_$md5";
-	$mangled .= "\t$md5";
-	$mangled .= "\t".get_arg_names($arg);
+	$mangled .= "¥tTVP_Stub_$md5";
+	$mangled .= "¥t$md5";
+	$mangled .= "¥t".get_arg_names($arg);
 	$functype = get_ret_type($rettype, $prefix).
 		"(__stdcall * __functype)(".($isconst ? "const ": "").
 		($isstatic ? '' : ("$type *".($arg ne '' ? ', ' : ''))).
 		normalize_string(except_arg_names($arg)).")";
-	$mangled .= "\t".$functype;
+	$mangled .= "¥t".$functype;
 
 	$noreturn = 0;
 	if($rettype eq "${prefix}_METHOD_RET_EMPTY")
 	{
 		$noreturn = 1;
 	}
-	elsif($rettype =~ /${prefix}_METHOD_RET\((.*?)\)/)
+	elsif($rettype =‾ /${prefix}_METHOD_RET¥((.*?)¥)/)
 	{
 		$noreturn = 2;
 	}
@@ -172,65 +172,65 @@ sub make_func_stub
 	}
 
 	print OFH normalize_string($arg);
-	print OFH ")\n";
-	print OFH "{\n";
+	print OFH ")¥n";
+	print OFH "{¥n";
 	$argnames = get_arg_names($arg);
 	if($name eq $type)
 	{
 		;# constructor
-		print OFH "\t::new (_this) $name(".$argnames.");\n";
-		$h = "\t".normalize_string($name)."(".normalize_string($arg).")\n".
-			"\t{\n".
-			"\t\tif(!TVPImportFuncPtr$md5)\n".
-			"\t\t{\n".
-			"\t\t\tstatic char funcname[] = \"$func_exp_name\";\n".
-			"\t\t\tTVPImportFuncPtr$md5 = TVPGetImportFuncPtr(funcname);\n".
-			"\t\t}\n".
-			"\t\ttypedef $functype;\n".
-			"\t\t((__functype)(TVPImportFuncPtr$md5))(".($isstatic ? '' : ("this".($argnames ne '' ? ', ' : ''))).$argnames.");\n".
-			"\t}\n";
+		print OFH "¥t::new (_this) $name(".$argnames.");¥n";
+		$h = "¥t".normalize_string($name)."(".normalize_string($arg).")¥n".
+			"¥t{¥n".
+			"¥t¥tif(!TVPImportFuncPtr$md5)¥n".
+			"¥t¥t{¥n".
+			"¥t¥t¥tstatic char funcname[] = ¥"$func_exp_name¥";¥n".
+			"¥t¥t¥tTVPImportFuncPtr$md5 = TVPGetImportFuncPtr(funcname);¥n".
+			"¥t¥t}¥n".
+			"¥t¥ttypedef $functype;¥n".
+			"¥t¥t((__functype)(TVPImportFuncPtr$md5))(".($isstatic ? '' : ("this".($argnames ne '' ? ', ' : ''))).$argnames.");¥n".
+			"¥t}¥n";
 	}
-	elsif($name eq "~$type")
+	elsif($name eq "‾$type")
 	{
 		;# destructor
-		print OFH "\t_this->$name(".$argnames.");\n";
-		$h = "\t".normalize_string($name)."(".normalize_string($arg).")\n".
-			"\t{\n".
-			"\t\tif(!TVPImportFuncPtr$md5)\n".
-			"\t\t{\n".
-			"\t\t\tstatic char funcname[] = \"$func_exp_name\";\n".
-			"\t\t\tTVPImportFuncPtr$md5 = TVPGetImportFuncPtr(funcname);\n".
-			"\t\t}\n".
-			"\t\ttypedef $functype;\n".
-			"\t\t((__functype)(TVPImportFuncPtr$md5))(".($isstatic ? '' : ("this".($argnames ne '' ? ', ' : ''))).$argnames.");\n".
-			"\t}\n";
+		print OFH "¥t_this->$name(".$argnames.");¥n";
+		$h = "¥t".normalize_string($name)."(".normalize_string($arg).")¥n".
+			"¥t{¥n".
+			"¥t¥tif(!TVPImportFuncPtr$md5)¥n".
+			"¥t¥t{¥n".
+			"¥t¥t¥tstatic char funcname[] = ¥"$func_exp_name¥";¥n".
+			"¥t¥t¥tTVPImportFuncPtr$md5 = TVPGetImportFuncPtr(funcname);¥n".
+			"¥t¥t}¥n".
+			"¥t¥ttypedef $functype;¥n".
+			"¥t¥t((__functype)(TVPImportFuncPtr$md5))(".($isstatic ? '' : ("this".($argnames ne '' ? ', ' : ''))).$argnames.");¥n".
+			"¥t}¥n";
 	}
 	else
 	{
-		print OFH "\t";
+		print OFH "¥t";
 		print OFH "return ";
 		if($isstatic)
 		{
-			print OFH "${type}::$name(".$argnames.");\n";
+			print OFH "${type}::$name(".$argnames.");¥n";
 		}
 		else
 		{
-			print OFH "_this->$name(".$argnames.");\n";
+			print OFH "_this->$name(".$argnames.");¥n";
 		}
-		$h = "\t".($isstatic ? 'static ' : '').($noreturn ? '' : $rettype.' ') . normalize_string($name). "(" . normalize_string($arg) .
-			")".($isconst ? ' const' : '')."\n".
-			"\t{\n".
-			"\t\tif(!TVPImportFuncPtr$md5)\n".
-			"\t\t{\n".
-			"\t\t\tstatic char funcname[] = \"$func_exp_name\";\n".
-			"\t\t\tTVPImportFuncPtr$md5 = TVPGetImportFuncPtr(funcname);\n".
-			"\t\t}\n".
-			"\t\ttypedef $functype;\n".
-			"\t\t".(($rettype eq 'void') ? '' : 'return ').
-			"((__functype)(TVPImportFuncPtr$md5))(".($isstatic ? '' : ("this".($argnames ne '' ? ', ' : ''))).$argnames.");\n".
-			"\t}\n";
+		$h = "¥t".($isstatic ? 'static ' : '').($noreturn ? '' : $rettype.' ') . normalize_string($name). "(" . normalize_string($arg) .
+			")".($isconst ? ' const' : '')."¥n".
+			"¥t{¥n".
+			"¥t¥tif(!TVPImportFuncPtr$md5)¥n".
+			"¥t¥t{¥n".
+			"¥t¥t¥tstatic char funcname[] = ¥"$func_exp_name¥";¥n".
+			"¥t¥t¥tTVPImportFuncPtr$md5 = TVPGetImportFuncPtr(funcname);¥n".
+			"¥t¥t}¥n".
+			"¥t¥ttypedef $functype;¥n".
+			"¥t¥t".(($rettype eq 'void') ? '' : 'return ').
+			"((__functype)(TVPImportFuncPtr$md5))(".($isstatic ? '' : ("this".($argnames ne '' ? ', ' : ''))).$argnames.");¥n".
+			"¥t}¥n";
 	}
-	print OFH "}\n";
+	print OFH "}¥n";
 
 	push(@func_list, $mangled);
 	push(@h_stub, $h);
@@ -244,19 +244,19 @@ sub list_func_stub
 	$content = $_[1];
 	$type = $_[2];
 
-	while($content =~ /${prefix}_METHOD_DEF\(\s*(.*?)\s*,\s*(.*?)\s*,\s*\((.*?)\)\s*\)/sg)
+	while($content =‾ /${prefix}_METHOD_DEF¥(¥s*(.*?)¥s*,¥s*(.*?)¥s*,¥s*¥((.*?)¥)¥s*¥)/sg)
 	{
 		&make_func_stub($1, $2, $3, $type, $prefix, 0, 0);
 	}
-	while($content =~ /${prefix}_CONST_METHOD_DEF\(\s*(.*?)\s*,\s*(.*?)\s*,\s*\((.*?)\)\s*\)/sg)
+	while($content =‾ /${prefix}_CONST_METHOD_DEF¥(¥s*(.*?)¥s*,¥s*(.*?)¥s*,¥s*¥((.*?)¥)¥s*¥)/sg)
 	{
 		&make_func_stub($1, $2, $3, $type, $prefix, 1, 0);
 	}
-	while($content =~ /${prefix}_STATIC_METHOD_DEF\(\s*(.*?)\s*,\s*(.*?)\s*,\s*\((.*?)\)\s*\)/sg)
+	while($content =‾ /${prefix}_STATIC_METHOD_DEF¥(¥s*(.*?)¥s*,¥s*(.*?)¥s*,¥s*¥((.*?)¥)¥s*¥)/sg)
 	{
 		&make_func_stub($1, $2, $3, $type, $prefix, 0, 1);
 	}
-	while($content =~ /${prefix}_STATIC_CONST_METHOD_DEF\(\s*(.*?)\s*,\s*(.*?)\s*,\s*\((.*?)\)\s*\)/sg)
+	while($content =‾ /${prefix}_STATIC_CONST_METHOD_DEF¥(¥s*(.*?)¥s*,¥s*(.*?)¥s*,¥s*¥((.*?)¥)¥s*¥)/sg)
 	{
 		&make_func_stub($1, $2, $3, $type, $prefix, 1, 1);
 	}
@@ -270,42 +270,42 @@ sub make_exp_stub
 	$name = $_[1];
 	$arg = $_[2];
 
-	$rettype =~ s/\n/ /gs;
-	$rettype =~ s/\t/ /gs;
-	$name =~ s/\n/ /gs;
-	$name =~ s/\t/ /gs;
-	$arg =~ s/\n/ /gs;
-	$arg =~ s/\t/ /gs;
+	$rettype =‾ s/¥n/ /gs;
+	$rettype =‾ s/¥t/ /gs;
+	$name =‾ s/¥n/ /gs;
+	$name =‾ s/¥t/ /gs;
+	$arg =‾ s/¥n/ /gs;
+	$arg =‾ s/¥t/ /gs;
 
 	$func_exp_name = normalize_string($rettype).' '.
 		'::'.normalize_string($name).'('.except_arg_names($arg).')';
 
 	$md5 = md5_hex($func_exp_name);
 
-	$mangled = "TVP_Stub_$md5\t".$func_exp_name;
-	$mangled .= "\t".normalize_string($rettype).
+	$mangled = "TVP_Stub_$md5¥t".$func_exp_name;
+	$mangled .= "¥t".normalize_string($rettype).
 		" (__stdcall *".normalize_string($name).")(".normalize_string($arg).")";
-	$mangled .= "\t".normalize_string($rettype) . " ".normalize_string($name)."(".
+	$mangled .= "¥t".normalize_string($rettype) . " ".normalize_string($name)."(".
 		normalize_string($arg).")";
-	$mangled .= "\t$name";
-	$mangled .= "\t$md5";
-	$mangled .= "\t".get_arg_names($arg);
-	$mangled .= "\t".normalize_string($rettype).
+	$mangled .= "¥t$name";
+	$mangled .= "¥t$md5";
+	$mangled .= "¥t".get_arg_names($arg);
+	$mangled .= "¥t".normalize_string($rettype).
 		" (__stdcall * __functype)(".normalize_string(except_arg_names($arg)).")";
-	$mangled .= "\t".normalize_string($rettype);
+	$mangled .= "¥t".normalize_string($rettype);
 
 	print OFH "static ";
 	print OFH normalize_string($rettype);
 	print OFH " __stdcall ";
 	print OFH "TVP_Stub_$md5(";
 	print OFH normalize_string($arg);
-	print OFH ")\n";
-	print OFH "{\n";
+	print OFH ")¥n";
+	print OFH "{¥n";
 	$argnames = get_arg_names($arg);
-	print OFH "\t";
+	print OFH "¥t";
 	print OFH "return ";
-	print OFH "$name(".$argnames.");\n";
-	print OFH "}\n";
+	print OFH "$name(".$argnames.");¥n";
+	print OFH "}¥n";
 
 	push(@func_list, $mangled);
 	$num++;
@@ -319,22 +319,22 @@ sub process_exp_stub
 	open FH, $file or die;
 	$content = <FH>;
 
-	while($content =~ /\/\*\[\*\/(.*?)\/\*\]\*\//gs)
+	while($content =‾ /¥/¥*¥[¥*¥/(.*?)¥/¥*¥]¥*¥//gs)
 	{
-		$defs .= $1."\n";
+		$defs .= $1."¥n";
 	}
 
-	while($content =~ /\/\*\[C\*\/(.*?)\/\*\C]\*\//gs)
+	while($content =‾ /¥/¥*¥[C¥*¥/(.*?)¥/¥*¥C]¥*¥//gs)
 	{
-		$impls .= $1."\n";
+		$impls .= $1."¥n";
 	}
 
-	while($content =~ /TJS_EXP_FUNC_DEF\(\s*(.*?)\s*,\s*(.*?)\s*,\s*\((.*?)\)\s*\)/sg)
+	while($content =‾ /TJS_EXP_FUNC_DEF¥(¥s*(.*?)¥s*,¥s*(.*?)¥s*,¥s*¥((.*?)¥)¥s*¥)/sg)
 	{
 		&make_exp_stub($1, $2, $3);
 	}
 
-	while($content =~ /TVP_GL_FUNC_PTR_EXTERN_DECL\(\s*(.*?)\s*,\s*(.*?)\s*,\s*\((.*?)\)\s*\)/sg)
+	while($content =‾ /TVP_GL_FUNC_PTR_EXTERN_DECL¥(¥s*(.*?)¥s*,¥s*(.*?)¥s*,¥s*¥((.*?)¥)¥s*¥)/sg)
 	{
 		&make_exp_stub($1, $2, $3);
 	}
@@ -344,7 +344,7 @@ sub process_exp_stub
 undef($/);
 @func_list = ();
 
-open(OFH, ">FuncStubs.~h") or die;
+open(OFH, ">FuncStubs.‾h") or die;
 
 print OFH $copyright;
 
@@ -354,7 +354,7 @@ extern void TVPExportFunctions();
 
 EOF
 
-open(OFH, ">FuncStubs.~cpp") or die;
+open(OFH, ">FuncStubs.‾cpp") or die;
 
 print OFH $copyright;
 
@@ -372,26 +372,26 @@ EOF
 
 open(FH, "../../tjs2/tjsVariant.h") or die;
 $content = <FH>;
-$content =~ /\/\*start-of-tTJSVariant\*\/(.*?)\/\*end-of-tTJSVariant\*\//s;
+$content =‾ /¥/¥*start-of-tTJSVariant¥*¥/(.*?)¥/¥*end-of-tTJSVariant¥*¥//s;
 @h_stub = ();
 &list_func_stub("TJS", $1, "tTJSVariant");
 @variant = @h_stub;
 
-$content =~ /\/\*start-of-tTJSVariantOctet\*\/(.*?)\/\*end-of-tTJSVariantOctet\*\//s;
+$content =‾ /¥/¥*start-of-tTJSVariantOctet¥*¥/(.*?)¥/¥*end-of-tTJSVariantOctet¥*¥//s;
 @h_stub = ();
 &list_func_stub("TJS", $1, "tTJSVariantOctet");
 @variantoctet = @h_stub;
 
 open(FH, "../../tjs2/tjsString.h") or die;
 $content = <FH>;
-$content =~ /\/\*start-of-tTJSString\*\/(.*?)\/\*end-of-tTJSString\*\//s;
+$content =‾ /¥/¥*start-of-tTJSString¥*¥/(.*?)¥/¥*end-of-tTJSString¥*¥//s;
 @h_stub = ();
 &list_func_stub("TJS", $1, "tTJSString");
 @string = @h_stub;
 
 open(FH, "../../tjs2/tjsVariantString.h") or die;
 $content = <FH>;
-$content =~ /\/\*start-of-tTJSVariantString\*\/(.*?)\/\*end-of-tTJSVariantString\*\//s;
+$content =‾ /¥/¥*start-of-tTJSVariantString¥*¥/(.*?)¥/¥*end-of-tTJSVariantString¥*¥//s;
 @h_stub = ();
 &list_func_stub("TJS", $1, "tTJSVariantString");
 @variantstring = @h_stub;
@@ -403,173 +403,173 @@ $impls = '';
 
 @func_list = ();
 
-print OFH "#include \"tjsTypes.h\"\n";
+print OFH "#include ¥"tjsTypes.h¥"¥n";
 process_exp_stub("../../tjs2/tjsTypes.h");
 
-print OFH "#include \"tjsConfig.h\"\n";
+print OFH "#include ¥"tjsConfig.h¥"¥n";
 process_exp_stub("../../tjs2/tjsConfig.h");
 
-print OFH "#include \"tjsVariantString.h\"\n";
+print OFH "#include ¥"tjsVariantString.h¥"¥n";
 process_exp_stub("../../tjs2/tjsVariantString.h");
 
-print OFH "#include \"tjsUtils.h\"\n";
+print OFH "#include ¥"tjsUtils.h¥"¥n";
 process_exp_stub("../../tjs2/tjsUtils.h");
 
-print OFH "#include \"tjsString.h\"\n";
+print OFH "#include ¥"tjsString.h¥"¥n";
 process_exp_stub("../../tjs2/tjsString.h");
 
-print OFH "#include \"tjsInterface.h\"\n";
+print OFH "#include ¥"tjsInterface.h¥"¥n";
 process_exp_stub("../../tjs2/tjsInterface.h");
 
-print OFH "#include \"tjsErrorDefs.h\"\n";
+print OFH "#include ¥"tjsErrorDefs.h¥"¥n";
 process_exp_stub("../../tjs2/tjsErrorDefs.h");
 
-print OFH "#include \"tjsNative.h\"\n";
+print OFH "#include ¥"tjsNative.h¥"¥n";
 process_exp_stub("../../tjs2/tjsNative.h");
 
-print OFH "#include \"tjsVariant.h\"\n";
+print OFH "#include ¥"tjsVariant.h¥"¥n";
 process_exp_stub("../../tjs2/tjsVariant.h");
 
-print OFH "#include \"tjsArray.h\"\n";
+print OFH "#include ¥"tjsArray.h¥"¥n";
 process_exp_stub("../../tjs2/tjsArray.h");
 
-print OFH "#include \"tjsDictionary.h\"\n";
+print OFH "#include ¥"tjsDictionary.h¥"¥n";
 process_exp_stub("../../tjs2/tjsDictionary.h");
 
-print OFH "#include \"tjs.h\"\n";
+print OFH "#include ¥"tjs.h¥"¥n";
 process_exp_stub("../../tjs2/tjs.h");
 
-print OFH "#include \"tjsMessage.h\"\n";
+print OFH "#include ¥"tjsMessage.h¥"¥n";
 process_exp_stub("../../tjs2/tjsMessage.h");
 
-print OFH "#include \"tjsGlobalStringMap.h\"\n";
+print OFH "#include ¥"tjsGlobalStringMap.h¥"¥n";
 process_exp_stub("../../tjs2/tjsGlobalStringMap.h");
 
-print OFH "#include \"tjsObject.h\"\n";
+print OFH "#include ¥"tjsObject.h¥"¥n";
 process_exp_stub("../../tjs2/tjsObject.h");
 process_exp_stub("../../tjs2/tjsObject.cpp");
 
 $defs_system = $defs;
 $defs = '';
 
-print OFH "#include \"StorageIntf.h\"\n";
+print OFH "#include ¥"StorageIntf.h¥"¥n";
 process_exp_stub("../StorageIntf.h");
 
-print OFH "#include \"TextStream.h\"\n";
+print OFH "#include ¥"TextStream.h¥"¥n";
 process_exp_stub("../TextStream.h");
 
-print OFH "#include \"CharacterSet.h\"\n";
+print OFH "#include ¥"CharacterSet.h¥"¥n";
 process_exp_stub("../CharacterSet.h");
 
-print OFH "#include \"XP3Archive.h\"\n";
+print OFH "#include ¥"XP3Archive.h¥"¥n";
 process_exp_stub("../XP3Archive.h");
 
-print OFH "#include \"EventIntf.h\"\n";
+print OFH "#include ¥"EventIntf.h¥"¥n";
 process_exp_stub("../EventIntf.h");
 
-print OFH "#include \"SystemIntf.h\"\n";
+print OFH "#include ¥"SystemIntf.h¥"¥n";
 process_exp_stub("../SystemIntf.h");
 
-print OFH "#include \"SystemImpl.h\"\n";
+print OFH "#include ¥"SystemImpl.h¥"¥n";
 process_exp_stub("./SystemImpl.h");
 
-print OFH "#include \"ScriptMgnIntf.h\"\n";
+print OFH "#include ¥"ScriptMgnIntf.h¥"¥n";
 process_exp_stub("../ScriptMgnIntf.h");
 
-print OFH "#include \"StorageImpl.h\"\n";
+print OFH "#include ¥"StorageImpl.h¥"¥n";
 process_exp_stub("../win32/StorageImpl.h");
 
-print OFH "#include \"PluginImpl.h\"\n";
+print OFH "#include ¥"PluginImpl.h¥"¥n";
 process_exp_stub("../win32/PluginImpl.h");
 
-print OFH "#include \"SysInitIntf.h\"\n";
+print OFH "#include ¥"SysInitIntf.h¥"¥n";
 process_exp_stub("../SysInitIntf.h");
 
-print OFH "#include \"SysInitImpl.h\"\n";
+print OFH "#include ¥"SysInitImpl.h¥"¥n";
 process_exp_stub("../win32/SysInitImpl.h");
 
-print OFH "#include \"DetectCPU.h\"\n";
+print OFH "#include ¥"DetectCPU.h¥"¥n";
 process_exp_stub("../../environ/win32/DetectCPU.h");
 
-print OFH "#include \"ThreadIntf.h\"\n";
+print OFH "#include ¥"ThreadIntf.h¥"¥n";
 process_exp_stub("../../utils/ThreadIntf.h");
 
-print OFH "#include \"DebugIntf.h\"\n";
+print OFH "#include ¥"DebugIntf.h¥"¥n";
 process_exp_stub("../../utils/DebugIntf.h");
 
-print OFH "#include \"KAGParser.h\"\n";
+print OFH "#include ¥"KAGParser.h¥"¥n";
 process_exp_stub("../../utils/KAGParser.h");
 
-print OFH "#include \"Random.h\"\n";
+print OFH "#include ¥"Random.h¥"¥n";
 process_exp_stub("../../utils/Random.h");
 
-print OFH "#include \"ClipboardIntf.h\"\n";
+print OFH "#include ¥"ClipboardIntf.h¥"¥n";
 process_exp_stub("../../utils/ClipboardIntf.h");
 
-print OFH "#include \"TickCount.h\"\n";
+print OFH "#include ¥"TickCount.h¥"¥n";
 process_exp_stub("../../utils/win32/TickCount.h");
 
-print OFH "#include \"MsgIntf.h\"\n";
+print OFH "#include ¥"MsgIntf.h¥"¥n";
 process_exp_stub("../../msg/MsgIntf.h");
 
-print OFH "#include \"WaveIntf.h\"\n";
+print OFH "#include ¥"WaveIntf.h¥"¥n";
 process_exp_stub("../../sound/WaveIntf.h");
 
-print OFH "#include \"WaveImpl.h\"\n";
+print OFH "#include ¥"WaveImpl.h¥"¥n";
 process_exp_stub("../../sound/win32/WaveImpl.h");
 
-print OFH "#include \"MIDIImpl.h\"\n";
+print OFH "#include ¥"MIDIImpl.h¥"¥n";
 process_exp_stub("../../sound/win32/MIDIImpl.h");
 
-print OFH "#include \"GraphicsLoaderIntf.h\"\n";
+print OFH "#include ¥"GraphicsLoaderIntf.h¥"¥n";
 process_exp_stub("../../visual/GraphicsLoaderIntf.h");
 
-print OFH "#include \"tvpfontstruc.h\"\n";
+print OFH "#include ¥"tvpfontstruc.h¥"¥n";
 process_exp_stub("../../visual/tvpfontstruc.h");
 
-print OFH "#include \"tvpinputdefs.h\"\n";
+print OFH "#include ¥"tvpinputdefs.h¥"¥n";
 process_exp_stub("../../visual/tvpinputdefs.h");
 
-print OFH "#include \"LayerBitmapIntf.h\"\n";
+print OFH "#include ¥"LayerBitmapIntf.h¥"¥n";
 process_exp_stub("../../visual/LayerBitmapIntf.h");
 
-print OFH "#include \"drawable.h\"\n";
+print OFH "#include ¥"drawable.h¥"¥n";
 process_exp_stub("../../visual/drawable.h");
 
-print OFH "#include \"ComplexRect.h\"\n";
+print OFH "#include ¥"ComplexRect.h¥"¥n";
 process_exp_stub("../../visual/ComplexRect.h");
 
-print OFH "#include \"LayerIntf.h\"\n";
+print OFH "#include ¥"LayerIntf.h¥"¥n";
 process_exp_stub("../../visual/LayerIntf.h");
 
-print OFH "#include \"LayerManager.h\"\n";
+print OFH "#include ¥"LayerManager.h¥"¥n";
 process_exp_stub("../../visual/LayerManager.h");
 
-print OFH "#include \"WindowIntf.h\"\n";
+print OFH "#include ¥"WindowIntf.h¥"¥n";
 process_exp_stub("../../visual/WindowIntf.h");
 
-print OFH "#include \"WindowImpl.h\"\n";
+print OFH "#include ¥"WindowImpl.h¥"¥n";
 process_exp_stub("../../visual/win32/WindowImpl.h");
 
-print OFH "#include \"DrawDevice.h\"\n";
+print OFH "#include ¥"DrawDevice.h¥"¥n";
 process_exp_stub("../../visual/win32/DrawDevice.h");
 
-print OFH "#include \"voMode.h\"\n";
+print OFH "#include ¥"voMode.h¥"¥n";
 process_exp_stub("../../visual/voMode.h");
 
-print OFH "#include \"VideoOvlIntf.h\"\n";
+print OFH "#include ¥"VideoOvlIntf.h¥"¥n";
 process_exp_stub("../../visual/VideoOvlIntf.h");
 
-print OFH "#include \"TransIntf.h\"\n";
+print OFH "#include ¥"TransIntf.h¥"¥n";
 process_exp_stub("../../visual/TransIntf.h");
 
-print OFH "#include \"transhandler.h\"\n";
+print OFH "#include ¥"transhandler.h¥"¥n";
 process_exp_stub("../../visual/transhandler.h");
 
-print OFH "#include \"tvpgl.h\"\n";
+print OFH "#include ¥"tvpgl.h¥"¥n";
 process_exp_stub("../../visual/tvpgl.h");
 
-print OFH "#include \"tvpgl_ia32_intf.h\"\n";
+print OFH "#include ¥"tvpgl_ia32_intf.h¥"¥n";
 process_exp_stub("../../visual/IA32/tvpgl_ia32_intf.h");
 
 $defs_misc = $defs;
@@ -585,8 +585,8 @@ EOF
 $func_data = '';
 foreach $each (@all_list)
 {
-	@pair = split(/\t/, $each);
-	$func_data .= $pair[1] . "\0";
+	@pair = split(/¥t/, $each);
+	$func_data .= $pair[1] . "¥0";
 }
 
 $deflateout = '';
@@ -597,10 +597,10 @@ $deflateout = compress($func_data);
 ;# ($deflateout, $status) = $deflate->flush();
 
 $emitdata = $deflateout;
-$emitdata =~ s/(.)/sprintf("0x%02x, ", ord $1)/seg;
-$emitdata =~ s/(.{96})/$1\n/g;
-$emitdata .= "\n";
-# $emitdata =~ s/(.*?), \n/\t__emit__($1);\n/sg;
+$emitdata =‾ s/(.)/sprintf("0x%02x, ", ord $1)/seg;
+$emitdata =‾ s/(.{96})/$1¥n/g;
+$emitdata .= "¥n";
+# $emitdata =‾ s/(.*?), ¥n/¥t__emit__($1);¥n/sg;
 
 print OFH <<EOF;
 /* function table is pretty large; is compressed via zlib */
@@ -613,10 +613,10 @@ EOF
 $i = 0;
 foreach $each (@all_list)
 {
-	print OFH "\t";
-	@pair = split(/\t/, $each);
+	print OFH "¥t";
+	@pair = split(/¥t/, $each);
 	print OFH $pair[0]. ",";
-	print OFH "\n";
+	print OFH "¥n";
 	$i ++;
 }
 
@@ -633,9 +633,9 @@ void TVPExportFunctions()
 EOF
 
 
-print OFH "\tconst unsigned long compressed_size = ".length($deflateout).";\n";
-print OFH "\tconst unsigned long decompressed_size = ".length($func_data).";\n";
-print OFH "\tconst tjs_int function_count = ".$i.";\n";
+print OFH "¥tconst unsigned long compressed_size = ".length($deflateout).";¥n";
+print OFH "¥tconst unsigned long decompressed_size = ".length($func_data).";¥n";
+print OFH "¥tconst tjs_int function_count = ".$i.";¥n";
 
 print OFH <<EOF;
 	unsigned char * dest = new unsigned char [decompressed_size];
@@ -728,9 +728,9 @@ EOF
 
 foreach $each (@all_list)
 {
-	@pair = split(/\t/, $each);
+	@pair = split(/¥t/, $each);
 
-	print OHFH "extern void * TVPImportFuncPtr".$pair[5].";\n";
+	print OHFH "extern void * TVPImportFuncPtr".$pair[5].";¥n";
 }
 
 
@@ -758,15 +758,15 @@ EOF
 
 foreach $each (@variantstring)
 {
-	print OHFH $each."\n";
+	print OHFH $each."¥n";
 }
-$content =~ /\/\*start-of-tTJSVariantString\*\/(.*?)\/\*end-of-tTJSVariantString\*\//s;
+$content =‾ /¥/¥*start-of-tTJSVariantString¥*¥/(.*?)¥/¥*end-of-tTJSVariantString¥*¥//s;
 $class = $1;
-while($class =~ /\/\*m\[\*\/(.*?)\/\*\]m\*\//gs)
+while($class =‾ /¥/¥*m¥[¥*¥/(.*?)¥/¥*¥]m¥*¥//gs)
 {
-	print OHFH "\t";
+	print OHFH "¥t";
 	print OHFH $1;
-	print OHFH "\n\n";
+	print OHFH "¥n¥n";
 }
 
 print OHFH <<EOF;
@@ -794,16 +794,16 @@ EOF
 
 foreach $each (@variantoctet)
 {
-	print OHFH $each."\n";
+	print OHFH $each."¥n";
 }
 
-$content =~ /\/\*start-of-tTJSVariantOctet\*\/(.*?)\/\*end-of-tTJSVariantOctet\*\//s;
+$content =‾ /¥/¥*start-of-tTJSVariantOctet¥*¥/(.*?)¥/¥*end-of-tTJSVariantOctet¥*¥//s;
 $class = $1;
-while($class =~ /\/\*m\[\*\/(.*?)\/\*\]m\*\//gs)
+while($class =‾ /¥/¥*m¥[¥*¥/(.*?)¥/¥*¥]m¥*¥//gs)
 {
-	print OHFH "\t";
+	print OHFH "¥t";
 	print OHFH $1;
-	print OHFH "\n\n";
+	print OHFH "¥n¥n";
 }
 
 print OHFH <<EOF;
@@ -831,16 +831,16 @@ EOF
 
 foreach $each (@variant)
 {
-	print OHFH $each."\n";
+	print OHFH $each."¥n";
 }
 
-$content =~ /\/\*start-of-tTJSVariant\*\/(.*?)\/\*end-of-tTJSVariant\*\//s;
+$content =‾ /¥/¥*start-of-tTJSVariant¥*¥/(.*?)¥/¥*end-of-tTJSVariant¥*¥//s;
 $class = $1;
-while($class =~ /\/\*m\[\*\/(.*?)\/\*\]m\*\//gs)
+while($class =‾ /¥/¥*m¥[¥*¥/(.*?)¥/¥*¥]m¥*¥//gs)
 {
-	print OHFH "\t";
+	print OHFH "¥t";
 	print OHFH $1;
-	print OHFH "\n\n";
+	print OHFH "¥n¥n";
 }
 
 print OHFH <<EOF;
@@ -867,16 +867,16 @@ EOF
 
 foreach $each (@string)
 {
-	print OHFH $each."\n";
+	print OHFH $each."¥n";
 }
 
-$content =~ /\/\*start-of-tTJSString\*\/(.*?)\/\*end-of-tTJSString\*\//s;
+$content =‾ /¥/¥*start-of-tTJSString¥*¥/(.*?)¥/¥*end-of-tTJSString¥*¥//s;
 $class = $1;
-while($class =~ /\/\*m\[\*\/(.*?)\/\*\]m\*\//gs)
+while($class =‾ /¥/¥*m¥[¥*¥/(.*?)¥/¥*¥]m¥*¥//gs)
 {
-	print OHFH "\t";
+	print OHFH "¥t";
 	print OHFH $1;
-	print OHFH "\n\n";
+	print OHFH "¥n¥n";
 }
 
 print OHFH <<EOF;
@@ -909,19 +909,19 @@ EOF
 
 foreach $each (@func_list)
 {
-	@pair = split(/\t/, $each);
-	print OHFH "inline ".$pair[3]."\n";
-	print OHFH "{\n";
+	@pair = split(/¥t/, $each);
+	print OHFH "inline ".$pair[3]."¥n";
+	print OHFH "{¥n";
 	print OHFH
-			"\tif(!TVPImportFuncPtr".$pair[5].")\n".
-			"\t{\n".
-			"\t\tstatic char funcname[] = \"".$pair[1]."\";\n".
-			"\t\tTVPImportFuncPtr".$pair[5]." = TVPGetImportFuncPtr(funcname);\n".
-			"\t}\n";
-	print OHFH "\ttypedef ".$pair[7].";\n";
-	print OHFH "\t".($pair[8] eq 'void' ? '' : 'return ')."((__functype)(TVPImportFuncPtr".$pair[5]."))";
-	print OHFH "(".$pair[6].");\n";
-	print OHFH "}\n";
+			"¥tif(!TVPImportFuncPtr".$pair[5].")¥n".
+			"¥t{¥n".
+			"¥t¥tstatic char funcname[] = ¥"".$pair[1]."¥";¥n".
+			"¥t¥tTVPImportFuncPtr".$pair[5]." = TVPGetImportFuncPtr(funcname);¥n".
+			"¥t}¥n";
+	print OHFH "¥ttypedef ".$pair[7].";¥n";
+	print OHFH "¥t".($pair[8] eq 'void' ? '' : 'return ')."((__functype)(TVPImportFuncPtr".$pair[5]."))";
+	print OHFH "(".$pair[6].");¥n";
+	print OHFH "}¥n";
 }
 
 
@@ -973,9 +973,9 @@ EOF
 
 foreach $each (@all_list)
 {
-	@pair = split(/\t/, $each);
+	@pair = split(/¥t/, $each);
 
-	print OCFH "void * TVPImportFuncPtr".$pair[5]." = NULL;\n";
+	print OCFH "void * TVPImportFuncPtr".$pair[5]." = NULL;¥n";
 }
 
 
@@ -1021,12 +1021,12 @@ $oh = <OHFH>;
 close OHFH;
 
 ;# extract iTJSDispatch2 declaration
-die if($oh !~ /class\s+iTJSDispatch2\s+\{(.*?)\}/s);
+die if($oh !‾ /class¥s+iTJSDispatch2¥s+¥{(.*?)¥}/s);
 $class_iTJSDispatch2 = $1;
 
 ;# eliminate comments
-$class_iTJSDispatch2 =~ s|//.*?\n||gs;
-$class_iTJSDispatch2 =~ s|/\*.*?\*/||gs;
+$class_iTJSDispatch2 =‾ s|//.*?¥n||gs;
+$class_iTJSDispatch2 =‾ s|/¥*.*?¥*/||gs;
 
 ;# extract method declarations
 $hc = '';
@@ -1040,75 +1040,75 @@ static bool TJS_USERENTRY _CatchFuncCall(void *data, const tTVPExceptionDesc & d
 }
 EOF
 
-while($class_iTJSDispatch2 =~
-	m|virtual\s+(\w+)\s+TJS_INTF_METHOD\s+(\w+)\s*\(\s*(.*?)\s*\)|gs)
+while($class_iTJSDispatch2 =‾
+	m|virtual¥s+(¥w+)¥s+TJS_INTF_METHOD¥s+(¥w+)¥s*¥(¥s*(.*?)¥s*¥)|gs)
 {
 	$ret_type = $1;
 	$method_name = $2;
-	@args = split(/\s*,\s*/, $3 eq 'void' ? '' : $3);
+	@args = split(/¥s*,¥s*/, $3 eq 'void' ? '' : $3);
 
 	$hc .= 
 		("extern $ret_type Try_iTJSDispatch2_$method_name(" .
-			join(', ',  ("iTJSDispatch2 * _this", @args)) . ");\n");
+			join(', ',  ("iTJSDispatch2 * _this", @args)) . ");¥n");
 
 
-	$cc .= "struct t_iTJSDispatch2_$method_name\n";
-	$cc .= "{\n";
+	$cc .= "struct t_iTJSDispatch2_$method_name¥n";
+	$cc .= "{¥n";
 	if($ret_type ne 'void')
 	{
-		$cc .= "\t$ret_type _ret;\n";
+		$cc .= "¥t$ret_type _ret;¥n";
 	}
 
 	foreach $arg ("iTJSDispatch2 * _this", @args)
 	{
-		$cc .= "\t$arg;\n";
+		$cc .= "¥t$arg;¥n";
 	}
 
 	@arg_names = ();
 	foreach $arg (@args)
 	{
-		if($arg =~ /(\w+)$/)
+		if($arg =‾ /(¥w+)$/)
 		{
 			push @arg_names, $1;
 		}
 	}
-	$cc .= "\tt_iTJSDispatch2_$method_name(\n\t\t\t";
-	$cc .= join("_,\n\t\t\t",  ("iTJSDispatch2 * _this", @args));
-	$cc .= "_\n\t\t\t) :\n\t\t";
+	$cc .= "¥tt_iTJSDispatch2_$method_name(¥n¥t¥t¥t";
+	$cc .= join("_,¥n¥t¥t¥t",  ("iTJSDispatch2 * _this", @args));
+	$cc .= "_¥n¥t¥t¥t) :¥n¥t¥t";
 	@arg_initials = ();
 	foreach $arg_name ("_this", @arg_names)
 	{
 		push @arg_initials, "$arg_name(${arg_name}_)";
 	}
 
-	$cc .= join(",\n\t\t", @arg_initials);
-	$cc .= "\t{;}\n";
+	$cc .= join(",¥n¥t¥t", @arg_initials);
+	$cc .= "¥t{;}¥n";
 
-	$cc .= "\n};\n";
+	$cc .= "¥n};¥n";
 
-	$cc .= "static void TJS_USERENTRY _Try_iTJSDispatch2_$method_name(void *data)\n";
-	$cc .= "{\n";
-	$cc .= "	t_iTJSDispatch2_$method_name * arg = (t_iTJSDispatch2_$method_name *)data;\n";
-	$cc .= "	arg->_ret = \n" if $ret_Type ne 'void';
-	$cc .= "	arg->_this->$method_name(\n		";
+	$cc .= "static void TJS_USERENTRY _Try_iTJSDispatch2_$method_name(void *data)¥n";
+	$cc .= "{¥n";
+	$cc .= "	t_iTJSDispatch2_$method_name * arg = (t_iTJSDispatch2_$method_name *)data;¥n";
+	$cc .= "	arg->_ret = ¥n" if $ret_Type ne 'void';
+	$cc .= "	arg->_this->$method_name(¥n		";
 	@arg_args = ();
 	foreach $arg_name (@arg_names)
 	{
 		push @arg_args, "arg->$arg_name";
 	}
-	$cc .= join(",\n\t\t", @arg_args);
-	$cc .= "\n		);\n";
-	$cc .= "}\n";
+	$cc .= join(",¥n¥t¥t", @arg_args);
+	$cc .= "¥n		);¥n";
+	$cc .= "}¥n";
 	$cc .= 
 		("$ret_type Try_iTJSDispatch2_$method_name(" .
-			join(', ',  ("iTJSDispatch2 * _this", @args)) . ")\n");
-	$cc .= "{\n";
-	$cc .= "	t_iTJSDispatch2_$method_name arg(\n		";
-	$cc .= join(",\n		", ("_this", @arg_names));
-	$cc .= "\n	);\n";
-	$cc .= "	TVPDoTryBlock(_Try_iTJSDispatch2_$method_name, _CatchFuncCall, NULL, &arg);\n";
-	$cc .= "	return arg._ret;\n" if  $ret_Type ne 'void';
-	$cc .= "}\n";
+			join(', ',  ("iTJSDispatch2 * _this", @args)) . ")¥n");
+	$cc .= "{¥n";
+	$cc .= "	t_iTJSDispatch2_$method_name arg(¥n		";
+	$cc .= join(",¥n		", ("_this", @arg_names));
+	$cc .= "¥n	);¥n";
+	$cc .= "	TVPDoTryBlock(_Try_iTJSDispatch2_$method_name, _CatchFuncCall, NULL, &arg);¥n";
+	$cc .= "	return arg._ret;¥n" if  $ret_Type ne 'void';
+	$cc .= "}¥n";
 
 }
 

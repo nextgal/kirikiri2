@@ -25,7 +25,7 @@ function Searcher() {
         var words = str.split(' ');
         for (var i = 0; i < words.length; ++i) {
             if (words[i] != '') {
-                regs.push(new RegExp(words[i].replace(/(\W)/g, "\\$1"), 'i'));
+                regs.push(new RegExp(words[i].replace(/(¥W)/g, "¥¥$1"), 'i'));
             }
         }
 

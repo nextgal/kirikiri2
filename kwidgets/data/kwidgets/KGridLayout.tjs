@@ -4,20 +4,20 @@
 
 
 /*----------------------------------------------------------------------
- * ƒOƒŠƒbƒhƒŒƒCƒAƒEƒg
+ * ã‚°ãƒªãƒƒãƒ‰ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
  ----------------------------------------------------------------------*/
 class KGridLayout extends KWidget
 {
-  // q‚ÌXV‚É”½‰‚·‚é‚©‚Ç‚¤‚©
+  // å­ã®æ›´æ–°ã«åå¿œã™ã‚‹ã‹ã©ã†ã‹
   var _respondToChildModification;
-  // q‚ªXV‚³‚ê‚½‚©‚Ç‚¤‚©
+  // å­ãŒæ›´æ–°ã•ã‚ŒãŸã‹ã©ã†ã‹
   var _childModified;
 
-  // X•ûŒü‚Ì—v‘f”, Y•ûŒü‚Ì—v‘f”
+  // Xæ–¹å‘ã®è¦ç´ æ•°, Yæ–¹å‘ã®è¦ç´ æ•°
   var xcount, ycount;
-  // ƒAƒCƒeƒ€A‹tˆø‚«
+  // ã‚¢ã‚¤ãƒ†ãƒ ã€é€†å¼•ã
   var items, revItems;
-  // s/—ñ‚²‚Æ‚ÌÅ‘åAÅ¬ƒTƒCƒY
+  // è¡Œ/åˆ—ã”ã¨ã®æœ€å¤§ã€æœ€å°ã‚µã‚¤ã‚º
   var minWidthForColumn;
   var maxWidthForColumn;
   var minHeightForRow;
@@ -28,23 +28,23 @@ class KGridLayout extends KWidget
   var marginalWidth, marginalHeight;
   
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param name åå‰
    ------------------------------*/
   function KGridLayout(win, name = "") {
-    // eŒÄ‚Ño‚µ
+    // è¦ªå‘¼ã³å‡ºã—
     super.KWidget(win, name);
-    // ƒCƒ[ƒW‚ğ‚½‚È‚¢
+    // ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’æŒãŸãªã„
     hasImage = false;
 
-    // q‚ÌXV‚É”½‰‚·‚é
+    // å­ã®æ›´æ–°ã«åå¿œã™ã‚‹
     _respondToChildModification = true;
-    // q‚Í‚Ü‚¾XV‚³‚ê‚Ä‚¢‚È‚¢
+    // å­ã¯ã¾ã æ›´æ–°ã•ã‚Œã¦ã„ãªã„
     _childModified = false;
 
-    // Å‰‚Í—v‘f0‚©‚çB
+    // æœ€åˆã¯è¦ç´ 0ã‹ã‚‰ã€‚
     xcount = ycount = 0;
     items = %[];
     revItems = %[];
@@ -53,15 +53,15 @@ class KGridLayout extends KWidget
   }
 
   /**------------------------------
-   * ƒOƒŠƒbƒh‚ªAqƒŒƒCƒ„‚ÌXV‚É‡‚í‚¹‚Ä‘¦À‚ÉƒŒƒCƒAƒEƒg‚ğXV‚·‚é‚©
-   * ‚Ç‚¤‚©‚ğw’è‚µ‚Ü‚·B
+   * ã‚°ãƒªãƒƒãƒ‰ãŒã€å­ãƒ¬ã‚¤ãƒ¤ã®æ›´æ–°ã«åˆã‚ã›ã¦å³åº§ã«ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’æ›´æ–°ã™ã‚‹ã‹
+   * ã©ã†ã‹ã‚’æŒ‡å®šã—ã¾ã™ã€‚
    * 
-   * ‚±‚ÌƒvƒƒpƒeƒB‚Éfalse‚ğw’è‚µ‚Ä‚¢‚éŠÔ‚ÍA
-   * q‚ÉXV‚ğ‰Á‚¦‚Ä‚àƒŒƒCƒAƒEƒg‚Ì•ÏX‚Ís‚È‚í‚ê‚Ü‚¹‚ñBXV‚Ì
-   * I—¹Œã‚ÉƒvƒƒpƒeƒB‚ğtrue‚É‚·‚é‚±‚Æ‚ÅA‚Ü‚Æ‚ß‚ÄXV‚ªs‚í‚ê‚Ü‚·B
+   * ã“ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«falseã‚’æŒ‡å®šã—ã¦ã„ã‚‹é–“ã¯ã€
+   * å­ã«æ›´æ–°ã‚’åŠ ãˆã¦ã‚‚ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®å¤‰æ›´ã¯è¡Œãªã‚ã‚Œã¾ã›ã‚“ã€‚æ›´æ–°ã®
+   * çµ‚äº†å¾Œã«ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’trueã«ã™ã‚‹ã“ã¨ã§ã€ã¾ã¨ã‚ã¦æ›´æ–°ãŒè¡Œã‚ã‚Œã¾ã™ã€‚
    *
-   * @param v q‚ÌXV‚É”½‰‚·‚é‚©‚Ç‚¤‚©
-   * @return q‚ÌXV‚É”½‰‚·‚é‚©‚Ç‚¤‚©
+   * @param v å­ã®æ›´æ–°ã«åå¿œã™ã‚‹ã‹ã©ã†ã‹
+   * @return å­ã®æ›´æ–°ã«åå¿œã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   property respondToChildModification {
     getter {
@@ -77,29 +77,29 @@ class KGridLayout extends KWidget
     }
   }
 
-  // “Á’è‚Ìƒ|ƒWƒVƒ‡ƒ“‚ğ‚ ‚ç‚í‚·•¶š—ñ‚ğ•Ô‚·
+  // ç‰¹å®šã®ãƒã‚¸ã‚·ãƒ§ãƒ³ã‚’ã‚ã‚‰ã‚ã™æ–‡å­—åˆ—ã‚’è¿”ã™
   function posExp(x, y) {
     return "" + x + ":" + y;
   }
 
-  // “Á’è‚Ìƒ|ƒWƒVƒ‡ƒ“‚É‚ ‚éqƒEƒBƒWƒFƒbƒg‚ğ•Ô‚·
+  // ç‰¹å®šã®ãƒã‚¸ã‚·ãƒ§ãƒ³ã«ã‚ã‚‹å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’è¿”ã™
   function childAt(x, y) {
     return items[posExp(x, y)];
   }
 
-  // qƒEƒBƒWƒFƒbƒg‚É‘Î‰‚µ‚½ˆÊ’u‚ğ•Ô‚·
+  // å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã«å¯¾å¿œã—ãŸä½ç½®ã‚’è¿”ã™
   function posAt(child) {
     return revItems[child];
   }
 
   /*------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ“Á’è‚ÌƒOƒŠƒbƒh‚É”z’u‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ç‰¹å®šã®ã‚°ãƒªãƒƒãƒ‰ã«é…ç½®ã™ã‚‹
    *
-   * @param x ƒOƒŠƒbƒhXÀ•W(0`)
-   * @param y ƒOƒŠƒbƒhYÀ•W(0`)
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param colspan ƒJƒ‰ƒ€Œ‹‡
-   * @param rowspan ƒƒEŒ‹‡
+   * @param x ã‚°ãƒªãƒƒãƒ‰Xåº§æ¨™(0ã€œ)
+   * @param y ã‚°ãƒªãƒƒãƒ‰Yåº§æ¨™(0ã€œ)
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param colspan ã‚«ãƒ©ãƒ çµåˆ
+   * @param rowspan ãƒ­ã‚¦çµåˆ
    ------------------------------*/
   function add(x, y, child, colspan = 1, rowspan = 1) {
     xcount = Math.max(x + colspan, xcount);
@@ -111,10 +111,10 @@ class KGridLayout extends KWidget
   }
 
   /*------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğæ‚èœ‚­
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å–ã‚Šé™¤ã
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(child, doInvalidate = true) {
     var pos = revItems[child];
@@ -135,9 +135,9 @@ class KGridLayout extends KWidget
   }
 
   /*------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ‘S‚Äæ‚èœ‚­
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å…¨ã¦å–ã‚Šé™¤ã
    *
-   * @param doInvalidate æ‚èœ‚¢‚½qƒEƒBƒWƒFƒbƒg‚ğ–³Œø‰»‚·‚é‚©
+   * @param doInvalidate å–ã‚Šé™¤ã„ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ç„¡åŠ¹åŒ–ã™ã‚‹ã‹
    ------------------------------*/
   function removeAll(doInvalidate = true)
   {
@@ -174,14 +174,14 @@ class KGridLayout extends KWidget
   }
 
   /**------------------------------
-   * Å’áŒÀ‚ÌƒTƒCƒY‚ğİ’è‚·‚é
+   * æœ€ä½é™ã®ã‚µã‚¤ã‚ºã‚’è¨­å®šã™ã‚‹
    *
-   * ƒŠƒXƒg€–Ú‚ª­‚È‚­‚Ä‚àÅ’áŒÀL‚°‚ç‚ê‚é
-   * uÅ’áÅ‘åƒTƒCƒYv‚ğŒˆ’è‚·‚éB
-   * ƒfƒtƒHƒ‹ƒg’l‚Í100x100
+   * ãƒªã‚¹ãƒˆé …ç›®ãŒå°‘ãªãã¦ã‚‚æœ€ä½é™åºƒã’ã‚‰ã‚Œã‚‹
+   * ã€Œæœ€ä½æœ€å¤§ã‚µã‚¤ã‚ºã€ã‚’æ±ºå®šã™ã‚‹ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã¯100x100
    *
-   * @param w •
-   * @param h ‚‚³
+   * @param w å¹…
+   * @param h é«˜ã•
    ------------------------------*/
   function setMarginalSize(w, h) {
     marginalWidth = w;
@@ -190,10 +190,10 @@ class KGridLayout extends KWidget
   }
 
   /*------------------------------
-   * ƒŒƒCƒAƒEƒg‚ğŒvZ‚·‚é
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’è¨ˆç®—ã™ã‚‹
    ------------------------------*/
   function calculateLayout {
-    // ƒOƒŠƒbƒh‚ÌsE—ñ‚²‚Æ‚ÉÅ‘å•AÅ¬•‚ğŒvZ‚·‚éB
+    // ã‚°ãƒªãƒƒãƒ‰ã®è¡Œãƒ»åˆ—ã”ã¨ã«æœ€å¤§å¹…ã€æœ€å°å¹…ã‚’è¨ˆç®—ã™ã‚‹ã€‚
     minWidthForColumn = [];
     maxWidthForColumn = [];
     minHeightForRow = [];
@@ -243,7 +243,7 @@ class KGridLayout extends KWidget
 	}
       }    
 
-    // ƒOƒŠƒbƒh‘S‘Ì‚ÌÅ‘åEÅ¬ƒTƒCƒY‚ğŒˆ’è‚·‚é
+    // ã‚°ãƒªãƒƒãƒ‰å…¨ä½“ã®æœ€å¤§ãƒ»æœ€å°ã‚µã‚¤ã‚ºã‚’æ±ºå®šã™ã‚‹
     var minW, minH, maxW, maxH;
 
     minW = maxW = spaceHorizontal * (xcount - 1);
@@ -258,19 +258,19 @@ class KGridLayout extends KWidget
       maxH += maxHeightForRow[y];
     }
 
-    // Å‘åEÅ¬ƒTƒCƒY‚ğŒˆ’è‚·‚é
+    // æœ€å¤§ãƒ»æœ€å°ã‚µã‚¤ã‚ºã‚’æ±ºå®šã™ã‚‹
     setMinMaxSize(minW, minH, Math.max(maxW, marginalWidth), Math.max(maxH, marginalHeight));
   }
 
   /*------------------------------
-   * ƒŒƒCƒAƒEƒg‚É]‚Á‚ÄƒEƒBƒWƒFƒbƒg‚ğ”z’u‚·‚é
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã«å¾“ã£ã¦ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’é…ç½®ã™ã‚‹
    ------------------------------*/
   function locateLayout {
-    // sA—ñ‚²‚Æ‚ÌƒTƒCƒY‚ğŒˆ’è‚·‚é
+    // è¡Œã€åˆ—ã”ã¨ã®ã‚µã‚¤ã‚ºã‚’æ±ºå®šã™ã‚‹
     widthForColumn = [];
     heightForRow = [];
 
-    // ‘å‚Ü‚©‚ÉAmin‚Æmax‚Ì”ä—¦‚©‚ç•E‚‚³‚ğŒˆ’è‚·‚é
+    // å¤§ã¾ã‹ã«ã€minã¨maxã®æ¯”ç‡ã‹ã‚‰å¹…ãƒ»é«˜ã•ã‚’æ±ºå®šã™ã‚‹
     var minWidthRatio, maxWidthRatio, minHeightRatio, maxHeightRatio;
 
     minWidthRatio = (maxWidth - width);
@@ -353,11 +353,11 @@ class KGridLayout extends KWidget
   }
 
   /*------------------------------
-   * ƒŒƒCƒAƒEƒg‚ğXV‚·‚é
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’æ›´æ–°ã™ã‚‹
    ------------------------------*/
   function invalidateLayout {
-    // qƒŒƒCƒ„‚Ö‚Ì”½‰‚ªdisable‚³‚ê‚Ä‚¢‚é‚©A
-    // ‚Ü‚¾ƒEƒBƒWƒFƒbƒgƒcƒŠ[‚É“o˜^‚³‚ê‚é‘O‚È‚çAŒã‰ñ‚µ
+    // å­ãƒ¬ã‚¤ãƒ¤ã¸ã®åå¿œãŒdisableã•ã‚Œã¦ã„ã‚‹ã‹ã€
+    // ã¾ã ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ„ãƒªãƒ¼ã«ç™»éŒ²ã•ã‚Œã‚‹å‰ãªã‚‰ã€å¾Œå›ã—
     if (! _respondToChildModification
         || ! isInWidgetTree) {
       _childModified = true;
@@ -365,65 +365,65 @@ class KGridLayout extends KWidget
     }
     _childModified = false;
 
-    // •‚ğ‹L˜^
+    // å¹…ã‚’è¨˜éŒ²
     var oldWidth, oldHeight;
     oldWidth = width;
     oldHeight = height;
 
-    // ƒŒƒCƒAƒEƒg‚Ì”ä—¦‚ğŒvZ
+    // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®æ¯”ç‡ã‚’è¨ˆç®—
     calculateLayout();
 
-    // •‚â‚‚³‚ÌXV‚ªu–³‚©‚Á‚½v‚È‚çA
-    // ‹­§“I‚ÉƒEƒBƒWƒFƒbƒg‚ÌÄ”z’u‚ğs‚¤(Ä”z’u‚ª‚ ‚Á‚½ê‡‚ÍAonSizeModified‚ªŒÄ‚Î‚ê‚Ä‚¢‚é)
+    // å¹…ã‚„é«˜ã•ã®æ›´æ–°ãŒã€Œç„¡ã‹ã£ãŸã€ãªã‚‰ã€
+    // å¼·åˆ¶çš„ã«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®å†é…ç½®ã‚’è¡Œã†(å†é…ç½®ãŒã‚ã£ãŸå ´åˆã¯ã€onSizeModifiedãŒå‘¼ã°ã‚Œã¦ã„ã‚‹)
     if (oldWidth == width
         && oldHeight == height)
       locateLayout();
   }
 
   /*------------------------------
-   * ƒŠƒTƒCƒY‚ÉƒŒƒCƒAƒEƒg‚ğ‚â‚è’¼‚·
+   * ãƒªã‚µã‚¤ã‚ºæ™‚ã«ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ã‚„ã‚Šç›´ã™
    ------------------------------*/
   function onSizeModified(width, height) {
-    // qƒŒƒCƒ„‚Ö‚Ì”½‰‚ªdisable‚³‚ê‚Ä‚¢‚é‚©A
-    // ‚Ü‚¾ƒEƒBƒWƒFƒbƒgƒcƒŠ[‚É“o˜^‚³‚ê‚é‘O‚È‚çAŒã‰ñ‚µ
+    // å­ãƒ¬ã‚¤ãƒ¤ã¸ã®åå¿œãŒdisableã•ã‚Œã¦ã„ã‚‹ã‹ã€
+    // ã¾ã ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆãƒ„ãƒªãƒ¼ã«ç™»éŒ²ã•ã‚Œã‚‹å‰ãªã‚‰ã€å¾Œå›ã—
     if (! _respondToChildModification
         || ! isInWidgetTree) 
       return;
 
-    // ƒEƒBƒWƒFƒbƒg‚ğ”z’u‚·‚é
+    // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’é…ç½®ã™ã‚‹
     locateLayout();
   }
 };
 
 /**----------------------------------------------------------------------
- * ‰¡•ûŒü ƒŒƒCƒAƒEƒg
+ * æ¨ªæ–¹å‘ ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
  ----------------------------------------------------------------------*/
 class KHorizontalBarLayout extends KGridLayout
 {
   /**------------------------------
-   * ‰¡•ûŒü‚ÉƒEƒBƒWƒFƒbƒg‚ğˆê’¼ü‚É•À‚×‚éƒŒƒCƒAƒEƒg‚Å‚·B
+   * æ¨ªæ–¹å‘ã«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ä¸€ç›´ç·šã«ä¸¦ã¹ã‚‹ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã§ã™ã€‚
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param name åå‰
    ------------------------------*/
   function KHorizontalBarLayout(win, name = "") {
     super.KGridLayout(...);
   }
 
   /*------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚ğ’Ç‰Á‚µ‚Ü‚·
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’è¿½åŠ ã—ã¾ã™
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function add(child) {
     super.add(xcount, 0, child);
   }
 
   /*-----------------------------
-   * ƒEƒBƒWƒFƒbƒg‚ğæ‚èœ‚«‚Ü‚·
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å–ã‚Šé™¤ãã¾ã™
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(child, doInvalidate = true) {
     var pos = revItems[child];
@@ -441,34 +441,34 @@ class KHorizontalBarLayout extends KGridLayout
 
 
 /**----------------------------------------------------------------------
- * c•ûŒü ƒŒƒCƒAƒEƒg
+ * ç¸¦æ–¹å‘ ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
  ----------------------------------------------------------------------*/
 class KVerticalBarLayout extends KGridLayout
 {
   /**------------------------------
-   * c•ûŒü‚ÉƒEƒBƒWƒFƒbƒg‚ğˆê’¼ü‚É•À‚×‚éƒŒƒCƒAƒEƒg‚Å‚·B
+   * ç¸¦æ–¹å‘ã«ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ä¸€ç›´ç·šã«ä¸¦ã¹ã‚‹ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã§ã™ã€‚
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param name åå‰
    ------------------------------*/
   function KVerticalBarLayout(win, name = "") {
     super.KGridLayout(...);
   }
 
   /*------------------------------
-   * ƒEƒBƒWƒFƒbƒg‚ğ’Ç‰Á‚µ‚Ü‚·
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’è¿½åŠ ã—ã¾ã™
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function add(child) {
     super.add(0, ycount, child);
   }
 
   /*-----------------------------
-   * ƒEƒBƒWƒFƒbƒg‚ğæ‚èœ‚«‚Ü‚·
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å–ã‚Šé™¤ãã¾ã™
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(child, doInvalidate = true) {
     var pos = revItems[child];

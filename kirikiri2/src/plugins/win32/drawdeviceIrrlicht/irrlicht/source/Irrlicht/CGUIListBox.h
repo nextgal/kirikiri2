@@ -28,7 +28,7 @@ namespace gui
 			bool drawBack=false, bool moveOverSelect=false);
 
 		//! destructor
-		virtual ~CGUIListBox();
+		virtual ‾CGUIListBox();
 
 		//! returns amount of list items
 		virtual u32 getItemCount() const;
@@ -55,9 +55,9 @@ namespace gui
 		virtual void draw();
 
 		//! adds an list item with an icon
-		//! \param text Text of list entry
-		//! \param icon Sprite index of the Icon within the current sprite bank. Set it to -1 if you want no icon
-		//! \return
+		//! ¥param text Text of list entry
+		//! ¥param icon Sprite index of the Icon within the current sprite bank. Set it to -1 if you want no icon
+		//! ¥return
 		//! returns the id of the new created item
 		virtual u32 addItem(const wchar_t* text, s32 icon);
 

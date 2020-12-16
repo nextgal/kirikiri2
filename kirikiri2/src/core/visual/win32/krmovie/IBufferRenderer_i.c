@@ -28,7 +28,7 @@ extern "C"{
 #include <guiddef.h>
 #endif
 
-#define MIDL_DEFINE_GUID(type,name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8) \
+#define MIDL_DEFINE_GUID(type,name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8) ¥
         DEFINE_GUID(name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8)
 
 #else // !_MIDL_USE_GUIDDEF_
@@ -51,7 +51,7 @@ typedef struct _IID
 typedef IID CLSID;
 #endif // CLSID_DEFINED
 
-#define MIDL_DEFINE_GUID(type,name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8) \
+#define MIDL_DEFINE_GUID(type,name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8) ¥
         const type name = {l,w1,w2,{b1,b2,b3,b4,b5,b6,b7,b8}}
 
 #endif !_MIDL_USE_GUIDDEF_
@@ -112,7 +112,7 @@ extern "C"{
 #include <guiddef.h>
 #endif
 
-#define MIDL_DEFINE_GUID(type,name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8) \
+#define MIDL_DEFINE_GUID(type,name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8) ¥
         DEFINE_GUID(name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8)
 
 #else // !_MIDL_USE_GUIDDEF_
@@ -135,7 +135,7 @@ typedef struct _IID
 typedef IID CLSID;
 #endif // CLSID_DEFINED
 
-#define MIDL_DEFINE_GUID(type,name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8) \
+#define MIDL_DEFINE_GUID(type,name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8) ¥
         const type name = {l,w1,w2,{b1,b2,b3,b4,b5,b6,b7,b8}}
 
 #endif !_MIDL_USE_GUIDDEF_

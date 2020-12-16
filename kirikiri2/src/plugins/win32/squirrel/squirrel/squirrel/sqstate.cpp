@@ -26,13 +26,13 @@ SQSharedState::SQSharedState()
 	_notifyallexceptions = false;
 }
 
-#define newsysstring(s) {	\
-	_systemstrings->push_back(SQString::Create(this,s));	\
+#define newsysstring(s) {	¥
+	_systemstrings->push_back(SQString::Create(this,s));	¥
 	}
 
-#define newmetamethod(s) {	\
-	_metamethods->push_back(SQString::Create(this,s));	\
-	_table(_metamethodsmap)->NewSlot(_metamethods->back(),(SQInteger)(_metamethods->size()-1)); \
+#define newmetamethod(s) {	¥
+	_metamethods->push_back(SQString::Create(this,s));	¥
+	_table(_metamethodsmap)->NewSlot(_metamethods->back(),(SQInteger)(_metamethods->size()-1)); ¥
 	}
 
 bool CompileTypemask(SQIntVec &res,const SQChar *typemask)
@@ -160,7 +160,7 @@ void SQSharedState::Init()
 
 }
 
-SQSharedState::~SQSharedState()
+SQSharedState::‾SQSharedState()
 {
 	_constructoridx = _null_;
 	_table(_registry)->Finalize();
@@ -341,7 +341,7 @@ void RefTable::Finalize()
 	}
 }
 
-RefTable::~RefTable()
+RefTable::‾RefTable()
 {
 	SQ_FREE(_buckets,(_numofslots * sizeof(RefNode *)) + (_numofslots * sizeof(RefNode)));
 }
@@ -492,7 +492,7 @@ StringTable::StringTable()
 	_slotused = 0;
 }
 
-StringTable::~StringTable()
+StringTable::‾StringTable()
 {
 	SQ_FREE(_strings,sizeof(SQString*)*_numofslots);
 	_strings = NULL;
@@ -519,7 +519,7 @@ SQString *StringTable::Add(const SQChar *news,SQInteger len)
 	SQString *t=(SQString *)SQ_MALLOC(rsl(len)+sizeof(SQString));
 	new (t) SQString;
 	memcpy(t->_val,news,rsl(len));
-	t->_val[len] = _SC('\0');
+	t->_val[len] = _SC('¥0');
 	t->_len = len;
 	t->_hash = ::_hashstr(news,len);
 	t->_next = _strings[h];
@@ -562,7 +562,7 @@ void StringTable::Remove(SQString *bs)
 				_strings[h] = s->_next;
 			_slotused--;
 			SQInteger slen = s->_len;
-			s->~SQString();
+			s->‾SQString();
 			SQ_FREE(s,sizeof(SQString) + rsl(slen));
 			return;
 		}

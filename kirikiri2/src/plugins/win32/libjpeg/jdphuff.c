@@ -43,11 +43,11 @@ typedef struct {
 #define ASSIGN_STATE(dest,src)  ((dest) = (src))
 #else
 #if MAX_COMPS_IN_SCAN == 4
-#define ASSIGN_STATE(dest,src)  \
-	((dest).EOBRUN = (src).EOBRUN, \
-	 (dest).last_dc_val[0] = (src).last_dc_val[0], \
-	 (dest).last_dc_val[1] = (src).last_dc_val[1], \
-	 (dest).last_dc_val[2] = (src).last_dc_val[2], \
+#define ASSIGN_STATE(dest,src)  ¥
+	((dest).EOBRUN = (src).EOBRUN, ¥
+	 (dest).last_dc_val[0] = (src).last_dc_val[0], ¥
+	 (dest).last_dc_val[1] = (src).last_dc_val[1], ¥
+	 (dest).last_dc_val[2] = (src).last_dc_val[2], ¥
 	 (dest).last_dc_val[3] = (src).last_dc_val[3])
 #endif
 #endif

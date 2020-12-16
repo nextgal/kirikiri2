@@ -47,7 +47,7 @@ namespace scene
 		//! Will be called when the animation playback has ended.
 		/** See IAnimatedMeshSceneNode::setAnimationEndCallback for
 		more informations.
-		\param node: Node of which the animation has ended. */
+		¥param node: Node of which the animation has ended. */
 		virtual void OnAnimationEnd(IAnimatedMeshSceneNode* node) = 0;
 	};
 
@@ -66,24 +66,24 @@ namespace scene
 			: ISceneNode(parent, mgr, id, position, rotation, scale) {}
 
 		//! Destructor
-		virtual ~IAnimatedMeshSceneNode() {}
+		virtual ‾IAnimatedMeshSceneNode() {}
 
 		//! Sets the current frame number.
 		/** From now on the animation is played from this frame.
-		\param frame: Number of the frame to let the animation be started from.
+		¥param frame: Number of the frame to let the animation be started from.
 		The frame number must be a valid frame number of the IMesh used by this
 		scene node. Set IAnimatedMesh::getMesh() for details. */
 		virtual void setCurrentFrame(f32 frame) = 0;
 
 		//! Sets the frame numbers between the animation is looped.
 		/** The default is 0 - MaximalFrameCount of the mesh.
-		\param begin: Start frame number of the loop.
-		\param end: End frame number of the loop.
-		\return True if successful, false if not. */
+		¥param begin: Start frame number of the loop.
+		¥param end: End frame number of the loop.
+		¥return True if successful, false if not. */
 		virtual bool setFrameLoop(s32 begin, s32 end) = 0;
 
 		//! Sets the speed with witch the animation is played.
-		/** \param framesPerSecond: Frames per second played. */
+		/** ¥param framesPerSecond: Frames per second played. */
 		virtual void setAnimationSpeed(f32 framesPerSecond) = 0;
 
 		//! Creates shadow volume scene node as child of this node.
@@ -92,13 +92,13 @@ namespace scene
 		creation is easier, but with this method there occur ugly
 		looking artifacs when the camera is inside the shadow volume.
 		These error do not occur with the ZFail method.
-		\param id: Id of the shadow scene node. This id can be used to
+		¥param id: Id of the shadow scene node. This id can be used to
 		identify the node later.
-		\param zfailmethod: If set to true, the shadow will use the
+		¥param zfailmethod: If set to true, the shadow will use the
 		zfail method, if not, zpass is used.
-		\param infinity: Value used by the shadow volume algorithm to
+		¥param infinity: Value used by the shadow volume algorithm to
 		scale the shadow volume.
-		\return Pointer to the created shadow scene node. This pointer
+		¥return Pointer to the created shadow scene node. This pointer
 		should not be dropped. See IReferenceCounted::drop() for more
 		information. */
 		virtual IShadowVolumeSceneNode* addShadowVolumeSceneNode(s32 id=-1,
@@ -109,15 +109,15 @@ namespace scene
 		/** With this method it is possible to attach scene nodes to
 		joints for example possible to attach a weapon to the left hand
 		of an animated model. This example shows how:
-		\code
+		¥code
 		ISceneNode* hand =
 			yourAnimatedMeshSceneNode->getJointNode("LeftHand");
 		hand->addChild(weaponSceneNode);
-		\endcode
+		¥endcode
 		Please note that the joint returned by this method may not exist
 		before this call and the joints in the node were created by it.
-		\param jointName: Name of the joint.
-		\return Pointer to the scene node which represents the joint
+		¥param jointName: Name of the joint.
+		¥return Pointer to the scene node which represents the joint
 		with the specified name. Returns 0 if the contained mesh is not
 		an skinned mesh or the name of the joint could not be found. */
 		virtual IBoneSceneNode* getJointNode(const c8* jointName)=0;
@@ -135,9 +135,9 @@ namespace scene
 		/** With this method it is easily possible to start a Run,
 		Attack, Die or whatever animation, if the mesh contained in
 		this scene node is an md2 mesh. Otherwise, nothing happens.
-		\param anim: An MD2 animation type, which should be played, for
+		¥param anim: An MD2 animation type, which should be played, for
 		example EMAT_STAND for the standing animation.
-		\return True if successful, and false if not, for example if
+		¥return True if successful, and false if not, for example if
 		the mesh in the scene node is not a md2 mesh. */
 		virtual bool setMD2Animation(EMD2_ANIMATION_TYPE anim) = 0;
 
@@ -149,9 +149,9 @@ namespace scene
 		If the animation is a standard md2 animation, you might want to
 		start this animation with the EMD2_ANIMATION_TYPE enumeration
 		instead.
-		\param animationName: Name of the animation which should be
+		¥param animationName: Name of the animation which should be
 		played.
-		\return Returns true if successful, and false if not, for
+		¥return Returns true if successful, and false if not, for
 		example if the mesh in the scene node is not an md2 mesh, or no
 		animation with this name could be found. */
 		virtual bool setMD2Animation(const c8* animationName) = 0;

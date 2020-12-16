@@ -36,7 +36,7 @@ class tTJSLocalSymbolList
 
 public:
 	tTJSLocalSymbolList(tjs_int LocalCount);
-	~tTJSLocalSymbolList(void);
+	‾tTJSLocalSymbolList(void);
 
 	void SetWriteAddr(tjs_int *StartWriteAddr, tjs_int *CountWriteAddr);
 
@@ -63,7 +63,7 @@ class tTJSLocalNamespace
 
 public:
 	tTJSLocalNamespace(void);
-	~tTJSLocalNamespace(void);
+	‾tTJSLocalNamespace(void);
 
 	void SetMaxCountWriteAddr(tjs_int *MaxCountWriteAddr);
 
@@ -94,7 +94,7 @@ public:
 		Space = space;
 		Space->Push();
 	}
-	~tTJSLocalNamespaceAutoPushPop()
+	‾tTJSLocalNamespaceAutoPushPop()
 	{
 		Space->Pop();
 	}
@@ -123,7 +123,7 @@ public:
 		Space->Push();
 	}
 
-	~tTJSLocalNamespaceAutoClass()
+	‾tTJSLocalNamespaceAutoClass()
 	{
 		Space->Pop();
 		if(SpaceCreated) delete Space;

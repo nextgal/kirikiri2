@@ -1,59 +1,59 @@
-�u�X�y�A�i�v�v���O�C��
+「スペアナ」プラグイン
 
-�@������X�y�A�i��\�����邽�߂̃v���O�C���ł��BBGM �̍Đ��ɓ������ăX�y
-�A�i��\�������邱�Ƃ��ł��܂��B�X�y�A�i�͔w�i���C���̎w��ʒu�ɕ`�悳���
-���BBGM �̎�ނƂ��� Config.tjs �� "Wave" ���w�肵���Ƃ��̂ݗL���ł��B
+　いわゆるスペアナを表示するためのプラグインです。BGM の再生に同期してスペ
+アナを表示させることができます。スペアナは背景レイヤの指定位置に描画されま
+す。BGM の種類として Config.tjs で "Wave" を指定したときのみ有効です。
 
 
-�E�g�ݍ��ݕ�
+・組み込み方
 
-�@scenario\spectrum.ks �����莝���� KAG3 �̃v���W�F�N�g�t�H���_�̊e�t�H���_
-�ɃR�s�[���Ă��������B
-�@�܂��A���̃v���O�C���͋g���g���Q�p�v���O�C���ł��� fftgraph.dll ���g�p��
-�܂��B
+　scenario¥spectrum.ks をお手持ちの KAG3 のプロジェクトフォルダの各フォルダ
+にコピーしてください。
+　また、このプラグインは吉里吉里２用プラグインである fftgraph.dll を使用し
+ます。
 
-�E�g����
+・使い方
 
-�@�V�i���I�̐擪�Ȃǂ�
+　シナリオの先頭などで
 
 @call storage="spectrum.ks"
 
-�@�Ƃ��� spectrum.ks ���Ăяo���ƁA�ȉ��Ő�������}�N������`����܂��B
-�@�Ȃ��A���̒��� fftgraph.dll �͎����I�ɓǂݍ��܂��̂ŁA�ʂ̏ꏊ��
-fftgraph.dll ���w�肵�ēǂݍ��܂���K�v�͂���܂���B
+　として spectrum.ks を呼び出すと、以下で説明するマクロが定義されます。
+　なお、この中で fftgraph.dll は自動的に読み込まれるので、別の場所で
+fftgraph.dll を指定して読み込ませる必要はありません。
 
 
-�Espectrumopt
+・spectrumopt
 
-�@�X�y�A�i�̃I�v�V�������w�肵�܂��B
-�@left top width height �����́A���ꂼ��X�y�A�i��\������ꏊ���w�肵�܂��B
-�\������ꏊ�͉�ʂ���͂ݏo���Ȃ��悤�ɂ��Ă��������Bwidth height �͑傫��
-����� CPU ���ׂ������Ȃ�܂��B�����I�ȃT�C�Y�Ƃ��� 64�~32 ���炢�𐄏�����
-���B
+　スペアナのオプションを指定します。
+　left top width height 属性は、それぞれスペアナを表示する場所を指定します。
+表示する場所は画面からはみ出さないようにしてください。width height は大きく
+すると CPU 負荷が高くなります。現実的なサイズとして 64×32 ぐらいを推奨しま
+す。
 
-�@type ������ 0 ���w�肷��� WinAmp �� fire ���̕\���ɂȂ�܂��B
-�@1 ���w�肷��Ɖt���\�����ɂȂ�܂��B
+　type 属性は 0 を指定すると WinAmp の fire 風の表示になります。
+　1 を指定すると液晶表示風になります。
 
-�@1 ���w�肵���ꍇ�͂���� bgcolor ( �w�i�J���[ )�Aoncolor ( �ʓd��Ԃ̐F )�A
-offcolor ( ��ʓd��Ԃ̐F )�Apeakcolor ( �s�[�N�z�[���h�̐F ) �Athick ( �\��
-�f�q�̈��̍��� )�Adivision ( ������ ) ���w��ł��܂��B�F�� 0xRRGGBB
-�`���Ŏw�肵�܂��B
+　1 を指定した場合はさらに bgcolor ( 背景カラー )、oncolor ( 通電状態の色 )、
+offcolor ( 非通電状態の色 )、peakcolor ( ピークホールドの色 ) 、thick ( 表示
+素子の一つ一つの高さ )、division ( 分割数 ) を指定できます。色は 0xRRGGBB
+形式で指定します。
 
-�Espectrumstart
+・spectrumstart
 
-�@�X�y�A�i�̕\�����J�n���܂��B
+　スペアナの表示を開始します。
 
-�Espectrumstop
+・spectrumstop
 
-�@�X�y�A�i�̕\�����~���܂��B
+　スペアナの表示を停止します。
 
-�E����
+・注意
 
-�@�X�y�A�i���\����Ԃ������������łȂ��������ǂ����̏��͞x�ɕۑ�����܂�
-��B
+　スペアナが表示状態だったかそうでなかったかどうかの情報は栞に保存されませ
+ん。
 
 
-�E��
+・例
 
 @loadplugin module="wuvorbis.dll"
 @call storage="spectrum.ks"
@@ -68,6 +68,6 @@ offcolor ( ��ʓd��Ԃ̐F )�Apeakcolor ( �s�[�N�z�[���h�̐F ) �Athick ( �\��
 
 
 
-�E���C�Z���X
+・ライセンス
 
-KAG3�ɏ����܂��B�܂�A�g�p�E���ώ��R�ł��B
+KAG3に準じます。つまり、使用・改変自由です。

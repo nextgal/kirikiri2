@@ -62,7 +62,7 @@ class tTVPSusieArchivePlugin : public tTVPSusiePlugin
 
 public:
 	tTVPSusieArchivePlugin(HINSTANCE inst);
-	~tTVPSusieArchivePlugin();
+	‾tTVPSusieArchivePlugin();
 
 	void Lock();
 	void Unlock();
@@ -85,7 +85,7 @@ tTVPSusieArchivePlugin::tTVPSusieArchivePlugin(HINSTANCE inst) :
 	LockCount = 0;
 }
 //---------------------------------------------------------------------------
-tTVPSusieArchivePlugin::~tTVPSusieArchivePlugin()
+tTVPSusieArchivePlugin::‾tTVPSusieArchivePlugin()
 {
 }
 //---------------------------------------------------------------------------
@@ -334,7 +334,7 @@ class tTVPSusieArchive : public tTVPArchive
 public:
 	tTVPSusieArchive(tTVPSusieArchivePlugin *plugin, const ttstr & name,
 		AnsiString localname);
-	~tTVPSusieArchive();
+	‾tTVPSusieArchive();
 
 	tjs_uint GetCount();
 	ttstr GetName(tjs_uint idx);
@@ -356,7 +356,7 @@ tTVPSusieArchive::tTVPSusieArchive(tTVPSusieArchivePlugin *plugin,
 
 }
 //---------------------------------------------------------------------------
-tTVPSusieArchive::~tTVPSusieArchive()
+tTVPSusieArchive::‾tTVPSusieArchive()
 {
 	Plugin->Unlock();
 }

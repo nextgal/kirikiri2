@@ -1,18 +1,18 @@
 @if exp="typeof(global.systembutton_object) == 'undefined'"
 @iscript
 
-// ‰æ–Ê‚ÉuƒZ[ƒuvuƒ[ƒhv‚Ìƒ{ƒ^ƒ“‚ğ•\¦‚·‚éƒTƒ“ƒvƒ‹
+// ç”»é¢ã«ã€Œã‚»ãƒ¼ãƒ–ã€ã€Œãƒ­ãƒ¼ãƒ‰ã€ã®ãƒœã‚¿ãƒ³ã‚’è¡¨ç¤ºã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«
 
-// ƒƒbƒZ[ƒWƒŒƒCƒ„‚ÌƒNƒŠƒA‚²‚Æ‚É‚±‚ê‚ç‚Ìƒ{ƒ^ƒ“‚ğ button ƒ^ƒO‚Å•\¦‚·‚é‚±‚Æ‚Å‚à
-// ÀŒ»‚Å‚«‚Ü‚·‚ªA‚ ‚Ü‚è‚»‚ê‚Å‚ÍŒø—¦‚ª—Ç‚­‚È‚¢‚Å‚·B
-// ‚±‚ÌƒTƒ“ƒvƒ‹‚Å‚ÍAuƒZ[ƒuv‚Æuƒ[ƒhv‚Ìƒ{ƒ^ƒ“‚ğŠÜ‚ñ‚¾ƒŒƒCƒ„‚ğ‰æ–Êã‚É
-// •\¦‚·‚é‚à‚Ì‚Å‚·B
-// ‚±‚Ì—á‚ÍƒtƒŠ[ƒZ[ƒuƒ‚[ƒh‚Å“®ì‚µ‚Ü‚·B‚¢‚ë‚¢‚ë‰ü‘¢‚Å‚«‚é‚Æv‚¢‚Ü‚·B
+// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ¬ã‚¤ãƒ¤ã®ã‚¯ãƒªã‚¢ã”ã¨ã«ã“ã‚Œã‚‰ã®ãƒœã‚¿ãƒ³ã‚’ button ã‚¿ã‚°ã§è¡¨ç¤ºã™ã‚‹ã“ã¨ã§ã‚‚
+// å®Ÿç¾ã§ãã¾ã™ãŒã€ã‚ã¾ã‚Šãã‚Œã§ã¯åŠ¹ç‡ãŒè‰¯ããªã„ã§ã™ã€‚
+// ã“ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã¯ã€ã€Œã‚»ãƒ¼ãƒ–ã€ã¨ã€Œãƒ­ãƒ¼ãƒ‰ã€ã®ãƒœã‚¿ãƒ³ã‚’å«ã‚“ã ãƒ¬ã‚¤ãƒ¤ã‚’ç”»é¢ä¸Šã«
+// è¡¨ç¤ºã™ã‚‹ã‚‚ã®ã§ã™ã€‚
+// ã“ã®ä¾‹ã¯ãƒ•ãƒªãƒ¼ã‚»ãƒ¼ãƒ–ãƒ¢ãƒ¼ãƒ‰ã§å‹•ä½œã—ã¾ã™ã€‚ã„ã‚ã„ã‚æ”¹é€ ã§ãã‚‹ã¨æ€ã„ã¾ã™ã€‚
 
 
 
 class SystemButtonLayer extends ButtonLayer
-	// ƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«‚ÉÀs‚·‚éŠÖ”‚ğw’è‚Å‚«‚éƒ{ƒ^ƒ“ƒŒƒCƒ„
+	// ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã¨ãã«å®Ÿè¡Œã™ã‚‹é–¢æ•°ã‚’æŒ‡å®šã§ãã‚‹ãƒœã‚¿ãƒ³ãƒ¬ã‚¤ãƒ¤
 {
 	var onClickFunction;
 
@@ -47,32 +47,32 @@ class SystemButtonLayer extends ButtonLayer
 
 class SystemButtonPlugin extends KAGPlugin
 {
-	var x = 510; // ‰Šú x ˆÊ’u
-	var y = 300; // ‰Šú y ˆÊ’u
+	var x = 510; // åˆæœŸ x ä½ç½®
+	var y = 300; // åˆæœŸ y ä½ç½®
 
-	var foreSeen = false; // •\‰æ–Ê‚Ìƒ{ƒ^ƒ“‚ª‰Â‹‚©
-	var backSeen = false; // — ‰æ–Ê‚Ìƒ{ƒ^ƒ“‚ª‰Â‹‚©
+	var foreSeen = false; // è¡¨ç”»é¢ã®ãƒœã‚¿ãƒ³ãŒå¯è¦–ã‹
+	var backSeen = false; // è£ç”»é¢ã®ãƒœã‚¿ãƒ³ãŒå¯è¦–ã‹
 
-	var foreButtons = []; // •\‰æ–Ê‚Ìƒ{ƒ^ƒ“‚Ì”z—ñ
-	var backButtons = []; // — ‰æ–Ê‚Ìƒ{ƒ^ƒ“‚Ì”z—ñ
+	var foreButtons = []; // è¡¨ç”»é¢ã®ãƒœã‚¿ãƒ³ã®é…åˆ—
+	var backButtons = []; // è£ç”»é¢ã®ãƒœã‚¿ãƒ³ã®é…åˆ—
 
 	function SystemButtonPlugin()
 	{
-		// SystemButtonPlugin ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		// SystemButtonPlugin ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-		createButtons(kag.fore.base, foreButtons); // •\‰æ–Ê‚Ìƒ{ƒ^ƒ“‚ğì¬
+		createButtons(kag.fore.base, foreButtons); // è¡¨ç”»é¢ã®ãƒœã‚¿ãƒ³ã‚’ä½œæˆ
 		createButtons(kag.back.base, backButtons);
 
-		realign(); // Ä”z’u
+		realign(); // å†é…ç½®
 
 		setObjProp(foreButtons, 'visible', foreSeen = false);
 		setObjProp(backButtons, 'visible', backSeen = false);
-			// ”ñ•\¦‚É
+			// éè¡¨ç¤ºã«
 	}
 
 	function finalize()
 	{
-		// ƒ{ƒ^ƒ“‚ğ–³Œø‰»
+		// ãƒœã‚¿ãƒ³ã‚’ç„¡åŠ¹åŒ–
 		for(var i = 0; i < foreButtons.count; i++)
 			invalidate foreButtons[i];
 		for(var i = 0; i < backButtons.count; i++)
@@ -83,37 +83,37 @@ class SystemButtonPlugin extends KAGPlugin
 
 	function setObjProp(array, member, value)
 	{
-		// array ‚ÌŠeƒƒ“ƒo‚ÌƒvƒƒpƒeƒB‚Ìİ’è
+		// array ã®å„ãƒ¡ãƒ³ãƒã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®è¨­å®š
 		for(var i = array.count - 1; i >= 0; i--) array[i][member] = value;
 	}
 
 	function createButtons(parent, array)
 	{
-		// parent ‚ğeƒŒƒCƒ„‚Æ‚µ‚Äƒ{ƒ^ƒ“‚ğì¬‚µAarray ‚É“o˜^‚·‚éB
-		// ƒ{ƒ^ƒ“‚Í•\‰æ–Ê‚Æ— ‰æ–Ê‚Ì—¼•û‚É‘Î‚µ‚Äì¬‚³‚ê‚é‚Ì‚Å’ˆÓB
+		// parent ã‚’è¦ªãƒ¬ã‚¤ãƒ¤ã¨ã—ã¦ãƒœã‚¿ãƒ³ã‚’ä½œæˆã—ã€array ã«ç™»éŒ²ã™ã‚‹ã€‚
+		// ãƒœã‚¿ãƒ³ã¯è¡¨ç”»é¢ã¨è£ç”»é¢ã®ä¸¡æ–¹ã«å¯¾ã—ã¦ä½œæˆã•ã‚Œã‚‹ã®ã§æ³¨æ„ã€‚
 
-		// ƒ{ƒ^ƒ“‚ğ’Ç‰Á‚·‚é‚É‚ÍA‚±‚ê‚ğQl‚É‚µ‚Ä ‚¢‚ë‚¢‚ë’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+		// ãƒœã‚¿ãƒ³ã‚’è¿½åŠ ã™ã‚‹ã«ã¯ã€ã“ã‚Œã‚’å‚è€ƒã«ã—ã¦ ã„ã‚ã„ã‚è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 		var obj;
 
-		// ƒ{ƒ^ƒ“ 0 (ƒZ[ƒu)
+		// ãƒœã‚¿ãƒ³ 0 (ã‚»ãƒ¼ãƒ–)
 		array.add(obj = new SystemButtonLayer(kag, parent, onSaveButtonClick));
-		obj.loadImages('YesButton'); // save ƒ{ƒ^ƒ“—p‰æ‘œ‚ğ“Ç‚İ‚Ş
+		obj.loadImages('YesButton'); // save ãƒœã‚¿ãƒ³ç”¨ç”»åƒã‚’èª­ã¿è¾¼ã‚€
 
-		// ƒ{ƒ^ƒ“ 1 (ƒ[ƒh)
+		// ãƒœã‚¿ãƒ³ 1 (ãƒ­ãƒ¼ãƒ‰)
 		array.add(obj = new SystemButtonLayer(kag, parent, onLoadButtonClick));
-		obj.loadImages('NoButton'); // load ƒ{ƒ^ƒ“—p‰æ‘œ‚ğ“Ç‚İ‚Ş
+		obj.loadImages('NoButton'); // load ãƒœã‚¿ãƒ³ç”¨ç”»åƒã‚’èª­ã¿è¾¼ã‚€
 
-		// ‚±‚±‚Å‚Í 'YesButton' ‚Æ‚© 'NoButton' ‚Æ‚©‚ğ“Ç‚İ‚ñ‚Å‚¢‚Ü‚·‚ª
-		// ‚¿‚á‚ñ‚Æ‚µ‚½‰æ‘œ‚ğì¬‚µ‚Ä‚¿‚á‚ñ‚Æ‚µ‚½ƒtƒ@ƒCƒ‹–¼‚ğw’è‚·‚é‚Æ
-		// ‚æ‚¢‚Å‚µ‚å‚¤Bƒ{ƒ^ƒ“—p‰æ‘œ‚Ìì‚è•û‚Í button ƒ^ƒO—p‰æ‘œ‚Ìì‚è•û
-		// ‚Æ“¯‚¶‚Å‚·B
+		// ã“ã“ã§ã¯ 'YesButton' ã¨ã‹ 'NoButton' ã¨ã‹ã‚’èª­ã¿è¾¼ã‚“ã§ã„ã¾ã™ãŒ
+		// ã¡ã‚ƒã‚“ã¨ã—ãŸç”»åƒã‚’ä½œæˆã—ã¦ã¡ã‚ƒã‚“ã¨ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒ‡å®šã™ã‚‹ã¨
+		// ã‚ˆã„ã§ã—ã‚‡ã†ã€‚ãƒœã‚¿ãƒ³ç”¨ç”»åƒã®ä½œã‚Šæ–¹ã¯ button ã‚¿ã‚°ç”¨ç”»åƒã®ä½œã‚Šæ–¹
+		// ã¨åŒã˜ã§ã™ã€‚
 	}
 
 	function realign()
 	{
-		// ƒ{ƒ^ƒ“‚ÌÄ”z’u
-		// ‚±‚Ìƒƒ\ƒbƒh‚ÍAƒ{ƒ^ƒ“‚ğ x y ˆÊ’u‚©‚ç‰¡ˆê—ñ‚É”z’u‚·‚é
+		// ãƒœã‚¿ãƒ³ã®å†é…ç½®
+		// ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ãƒœã‚¿ãƒ³ã‚’ x y ä½ç½®ã‹ã‚‰æ¨ªä¸€åˆ—ã«é…ç½®ã™ã‚‹
 		var fore, back, count, btn_x;
 
 		count = foreButtons.count;
@@ -125,7 +125,7 @@ class SystemButtonPlugin extends KAGPlugin
 
 			obj = backButtons[i];
 			obj.setPos(xpos, y);
-			obj.absolute = 2000000-3; // d‚Ë‡‚í‚¹‡˜‚ÍƒƒbƒZ[ƒW—š—ğ‚æ‚è‚à‰œ
+			obj.absolute = 2000000-3; // é‡ã­åˆã‚ã›é †åºã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å±¥æ­´ã‚ˆã‚Šã‚‚å¥¥
 
 			obj = foreButtons[i];
 			obj.setPos(xpos, y);
@@ -137,75 +137,75 @@ class SystemButtonPlugin extends KAGPlugin
 
 	function onSaveButtonClick()
 	{
-		// ƒZ[ƒu ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+		// ã‚»ãƒ¼ãƒ– ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 		kag.saveBookMarkToFileWithAsk();
 	}
 
 	function onLoadButtonClick()
 	{
-		// ƒ[ƒh ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+		// ãƒ­ãƒ¼ãƒ‰ ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 		kag.loadBookMarkFromFileWithAsk();
 	}
 
 
 	function setOptions(elm)
 	{
-		// ƒIƒvƒVƒ‡ƒ“‚ğİ’è
+		// ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’è¨­å®š
 		setObjProp(foreButtons, 'visible', foreSeen = +elm.forevisible) if elm.forevisible !== void;
 		setObjProp(backButtons, 'visible', backSeen = +elm.backvisible) if elm.backvisible !== void;
 		var poschanged = false;
 		(x = +elm.left, poschanged = true) if elm.left !== void;
 		(y = +elm.top, poschanged = true) if elm.top !== void;
-		if(poschanged) realign(); // •\¦ˆÊ’u‚Ì•ÏX
+		if(poschanged) realign(); // è¡¨ç¤ºä½ç½®ã®å¤‰æ›´
 	}
 
 
 	function onStore(f, elm)
 	{
-		// x‚ğ•Û‘¶‚·‚é‚Æ‚«
+		// æ ã‚’ä¿å­˜ã™ã‚‹ã¨ã
 		var dic = f.systemButtons = %[];
-			// f.systemButtons ‚É«‘”z—ñ‚ğì¬
+			// f.systemButtons ã«è¾æ›¸é…åˆ—ã‚’ä½œæˆ
 		dic.foreVisible = foreSeen;
 		dic.backVisible = backSeen;
 		dic.left = x;
 		dic.top = y;
-			// Šeî•ñ‚ğ«‘”z—ñ‚É‹L˜^
+			// å„æƒ…å ±ã‚’è¾æ›¸é…åˆ—ã«è¨˜éŒ²
 	}
 
 	function onRestore(f, clear, elm)
 	{
-		// x‚ğ“Ç‚İo‚·‚Æ‚«
+		// æ ã‚’èª­ã¿å‡ºã™ã¨ã
 		var dic = f.systemButtons;
 		if(dic === void)
 		{
-			// systemButtons ‚Ìî•ñ‚ªx‚É•Û‘¶‚³‚ê‚Ä‚¢‚È‚¢
+			// systemButtons ã®æƒ…å ±ãŒæ ã«ä¿å­˜ã•ã‚Œã¦ã„ãªã„
 			setObjProp(foreButtons, 'visible', foreSeen = false);
 			setObjProp(backButtons, 'visible', backSeen = false);
 		}
 		else
 		{
-			// systemButtons ‚Ìî•ñ‚ªx‚É•Û‘¶‚³‚ê‚Ä‚¢‚é
+			// systemButtons ã®æƒ…å ±ãŒæ ã«ä¿å­˜ã•ã‚Œã¦ã„ã‚‹
 			setOptions(%[ forevisible : dic.foreVisible, backvisible : dic.backVisible,
 				left : dic.left, top : dic.top]);
-				// ƒIƒvƒVƒ‡ƒ“‚ğİ’è
+				// ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’è¨­å®š
 		}
 	}
 
 	function onStableStateChanged(stable)
 	{
-		// uˆÀ’èv( s l p ‚ÌŠeƒ^ƒO‚Å’â~’† ) ‚©A
-		// u‘–s’†v ( ‚»‚êˆÈŠO ) ‚©‚Ìó‘Ô‚ª•Ï‚í‚Á‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚é
+		// ã€Œå®‰å®šã€( s l p ã®å„ã‚¿ã‚°ã§åœæ­¢ä¸­ ) ã‹ã€
+		// ã€Œèµ°è¡Œä¸­ã€ ( ãã‚Œä»¥å¤– ) ã‹ã®çŠ¶æ…‹ãŒå¤‰ã‚ã£ãŸã¨ãã«å‘¼ã°ã‚Œã‚‹
 
-		// ‘–s’†‚ÍŠeƒ{ƒ^ƒ“‚ğ–³Œø‚É‚·‚é
+		// èµ°è¡Œä¸­ã¯å„ãƒœã‚¿ãƒ³ã‚’ç„¡åŠ¹ã«ã™ã‚‹
 		setObjProp(foreButtons, 'enabled', stable);
 		setObjProp(backButtons, 'enabled', stable);
 	}
 
 	function onMessageHiddenStateChanged(hidden)
 	{
-		// ƒƒbƒZ[ƒWƒŒƒCƒ„‚ªƒ†[ƒU‚Ì‘€ì‚É‚æ‚Á‚Ä‰B‚³‚ê‚é‚Æ‚«AŒ»‚ê‚é‚Æ‚«‚É
-		// ŒÄ‚Î‚ê‚éBƒƒbƒZ[ƒWƒŒƒCƒ„‚Æ‚Æ‚à‚É•\¦/”ñ•\¦‚ğØ‚è‘Ö‚¦‚½‚¢‚Æ‚«‚Í
-		// ‚±‚±‚Åİ’è‚·‚éB
+		// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ¬ã‚¤ãƒ¤ãŒãƒ¦ãƒ¼ã‚¶ã®æ“ä½œã«ã‚ˆã£ã¦éš ã•ã‚Œã‚‹ã¨ãã€ç¾ã‚Œã‚‹ã¨ãã«
+		// å‘¼ã°ã‚Œã‚‹ã€‚ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ¬ã‚¤ãƒ¤ã¨ã¨ã‚‚ã«è¡¨ç¤º/éè¡¨ç¤ºã‚’åˆ‡ã‚Šæ›¿ãˆãŸã„ã¨ãã¯
+		// ã“ã“ã§è¨­å®šã™ã‚‹ã€‚
 		if(hidden)
 		{
 			setObjProp(foreButtons, 'visible', false);
@@ -213,7 +213,7 @@ class SystemButtonPlugin extends KAGPlugin
 		}
 		else
 		{
-			// foreSeen, backSeen ‚ÍAƒ{ƒ^ƒ“‚ª–{—ˆ•\¦’†‚Å‚ ‚Á‚½‚©‚Ç‚¤‚©‚ğ‹L˜^‚µ‚Ä‚¢‚é
+			// foreSeen, backSeen ã¯ã€ãƒœã‚¿ãƒ³ãŒæœ¬æ¥è¡¨ç¤ºä¸­ã§ã‚ã£ãŸã‹ã©ã†ã‹ã‚’è¨˜éŒ²ã—ã¦ã„ã‚‹
 			setObjProp(foreButtons, 'visible', foreSeen);
 			setObjProp(backButtons, 'visible', backSeen);
 		}
@@ -221,22 +221,22 @@ class SystemButtonPlugin extends KAGPlugin
 
 	function onCopyLayer(toback)
 	{
-		// ƒŒƒCƒ„‚Ì•\©¨— ‚Ìî•ñ‚ÌƒRƒs[
+		// ãƒ¬ã‚¤ãƒ¤ã®è¡¨â†â†’è£ã®æƒ…å ±ã®ã‚³ãƒ”ãƒ¼
 
-		// backlay ƒ^ƒO‚âƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÌI—¹‚ÉŒÄ‚Î‚ê‚é
+		// backlay ã‚¿ã‚°ã‚„ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã®çµ‚äº†æ™‚ã«å‘¼ã°ã‚Œã‚‹
 
-		// ‚±‚±‚ÅƒŒƒCƒ„‚ÉŠÖ‚µ‚ÄƒRƒs[‚·‚×‚«‚È‚Ì‚Í
-		// •\¦/”ñ•\¦‚Ìî•ñ‚¾‚¯
+		// ã“ã“ã§ãƒ¬ã‚¤ãƒ¤ã«é–¢ã—ã¦ã‚³ãƒ”ãƒ¼ã™ã¹ããªã®ã¯
+		// è¡¨ç¤º/éè¡¨ç¤ºã®æƒ…å ±ã ã‘
 
 		if(toback)
 		{
-			// •\¨— 
+			// è¡¨â†’è£
 			setObjProp(backButtons, 'visible', foreButtons[0].visible);
 			backSeen = foreSeen;
 		}
 		else
 		{
-			// — ¨•\
+			// è£â†’è¡¨
 			setObjProp(foreButtons, 'visible', backButtons[0].visible);
 			foreSeen = backSeen;
 		}
@@ -244,16 +244,16 @@ class SystemButtonPlugin extends KAGPlugin
 
 	function onExchangeForeBack()
 	{
-		// — ‚Æ•\‚ÌŠÇ—î•ñ‚ğŒğŠ·
+		// è£ã¨è¡¨ã®ç®¡ç†æƒ…å ±ã‚’äº¤æ›
 
-		// children = true ‚Ìƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚Å‚ÍAƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“I—¹‚É
-		// •\‰æ–Ê‚Æ— ‰æ–Ê‚ÌƒŒƒCƒ„\‘¢‚ª‚»‚Á‚­‚è“ü‚ê‘Ö‚í‚é‚Ì‚ÅA
-		// ‚»‚ê‚Ü‚Å •\‰æ–Ê‚¾‚Æv‚Á‚Ä‚¢‚½‚à‚Ì‚ª— ‰æ–Ê‚ÉA— ‰æ–Ê‚¾‚Æv‚Á‚Ä
-		// ‚¢‚½‚à‚Ì‚ª•\‰æ–Ê‚É‚È‚Á‚Ä‚µ‚Ü‚¤B‚±‚±‚Ìƒ^ƒCƒ~ƒ“ƒO‚Å‚»‚Ìî•ñ‚ğ
-		// “ü‚ê‘Ö‚¦‚ê‚ÎA–µ‚‚Í¶‚¶‚È‚¢‚ÅÏ‚ŞB
+		// children = true ã®ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã§ã¯ã€ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³çµ‚äº†æ™‚ã«
+		// è¡¨ç”»é¢ã¨è£ç”»é¢ã®ãƒ¬ã‚¤ãƒ¤æ§‹é€ ãŒãã£ãã‚Šå…¥ã‚Œæ›¿ã‚ã‚‹ã®ã§ã€
+		// ãã‚Œã¾ã§ è¡¨ç”»é¢ã ã¨æ€ã£ã¦ã„ãŸã‚‚ã®ãŒè£ç”»é¢ã«ã€è£ç”»é¢ã ã¨æ€ã£ã¦
+		// ã„ãŸã‚‚ã®ãŒè¡¨ç”»é¢ã«ãªã£ã¦ã—ã¾ã†ã€‚ã“ã“ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§ãã®æƒ…å ±ã‚’
+		// å…¥ã‚Œæ›¿ãˆã‚Œã°ã€çŸ›ç›¾ã¯ç”Ÿã˜ãªã„ã§æ¸ˆã‚€ã€‚
 
-		// ‚±‚±‚Å•\‰æ–ÊA— ‰æ–Ê‚ÌƒŒƒCƒ„‚ÉŠÖ‚µ‚ÄŠÇ—‚·‚×‚«‚È‚Ì‚Í
-		// foreButtons ‚Æ backButton AforeSeen ‚Æ backSeen ‚Ì•Ï”‚¾‚¯
+		// ã“ã“ã§è¡¨ç”»é¢ã€è£ç”»é¢ã®ãƒ¬ã‚¤ãƒ¤ã«é–¢ã—ã¦ç®¡ç†ã™ã¹ããªã®ã¯
+		// foreButtons ã¨ backButton ã€foreSeen ã¨ backSeen ã®å¤‰æ•°ã ã‘
 		var tmp;
 
 		tmp = backButtons;
@@ -267,15 +267,15 @@ class SystemButtonPlugin extends KAGPlugin
 }
 
 kag.addPlugin(global.systembutton_object = new SystemButtonPlugin(kag));
-	// ƒvƒ‰ƒOƒCƒ“ƒIƒuƒWƒFƒNƒg‚ğì¬‚µA“o˜^‚·‚é
+	// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã€ç™»éŒ²ã™ã‚‹
 
 @endscript
 @endif
 ;
-; ƒ}ƒNƒ‚Ì“o˜^
+; ãƒã‚¯ãƒ­ã®ç™»éŒ²
 @macro name="sysbtopt"
 @eval exp="systembutton_object.setOptions(mp)"
-; mp ‚ªƒ}ƒNƒ‚É“n‚³‚ê‚½‘®«‚ğ¦‚·«‘”z—ñƒIƒuƒWƒFƒNƒg
+; mp ãŒãƒã‚¯ãƒ­ã«æ¸¡ã•ã‚ŒãŸå±æ€§ã‚’ç¤ºã™è¾æ›¸é…åˆ—ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 @endmacro
 @return
 

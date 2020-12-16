@@ -41,12 +41,12 @@ typedef struct {
 #define ASSIGN_STATE(dest,src)  ((dest) = (src))
 #else
 #if MAX_COMPS_IN_SCAN == 4
-#define ASSIGN_STATE(dest,src)  \
-	((dest).put_buffer = (src).put_buffer, \
-	 (dest).put_bits = (src).put_bits, \
-	 (dest).last_dc_val[0] = (src).last_dc_val[0], \
-	 (dest).last_dc_val[1] = (src).last_dc_val[1], \
-	 (dest).last_dc_val[2] = (src).last_dc_val[2], \
+#define ASSIGN_STATE(dest,src)  ¥
+	((dest).put_buffer = (src).put_buffer, ¥
+	 (dest).put_bits = (src).put_bits, ¥
+	 (dest).last_dc_val[0] = (src).last_dc_val[0], ¥
+	 (dest).last_dc_val[1] = (src).last_dc_val[1], ¥
+	 (dest).last_dc_val[2] = (src).last_dc_val[2], ¥
 	 (dest).last_dc_val[3] = (src).last_dc_val[3])
 #endif
 #endif
@@ -267,10 +267,10 @@ jpeg_make_c_derived_tbl (j_compress_ptr cinfo, boolean isDC, int tblno,
 /* Outputting bytes to the file */
 
 /* Emit a byte, taking 'action' if must suspend. */
-#define emit_byte(state,val,action)  \
-	{ *(state)->next_output_byte++ = (JOCTET) (val);  \
-	  if (--(state)->free_in_buffer == 0)  \
-	    if (! dump_buffer(state))  \
+#define emit_byte(state,val,action)  ¥
+	{ *(state)->next_output_byte++ = (JOCTET) (val);  ¥
+	  if (--(state)->free_in_buffer == 0)  ¥
+	    if (! dump_buffer(state))  ¥
 	      { action; } }
 
 

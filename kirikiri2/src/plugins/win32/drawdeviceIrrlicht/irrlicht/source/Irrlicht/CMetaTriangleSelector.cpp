@@ -19,7 +19,7 @@ CMetaTriangleSelector::CMetaTriangleSelector()
 
 
 //! destructor
-CMetaTriangleSelector::~CMetaTriangleSelector()
+CMetaTriangleSelector::‾CMetaTriangleSelector()
 {
 	removeAllTriangleSelectors();
 }

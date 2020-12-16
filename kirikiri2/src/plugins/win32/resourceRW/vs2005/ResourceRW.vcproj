@@ -17,8 +17,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\..\..\..\bin\win32\plugin"
-			IntermediateDirectory="obj\Release"
+			OutputDirectory="..¥..¥..¥..¥..¥bin¥win32¥plugin"
+			IntermediateDirectory="obj¥Release"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\00_simplebinder;..\.."
+				AdditionalIncludeDirectories="..¥..¥00_simplebinder;..¥.."
 				PreprocessorDefinitions="NDEBUG"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -48,7 +48,7 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="false"
-				ProgramDataBaseFileName="$(OutDir)\ResourceRW.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥ResourceRW.pdb"
 				DebugInformationFormat="0"
 			/>
 			<Tool
@@ -57,14 +57,14 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG"
-				AdditionalIncludeDirectories="..\..\00_simplebinder;..\.."
+				AdditionalIncludeDirectories="..¥..¥00_simplebinder;..¥.."
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)\ResourceRW.dll"
+				OutputFile="$(OutDir)¥ResourceRW.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
 				GenerateManifest="false"
@@ -72,7 +72,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary="..\..\..\..\..\bin\win32\plugin\ResourceRW.lib"
+				ImportLibrary="..¥..¥..¥..¥..¥bin¥win32¥plugin¥ResourceRW.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -102,8 +102,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\bin"
-			IntermediateDirectory="obj\Debug"
+			OutputDirectory="..¥bin"
+			IntermediateDirectory="obj¥Debug"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -125,7 +125,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\00_simplebinder;..\.."
+				AdditionalIncludeDirectories="..¥..¥00_simplebinder;..¥.."
 				PreprocessorDefinitions="_DEBUG"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -133,7 +133,7 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="false"
-				ProgramDataBaseFileName="$(OutDir)\ResourceRW-d.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥ResourceRW-d.pdb"
 				DebugInformationFormat="4"
 			/>
 			<Tool
@@ -142,21 +142,21 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG"
-				AdditionalIncludeDirectories="..\..\00_simplebinder;..\.."
+				AdditionalIncludeDirectories="..¥..¥00_simplebinder;..¥.."
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)\ResourceRW-d.dll"
+				OutputFile="$(OutDir)¥ResourceRW-d.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
 				GenerateManifest="false"
 				GenerateDebugInformation="true"
-				ProgramDataBaseFileName="$(OutDir)\ResourceRW-d.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥ResourceRW-d.pdb"
 				SubSystem="2"
-				ImportLibrary="..\bin\ResourceRW-d.lib"
+				ImportLibrary="..¥bin¥ResourceRW-d.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -193,16 +193,16 @@
 			Filter=""
 			>
 			<File
-				RelativePath="..\..\00_simplebinder\v2link.cpp"
+				RelativePath="..¥..¥00_simplebinder¥v2link.cpp"
 				>
 			</File>
 		</Filter>
 		<File
-			RelativePath="..\Main.cpp"
+			RelativePath="..¥Main.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\tp_stub.cpp"
+			RelativePath="..¥..¥tp_stub.cpp"
 			>
 		</File>
 	</Files>

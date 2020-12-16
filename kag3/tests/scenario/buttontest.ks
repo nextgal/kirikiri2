@@ -4,10 +4,10 @@
 @image *
 @eval exp="sf[mp.storage]=1"
 @endmacro
-; ƒOƒ‰ƒtƒBƒJƒ‹ƒ{ƒ^ƒ“‚ÌƒeƒXƒg
+; ã‚°ãƒ©ãƒ•ã‚£ã‚«ãƒ«ãƒœã‚¿ãƒ³ã®ãƒ†ã‚¹ãƒˆ
 @fimg storage=_24 page=fore layer=base
 @wait time=200
-*first|"buttontest.ks"‚ÌÅ‰<d—v>
+*first|"buttontest.ks"ã®æœ€åˆ<é‡è¦>
 @nowait
 @backlay
 @fimg storage=_24_3 page=back layer=base
@@ -21,15 +21,15 @@
 @locate x=10 y=200
 @r
 [edit length=200]
-[link target=*link1]•’Ê‚ÌƒŠƒ“ƒN1[endlink]
+[link target=*link1]æ™®é€šã®ãƒªãƒ³ã‚¯1[endlink]
 [edit length=200]
-[checkbox opacity=20] ƒ`ƒFƒbƒNƒ{ƒbƒNƒX
-[link target=*link2]•’Ê‚ÌƒŠƒ“ƒN2[endlink]
+[checkbox opacity=20] ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹
+[link target=*link2]æ™®é€šã®ãƒªãƒ³ã‚¯2[endlink]
 [edit length=200]
 @current page=back layer=message1
 @layopt page=back layer=message1 visible=true
 @position left=320 top=0 width=310 height=480 draggable=true
-[checkbox] ƒ`ƒFƒbƒNƒ{ƒbƒNƒX
+[checkbox] ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹
 [edit length=200]
 @locate x=100 y=100
 @button graphic=YesButton target=*button1
@@ -37,10 +37,10 @@
 @button graphic=NoButton target=*button2
 @locate x=10 y=200
 @r
-[link target=*link1]•’Ê‚ÌƒŠƒ“ƒN1[endlink]
-[link target=*link2]•’Ê‚ÌƒŠƒ“ƒN2[endlink]
+[link target=*link1]æ™®é€šã®ãƒªãƒ³ã‚¯1[endlink]
+[link target=*link2]æ™®é€šã®ãƒªãƒ³ã‚¯2[endlink]
 [edit length=200]
-[checkbox] ƒ`ƒFƒbƒNƒ{ƒbƒNƒX
+[checkbox] ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹
 @endnowait
 @trans method=turn time=3000 maxsize=40
 @wt
@@ -56,7 +56,7 @@
 @position left=0 top=0 width=640 height=480
 @er
 @nowait
-ƒ{ƒ^ƒ“‚P\
+ãƒœã‚¿ãƒ³ï¼‘Â¥
 @endnowait
 @trans method=wave time=1500
 @wt
@@ -72,7 +72,7 @@
 @position left=0 top=0 width=640 height=480
 @er
 @nowait
-ƒ{ƒ^ƒ“‚Q\
+ãƒœã‚¿ãƒ³ï¼’Â¥
 @endnowait
 @trans method=wave time=1500
 @wt
@@ -88,7 +88,7 @@
 @position left=0 top=0 width=640 height=480
 @er
 @nowait
-ƒŠƒ“ƒN‚P\
+ãƒªãƒ³ã‚¯ï¼‘Â¥
 @endnowait
 @trans method=wave time=1500
 @wt
@@ -104,7 +104,7 @@
 @position left=0 top=0 width=640 height=480
 @er
 @nowait
-ƒŠƒ“ƒN‚Q\
+ãƒªãƒ³ã‚¯ï¼’Â¥
 @endnowait
 @trans method=wave time=1500
 @wt

@@ -6,15 +6,15 @@ var HEIGHT=480;
 
 class MyWindow extends Window
 {
-    //  ƒƒjƒ…
+    //  ãƒ¡ãƒ‹ãƒ¥
     var filemenu;
     var exitmenu;
     
-    // ƒx[ƒXƒŒƒCƒ„
+    // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
     var base;
-    // •\¦ƒŒƒCƒ„
+    // è¡¨ç¤ºãƒ¬ã‚¤ãƒ¤
     var layer;
-    // –¼‘O
+    // åå‰
     var name;
 
     function init() {
@@ -32,12 +32,12 @@ class MyWindow extends Window
 
         super.Window();
 
-        caption = "ƒŒƒCƒ„Šg’£";
+        caption = "ãƒ¬ã‚¤ãƒ¤æ‹¡å¼µ";
         
-        menu.add(filemenu = new MenuItem(this, "ƒtƒ@ƒCƒ‹(&F)"));
-        filemenu.add(exitmenu = new MenuItem(this, "I—¹(&X)"));
+        menu.add(filemenu = new MenuItem(this, "ãƒ•ã‚¡ã‚¤ãƒ«(&F)"));
+        filemenu.add(exitmenu = new MenuItem(this, "çµ‚äº†(&X)"));
 
-        // ƒx[ƒXƒŒƒCƒ„
+        // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
         base = new Layer(this,null);
         base.visible=true;
         base.setSize(WIDTH,HEIGHT);
@@ -64,11 +64,11 @@ class MyWindow extends Window
 	}
 }
 
-// ‘‹
+// çª“
 var win = new MyWindow("test.png");
 win.visible=true;
 
-// IE‘‹
+// IEçª“
 var ie = new ActiveX("Shell.Explorer.2");
 ie.setSize(640, 480);
 ie.Navigate2("krkr:control.html");

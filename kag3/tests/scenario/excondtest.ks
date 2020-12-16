@@ -1,6 +1,6 @@
 @call storage="rclick_tjs.ks"
-[link exp="kag.callExtraConductor('rclicktest2.ks', '*sub1')"]ÇŸÇ∞ÇÁÇŸÇ∞ÇÁ[endlink]
+[link exp="kag.callExtraConductor('rclicktest2.ks', '*sub1')"]„Åª„Åí„Çâ„Åª„Åí„Çâ[endlink]
 
 [button graphic="YesButton" exp="kag.callExtraConductor('rclicktest2.ks', '*sub1')"]
 [button graphic="NoButton" exp="kag.skipToNextStopByKey()"]
-ÇŸ[l]ÇŸ[l]ÇŸ[l]ÇŸ[l]ÇŸ[l]Ç∑[s]
+„Åª[l]„Åª[l]„Åª[l]„Åª[l]„Åª[l]„Åô[s]

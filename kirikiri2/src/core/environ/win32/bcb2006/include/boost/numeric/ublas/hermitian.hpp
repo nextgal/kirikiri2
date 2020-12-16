@@ -60,7 +60,7 @@ namespace boost { namespace numeric { namespace ublas {
         hermitian_matrix_element (matrix_type &m, size_type i, size_type j, value_type d):
             container_reference<matrix_type> (m), i_ (i), j_ (j), d_ (d) {}
         BOOST_UBLAS_INLINE
-        ~hermitian_matrix_element () {
+        ‾hermitian_matrix_element () {
             ((*this) ()).at (i_, j_, d_);
         }
 

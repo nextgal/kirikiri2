@@ -36,7 +36,7 @@ COctTreeSceneNode::COctTreeSceneNode(ISceneNode* parent, ISceneManager* mgr,
 
 
 //! destructor
-COctTreeSceneNode::~COctTreeSceneNode()
+COctTreeSceneNode::‾COctTreeSceneNode()
 {
 	//if (Mesh)
 	//	Mesh->drop();

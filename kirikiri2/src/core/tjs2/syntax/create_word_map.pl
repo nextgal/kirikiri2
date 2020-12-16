@@ -2,20 +2,20 @@ $input_file = "dp_wordtable.txt";
 
 open FH, $input_file or die;
 
-;# ’PŒêƒtƒ@ƒCƒ‹‚ğ‚·‚×‚Ä“Ç‚İ‚Ş
+;# å˜èªãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã™ã¹ã¦èª­ã¿è¾¼ã‚€
 
 %words = ();
 
 while($line = <FH>)
 {
 	chomp $line;
-	if($line =~ /^\s*(.*?)\s+(.*?)\s+(.*)/)
+	if($line =â€¾ /^Â¥s*(.*?)Â¥s+(.*?)Â¥s+(.*)/)
 	{
-		$words{"$1\b"} = "$2\t$3";
+		$words{"$1Â¥b"} = "$2Â¥t$3";
 	}
 }
 
-;# ’PŒê‚ğ«‘‡‚Éƒ\[ƒgA–Ø‚ğ switch •¶‚Å\¬‚·‚é
+;# å˜èªã‚’è¾æ›¸é †ã«ã‚½ãƒ¼ãƒˆã€æœ¨ã‚’ switch æ–‡ã§æ§‹æˆã™ã‚‹
 
 sub gen
 {
@@ -27,15 +27,15 @@ sub gen
 	@names = sort keys %list;
 	$padding = " " x $level;
 
-	if($#names == 0 && $names[0] eq "\b")
+	if($#names == 0 && $names[0] eq "Â¥b")
 	{
-		;# ‘I‘ğ‚ªˆê‚Â‚µ‚©‚È‚¢A‚©‚Â––’[
-		($v, $tok) = split("\t", $list{"\b"});
+		;# é¸æŠãŒä¸€ã¤ã—ã‹ãªã„ã€ã‹ã¤æœ«ç«¯
+		($v, $tok) = split("Â¥t", $list{"Â¥b"});
 		return "${padding} if(!TJS_iswalpha(InputPointer[$level])) ".
-			"{ InputPointer += $level; yylex->val = $v; return $tok; }\n"
+			"{ InputPointer += $level; yylex->val = $v; return $tok; }Â¥n"
 	}
 
-	;# Å‰‚Ìˆê•¶š‚ğæ“¾
+	;# æœ€åˆã®ä¸€æ–‡å­—ã‚’å–å¾—
 
 	$fc = '';
 	%newlist = ();
@@ -44,8 +44,8 @@ sub gen
 
 	$ret = '';
 
-	$ret .= "${padding}switch(InputPointer[$level])\n";
-	$ret .= "${padding}{\n";
+	$ret .= "${padding}switch(InputPointer[$level])Â¥n";
+	$ret .= "${padding}{Â¥n";
 
 	$caselist = '';
 	$deflist = '';
@@ -57,23 +57,23 @@ sub gen
 		{
 			if($cnt)
 			{
-				if($fc eq "\b")
+				if($fc eq "Â¥b")
 				{
-					;# ––’[
-					$deflist .= "${padding}default:\n";
-					($v, $tok) = split("\t", $list{"\b"});
+					;# æœ«ç«¯
+					$deflist .= "${padding}default:Â¥n";
+					($v, $tok) = split("Â¥t", $list{"Â¥b"});
 					$deflist .= "${padding} if(!TJS_iswalpha(InputPointer[$level])) ".
-						"{ InputPointer += $level; yylex->val = $v; return $tok; }\n";
+						"{ InputPointer += $level; yylex->val = $v; return $tok; }Â¥n";
 				}
 				else
 				{
-					$caselist .= "${padding}case TJS_W('$fc'):\n";
-					if($fc =~ /[a-z]/)
+					$caselist .= "${padding}case TJS_W('$fc'):Â¥n";
+					if($fc =â€¾ /[a-z]/)
 					{
-						$caselist .= "${padding}case TJS_W('".uc $fc."'):\n";
+						$caselist .= "${padding}case TJS_W('".uc $fc."'):Â¥n";
 					}
-					$caselist .= &gen($level + 1, \%newlist);
-					$caselist .= "${padding} break;\n";
+					$caselist .= &gen($level + 1, Â¥%newlist);
+					$caselist .= "${padding} break;Â¥n";
 				}
 			}
 			$fc = $nfc;
@@ -86,33 +86,33 @@ sub gen
 
 	if($cnt)
 	{
-		if($fc eq "\b")
+		if($fc eq "Â¥b")
 		{
-			;# ––’[
-			$deflist .= "${padding}default:\n";
-			($v, $tok) = split("\t", $list{"\b"});
-			$deflist .= "${padding} InputPointer += $level; yylex->val = $v; return $tok;\n";
+			;# æœ«ç«¯
+			$deflist .= "${padding}default:Â¥n";
+			($v, $tok) = split("Â¥t", $list{"Â¥b"});
+			$deflist .= "${padding} InputPointer += $level; yylex->val = $v; return $tok;Â¥n";
 		}
 		else
 		{
-			$caselist .= "${padding}case TJS_W('$fc'):\n";
-			if($fc =~ /[a-z]/)
+			$caselist .= "${padding}case TJS_W('$fc'):Â¥n";
+			if($fc =â€¾ /[a-z]/)
 			{
-				$caselist .= "${padding}case TJS_W('".uc $fc."'):\n";
+				$caselist .= "${padding}case TJS_W('".uc $fc."'):Â¥n";
 			}
-			$caselist .= &gen($level + 1, \%newlist);
-			$caselist .= "${padding} break;\n";
+			$caselist .= &gen($level + 1, Â¥%newlist);
+			$caselist .= "${padding} break;Â¥n";
 		}
 	}
 
-	return $ret.$caselist.$deflist."${padding}}\n";
+	return $ret.$caselist.$deflist."${padding}}Â¥n";
 }
 
 print <<EOF;
 /*---------------------------------------------------------------------------*/
 /*
 	TJS2 Script Engine
-	Copyright (C) 2000-2009 W.Dee <dee\@kikyou.info> and contributors
+	Copyright (C) 2000-2009 W.Dee <deeÂ¥@kikyou.info> and contributors
 
 	See details of license at "license.txt"
 */
@@ -127,4 +127,4 @@ print <<EOF;
 
 EOF
 
-print &gen(0, \%words);
+print &gen(0, Â¥%words);

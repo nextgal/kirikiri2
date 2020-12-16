@@ -28,12 +28,12 @@
 #include <boost/type_traits/is_const.hpp>
 
 // Compiler specific problems
-#if defined (BOOST_STRICT_CONFIG) || ! (\
-        defined (BOOST_MSVC) || \
-        defined (__GNUC__) || \
-        defined (__BORLANDC__) || \
-        defined (_ICL) || \
-        defined (_ICC) || \
+#if defined (BOOST_STRICT_CONFIG) || ! (¥
+        defined (BOOST_MSVC) || ¥
+        defined (__GNUC__) || ¥
+        defined (__BORLANDC__) || ¥
+        defined (_ICL) || ¥
+        defined (_ICC) || ¥
         defined (__COMO__))
 
 #define BOOST_UBLAS_TYPENAME typename

@@ -22,7 +22,7 @@ public:
 	//! Constructs a selector based on a mesh
 	COctTreeTriangleSelector(IMesh* mesh, ISceneNode* node, s32 minimalPolysPerNode);
 
-	~COctTreeTriangleSelector();
+	‾COctTreeTriangleSelector();
 
 	//! Gets all triangles which lie within a specific bounding box.
 	void getTriangles(core::triangle3df* triangles, s32 arraySize, s32& outTriangleCount, 
@@ -43,7 +43,7 @@ private:
 				Child[i] = 0;
 		}
 
-		~SOctTreeNode()
+		‾SOctTreeNode()
 		{
 			for (s32 i=0; i<8; ++i)
 				delete Child[i];

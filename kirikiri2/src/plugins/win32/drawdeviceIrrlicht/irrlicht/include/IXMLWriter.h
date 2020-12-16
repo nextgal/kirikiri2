@@ -23,7 +23,7 @@ namespace io
 	public:
 
 		//! Destructor
-		virtual ~IXMLWriter() {}
+		virtual ‾IXMLWriter() {}
 
 		//! Writes an xml 1.0 header.
 		/** Looks like &lt;?xml version="1.0"?&gt;. This should always
@@ -34,20 +34,20 @@ namespace io
 		//! Writes an xml element with maximal 5 attributes like "<foo />" or
 		//! &lt;foo optAttr="value" /&gt;.
 		/** The element can be empty or not.
-		\param name: Name of the element
-		\param empty: Specifies if the element should be empty. Like
+		¥param name: Name of the element
+		¥param empty: Specifies if the element should be empty. Like
 		"<foo />". If You set this to false, something like this is
 		written instead: "<foo>".
-		\param attr1Name: 1st attributes name
-		\param attr1Value: 1st attributes value
-		\param attr2Name: 2nd attributes name
-		\param attr2Value: 2nd attributes value
-		\param attr3Name: 3rd attributes name
-		\param attr3Value: 3rd attributes value
-		\param attr4Name: 4th attributes name
-		\param attr4Value: 4th attributes value
-		\param attr5Name: 5th attributes name
-		\param attr5Value: 5th attributes value */
+		¥param attr1Name: 1st attributes name
+		¥param attr1Value: 1st attributes value
+		¥param attr2Name: 2nd attributes name
+		¥param attr2Value: 2nd attributes value
+		¥param attr3Name: 3rd attributes name
+		¥param attr3Value: 3rd attributes value
+		¥param attr4Name: 4th attributes name
+		¥param attr4Value: 4th attributes value
+		¥param attr5Name: 5th attributes name
+		¥param attr5Value: 5th attributes value */
 		virtual void writeElement(const wchar_t* name, bool empty=false,
 			const wchar_t* attr1Name = 0, const wchar_t* attr1Value = 0,
 			const wchar_t* attr2Name = 0, const wchar_t* attr2Value = 0,

@@ -26,7 +26,7 @@ public:
 	CSoftwareTexture2(IImage* surface, const char* name, bool generateMipLevels, bool isRenderTarget=false);
 
 	//! destructor
-	virtual ~CSoftwareTexture2();
+	virtual ‾CSoftwareTexture2();
 
 	//! lock function
 	virtual void* lock()

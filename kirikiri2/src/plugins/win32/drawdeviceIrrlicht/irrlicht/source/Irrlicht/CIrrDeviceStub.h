@@ -55,7 +55,7 @@ namespace irr
 		CIrrDeviceStub(const char* version, IEventReceiver* resv);
 
 		//! destructor
-		virtual ~CIrrDeviceStub();
+		virtual ‾CIrrDeviceStub();
 
 		//! returns the video driver
 		virtual video::IVideoDriver* getVideoDriver();
@@ -69,14 +69,14 @@ namespace irr
 		//! returns the scene manager
 		virtual scene::ISceneManager* getSceneManager();
 
-		//! \return Returns a pointer to the mouse cursor control interface.
+		//! ¥return Returns a pointer to the mouse cursor control interface.
 		virtual gui::ICursorControl* getCursorControl();
 
-		//! \return Returns a pointer to a list with all video modes supported
+		//! ¥return Returns a pointer to a list with all video modes supported
 		//! by the gfx adapter.
 		virtual video::IVideoModeList* getVideoModeList();
 
-		//! \return Returns a pointer to the ITimer object. With it the
+		//! ¥return Returns a pointer to the ITimer object. With it the
 		//! current Time can be received.
 		virtual ITimer* getTimer();
 
@@ -96,7 +96,7 @@ namespace irr
 		/** If set to null, the main scene manager (returned by GetSceneManager()) will receive the input */
 		virtual void setInputReceivingSceneManager(scene::ISceneManager* sceneManager);
 
-		//! \return Returns a pointer to the logger.
+		//! ¥return Returns a pointer to the logger.
 		virtual ILogger* getLogger();
 
 		//! Returns the operation system opertator object.

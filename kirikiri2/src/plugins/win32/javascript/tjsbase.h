@@ -11,7 +11,7 @@ using namespace v8;
 class TJSBase {
 public:
 	TJSBase(const tTJSVariant &variant) : variant(variant) {}
-	virtual ~TJSBase() {};
+	virtual ‾TJSBase() {};
 	void wrap(Isolate *isolate, Local<Object> &obj);
 	static bool getVariant(Isolate *isolate, tTJSVariant &result, Local<Object> &obj);
 protected:

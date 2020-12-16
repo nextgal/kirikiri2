@@ -183,7 +183,7 @@ namespace boost {
     /*Several symbols:
       w(i): i-th triangle in walk w
       w(i) |- w(i+1): w enter w(i+1) from w(i) over a line
-      w(i) ~> w(i+1): w enter w(i+1) from w(i) over a point
+      w(i) ‾> w(i+1): w enter w(i+1) from w(i) over a point
       w(i) -> w(i+1): w enter w(i+1) from w(i)
       w(i) ^ w(i+1): the line or point w go over from w(i) to w(i+1)
     */
@@ -208,9 +208,9 @@ namespace boost {
       /*----------------------------------------------------------
        *             true             false
        *==========================================================
-       *a       w(i-1) |- w(i)    w(i-1) ~> w(i) or w(i-1) is null
+       *a       w(i-1) |- w(i)    w(i-1) ‾> w(i) or w(i-1) is null
        *----------------------------------------------------------
-       *b       w(i) |- w(i+1)    w(i) ~> w(i+1) or no w(i+1) yet
+       *b       w(i) |- w(i+1)    w(i) ‾> w(i+1) or no w(i+1) yet
        *----------------------------------------------------------
        */
       
@@ -249,7 +249,7 @@ namespace boost {
             iter_d[tau] = hlist->insert(w_i, make_pair(tau, tau_i));  
             
           } else {  /* w(i-1) ^ tau == w(i-2) ^ w(i-1)  */
-            /*must be w(i-2) ~> w(i-1) */
+            /*must be w(i-2) ‾> w(i-1) */
             
             bool d = true;
             //need to handle the case when w_i_p_1 is null
@@ -261,7 +261,7 @@ namespace boost {
               w_i->second = tau_i;
               iter_d[tau] = hlist->insert(w_i_p_1, make_pair(tau, l3));
             } else { /* w(i+1) ^ tau == w(i+1) ^ w(i+2) */
-              /*must be w(1+1) ~> w(i+2) */
+              /*must be w(1+1) ‾> w(i+2) */
               Line l5 = get_sharing_line(*w_i_m_1, *w_i_p_1);
               if ( l5 != w_i_p_1->second ) { /* w(i-1) ^ w(i+1) != w(i+1) ^ w(i+2) */
                 /*extension: w(i-2) -> tau |- w(i) |- w(i-1) -> w(i+1) */
@@ -282,7 +282,7 @@ namespace boost {
         } else { 
           /*Case 2:
             
-            w(i-1) |- w(i) ~> w(1+1)
+            w(i-1) |- w(i) ‾> w(1+1)
           */
           
           if ( w_i->second.second == tau_i.first 
@@ -303,7 +303,7 @@ namespace boost {
               w_i_m_1->second = l1;
               iter_d[tau] = hlist->insert(w_i, make_pair(tau, tau_i));
             } else { /*w(i-1) ^ tau == w(i-2) ^ w(i-1)*/
-              /*must be w(i-2)~>w(i-1)*/
+              /*must be w(i-2)‾>w(i-1)*/
               /*extension: w(i-2) -> tau |- w(i) |- w(i-1) -> w(i+1)*/
               w_i_m_2->second = get_sharing_line(*w_i_m_2, tau);
               iter_d[tau] = hlist->insert(w_i, make_pair(tau, tau_i));
@@ -322,7 +322,7 @@ namespace boost {
         if ( b ) {
           /*Case 3:
             
-            w(i-1) ~> w(i) |- w(i+1)
+            w(i-1) ‾> w(i) |- w(i+1)
           */
           bool c = false;
           if ( w_i_m_1 != w_end )
@@ -348,7 +348,7 @@ namespace boost {
               w_i->second = tau_i;
               iter_d[tau] = hlist->insert(w_i_p_1, make_pair(tau, l1));
             } else {
-              /*must be w(i+1) ~> w(i+2)*/
+              /*must be w(i+1) ‾> w(i+2)*/
               /*extension: w(i-1) -> w(i+1) |- w(i) |- tau -> w(i+2) */
               iter w_i_p_2 = w_i_p_1;
               ++w_i_p_2;
@@ -364,7 +364,7 @@ namespace boost {
         } else {
           /*Case 4:
             
-            w(i-1) ~> w(i) ~> w(i+1)
+            w(i-1) ‾> w(i) ‾> w(i+1)
             
           */
           bool c = false;

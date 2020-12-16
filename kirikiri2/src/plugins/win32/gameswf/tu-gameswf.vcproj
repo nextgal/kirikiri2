@@ -18,7 +18,7 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)ﾂ･$(ProjectName)"
 			ConfigurationType="4"
 			CharacterSet="1"
 			>
@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="tu-testbed;..\layerExCairo\zlib"
+				AdditionalIncludeDirectories="tu-testbed;..ﾂ･layerExCairoﾂ･zlib"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -81,7 +81,7 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)ﾂ･$(ProjectName)"
 			ConfigurationType="4"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
@@ -103,7 +103,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="tu-testbed;..\layerExCairo\zlib"
+				AdditionalIncludeDirectories="tu-testbed;..ﾂ･layerExCairoﾂ･zlib"
 				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
@@ -144,187 +144,187 @@
 	</References>
 	<Files>
 		<Filter
-			Name="ソース ファイル"
+			Name="繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_action.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_action.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_button.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_button.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_dlist.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_dlist.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_font.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_font.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_fontlib.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_fontlib.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_impl.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_impl.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_log.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_log.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_morph2.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_morph2.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_movie.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_movie.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_render.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_render.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_shape.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_shape.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_sound.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_sound.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_stream.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_stream.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_string.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_string.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_styles.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_styles.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_tesselate.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_tesselate.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_text.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_text.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_textformat.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_textformat.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_timers.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_timers.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_tools.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_tools.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_types.cpp"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_types.cpp"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="ヘッダー ファイル"
+			Name="繝倥ャ繝繝ｼ 繝輔ぃ繧､繝ｫ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_action.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_action.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_button.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_button.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_dlist.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_dlist.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_font.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_font.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_fontlib.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_fontlib.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_impl.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_impl.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_log.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_log.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_morph.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_morph.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_morph2.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_morph2.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_movie.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_movie.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_render.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_render.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_shape.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_shape.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_sound.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_sound.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_stream.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_stream.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_string.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_string.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_styles.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_styles.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_tesselate.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_tesselate.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_textformat.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_textformat.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_timers.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_timers.h"
 				>
 			</File>
 			<File
-				RelativePath=".\tu-testbed\gameswf\gameswf_types.h"
+				RelativePath=".ﾂ･tu-testbedﾂ･gameswfﾂ･gameswf_types.h"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="リソース ファイル"
+			Name="繝ｪ繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>

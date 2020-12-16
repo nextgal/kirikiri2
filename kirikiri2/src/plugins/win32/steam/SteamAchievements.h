@@ -10,7 +10,7 @@ class SteamAchievements
 {
 public:
 	SteamAchievements();
-	~SteamAchievements();
+	‾SteamAchievements();
 
 	bool requestInitialize();
 

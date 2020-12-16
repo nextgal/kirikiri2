@@ -39,25 +39,25 @@
 namespace boost { namespace mpl {
 
 // local macros, #undef-ined at the end of the header
-#   define AUX_LOGICAL_OP_PARAMS(param, sub) \
-    BOOST_MPL_PP_PARAMS( \
-          BOOST_MPL_PP_SUB(BOOST_MPL_METAFUNCTION_MAX_ARITY, sub) \
-        , param \
-        ) \
+#   define AUX_LOGICAL_OP_PARAMS(param, sub) ¥
+    BOOST_MPL_PP_PARAMS( ¥
+          BOOST_MPL_PP_SUB(BOOST_MPL_METAFUNCTION_MAX_ARITY, sub) ¥
+        , param ¥
+        ) ¥
     /**/
 
-#   define AUX_LOGICAL_OP_SHIFTED_PARAMS(param, sub) \
-    BOOST_MPL_PP_EXT_PARAMS( \
-          2, BOOST_MPL_PP_SUB(BOOST_PP_INC(BOOST_MPL_METAFUNCTION_MAX_ARITY), sub) \
-        , param \
-        ) \
+#   define AUX_LOGICAL_OP_SHIFTED_PARAMS(param, sub) ¥
+    BOOST_MPL_PP_EXT_PARAMS( ¥
+          2, BOOST_MPL_PP_SUB(BOOST_PP_INC(BOOST_MPL_METAFUNCTION_MAX_ARITY), sub) ¥
+        , param ¥
+        ) ¥
     /**/
 
-#   define AUX_LOGICAL_OP_SPEC_PARAMS(param) \
-    BOOST_MPL_PP_ENUM( \
-          BOOST_PP_DEC(BOOST_MPL_METAFUNCTION_MAX_ARITY) \
-        , param \
-        ) \
+#   define AUX_LOGICAL_OP_SPEC_PARAMS(param) ¥
+    BOOST_MPL_PP_ENUM( ¥
+          BOOST_PP_DEC(BOOST_MPL_METAFUNCTION_MAX_ARITY) ¥
+        , param ¥
+        ) ¥
     /**/
 
 namespace aux {

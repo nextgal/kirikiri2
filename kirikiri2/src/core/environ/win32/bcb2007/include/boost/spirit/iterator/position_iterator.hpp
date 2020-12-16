@@ -73,7 +73,7 @@ struct file_position {
 
 template < typename IteratorT, typename PositionT = file_position>
 class position_iterator {
-#if (defined(BOOST_MSVC) && (BOOST_MSVC <= 1300)) \
+#if (defined(BOOST_MSVC) && (BOOST_MSVC <= 1300)) ¥
     || (defined(BOOST_INTEL_CXX_VERSION) && !defined(_STLPORT_VERSION))
     typedef impl::iterator_traits<IteratorT> traits_t;
 #else
@@ -153,18 +153,18 @@ private:
     void inc_current() {
         if (!m_IsAtEnd) {
             value_type val = *m_Iter;
-            if (val == '\n' || val == '\r') {
+            if (val == '¥n' || val == '¥r') {
                 ++m_Pos.line;
                 m_Pos.column = 1;
                 ++m_Iter;
                 if (m_Iter != m_IterEnd) {
                     value_type val2 = *m_Iter;
-                    if ((val == '\n' && val2 == '\r')
-                     || (val == '\r' && val2 == '\n')) {
+                    if ((val == '¥n' && val2 == '¥r')
+                     || (val == '¥r' && val2 == '¥n')) {
                         ++m_Iter;
                     }
                 }
-            } else if (val == '\t') {
+            } else if (val == '¥t') {
                 m_Pos.column += m_CharsPerTab - (m_Pos.column - 1) % m_CharsPerTab;
                 ++m_Iter;
             } else {

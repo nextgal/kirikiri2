@@ -93,7 +93,7 @@ public:
 		InternalAssign(ref);
 	}
 
-	~tVoidObjectList()
+	‾tVoidObjectList()
 	{
 		if(Objects) TJS_free(Objects);
 		if(BackupedObjects) TJS_free(BackupedObjects);
@@ -323,7 +323,7 @@ public:
 	{
 	}
 
-	~tObjectList()
+	‾tObjectList()
 	{
 	}
 
@@ -422,7 +422,7 @@ public:
 	{
 		List.SafeLock();
 	}
-	~tVoidObjectListSafeLockHolder()
+	‾tVoidObjectListSafeLockHolder()
 	{
 		List.SafeUnlock();
 	}
@@ -438,7 +438,7 @@ public:
 	{
 		List.SafeLock();
 	}
-	~tObjectListSafeLockHolder()
+	‾tObjectListSafeLockHolder()
 	{
 		List.SafeUnlock();
 	}

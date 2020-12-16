@@ -40,7 +40,7 @@ class progress_timer : public timer, private noncopyable
   explicit progress_timer( std::ostream & os = std::cout )
      // os is hint; implementation may ignore, particularly in embedded systems
      : m_os(os) {}
-  ~progress_timer()
+  ‾progress_timer()
   {
   //  A) Throwing an exception from a destructor is a Bad Thing.
   //  B) The progress_timer destructor does output which may throw.
@@ -52,14 +52,14 @@ class progress_timer : public timer, private noncopyable
       std::istream::fmtflags old_flags = m_os.setf( std::istream::fixed,
                                                    std::istream::floatfield );
       std::streamsize old_prec = m_os.precision( 2 );
-      m_os << elapsed() << " s\n" // "s" is System International d'Unit�s std
+      m_os << elapsed() << " s¥n" // "s" is System International d'Unit駸 std
                         << std::endl;
       m_os.flags( old_flags );
       m_os.precision( old_prec );
     }
 
     catch (...) {} // eat any exceptions
-  } // ~progress_timer
+  } // ‾progress_timer
 
  private:
   std::ostream & m_os;
@@ -80,7 +80,7 @@ class progress_display : private noncopyable
  public:
   explicit progress_display( unsigned long expected_count,
                              std::ostream & os = std::cout,
-                             const std::string & s1 = "\n", //leading strings
+                             const std::string & s1 = "¥n", //leading strings
                              const std::string & s2 = "",
                              const std::string & s3 = "" )
    // os is hint; implementation may ignore, particularly in embedded systems
@@ -93,7 +93,7 @@ class progress_display : private noncopyable
     _count = _next_tic_count = _tic = 0;
     _expected_count = expected_count;
 
-    m_os << m_s1 << "0%   10   20   30   40   50   60   70   80   90   100%\n"
+    m_os << m_s1 << "0%   10   20   30   40   50   60   70   80   90   100%¥n"
          << m_s2 << "|----|----|----|----|----|----|----|----|----|----|"
          << std::endl  // endl implies flush, which ensures display
          << m_s3;

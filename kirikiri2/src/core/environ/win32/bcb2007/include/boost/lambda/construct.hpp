@@ -1,7 +1,7 @@
 // - construct.hpp -- Lambda Library -------------
 //
 // Copyright (C) 2000 Gary Powell (powellg@amazon.com)
-// Copyright (C) 1999, 2000 Jaakko J�rvi (jaakko.jarvi@cs.utu.fi)
+// Copyright (C) 1999, 2000 Jaakko J舐vi (jaakko.jarvi@cs.utu.fi)
 //
 // Permission to copy, use, sell and distribute this software is granted
 // provided this copyright notice appears in all copies. 
@@ -101,7 +101,7 @@ struct destructor_helper {
   static void exec(A1& a1) {
     // remove all the qualifiers, not sure whether it is necessary
     typedef typename boost::remove_cv<A1>::type plainA1;
-     a1.~plainA1();
+     a1.‾plainA1();
   }
 };
 
@@ -111,7 +111,7 @@ struct destructor_helper<true> {
   template<class A1>
   static void exec(A1* a1) {
     typedef typename boost::remove_cv<A1>::type plainA1;
-    (*a1).~plainA1();
+    (*a1).‾plainA1();
   }
 };
 

@@ -21,7 +21,7 @@ namespace scene
 			s32 timePerFrame, bool loop, u32 now);
 
 		//! destructor
-		virtual ~CSceneNodeAnimatorTexture();
+		virtual ‾CSceneNodeAnimatorTexture();
 
 		//! animates a scene node
 		virtual void animateNode(ISceneNode* node, u32 timeMs);

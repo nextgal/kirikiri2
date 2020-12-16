@@ -2,14 +2,14 @@
 @call storage="systembutton.ks"
 @image layer=base page=fore storage=_24_3
 @l
-*start1|ƒVƒXƒeƒ€ƒ{ƒ^ƒ“‚Í”ñ•\Ž¦
-ƒVƒXƒeƒ€ƒ{ƒ^ƒ“‚ð•\Ž¦‚µ‚Ü‚·[l]
+*start1|ã‚·ã‚¹ãƒ†ãƒ ãƒœã‚¿ãƒ³ã¯éžè¡¨ç¤º
+ã‚·ã‚¹ãƒ†ãƒ ãƒœã‚¿ãƒ³ã‚’è¡¨ç¤ºã—ã¾ã™[l]
 @backlay
 @sysbtopt backvisible=true left=&intrandom(0,500) top=&intrandom(0,300)
 @trans method=crossfade time=2000
 @wt
-*start2|ƒVƒXƒeƒ€ƒ{ƒ^ƒ“‚Í•\Ž¦’†
-”wŒi‚ð“ü‚ê‘Ö‚¦‚Ü‚·[l]
+*start2|ã‚·ã‚¹ãƒ†ãƒ ãƒœã‚¿ãƒ³ã¯è¡¨ç¤ºä¸­
+èƒŒæ™¯ã‚’å…¥ã‚Œæ›¿ãˆã¾ã™[l]
 @backlay
 @image layer=base page=back storage=_24
 @trans method=crossfade time=2000
@@ -20,7 +20,7 @@
 @trans children=false method=crossfade time=2000
 @wt
 @l
-ƒVƒXƒeƒ€ƒ{ƒ^ƒ“‚ð”ñ•\Ž¦‚É‚µ‚Ü‚·[l]
+ã‚·ã‚¹ãƒ†ãƒ ãƒœã‚¿ãƒ³ã‚’éžè¡¨ç¤ºã«ã—ã¾ã™[l]
 @backlay
 @sysbtopt backvisible=false
 @trans method=crossfade time=2000

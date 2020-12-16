@@ -32,22 +32,22 @@
 
 // local macros, #undef-ined at the end of the header
 
-#   define AUX_ITER_FOLD_STEP(unused, i, unused2) \
-    typedef typename BOOST_MPL_AUX_APPLY2( \
-          ForwardOp \
-        , BOOST_PP_CAT(state,i) \
-        , BOOST_MPL_AUX_FOLD_IMPL_OP(BOOST_PP_CAT(iter,i)) \
-        )::type BOOST_PP_CAT(state,BOOST_PP_INC(i)); \
-    typedef typename BOOST_MPL_AUX_NEXT(BOOST_PP_CAT(iter,i)) \
-        BOOST_PP_CAT(iter,BOOST_PP_INC(i)); \
+#   define AUX_ITER_FOLD_STEP(unused, i, unused2) ¥
+    typedef typename BOOST_MPL_AUX_APPLY2( ¥
+          ForwardOp ¥
+        , BOOST_PP_CAT(state,i) ¥
+        , BOOST_MPL_AUX_FOLD_IMPL_OP(BOOST_PP_CAT(iter,i)) ¥
+        )::type BOOST_PP_CAT(state,BOOST_PP_INC(i)); ¥
+    typedef typename BOOST_MPL_AUX_NEXT(BOOST_PP_CAT(iter,i)) ¥
+        BOOST_PP_CAT(iter,BOOST_PP_INC(i)); ¥
     /**/
 
-#   define AUX_FOLD_IMPL_NAME \
-    BOOST_PP_CAT(BOOST_MPL_AUX_FOLD_IMPL_NAME_PREFIX,_impl) \
+#   define AUX_FOLD_IMPL_NAME ¥
+    BOOST_PP_CAT(BOOST_MPL_AUX_FOLD_IMPL_NAME_PREFIX,_impl) ¥
     /**/
 
-#   define AUX_FOLD_CHUNK_NAME \
-    BOOST_PP_CAT(BOOST_MPL_AUX_FOLD_IMPL_NAME_PREFIX,_chunk) \
+#   define AUX_FOLD_CHUNK_NAME ¥
+    BOOST_PP_CAT(BOOST_MPL_AUX_FOLD_IMPL_NAME_PREFIX,_chunk) ¥
     /**/
 
 namespace boost {
@@ -68,7 +68,7 @@ struct AUX_FOLD_IMPL_NAME;
 
 #   if !defined(__BORLANDC__)
 
-#   define BOOST_PP_ITERATION_PARAMS_1 \
+#   define BOOST_PP_ITERATION_PARAMS_1 ¥
     (3,(0, BOOST_MPL_UNROLLING_LIMIT, "boost/mpl/aux_/fold_impl_body.hpp"))
 #   include BOOST_PP_ITERATE()
 
@@ -177,7 +177,7 @@ struct AUX_FOLD_IMPL_NAME<N,Last,Last,State,ForwardOp >
 template< BOOST_MPL_AUX_NTTP_DECL(long, N) >
 struct AUX_FOLD_CHUNK_NAME;
 
-#   define BOOST_PP_ITERATION_PARAMS_1 \
+#   define BOOST_PP_ITERATION_PARAMS_1 ¥
     (3,(0, BOOST_MPL_UNROLLING_LIMIT, "boost/mpl/aux_/fold_impl_body.hpp"))
 #   include BOOST_PP_ITERATE()
 

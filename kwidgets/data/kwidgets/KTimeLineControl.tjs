@@ -4,7 +4,7 @@
 
 
 /*----------------------------------------------------------------------
- * ’è”(“à•”’è”)
+ * å®šæ•°(å†…éƒ¨å®šæ•°)
  ----------------------------------------------------------------------*/
 global.TIMELINE_FRAME_HEIGHT = 14;
 global.TIMELINE_LOCATOR_HEIGHT = 20;
@@ -22,7 +22,7 @@ global.TIMELINE_FRAME_WIDTH_LIST = [ 4, 6, 10, 14 ];
 global.TIMELINE_FRAME_WIDTH_LABEL_LIST = [ "SS", "S", "M", "L" ];
 
 /*----------------------------------------------------------------------
- * ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒ†[ƒeƒBƒŠƒeƒB
+ * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£
  ----------------------------------------------------------------------*/
 function ktimeline_shallow_copy_frame_list(frameList)
 {
@@ -37,7 +37,7 @@ function ktimeline_shallow_copy_frame_list(frameList)
 
 function ktimeline_invalidate_null_frame(frameList)
 {
-  // ˜A‘±‚·‚éƒkƒ‹ƒtƒŒ[ƒ€‚ğ“‡‚·‚é
+  // é€£ç¶šã™ã‚‹ãƒŒãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’çµ±åˆã™ã‚‹
   for (var i = 1; i < frameList.count; i++) {
     if (frameList[i - 1].type == TIMELINE_FRAME_TYPE_NULL
         && frameList[i].type == TIMELINE_FRAME_TYPE_NULL) {
@@ -46,11 +46,11 @@ function ktimeline_invalidate_null_frame(frameList)
       continue;
     }
   }
-  // æ“ª‚Ìƒkƒ‹ƒtƒŒ[ƒ€‚ğíœ‚·‚é
+  // å…ˆé ­ã®ãƒŒãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‰Šé™¤ã™ã‚‹
   if (frameList.count
       && frameList[0].type == TIMELINE_FRAME_TYPE_NULL)
     frameList.erase(0);
-  // ˜A‘±ƒtƒŒ[ƒ€‚©•âŠ®ƒtƒŒ[ƒ€‚Ìê‡A‹óƒŠƒXƒg‚Å–³‚¯‚ê‚Î––”ö‚É•K‚¸ƒkƒ‹ƒtƒŒ[ƒ€‚ğ’Ç‰Á‚·‚é
+  // é€£ç¶šãƒ•ãƒ¬ãƒ¼ãƒ ã‹è£œå®Œãƒ•ãƒ¬ãƒ¼ãƒ ã®å ´åˆã€ç©ºãƒªã‚¹ãƒˆã§ç„¡ã‘ã‚Œã°æœ«å°¾ã«å¿…ãšãƒŒãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’è¿½åŠ ã™ã‚‹
   if (frameList.count
       && (frameList[-1].type == TIMELINE_FRAME_TYPE_CONTINUOUS
           || frameList[-1].type == TIMELINE_FRAME_TYPE_TWEEN))
@@ -68,16 +68,16 @@ function ktimeline_fix_invalid_frame(frameList)
 }
 
 /*----------------------------------------------------------------------
- * ƒ^ƒCƒ€ƒƒP[ƒ^[(“à•”ƒp[ƒc)
+ * ã‚¿ã‚¤ãƒ ãƒ­ã‚±ãƒ¼ã‚¿ãƒ¼(å†…éƒ¨ãƒ‘ãƒ¼ãƒ„)
  ----------------------------------------------------------------------*/
 class KTimeLineTimeLocator extends KVirtualWidget
 {
-  // ƒI[ƒi[(ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒRƒ“ƒgƒ[ƒ‹–{‘Ì)
+  // ã‚ªãƒ¼ãƒŠãƒ¼(ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«æœ¬ä½“)
   var owner;
-  // ƒhƒ‰ƒbƒO’†‚©H
+  // ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã‹ï¼Ÿ
   var dragging;
 
-  // ƒhƒ‰ƒbƒOŠÖŒW
+  // ãƒ‰ãƒ©ãƒƒã‚°é–¢ä¿‚
   var frameDragMoving;
   var frameDragItemList;
   var frameDragFrameList;
@@ -85,14 +85,14 @@ class KTimeLineTimeLocator extends KVirtualWidget
   var frameDragPrevTime, frameDragMinTime;
   var frameDragLeftList;
 
-  // ƒAƒNƒeƒBƒuƒŒƒ“ƒW
+  // ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãƒ¬ãƒ³ã‚¸
   var activeBegin = void;
   var activeEnd = void;
   var activeDragging = false;
   var activeDragBeginTime;
   var _activeRangeEnabled = false;
 
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   function KTimeLineTimeLocator(window, owner, name) {
     super.KVirtualWidget(window, name);
     setFixedSize(2000, TIMELINE_LOCATOR_HEIGHT);
@@ -160,14 +160,14 @@ class KTimeLineTimeLocator extends KVirtualWidget
     }
   }
 
-  // •`‰æ
+  // æç”»
   function onDraw(l, t, w, h) {
-    // ƒtƒŒ[ƒ€•’PˆÊ‚Å•\¦
+    // ãƒ•ãƒ¬ãƒ¼ãƒ å¹…å˜ä½ã§è¡¨ç¤º
     var fromX, toX, fromY, toY;
     fromX = int(l / TIMELINE_FRAME_WIDTH);
     toX = int((l + w + TIMELINE_FRAME_WIDTH - 1) / TIMELINE_FRAME_WIDTH);
 
-    // ƒƒP[ƒ^‚ÌƒoƒbƒNƒOƒ‰ƒEƒ“ƒh‚ğ•`‰æ
+    // ãƒ­ã‚±ãƒ¼ã‚¿ã®ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã‚’æç”»
     for (var x = fromX; x < toX; x ++) {
       if (x != owner.selectedTime) {
         fillRect(x * TIMELINE_FRAME_WIDTH, 0, TIMELINE_FRAME_WIDTH, height, WIN_BG);
@@ -179,14 +179,14 @@ class KTimeLineTimeLocator extends KVirtualWidget
       fillRect(x * TIMELINE_FRAME_WIDTH + TIMELINE_FRAME_WIDTH - 1, height - 5, 1, 4, WIN_DARKEN1);
       fillRect(x * TIMELINE_FRAME_WIDTH, height - 1, TIMELINE_FRAME_WIDTH, 1, WIN_DARKEN1);
     }
-    // 5ƒ}ƒX’PˆÊ‚Å•\¦
+    // 5ãƒã‚¹å˜ä½ã§æ™‚åˆ»è¡¨ç¤º
     var dFromX, dToX;
     dFromX = int(fromX / 5);
     dToX = int((toX + 5 - 1) / 5);
     for (var x = dFromX; x < dToX; x++) {
       drawText(x * 5 * TIMELINE_FRAME_WIDTH, (height - fontHeight) / 2, string(x * 5));
     }
-    // ƒAƒNƒeƒBƒu‹­’²
+    // ã‚¢ã‚¯ãƒ†ã‚£ãƒ–å¼·èª¿
     if (activeBegin !== void
         || activeEnd !== void) {
       var activeBeginX, activeEndX;
@@ -213,12 +213,12 @@ class KTimeLineTimeLocator extends KVirtualWidget
     }
   }
 
-  // ƒ}ƒEƒXƒ_ƒEƒ“
+  // ãƒã‚¦ã‚¹ãƒ€ã‚¦ãƒ³
   function onMouseDown(x, y, button, shift) {
-    // ƒI[ƒi[‚ªuÄ¶’†v‚ÌƒNƒŠƒbƒN‚È‚çA‘¦À‚ÉÄ¶’â~
+    // ã‚ªãƒ¼ãƒŠãƒ¼ãŒã€Œå†ç”Ÿä¸­ã€ã®ã‚¯ãƒªãƒƒã‚¯ãªã‚‰ã€å³åº§ã«å†ç”Ÿåœæ­¢
     if (owner.playing)
       owner.playing = false;
-    // Shift+¶ƒNƒŠƒbƒN‚ÅƒŒƒ“ƒWƒhƒ‰ƒbƒOŠJn
+    // Shift+å·¦ã‚¯ãƒªãƒƒã‚¯ã§ãƒ¬ãƒ³ã‚¸ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
     if (owner.editable
         && _activeRangeEnabled
         && button == mbLeft
@@ -230,7 +230,7 @@ class KTimeLineTimeLocator extends KVirtualWidget
       activeDragging = true;
       return;
     }
-    // Ctrl+¶ƒNƒŠƒbƒN‚ÅƒtƒŒ[ƒ€ƒhƒ‰ƒbƒOŠJn
+    // Ctrl+å·¦ã‚¯ãƒªãƒƒã‚¯ã§ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
     if (owner.editable
         && button == mbLeft
         && (shift & ssCtrl)) {
@@ -259,14 +259,14 @@ class KTimeLineTimeLocator extends KVirtualWidget
       return;
     }
 
-    // ¶ƒNƒŠƒbƒN‚Åƒhƒ‰ƒbƒOŠJn
+    // å·¦ã‚¯ãƒªãƒƒã‚¯ã§ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
     if (button == mbLeft) {
       owner.selectedTime = int(x / TIMELINE_FRAME_WIDTH);
       owner.resetSelection();
       dragging = true;
       return;
     } 
-    // ‰EƒNƒŠƒbƒN‚ÅƒR[ƒ‹ƒoƒbƒNŠÖ”‚ğƒLƒbƒN
+    // å³ã‚¯ãƒªãƒƒã‚¯ã§ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯é–¢æ•°ã‚’ã‚­ãƒƒã‚¯
     if (owner.editable
         && button == mbRight) {
       owner.selectedTime = int(x / TIMELINE_FRAME_WIDTH);
@@ -276,9 +276,9 @@ class KTimeLineTimeLocator extends KVirtualWidget
     }
   }
 
-  // ƒ}ƒEƒXƒ€[ƒu
+  // ãƒã‚¦ã‚¹ãƒ ãƒ¼ãƒ–
   function onMouseMove(x, y, button, shift) {
-    // ƒtƒŒ[ƒ€ƒhƒ‰ƒbƒO’†‚È‚çAˆ—
+    // ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ‰ãƒ©ãƒƒã‚°ä¸­ãªã‚‰ã€å‡¦ç†
     if (frameDragMoving) {
       owner.selectedTime = int(Math.max(int(x / TIMELINE_FRAME_WIDTH), frameDragMinTime));
       owner.resetSelection();
@@ -309,13 +309,13 @@ class KTimeLineTimeLocator extends KVirtualWidget
       }
       return;
     }
-    // ¶ƒhƒ‰ƒbƒO’†‚È‚çA‘I‘ğ‚ğ•ÏX
+    // å·¦ãƒ‰ãƒ©ãƒƒã‚°ä¸­ãªã‚‰ã€é¸æŠã‚’å¤‰æ›´
     if (dragging) {
       owner.selectedTime = int(x / TIMELINE_FRAME_WIDTH);
       owner.resetSelection();
       return;
     }
-    // ƒAƒNƒeƒBƒuƒŒƒ“ƒWƒhƒ‰ƒbƒO’†‚È‚çAƒAƒNƒeƒBƒuƒŒƒ“ƒW‚ğ•ÏX
+    // ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãƒ¬ãƒ³ã‚¸ãƒ‰ãƒ©ãƒƒã‚°ä¸­ãªã‚‰ã€ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãƒ¬ãƒ³ã‚¸ã‚’å¤‰æ›´
     if (activeDragging) {
       owner.selectedTime = int(x / TIMELINE_FRAME_WIDTH);
       owner.resetSelection();
@@ -327,9 +327,9 @@ class KTimeLineTimeLocator extends KVirtualWidget
     }
   }
 
-  // ƒ}ƒEƒXƒAƒbƒv
+  // ãƒã‚¦ã‚¹ã‚¢ãƒƒãƒ—
   function onMouseUp(x, y, button, shift) {
-    // ƒtƒŒ[ƒ€ƒhƒ‰ƒbƒO‚ğ‰ğœ
+    // ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ‰ãƒ©ãƒƒã‚°ã‚’è§£é™¤
     if (frameDragMoving
         && button == mbLeft) {
       owner.renderAtTimeModification = true;
@@ -340,13 +340,13 @@ class KTimeLineTimeLocator extends KVirtualWidget
       }
       return;
     }
-    // ¶ƒhƒ‰ƒbƒO‚ğ‰ğœ
+    // å·¦ãƒ‰ãƒ©ãƒƒã‚°ã‚’è§£é™¤
     if (dragging
         && button == mbLeft) {
       dragging = false;
       return;
     }
-    // ƒAƒNƒeƒBƒuƒhƒ‰ƒbƒO‚ğ‰ğœ
+    // ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãƒ‰ãƒ©ãƒƒã‚°ã‚’è§£é™¤
     if (activeDragging
         && button == mbLeft) {
       activeDragging = false;
@@ -354,60 +354,60 @@ class KTimeLineTimeLocator extends KVirtualWidget
     }
   }
 
-  // enabled==true‚È‚ç‚»‚Ì‚Ü‚Ü•\¦
+  // enabled==trueãªã‚‰ãã®ã¾ã¾è¡¨ç¤º
   function onNodeEnabled {
     _canvas.opacity = 255;
   } 
 
-  // enabled=false‚È‚ç”¼“§–¾‚Å•\¦
+  // enabled=falseãªã‚‰åŠé€æ˜ã§è¡¨ç¤º
   function onNodeDisabled {
     _canvas.opacity = 64;
   }
 }
 
 /*----------------------------------------------------------------------
- * ƒŒƒCƒ„ƒrƒ…[(“à•”ƒp[ƒc)
+ * ãƒ¬ã‚¤ãƒ¤ãƒ“ãƒ¥ãƒ¼(å†…éƒ¨ãƒ‘ãƒ¼ãƒ„)
  ----------------------------------------------------------------------*/
 class KTimeLineLayerView extends KVirtualWidget
 {
-  // ƒI[ƒi[(ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒRƒ“ƒgƒ[ƒ‹–{‘Ì)
+  // ã‚ªãƒ¼ãƒŠãƒ¼(ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«æœ¬ä½“)
   var owner;
-  // ƒŒƒCƒ„ƒŠƒXƒg‚Ö‚ÌQÆ
+  // ãƒ¬ã‚¤ãƒ¤ãƒªã‚¹ãƒˆã¸ã®å‚ç…§
   var list;
-  // ƒtƒŒ[ƒ€ƒgƒbƒvƒ}[ƒJ[
+  // ãƒ•ãƒ¬ãƒ¼ãƒ ãƒˆãƒƒãƒ—ãƒãƒ¼ã‚«ãƒ¼
   var frameLeftMarkerLayer;
   var frameRightMarkerLayer;
   var oneSecondFrameBgLayer;
   var halfSecondFrameBgLayer;
   var fifthFrameBgLayer;
   var normalFrameBgLayer;
-  // ”jüapp
+  // ç ´ç·šapp
   var dashLineApp;
-  // ƒJ[ƒ\ƒ‹ƒŒƒCƒ„
+  // ã‚«ãƒ¼ã‚½ãƒ«ãƒ¬ã‚¤ãƒ¤
   var cursorLayer;
 
-  // ƒJ[ƒ\ƒ‹ƒL[ƒhƒ‰ƒbƒO
+  // ã‚«ãƒ¼ã‚½ãƒ«ã‚­ãƒ¼ãƒ‰ãƒ©ãƒƒã‚°
   var cursorKeyDragging = false;
   var cursorKeySelectionBeginTime;
   var cursorKeySelectionBeginLayer;
-  // ƒ}ƒEƒXƒhƒ‰ƒbƒO
+  // ãƒã‚¦ã‚¹ãƒ‰ãƒ©ãƒƒã‚°
   var mouseDragging = false;
   var mouseSelectionBeginTime;
   var mouseSelectionBeginLayer;
   var mouseDraggingMoved = false;
 
-  // ƒtƒŒ[ƒ€‹«ŠE‚Ìƒhƒ‰ƒbƒO
-  var boundaryDragMoving;            // ƒhƒ‰ƒbƒO’†
-  var boundaryDragFrameList;         // Œ³ƒtƒŒ[ƒ€ƒŠƒXƒg
-  var boundaryDragFrameIndex;        // ƒhƒ‰ƒbƒOŠJnƒtƒŒ[ƒ€‚ÌƒCƒ“ƒfƒbƒNƒX
-  var boundaryDragTime;              // ƒhƒ‰ƒbƒOŠÔ
-  var boundaryDragLayer;             // ƒhƒ‰ƒbƒOƒŒƒCƒ„
-  var boundaryDragPrevTime;          // ‘O‰ñ‚ÌŠÔ
-  var boundaryDragMinTime;           // ‰ºŒÀ
-  var boundaryDragMoved;             // “®‚¢‚½
-  var boundaryDragSaveLength;        // ’·‚³•Û‘¶
+  // ãƒ•ãƒ¬ãƒ¼ãƒ å¢ƒç•Œã®ãƒ‰ãƒ©ãƒƒã‚°
+  var boundaryDragMoving;            // ãƒ‰ãƒ©ãƒƒã‚°ä¸­
+  var boundaryDragFrameList;         // å…ƒãƒ•ãƒ¬ãƒ¼ãƒ ãƒªã‚¹ãƒˆ
+  var boundaryDragFrameIndex;        // ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹ãƒ•ãƒ¬ãƒ¼ãƒ ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+  var boundaryDragTime;              // ãƒ‰ãƒ©ãƒƒã‚°æ™‚é–“
+  var boundaryDragLayer;             // ãƒ‰ãƒ©ãƒƒã‚°ãƒ¬ã‚¤ãƒ¤
+  var boundaryDragPrevTime;          // å‰å›ã®æ™‚é–“
+  var boundaryDragMinTime;           // ä¸‹é™
+  var boundaryDragMoved;             // å‹•ã„ãŸ
+  var boundaryDragSaveLength;        // é•·ã•ä¿å­˜
 
-  // ”ÍˆÍƒhƒ‰ƒbƒO
+  // ç¯„å›²ãƒ‰ãƒ©ãƒƒã‚°
   var rangeDragMoving;
   var rangeDragTime;
   var rangeDragPrevTime;
@@ -418,7 +418,7 @@ class KTimeLineLayerView extends KVirtualWidget
   var rangeDragLeftList;
   var prevFrame;
 
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   function KTimeLineLayerView(window, owner, name) {
     super.KVirtualWidget(window, name);
     this.owner = owner;
@@ -504,15 +504,15 @@ class KTimeLineLayerView extends KVirtualWidget
     owner.updateCursor();
   }
 
-  // •`‰æ
+  // æç”»
   function onDraw(l, t, w, h) {
-    // ŠÔ’PˆÊ‚Å•`‰æˆ—
+    // æ™‚é–“å˜ä½ã§æç”»å‡¦ç†
     var fromX, toX, fromY, toY;
     fromX = int(l / TIMELINE_FRAME_WIDTH);
     toX = int((l + w + TIMELINE_FRAME_WIDTH - 1) / TIMELINE_FRAME_WIDTH);
     fromY = int(t / TIMELINE_FRAME_HEIGHT);
     toY = int((t + h + TIMELINE_FRAME_HEIGHT - 1) / TIMELINE_FRAME_HEIGHT);
-    // ƒAƒCƒeƒ€’PˆÊ‚ÅƒtƒŒ[ƒ€‚ğ•`‰æ
+    // ã‚¢ã‚¤ãƒ†ãƒ å˜ä½ã§ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æç”»
     for (var y = fromY; y < toY; y++) {
       if (! (list.drawItemList[y] isvalid))
 	continue;
@@ -524,7 +524,7 @@ class KTimeLineLayerView extends KVirtualWidget
    }
   }
 
-  // ‘I‘ğ‚ğ‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©
+  // é¸æŠã‚’ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹
   property hasSelection {
     getter {
       for (var i = 0; i < list.drawItemList.count; i++) {
@@ -537,11 +537,11 @@ class KTimeLineLayerView extends KVirtualWidget
     }
   }    
 
-  // ƒ}ƒEƒXƒI[ƒo[
+  // ãƒã‚¦ã‚¹ã‚ªãƒ¼ãƒãƒ¼
   function onMouseOver(layerItem, frameIndex) {
   }
 
-  // ƒ|ƒCƒ“ƒg‚ª‘I‘ğ”ÍˆÍ“à‚É‚ ‚é‚©‚Ç‚¤‚©”»’è
+  // ãƒã‚¤ãƒ³ãƒˆãŒé¸æŠç¯„å›²å†…ã«ã‚ã‚‹ã‹ã©ã†ã‹åˆ¤å®š
   function isPointInSelection(x, y) {
     var time = int(x / TIMELINE_FRAME_WIDTH);
     var layer = int(y / TIMELINE_FRAME_HEIGHT);
@@ -553,7 +553,7 @@ class KTimeLineLayerView extends KVirtualWidget
       && time < selection[1];
   }
 
-  // ƒ}ƒEƒXƒI[ƒo[ó‘ÔƒAƒbƒvƒf[ƒg
+  // ãƒã‚¦ã‚¹ã‚ªãƒ¼ãƒãƒ¼çŠ¶æ…‹ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
   function updateMouseOver(x, y) {
     var curTime = int(x / TIMELINE_FRAME_WIDTH);
     var curLayer = int(y / TIMELINE_FRAME_HEIGHT);
@@ -577,7 +577,7 @@ class KTimeLineLayerView extends KVirtualWidget
     onMouseOver(void, void);
   }
 
-  // ƒJ[ƒ\ƒ‹‘I‘ğ
+  // ã‚«ãƒ¼ã‚½ãƒ«é¸æŠ
   function updateMouseCursor(x, y) {
     updateMouseOver(...);
     cursor = crDefault;
@@ -615,15 +615,15 @@ class KTimeLineLayerView extends KVirtualWidget
     }
   }
 
-  // ƒ}ƒEƒXƒ_ƒEƒ“
+  // ãƒã‚¦ã‚¹ãƒ€ã‚¦ãƒ³
   function onMouseDown(x, y, button, shift) {
     focus();
 
-    // ƒI[ƒi[‚ªÄ¶’†‚È‚ç‘¦’â~
+    // ã‚ªãƒ¼ãƒŠãƒ¼ãŒå†ç”Ÿä¸­ãªã‚‰å³åœæ­¢
     if (owner.playing)
       owner.playing = false;
 
-    // ‘I‘ğ”ÍˆÍ‚ğƒhƒ‰ƒbƒO‚ÅA”ÍˆÍƒhƒ‰ƒbƒOŠJn
+    // é¸æŠç¯„å›²ã‚’ãƒ‰ãƒ©ãƒƒã‚°ã§ã€ç¯„å›²ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
     if (button == mbLeft
         && (shift & ssCtrl)
         && isPointInSelection(x, y)) {
@@ -659,7 +659,7 @@ class KTimeLineLayerView extends KVirtualWidget
       return;
     }
 
-    // ƒtƒŒ[ƒ€‹«ŠE‚ğƒhƒ‰ƒbƒO‚ÅA‹«ŠEƒhƒ‰ƒbƒOŠJn
+    // ãƒ•ãƒ¬ãƒ¼ãƒ å¢ƒç•Œã‚’ãƒ‰ãƒ©ãƒƒã‚°ã§ã€å¢ƒç•Œãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
     if (button == mbLeft
         && boundaryDragFrameIndex >= 0) {
       var item = list.drawItemList[boundaryDragLayer];
@@ -672,7 +672,7 @@ class KTimeLineLayerView extends KVirtualWidget
       return;
     }                                     
 
-    // ¶ƒNƒŠƒbƒN
+    // å·¦ã‚¯ãƒªãƒƒã‚¯
     if (button == mbLeft) {
       owner.selectedTime = int(x / TIMELINE_FRAME_WIDTH);
       owner.selectedLayer = int(y / TIMELINE_FRAME_HEIGHT);
@@ -687,7 +687,7 @@ class KTimeLineLayerView extends KVirtualWidget
       }
       return;
     }
-    // ‰EƒNƒŠƒbƒN
+    // å³ã‚¯ãƒªãƒƒã‚¯
     if (button == mbRight) {
       if (hasSelection) {
         owner.onTimeLineSelectionRightClick();
@@ -699,9 +699,9 @@ class KTimeLineLayerView extends KVirtualWidget
     }
   }
 
-  // ƒ}ƒEƒXƒ€[ƒu
+  // ãƒã‚¦ã‚¹ãƒ ãƒ¼ãƒ–
   function onMouseMove(x, y, shift) {
-    // ‹«ŠEƒhƒ‰ƒbƒO’†‚È‚ç‚»‚Ìˆ—
+    // å¢ƒç•Œãƒ‰ãƒ©ãƒƒã‚°ä¸­ãªã‚‰ãã®å‡¦ç†
     if (boundaryDragMoving) {
       var item = list.drawItemList[boundaryDragLayer];
       var curTime = int((x + TIMELINE_FRAME_WIDTH / 2) / TIMELINE_FRAME_WIDTH);
@@ -715,10 +715,10 @@ class KTimeLineLayerView extends KVirtualWidget
       return;
     }
 
-    // ƒJ[ƒ\ƒ‹XV
+    // ã‚«ãƒ¼ã‚½ãƒ«æ›´æ–°
     updateMouseCursor(x, y);
 
-    // ”ÍˆÍƒhƒ‰ƒbƒO’†‚È‚ç‘I‘ğ”ÍˆÍˆÚ“®
+    // ç¯„å›²ãƒ‰ãƒ©ãƒƒã‚°ä¸­ãªã‚‰é¸æŠç¯„å›²ç§»å‹•
     if (rangeDragMoving) {
       owner.selectedTime = int(Math.max(int(x / TIMELINE_FRAME_WIDTH), rangeDragMinTime + rangeDragOffset));
       var curTime = owner.selectedTime;
@@ -756,7 +756,7 @@ class KTimeLineLayerView extends KVirtualWidget
       return;
     }
 
-    // ƒ}ƒEƒXƒhƒ‰ƒbƒO’†‚È‚ç‘I‘ğ”ÍˆÍXV
+    // ãƒã‚¦ã‚¹ãƒ‰ãƒ©ãƒƒã‚°ä¸­ãªã‚‰é¸æŠç¯„å›²æ›´æ–°
     if (mouseDragging) {
       var selectionEndTime, selectionEndLayer;
       owner.selectedTime = int(x / TIMELINE_FRAME_WIDTH);
@@ -781,12 +781,12 @@ class KTimeLineLayerView extends KVirtualWidget
     }
   }
 
-  // ƒ}ƒEƒXƒAƒbƒv
+  // ãƒã‚¦ã‚¹ã‚¢ãƒƒãƒ—
   function onMouseUp(x, y, button, shift) {
-    // ‹«ŠEƒhƒ‰ƒbƒOI—¹
+    // å¢ƒç•Œãƒ‰ãƒ©ãƒƒã‚°çµ‚äº†
     if (boundaryDragMoving) {
       boundaryDragMoving = false;
-      // ‹«ŠE‚ğŒ‹‹Ç“®‚©‚µ‚Ä‚È‚¢‚È‚çAƒJ[ƒ\ƒ‹‚ğ‚»‚ÌˆÊ’u‚ÖˆÚ“®
+      // å¢ƒç•Œã‚’çµå±€å‹•ã‹ã—ã¦ãªã„ãªã‚‰ã€ã‚«ãƒ¼ã‚½ãƒ«ã‚’ãã®ä½ç½®ã¸ç§»å‹•
       if (! boundaryDragMoved) {
         owner.selectedTime = int(x / TIMELINE_FRAME_WIDTH);
         owner.selectedLayer = int(y / TIMELINE_FRAME_HEIGHT);
@@ -800,7 +800,7 @@ class KTimeLineLayerView extends KVirtualWidget
       return;
     }
 
-    // ”ÍˆÍƒhƒ‰ƒbƒOI—¹
+    // ç¯„å›²ãƒ‰ãƒ©ãƒƒã‚°çµ‚äº†
     if (rangeDragMoving) {
       rangeDragMoving = false;
       owner.renderAtTimeModification = true;
@@ -817,7 +817,7 @@ class KTimeLineLayerView extends KVirtualWidget
       return;
     }
 
-    // ƒ}ƒEƒXƒhƒ‰ƒbƒOI—¹
+    // ãƒã‚¦ã‚¹ãƒ‰ãƒ©ãƒƒã‚°çµ‚äº†
     if (mouseDragging
         && button == mbLeft) {
       mouseDragging = false;
@@ -1063,25 +1063,25 @@ class KTimeLineLayerView extends KVirtualWidget
     }
   }
 
-  // enabled==true‚È‚ç‚»‚Ì‚Ü‚Ü•\¦
+  // enabled==trueãªã‚‰ãã®ã¾ã¾è¡¨ç¤º
   function onNodeEnabled {
     _canvas.opacity = 255;
   } 
 
-  // enabled=false‚È‚ç”¼“§–¾‚Å•\¦
+  // enabled=falseãªã‚‰åŠé€æ˜ã§è¡¨ç¤º
   function onNodeDisabled {
     _canvas.opacity = 64;
   }
 };
 
 /*----------------------------------------------------------------------
- * ƒŒƒCƒ„ƒŠƒXƒg(“à•”ƒp[ƒc)
+ * ãƒ¬ã‚¤ãƒ¤ãƒªã‚¹ãƒˆ(å†…éƒ¨ãƒ‘ãƒ¼ãƒ„)
  ----------------------------------------------------------------------*/
 class KTimeLineLayerList extends KList
 {
   var owner;
 
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   function KTimeLineLayerList(window, owner, name) {
     super.KList(window, name);
     this.owner = owner;
@@ -1095,13 +1095,13 @@ class KTimeLineLayerList extends KList
     }
   }
 
-  // •`‰æƒCƒxƒ“ƒg‚ğƒI[ƒi[‚É’Ê’m
+  // æç”»ã‚¤ãƒ™ãƒ³ãƒˆã‚’ã‚ªãƒ¼ãƒŠãƒ¼ã«é€šçŸ¥
   function onPaint {
     super.onPaint(...);
     owner.onListModified();
   }
 
-  // ‘I‘ğƒCƒxƒ“ƒg‚ğƒI[ƒi[‚É’Ê’m
+  // é¸æŠã‚¤ãƒ™ãƒ³ãƒˆã‚’ã‚ªãƒ¼ãƒŠãƒ¼ã«é€šçŸ¥
   function onFocusItem() {
     if (owner.playing)
       owner.playing = false;
@@ -1145,103 +1145,103 @@ class KTimeLineLayerList extends KList
 }
 
 /**----------------------------------------------------------------------
- * ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒAƒCƒeƒ€
+ * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚¢ã‚¤ãƒ†ãƒ 
  ----------------------------------------------------------------------*/
 class KTimeLineItem extends KListItem
 {
-  // ƒtƒŒ[ƒ€”z—ñ
+  // ãƒ•ãƒ¬ãƒ¼ãƒ é…åˆ—
   var frameList;
-  // ƒVƒ“ƒOƒ‹ƒtƒŒ[ƒ€•`‰æF
+  // ã‚·ãƒ³ã‚°ãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ æç”»è‰²
   var _singleFrameLeftColor = 0xbfffff;
   var _singleFrameRightColor = 0xbfffff;
-  // ˜A‘±ƒtƒŒ[ƒ€•`‰æF
+  // é€£ç¶šãƒ•ãƒ¬ãƒ¼ãƒ æç”»è‰²
   var _continuousFrameLeftColor = 0xbfffff;
   var _continuousFrameRightColor = 0xbfffff;
-  // •âŠ®ƒtƒŒ[ƒ€•`‰æF
+  // è£œå®Œãƒ•ãƒ¬ãƒ¼ãƒ æç”»è‰²
   var _tweenFrameLeftColor = 0xffbfbf;
   var _tweenFrameRightColor = 0xffbfbf;
-  // ‘I‘ğ”ÍˆÍ
+  // é¸æŠç¯„å›²
   var selection = void;
-  // ƒ}[ƒJ[ƒ}ƒXƒN
+  // ãƒãƒ¼ã‚«ãƒ¼ãƒã‚¹ã‚¯
   var markerMask = TIMELINE_MARKER_MASK_LEFT;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param label ƒ‰ƒxƒ‹
-   * @param name –¼‘O
+   * @param label ãƒ©ãƒ™ãƒ«
+   * @param name åå‰
    *
-   * ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒAƒCƒeƒ€‚ğì¬‚·‚éB
+   * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚¢ã‚¤ãƒ†ãƒ ã‚’ä½œæˆã™ã‚‹ã€‚
    * 
-   * KTimeLineItem ‚Í KListItem ‚ğŠg’£‚µ‚½ƒNƒ‰ƒX‚ÅA
-   * ƒŠƒXƒgƒAƒCƒeƒ€‚Ì‘S‚Ä‚Ì“®ì‚É‰Á‚¦Aƒ^ƒCƒ€ƒ‰ƒCƒ“‚²‚Æ‚ÌƒtƒŒ[ƒ€î•ñ‚ğ
-   * ŠÇ—‚·‚é‹@”\‚ğ‚Á‚Ä‚¢‚éB
+   * KTimeLineItem ã¯ KListItem ã‚’æ‹¡å¼µã—ãŸã‚¯ãƒ©ã‚¹ã§ã€
+   * ãƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ ã®å…¨ã¦ã®å‹•ä½œã«åŠ ãˆã€ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã”ã¨ã®ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’
+   * ç®¡ç†ã™ã‚‹æ©Ÿèƒ½ã‚’æŒã£ã¦ã„ã‚‹ã€‚
    *
-   * ƒtƒŒ[ƒ€‚Í time, type, content ‚Ì4‚Â‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â
-   * ƒIƒuƒWƒFƒNƒg‚Æ‚µ‚Ä’è‹`‚³‚ê‚éBtime‚ÍƒtƒŒ[ƒ€‚ÌŠJnŠÔA
-   * content ‚Íƒ†[ƒU[’è‹`‚ÌƒtƒŒ[ƒ€î•ñ‚Æ‚È‚éB
-   * type ‚ÍƒtƒŒ[ƒ€‚Ìí•ÊBˆÈ‰º‚Ì4í—Ş‚Ì‚Ç‚ê‚©‚Æ‚È‚é
-   * - TIMELINE_FRAME_TYPE_NULL ƒkƒ‹ƒtƒŒ[ƒ€BƒtƒŒ[ƒ€‚ª‘¶İ‚µ‚È‚¢—Ìˆæ‚Æ‚µ‚Äˆµ‚í‚ê‚é
-   * - TIMELINE_FRAME_TYPE_SINGLE ƒVƒ“ƒOƒ‹ƒtƒŒ[ƒ€B1’PˆÊ‚¾‚¯è—L‚·‚é˜A‘±‚µ‚È‚¢ƒtƒŒ[ƒ€
-   * - TIMELINE_FRAME_TYPE_CONTINUOUS  ˜A‘±ƒtƒŒ[ƒ€BŸ‚ÌƒtƒŒ[ƒ€‚Ü‚Å˜A‘±‚·‚é—Ìˆæ‚ğè—L‚·‚éƒtƒŒ[ƒ€B
-   * - TIMELINE_FRAME_TYPE_TWEEN ˜A‘±•âŠ®ƒtƒŒ[ƒ€BŸ‚ÌƒtƒŒ[ƒ€‚Ü‚Å˜A‘±‚·‚é—Ìˆæ‚ğ•âŠ®‚µ‚È‚ª‚ç‚Â‚È‚®ƒtƒŒ[ƒ€B
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã¯ time, type, content ã®4ã¤ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤
+   * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã—ã¦å®šç¾©ã•ã‚Œã‚‹ã€‚timeã¯ãƒ•ãƒ¬ãƒ¼ãƒ ã®é–‹å§‹æ™‚é–“ã€
+   * content ã¯ãƒ¦ãƒ¼ã‚¶ãƒ¼å®šç¾©ã®ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã¨ãªã‚‹ã€‚
+   * type ã¯ãƒ•ãƒ¬ãƒ¼ãƒ ã®ç¨®åˆ¥ã€‚ä»¥ä¸‹ã®4ç¨®é¡ã®ã©ã‚Œã‹ã¨ãªã‚‹
+   * - TIMELINE_FRAME_TYPE_NULL ãƒŒãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ ã€‚ãƒ•ãƒ¬ãƒ¼ãƒ ãŒå­˜åœ¨ã—ãªã„é ˜åŸŸã¨ã—ã¦æ‰±ã‚ã‚Œã‚‹
+   * - TIMELINE_FRAME_TYPE_SINGLE ã‚·ãƒ³ã‚°ãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ ã€‚1å˜ä½ã ã‘å æœ‰ã™ã‚‹é€£ç¶šã—ãªã„ãƒ•ãƒ¬ãƒ¼ãƒ 
+   * - TIMELINE_FRAME_TYPE_CONTINUOUS  é€£ç¶šãƒ•ãƒ¬ãƒ¼ãƒ ã€‚æ¬¡ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã¾ã§é€£ç¶šã™ã‚‹é ˜åŸŸã‚’å æœ‰ã™ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ ã€‚
+   * - TIMELINE_FRAME_TYPE_TWEEN é€£ç¶šè£œå®Œãƒ•ãƒ¬ãƒ¼ãƒ ã€‚æ¬¡ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã¾ã§é€£ç¶šã™ã‚‹é ˜åŸŸã‚’è£œå®Œã—ãªãŒã‚‰ã¤ãªããƒ•ãƒ¬ãƒ¼ãƒ ã€‚
    *
-   * Šù‘¶‚ÌƒtƒŒ[ƒ€‚ğQÆ‚·‚é‚É‚ÍˆÈ‰º‚ÌŠÖ”ŒQ‚ğg‚¤B
-   * QÆ‚µ‚½ƒtƒŒ[ƒ€‚Ì“à—e‚ğ’¼Ú‘‚«Š·‚¦‚é‚±‚Æ‚ÅƒtƒŒ[ƒ€î•ñ‚ğã‘‚«o—ˆ‚é‚ªA
-   * ƒtƒŒ[ƒ€ƒIƒuƒWƒFƒNƒg‚ÍƒtƒŒ[ƒ€‘€ì‚É‚æ‚Á‚Ä•p”É‚ÉXV‚³‚ê‚é‚Ì‚ÅA
-   * QÆ‚µ‚½ƒtƒŒ[ƒ€‚ğ’·ŠÔ‚É“n‚Á‚ÄQÆ‚µ‘±‚¯‚é–‚Í„§‚µ‚È‚¢B
-   * •ÒW‚·‚é“s“xAQÆ‚·‚é‚×‚«‚Å‚ ‚éB
+   * æ—¢å­˜ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‚ç…§ã™ã‚‹ã«ã¯ä»¥ä¸‹ã®é–¢æ•°ç¾¤ã‚’ä½¿ã†ã€‚
+   * å‚ç…§ã—ãŸãƒ•ãƒ¬ãƒ¼ãƒ ã®å†…å®¹ã‚’ç›´æ¥æ›¸ãæ›ãˆã‚‹ã“ã¨ã§ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’ä¸Šæ›¸ãå‡ºæ¥ã‚‹ãŒã€
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯ãƒ•ãƒ¬ãƒ¼ãƒ æ“ä½œã«ã‚ˆã£ã¦é »ç¹ã«æ›´æ–°ã•ã‚Œã‚‹ã®ã§ã€
+   * å‚ç…§ã—ãŸãƒ•ãƒ¬ãƒ¼ãƒ ã‚’é•·æ™‚é–“ã«æ¸¡ã£ã¦å‚ç…§ã—ç¶šã‘ã‚‹äº‹ã¯æ¨å¥¨ã—ãªã„ã€‚
+   * ç·¨é›†ã™ã‚‹éƒ½åº¦ã€å‚ç…§ã™ã‚‹ã¹ãã§ã‚ã‚‹ã€‚
    *
-   * - frameCount ƒtƒŒ[ƒ€”‚ğQÆ‚·‚é
-   * - frameAt(index) ƒtƒŒ[ƒ€‚ğQÆ‚·‚é
-   * - frameLengthAt(index) ƒtƒŒ[ƒ€‚Ì’·‚³‚ğQÆ‚·‚é
-   * - findFrame(time) ŠÔ‚É‘Î‰‚µ‚½ƒtƒŒ[ƒ€‚ÌƒCƒ“ƒfƒbƒNƒX‚ğ“¾‚éB
-   * - lastTime ––”ö‚ÌƒtƒŒ[ƒ€‚ÌŠÔ‚ğ“¾‚é
-   * - getCompleteFrameContent(time) ŠÔ‚É‘Î‰‚µ‚½ƒtƒŒ[ƒ€î•ñ‚ğŒvZ‚·‚é
+   * - frameCount ãƒ•ãƒ¬ãƒ¼ãƒ æ•°ã‚’å‚ç…§ã™ã‚‹
+   * - frameAt(index) ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‚ç…§ã™ã‚‹
+   * - frameLengthAt(index) ãƒ•ãƒ¬ãƒ¼ãƒ ã®é•·ã•ã‚’å‚ç…§ã™ã‚‹
+   * - findFrame(time) æ™‚é–“ã«å¯¾å¿œã—ãŸãƒ•ãƒ¬ãƒ¼ãƒ ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’å¾—ã‚‹ã€‚
+   * - lastTime æœ«å°¾ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ™‚é–“ã‚’å¾—ã‚‹
+   * - getCompleteFrameContent(time) æ™‚é–“ã«å¯¾å¿œã—ãŸãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’è¨ˆç®—ã™ã‚‹
    *
-   * ƒtƒŒ[ƒ€‚ğ‘€ì‚·‚é‚É‚ÍˆÈ‰º‚ÌƒtƒŒ[ƒ€‘€ìŠÖ”ŒQ‚ğg‚¤B
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æ“ä½œã™ã‚‹ã«ã¯ä»¥ä¸‹ã®ãƒ•ãƒ¬ãƒ¼ãƒ æ“ä½œé–¢æ•°ç¾¤ã‚’ä½¿ã†ã€‚
    *
-   * - insertKeyFrame(time, type) ƒL[ƒtƒŒ[ƒ€‚ğ‘}“ü‚·‚éB
-   * - deleteKeyFrame(time)       ƒL[ƒtƒŒ[ƒ€‚ğíœ‚·‚éB
-   * - splitFrame(time)           ƒtƒŒ[ƒ€‚ğ•ªŠ„‚·‚éB
-   * - deleteAllFrame()           ‘S‚Ä‚ÌƒtƒŒ[ƒ€‚ğíœ‚·‚éB
+   * - insertKeyFrame(time, type) ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
+   * - deleteKeyFrame(time)       ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‰Šé™¤ã™ã‚‹ã€‚
+   * - splitFrame(time)           ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’åˆ†å‰²ã™ã‚‹ã€‚
+   * - deleteAllFrame()           å…¨ã¦ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‰Šé™¤ã™ã‚‹ã€‚
    * 
-   * “Á’è‹æŠÔ‚ÌƒtƒŒ[ƒ€‚ğƒRƒsAƒy[ƒXƒg‚·‚é‚É‚ÍˆÈ‰º‚ÌŠÖ”ŒQ‚ğg‚¤
+   * ç‰¹å®šåŒºé–“ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚³ãƒ”ã€ãƒšãƒ¼ã‚¹ãƒˆã™ã‚‹ã«ã¯ä»¥ä¸‹ã®é–¢æ•°ç¾¤ã‚’ä½¿ã†
    *
-   * - copyFrameRange(beginTime, endTime) ƒtƒŒ[ƒ€‚ğƒRƒs[‚·‚é
-   * - cutFrameRange(beginTime, endTime)  ƒtƒŒ[ƒ€‚ğƒJƒbƒg‚·‚é
-   * - pasteFrame(time, frameList)        ƒtƒŒ[ƒ€‚ğƒy[ƒXƒg‚·‚é
+   * - copyFrameRange(beginTime, endTime) ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹
+   * - cutFrameRange(beginTime, endTime)  ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚«ãƒƒãƒˆã™ã‚‹
+   * - pasteFrame(time, frameList)        ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ãƒšãƒ¼ã‚¹ãƒˆã™ã‚‹
    *
-   * ƒtƒŒ[ƒ€‘€ìŠÖ”‚ğŒÄ‚Ô‚ÆA•K—v‚É‰‚¶‚ÄˆÈ‰º‚ÌŠÖ”ŒQ‚ª“à•”“I‚É
-   * ŒÄ‚Ño‚³‚ê‚éBƒ†[ƒU[‚ÍA“KØ‚É‚±‚ê‚ç‚ÌŠÖ”‚ğÀ‘•‚µ‚Ä‚¨‚­•K—v‚ª‚ ‚éB
+   * ãƒ•ãƒ¬ãƒ¼ãƒ æ“ä½œé–¢æ•°ã‚’å‘¼ã¶ã¨ã€å¿…è¦ã«å¿œã˜ã¦ä»¥ä¸‹ã®é–¢æ•°ç¾¤ãŒå†…éƒ¨çš„ã«
+   * å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚ãƒ¦ãƒ¼ã‚¶ãƒ¼ã¯ã€é©åˆ‡ã«ã“ã‚Œã‚‰ã®é–¢æ•°ã‚’å®Ÿè£…ã—ã¦ãŠãå¿…è¦ãŒã‚ã‚‹ã€‚
    *
-   * - tweenFrameContent(fromContent, toContent, ratio) ƒtƒŒ[ƒ€ŠÔ‚Ì•âŠ®‚ğs‚¤B
+   * - tweenFrameContent(fromContent, toContent, ratio) ãƒ•ãƒ¬ãƒ¼ãƒ é–“ã®è£œå®Œã‚’è¡Œã†ã€‚
    *
-   * ƒtƒŒ[ƒ€‚Ì•âŠ®ŒvZ‚ğs‚¤‚½‚ß‚ÉˆÈ‰º‚Ì•âŠ®ŠÖ”‚ª—pˆÓ‚³‚ê‚Ä‚¢‚éB
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã®è£œå®Œè¨ˆç®—ã‚’è¡Œã†ãŸã‚ã«ä»¥ä¸‹ã®è£œå®Œé–¢æ•°ãŒç”¨æ„ã•ã‚Œã¦ã„ã‚‹ã€‚
    *
-   * - tweenIntValue(fromValue, toValue, ratio) ®”‚ğƒŠƒjƒA‚É•âŠ®‚·‚é
+   * - tweenIntValue(fromValue, toValue, ratio) æ•´æ•°ã‚’ãƒªãƒ‹ã‚¢ã«è£œå®Œã™ã‚‹
    *
-   * ‚Ü‚½AƒtƒŒ[ƒ€‚ÌŒ©‚½–Ú‚â‹““®‚ğİ’è‚·‚éˆÈ‰º‚ÌƒvƒƒpƒeƒBŒQ‚ª‘¶İ‚·‚éB
+   * ã¾ãŸã€ãƒ•ãƒ¬ãƒ¼ãƒ ã®è¦‹ãŸç›®ã‚„æŒ™å‹•ã‚’è¨­å®šã™ã‚‹ä»¥ä¸‹ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ç¾¤ãŒå­˜åœ¨ã™ã‚‹ã€‚
    *
-   * - singleFrameColor ƒVƒ“ƒOƒ‹ƒtƒŒ[ƒ€‚ÌBGƒJƒ‰[‚ğİ’è‚·‚é
-   * - continuousFrameColor ˜A‘±ƒtƒŒ[ƒ€‚ÌBGƒJƒ‰[‚ğİ’è‚·‚é
-   * - tweenFrameColor     •âŠ®ƒtƒŒ[ƒ€‚ÌBGƒJƒ‰[‚ğİ’è‚·‚é
+   * - singleFrameColor ã‚·ãƒ³ã‚°ãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ ã®BGã‚«ãƒ©ãƒ¼ã‚’è¨­å®šã™ã‚‹
+   * - continuousFrameColor é€£ç¶šãƒ•ãƒ¬ãƒ¼ãƒ ã®BGã‚«ãƒ©ãƒ¼ã‚’è¨­å®šã™ã‚‹
+   * - tweenFrameColor     è£œå®Œãƒ•ãƒ¬ãƒ¼ãƒ ã®BGã‚«ãƒ©ãƒ¼ã‚’è¨­å®šã™ã‚‹
    *
-   * ƒtƒŒ[ƒ€î•ñ‚ğ•ÏX‚µ‚½‚È‚Ç‚Ì——R‚ÅƒtƒŒ[ƒ€‚ÌÄ•`‰æ‚ª•K—v‚È‚ÍˆÈ‰º‚ÌŠÖ”ŒQ‚ğg‚¤B
+   * ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’å¤‰æ›´ã—ãŸãªã©ã®ç†ç”±ã§ãƒ•ãƒ¬ãƒ¼ãƒ ã®å†æç”»ãŒå¿…è¦ãªæ™‚ã¯ä»¥ä¸‹ã®é–¢æ•°ç¾¤ã‚’ä½¿ã†ã€‚
    *
-   * - redrawFrameRange(fromTime, toTime) w’è”ÍˆÍ‚ÌƒtƒŒ[ƒ€‚ğÄ•`‰æ‚·‚éB
-   * - redrawAllFrame() ‘S‚Ä‚ÌƒtƒŒ[ƒ€‚ğÄ•`‰æ‚·‚éB
+   * - redrawFrameRange(fromTime, toTime) æŒ‡å®šç¯„å›²ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å†æç”»ã™ã‚‹ã€‚
+   * - redrawAllFrame() å…¨ã¦ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å†æç”»ã™ã‚‹ã€‚
    *
-   * •W€‚ÅAˆÈ‰º‚ÌƒVƒŠƒAƒ‰ƒCƒYŠÖ”‚ğ‚ÂB
+   * æ¨™æº–ã§ã€ä»¥ä¸‹ã®ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºé–¢æ•°ã‚’æŒã¤ã€‚
    *
-   * - serialize() ƒAƒCƒeƒ€‚Ì“à—e‚ğƒIƒuƒWƒFƒNƒg‚ÉƒVƒŠƒAƒ‰ƒCƒY‚·‚éB
-   * - unserialize(data) ƒIƒuƒWƒFƒNƒg‚Ì“à—e‚ğƒAƒ“ƒVƒŠƒAƒ‰ƒCƒY‚·‚éB
+   * - serialize() ã‚¢ã‚¤ãƒ†ãƒ ã®å†…å®¹ã‚’ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã™ã‚‹ã€‚
+   * - unserialize(data) ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å†…å®¹ã‚’ã‚¢ãƒ³ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã™ã‚‹ã€‚
    *
-   * ‚Ü‚½A“Á’è‚Ìƒ^ƒCƒ~ƒ“ƒO‚ÅˆÈ‰º‚ÌƒCƒxƒ“ƒgŠÖ”‚ªŒÄ‚Ño‚³‚ê‚é
+   * ã¾ãŸã€ç‰¹å®šã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§ä»¥ä¸‹ã®ã‚¤ãƒ™ãƒ³ãƒˆé–¢æ•°ãŒå‘¼ã³å‡ºã•ã‚Œã‚‹
    *
-   * - onTimeLineRightClick(time) ƒ^ƒCƒ€ƒ‰ƒCƒ“‚ª‰EƒNƒŠƒbƒN‚³‚ê‚é‚ÆŒÄ‚Ño‚³‚ê‚éB
-   * - onTimeLineKeyDown(key, shift) ƒ^ƒCƒ€ƒ‰ƒCƒ“ã‚ÅƒL[‚ª‰Ÿ‚³‚ê‚é‚ÆŒÄ‚Ño‚³‚ê‚éB
-   * - onFrameDragged() ƒtƒŒ[ƒ€‚ªƒhƒ‰ƒbƒO‚³‚ê‚½
+   * - onTimeLineRightClick(time) ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ãŒå³ã‚¯ãƒªãƒƒã‚¯ã•ã‚Œã‚‹ã¨å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚
+   * - onTimeLineKeyDown(key, shift) ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ä¸Šã§ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã¨å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚
+   * - onFrameDragged() ãƒ•ãƒ¬ãƒ¼ãƒ ãŒãƒ‰ãƒ©ãƒƒã‚°ã•ã‚ŒãŸ
    ------------------------------*/
   function KTimeLineItem(label = "", name = "") {
     super.KListItem(label, name);
@@ -1255,9 +1255,9 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ƒtƒŒ[ƒ€”‚ğƒJƒEƒ“ƒg‚·‚é
+   * ãƒ•ãƒ¬ãƒ¼ãƒ æ•°ã‚’ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹
    *
-   * @return ƒtƒŒ[ƒ€”
+   * @return ãƒ•ãƒ¬ãƒ¼ãƒ æ•°
    ------------------------------*/
   property frameCount {
     getter {
@@ -1266,12 +1266,12 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ƒtƒŒ[ƒ€‚ğQÆ‚·‚é
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‚ç…§ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    *
-   * ƒCƒ“ƒfƒbƒNƒX‚É‘Î‰‚·‚éƒtƒŒ[ƒ€‚ğ•Ô‚·B
-   * ƒCƒ“ƒfƒbƒNƒX‚ª–³Œø‚Èê‡‚Ívoid‚ğ•Ô‚·B
+   * ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã«å¯¾å¿œã™ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’è¿”ã™ã€‚
+   * ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãŒç„¡åŠ¹ãªå ´åˆã¯voidã‚’è¿”ã™ã€‚
    ------------------------------*/
   function frameAt(index) {
     if (index < 0
@@ -1282,23 +1282,23 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ŠÔ‚ğ‘Î‰‚µ‚ÄƒtƒŒ[ƒ€‚ğŒŸõ‚·‚é
+   * æ™‚é–“ã‚’å¯¾å¿œã—ã¦ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æ¤œç´¢ã™ã‚‹
    *
-   * @param time ŠÔ
-   * @param includeTail ƒ‰ƒXƒgƒtƒŒ[ƒ€ˆÈ~‚Ì––”ö‚ÌƒXƒy[ƒX‚ğŠÜ‚ß‚ÄŒŸõ‚·‚é‚©‚Ç‚¤‚©
-   * @return ƒCƒ“ƒfƒbƒNƒX
+   * @param time æ™‚é–“
+   * @param includeTail ãƒ©ã‚¹ãƒˆãƒ•ãƒ¬ãƒ¼ãƒ ä»¥é™ã®æœ«å°¾ã®ã‚¹ãƒšãƒ¼ã‚¹ã‚’å«ã‚ã¦æ¤œç´¢ã™ã‚‹ã‹ã©ã†ã‹
+   * @return ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    *
-   * ŠÔ‚É‘Î‰‚·‚éƒtƒŒ[ƒ€‚ÌƒCƒ“ƒfƒbƒNƒX‚ğ•Ô‚·B
-   * ƒtƒŒ[ƒ€‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½‚Í-1‚ğ•Ô‚·B
+   * æ™‚é–“ã«å¯¾å¿œã™ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’è¿”ã™ã€‚
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸæ™‚ã¯-1ã‚’è¿”ã™ã€‚
    ------------------------------*/
   function findFrame(time, includeTail = false) {
     return timeline_find_frame(this.frameList, time, includeTail);
 
-    // C++ƒvƒ‰ƒOƒCƒ“‚ÌƒŠƒtƒ@ƒŒƒ“ƒXÀ‘•
+    // C++ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å®Ÿè£…
     var begin, end, mid;
     begin = 0; end = frameList.count;
 
-    // ––”ö‚¾‚¯“Áêˆ—
+    // æœ«å°¾ã ã‘ç‰¹æ®Šå‡¦ç†
     if (end) {
       if (! includeTail) {
         if (frameList[end - 1].time == time)
@@ -1311,7 +1311,7 @@ class KTimeLineItem extends KListItem
       }
     }
 
-    // “ñ•ªŒŸõ
+    // äºŒåˆ†æ¤œç´¢
     while (begin < end) {
       mid = int((begin + end) / 2);
       var frame = frameList[mid];
@@ -1327,11 +1327,11 @@ class KTimeLineItem extends KListItem
   }  
 
   /**------------------------------
-   * ––”ö‚ÌƒtƒŒ[ƒ€‚ÌI’[ŠÔ‚ğ“¾‚é
+   * æœ«å°¾ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã®çµ‚ç«¯æ™‚é–“ã‚’å¾—ã‚‹
    *
-   * @return I’[ŠÔ
+   * @return çµ‚ç«¯æ™‚é–“
    *
-   * ƒtƒŒ[ƒ€‚ª‘¶İ‚µ‚È‚¢ê‡-1‚ğ•Ô‚·
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ãŒå­˜åœ¨ã—ãªã„å ´åˆ-1ã‚’è¿”ã™
    ------------------------------*/
   property lastTime {
     getter {
@@ -1346,9 +1346,9 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ƒtƒŒ[ƒ€‚Ì’·‚³‚ğæ“¾‚·‚é
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã®é•·ã•ã‚’å–å¾—ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function frameLengthAt(index) {
     if (index < frameList.count - 1)
@@ -1365,15 +1365,15 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ŠÔ‚É‘Î‰‚µ‚½ƒtƒŒ[ƒ€î•ñ‚ğŒvZ‚·‚é
+   * æ™‚é–“ã«å¯¾å¿œã—ãŸãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’è¨ˆç®—ã™ã‚‹
    *
-   * @param time ŠÔ
-   * @return ƒtƒŒ[ƒ€î•ñ
+   * @param time æ™‚é–“
+   * @return ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±
    *
-   * ŠÔ‚É‘Î‰‚µ‚½ƒtƒŒ[ƒ€î•ñ‚ğŒvZ‚µ‚Ä•Ô‚·B
-   * •âŠ®‰Â”\‚ÈƒgƒDƒC[ƒ“ƒtƒŒ[ƒ€‚ª‚ ‚ê‚ÎAƒgƒDƒC[ƒ“‚ğÏ‚Ü‚¹‚½ƒtƒŒ[ƒ€î•ñ‚ğ•Ô‚·B
-   * •âŠ®‰Â”\‚ÈƒtƒŒ[ƒ€‚ª–³‚¯‚ê‚ÎƒL[ƒtƒŒ[ƒ€‚ÌƒtƒŒ[ƒ€î•ñ‚ğ‚»‚Ì‚Ü‚Ü•Ô‚·B
-   * w’èƒ|ƒCƒ“ƒg‚ÉƒtƒŒ[ƒ€‚ª–³‚¯‚ê‚Îvoid‚ğ•Ô‚·
+   * æ™‚é–“ã«å¯¾å¿œã—ãŸãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’è¨ˆç®—ã—ã¦è¿”ã™ã€‚
+   * è£œå®Œå¯èƒ½ãªãƒˆã‚¥ã‚¤ãƒ¼ãƒ³ãƒ•ãƒ¬ãƒ¼ãƒ ãŒã‚ã‚Œã°ã€ãƒˆã‚¥ã‚¤ãƒ¼ãƒ³ã‚’æ¸ˆã¾ã›ãŸãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’è¿”ã™ã€‚
+   * è£œå®Œå¯èƒ½ãªãƒ•ãƒ¬ãƒ¼ãƒ ãŒç„¡ã‘ã‚Œã°ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’ãã®ã¾ã¾è¿”ã™ã€‚
+   * æŒ‡å®šãƒã‚¤ãƒ³ãƒˆã«ãƒ•ãƒ¬ãƒ¼ãƒ ãŒç„¡ã‘ã‚Œã°voidã‚’è¿”ã™
    ------------------------------*/
   function getCompleteFrameContent(time) {
     var frameIndex = findFrame(time);
@@ -1415,16 +1415,16 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ƒtƒŒ[ƒ€‚Ì‘}“ü
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã®æŒ¿å…¥
    *
-   * @param time ŠÔ
-   * @param type ƒ^ƒCƒv
-   * @param content ‰ŠúƒRƒ“ƒeƒ“ƒgB
+   * @param time æ™‚é–“
+   * @param type ã‚¿ã‚¤ãƒ—
+   * @param content åˆæœŸã‚³ãƒ³ãƒ†ãƒ³ãƒˆã€‚
    *
-   * V‹KƒtƒŒ[ƒ€‚ğ‘}“ü‚·‚éB
+   * æ–°è¦ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
    * 
-   * w’è‰ÓŠ‚ÉŠù‘¶‚ÌƒtƒŒ[ƒ€‚ª‚ ‚éê‡‚Íã‘‚«‚·‚éB
-   * ‹óƒtƒŒ[ƒ€‚Ìê‡‚Í content ‚ğ–¾¦“I‚Éw’è‚µ‚Ä‚â‚éB
+   * æŒ‡å®šç®‡æ‰€ã«æ—¢å­˜ã®ãƒ•ãƒ¬ãƒ¼ãƒ ãŒã‚ã‚‹å ´åˆã¯ä¸Šæ›¸ãã™ã‚‹ã€‚
+   * ç©ºãƒ•ãƒ¬ãƒ¼ãƒ ã®å ´åˆã¯ content ã‚’æ˜ç¤ºçš„ã«æŒ‡å®šã—ã¦ã‚„ã‚‹ã€‚
    ------------------------------*/
   function insertKeyFrame(time, type, content = void) {
     var frameIndex = findFrame(time, true);
@@ -1455,12 +1455,12 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ƒtƒŒ[ƒ€‚Ìíœ
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã®å‰Šé™¤
    *
-   * @param time ŠÔ
+   * @param time æ™‚é–“
    *
-   * w’è‰ÓŠ‚É‚ ‚éƒtƒŒ[ƒ€‚ğíœ‚·‚éB
-   * w’è‰ÓŠ‚ÉƒtƒŒ[ƒ€‚ª–³‚¢ê‡‚Í‰½‚à‚µ‚È‚¢B
+   * æŒ‡å®šç®‡æ‰€ã«ã‚ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‰Šé™¤ã™ã‚‹ã€‚
+   * æŒ‡å®šç®‡æ‰€ã«ãƒ•ãƒ¬ãƒ¼ãƒ ãŒç„¡ã„å ´åˆã¯ä½•ã‚‚ã—ãªã„ã€‚
    ------------------------------*/
   function deleteKeyFrame(time) {
     var frameIndex = findFrame(time);
@@ -1473,7 +1473,7 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ‘S‚Ä‚ÌƒtƒŒ[ƒ€‚ğíœ‚·‚é
+   * å…¨ã¦ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‰Šé™¤ã™ã‚‹
    ------------------------------*/
   function deleteAllFrame {
     frameList = [];
@@ -1482,17 +1482,17 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ƒtƒŒ[ƒ€‚ğ•ªŠ„‚·‚é
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’åˆ†å‰²ã™ã‚‹
    *
-   * @param time ŠÔ
+   * @param time æ™‚é–“
    *
-   * ƒtƒŒ[ƒ€‚ğw’èŠÔ‚Å•ªŠ„‚µ‚Ü‚·B
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æŒ‡å®šæ™‚é–“ã§åˆ†å‰²ã—ã¾ã™ã€‚
    *
-   * •ªŠ„‚Ì‘ÎÛ‚É‚È‚é‚Ì‚Í˜A‘±ƒtƒŒ[ƒ€A‚à‚µ‚­‚Í•âŠ®ƒtƒŒ[ƒ€‚Å‚·B
+   * åˆ†å‰²ã®å¯¾è±¡ã«ãªã‚‹ã®ã¯é€£ç¶šãƒ•ãƒ¬ãƒ¼ãƒ ã€ã‚‚ã—ãã¯è£œå®Œãƒ•ãƒ¬ãƒ¼ãƒ ã§ã™ã€‚
    *
-   * ––”ö‚Å‘¼‚ÌƒtƒŒ[ƒ€‚Æ—×Ú‚µ‚Ä‚¢‚é•âŠ®ƒtƒŒ[ƒ€‚ÍA
-   * splitTweenFrame()ŠÖ”‚ğg‚Á‚Ä•ªŠ„‚³‚ê‚éB
-   * ‚»‚êˆÈŠO‚ÌƒtƒŒ[ƒ€‚Í splitContinuousFrame()ŠÖ”‚ğg‚Á‚Ä•ªŠ„‚³‚ê‚éB
+   * æœ«å°¾ã§ä»–ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã¨éš£æ¥ã—ã¦ã„ã‚‹è£œå®Œãƒ•ãƒ¬ãƒ¼ãƒ ã¯ã€
+   * splitTweenFrame()é–¢æ•°ã‚’ä½¿ã£ã¦åˆ†å‰²ã•ã‚Œã‚‹ã€‚
+   * ãã‚Œä»¥å¤–ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã¯ splitContinuousFrame()é–¢æ•°ã‚’ä½¿ã£ã¦åˆ†å‰²ã•ã‚Œã‚‹ã€‚
    ------------------------------*/
   function splitFrame(time) {
     var frameIndex = findFrame(time);
@@ -1532,31 +1532,31 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   *  ƒtƒŒ[ƒ€î•ñ‚ğ•âŠ®‚·‚é
+   *  ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’è£œå®Œã™ã‚‹
    *
-   * @param  fromContent •âŠ®Œ³ƒtƒŒ[ƒ€î•ñ
-   * @param  toContent •âŠ®æƒtƒŒ[ƒ€î•ñ
-   * @param  ratio ”ä—¦ (0.0`1.0)
-   * @return •âŠ®Ï‚İƒtƒŒ[ƒ€î•ñ
+   * @param  fromContent è£œå®Œå…ƒãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±
+   * @param  toContent è£œå®Œå…ˆãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±
+   * @param  ratio æ¯”ç‡ (0.0ã€œ1.0)
+   * @return è£œå®Œæ¸ˆã¿ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±
    *
-   * ƒtƒŒ[ƒ€î•ñ‚ğ•âŠ®‚µ‚ÄAV‚½‚ÈƒtƒŒ[ƒ€î•ñ‚ğ•Ô‚·B
+   * ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’è£œå®Œã—ã¦ã€æ–°ãŸãªãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’è¿”ã™ã€‚
    *
-   * ƒtƒŒ[ƒ€î•ñ‚Íƒ†[ƒU[’è‹`‚Ì”CˆÓ‚Ìƒf[ƒ^‚È‚Ì‚ÅA
-   * ”h¶ƒNƒ‰ƒX‚Å•K—v‚É‰‚¶‚Ä“KØ‚ÉÀ‘•‚·‚é•K—v‚ª‚ ‚éB
+   * ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã¯ãƒ¦ãƒ¼ã‚¶ãƒ¼å®šç¾©ã®ä»»æ„ã®ãƒ‡ãƒ¼ã‚¿ãªã®ã§ã€
+   * æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§å¿…è¦ã«å¿œã˜ã¦é©åˆ‡ã«å®Ÿè£…ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
    *
-   * ƒfƒtƒHƒ‹ƒgÀ‘•‚Å‚Ívoid‚ğ•Ô‚·B
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå®Ÿè£…ã§ã¯voidã‚’è¿”ã™ã€‚
    ------------------------------*/
   function tweenFrameContent(fromContent, toContent, ratio) {
     return void;
   }
 
   /**------------------------------
-   * ƒVƒ“ƒOƒ‹ƒtƒŒ[ƒ€ƒJƒ‰[
+   * ã‚·ãƒ³ã‚°ãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ãƒ©ãƒ¼
    *
-   * @param v ƒVƒ“ƒOƒ‹ƒtƒŒ[ƒ€ƒJƒ‰[
-   * @return ƒVƒ“ƒOƒ‹ƒtƒŒ[ƒ€ƒJƒ‰[
+   * @param v ã‚·ãƒ³ã‚°ãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ãƒ©ãƒ¼
+   * @return ã‚·ãƒ³ã‚°ãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ãƒ©ãƒ¼
    *
-   * ƒVƒ“ƒOƒ‹ƒtƒŒ[ƒ€‚ÌƒJƒ‰[‚ğİ’è‚·‚é
+   * ã‚·ãƒ³ã‚°ãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ ã®ã‚«ãƒ©ãƒ¼ã‚’è¨­å®šã™ã‚‹
    ------------------------------*/
   property singleFrameColor {
     getter {
@@ -1587,12 +1587,12 @@ class KTimeLineItem extends KListItem
   }
   
   /**------------------------------
-   *  ˜A‘±ƒtƒŒ[ƒ€ƒJƒ‰[
+   *  é€£ç¶šãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ãƒ©ãƒ¼
    * 
-   * @param v ˜A‘±ƒtƒŒ[ƒ€ƒJƒ‰[
-   * @return ˜A‘±ƒtƒŒ[ƒ€ƒJƒ‰[
+   * @param v é€£ç¶šãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ãƒ©ãƒ¼
+   * @return é€£ç¶šãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ãƒ©ãƒ¼
    * 
-   * ˜A‘±ƒtƒŒ[ƒ€‚ÌƒJƒ‰[‚ğİ’è‚·‚é
+   * é€£ç¶šãƒ•ãƒ¬ãƒ¼ãƒ ã®ã‚«ãƒ©ãƒ¼ã‚’è¨­å®šã™ã‚‹
    ------------------------------*/
   property continuousFrameColor {
     getter {
@@ -1623,12 +1623,12 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   *  •âŠ®ƒtƒŒ[ƒ€ƒJƒ‰[
+   *  è£œå®Œãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ãƒ©ãƒ¼
    * 
-   * @param v •âŠ®ƒtƒŒ[ƒ€ƒJƒ‰[
-   * @return •âŠ®ƒtƒŒ[ƒ€ƒJƒ‰[
+   * @param v è£œå®Œãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ãƒ©ãƒ¼
+   * @return è£œå®Œãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ãƒ©ãƒ¼
    * 
-   * •âŠ®ƒtƒŒ[ƒ€‚ÌƒJƒ‰[‚ğİ’è‚·‚é
+   * è£œå®Œãƒ•ãƒ¬ãƒ¼ãƒ ã®ã‚«ãƒ©ãƒ¼ã‚’è¨­å®šã™ã‚‹
    ------------------------------*/
   property tweenFrameColor {
     getter {
@@ -1659,10 +1659,10 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ƒtƒŒ[ƒ€‚ğÄ•`‰æ‚·‚é
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å†æç”»ã™ã‚‹
    *
-   * @param fromTime n“_
-   * @param toTime I“_
+   * @param fromTime å§‹ç‚¹
+   * @param toTime çµ‚ç‚¹
    ------------------------------*/
   function redrawFrameRange(fromTime, toTime) {
     if (visible)
@@ -1670,18 +1670,18 @@ class KTimeLineItem extends KListItem
   }    
 
   /**------------------------------
-   * ‘SƒtƒŒ[ƒ€‚ğÄ•`‰æ‚·‚é
+   * å…¨ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å†æç”»ã™ã‚‹
    ------------------------------*/
   function redrawAllFrame {
     redrawFrameRange(0, Math.ceil(root.owner._layerView.width / TIMELINE_FRAME_WIDTH));
   }
 
   /**------------------------------
-   * ƒVƒŠƒAƒ‰ƒCƒY
+   * ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚º
    *
-   * @return ƒVƒŠƒAƒ‰ƒCƒY‚µ‚½ƒIƒuƒWƒFƒNƒg
+   * @return ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
    * 
-   * ƒAƒCƒeƒ€‚Ì“à—e‚ğƒVƒŠƒAƒ‰ƒCƒY‚·‚éB
+   * ã‚¢ã‚¤ãƒ†ãƒ ã®å†…å®¹ã‚’ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã™ã‚‹ã€‚
    ------------------------------*/
   function serialize {
     var data = %[ className: className,
@@ -1695,12 +1695,12 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ƒAƒ“ƒVƒŠƒAƒ‰ƒCƒY
+   * ã‚¢ãƒ³ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚º
    *
-   * @param data ƒVƒŠƒAƒ‰ƒCƒY‚µ‚½ƒIƒuƒWƒFƒNƒg
+   * @param data ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
    *
-   * ƒAƒCƒeƒ€‚Ì“à—e‚ğƒAƒ“ƒVƒŠƒAƒ‰ƒCƒY‚·‚éB
-   * ƒVƒŠƒAƒ‰ƒCƒY‚µ‚½“à—e‚ÉqƒŒƒCƒ„‚ªŠÜ‚Ü‚ê‚Ä‚¢‚½‚çA©“®“I‚ÉqƒŒƒCƒ„‚à•œŒ³‚·‚éB
+   * ã‚¢ã‚¤ãƒ†ãƒ ã®å†…å®¹ã‚’ã‚¢ãƒ³ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã™ã‚‹ã€‚
+   * ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã—ãŸå†…å®¹ã«å­ãƒ¬ã‚¤ãƒ¤ãŒå«ã¾ã‚Œã¦ã„ãŸã‚‰ã€è‡ªå‹•çš„ã«å­ãƒ¬ã‚¤ãƒ¤ã‚‚å¾©å…ƒã™ã‚‹ã€‚
    ------------------------------*/
   function unserialize(data) {
     var prevLastTime = lastTime;
@@ -1719,7 +1719,7 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ƒtƒŒ[ƒ€ƒŠƒXƒg‚ğXV‚·‚é
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ãƒªã‚¹ãƒˆã‚’æ›´æ–°ã™ã‚‹
    ------------------------------*/
   function updateFrameList(newFrameList) {
     var prevLastTime = lastTime;
@@ -1730,11 +1730,11 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * w’è‚Ì”ÍˆÍ‚ÌƒtƒŒ[ƒ€î•ñ‚ğƒRƒs[‚·‚é
+   * æŒ‡å®šã®ç¯„å›²ã®ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹
    *
-   * @param beginTime ŠJnŠÔ
-   * @param endTime   I’[ŠÔ
-   * @return ƒRƒs[‚µ‚½ƒtƒŒ[ƒ€î•ñ
+   * @param beginTime é–‹å§‹æ™‚é–“
+   * @param endTime   çµ‚ç«¯æ™‚é–“
+   * @return ã‚³ãƒ”ãƒ¼ã—ãŸãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±
    ------------------------------*/
   function copyFrameRange(beginTime, endTime) {
     var result = [];
@@ -1751,15 +1751,15 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * w’è‚Ì”ÍˆÍ‚ÌƒtƒŒ[ƒ€î•ñ‚ğƒJƒbƒg‚·‚é
+   * æŒ‡å®šã®ç¯„å›²ã®ãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’ã‚«ãƒƒãƒˆã™ã‚‹
    *
-   * @param beginTime ŠJnŠÔ
-   * @param endTime   I’[ŠÔ
-   * @return ƒJƒbƒg‚µ‚½ƒtƒŒ[ƒ€î•ñ
+   * @param beginTime é–‹å§‹æ™‚é–“
+   * @param endTime   çµ‚ç«¯æ™‚é–“
+   * @return ã‚«ãƒƒãƒˆã—ãŸãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±
    ------------------------------*/
   function cutFrameRange(beginTime, endTime) {
     var result = copyFrameRange(beginTime, endTime);
-    // ”ÍˆÍ“à‚É‚ ‚éƒtƒŒ[ƒ€‚ğ‚Ğ‚Æ‚Ü‚¸íœ
+    // ç¯„å›²å†…ã«ã‚ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã²ã¨ã¾ãšå‰Šé™¤
     for (var i = 0; i < frameList.count; i++) {
       var frame = frameList[i];
       if (beginTime <= frame.time
@@ -1775,19 +1775,19 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ƒRƒs[‚µ‚½ƒtƒŒ[ƒ€î•ñ‚ğƒy[ƒXƒg‚·‚é
+   * ã‚³ãƒ”ãƒ¼ã—ãŸãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±ã‚’ãƒšãƒ¼ã‚¹ãƒˆã™ã‚‹
    *
-   * @param time ƒy[ƒXƒg‚·‚éŠÔ
-   * @param frameList ƒRƒs[‚µ‚½ƒtƒŒ[ƒ€î•ñ
+   * @param time ãƒšãƒ¼ã‚¹ãƒˆã™ã‚‹æ™‚é–“
+   * @param frameList ã‚³ãƒ”ãƒ¼ã—ãŸãƒ•ãƒ¬ãƒ¼ãƒ æƒ…å ±
    ------------------------------*/
   function pasteFrame(time, copyFrameList) {
-    // ƒŠƒXƒg‚ª‹ó‚È‚ç‚»‚Ì‚Ü‚ÜB
+    // ãƒªã‚¹ãƒˆãŒç©ºãªã‚‰ãã®ã¾ã¾ã€‚
     if (copyFrameList.count == 0)
       return;
     var beginTime, endTime;
     beginTime = time + copyFrameList[0].time;
     endTime = time + copyFrameList[-1].time + 1;
-    // ”ÍˆÍ“à‚É‚ ‚éƒtƒŒ[ƒ€‚ğ‚Ğ‚Æ‚Ü‚¸íœ
+    // ç¯„å›²å†…ã«ã‚ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã²ã¨ã¾ãšå‰Šé™¤
     for (var i = 0; i < frameList.count; i++) {
       var frame = frameList[i];
       if (beginTime <= frame.time
@@ -1796,7 +1796,7 @@ class KTimeLineItem extends KListItem
         i--;
       }
     }
-    // ‘}“ü‰Â”\ˆÊ’u‚ÉƒtƒŒ[ƒ€‚ğ‘S‚Ä‘}“ü
+    // æŒ¿å…¥å¯èƒ½ä½ç½®ã«ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å…¨ã¦æŒ¿å…¥
     var insertIndex;
     for (insertIndex = 0; insertIndex < frameList.count; insertIndex++)
       if (frameList[insertIndex].time >= endTime)
@@ -1812,41 +1812,41 @@ class KTimeLineItem extends KListItem
   }
 
   /**------------------------------
-   * ƒ^ƒCƒ€ƒ‰ƒCƒ“‚ª‰EƒNƒŠƒbƒN‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ãŒå³ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param fromTime ‘I‘ğ”ÍˆÍEŠJnŠÔ
-   * @param toTime ‘I‘ğ”ÍˆÍEI—¹ŠÔ
+   * @param fromTime é¸æŠç¯„å›²ãƒ»é–‹å§‹æ™‚é–“
+   * @param toTime é¸æŠç¯„å›²ãƒ»çµ‚äº†æ™‚é–“
    ------------------------------*/
   function onTimeLineRightClick(fromTime, toTime) {
   }
 
   /**------------------------------
-   * ƒ^ƒCƒ€ƒ‰ƒCƒ“ã‚ÅƒL[‚ª‰Ÿ‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ä¸Šã§ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param key ‰¼‘zƒL[ƒR[ƒh
-   * @param shift ƒVƒtƒgƒL[‚Ì˜_—˜a
+   * @param key ä»®æƒ³ã‚­ãƒ¼ã‚³ãƒ¼ãƒ‰
+   * @param shift ã‚·ãƒ•ãƒˆã‚­ãƒ¼ã®è«–ç†å’Œ
    ------------------------------*/
   function onTimeLineKeyDown(key, shift) {
   }
 
   /*------------------------------
-   * ƒtƒŒ[ƒ€‚ªƒhƒ‰ƒbƒO‚³‚ê‚½
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ãŒãƒ‰ãƒ©ãƒƒã‚°ã•ã‚ŒãŸ
    ------------------------------*/
   function onFrameDragged {
   }
 
-  // •s—v‚Èƒkƒ‹ƒtƒŒ[ƒ€‚ğíœ‚·‚é
+  // ä¸è¦ãªãƒŒãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‰Šé™¤ã™ã‚‹
   function invalidateNullFrame {
     ktimeline_invalidate_null_frame(frameList);
   }
 
-  // ’l‚Ì•âŠ®
+  // å€¤ã®è£œå®Œ
   function tweenIntValue(fromValue, toValue, ratio) {
     return int(fromValue * (1 - ratio) + toValue * ratio);
   }
 
 
-  // ‘I‘ğ”ÍˆÍ‚ğİ’è‚·‚é
+  // é¸æŠç¯„å›²ã‚’è¨­å®šã™ã‚‹
   function setSelection(headTime, tailTime, dragging = false) {
     var prevSelection = selection;
     selection = [ headTime, tailTime, dragging ];
@@ -1854,7 +1854,7 @@ class KTimeLineItem extends KListItem
     drawSelection(selection);
   }
 
-  // ‘I‘ğ”ÍˆÍ‚ğŠg’£‚·‚é
+  // é¸æŠç¯„å›²ã‚’æ‹¡å¼µã™ã‚‹
   function expandSelection(headTime, tailTime, dragging = false) {
     if (selection == void)
       setSelection(...);
@@ -1864,7 +1864,7 @@ class KTimeLineItem extends KListItem
 		   dragging);
   }
 
-  // ‘I‘ğ”ÍˆÍ‚ğ‰ğœ‚·‚é
+  // é¸æŠç¯„å›²ã‚’è§£é™¤ã™ã‚‹
   function releaseSelection {
     var prevSelection = selection;
     selection = void;
@@ -1872,14 +1872,14 @@ class KTimeLineItem extends KListItem
     drawSelection(selection);
   }
 
-  // ‘I‘ğ”ÍˆÍ‚ğ‚Á‚Ä‚¢‚é‚©
+  // é¸æŠç¯„å›²ã‚’æŒã£ã¦ã„ã‚‹ã‹
   property hasSelection {
     getter {
       return selection !== void;
     }
   }
 
-  // ‘I‘ğ”ÍˆÍ‚ğ•`‰æ‚·‚é
+  // é¸æŠç¯„å›²ã‚’æç”»ã™ã‚‹
   function drawSelection(aSelection) {
     if (aSelection === void)
       return;
@@ -1891,12 +1891,12 @@ class KTimeLineItem extends KListItem
                                  TIMELINE_FRAME_HEIGHT);
   }
 
-  // BG‚ğ•`‰æ‚·‚é
+  // BGã‚’æç”»ã™ã‚‹
   function drawBg(view, y, fromTime, toTime) {
     timeline_draw_bg(this, view, y, fromTime, toTime);
     return;
 
-    // ƒoƒbƒNƒOƒ‰ƒEƒ“ƒh‚ğ•`‰æ
+    // ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã‚’æç”»
     for (var time = fromTime; time < toTime; time ++) {
       var x = time * TIMELINE_FRAME_WIDTH;
       var layer;
@@ -1913,12 +1913,12 @@ class KTimeLineItem extends KListItem
     }
   }
 
-  // ƒtƒŒ[ƒ€‚ğ•`‰æ‚·‚é
+  // ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æç”»ã™ã‚‹
   function drawFrame(view, y, frame, length) {
     timeline_draw_frame(this, view, y, frame, length, markerMask);
     return;
 
-    // C++ƒŠƒtƒ@ƒŒƒ“ƒXÀ‘•
+    // C++ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å®Ÿè£…
     switch (frame.type) {
     case TIMELINE_FRAME_TYPE_NULL:
       drawBg(view, y, frame.time, frame.time + length);
@@ -1939,7 +1939,7 @@ class KTimeLineItem extends KListItem
       }
       leftColor = leftColor | 0xFF000000;
       rightColor = rightColor | 0xFF000000;
-      // BG•`‰æ
+      // BGæç”»
       view.fillRect((frame.time + length) * TIMELINE_FRAME_WIDTH - 1, y, 1, TIMELINE_FRAME_HEIGHT, WIN_DARKEN2);
       view.fillRect(frame.time * TIMELINE_FRAME_WIDTH, y + TIMELINE_FRAME_HEIGHT - 1, length * TIMELINE_FRAME_WIDTH, 1, WIN_DARKEN2);
       view.fillGradientRectLR(frame.time * TIMELINE_FRAME_WIDTH, y,
@@ -1950,15 +1950,15 @@ class KTimeLineItem extends KListItem
       var rightMarker = markerMask & TIMELINE_MARKER_MASK_RIGHT;
       if (rightMarker && leftMarker && length == 1)
         rightMarker = false;
-      // ¶ƒ}[ƒJ[•`‰æ
+      // å·¦ãƒãƒ¼ã‚«ãƒ¼æç”»
       if (leftMarker)
         view.operateRect(frame.time * TIMELINE_FRAME_WIDTH, y, 
                          view.frameLeftMarkerLayer, 0, 0, view.frameLeftMarkerLayer.width, view.frameLeftMarkerLayer.height);
-      // ‰Eƒ}[ƒJ[•`‰æ
+      // å³ãƒãƒ¼ã‚«ãƒ¼æç”»
       if (rightMarker)
         view.operateRect((frame.time + length) * TIMELINE_FRAME_WIDTH - view.frameRightMarkerLayer.width, y, 
                          view.frameRightMarkerLayer, 0, 0, view.frameRightMarkerLayer.width, view.frameRightMarkerLayer.height);
-      // ƒgƒDƒC[ƒ“‚Ì”jü•`‰æ
+      // ãƒˆã‚¥ã‚¤ãƒ¼ãƒ³ã®ç ´ç·šæç”»
       var fromTime = frame.time + (leftMarker ? 1 : 0), toTime = frame.time + length - (rightMarker ? 1 : 0);
       if (frame.type == TIMELINE_FRAME_TYPE_TWEEN) {
         if (view.dashLineApp !== void) {
@@ -1970,7 +1970,7 @@ class KTimeLineItem extends KListItem
           }
         }
       }
-      // ƒtƒŒ[ƒ€”•`‰æ
+      // ãƒ•ãƒ¬ãƒ¼ãƒ æ•°æç”»
       if (length > 2) {
         view.canvas.fontHeight = TIMELINE_FRAME_HEIGHT - 4;
         var text = string(length);
@@ -1989,19 +1989,19 @@ class KTimeLineItem extends KListItem
     }
   }
 
-  // ƒ^ƒCƒ€ƒ‰ƒCƒ“‚ğ•`‰æ‚·‚é
+  // ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚’æç”»ã™ã‚‹
   function drawTimeLine(view, fromTime, toTime) {
     timeline_draw_timeline(this, view, fromTime, toTime);
     return;
 
-    // ˆÈ‰ºAC++ƒŠƒtƒ@ƒŒƒ“ƒXÀ‘•B
+    // ä»¥ä¸‹ã€C++ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å®Ÿè£…ã€‚
     
-    // •`‰æ”ÍˆÍ‚ğŠm’è
+    // æç”»ç¯„å›²ã‚’ç¢ºå®š
     var y = layer.top;
     var fromFrame = findFrame(fromTime, true);
     var toFrame = findFrame(toTime, true);
 
-    // ƒoƒbƒNƒOƒ‰ƒEƒ“ƒh‚ğ•`‰æ
+    // ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã‚’æç”»
     if (fromFrame < 0 && toFrame < 0) {
       drawBg(view, y, fromTime, toTime);
     } else {
@@ -2011,7 +2011,7 @@ class KTimeLineItem extends KListItem
         drawBg(view, y, frameList[-1].time, toTime);
     }
 
-    // ƒtƒŒ[ƒ€‚ğ•`‰æ
+    // ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æç”»
     for (var i = fromFrame; i <= toFrame; i++) {
       if (i == -1)
         continue;
@@ -2027,19 +2027,19 @@ class KTimeLineItem extends KListItem
         drawFrame(view, y, frame, tailTime - headTime);
       }
     }
-    // ‘I‘ğ”ÍˆÍ•`‰æ
+    // é¸æŠç¯„å›²æç”»
     if (selection !== void)
       view.colorRect(selection[0] * TIMELINE_FRAME_WIDTH, y, (selection[1] - selection[0]) * TIMELINE_FRAME_WIDTH, TIMELINE_FRAME_HEIGHT, selection[2] ? 0xFF0000 : 0, 128);
   }
 
-  // V‹KƒtƒŒ[ƒ€‚ğì¬‚µ‚Ä•Ô‚·
+  // æ–°è¦ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ä½œæˆã—ã¦è¿”ã™
   function createNewFrame(time, type, content) {
     return %[ time: time,
               type: type,
               content: content ];
   }
 
-  // ˜A‘±ƒtƒŒ[ƒ€‚ğ2‚Â‚É•ªŠ„‚·‚é
+  // é€£ç¶šãƒ•ãƒ¬ãƒ¼ãƒ ã‚’2ã¤ã«åˆ†å‰²ã™ã‚‹
   function splitContinuousFrame(fromFrame, splitTime) {
     var result = [];
     result[0] = duplicateStruct(fromFrame);
@@ -2047,7 +2047,7 @@ class KTimeLineItem extends KListItem
     return result;
   }
 
-  // •âŠ®ƒtƒŒ[ƒ€‚ğ2‚Â‚É•ªŠ„‚·‚é
+  // è£œå®Œãƒ•ãƒ¬ãƒ¼ãƒ ã‚’2ã¤ã«åˆ†å‰²ã™ã‚‹
   function splitTweenFrame(fromFrame, toFrame, splitTime) {
     var result = []; 
     result[0] = duplicateStruct(fromFrame);
@@ -2055,7 +2055,7 @@ class KTimeLineItem extends KListItem
     return result;
   }
 
-  // w’èŠÔ‚Ì¶‘¤‚É‚ ‚éƒtƒŒ[ƒ€‚Ì”
+  // æŒ‡å®šæ™‚é–“ã®å·¦å´ã«ã‚ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ•°
   function leftSideFrameNum(time) {
     var count = 0;
 
@@ -2072,7 +2072,7 @@ class KTimeLineItem extends KListItem
     return count;
   }
   
-  // w’èŠÔ‚Ì¶‘¤‚É‚ ‚éƒtƒŒ[ƒ€‚ğƒ}ƒbƒsƒ“ƒO
+  // æŒ‡å®šæ™‚é–“ã®å·¦å´ã«ã‚ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ãƒãƒƒãƒ”ãƒ³ã‚°
   function mapLeftSideFrame(time, map) {
     for (var i = 0; i < frameList.count; i++) {
       if (frameList[i].time > time)
@@ -2083,32 +2083,32 @@ class KTimeLineItem extends KListItem
     }
   }
   
-  // ƒtƒŒ[ƒ€‚ğˆÚ“®‚·‚é
+  // ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ç§»å‹•ã™ã‚‹
   function moveFrame(fromTime, toTime, saveLength = false, render = true) {
     if (fromTime == toTime)
       ;
-    // ¶‚ÖˆÚ“®(”z—ñ‚É‚æ‚éw’è)
+    // å·¦ã¸ç§»å‹•(é…åˆ—ã«ã‚ˆã‚‹æŒ‡å®š)
     if (typeof(fromTime) == "Object") {
-      // ŠÔw’è‚ª”z—ñ‚Å—ˆ‚½ê‡‚Ì‘Î‰
+      // æ™‚é–“æŒ‡å®šãŒé…åˆ—ã§æ¥ãŸå ´åˆã®å¯¾å¿œ
       var leftIndex = 0;
       for (var i = 0; i < frameList.count; i++) {
         var frame = frameList[i];
-        // •Ï‰»‚µ‚½ŠÔˆÈ‘O‚È‚çA‚¢‚¶‚ç‚È‚¢B
+        // å¤‰åŒ–ã—ãŸæ™‚é–“ä»¥å‰ãªã‚‰ã€ã„ã˜ã‚‰ãªã„ã€‚
         if (frame.time < fromTime[leftIndex]) {
           ;
         }
-        // •Ï‰»‚µ‚½ŠÔˆÈ~‚È‚çA’¼ÚƒVƒtƒg‚µ‚ÄI‚í‚è
+        // å¤‰åŒ–ã—ãŸæ™‚é–“ä»¥é™ãªã‚‰ã€ç›´æ¥ã‚·ãƒ•ãƒˆã—ã¦çµ‚ã‚ã‚Š
         else if (frame.time >= fromTime[-1]) {
           frame.time += - fromTime[-1] + toTime[-1];
         } 
-        // ŠÔw’è”z—ñ‚Ìindex‚ğAŒ»İƒtƒŒ[ƒ€‚ÌŠÔ‚ª”ÍˆÍ“à‚É“ü‚é‚Ü‚Åi‚ß‚é
+        // æ™‚é–“æŒ‡å®šé…åˆ—ã®indexã‚’ã€ç¾åœ¨ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ™‚é–“ãŒç¯„å›²å†…ã«å…¥ã‚‹ã¾ã§é€²ã‚ã‚‹
         else {
           while (frame.time >= fromTime[leftIndex + 1])
             leftIndex++;
-          // ŠÔ‚ğXV
+          // æ™‚é–“ã‚’æ›´æ–°
           frame.time += -fromTime[leftIndex] + toTime[leftIndex];
         }
-        // ’¼‘O‚ÌƒtƒŒ[ƒ€‚ªƒAƒŒ‚¾‚Á‚½‚çíœ
+        // ç›´å‰ã®ãƒ•ãƒ¬ãƒ¼ãƒ ãŒã‚¢ãƒ¬ã ã£ãŸã‚‰å‰Šé™¤
         if (i > 0
             && frameList[i - 1].time >= frameList[i].time) {
           frameList.erase(i - 1);
@@ -2116,7 +2116,7 @@ class KTimeLineItem extends KListItem
         }
       }
     }
-    // ¶‚ÖˆÚ“®
+    // å·¦ã¸ç§»å‹•
     else if (toTime < fromTime) {
       var curFrame = frameAt(findFrame(fromTime, true));
       
@@ -2143,7 +2143,7 @@ class KTimeLineItem extends KListItem
           }
         }
       }
-    // ‰E‚ÖˆÚ“®
+    // å³ã¸ç§»å‹•
     } else {
       for (var i = 0; i < frameList.count; i++) {
         var frame = frameList[i];
@@ -2176,21 +2176,21 @@ class KTimeLineItem extends KListItem
 };
 
 /**----------------------------------------------------------------------
- * ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒ‹[ƒvİ’èƒAƒCƒeƒ€
+ * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—è¨­å®šã‚¢ã‚¤ãƒ†ãƒ 
  ----------------------------------------------------------------------*/
 class KTimeLineLoopItem extends KTimeLineItem
 {
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * @param label ƒ‰ƒxƒ‹
-   * @param name –¼‘O
+   * @param label ãƒ©ãƒ™ãƒ«
+   * @param name åå‰
    *
-   * ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒ‹[ƒvƒAƒCƒeƒ€‚ğæ“¾‚µ‚Ü‚·B
+   * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—ã‚¢ã‚¤ãƒ†ãƒ ã‚’å–å¾—ã—ã¾ã™ã€‚
    *
-   * ‚±‚ÌƒAƒCƒeƒ€‚ğƒ^ƒCƒ€ƒ‰ƒCƒ“‚É’Ç‰Á‚·‚é‚±‚Æ‚ÅAKTimeLineControl ‚Ì
-   * loopBeginTime, loopEndTime ‚Ì2í—Ş‚ÌƒvƒƒpƒeƒB‚ğAGUI‚Åİ’è‚Å‚«‚é
-   * ‚æ‚¤‚É‚È‚è‚Ü‚·
+   * ã“ã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã«è¿½åŠ ã™ã‚‹ã“ã¨ã§ã€KTimeLineControl ã®
+   * loopBeginTime, loopEndTime ã®2ç¨®é¡ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’ã€GUIã§è¨­å®šã§ãã‚‹
+   * ã‚ˆã†ã«ãªã‚Šã¾ã™
    ------------------------------*/
   function KTimeLineLoopItem(label = "", name = "") {
     super.KTimeLineItem(label, name);
@@ -2200,12 +2200,12 @@ class KTimeLineLoopItem extends KTimeLineItem
   }
 
   function buildTimeLinneRightClickContextMenu(menu, time) {
-    menu.addItem("ƒ‹[ƒv‚Ìn“_‚ğİ’è‚·‚é", "", true, funccall(this.onSetLoopBeginTime, time));
-    menu.addItem("ƒ‹[ƒv‚ÌI“_‚ğİ’è‚·‚é", "", true, funccall(this.onSetLoopEndTime, time + 1));
+    menu.addItem("ãƒ«ãƒ¼ãƒ—ã®å§‹ç‚¹ã‚’è¨­å®šã™ã‚‹", "", true, funccall(this.onSetLoopBeginTime, time));
+    menu.addItem("ãƒ«ãƒ¼ãƒ—ã®çµ‚ç‚¹ã‚’è¨­å®šã™ã‚‹", "", true, funccall(this.onSetLoopEndTime, time + 1));
     menu.addSeparator();
-    menu.addItem("ÅIƒtƒŒ[ƒ€‚ğİ’è‚·‚é", "", true, funccall(this.onSetLastTime, time));
+    menu.addItem("æœ€çµ‚ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’è¨­å®šã™ã‚‹", "", true, funccall(this.onSetLastTime, time));
     menu.addSeparator();
-    menu.addItem("ƒ‹[ƒv/ÅIƒtƒŒ[ƒ€‚ğ‰ğœ‚·‚é", "", hasLastFrame || hasLoopFrame, funccall(this.onRelease));
+    menu.addItem("ãƒ«ãƒ¼ãƒ—/æœ€çµ‚ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’è§£é™¤ã™ã‚‹", "", hasLastFrame || hasLoopFrame, funccall(this.onRelease));
   }
 
   function onTimeLineRightClick(time) {
@@ -2355,7 +2355,7 @@ class KTimeLineLoopItem extends KTimeLineItem
 
 
 /**----------------------------------------------------------------------
- * ƒtƒŒ[ƒ€w’è—pTextInput 
+ * ãƒ•ãƒ¬ãƒ¼ãƒ æŒ‡å®šç”¨TextInput 
  ----------------------------------------------------------------------*/
 class KFrameTextInput extends KTextInput
 {
@@ -2373,99 +2373,99 @@ class KFrameTextInput extends KTextInput
 }
 
 /**----------------------------------------------------------------------
- * ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒRƒ“ƒgƒ[ƒ‹
+ * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«
  ----------------------------------------------------------------------*/
 class KTimeLineControl extends KHorizontalSpliterLayout
 {
-  // «‘
+  // è¾æ›¸
   var dict;
-  // ƒ‰ƒxƒ‹
+  // ãƒ©ãƒ™ãƒ«
   var _label;
-  // Œ»İ‘I‘ğ‚µ‚Ä‚¢‚éŠÔ
+  // ç¾åœ¨é¸æŠã—ã¦ã„ã‚‹æ™‚é–“
   var _selectedTime;
   //
   var _timeInputEnabled = null;
   // fps
   var _framePerSecond;
-  // Ä¶’†‚©H
+  // å†ç”Ÿä¸­ã‹ï¼Ÿ
   var _playing;
-  // Ä¶—p‚Ìƒ^ƒCƒ}[
+  // å†ç”Ÿç”¨ã®ã‚¿ã‚¤ãƒãƒ¼
   var _playTimer;
-  // ƒvƒŒƒCŠJnƒVƒXƒeƒ€
+  // ãƒ—ãƒ¬ã‚¤é–‹å§‹ã‚·ã‚¹ãƒ†ãƒ æ™‚åˆ»
   var _playBeginTick;
-  // ƒvƒŒƒCŠJnŠÔ
+  // ãƒ—ãƒ¬ã‚¤é–‹å§‹æ™‚é–“
   var _playBeginTime;
-  // ƒrƒ…[•\¦ƒTƒCƒY
+  // ãƒ“ãƒ¥ãƒ¼è¡¨ç¤ºã‚µã‚¤ã‚º
   var _viewWidth = 2;
-  // ŠÔ‘I‘ğ‚ÌÄƒŒƒ“ƒ_ƒŠƒ“ƒO
+  // æ™‚é–“é¸æŠæ™‚ã®å†ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°
   var renderAtTimeModification = true;
-  // ŒŸõ‘ÎÛ
+  // æ¤œç´¢å¯¾è±¡
   var searchTarget;
-  // ƒ‹[ƒvŠJnŠÔ
+  // ãƒ«ãƒ¼ãƒ—é–‹å§‹æ™‚é–“
   var _loopBeginTime = -1;
-  // ƒ‹[ƒvI—¹ŠÔ
+  // ãƒ«ãƒ¼ãƒ—çµ‚äº†æ™‚é–“
   var _loopEndTime = -1;
-  // Ä¶I—¹ŠÔ
+  // å†ç”Ÿçµ‚äº†æ™‚é–“
   var _lastTime = -1;
-  // •ÒW‰Â”\H
+  // ç·¨é›†å¯èƒ½ï¼Ÿ
   var _editable = true;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    * 
-   * @param window ƒEƒBƒ“ƒhƒE
-   * @param name –¼‘O
+   * @param window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param name åå‰
    *
-   * ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒRƒ“ƒgƒ[ƒ‹‚ğì¬‚·‚éB
+   * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’ä½œæˆã™ã‚‹ã€‚
    *
-   * ˆÈ‰º‚ÌŠÖ”ŒQ‚ğg‚¢AKTimeLineItem ”h¶ƒNƒ‰ƒX‚ÌƒIƒuƒWƒFƒNƒg‚ğ“o˜^‚Å‚«‚éB
-   * KTimeLineItem‚ÍKListItem‚Ì”h¶ƒNƒ‰ƒX‚Å‚ ‚èA’Êí‚ÌƒŠƒXƒgƒAƒCƒeƒ€“¯—l‚É“ü‚êq‚Ì
-   * ƒŠƒXƒg‚ğŒ`¬‚Å‚«‚éB
+   * ä»¥ä¸‹ã®é–¢æ•°ç¾¤ã‚’ä½¿ã„ã€KTimeLineItem æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç™»éŒ²ã§ãã‚‹ã€‚
+   * KTimeLineItemã¯KListItemã®æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§ã‚ã‚Šã€é€šå¸¸ã®ãƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ åŒæ§˜ã«å…¥ã‚Œå­ã®
+   * ãƒªã‚¹ãƒˆã‚’å½¢æˆã§ãã‚‹ã€‚
    * 
-   * - childCount qƒAƒCƒeƒ€‚ğƒJƒEƒ“ƒg‚·‚é
-   * - childAt(index) qƒAƒCƒeƒ€‚ğQÆ‚·‚é
-   * - add(item) qƒAƒCƒeƒ€‚ğ’Ç‰Á‚·‚é
-   * - insert(index, item) qƒAƒCƒeƒ€‚ğ‘}“ü‚·‚é
-   * - remove(item) qƒAƒCƒeƒ€‚ğíœ‚·‚é
-   * - removeAll(doInvalidate) qƒAƒCƒeƒ€‚ğ‘S‚Äíœ‚·‚é
+   * - childCount å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹
+   * - childAt(index) å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’å‚ç…§ã™ã‚‹
+   * - add(item) å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ ã™ã‚‹
+   * - insert(index, item) å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒ¿å…¥ã™ã‚‹
+   * - remove(item) å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’å‰Šé™¤ã™ã‚‹
+   * - removeAll(doInvalidate) å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’å…¨ã¦å‰Šé™¤ã™ã‚‹
    *
-   * ƒRƒ“ƒgƒ[ƒ‹‚Ì‹““®‚ğ§Œä‚·‚é‚½‚ß‚ÉAˆÈ‰º‚ÌŠÖ”ŒQ‚ªg—p‚Å‚«‚éB
+   * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®æŒ™å‹•ã‚’åˆ¶å¾¡ã™ã‚‹ãŸã‚ã«ã€ä»¥ä¸‹ã®é–¢æ•°ç¾¤ãŒä½¿ç”¨ã§ãã‚‹ã€‚
    *
-   * - label ƒ‰ƒxƒ‹
-   * - resize ƒŠƒTƒCƒYƒnƒ“ƒhƒ‹‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©
+   * - label ãƒ©ãƒ™ãƒ«
+   * - resize ãƒªã‚µã‚¤ã‚ºãƒãƒ³ãƒ‰ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹
    *
-   * ƒ^ƒCƒ€ƒ‰ƒCƒ“‚Ìƒpƒ‰ƒ[ƒ^‚ÍˆÈ‰º‚ÌŠÖ”‚Åæ“¾Aİ’è‚Å‚«‚éB
+   * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯ä»¥ä¸‹ã®é–¢æ•°ã§å–å¾—ã€è¨­å®šã§ãã‚‹ã€‚
    *
-   * - selectedTime Œ»İƒ|ƒCƒ“ƒg‚³‚ê‚Ä‚¢‚éŠÔ
-   * - selectedLayer Œ»İƒ|ƒCƒ“ƒg‚³‚ê‚Ä‚¢‚éƒŒƒCƒ„
-   * - loopBeginTime ƒ‹[ƒv‚ÌŠJnŠÔ‚ğİ’èAæ“¾‚·‚é
-   * - loopEndTime ƒ‹[ƒv‚ÌI—¹ŠÔ‚ğİ’èAæ“¾‚·‚é
-   * - setLoopTime(beginTime, endTime) ƒ‹[ƒv‚Ìn“_‚ÆI“_‚ğ“¯‚Éİ’è‚·‚é
+   * - selectedTime ç¾åœ¨ãƒã‚¤ãƒ³ãƒˆã•ã‚Œã¦ã„ã‚‹æ™‚é–“
+   * - selectedLayer ç¾åœ¨ãƒã‚¤ãƒ³ãƒˆã•ã‚Œã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤
+   * - loopBeginTime ãƒ«ãƒ¼ãƒ—ã®é–‹å§‹æ™‚é–“ã‚’è¨­å®šã€å–å¾—ã™ã‚‹
+   * - loopEndTime ãƒ«ãƒ¼ãƒ—ã®çµ‚äº†æ™‚é–“ã‚’è¨­å®šã€å–å¾—ã™ã‚‹
+   * - setLoopTime(beginTime, endTime) ãƒ«ãƒ¼ãƒ—ã®å§‹ç‚¹ã¨çµ‚ç‚¹ã‚’åŒæ™‚ã«è¨­å®šã™ã‚‹
    *
-   * ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒRƒ“ƒgƒ[ƒ‹‚Íƒ^ƒCƒ€ƒ‰ƒCƒ“‚ÌÄ¶‹@”\‚ğ‚Á‚Ä‚¢‚éB
-   * ˆÈ‰º‚ÌŠÖ”ŒQ‚Å‚»‚Ì§Œä‚ğs‚¤B
+   * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¯ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã®å†ç”Ÿæ©Ÿèƒ½ã‚’æŒã£ã¦ã„ã‚‹ã€‚
+   * ä»¥ä¸‹ã®é–¢æ•°ç¾¤ã§ãã®åˆ¶å¾¡ã‚’è¡Œã†ã€‚
    *
-   * - framePerSecond fps‚ğİ’è‚·‚é
-   * - playing Ä¶’†‚©‚Ç‚¤‚©B
-   * - play() Ä¶‚ğŠJn‚·‚é
-   * - stop() Ä¶‚ğ’â~‚·‚é
+   * - framePerSecond fpsã‚’è¨­å®šã™ã‚‹
+   * - playing å†ç”Ÿä¸­ã‹ã©ã†ã‹ã€‚
+   * - play() å†ç”Ÿã‚’é–‹å§‹ã™ã‚‹
+   * - stop() å†ç”Ÿã‚’åœæ­¢ã™ã‚‹
    * 
-   * “Á’è‚Ìƒ^ƒCƒ~ƒ“ƒO‚ÅˆÈ‰º‚ÌƒCƒxƒ“ƒgŠÖ”‚ªŒÄ‚Î‚ê‚é
+   * ç‰¹å®šã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§ä»¥ä¸‹ã®ã‚¤ãƒ™ãƒ³ãƒˆé–¢æ•°ãŒå‘¼ã°ã‚Œã‚‹
    *
-   * - onTimeLocatorRightClick(time) ƒ^ƒCƒ€ƒƒP[ƒ^[‚ª‰EƒNƒŠƒbƒN‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
-   * - onTimeLineSelectionRightClick() ƒ^ƒCƒ€ƒ‰ƒCƒ“‚ª‘I‘ğó‘Ô‚Å‰EƒNƒŠƒbƒN‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
-   * - onTimeLineSelectionKeyDown(key, shift) ƒ^ƒCƒ€ƒ‰ƒCƒ“‚ª‘I‘ğó‘Ô‚ÅƒL[‚ª‰Ÿ‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
-   * - onMultipleFrameDragged() •¡”ƒtƒŒ[ƒ€‚ª‚Ü‚Æ‚ß‚Äƒhƒ‰ƒbƒO‚³‚ê‚½
-   * - onRenderFrame() ƒtƒŒ[ƒ€‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚ª•K—v‚È‚ÉŒÄ‚Î‚ê‚é
-   * - onTimeSelect(time) ƒ|ƒCƒ“ƒg‚³‚ê‚Ä‚¢‚éŠÔ‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
-   * - onLayerSelect(layer) ƒ|ƒCƒ“ƒg‚³‚ê‚Ä‚¢‚éƒŒƒCƒ„‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
-   * - onPlay() Ä¶ŠJn‚ÉŒÄ‚Î‚ê‚é
-   * - onStop(playOverLastFrame) Ä¶’â~‚ÉŒÄ‚Î‚ê‚é
+   * - onTimeLocatorRightClick(time) ã‚¿ã‚¤ãƒ ãƒ­ã‚±ãƒ¼ã‚¿ãƒ¼ãŒå³ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
+   * - onTimeLineSelectionRightClick() ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ãŒé¸æŠçŠ¶æ…‹ã§å³ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
+   * - onTimeLineSelectionKeyDown(key, shift) ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ãŒé¸æŠçŠ¶æ…‹ã§ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
+   * - onMultipleFrameDragged() è¤‡æ•°ãƒ•ãƒ¬ãƒ¼ãƒ ãŒã¾ã¨ã‚ã¦ãƒ‰ãƒ©ãƒƒã‚°ã•ã‚ŒãŸ
+   * - onRenderFrame() ãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ãŒå¿…è¦ãªæ™‚ã«å‘¼ã°ã‚Œã‚‹
+   * - onTimeSelect(time) ãƒã‚¤ãƒ³ãƒˆã•ã‚Œã¦ã„ã‚‹æ™‚é–“ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
+   * - onLayerSelect(layer) ãƒã‚¤ãƒ³ãƒˆã•ã‚Œã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
+   * - onPlay() å†ç”Ÿé–‹å§‹æ™‚ã«å‘¼ã°ã‚Œã‚‹
+   * - onStop(playOverLastFrame) å†ç”Ÿåœæ­¢æ™‚ã«å‘¼ã°ã‚Œã‚‹
    ------------------------------*/
   function KTimeLineControl(window, name) {
     super.KHorizontalSpliterLayout(...);
 
-    // ƒEƒBƒWƒFƒbƒg‚ÌƒfƒtƒHƒ‹ƒgƒpƒ‰ƒ[ƒ^‚ğˆêƒŠƒZƒbƒg
+    // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ä¸€æ™‚ãƒªã‚»ãƒƒãƒˆ
     var defaultMarginLeft, defaultMarginTop, defaultMarginRight, defaultMarginBottom;
     var defaultAlignVertical, defaultAlignHorizontal;
     var defaultSpaceHorizontal, defaultSpaceVertical;
@@ -2488,7 +2488,7 @@ class KTimeLineControl extends KHorizontalSpliterLayout
     window.defaultAlignHorizontal = ALIGN_LEFT;
     window.defaultAlignVertical = ALIGN_TOP;
 
-    // ƒEƒBƒWƒFƒbƒg¶¬
+    // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆç”Ÿæˆ
     _selectedTime = 0;
 
     super.add(new global.KGridLayout(window, "_leftGrid"));
@@ -2524,7 +2524,7 @@ class KTimeLineControl extends KHorizontalSpliterLayout
     _viewWidthButton.child.fontHeight = 12;
     _viewWidthButton.onValueModified = this.onViewWidthChange;
 
-    // ƒpƒ‰ƒ[ƒ^‰Šúİ’è
+    // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿åˆæœŸè¨­å®š
     _framePerSecond = 10;
     _playTimer = new Timer(this.onPlayTimer, "");
     _playTimer.capacity = 1;
@@ -2532,7 +2532,7 @@ class KTimeLineControl extends KHorizontalSpliterLayout
 
     splitRatio = 0;
 
-    // ƒEƒBƒWƒFƒbƒg‚ÌƒfƒtƒHƒ‹ƒgƒpƒ‰ƒ[ƒ^ŒQ‚ğ•œ‹AB
+    // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ç¾¤ã‚’å¾©å¸°ã€‚
     window.defaultMarginLeft =  defaultMarginLeft;
     window.defaultMarginRight = defaultMarginRight;
     window.defaultMarginTop =   defaultMarginTop;
@@ -2542,13 +2542,13 @@ class KTimeLineControl extends KHorizontalSpliterLayout
     window.defaultSpaceVertical = defaultSpaceVertical;
     window.defaultSpaceHorizontal = defaultSpaceHorizontal;
 
-    // ƒXƒe[ƒ^ƒXƒo[¶¬ 
+    // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼ç”Ÿæˆ 
     timeInputEnabled = 0;
     redrawStatusBar();
   }
 
   /*------------------------------
-   * ƒtƒ@ƒCƒiƒ‰ƒCƒU
+   * ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
    ------------------------------*/
   function finalize {
     if (dict !== void) {
@@ -2559,7 +2559,7 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /*------------------------------
-   * «‘“o˜^
+   * è¾æ›¸ç™»éŒ²
    ------------------------------*/
   function bindPersistentDictionary(dict) {
     super.bindPersistentDictionary(dict);
@@ -2567,7 +2567,7 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /*------------------------------
-   * ƒŒƒCƒ„[ƒŠƒXƒgƒNƒ‰ƒX
+   * ãƒ¬ã‚¤ãƒ¤ãƒ¼ãƒªã‚¹ãƒˆã‚¯ãƒ©ã‚¹
    ------------------------------*/
   property timelineLayerListClass {
     getter {
@@ -2576,7 +2576,7 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /*------------------------------
-   * ƒŒƒCƒ„[ƒrƒ…[ƒNƒ‰ƒX
+   * ãƒ¬ã‚¤ãƒ¤ãƒ¼ãƒ“ãƒ¥ãƒ¼ã‚¯ãƒ©ã‚¹
    ------------------------------*/
   property timelineLayerViewClass {
     getter {
@@ -2585,9 +2585,9 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğƒJƒEƒ“ƒg‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹
    * 
-   * @return qƒAƒCƒeƒ€”
+   * @return å­ã‚¢ã‚¤ãƒ†ãƒ æ•°
    ------------------------------*/
   property childCount {
     getter {
@@ -2596,61 +2596,61 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğQÆ‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’å‚ç…§ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @return qƒAƒCƒeƒ€
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @return å­ã‚¢ã‚¤ãƒ†ãƒ 
    ------------------------------*/
   function childAt(index) {
     return _layerList.childAt(index);
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğ’Ç‰Á‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ ã™ã‚‹
    *
-   * @param item ƒAƒCƒeƒ€
+   * @param item ã‚¢ã‚¤ãƒ†ãƒ 
    ------------------------------*/
   function add(item) {
     _layerList.add(item);
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğ‘}“ü‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒ¿å…¥ã™ã‚‹
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @param item ƒAƒCƒeƒ€
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @param item ã‚¢ã‚¤ãƒ†ãƒ 
    ------------------------------*/
   function insert(index, item) {
     _layerList.insert(index, item);
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğíœ‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’å‰Šé™¤ã™ã‚‹
    * 
-   * @param item ƒAƒCƒeƒ€
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
-   * @return íœ‚µ‚½ƒAƒCƒeƒ€©g
+   * @param item ã‚¢ã‚¤ãƒ†ãƒ 
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
+   * @return å‰Šé™¤ã—ãŸã‚¢ã‚¤ãƒ†ãƒ è‡ªèº«
    ------------------------------*/
   function remove(item, doInvalidate = true) {
     _layerList.remove(item, doInvalidate);
   }
 
   /**------------------------------
-   * qƒAƒCƒeƒ€‚ğ‘S‚Äíœ‚·‚é
+   * å­ã‚¢ã‚¤ãƒ†ãƒ ã‚’å…¨ã¦å‰Šé™¤ã™ã‚‹
    *
-   * @param doInvalidate æ‚èœ‚¢‚½qƒEƒBƒWƒFƒbƒg‚ğ–³Œø‰»‚·‚é‚©
+   * @param doInvalidate å–ã‚Šé™¤ã„ãŸå­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ç„¡åŠ¹åŒ–ã™ã‚‹ã‹
    ------------------------------*/
   function removeAll(doInvalidate = true) {
     _layerList.removeAll(doInvalidate);
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹
+   * ãƒ©ãƒ™ãƒ«
    *
-   * @param v ƒ‰ƒxƒ‹
-   * @return ƒ‰ƒxƒ‹
+   * @param v ãƒ©ãƒ™ãƒ«
+   * @return ãƒ©ãƒ™ãƒ«
    *
-   * ƒRƒ“ƒgƒ[ƒ‹¶ã‚É•\¦‚³‚ê‚éƒ‰ƒxƒ‹‚Ì“à—e‚ğİ’è‚·‚é
+   * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«å·¦ä¸Šã«è¡¨ç¤ºã•ã‚Œã‚‹ãƒ©ãƒ™ãƒ«ã®å†…å®¹ã‚’è¨­å®šã™ã‚‹
    ------------------------------*/
   property label {
     getter {
@@ -2662,10 +2662,10 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /**------------------------------
-   * ƒŠƒTƒCƒYƒnƒ“ƒhƒ‹‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©
+   * ãƒªã‚µã‚¤ã‚ºãƒãƒ³ãƒ‰ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹
    *
-   * @param v •\¦/”ñ•\¦
-   * @return •\¦/”ñ•\¦
+   * @param v è¡¨ç¤º/éè¡¨ç¤º
+   * @return è¡¨ç¤º/éè¡¨ç¤º
    ------------------------------*/
   property resize {
     getter {
@@ -2677,10 +2677,10 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /**------------------------------
-   * Œ»İƒ|ƒCƒ“ƒg‚³‚ê‚Ä‚¢‚éŠÔ
+   * ç¾åœ¨ãƒã‚¤ãƒ³ãƒˆã•ã‚Œã¦ã„ã‚‹æ™‚é–“
    *
-   * @param v ŠÔ
-   * @return ŠÔ
+   * @param v æ™‚é–“
+   * @return æ™‚é–“
    ------------------------------*/
   property selectedTime {
     getter {
@@ -2706,7 +2706,7 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /**------------------------------
-   * 0ˆÈŠO‚ğİ’è‚·‚é‚Æ‘I‘ğƒtƒŒ[ƒ€ˆÊ’u‚ğƒeƒLƒXƒg“ü—Í‚Å‚«‚é 
+   * 0ä»¥å¤–ã‚’è¨­å®šã™ã‚‹ã¨é¸æŠãƒ•ãƒ¬ãƒ¼ãƒ ä½ç½®ã‚’ãƒ†ã‚­ã‚¹ãƒˆå…¥åŠ›ã§ãã‚‹ 
    ------------------------------*/
   property timeInputEnabled {
     getter {
@@ -2734,17 +2734,17 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /**------------------------------
-   * Œ»İƒ|ƒCƒ“ƒg‚³‚ê‚Ä‚¢‚éƒŒƒCƒ„
+   * ç¾åœ¨ãƒã‚¤ãƒ³ãƒˆã•ã‚Œã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤
    *
-   * @param v ƒŒƒCƒ„ƒCƒ“ƒfƒbƒNƒX
-   * @return ƒŒƒCƒ„ƒCƒ“ƒfƒbƒNƒX
+   * @param v ãƒ¬ã‚¤ãƒ¤ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @return ãƒ¬ã‚¤ãƒ¤ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    *
-   * Œ»İƒ|ƒCƒ“ƒg‚³‚ê‚Ä‚¢‚éƒŒƒCƒ„‚ÌƒCƒ“ƒfƒbƒNƒX‚ğİ’èEæ“¾‚·‚é
+   * ç¾åœ¨ãƒã‚¤ãƒ³ãƒˆã•ã‚Œã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’è¨­å®šãƒ»å–å¾—ã™ã‚‹
    *
-   * ƒCƒ“ƒfƒbƒNƒX‚Í‚»‚Ì“_‚Åu•\¦‚³‚ê‚Ä‚¢‚évƒŒƒCƒ„‚É‘Î‰‚·‚é•¨‚Å‚ ‚èA
-   * •\¦‚ğ•Â‚¶‚Ä‚¢‚éƒŒƒCƒ„‚ª‚ ‚éê‡‚Í•K‚¸‚µ‚àƒŒƒCƒ„ƒcƒŠ[‚Ì\‘¢‚Æ‚Íˆê’v‚µ‚È‚¢–‚É’ˆÓB
+   * ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã¯ãã®æ™‚ç‚¹ã§ã€Œè¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹ã€ãƒ¬ã‚¤ãƒ¤ã«å¯¾å¿œã™ã‚‹ç‰©ã§ã‚ã‚Šã€
+   * è¡¨ç¤ºã‚’é–‰ã˜ã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤ãŒã‚ã‚‹å ´åˆã¯å¿…ãšã—ã‚‚ãƒ¬ã‚¤ãƒ¤ãƒ„ãƒªãƒ¼ã®æ§‹é€ ã¨ã¯ä¸€è‡´ã—ãªã„äº‹ã«æ³¨æ„ã€‚
    *
-   * Œ»İƒ|ƒCƒ“ƒg‚³‚ê‚Ä‚¢‚éƒŒƒCƒ„‚ª‘¶İ‚µ‚È‚¢ê‡-1‚ğ•Ô‚·B
+   * ç¾åœ¨ãƒã‚¤ãƒ³ãƒˆã•ã‚Œã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤ãŒå­˜åœ¨ã—ãªã„å ´åˆ-1ã‚’è¿”ã™ã€‚
    ------------------------------*/
   property selectedLayer {
     getter {
@@ -2768,7 +2768,7 @@ class KTimeLineControl extends KHorizontalSpliterLayout
    * @param v fps
    * @return fps
    * 
-   * ‰½ƒtƒŒ[ƒ€‚ª1•b‚É‘Š“–‚·‚é‚©‚ğİ’è‚·‚éB
+   * ä½•ãƒ•ãƒ¬ãƒ¼ãƒ ãŒ1ç§’ã«ç›¸å½“ã™ã‚‹ã‹ã‚’è¨­å®šã™ã‚‹ã€‚
    *------------------------------*/
   property framePerSecond {
     getter {
@@ -2783,9 +2783,9 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /**------------------------------
-   * ‘I‘ğ‚ğ‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©
+   * é¸æŠã‚’ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹
    * 
-   * @return ‘I‘ğ‚ğ‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©
+   * @return é¸æŠã‚’ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   property hasSelection {
     getter {
@@ -2800,9 +2800,9 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }    
 
   /*------------------------------
-   * •\¦’†‚ÌƒŠƒXƒgƒAƒCƒeƒ€‚Ìˆê——
+   * è¡¨ç¤ºä¸­ã®ãƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ ã®ä¸€è¦§
    *
-   * @return ƒAƒCƒeƒ€‚Ìˆê——
+   * @return ã‚¢ã‚¤ãƒ†ãƒ ã®ä¸€è¦§
    ------------------------------*/
   property drawItemList {
     getter {
@@ -2813,10 +2813,10 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /**------------------------------
-   * Ä¶’†‚©‚Ç‚¤‚©
+   * å†ç”Ÿä¸­ã‹ã©ã†ã‹
    * 
-   * @param v Ä¶’†‚©‚Ç‚¤‚©
-   * @return Ä¶’†‚©‚Ç‚¤‚©
+   * @param v å†ç”Ÿä¸­ã‹ã©ã†ã‹
+   * @return å†ç”Ÿä¸­ã‹ã©ã†ã‹
    ------------------------------*/
   property playing {
     getter {
@@ -2833,9 +2833,9 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /**------------------------------
-   * Ä¶ŠJn
+   * å†ç”Ÿé–‹å§‹
    *
-   * ƒ^ƒCƒ€ƒ‰ƒCƒ“‚ÌÄ¶‚ğŠJn‚·‚é
+   * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã®å†ç”Ÿã‚’é–‹å§‹ã™ã‚‹
    ------------------------------*/
   function play {
     if (_playing)
@@ -2848,9 +2848,9 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /**------------------------------
-   * Ä¶’â~
+   * å†ç”Ÿåœæ­¢
    *
-   * ƒ^ƒCƒ€ƒ‰ƒCƒ“‚ÌÄ¶‚ğ’â~‚·‚é
+   * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ã®å†ç”Ÿã‚’åœæ­¢ã™ã‚‹
    ------------------------------*/
   function stop {
     if (! _playing)
@@ -2859,87 +2859,87 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /**------------------------------
-   * ƒ^ƒCƒ€ƒƒP[ƒ^[‚ª‰EƒNƒŠƒbƒN‚³‚ê‚½
+   * ã‚¿ã‚¤ãƒ ãƒ­ã‚±ãƒ¼ã‚¿ãƒ¼ãŒå³ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸ
    *
-   * @param time ƒNƒŠƒbƒN‚³‚ê‚½ŠÔ
+   * @param time ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸæ™‚é–“
    ------------------------------*/
   function onTimeLocatorRightClick(time) {
   }
 
   /**------------------------------
-   * ƒ^ƒCƒ€ƒ‰ƒCƒ“‚ª‘I‘ğó‘Ô‚Å‰EƒNƒŠƒbƒN‚³‚ê‚½
+   * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ãŒé¸æŠçŠ¶æ…‹ã§å³ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸ
    ------------------------------*/
   function onTimeLineSelectionRightClick {
   }
 
   /*------------------------------
-   * •¡”‚ÌƒtƒŒ[ƒ€‚ª‚Ü‚Æ‚ß‚Äƒhƒ‰ƒbƒO‚³‚ê‚½
+   * è¤‡æ•°ã®ãƒ•ãƒ¬ãƒ¼ãƒ ãŒã¾ã¨ã‚ã¦ãƒ‰ãƒ©ãƒƒã‚°ã•ã‚ŒãŸ
    ------------------------------*/
   function onMultipleFrameDragged {
   }
 
   /**------------------------------
-   * ƒ^ƒCƒ€ƒ‰ƒCƒ“‚ª‘I‘ğó‘Ô‚ÅƒL[‚ª‰Ÿ‚³‚ê‚½
+   * ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ãŒé¸æŠçŠ¶æ…‹ã§ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸ
    *
-   * @param key ‰¼‘zƒL[ƒR[ƒh
-   * @param shift ƒVƒtƒgƒL[‚Ì˜_—˜a
+   * @param key ä»®æƒ³ã‚­ãƒ¼ã‚³ãƒ¼ãƒ‰
+   * @param shift ã‚·ãƒ•ãƒˆã‚­ãƒ¼ã®è«–ç†å’Œ
    ------------------------------*/
   function onTimeLineSelectionKeyDown(key, shift) {
   }
 
   /**------------------------------
-   * ƒtƒŒ[ƒ€‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚ª•K—v
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ãŒå¿…è¦
    *
-   * ƒtƒŒ[ƒ€‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚ª•K—v‚¾‚Æ”»’f‚³‚ê‚½ƒ^ƒCƒ~ƒ“ƒO‚ÅŒÄ‚Î‚ê‚éB
-   * ‹ï‘Ì“I‚É‚ÍˆÈ‰º‚ÌƒVƒ`ƒ…ƒG[ƒVƒ‡ƒ“‚ªŠY“–‚·‚é
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ãŒå¿…è¦ã ã¨åˆ¤æ–­ã•ã‚ŒãŸã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§å‘¼ã°ã‚Œã‚‹ã€‚
+   * å…·ä½“çš„ã«ã¯ä»¥ä¸‹ã®ã‚·ãƒãƒ¥ã‚¨ãƒ¼ã‚·ãƒ§ãƒ³ãŒè©²å½“ã™ã‚‹
    *
-   * - ƒAƒCƒeƒ€‚ÉV‹KƒtƒŒ[ƒ€‚ğ’Ç‰Á‚µ‚½
-   * - ƒAƒCƒeƒ€‚©‚çƒtƒŒ[ƒ€‚ğíœ‚µ‚½
-   * - ƒAƒCƒeƒ€‚ÉƒL[ƒtƒŒ[ƒ€‚ğ‘}“ü‚µ‚½
-   * - ƒAƒCƒeƒ€‚©‚çƒL[ƒtƒŒ[ƒ€‚ğíœ‚µ‚½
-   * - ƒAƒCƒeƒ€‚ğƒAƒ“ƒVƒŠƒ‰ƒCƒY‚µ‚½
-   * - ƒAƒCƒeƒ€‚ğƒhƒ‰ƒbƒO‚µ‚ÄˆÚ“®‚µ‚½
-   * - ƒ|ƒCƒ“ƒg‚µ‚Ä‚¢‚éŠÔ‚ª•ÏX‚³‚ê‚½
-   * - ƒ|ƒCƒ“ƒg‚³‚ê‚Ä‚¢‚éƒŒƒCƒ„‚ª•ÏX‚³‚ê‚½
+   * - ã‚¢ã‚¤ãƒ†ãƒ ã«æ–°è¦ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’è¿½åŠ ã—ãŸæ™‚
+   * - ã‚¢ã‚¤ãƒ†ãƒ ã‹ã‚‰ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‰Šé™¤ã—ãŸæ™‚
+   * - ã‚¢ã‚¤ãƒ†ãƒ ã«ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æŒ¿å…¥ã—ãŸæ™‚
+   * - ã‚¢ã‚¤ãƒ†ãƒ ã‹ã‚‰ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å‰Šé™¤ã—ãŸæ™‚
+   * - ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚¢ãƒ³ã‚·ãƒªãƒ©ã‚¤ã‚ºã—ãŸæ™‚
+   * - ã‚¢ã‚¤ãƒ†ãƒ ã‚’ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦ç§»å‹•ã—ãŸæ™‚
+   * - ãƒã‚¤ãƒ³ãƒˆã—ã¦ã„ã‚‹æ™‚é–“ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚
+   * - ãƒã‚¤ãƒ³ãƒˆã•ã‚Œã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚
    ------------------------------*/
   function onRenderFrame {
   }
 
   /**------------------------------
-   * ƒ|ƒCƒ“ƒg‚³‚ê‚Ä‚¢‚éŠÔ‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
+   * ãƒã‚¤ãƒ³ãƒˆã•ã‚Œã¦ã„ã‚‹æ™‚é–“ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
    *
-   * @param time ŠÔ
+   * @param time æ™‚é–“
    ------------------------------*/
   function onTimeSelect(time) {
   }
 
   /**------------------------------
-   * ƒ|ƒCƒ“ƒg‚³‚ê‚Ä‚¢‚éƒŒƒCƒ„‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚é
+   * ãƒã‚¤ãƒ³ãƒˆã•ã‚Œã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
    *
-   * @param layer ƒŒƒCƒ„ƒCƒ“ƒfƒbƒNƒX
+   * @param layer ãƒ¬ã‚¤ãƒ¤ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
    ------------------------------*/
   function onLayerSelect(layer) {
   }
 
   /**------------------------------
-   * Ä¶ŠJn‚ÉŒÄ‚Î‚ê‚é
+   * å†ç”Ÿé–‹å§‹æ™‚ã«å‘¼ã°ã‚Œã‚‹
    ------------------------------*/
   function onPlay {
   }
 
   /**------------------------------
-   * Ä¶’â~‚ÉŒÄ‚Î‚ê‚é
+   * å†ç”Ÿåœæ­¢æ™‚ã«å‘¼ã°ã‚Œã‚‹
    *
-   * @param playOverLastFrame ÅIƒtƒŒ[ƒ€‚Ü‚ÅÄ¶‚µ‚½‚©H
+   * @param playOverLastFrame æœ€çµ‚ãƒ•ãƒ¬ãƒ¼ãƒ ã¾ã§å†ç”Ÿã—ãŸã‹ï¼Ÿ
    *
-   * Ä¶’â~‚ÉŒÄ‚Î‚ê‚éƒCƒxƒ“ƒgŠÖ”B
-   * ÅIƒtƒŒ[ƒ€‚Ü‚ÅÄ¶‚ªI—¹‚µ‚Ä©“®“I‚É’â~‚µ‚½ê‡A
-   * playOverLastFrame‚ªtrue‚É‚È‚Á‚ÄŒÄ‚Î‚ê‚éB
+   * å†ç”Ÿåœæ­¢æ™‚ã«å‘¼ã°ã‚Œã‚‹ã‚¤ãƒ™ãƒ³ãƒˆé–¢æ•°ã€‚
+   * æœ€çµ‚ãƒ•ãƒ¬ãƒ¼ãƒ ã¾ã§å†ç”ŸãŒçµ‚äº†ã—ã¦è‡ªå‹•çš„ã«åœæ­¢ã—ãŸå ´åˆã€
+   * playOverLastFrameãŒtrueã«ãªã£ã¦å‘¼ã°ã‚Œã‚‹ã€‚
    ------------------------------*/
   function onStop(playOverLastFrame) {
   }
 
-  // ÀÛ‚Ì’â~ˆ—
+  // å®Ÿéš›ã®åœæ­¢å‡¦ç†
   function doStop(playOverLastFrame = false) {
     _playing = false;
     _playTimer.enabled = false;
@@ -2949,7 +2949,7 @@ class KTimeLineControl extends KHorizontalSpliterLayout
     updateCursor();
   }
 
-  // Ä¶ƒ^ƒCƒ}‚ÌŒÄ‚Ñæ
+  // å†ç”Ÿã‚¿ã‚¤ãƒã®å‘¼ã³å…ˆ
   function onPlayTimer {
     var tick = System.getTickCount();
     var time = _playBeginTime + Math.round((tick - _playBeginTick) / _playTimer.interval);
@@ -2969,7 +2969,7 @@ class KTimeLineControl extends KHorizontalSpliterLayout
     }
   }
 
-  // ƒXƒe[ƒ^ƒXƒo[‚ğÄ•`‰æ
+  // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼ã‚’å†æç”»
   function redrawStatusBar {
     if(timeInputEnabled){
       _frameText.value = string(selectedTime);
@@ -2979,7 +2979,7 @@ class KTimeLineControl extends KHorizontalSpliterLayout
     }
  }
 
-  // ƒ^ƒCƒ€ƒ‰ƒCƒ“ƒrƒ…[‚Ì‰¡•‚ğ•K—v‚É‰‚¶‚Ä©“®“I‚ÉŠg’£‚·‚é
+  // ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ³ãƒ“ãƒ¥ãƒ¼ã®æ¨ªå¹…ã‚’å¿…è¦ã«å¿œã˜ã¦è‡ªå‹•çš„ã«æ‹¡å¼µã™ã‚‹
   function invalidateMaxTime(calcLastTime = true) {
     var size = _layerView.maxWidth;
     size = Math.max(size, (int(selectedTime / 100) * 100 + 200) * TIMELINE_FRAME_WIDTH);
@@ -2992,18 +2992,18 @@ class KTimeLineControl extends KHorizontalSpliterLayout
     _timeLocator.setMinMaxSize(size, _timeLocator.minHeight, size, _timeLocator.maxHeight);
   }
 
-  // ƒŒƒCƒ„ƒrƒ…[‚ÌƒXƒNƒ[ƒ‹ó‹µ‚ğŠÄ‹
+  // ãƒ¬ã‚¤ãƒ¤ãƒ“ãƒ¥ãƒ¼ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«çŠ¶æ³ã‚’ç›£è¦–
   function onLayerViewModified(childViewLeft, childViewTop, childViewWidth, childViewHeight, childWidth, childHeight) {
     _layerListScroll.setChildViewPos(_layerListScroll.childViewLeft, childViewTop);
     _timeLocatorScroll.setChildViewPos(childViewLeft, _timeLocatorScroll.childViewTop);
   }
 
-  // ƒŒƒCƒ„ƒŠƒXƒg‚ÌƒXƒNƒ[ƒ‹ó‹µ‚ğŠÄ‹
+  // ãƒ¬ã‚¤ãƒ¤ãƒªã‚¹ãƒˆã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«çŠ¶æ³ã‚’ç›£è¦–
   function onLayerListModified(childViewLeft, childViewTop, childViewWidth, childViewHeight, childWidth, childHeight) {
     _layerViewScroll.setChildViewPos(_layerViewScroll.childViewLeft, childViewTop);
   }
 
-  // ƒŒƒCƒ„ƒŠƒXƒg‚ÌÄ•`‰æ‚ğŠÄ‹
+  // ãƒ¬ã‚¤ãƒ¤ãƒªã‚¹ãƒˆã®å†æç”»ã‚’ç›£è¦–
   function onListModified {
     _layerView.setMinMaxSize(_layerView.minWidth, _layerList.minHeight,
                             _layerView.maxWidth, _layerList.maxHeight);
@@ -3016,7 +3016,7 @@ class KTimeLineControl extends KHorizontalSpliterLayout
     invalidateMaxTime();
   }
 
-  // ƒŒƒCƒ„ƒŠƒXƒg‚Ì‘I‘ğƒAƒCƒeƒ€•ÏX‚ğŠÄ‹
+  // ãƒ¬ã‚¤ãƒ¤ãƒªã‚¹ãƒˆã®é¸æŠã‚¢ã‚¤ãƒ†ãƒ å¤‰æ›´ã‚’ç›£è¦–
   function onListSelect {
     resetCursor();
     resetSelection();
@@ -3033,7 +3033,7 @@ class KTimeLineControl extends KHorizontalSpliterLayout
     _timeLocator.updateCursor();
   }
 
-  // ‘I‘ğ”ÍˆÍ‚Ìİ’è‚ğƒŠƒZƒbƒg‚·‚é
+  // é¸æŠç¯„å›²ã®è¨­å®šã‚’ãƒªã‚»ãƒƒãƒˆã™ã‚‹
   function resetSelection {
     var drawItemList = _layerList.drawItemList;
     var time = selectedTime, layer = selectedLayer;
@@ -3166,10 +3166,10 @@ class KTimeLineControl extends KHorizontalSpliterLayout
   }
 
   /**------------------------------
-   * ‘SƒAƒCƒeƒ€‚Ì“àAƒtƒŒ[ƒ€‚Ì‘¶İ‚·‚éÅ‘å‚ÌŠÔ‚ğ•Ô‚·
+   * å…¨ã‚¢ã‚¤ãƒ†ãƒ ã®å†…ã€ãƒ•ãƒ¬ãƒ¼ãƒ ã®å­˜åœ¨ã™ã‚‹æœ€å¤§ã®æ™‚é–“ã‚’è¿”ã™
    * 
-   * @param v ÅIŠÔ(-1‚ğİ’è‚·‚é‚ÆƒŠƒZƒbƒg)
-   * @return ŠÔ
+   * @param v æœ€çµ‚æ™‚é–“(-1ã‚’è¨­å®šã™ã‚‹ã¨ãƒªã‚»ãƒƒãƒˆ)
+   * @return æ™‚é–“
    ------------------------------*/
   property lastTime {
     setter(v) {

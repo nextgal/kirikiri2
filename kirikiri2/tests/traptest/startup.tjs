@@ -14,9 +14,9 @@ class TrappingWindow extends Window
 		prim.setSizeToImageSize();
 		prim.fillRect(0, 0, 100, 100, 0xff8080);
 
-		prim.focusable = true; // フォーカスは受け取る
-		prim.useAttention = true; // 注視ポイントを使用する
-		prim.imeMode = imDontCare; // IME 使用可
+		prim.focusable = true; // 繝輔か繝ｼ繧ｫ繧ｹ縺ｯ蜿励￠蜿悶ｋ
+		prim.useAttention = true; // 豕ｨ隕悶�昴う繝ｳ繝医ｒ菴ｿ逕ｨ縺吶ｋ
+		prim.imeMode = imDontCare; // IME 菴ｿ逕ｨ蜿ｯ
 		prim.focus();
 
 		visible = true;

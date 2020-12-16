@@ -11,13 +11,13 @@
 	<Configurations>
 		<Configuration
 			Name="DLL Release|Win32"
-			OutputDirectory=".\Win32_DLL_Release"
-			IntermediateDirectory=".\Win32_DLL_Release"
+			OutputDirectory=".¥Win32_DLL_Release"
+			IntermediateDirectory=".¥Win32_DLL_Release"
 			ConfigurationType="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..;..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..;..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;NDEBUG;PNG_BUILD_DLL;ZLIB_DLL"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -32,7 +32,7 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)/libpng13.dll"
 				LinkIncremental="1"
-				ModuleDefinitionFile="..\..\scripts\pngw32.def"/>
+				ModuleDefinitionFile="..¥..¥scripts¥pngw32.def"/>
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
@@ -45,7 +45,7 @@
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG"
 				Culture="1033"
-				AdditionalIncludeDirectories="..\..;..\..\..\zlib;$(IntDir)"/>
+				AdditionalIncludeDirectories="..¥..;..¥..¥..¥zlib;$(IntDir)"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -59,13 +59,13 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Debug|Win32"
-			OutputDirectory=".\Win32_DLL_Debug"
-			IntermediateDirectory=".\Win32_DLL_Debug"
+			OutputDirectory=".¥Win32_DLL_Debug"
+			IntermediateDirectory=".¥Win32_DLL_Debug"
 			ConfigurationType="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..;..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..;..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;_DEBUG;DEBUG;PNG_DEBUG=1;PNG_BUILD_DLL;ZLIB_DLL"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -79,7 +79,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)/libpng13d.dll"
-				ModuleDefinitionFile="..\..\scripts\pngw32.def"
+				ModuleDefinitionFile="..¥..¥scripts¥pngw32.def"
 				GenerateDebugInformation="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"/>
@@ -93,7 +93,7 @@
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG,PNG_DEBUG=1"
 				Culture="1033"
-				AdditionalIncludeDirectories="..\..;..\..\..\zlib;$(IntDir)"/>
+				AdditionalIncludeDirectories="..¥..;..¥..¥..¥zlib;$(IntDir)"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -107,13 +107,13 @@
 		</Configuration>
 		<Configuration
 			Name="DLL ASM Release|Win32"
-			OutputDirectory=".\Win32_DLL_ASM_Release"
-			IntermediateDirectory=".\Win32_DLL_ASM_Release"
+			OutputDirectory=".¥Win32_DLL_ASM_Release"
+			IntermediateDirectory=".¥Win32_DLL_ASM_Release"
 			ConfigurationType="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..;..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..;..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;NDEBUG;PNG_USE_PNGVCRD;PNG_BUILD_DLL;ZLIB_DLL;PNG_LIBPNG_SPECIALBUILD"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -128,7 +128,7 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)/libpng13.dll"
 				LinkIncremental="1"
-				ModuleDefinitionFile="..\..\scripts\pngw32.def"/>
+				ModuleDefinitionFile="..¥..¥scripts¥pngw32.def"/>
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
@@ -142,7 +142,7 @@
 				AdditionalOptions="/d PNG_LIBPNG_SPECIALBUILD=&quot;&quot;&quot;&quot;Use MMX instructions&quot;&quot;&quot;&quot;"
 				PreprocessorDefinitions="NDEBUG"
 				Culture="1033"
-				AdditionalIncludeDirectories="..\..;..\..\..\zlib;$(IntDir)"/>
+				AdditionalIncludeDirectories="..¥..;..¥..¥..¥zlib;$(IntDir)"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -156,13 +156,13 @@
 		</Configuration>
 		<Configuration
 			Name="DLL ASM Debug|Win32"
-			OutputDirectory=".\Win32_DLL_ASM_Debug"
-			IntermediateDirectory=".\Win32_DLL_ASM_Debug"
+			OutputDirectory=".¥Win32_DLL_ASM_Debug"
+			IntermediateDirectory=".¥Win32_DLL_ASM_Debug"
 			ConfigurationType="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..;..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..;..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;_DEBUG;DEBUG;PNG_DEBUG=1;PNG_USE_PNGVCRD;PNG_BUILD_DLL;ZLIB_DLL;PNG_LIBPNG_SPECIALBUILD"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -176,7 +176,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)/libpng13d.dll"
-				ModuleDefinitionFile="..\..\scripts\pngw32.def"
+				ModuleDefinitionFile="..¥..¥scripts¥pngw32.def"
 				GenerateDebugInformation="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"/>
@@ -191,7 +191,7 @@
 				AdditionalOptions="/d PNG_LIBPNG_SPECIALBUILD=&quot;&quot;&quot;&quot;Use MMX instructions&quot;&quot;&quot;&quot;"
 				PreprocessorDefinitions="_DEBUG,PNG_DEBUG=1"
 				Culture="1033"
-				AdditionalIncludeDirectories="..\..;..\..\..\zlib;$(IntDir)"/>
+				AdditionalIncludeDirectories="..¥..;..¥..¥..¥zlib;$(IntDir)"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -205,13 +205,13 @@
 		</Configuration>
 		<Configuration
 			Name="DLL VB|Win32"
-			OutputDirectory=".\Win32_DLL_VB"
-			IntermediateDirectory=".\Win32_DLL_VB"
+			OutputDirectory=".¥Win32_DLL_VB"
+			IntermediateDirectory=".¥Win32_DLL_VB"
 			ConfigurationType="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..;..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..;..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;NDEBUG;PNG_BUILD_DLL;ZLIB_DLL;PNGAPI=__stdcall;PNG_NO_MODULEDEF;PNG_LIBPNG_SPECIALBUILD"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -239,7 +239,7 @@
 				AdditionalOptions="/d PNG_LIBPNG_DLLFNAME_POSTFIX=&quot;&quot;&quot;&quot;VB&quot;&quot;&quot;&quot; /d PNG_LIBPNG_SPECIALBUILD=&quot;&quot;&quot;&quot;__stdcall calling convention used for exported functions&quot;&quot;&quot;&quot;"
 				PreprocessorDefinitions="NDEBUG"
 				Culture="1033"
-				AdditionalIncludeDirectories="..\..;..\..\..\zlib;$(IntDir)"/>
+				AdditionalIncludeDirectories="..¥..;..¥..¥..¥zlib;$(IntDir)"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -253,13 +253,13 @@
 		</Configuration>
 		<Configuration
 			Name="LIB Release|Win32"
-			OutputDirectory=".\Win32_LIB_Release"
-			IntermediateDirectory=".\Win32_LIB_Release"
+			OutputDirectory=".¥Win32_LIB_Release"
+			IntermediateDirectory=".¥Win32_LIB_Release"
 			ConfigurationType="4">
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..;..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..;..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;NDEBUG"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -294,13 +294,13 @@
 		</Configuration>
 		<Configuration
 			Name="LIB Debug|Win32"
-			OutputDirectory=".\Win32_LIB_Debug"
-			IntermediateDirectory=".\Win32_LIB_Debug"
+			OutputDirectory=".¥Win32_LIB_Debug"
+			IntermediateDirectory=".¥Win32_LIB_Debug"
 			ConfigurationType="4">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..;..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..;..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;_DEBUG;DEBUG;PNG_DEBUG=1"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -335,13 +335,13 @@
 		</Configuration>
 		<Configuration
 			Name="LIB ASM Release|Win32"
-			OutputDirectory=".\Win32_LIB_ASM_Release"
-			IntermediateDirectory=".\Win32_LIB_ASM_Release"
+			OutputDirectory=".¥Win32_LIB_ASM_Release"
+			IntermediateDirectory=".¥Win32_LIB_ASM_Release"
 			ConfigurationType="4">
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..,..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..,..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;NDEBUG;PNG_USE_PNGVCRD;PNG_LIBPNG_SPECIALBUILD"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -376,13 +376,13 @@
 		</Configuration>
 		<Configuration
 			Name="LIB ASM Debug|Win32"
-			OutputDirectory=".\Win32_LIB_ASM_Debug"
-			IntermediateDirectory=".\Win32_LIB_ASM_Debug"
+			OutputDirectory=".¥Win32_LIB_ASM_Debug"
+			IntermediateDirectory=".¥Win32_LIB_ASM_Debug"
 			ConfigurationType="4">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..,..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..,..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;_DEBUG;DEBUG;PNG_DEBUG=1;PNG_USE_PNGVCRD;PNG_LIBPNG_SPECIALBUILD"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -423,7 +423,7 @@
 			Name="Source Files"
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
 			<File
-				RelativePath="..\..\png.c">
+				RelativePath="..¥..¥png.c">
 				<FileConfiguration
 					Name="DLL Release|Win32">
 					<Tool
@@ -480,7 +480,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\pngerror.c">
+				RelativePath="..¥..¥pngerror.c">
 				<FileConfiguration
 					Name="DLL Release|Win32">
 					<Tool
@@ -537,34 +537,34 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\pngget.c">
+				RelativePath="..¥..¥pngget.c">
 			</File>
 			<File
-				RelativePath="..\..\pngmem.c">
+				RelativePath="..¥..¥pngmem.c">
 			</File>
 			<File
-				RelativePath="..\..\pngpread.c">
+				RelativePath="..¥..¥pngpread.c">
 			</File>
 			<File
-				RelativePath="..\..\pngread.c">
+				RelativePath="..¥..¥pngread.c">
 			</File>
 			<File
-				RelativePath="..\..\pngrio.c">
+				RelativePath="..¥..¥pngrio.c">
 			</File>
 			<File
-				RelativePath="..\..\pngrtran.c">
+				RelativePath="..¥..¥pngrtran.c">
 			</File>
 			<File
-				RelativePath="..\..\pngrutil.c">
+				RelativePath="..¥..¥pngrutil.c">
 			</File>
 			<File
-				RelativePath="..\..\pngset.c">
+				RelativePath="..¥..¥pngset.c">
 			</File>
 			<File
-				RelativePath="..\..\pngtrans.c">
+				RelativePath="..¥..¥pngtrans.c">
 			</File>
 			<File
-				RelativePath="..\..\pngvcrd.c">
+				RelativePath="..¥..¥pngvcrd.c">
 				<FileConfiguration
 					Name="DLL Release|Win32"
 					ExcludedFromBuild="TRUE">
@@ -597,7 +597,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\scripts\pngw32.def">
+				RelativePath="..¥..¥scripts¥pngw32.def">
 				<FileConfiguration
 					Name="DLL VB|Win32"
 					ExcludedFromBuild="TRUE">
@@ -630,33 +630,33 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\pngwio.c">
+				RelativePath="..¥..¥pngwio.c">
 			</File>
 			<File
-				RelativePath="..\..\pngwrite.c">
+				RelativePath="..¥..¥pngwrite.c">
 			</File>
 			<File
-				RelativePath="..\..\pngwtran.c">
+				RelativePath="..¥..¥pngwtran.c">
 			</File>
 			<File
-				RelativePath="..\..\pngwutil.c">
+				RelativePath="..¥..¥pngwutil.c">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl">
 			<File
-				RelativePath="..\..\png.h">
+				RelativePath="..¥..¥png.h">
 			</File>
 			<File
-				RelativePath="..\..\pngconf.h">
+				RelativePath="..¥..¥pngconf.h">
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
 			Filter="ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
 			<File
-				RelativePath="..\..\scripts\pngw32.rc">
+				RelativePath="..¥..¥scripts¥pngw32.rc">
 				<FileConfiguration
 					Name="LIB Release|Win32"
 					ExcludedFromBuild="TRUE">
@@ -684,14 +684,14 @@
 			</File>
 		</Filter>
 		<File
-			RelativePath=".\PRJ0041.mak">
+			RelativePath=".¥PRJ0041.mak">
 			<FileConfiguration
 				Name="DLL Release|Win32">
 				<Tool
 					Name="VCCustomBuildTool"
 					Description="Create dummy include files to prevent &quot;Cannot find missing dependency...&quot; warnings."
 					CommandLine="nmake -f PRJ0041.mak IntDir=$(IntDir)"
-					Outputs="$(IntDir)\alloc.h;$(IntDir)\fp.h;$(IntDir)\m68881.h;$(IntDir)\mem.h;$(IntDir)\pngusr.h;$(IntDir)\strings.h;$(IntDir)\unistd.h;$(IntDir)\unixio.h"/>
+					Outputs="$(IntDir)¥alloc.h;$(IntDir)¥fp.h;$(IntDir)¥m68881.h;$(IntDir)¥mem.h;$(IntDir)¥pngusr.h;$(IntDir)¥strings.h;$(IntDir)¥unistd.h;$(IntDir)¥unixio.h"/>
 			</FileConfiguration>
 			<FileConfiguration
 				Name="DLL Debug|Win32">
@@ -699,7 +699,7 @@
 					Name="VCCustomBuildTool"
 					Description="Create dummy include files to prevent &quot;Cannot find missing dependency...&quot; warnings."
 					CommandLine="nmake -f PRJ0041.mak IntDir=$(IntDir)"
-					Outputs="$(IntDir)\alloc.h;$(IntDir)\fp.h;$(IntDir)\m68881.h;$(IntDir)\mem.h;$(IntDir)\pngusr.h;$(IntDir)\strings.h;$(IntDir)\unistd.h;$(IntDir)\unixio.h"/>
+					Outputs="$(IntDir)¥alloc.h;$(IntDir)¥fp.h;$(IntDir)¥m68881.h;$(IntDir)¥mem.h;$(IntDir)¥pngusr.h;$(IntDir)¥strings.h;$(IntDir)¥unistd.h;$(IntDir)¥unixio.h"/>
 			</FileConfiguration>
 			<FileConfiguration
 				Name="DLL ASM Release|Win32">
@@ -707,7 +707,7 @@
 					Name="VCCustomBuildTool"
 					Description="Create dummy include files to prevent &quot;Cannot find missing dependency...&quot; warnings."
 					CommandLine="nmake -f PRJ0041.mak IntDir=$(IntDir)"
-					Outputs="$(IntDir)\alloc.h;$(IntDir)\fp.h;$(IntDir)\m68881.h;$(IntDir)\mem.h;$(IntDir)\pngusr.h;$(IntDir)\strings.h;$(IntDir)\unistd.h;$(IntDir)\unixio.h"/>
+					Outputs="$(IntDir)¥alloc.h;$(IntDir)¥fp.h;$(IntDir)¥m68881.h;$(IntDir)¥mem.h;$(IntDir)¥pngusr.h;$(IntDir)¥strings.h;$(IntDir)¥unistd.h;$(IntDir)¥unixio.h"/>
 			</FileConfiguration>
 			<FileConfiguration
 				Name="DLL ASM Debug|Win32">
@@ -715,7 +715,7 @@
 					Name="VCCustomBuildTool"
 					Description="Create dummy include files to prevent &quot;Cannot find missing dependency...&quot; warnings."
 					CommandLine="nmake -f PRJ0041.mak IntDir=$(IntDir)"
-					Outputs="$(IntDir)\alloc.h;$(IntDir)\fp.h;$(IntDir)\m68881.h;$(IntDir)\mem.h;$(IntDir)\pngusr.h;$(IntDir)\strings.h;$(IntDir)\unistd.h;$(IntDir)\unixio.h"/>
+					Outputs="$(IntDir)¥alloc.h;$(IntDir)¥fp.h;$(IntDir)¥m68881.h;$(IntDir)¥mem.h;$(IntDir)¥pngusr.h;$(IntDir)¥strings.h;$(IntDir)¥unistd.h;$(IntDir)¥unixio.h"/>
 			</FileConfiguration>
 			<FileConfiguration
 				Name="DLL VB|Win32">
@@ -723,7 +723,7 @@
 					Name="VCCustomBuildTool"
 					Description="Create dummy include files to prevent &quot;Cannot find missing dependency...&quot; warnings."
 					CommandLine="nmake -f PRJ0041.mak IntDir=$(IntDir)"
-					Outputs="$(IntDir)\alloc.h;$(IntDir)\fp.h;$(IntDir)\m68881.h;$(IntDir)\mem.h;$(IntDir)\pngusr.h;$(IntDir)\strings.h;$(IntDir)\unistd.h;$(IntDir)\unixio.h"/>
+					Outputs="$(IntDir)¥alloc.h;$(IntDir)¥fp.h;$(IntDir)¥m68881.h;$(IntDir)¥mem.h;$(IntDir)¥pngusr.h;$(IntDir)¥strings.h;$(IntDir)¥unistd.h;$(IntDir)¥unixio.h"/>
 			</FileConfiguration>
 		</File>
 		<File

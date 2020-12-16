@@ -40,7 +40,7 @@ http://java.sun.com/developer/technicalArticles/Programming/compression/ .
 
 A Perl interface to zlib written by Paul Marquess <pmqs@cpan.org> is available
 at CPAN (Comprehensive Perl Archive Network) sites, including
-http://search.cpan.org/~pmqs/IO-Compress-Zlib/ .
+http://search.cpan.org/‾pmqs/IO-Compress-Zlib/ .
 
 A Python interface to zlib written by A.M. Kuchling <amk@amk.ca> is
 available in Python 1.5 and later versions, see

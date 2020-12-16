@@ -1,7 +1,7 @@
 
 /*****************************************************************************
                           E R I N A - L i b r a r y
-                                                        ÅIXV 2001/5/23
+                                                        æœ€çµ‚æ›´æ–° 2001/5/23
  ----------------------------------------------------------------------------
          Copyright (C) 2000-2001 Leshade Entis. All rights reserved.
  *****************************************************************************/
@@ -20,7 +20,7 @@
 
 
 /*****************************************************************************
-                                ‰¹ºî•ñ
+                                éŸ³å£°æƒ…å ±
  *****************************************************************************/
 
 struct	MIO_INFO_HEADER
@@ -50,52 +50,52 @@ struct	MIO_DATA_HEADER
 
 
 /*****************************************************************************
-                            ‰¹ºˆ³kƒIƒuƒWƒFƒNƒg
+                            éŸ³å£°åœ§ç¸®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
  *****************************************************************************/
 
 class	MIOEncoder
 {
 protected:
-	MIO_INFO_HEADER		m_mioih ;				// ‰¹ºî•ñƒwƒbƒ_
+	MIO_INFO_HEADER		m_mioih ;				// éŸ³å£°æƒ…å ±ãƒ˜ãƒƒãƒ€
 
-	unsigned int		m_nBufLength ;			// ƒoƒbƒtƒ@’·iƒTƒ“ƒvƒ‹”j
-	void *				m_ptrBuffer1 ;			// ·•ªˆ—ƒoƒbƒtƒ@
-	void *				m_ptrBuffer2 ;			// •À‚Ñ‘Ö‚¦ƒoƒbƒtƒ@
-	SBYTE *				m_ptrBuffer3 ;			// ƒCƒ“ƒ^[ƒŠ[ƒu—pƒoƒbƒtƒ@
-	REAL32 *			m_ptrSamplingBuf ;		// ƒTƒ“ƒvƒŠƒ“ƒO—pƒoƒbƒtƒ@
-	REAL32 *			m_ptrInternalBuf ;		// ’†ŠÔƒoƒbƒtƒ@
-	REAL32 *			m_ptrWorkBuf ;			// DCT ‰‰Z—pƒ[ƒNƒGƒŠƒA
-	REAL32 *			m_ptrWeightTable ;		// Šeü”g”¬•ª‚Ìd‚İƒe[ƒuƒ‹
-	REAL32 *			m_ptrLastDCT ;			// ’¼‘OƒuƒƒbƒN‚Ì DCT ŒW”
+	unsigned int		m_nBufLength ;			// ãƒãƒƒãƒ•ã‚¡é•·ï¼ˆã‚µãƒ³ãƒ—ãƒ«æ•°ï¼‰
+	void *				m_ptrBuffer1 ;			// å·®åˆ†å‡¦ç†ãƒãƒƒãƒ•ã‚¡
+	void *				m_ptrBuffer2 ;			// ä¸¦ã³æ›¿ãˆãƒãƒƒãƒ•ã‚¡
+	SBYTE *				m_ptrBuffer3 ;			// ã‚¤ãƒ³ã‚¿ãƒ¼ãƒªãƒ¼ãƒ–ç”¨ãƒãƒƒãƒ•ã‚¡
+	REAL32 *			m_ptrSamplingBuf ;		// ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°ç”¨ãƒãƒƒãƒ•ã‚¡
+	REAL32 *			m_ptrInternalBuf ;		// ä¸­é–“ãƒãƒƒãƒ•ã‚¡
+	REAL32 *			m_ptrWorkBuf ;			// DCT æ¼”ç®—ç”¨ãƒ¯ãƒ¼ã‚¯ã‚¨ãƒªã‚¢
+	REAL32 *			m_ptrWeightTable ;		// å„å‘¨æ³¢æ•°æˆåˆ†ã®é‡ã¿ãƒ†ãƒ¼ãƒ–ãƒ«
+	REAL32 *			m_ptrLastDCT ;			// ç›´å‰ãƒ–ãƒ­ãƒƒã‚¯ã® DCT ä¿‚æ•°
 
-	double				m_rLowWeight ;			// ’áü”g¬•ª‚Ìd‚İ
-	double				m_rMiddleWeight ;		// ’†ü”g¬•ª‚Ìd‚İ
-	double				m_rPowerScale ;			// —Êq‰»‚ÌŠî€ƒrƒbƒg”
-	int					m_nOddWeight ;			// ƒuƒƒbƒN˜c‘ÎôŒW”
+	double				m_rLowWeight ;			// ä½å‘¨æ³¢æˆåˆ†ã®é‡ã¿
+	double				m_rMiddleWeight ;		// ä¸­å‘¨æ³¢æˆåˆ†ã®é‡ã¿
+	double				m_rPowerScale ;			// é‡å­åŒ–ã®åŸºæº–ãƒ“ãƒƒãƒˆæ•°
+	int					m_nOddWeight ;			// ãƒ–ãƒ­ãƒƒã‚¯æ­ªå¯¾ç­–ä¿‚æ•°
 
-	SWORD *				m_ptrNextDstBuf ;		// o—Íƒoƒbƒtƒ@ƒAƒhƒŒƒX
-	REAL32 *			m_ptrLastDCTBuf ;		// d•¡‰‰Z—pƒoƒbƒtƒ@
-	unsigned int		m_nSubbandDegree ;		// s—ñ‚ÌƒTƒCƒY
+	SWORD *				m_ptrNextDstBuf ;		// å‡ºåŠ›ãƒãƒƒãƒ•ã‚¡ã‚¢ãƒ‰ãƒ¬ã‚¹
+	REAL32 *			m_ptrLastDCTBuf ;		// é‡è¤‡æ¼”ç®—ç”¨ãƒãƒƒãƒ•ã‚¡
+	unsigned int		m_nSubbandDegree ;		// è¡Œåˆ—ã®ã‚µã‚¤ã‚º
 	unsigned int		m_nDegreeNum ;
-	int					m_nFrequencyWidth[7] ;	// Šeü”g”‘Ñ‚Ì•
-	int					m_nFrequencyPoint[7] ;	// Šeü”g”‘Ñ‚Ì’†SˆÊ’u
+	int					m_nFrequencyWidth[7] ;	// å„å‘¨æ³¢æ•°å¸¯ã®å¹…
+	int					m_nFrequencyPoint[7] ;	// å„å‘¨æ³¢æ•°å¸¯ã®ä¸­å¿ƒä½ç½®
 	SIN_COS *			m_pRevolveParam ;
 
 public:
-	// \’zŠÖ”
+	// æ§‹ç¯‰é–¢æ•°
 	MIOEncoder( void ) ;
-	// Á–ÅŠÖ”
-	virtual ~MIOEncoder( void ) ;
+	// æ¶ˆæ»…é–¢æ•°
+	virtual â€¾MIOEncoder( void ) ;
 
-	// ‰Šú‰»iƒpƒ‰ƒ[ƒ^‚Ìİ’èj
+	// åˆæœŸåŒ–ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®è¨­å®šï¼‰
 	int Initialize( const MIO_INFO_HEADER & infhdr ) ;
-	// I—¹iƒƒ‚ƒŠ‚Ì‰ğ•ú‚È‚Çj
+	// çµ‚äº†ï¼ˆãƒ¡ãƒ¢ãƒªã®è§£æ”¾ãªã©ï¼‰
 	void Delete( void ) ;
-	// ‰¹º‚ğˆ³k
+	// éŸ³å£°ã‚’åœ§ç¸®
 	int EncodeSound
 		( RLHEncodeContext & context,
 			const MIO_DATA_HEADER & datahdr, const void * ptrWaveBuf ) ;
-	// ˆ³kƒIƒvƒVƒ‡ƒ“‚ğİ’è
+	// åœ§ç¸®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’è¨­å®š
 	void SetCompressionParameter
 		( double rLowWeight = 16.0,
 			double rMiddleWeight = 8.0,
@@ -103,42 +103,42 @@ public:
 			int nOddWeight = 1 ) ;
 
 protected:
-	// 8ƒrƒbƒg‚ÌPCM‚ğˆ³k
+	// 8ãƒ“ãƒƒãƒˆã®PCMã‚’åœ§ç¸®
 	int EncodeSoundPCM8
 		( RLHEncodeContext & context,
 			const MIO_DATA_HEADER & datahdr, const void * ptrWaveBuf ) ;
-	// 16ƒrƒbƒg‚ÌPCM‚ğˆ³k
+	// 16ãƒ“ãƒƒãƒˆã®PCMã‚’åœ§ç¸®
 	int EncodeSoundPCM16
 		( RLHEncodeContext & context,
 			const MIO_DATA_HEADER & datahdr, const void * ptrWaveBuf ) ;
 
 protected:
-	// s—ñƒTƒCƒY‚Ì•ÏX‚É”º‚¤ƒpƒ‰ƒ[ƒ^‚ÌÄŒvZ
+	// è¡Œåˆ—ã‚µã‚¤ã‚ºã®å¤‰æ›´ã«ä¼´ã†ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å†è¨ˆç®—
 	void InitializeWithDegree( unsigned int nSubbandDegree ) ;
-	// w’èƒTƒ“ƒvƒ‹—ñ‚Ì‰¹—Ê‚ğ‹‚ß‚é
+	// æŒ‡å®šã‚µãƒ³ãƒ—ãƒ«åˆ—ã®éŸ³é‡ã‚’æ±‚ã‚ã‚‹
 	double EvaluateVolume( const REAL32 * ptrWave, int nCount ) ;
-	// •ª‰ğƒR[ƒh‚ğæ“¾‚·‚é
+	// åˆ†è§£ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹
 	int GetDivisionCode( void ) ;
-	// 16ƒrƒbƒg‚Ì”ñ‰Â‹tˆ³k
+	// 16ãƒ“ãƒƒãƒˆã®éå¯é€†åœ§ç¸®
 	int EncodeSoundDCT
 		( RLHEncodeContext & context,
 			const MIO_DATA_HEADER & datahdr, const void * ptrWaveBuf ) ;
-	// LOT •ÏŠ·‚ğ{‚·
+	// LOT å¤‰æ›ã‚’æ–½ã™
 	void PerformLOT
 		( RLHEncodeContext & context,
 			REAL32 * ptrSamples, REAL32 rPowerScale ) ;
-	// ’Êí‚ÌƒuƒƒbƒN‚ğ•„†‰»‚µ‚Äo—Í‚·‚é
+	// é€šå¸¸ã®ãƒ–ãƒ­ãƒƒã‚¯ã‚’ç¬¦å·åŒ–ã—ã¦å‡ºåŠ›ã™ã‚‹
 	int EncodeInternalBlock
 		( RLHEncodeContext & context,
 			REAL32 * ptrSamples, REAL32 rPowerScale ) ;
-	// ƒŠ[ƒhƒuƒƒbƒN‚ğ•„†‰»‚µ‚Äo—Í‚·‚é
+	// ãƒªãƒ¼ãƒ‰ãƒ–ãƒ­ãƒƒã‚¯ã‚’ç¬¦å·åŒ–ã—ã¦å‡ºåŠ›ã™ã‚‹
 	int EncodeLeadBlock
 		( RLHEncodeContext & context,
 			REAL32 * ptrSamples, REAL32 rPowerScale ) ;
-	// ƒ|ƒXƒgƒuƒƒbƒN‚ğ•„†‰»‚µ‚Äo—Í‚·‚é
+	// ãƒã‚¹ãƒˆãƒ–ãƒ­ãƒƒã‚¯ã‚’ç¬¦å·åŒ–ã—ã¦å‡ºåŠ›ã™ã‚‹
 	int EncodePostBlock
 		( RLHEncodeContext & context, REAL32 rPowerScale ) ;
-	// —Êq‰»
+	// é‡å­åŒ–
 	void Quantumize
 		( PINT ptrQuantumized, const REAL32 * ptrSource,
 			int nDegreeNum, REAL32 rPowerScale,
@@ -148,87 +148,87 @@ protected:
 
 
 /*****************************************************************************
-                            ‰¹º“WŠJƒIƒuƒWƒFƒNƒg
+                            éŸ³å£°å±•é–‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
  *****************************************************************************/
 
 class	MIODecoder
 {
 protected:
-	MIO_INFO_HEADER		m_mioih ;				// ‰¹ºî•ñƒwƒbƒ_
+	MIO_INFO_HEADER		m_mioih ;				// éŸ³å£°æƒ…å ±ãƒ˜ãƒƒãƒ€
 
-	unsigned int		m_nBufLength ;			// ƒoƒbƒtƒ@’·iƒTƒ“ƒvƒ‹”j
-	void *				m_ptrBuffer1 ;			// ·•ªˆ—ƒoƒbƒtƒ@
-	void *				m_ptrBuffer2 ;			// •À‚Ñ‘Ö‚¦ƒoƒbƒtƒ@
-	SBYTE *				m_ptrBuffer3 ;			// ƒCƒ“ƒ^[ƒŠ[ƒu—pƒoƒbƒtƒ@
-	PBYTE				m_ptrDivisionTable ;	// •ª‰ğƒR[ƒhƒe[ƒuƒ‹
-	SDWORD *			m_ptrWeightCode ;		// —Êq‰»ŒW”ƒe[ƒuƒ‹
+	unsigned int		m_nBufLength ;			// ãƒãƒƒãƒ•ã‚¡é•·ï¼ˆã‚µãƒ³ãƒ—ãƒ«æ•°ï¼‰
+	void *				m_ptrBuffer1 ;			// å·®åˆ†å‡¦ç†ãƒãƒƒãƒ•ã‚¡
+	void *				m_ptrBuffer2 ;			// ä¸¦ã³æ›¿ãˆãƒãƒƒãƒ•ã‚¡
+	SBYTE *				m_ptrBuffer3 ;			// ã‚¤ãƒ³ã‚¿ãƒ¼ãƒªãƒ¼ãƒ–ç”¨ãƒãƒƒãƒ•ã‚¡
+	PBYTE				m_ptrDivisionTable ;	// åˆ†è§£ã‚³ãƒ¼ãƒ‰ãƒ†ãƒ¼ãƒ–ãƒ«
+	SDWORD *			m_ptrWeightCode ;		// é‡å­åŒ–ä¿‚æ•°ãƒ†ãƒ¼ãƒ–ãƒ«
 	PINT				m_ptrCoefficient ;		//
-	REAL32 *			m_ptrMatrixBuf ;		// s—ñ‰‰Z—pƒoƒbƒtƒ@
-	REAL32 *			m_ptrInternalBuf ;		// ’†ŠÔƒoƒbƒtƒ@
-	REAL32 *			m_ptrWorkBuf ;			// DCT ‰‰Z—pƒ[ƒNƒGƒŠƒA
+	REAL32 *			m_ptrMatrixBuf ;		// è¡Œåˆ—æ¼”ç®—ç”¨ãƒãƒƒãƒ•ã‚¡
+	REAL32 *			m_ptrInternalBuf ;		// ä¸­é–“ãƒãƒƒãƒ•ã‚¡
+	REAL32 *			m_ptrWorkBuf ;			// DCT æ¼”ç®—ç”¨ãƒ¯ãƒ¼ã‚¯ã‚¨ãƒªã‚¢
 	REAL32 *			m_ptrWorkBuf2 ;
-	REAL32 *			m_ptrWeightTable ;		// Šeü”g”¬•ª‚Ìd‚İƒe[ƒuƒ‹
-	REAL32 *			m_ptrLastDCT ;			// ’¼‘O‚Ì DCT ŒW”
+	REAL32 *			m_ptrWeightTable ;		// å„å‘¨æ³¢æ•°æˆåˆ†ã®é‡ã¿ãƒ†ãƒ¼ãƒ–ãƒ«
+	REAL32 *			m_ptrLastDCT ;			// ç›´å‰ã® DCT ä¿‚æ•°
 
-	PBYTE				m_ptrNextDivision ;		// Ÿ‚Ì•ª‰ğƒR[ƒh
-	SDWORD *			m_ptrNextWeight ;		// Ÿ‚Ì—Êq‰»ŒW”
+	PBYTE				m_ptrNextDivision ;		// æ¬¡ã®åˆ†è§£ã‚³ãƒ¼ãƒ‰
+	SDWORD *			m_ptrNextWeight ;		// æ¬¡ã®é‡å­åŒ–ä¿‚æ•°
 	PINT				m_ptrNextCoefficient ;	//
-	PINT				m_ptrNextSource ;		// Ÿ‚Ì“ü—ÍM†
-	REAL32 *			m_ptrLastDCTBuf ;		// d•¡‰‰Z—pƒoƒbƒtƒ@
-	unsigned int		m_nSubbandDegree ;		// s—ñ‚ÌƒTƒCƒY
+	PINT				m_ptrNextSource ;		// æ¬¡ã®å…¥åŠ›ä¿¡å·
+	REAL32 *			m_ptrLastDCTBuf ;		// é‡è¤‡æ¼”ç®—ç”¨ãƒãƒƒãƒ•ã‚¡
+	unsigned int		m_nSubbandDegree ;		// è¡Œåˆ—ã®ã‚µã‚¤ã‚º
 	unsigned int		m_nDegreeNum ;
 	SIN_COS *			m_pRevolveParam ;
-	int					m_nFrequencyPoint[7] ;	// Šeü”g”‘Ñ‚Ì’†SˆÊ’u
+	int					m_nFrequencyPoint[7] ;	// å„å‘¨æ³¢æ•°å¸¯ã®ä¸­å¿ƒä½ç½®
 
 public:
-	// \’zŠÖ”
+	// æ§‹ç¯‰é–¢æ•°
 	MIODecoder( void ) ;
-	// Á–ÅŠÖ”
-	virtual ~MIODecoder( void ) ;
+	// æ¶ˆæ»…é–¢æ•°
+	virtual â€¾MIODecoder( void ) ;
 
-	// ‰Šú‰»iƒpƒ‰ƒ[ƒ^‚Ìİ’èj
+	// åˆæœŸåŒ–ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®è¨­å®šï¼‰
 	int Initialize( const MIO_INFO_HEADER & infhdr ) ;
-	// I—¹iƒƒ‚ƒŠ‚Ì‰ğ•ú‚È‚Çj
+	// çµ‚äº†ï¼ˆãƒ¡ãƒ¢ãƒªã®è§£æ”¾ãªã©ï¼‰
 	void Delete( void ) ;
-	// ‰¹º‚ğˆ³k
+	// éŸ³å£°ã‚’åœ§ç¸®
 	int DecodeSound
 		( RLHDecodeContext & context,
 			const MIO_DATA_HEADER & datahdr, void * ptrWaveBuf ) ;
 
 protected:
-	// 8ƒrƒbƒg‚ÌPCM‚ğ“WŠJ
+	// 8ãƒ“ãƒƒãƒˆã®PCMã‚’å±•é–‹
 	int DecodeSoundPCM8
 		( RLHDecodeContext & context,
 			const MIO_DATA_HEADER & datahdr, void * ptrWaveBuf ) ;
-	// 16ƒrƒbƒg‚ÌPCM‚ğ“WŠJ
+	// 16ãƒ“ãƒƒãƒˆã®PCMã‚’å±•é–‹
 	int DecodeSoundPCM16
 		( RLHDecodeContext & context,
 			const MIO_DATA_HEADER & datahdr, void * ptrWaveBuf ) ;
 
 protected:
-	// s—ñƒTƒCƒY‚Ì•ÏX‚É”º‚¤ƒpƒ‰ƒ[ƒ^‚ÌÄŒvZ
+	// è¡Œåˆ—ã‚µã‚¤ã‚ºã®å¤‰æ›´ã«ä¼´ã†ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å†è¨ˆç®—
 	void InitializeWithDegree( unsigned int nSubbandDegree ) ;
-	// 16ƒrƒbƒg‚Ì”ñ‰Â‹t“WŠJ
+	// 16ãƒ“ãƒƒãƒˆã®éå¯é€†å±•é–‹
 	int DecodeSoundDCT
 		( RLHDecodeContext & context,
 			const MIO_DATA_HEADER & datahdr, void * ptrWaveBuf ) ;
-	// ’Êí‚ÌƒuƒƒbƒN‚ğ•œ†‚·‚é
+	// é€šå¸¸ã®ãƒ–ãƒ­ãƒƒã‚¯ã‚’å¾©å·ã™ã‚‹
 	int DecodeInternalBlock
 		( RLHDecodeContext & context,
 			SWORD * ptrDst, unsigned int nSamples ) ;
-	// ƒŠ[ƒhƒuƒƒbƒN‚ğ•œ†‚·‚é
+	// ãƒªãƒ¼ãƒ‰ãƒ–ãƒ­ãƒƒã‚¯ã‚’å¾©å·ã™ã‚‹
 	int DecodeLeadBlock
 		( RLHDecodeContext & context ) ;
-	// ƒ|ƒXƒgƒuƒƒbƒN‚ğ•œ†‚·‚é
+	// ãƒã‚¹ãƒˆãƒ–ãƒ­ãƒƒã‚¯ã‚’å¾©å·ã™ã‚‹
 	int DecodePostBlock
 		( RLHDecodeContext & context,
 			SWORD * ptrDst, unsigned int nSamples ) ;
-	// —Êq‰»
+	// é‡å­åŒ–
 	void IQuantumize
 		( REAL32 * ptrDestination,
 			const INT * ptrQuantumized, int nDegreeNum,
 			SDWORD nWeightCode, int nCoefficient ) ;
-	// •œ†
+	// å¾©å·
 	int DecodeSamples
 		( RLHDecodeContext & context,
 			INT * ptrQuantumized, unsigned int nCount ) ;

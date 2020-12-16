@@ -20,8 +20,8 @@ namespace boost { namespace python {
 // for this compiler at least, cross-shared-library type_info
 // comparisons don't work, so use typeid(x).name() instead. It's not
 // yet clear what the best default strategy is.
-# if (defined(__GNUC__) && __GNUC__ >= 3) \
- || defined(_AIX) \
+# if (defined(__GNUC__) && __GNUC__ >= 3) ¥
+ || defined(_AIX) ¥
  || (   defined(__sgi) && defined(__host_mips))
 #  define BOOST_PYTHON_TYPE_ID_NAME
 # endif 
@@ -69,11 +69,11 @@ inline type_info type_id(boost::type<T>* = 0)
 // down into template instantiations. Explicit specialization stops
 // that from taking hold.
 
-#   define BOOST_PYTHON_SIGNED_INTEGRAL_TYPE_ID(T)      \
-template <>                                             \
-inline type_info type_id<T>(boost::type<T>*)            \
-{                                                       \
-    return type_info(typeid(T));                        \
+#   define BOOST_PYTHON_SIGNED_INTEGRAL_TYPE_ID(T)      ¥
+template <>                                             ¥
+inline type_info type_id<T>(boost::type<T>*)            ¥
+{                                                       ¥
+    return type_info(typeid(T));                        ¥
 }
 
 BOOST_PYTHON_SIGNED_INTEGRAL_TYPE_ID(short)

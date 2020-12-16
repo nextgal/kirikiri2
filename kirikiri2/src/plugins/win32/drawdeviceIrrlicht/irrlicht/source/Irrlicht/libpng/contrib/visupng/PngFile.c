@@ -33,7 +33,7 @@ png_cexcept_error(png_structp png_ptr, png_const_charp msg)
    if(png_ptr)
      ;
 #ifndef PNG_NO_CONSOLE_IO
-   fprintf(stderr, "libpng error: %s\n", msg);
+   fprintf(stderr, "libpng error: %s¥n", msg);
 #endif
    {
       Throw msg;
@@ -44,8 +44,8 @@ png_cexcept_error(png_structp png_ptr, png_const_charp msg)
 
 void PngFileInitialize (HWND hwnd)
 {
-    static TCHAR szFilter[] = TEXT ("PNG Files (*.PNG)\0*.png\0")
-        TEXT ("All Files (*.*)\0*.*\0\0");
+    static TCHAR szFilter[] = TEXT ("PNG Files (*.PNG)¥0*.png¥0")
+        TEXT ("All Files (*.*)¥0*.*¥0¥0");
 
     ofn.lStructSize       = sizeof (OPENFILENAME);
     ofn.hwndOwner         = hwnd;

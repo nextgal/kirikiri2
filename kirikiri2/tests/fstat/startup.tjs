@@ -19,13 +19,13 @@ function showStat(stat, showsize = true) {
 
 function testStat(name) {
 	var stat;
-	dm("\n\ntestStat: " + name);
+	dm("Â¥nÂ¥ntestStat: " + name);
 	try { stat = Storages.fstat(name); } catch (e) { return dm("error: "+e.message); }
 	showStat(stat);
 }
 
 function testTime(name) {
-	dm("\n\ntestTime: " + name);
+	dm("Â¥nÂ¥ntestTime: " + name);
 	var orig = Storages.getTime(name);
 
 	dm("set: "+Storages.setTime(name, %[ mtime:new Date("2000/01/01 00:00:00"), atime:new Date("2001/12/31 23:59:59"), ctime:new Date("1999/09/09 09:09:09") ]));
@@ -37,9 +37,9 @@ function testTime(name) {
 
 function testExistDir(name) {
 	try {
-		dm(@"\n\ntestExistDir: ${name} : ${Storages.isExistentDirectory(name)}");
+		dm(@"Â¥nÂ¥ntestExistDir: ${name} : ${Storages.isExistentDirectory(name)}");
 	} catch (e) {
-		dm(@"\n\ntestExistDir: ${name} fail : ${e.message}");
+		dm(@"Â¥nÂ¥ntestExistDir: ${name} fail : ${e.message}");
 	}
 }
 
@@ -50,7 +50,7 @@ testStat("startup.tjs");
 testStat(System.exePath);
 testStat("test.xp3>startup.tjs");
 //testStat("aaa"); // error: cannot open
-//testStat(""); // error: ‘Î‰‚µ‚Ä‚¢‚È‚¢ƒƒfƒBƒAƒ^ƒCƒv
+//testStat(""); // error: å¯¾å¿œã—ã¦ã„ãªã„ãƒ¡ãƒ‡ã‚£ã‚¢ã‚¿ã‚¤ãƒ—
 
 
 // settime test

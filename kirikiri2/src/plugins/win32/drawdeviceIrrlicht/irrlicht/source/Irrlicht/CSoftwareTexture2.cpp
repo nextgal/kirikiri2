@@ -56,7 +56,7 @@ CSoftwareTexture2::CSoftwareTexture2(IImage* image, const char* name, bool gener
 
 
 //! destructor
-CSoftwareTexture2::~CSoftwareTexture2()
+CSoftwareTexture2::‾CSoftwareTexture2()
 {
 	for ( s32 i = 0; i!= SOFTWARE_DRIVER_2_MIPMAPPING_MAX; ++i )
 	{

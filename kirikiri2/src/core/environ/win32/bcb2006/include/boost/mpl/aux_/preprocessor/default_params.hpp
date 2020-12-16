@@ -28,8 +28,8 @@
 
 #   include "boost/preprocessor/cat.hpp"
 
-#   define BOOST_MPL_PP_DEFAULT_PARAMS(n,p,v) \
-    BOOST_PP_CAT(BOOST_MPL_PP_DEFAULT_PARAMS_,n)(p,v) \
+#   define BOOST_MPL_PP_DEFAULT_PARAMS(n,p,v) ¥
+    BOOST_PP_CAT(BOOST_MPL_PP_DEFAULT_PARAMS_,n)(p,v) ¥
     /**/
     
 #   define BOOST_MPL_PP_DEFAULT_PARAMS_0(p,v)
@@ -51,18 +51,18 @@
 #   include "boost/preprocessor/inc.hpp"
 #   include "boost/preprocessor/cat.hpp"
 
-#   define BOOST_MPL_PP_AUX_DEFAULT_PARAM_FUNC(unused, i, pv) \
-    BOOST_PP_COMMA_IF(i) \
-    BOOST_PP_CAT( BOOST_PP_TUPLE_ELEM(2,0,pv), BOOST_PP_INC(i) ) \
-        = BOOST_PP_TUPLE_ELEM(2,1,pv) \
+#   define BOOST_MPL_PP_AUX_DEFAULT_PARAM_FUNC(unused, i, pv) ¥
+    BOOST_PP_COMMA_IF(i) ¥
+    BOOST_PP_CAT( BOOST_PP_TUPLE_ELEM(2,0,pv), BOOST_PP_INC(i) ) ¥
+        = BOOST_PP_TUPLE_ELEM(2,1,pv) ¥
     /**/
 
-#   define BOOST_MPL_PP_DEFAULT_PARAMS(n, param, value) \
-    BOOST_PP_REPEAT_1( \
-          n \
-        , BOOST_MPL_PP_AUX_DEFAULT_PARAM_FUNC \
-        , (param,value) \
-        ) \
+#   define BOOST_MPL_PP_DEFAULT_PARAMS(n, param, value) ¥
+    BOOST_PP_REPEAT_1( ¥
+          n ¥
+        , BOOST_MPL_PP_AUX_DEFAULT_PARAM_FUNC ¥
+        , (param,value) ¥
+        ) ¥
     /**/
 
 #endif // BOOST_MPL_USE_OWN_PP_PRIMITIVES

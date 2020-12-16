@@ -36,7 +36,7 @@ static SQInteger validate_format(HSQUIRRELVM v, SQChar *fmt, const SQChar *src, 
 		if(wc>=MAX_WFORMAT_LEN)
 			return sq_throwerror(v,_SC("width format too long"));
 	}
-	swidth[wc] = '\0';
+	swidth[wc] = '¥0';
 	if(wc > 0) {
 		width = scatoi(swidth);
 	}
@@ -53,7 +53,7 @@ static SQInteger validate_format(HSQUIRRELVM v, SQChar *fmt, const SQChar *src, 
 			if(wc>=MAX_WFORMAT_LEN)
 				return sq_throwerror(v,_SC("precision format too long"));
 		}
-		swidth[wc] = '\0';
+		swidth[wc] = '¥0';
 		if(wc > 0) {
 			width += scatoi(swidth);
 		}
@@ -61,7 +61,7 @@ static SQInteger validate_format(HSQUIRRELVM v, SQChar *fmt, const SQChar *src, 
 	if (n-start > MAX_FORMAT_LEN )
 		return sq_throwerror(v,_SC("format too long"));
 	memcpy(&fmt[1],&src[start],((n-start)+1)*sizeof(SQChar));
-	fmt[(n-start)+2] = '\0';
+	fmt[(n-start)+2] = '¥0';
 	return n;
 }
 
@@ -76,7 +76,7 @@ SQRESULT sqstd_format(HSQUIRRELVM v,SQInteger nformatstringidx,SQInteger *outlen
 
 	// first convert parameters
 	SQInteger n = 0, nparam = nformatstringidx+1, w=0, top = sq_gettop(v);
-	while(format[n] != '\0') {
+	while(format[n] != '¥0') {
 		if(format[n] != '%') {
 			n++;
 		}
@@ -117,7 +117,7 @@ SQRESULT sqstd_format(HSQUIRRELVM v,SQInteger nformatstringidx,SQInteger *outlen
 	dest = sq_getscratchpad(v,allocated);
 	n = 0; nparam = top+1; w=0;
 	SQInteger i = 0;
-	while(format[n] != '\0') {
+	while(format[n] != '¥0') {
 		if(format[n] != '%') {
 			assert(i < allocated);
 			dest[i++] = format[n];
@@ -185,7 +185,7 @@ SQRESULT sqstd_format(HSQUIRRELVM v,SQInteger nformatstringidx,SQInteger *outlen
 	}
 	sq_settop(v,top);
 	*outlen = i;
-	dest[i] = '\0';
+	dest[i] = '¥0';
 	*output = dest;
 	return SQ_OK;
 }
@@ -231,7 +231,7 @@ static SQInteger _string_printf(HSQUIRRELVM v)
 static void __strip_l(const SQChar *str,const SQChar **start)
 {
 	const SQChar *t = str;
-	while(((*t) != '\0') && scisspace(*t)){ t++; }
+	while(((*t) != '¥0') && scisspace(*t)){ t++; }
 	*start = t;
 }
 
@@ -296,8 +296,8 @@ static SQInteger _string_split(HSQUIRRELVM v)
 	return 1;
 }
 
-#define SETUP_REX(v) \
-	SQRex *self = NULL; \
+#define SETUP_REX(v) ¥
+	SQRex *self = NULL; ¥
 	sq_getinstanceup(v,1,(SQUserPointer *)&self,0); 
 
 static SQInteger _rexobj_releasehook(SQUserPointer p, SQInteger size)

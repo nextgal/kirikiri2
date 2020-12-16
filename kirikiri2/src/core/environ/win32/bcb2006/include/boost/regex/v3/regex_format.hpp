@@ -221,27 +221,27 @@ expand_sub:
          switch(traits_inst.syntax_type((traits_size_type)(traits_uchar_type)(*fmt)))
          {
          case traits_type::syntax_a:
-            c = '\a';
+            c = '¥a';
             ++fmt;
             break;
          case traits_type::syntax_f:
-            c = '\f';
+            c = '¥f';
             ++fmt;
             break;
          case traits_type::syntax_n:
-            c = '\n';
+            c = '¥n';
             ++fmt;
             break;
          case traits_type::syntax_r:
-            c = '\r';
+            c = '¥r';
             ++fmt;
             break;
          case traits_type::syntax_t:
-            c = '\t';
+            c = '¥t';
             ++fmt;
             break;
          case traits_type::syntax_v:
-            c = '\v';
+            c = '¥v';
             ++fmt;
             break;
          case traits_type::syntax_x:
@@ -252,7 +252,7 @@ expand_sub:
                ++out;
                return out;
             }
-            // maybe have \x{ddd}
+            // maybe have ¥x{ddd}
             if(traits_inst.syntax_type((traits_size_type)(traits_uchar_type)(*fmt)) == traits_type::syntax_open_brace)
             {
                ++fmt;
@@ -461,7 +461,7 @@ public:
    merge_out_predicate(OutputIterator& o, Iterator& pi, const charT* f, unsigned format_flags, const traits_type& p)
       : out(&o), last(&pi), fmt(f), flags(format_flags), pt(&p){}
 
-   ~merge_out_predicate() {}
+   ‾merge_out_predicate() {}
    bool BOOST_REGEX_CALL operator()(const boost::match_results<Iterator, Allocator>& m)
    {
       const charT* f = fmt;

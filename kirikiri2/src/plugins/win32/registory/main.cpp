@@ -20,14 +20,14 @@ public:
 		if(numparams < 2)
 			return TJS_E_BADPARAMCOUNT;
 
-		// ƒ‹[ƒgƒL[‚ðŠm’è
+		// ãƒ«ãƒ¼ãƒˆã‚­ãƒ¼ã‚’ç¢ºå®š
 		ttstr		key	= param[0]->AsStringNoAddRef();
 		tjs_int		len = key.length();
 		ttstr		hkey= "";
 		tjs_int		i;
 		for(i=0; i<len; i++)
 		{
-			if(key[i] == '\\')
+			if(key[i] == 'Â¥Â¥')
 				break;
 			hkey	+= key[i];
 		}
@@ -52,11 +52,11 @@ public:
 		else if(hkey[5] == 'D')
 			hKey	= HKEY_DYN_DATA;
 
-		//	ƒL[–¼A’l–¼‚ðŽæ‚èo‚·
+		//	ã‚­ãƒ¼åã€å€¤åã‚’å–ã‚Šå‡ºã™
 		tjs_int	j;
 		for(j=len-1; j>=0; j--)
 		{
-			if(key[j] == '\\')
+			if(key[j] == 'Â¥Â¥')
 				break;
 		}
 		ttstr	keyname	= "";
@@ -105,14 +105,14 @@ public:
 		if(numparams < 1)
 			return TJS_E_BADPARAMCOUNT;
 
-		// ƒ‹[ƒgƒL[‚ðŠm’è
+		// ãƒ«ãƒ¼ãƒˆã‚­ãƒ¼ã‚’ç¢ºå®š
 		ttstr		key	= param[0]->AsStringNoAddRef();
 		tjs_int		len = key.length();
 		ttstr		hkey= "";
 		tjs_int		i;
 		for(i=0; i<len; i++)
 		{
-			if(key[i] == '\\')
+			if(key[i] == 'Â¥Â¥')
 				break;
 			hkey	+= key[i];
 		}
@@ -137,11 +137,11 @@ public:
 		else if(hkey[5] == 'D')
 			hKey	= HKEY_DYN_DATA;
 
-		//	ƒL[–¼A’l–¼‚ðŽæ‚èo‚·
+		//	ã‚­ãƒ¼åã€å€¤åã‚’å–ã‚Šå‡ºã™
 		tjs_int	j;
 		for(j=len-1; j>=0; j--)
 		{
-			if(key[j] == '\\')
+			if(key[j] == 'Â¥Â¥')
 				break;
 		}
 		ttstr	keyname	= "";
@@ -174,14 +174,14 @@ public:
 		if(numparams < 1)
 			return TJS_E_BADPARAMCOUNT;
 
-		// ƒ‹[ƒgƒL[‚ðŠm’è
+		// ãƒ«ãƒ¼ãƒˆã‚­ãƒ¼ã‚’ç¢ºå®š
 		ttstr		key	= param[0]->AsStringNoAddRef();
 		tjs_int		len = key.length();
 		ttstr		hkey= "";
 		tjs_int		i;
 		for(i=0; i<len; i++)
 		{
-			if(key[i] == '\\')
+			if(key[i] == 'Â¥Â¥')
 				break;
 			hkey	+= key[i];
 		}
@@ -206,11 +206,11 @@ public:
 		else if(hkey[5] == 'D')
 			hKey	= HKEY_DYN_DATA;
 
-		//	ƒL[–¼A’l–¼‚ðŽæ‚èo‚·
+		//	ã‚­ãƒ¼åã€å€¤åã‚’å–ã‚Šå‡ºã™
 		tjs_int	j;
 		for(j=len-1; j>=0; j--)
 		{
-			if(key[j] == '\\')
+			if(key[j] == 'Â¥Â¥')
 				break;
 		}
 		ttstr	keyname	= "";

@@ -66,7 +66,7 @@ CD3D9Driver::CD3D9Driver(const core::dimension2d<s32>& screenSize, HWND window,
 
 
 //! destructor
-CD3D9Driver::~CD3D9Driver()
+CD3D9Driver::‾CD3D9Driver()
 {
 	deleteMaterialRenders();
 
@@ -1844,7 +1844,7 @@ u32 CD3D9Driver::getMaximalDynamicLightAmount() const
 
 //! Sets the dynamic ambient light color. The default color is
 //! (0,0,0,0) which means it is dark.
-//! \param color: New color of the ambient light.
+//! ¥param color: New color of the ambient light.
 void CD3D9Driver::setAmbientLight(const SColorf& color)
 {
 	if (!pID3DDevice)
@@ -1856,7 +1856,7 @@ void CD3D9Driver::setAmbientLight(const SColorf& color)
 }
 
 
-//! \return Returns the name of the video driver. Example: In case of the DIRECT3D9
+//! ¥return Returns the name of the video driver. Example: In case of the DIRECT3D9
 //! driver, it would return "Direct3D9.0".
 const wchar_t* CD3D9Driver::getName() const
 {
@@ -2285,7 +2285,7 @@ void CD3D9Driver::enableClipPlane(u32 index, bool enable)
 	if (enable)
 		renderstate |= (1 << index);
 	else
-		renderstate &= ~(1 << index);
+		renderstate &= ‾(1 << index);
 	pID3DDevice->SetRenderState(D3DRS_CLIPPLANEENABLE, renderstate);
 }
 

@@ -7,7 +7,7 @@ gzfilebuf::gzfilebuf() :
   own_file_descriptor(0)
 { }
 
-gzfilebuf::~gzfilebuf() {
+gzfilebuf::‾gzfilebuf() {
 
   sync();
   if ( own_file_descriptor )
@@ -46,7 +46,7 @@ gzfilebuf *gzfilebuf::open( const char *name,
   }
 
   // Put the end-of-string indicator
-  *p = '\0';
+  *p = '¥0';
 
   if ( (file = gzopen(name, char_mode)) == NULL )
     return NULL;
@@ -88,7 +88,7 @@ gzfilebuf *gzfilebuf::attach( int file_descriptor,
   }
 
   // Put the end-of-string indicator
-  *p = '\0';
+  *p = '¥0';
 
   if ( (file = gzdopen(file_descriptor, char_mode)) == NULL )
     return NULL;
@@ -255,7 +255,7 @@ gzfilestream_common::gzfilestream_common() :
   ios( gzfilestream_common::rdbuf() )
 { }
 
-gzfilestream_common::~gzfilestream_common()
+gzfilestream_common::‾gzfilestream_common()
 { }
 
 void gzfilestream_common::attach( int fd, int io_mode ) {
@@ -306,7 +306,7 @@ gzifstream::gzifstream( int fd, int io_mode ) :
   gzfilestream_common::attach( fd, io_mode );
 }
 
-gzifstream::~gzifstream() { }
+gzifstream::‾gzifstream() { }
 
 gzofstream::gzofstream() :
   ios( gzfilestream_common::rdbuf() )
@@ -326,4 +326,4 @@ gzofstream::gzofstream( int fd, int io_mode ) :
   gzfilestream_common::attach( fd, io_mode );
 }
 
-gzofstream::~gzofstream() { }
+gzofstream::‾gzofstream() { }

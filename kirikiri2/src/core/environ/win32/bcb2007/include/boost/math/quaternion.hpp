@@ -51,94 +51,94 @@ namespace boost
         using    ::std::cosh;
 #endif /* defined(__GNUC__) && (__GNUC__ < 3) */
 
-#define    BOOST_QUATERNION_ACCESSOR_GENERATOR(type)                    \
-            type                    real() const                        \
-            {                                                           \
-                return(a);                                              \
-            }                                                           \
-                                                                        \
-            quaternion<type>        unreal() const                      \
-            {                                                           \
-                return(quaternion<type>(static_cast<type>(0),b,c,d));   \
-            }                                                           \
-                                                                        \
-            type                    R_component_1() const               \
-            {                                                           \
-                return(a);                                              \
-            }                                                           \
-                                                                        \
-            type                    R_component_2() const               \
-            {                                                           \
-                return(b);                                              \
-            }                                                           \
-                                                                        \
-            type                    R_component_3() const               \
-            {                                                           \
-                return(c);                                              \
-            }                                                           \
-                                                                        \
-            type                    R_component_4() const               \
-            {                                                           \
-                return(d);                                              \
-            }                                                           \
-                                                                        \
-            ::std::complex<type>    C_component_1() const               \
-            {                                                           \
-                return(::std::complex<type>(a,b));                      \
-            }                                                           \
-                                                                        \
-            ::std::complex<type>    C_component_2() const               \
-            {                                                           \
-                return(::std::complex<type>(c,d));                      \
+#define    BOOST_QUATERNION_ACCESSOR_GENERATOR(type)                    ¥
+            type                    real() const                        ¥
+            {                                                           ¥
+                return(a);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            quaternion<type>        unreal() const                      ¥
+            {                                                           ¥
+                return(quaternion<type>(static_cast<type>(0),b,c,d));   ¥
+            }                                                           ¥
+                                                                        ¥
+            type                    R_component_1() const               ¥
+            {                                                           ¥
+                return(a);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            type                    R_component_2() const               ¥
+            {                                                           ¥
+                return(b);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            type                    R_component_3() const               ¥
+            {                                                           ¥
+                return(c);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            type                    R_component_4() const               ¥
+            {                                                           ¥
+                return(d);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            ::std::complex<type>    C_component_1() const               ¥
+            {                                                           ¥
+                return(::std::complex<type>(a,b));                      ¥
+            }                                                           ¥
+                                                                        ¥
+            ::std::complex<type>    C_component_2() const               ¥
+            {                                                           ¥
+                return(::std::complex<type>(c,d));                      ¥
             }
         
         
-#define    BOOST_QUATERNION_MEMBER_ASSIGNMENT_GENERATOR(type)                               \
-            template<typename X>                                                            \
-            quaternion<type> &        operator = (quaternion<X> const  & a_affecter)        \
-            {                                                                               \
-                a = static_cast<type>(a_affecter.R_component_1());                          \
-                b = static_cast<type>(a_affecter.R_component_2());                          \
-                c = static_cast<type>(a_affecter.R_component_3());                          \
-                d = static_cast<type>(a_affecter.R_component_4());                          \
-                                                                                            \
-                return(*this);                                                              \
-            }                                                                               \
-                                                                                            \
-            quaternion<type> &        operator = (quaternion<type> const & a_affecter)      \
-            {                                                                               \
-                a = a_affecter.a;                                                           \
-                b = a_affecter.b;                                                           \
-                c = a_affecter.c;                                                           \
-                d = a_affecter.d;                                                           \
-                                                                                            \
-                return(*this);                                                              \
-            }                                                                               \
-                                                                                            \
-            quaternion<type> &        operator = (type const & a_affecter)                  \
-            {                                                                               \
-                a = a_affecter;                                                             \
-                                                                                            \
-                b = c = d = static_cast<type>(0);                                           \
-                                                                                            \
-                return(*this);                                                              \
-            }                                                                               \
-                                                                                            \
-            quaternion<type> &        operator = (::std::complex<type> const & a_affecter)  \
-            {                                                                               \
-                a = a_affecter.real();                                                      \
-                b = a_affecter.imag();                                                      \
-                                                                                            \
-                c = d = static_cast<type>(0);                                               \
-                                                                                            \
-                return(*this);                                                              \
+#define    BOOST_QUATERNION_MEMBER_ASSIGNMENT_GENERATOR(type)                               ¥
+            template<typename X>                                                            ¥
+            quaternion<type> &        operator = (quaternion<X> const  & a_affecter)        ¥
+            {                                                                               ¥
+                a = static_cast<type>(a_affecter.R_component_1());                          ¥
+                b = static_cast<type>(a_affecter.R_component_2());                          ¥
+                c = static_cast<type>(a_affecter.R_component_3());                          ¥
+                d = static_cast<type>(a_affecter.R_component_4());                          ¥
+                                                                                            ¥
+                return(*this);                                                              ¥
+            }                                                                               ¥
+                                                                                            ¥
+            quaternion<type> &        operator = (quaternion<type> const & a_affecter)      ¥
+            {                                                                               ¥
+                a = a_affecter.a;                                                           ¥
+                b = a_affecter.b;                                                           ¥
+                c = a_affecter.c;                                                           ¥
+                d = a_affecter.d;                                                           ¥
+                                                                                            ¥
+                return(*this);                                                              ¥
+            }                                                                               ¥
+                                                                                            ¥
+            quaternion<type> &        operator = (type const & a_affecter)                  ¥
+            {                                                                               ¥
+                a = a_affecter;                                                             ¥
+                                                                                            ¥
+                b = c = d = static_cast<type>(0);                                           ¥
+                                                                                            ¥
+                return(*this);                                                              ¥
+            }                                                                               ¥
+                                                                                            ¥
+            quaternion<type> &        operator = (::std::complex<type> const & a_affecter)  ¥
+            {                                                                               ¥
+                a = a_affecter.real();                                                      ¥
+                b = a_affecter.imag();                                                      ¥
+                                                                                            ¥
+                c = d = static_cast<type>(0);                                               ¥
+                                                                                            ¥
+                return(*this);                                                              ¥
             }
         
         
-#define    BOOST_QUATERNION_MEMBER_DATA_GENERATOR(type)       \
-            type    a;                                        \
-            type    b;                                        \
-            type    c;                                        \
+#define    BOOST_QUATERNION_MEMBER_DATA_GENERATOR(type)       ¥
+            type    a;                                        ¥
+            type    b;                                        ¥
+            type    c;                                        ¥
             type    d;
         
         
@@ -457,136 +457,136 @@ namespace boost
         // implementation of quaternion specialization
         
         
-#define    BOOST_QUATERNION_CONSTRUCTOR_GENERATOR(type)                                                 \
-            explicit            quaternion( type const & requested_a = static_cast<type>(0),            \
-                                            type const & requested_b = static_cast<type>(0),            \
-                                            type const & requested_c = static_cast<type>(0),            \
-                                            type const & requested_d = static_cast<type>(0))            \
-            :   a(requested_a),                                                                         \
-                b(requested_b),                                                                         \
-                c(requested_c),                                                                         \
-                d(requested_d)                                                                          \
-            {                                                                                           \
-            }                                                                                           \
-                                                                                                        \
-            explicit            quaternion( ::std::complex<type> const & z0,                            \
-                                            ::std::complex<type> const & z1 = ::std::complex<type>())   \
-            :   a(z0.real()),                                                                           \
-                b(z0.imag()),                                                                           \
-                c(z1.real()),                                                                           \
-                d(z1.imag())                                                                            \
-            {                                                                                           \
+#define    BOOST_QUATERNION_CONSTRUCTOR_GENERATOR(type)                                                 ¥
+            explicit            quaternion( type const & requested_a = static_cast<type>(0),            ¥
+                                            type const & requested_b = static_cast<type>(0),            ¥
+                                            type const & requested_c = static_cast<type>(0),            ¥
+                                            type const & requested_d = static_cast<type>(0))            ¥
+            :   a(requested_a),                                                                         ¥
+                b(requested_b),                                                                         ¥
+                c(requested_c),                                                                         ¥
+                d(requested_d)                                                                          ¥
+            {                                                                                           ¥
+            }                                                                                           ¥
+                                                                                                        ¥
+            explicit            quaternion( ::std::complex<type> const & z0,                            ¥
+                                            ::std::complex<type> const & z1 = ::std::complex<type>())   ¥
+            :   a(z0.real()),                                                                           ¥
+                b(z0.imag()),                                                                           ¥
+                c(z1.real()),                                                                           ¥
+                d(z1.imag())                                                                            ¥
+            {                                                                                           ¥
             }
         
         
-#define    BOOST_QUATERNION_MEMBER_ADD_GENERATOR_1(type)             \
-            quaternion<type> &        operator += (type const & rhs) \
-            {                                                        \
-                a += rhs;                                            \
-                                                                     \
-                return(*this);                                       \
+#define    BOOST_QUATERNION_MEMBER_ADD_GENERATOR_1(type)             ¥
+            quaternion<type> &        operator += (type const & rhs) ¥
+            {                                                        ¥
+                a += rhs;                                            ¥
+                                                                     ¥
+                return(*this);                                       ¥
             }
     
-#define    BOOST_QUATERNION_MEMBER_ADD_GENERATOR_2(type)                             \
-            quaternion<type> &        operator += (::std::complex<type> const & rhs) \
-            {                                                                        \
-                a += rhs.real();                                                     \
-                b += rhs.imag();                                                     \
-                                                                                     \
-                return(*this);                                                       \
+#define    BOOST_QUATERNION_MEMBER_ADD_GENERATOR_2(type)                             ¥
+            quaternion<type> &        operator += (::std::complex<type> const & rhs) ¥
+            {                                                                        ¥
+                a += rhs.real();                                                     ¥
+                b += rhs.imag();                                                     ¥
+                                                                                     ¥
+                return(*this);                                                       ¥
             }
     
-#define    BOOST_QUATERNION_MEMBER_ADD_GENERATOR_3(type)                      \
-            template<typename X>                                              \
-            quaternion<type> &        operator += (quaternion<X> const & rhs) \
-            {                                                                 \
-                a += static_cast<type>(rhs.R_component_1());                  \
-                b += static_cast<type>(rhs.R_component_2());                  \
-                c += static_cast<type>(rhs.R_component_3());                  \
-                d += static_cast<type>(rhs.R_component_4());                  \
-                                                                              \
-                return(*this);                                                \
+#define    BOOST_QUATERNION_MEMBER_ADD_GENERATOR_3(type)                      ¥
+            template<typename X>                                              ¥
+            quaternion<type> &        operator += (quaternion<X> const & rhs) ¥
+            {                                                                 ¥
+                a += static_cast<type>(rhs.R_component_1());                  ¥
+                b += static_cast<type>(rhs.R_component_2());                  ¥
+                c += static_cast<type>(rhs.R_component_3());                  ¥
+                d += static_cast<type>(rhs.R_component_4());                  ¥
+                                                                              ¥
+                return(*this);                                                ¥
             }
     
-#define    BOOST_QUATERNION_MEMBER_SUB_GENERATOR_1(type)             \
-            quaternion<type> &        operator -= (type const & rhs) \
-            {                                                        \
-                a -= rhs;                                            \
-                                                                     \
-                return(*this);                                       \
+#define    BOOST_QUATERNION_MEMBER_SUB_GENERATOR_1(type)             ¥
+            quaternion<type> &        operator -= (type const & rhs) ¥
+            {                                                        ¥
+                a -= rhs;                                            ¥
+                                                                     ¥
+                return(*this);                                       ¥
             }
     
-#define    BOOST_QUATERNION_MEMBER_SUB_GENERATOR_2(type)                             \
-            quaternion<type> &        operator -= (::std::complex<type> const & rhs) \
-            {                                                                        \
-                a -= rhs.real();                                                     \
-                b -= rhs.imag();                                                     \
-                                                                                     \
-                return(*this);                                                       \
+#define    BOOST_QUATERNION_MEMBER_SUB_GENERATOR_2(type)                             ¥
+            quaternion<type> &        operator -= (::std::complex<type> const & rhs) ¥
+            {                                                                        ¥
+                a -= rhs.real();                                                     ¥
+                b -= rhs.imag();                                                     ¥
+                                                                                     ¥
+                return(*this);                                                       ¥
             }
     
-#define    BOOST_QUATERNION_MEMBER_SUB_GENERATOR_3(type)                      \
-            template<typename X>                                              \
-            quaternion<type> &        operator -= (quaternion<X> const & rhs) \
-            {                                                                 \
-                a -= static_cast<type>(rhs.R_component_1());                  \
-                b -= static_cast<type>(rhs.R_component_2());                  \
-                c -= static_cast<type>(rhs.R_component_3());                  \
-                d -= static_cast<type>(rhs.R_component_4());                  \
-                                                                              \
-                return(*this);                                                \
+#define    BOOST_QUATERNION_MEMBER_SUB_GENERATOR_3(type)                      ¥
+            template<typename X>                                              ¥
+            quaternion<type> &        operator -= (quaternion<X> const & rhs) ¥
+            {                                                                 ¥
+                a -= static_cast<type>(rhs.R_component_1());                  ¥
+                b -= static_cast<type>(rhs.R_component_2());                  ¥
+                c -= static_cast<type>(rhs.R_component_3());                  ¥
+                d -= static_cast<type>(rhs.R_component_4());                  ¥
+                                                                              ¥
+                return(*this);                                                ¥
             }
     
-#define    BOOST_QUATERNION_MEMBER_MUL_GENERATOR_1(type)             \
-            quaternion<type> &        operator *= (type const & rhs) \
-            {                                                        \
-                a *= rhs;                                            \
-                b *= rhs;                                            \
-                c *= rhs;                                            \
-                d *= rhs;                                            \
-                                                                     \
-                return(*this);                                       \
+#define    BOOST_QUATERNION_MEMBER_MUL_GENERATOR_1(type)             ¥
+            quaternion<type> &        operator *= (type const & rhs) ¥
+            {                                                        ¥
+                a *= rhs;                                            ¥
+                b *= rhs;                                            ¥
+                c *= rhs;                                            ¥
+                d *= rhs;                                            ¥
+                                                                     ¥
+                return(*this);                                       ¥
             }
     
-#define    BOOST_QUATERNION_MEMBER_MUL_GENERATOR_2(type)                             \
-            quaternion<type> &        operator *= (::std::complex<type> const & rhs) \
-            {                                                                        \
-                type    ar = rhs.real();                                             \
-                type    br = rhs.imag();                                             \
-                                                                                     \
-                type    at = +a*ar-b*br;                                             \
-                type    bt = +a*br+b*ar;                                             \
-                type    ct = +c*ar+d*br;                                             \
-                type    dt = -c*br+d*ar;                                             \
-                                                                                     \
-                a = at;                                                              \
-                b = bt;                                                              \
-                c = ct;                                                              \
-                d = dt;                                                              \
-                                                                                     \
-                return(*this);                                                       \
+#define    BOOST_QUATERNION_MEMBER_MUL_GENERATOR_2(type)                             ¥
+            quaternion<type> &        operator *= (::std::complex<type> const & rhs) ¥
+            {                                                                        ¥
+                type    ar = rhs.real();                                             ¥
+                type    br = rhs.imag();                                             ¥
+                                                                                     ¥
+                type    at = +a*ar-b*br;                                             ¥
+                type    bt = +a*br+b*ar;                                             ¥
+                type    ct = +c*ar+d*br;                                             ¥
+                type    dt = -c*br+d*ar;                                             ¥
+                                                                                     ¥
+                a = at;                                                              ¥
+                b = bt;                                                              ¥
+                c = ct;                                                              ¥
+                d = dt;                                                              ¥
+                                                                                     ¥
+                return(*this);                                                       ¥
             }
     
-#define    BOOST_QUATERNION_MEMBER_MUL_GENERATOR_3(type)                      \
-            template<typename X>                                              \
-            quaternion<type> &        operator *= (quaternion<X> const & rhs) \
-            {                                                                 \
-                type    ar = static_cast<type>(rhs.R_component_1());          \
-                type    br = static_cast<type>(rhs.R_component_2());          \
-                type    cr = static_cast<type>(rhs.R_component_3());          \
-                type    dr = static_cast<type>(rhs.R_component_4());          \
-                                                                              \
-                type    at = +a*ar-b*br-c*cr-d*dr;                            \
-                type    bt = +a*br+b*ar+c*dr-d*cr;                            \
-                type    ct = +a*cr-b*dr+c*ar+d*br;                            \
-                type    dt = +a*dr+b*cr-c*br+d*ar;                            \
-                                                                              \
-                a = at;                                                       \
-                b = bt;                                                       \
-                c = ct;                                                       \
-                d = dt;                                                       \
-                                                                              \
-                return(*this);                                                \
+#define    BOOST_QUATERNION_MEMBER_MUL_GENERATOR_3(type)                      ¥
+            template<typename X>                                              ¥
+            quaternion<type> &        operator *= (quaternion<X> const & rhs) ¥
+            {                                                                 ¥
+                type    ar = static_cast<type>(rhs.R_component_1());          ¥
+                type    br = static_cast<type>(rhs.R_component_2());          ¥
+                type    cr = static_cast<type>(rhs.R_component_3());          ¥
+                type    dr = static_cast<type>(rhs.R_component_4());          ¥
+                                                                              ¥
+                type    at = +a*ar-b*br-c*cr-d*dr;                            ¥
+                type    bt = +a*br+b*ar+c*dr-d*cr;                            ¥
+                type    ct = +a*cr-b*dr+c*ar+d*br;                            ¥
+                type    dt = +a*dr+b*cr-c*br+d*ar;                            ¥
+                                                                              ¥
+                a = at;                                                       ¥
+                b = bt;                                                       ¥
+                c = ct;                                                       ¥
+                d = dt;                                                       ¥
+                                                                              ¥
+                return(*this);                                                ¥
             }
     
 // There is quite a lot of repetition in the code below. This is intentional.
@@ -596,254 +596,254 @@ namespace boost
 // not, we will be able to remove the clutter. This is makes the situation
 // (painfully) explicit.
     
-#define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_1(type)             \
-            quaternion<type> &        operator /= (type const & rhs) \
-            {                                                        \
-                a /= rhs;                                            \
-                b /= rhs;                                            \
-                c /= rhs;                                            \
-                d /= rhs;                                            \
-                                                                     \
-                return(*this);                                       \
+#define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_1(type)             ¥
+            quaternion<type> &        operator /= (type const & rhs) ¥
+            {                                                        ¥
+                a /= rhs;                                            ¥
+                b /= rhs;                                            ¥
+                c /= rhs;                                            ¥
+                d /= rhs;                                            ¥
+                                                                     ¥
+                return(*this);                                       ¥
             }
 
 #if defined(__GNUC__) && (__GNUC__ < 3)
-    #define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_2(type)                                            \
-            quaternion<type> &        operator /= (::std::complex<type> const & rhs)                    \
-            {                                                                                           \
-                using    ::std::valarray;                                                               \
-                                                                                                        \
-                valarray<type>    tr(2);                                                                \
-                                                                                                        \
-                tr[0] = rhs.real();                                                                     \
-                tr[1] = rhs.imag();                                                                     \
-                                                                                                        \
-                type            mixam = BOOST_GET_VALARRAY(type,static_cast<type>(1)/abs(tr)).max();    \
-                                                                                                        \
-                tr *= mixam;                                                                            \
-                                                                                                        \
-                valarray<type>    tt(4);                                                                \
-                                                                                                        \
-                tt[0] = +a*tr[0]+b*tr[1];                                                               \
-                tt[1] = -a*tr[1]+b*tr[0];                                                               \
-                tt[2] = +c*tr[0]-d*tr[1];                                                               \
-                tt[3] = +c*tr[1]+d*tr[0];                                                               \
-                                                                                                        \
-                tr *= tr;                                                                               \
-                                                                                                        \
-                tt *= (mixam/tr.sum());                                                                 \
-                                                                                                        \
-                a = tt[0];                                                                              \
-                b = tt[1];                                                                              \
-                c = tt[2];                                                                              \
-                d = tt[3];                                                                              \
-                                                                                                        \
-                return(*this);                                                                          \
+    #define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_2(type)                                            ¥
+            quaternion<type> &        operator /= (::std::complex<type> const & rhs)                    ¥
+            {                                                                                           ¥
+                using    ::std::valarray;                                                               ¥
+                                                                                                        ¥
+                valarray<type>    tr(2);                                                                ¥
+                                                                                                        ¥
+                tr[0] = rhs.real();                                                                     ¥
+                tr[1] = rhs.imag();                                                                     ¥
+                                                                                                        ¥
+                type            mixam = BOOST_GET_VALARRAY(type,static_cast<type>(1)/abs(tr)).max();    ¥
+                                                                                                        ¥
+                tr *= mixam;                                                                            ¥
+                                                                                                        ¥
+                valarray<type>    tt(4);                                                                ¥
+                                                                                                        ¥
+                tt[0] = +a*tr[0]+b*tr[1];                                                               ¥
+                tt[1] = -a*tr[1]+b*tr[0];                                                               ¥
+                tt[2] = +c*tr[0]-d*tr[1];                                                               ¥
+                tt[3] = +c*tr[1]+d*tr[0];                                                               ¥
+                                                                                                        ¥
+                tr *= tr;                                                                               ¥
+                                                                                                        ¥
+                tt *= (mixam/tr.sum());                                                                 ¥
+                                                                                                        ¥
+                a = tt[0];                                                                              ¥
+                b = tt[1];                                                                              ¥
+                c = tt[2];                                                                              ¥
+                d = tt[3];                                                                              ¥
+                                                                                                        ¥
+                return(*this);                                                                          ¥
             }
 #elif    defined(BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP)
-    #define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_2(type)                         \
-            quaternion<type> &        operator /= (::std::complex<type> const & rhs) \
-            {                                                                        \
-                using    ::std::valarray;                                            \
-                using    ::std::abs;                                                 \
-                                                                                     \
-                valarray<type>    tr(2);                                             \
-                                                                                     \
-                tr[0] = rhs.real();                                                  \
-                tr[1] = rhs.imag();                                                  \
-                                                                                     \
-                type            mixam = static_cast<type>(1)/abs(tr).max();          \
-                                                                                     \
-                tr *= mixam;                                                         \
-                                                                                     \
-                valarray<type>    tt(4);                                             \
-                                                                                     \
-                tt[0] = +a*tr[0]+b*tr[1];                                            \
-                tt[1] = -a*tr[1]+b*tr[0];                                            \
-                tt[2] = +c*tr[0]-d*tr[1];                                            \
-                tt[3] = +c*tr[1]+d*tr[0];                                            \
-                                                                                     \
-                tr *= tr;                                                            \
-                                                                                     \
-                tt *= (mixam/tr.sum());                                              \
-                                                                                     \
-                a = tt[0];                                                           \
-                b = tt[1];                                                           \
-                c = tt[2];                                                           \
-                d = tt[3];                                                           \
-                                                                                     \
-                return(*this);                                                       \
+    #define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_2(type)                         ¥
+            quaternion<type> &        operator /= (::std::complex<type> const & rhs) ¥
+            {                                                                        ¥
+                using    ::std::valarray;                                            ¥
+                using    ::std::abs;                                                 ¥
+                                                                                     ¥
+                valarray<type>    tr(2);                                             ¥
+                                                                                     ¥
+                tr[0] = rhs.real();                                                  ¥
+                tr[1] = rhs.imag();                                                  ¥
+                                                                                     ¥
+                type            mixam = static_cast<type>(1)/abs(tr).max();          ¥
+                                                                                     ¥
+                tr *= mixam;                                                         ¥
+                                                                                     ¥
+                valarray<type>    tt(4);                                             ¥
+                                                                                     ¥
+                tt[0] = +a*tr[0]+b*tr[1];                                            ¥
+                tt[1] = -a*tr[1]+b*tr[0];                                            ¥
+                tt[2] = +c*tr[0]-d*tr[1];                                            ¥
+                tt[3] = +c*tr[1]+d*tr[0];                                            ¥
+                                                                                     ¥
+                tr *= tr;                                                            ¥
+                                                                                     ¥
+                tt *= (mixam/tr.sum());                                              ¥
+                                                                                     ¥
+                a = tt[0];                                                           ¥
+                b = tt[1];                                                           ¥
+                c = tt[2];                                                           ¥
+                d = tt[3];                                                           ¥
+                                                                                     ¥
+                return(*this);                                                       ¥
             }
 #else
-    #define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_2(type)                         \
-            quaternion<type> &        operator /= (::std::complex<type> const & rhs) \
-            {                                                                        \
-                using    ::std::valarray;                                            \
-                                                                                     \
-                valarray<type>    tr(2);                                             \
-                                                                                     \
-                tr[0] = rhs.real();                                                  \
-                tr[1] = rhs.imag();                                                  \
-                                                                                     \
-                type            mixam = static_cast<type>(1)/abs(tr).max();          \
-                                                                                     \
-                tr *= mixam;                                                         \
-                                                                                     \
-                valarray<type>    tt(4);                                             \
-                                                                                     \
-                tt[0] = +a*tr[0]+b*tr[1];                                            \
-                tt[1] = -a*tr[1]+b*tr[0];                                            \
-                tt[2] = +c*tr[0]-d*tr[1];                                            \
-                tt[3] = +c*tr[1]+d*tr[0];                                            \
-                                                                                     \
-                tr *= tr;                                                            \
-                                                                                     \
-                tt *= (mixam/tr.sum());                                              \
-                                                                                     \
-                a = tt[0];                                                           \
-                b = tt[1];                                                           \
-                c = tt[2];                                                           \
-                d = tt[3];                                                           \
-                                                                                     \
-                return(*this);                                                       \
+    #define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_2(type)                         ¥
+            quaternion<type> &        operator /= (::std::complex<type> const & rhs) ¥
+            {                                                                        ¥
+                using    ::std::valarray;                                            ¥
+                                                                                     ¥
+                valarray<type>    tr(2);                                             ¥
+                                                                                     ¥
+                tr[0] = rhs.real();                                                  ¥
+                tr[1] = rhs.imag();                                                  ¥
+                                                                                     ¥
+                type            mixam = static_cast<type>(1)/abs(tr).max();          ¥
+                                                                                     ¥
+                tr *= mixam;                                                         ¥
+                                                                                     ¥
+                valarray<type>    tt(4);                                             ¥
+                                                                                     ¥
+                tt[0] = +a*tr[0]+b*tr[1];                                            ¥
+                tt[1] = -a*tr[1]+b*tr[0];                                            ¥
+                tt[2] = +c*tr[0]-d*tr[1];                                            ¥
+                tt[3] = +c*tr[1]+d*tr[0];                                            ¥
+                                                                                     ¥
+                tr *= tr;                                                            ¥
+                                                                                     ¥
+                tt *= (mixam/tr.sum());                                              ¥
+                                                                                     ¥
+                a = tt[0];                                                           ¥
+                b = tt[1];                                                           ¥
+                c = tt[2];                                                           ¥
+                d = tt[3];                                                           ¥
+                                                                                     ¥
+                return(*this);                                                       ¥
             }
 #endif /* defined(__GNUC__) && (__GNUC__ < 3) */ /* BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP */
     
 #if defined(__GNUC__) && (__GNUC__ < 3)
-    #define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_3(type)                                            \
-            template<typename X>                                                                        \
-            quaternion<type> &        operator /= (quaternion<X> const & rhs)                           \
-            {                                                                                           \
-                using    ::std::valarray;                                                               \
-                                                                                                        \
-                valarray<type>    tr(4);                                                                \
-                                                                                                        \
-                tr[0] = static_cast<type>(rhs.R_component_1());                                         \
-                tr[1] = static_cast<type>(rhs.R_component_2());                                         \
-                tr[2] = static_cast<type>(rhs.R_component_3());                                         \
-                tr[3] = static_cast<type>(rhs.R_component_4());                                         \
-                                                                                                        \
-                type            mixam = BOOST_GET_VALARRAY(type,static_cast<type>(1)/abs(tr)).max();    \
-                                                                                                        \
-                tr *= mixam;                                                                            \
-                                                                                                        \
-                valarray<type>    tt(4);                                                                \
-                                                                                                        \
-                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3];                                               \
-                tt[1] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2];                                               \
-                tt[2] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1];                                               \
-                tt[3] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0];                                               \
-                                                                                                        \
-                tr *= tr;                                                                               \
-                                                                                                        \
-                tt *= (mixam/tr.sum());                                                                 \
-                                                                                                        \
-                a = tt[0];                                                                              \
-                b = tt[1];                                                                              \
-                c = tt[2];                                                                              \
-                d = tt[3];                                                                              \
-                                                                                                        \
-                return(*this);                                                                          \
+    #define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_3(type)                                            ¥
+            template<typename X>                                                                        ¥
+            quaternion<type> &        operator /= (quaternion<X> const & rhs)                           ¥
+            {                                                                                           ¥
+                using    ::std::valarray;                                                               ¥
+                                                                                                        ¥
+                valarray<type>    tr(4);                                                                ¥
+                                                                                                        ¥
+                tr[0] = static_cast<type>(rhs.R_component_1());                                         ¥
+                tr[1] = static_cast<type>(rhs.R_component_2());                                         ¥
+                tr[2] = static_cast<type>(rhs.R_component_3());                                         ¥
+                tr[3] = static_cast<type>(rhs.R_component_4());                                         ¥
+                                                                                                        ¥
+                type            mixam = BOOST_GET_VALARRAY(type,static_cast<type>(1)/abs(tr)).max();    ¥
+                                                                                                        ¥
+                tr *= mixam;                                                                            ¥
+                                                                                                        ¥
+                valarray<type>    tt(4);                                                                ¥
+                                                                                                        ¥
+                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3];                                               ¥
+                tt[1] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2];                                               ¥
+                tt[2] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1];                                               ¥
+                tt[3] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0];                                               ¥
+                                                                                                        ¥
+                tr *= tr;                                                                               ¥
+                                                                                                        ¥
+                tt *= (mixam/tr.sum());                                                                 ¥
+                                                                                                        ¥
+                a = tt[0];                                                                              ¥
+                b = tt[1];                                                                              ¥
+                c = tt[2];                                                                              ¥
+                d = tt[3];                                                                              ¥
+                                                                                                        ¥
+                return(*this);                                                                          ¥
             }
 #elif    defined(BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP)
-    #define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_3(type)                  \
-            template<typename X>                                              \
-            quaternion<type> &        operator /= (quaternion<X> const & rhs) \
-            {                                                                 \
-                using    ::std::valarray;                                     \
-                using    ::std::abs;                                          \
-                                                                              \
-                valarray<type>    tr(4);                                      \
-                                                                              \
-                tr[0] = static_cast<type>(rhs.R_component_1());               \
-                tr[1] = static_cast<type>(rhs.R_component_2());               \
-                tr[2] = static_cast<type>(rhs.R_component_3());               \
-                tr[3] = static_cast<type>(rhs.R_component_4());               \
-                                                                              \
-                type            mixam = static_cast<type>(1)/abs(tr).max();   \
-                                                                              \
-                tr *= mixam;                                                  \
-                                                                              \
-                valarray<type>    tt(4);                                      \
-                                                                              \
-                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3];                     \
-                tt[1] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2];                     \
-                tt[2] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1];                     \
-                tt[3] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0];                     \
-                                                                              \
-                tr *= tr;                                                     \
-                                                                              \
-                tt *= (mixam/tr.sum());                                       \
-                                                                              \
-                a = tt[0];                                                    \
-                b = tt[1];                                                    \
-                c = tt[2];                                                    \
-                d = tt[3];                                                    \
-                                                                              \
-                return(*this);                                                \
+    #define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_3(type)                  ¥
+            template<typename X>                                              ¥
+            quaternion<type> &        operator /= (quaternion<X> const & rhs) ¥
+            {                                                                 ¥
+                using    ::std::valarray;                                     ¥
+                using    ::std::abs;                                          ¥
+                                                                              ¥
+                valarray<type>    tr(4);                                      ¥
+                                                                              ¥
+                tr[0] = static_cast<type>(rhs.R_component_1());               ¥
+                tr[1] = static_cast<type>(rhs.R_component_2());               ¥
+                tr[2] = static_cast<type>(rhs.R_component_3());               ¥
+                tr[3] = static_cast<type>(rhs.R_component_4());               ¥
+                                                                              ¥
+                type            mixam = static_cast<type>(1)/abs(tr).max();   ¥
+                                                                              ¥
+                tr *= mixam;                                                  ¥
+                                                                              ¥
+                valarray<type>    tt(4);                                      ¥
+                                                                              ¥
+                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3];                     ¥
+                tt[1] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2];                     ¥
+                tt[2] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1];                     ¥
+                tt[3] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0];                     ¥
+                                                                              ¥
+                tr *= tr;                                                     ¥
+                                                                              ¥
+                tt *= (mixam/tr.sum());                                       ¥
+                                                                              ¥
+                a = tt[0];                                                    ¥
+                b = tt[1];                                                    ¥
+                c = tt[2];                                                    ¥
+                d = tt[3];                                                    ¥
+                                                                              ¥
+                return(*this);                                                ¥
             }
 #else
-    #define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_3(type)                  \
-            template<typename X>                                              \
-            quaternion<type> &        operator /= (quaternion<X> const & rhs) \
-            {                                                                 \
-                using    ::std::valarray;                                     \
-                                                                              \
-                valarray<type>    tr(4);                                      \
-                                                                              \
-                tr[0] = static_cast<type>(rhs.R_component_1());               \
-                tr[1] = static_cast<type>(rhs.R_component_2());               \
-                tr[2] = static_cast<type>(rhs.R_component_3());               \
-                tr[3] = static_cast<type>(rhs.R_component_4());               \
-                                                                              \
-                type            mixam = static_cast<type>(1)/abs(tr).max();   \
-                                                                              \
-                tr *= mixam;                                                  \
-                                                                              \
-                valarray<type>    tt(4);                                      \
-                                                                              \
-                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3];                     \
-                tt[1] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2];                     \
-                tt[2] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1];                     \
-                tt[3] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0];                     \
-                                                                              \
-                tr *= tr;                                                     \
-                                                                              \
-                tt *= (mixam/tr.sum());                                       \
-                                                                              \
-                a = tt[0];                                                    \
-                b = tt[1];                                                    \
-                c = tt[2];                                                    \
-                d = tt[3];                                                    \
-                                                                              \
-                return(*this);                                                \
+    #define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR_3(type)                  ¥
+            template<typename X>                                              ¥
+            quaternion<type> &        operator /= (quaternion<X> const & rhs) ¥
+            {                                                                 ¥
+                using    ::std::valarray;                                     ¥
+                                                                              ¥
+                valarray<type>    tr(4);                                      ¥
+                                                                              ¥
+                tr[0] = static_cast<type>(rhs.R_component_1());               ¥
+                tr[1] = static_cast<type>(rhs.R_component_2());               ¥
+                tr[2] = static_cast<type>(rhs.R_component_3());               ¥
+                tr[3] = static_cast<type>(rhs.R_component_4());               ¥
+                                                                              ¥
+                type            mixam = static_cast<type>(1)/abs(tr).max();   ¥
+                                                                              ¥
+                tr *= mixam;                                                  ¥
+                                                                              ¥
+                valarray<type>    tt(4);                                      ¥
+                                                                              ¥
+                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3];                     ¥
+                tt[1] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2];                     ¥
+                tt[2] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1];                     ¥
+                tt[3] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0];                     ¥
+                                                                              ¥
+                tr *= tr;                                                     ¥
+                                                                              ¥
+                tt *= (mixam/tr.sum());                                       ¥
+                                                                              ¥
+                a = tt[0];                                                    ¥
+                b = tt[1];                                                    ¥
+                c = tt[2];                                                    ¥
+                d = tt[3];                                                    ¥
+                                                                              ¥
+                return(*this);                                                ¥
             }
 #endif /* defined(__GNUC__) && (__GNUC__ < 3) */ /* BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP */
     
-#define    BOOST_QUATERNION_MEMBER_ADD_GENERATOR(type)   \
-        BOOST_QUATERNION_MEMBER_ADD_GENERATOR_1(type)    \
-        BOOST_QUATERNION_MEMBER_ADD_GENERATOR_2(type)    \
+#define    BOOST_QUATERNION_MEMBER_ADD_GENERATOR(type)   ¥
+        BOOST_QUATERNION_MEMBER_ADD_GENERATOR_1(type)    ¥
+        BOOST_QUATERNION_MEMBER_ADD_GENERATOR_2(type)    ¥
         BOOST_QUATERNION_MEMBER_ADD_GENERATOR_3(type)
         
-#define    BOOST_QUATERNION_MEMBER_SUB_GENERATOR(type)   \
-        BOOST_QUATERNION_MEMBER_SUB_GENERATOR_1(type)    \
-        BOOST_QUATERNION_MEMBER_SUB_GENERATOR_2(type)    \
+#define    BOOST_QUATERNION_MEMBER_SUB_GENERATOR(type)   ¥
+        BOOST_QUATERNION_MEMBER_SUB_GENERATOR_1(type)    ¥
+        BOOST_QUATERNION_MEMBER_SUB_GENERATOR_2(type)    ¥
         BOOST_QUATERNION_MEMBER_SUB_GENERATOR_3(type)
         
-#define    BOOST_QUATERNION_MEMBER_MUL_GENERATOR(type)   \
-        BOOST_QUATERNION_MEMBER_MUL_GENERATOR_1(type)    \
-        BOOST_QUATERNION_MEMBER_MUL_GENERATOR_2(type)    \
+#define    BOOST_QUATERNION_MEMBER_MUL_GENERATOR(type)   ¥
+        BOOST_QUATERNION_MEMBER_MUL_GENERATOR_1(type)    ¥
+        BOOST_QUATERNION_MEMBER_MUL_GENERATOR_2(type)    ¥
         BOOST_QUATERNION_MEMBER_MUL_GENERATOR_3(type)
         
-#define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR(type)   \
-        BOOST_QUATERNION_MEMBER_DIV_GENERATOR_1(type)    \
-        BOOST_QUATERNION_MEMBER_DIV_GENERATOR_2(type)    \
+#define    BOOST_QUATERNION_MEMBER_DIV_GENERATOR(type)   ¥
+        BOOST_QUATERNION_MEMBER_DIV_GENERATOR_1(type)    ¥
+        BOOST_QUATERNION_MEMBER_DIV_GENERATOR_2(type)    ¥
         BOOST_QUATERNION_MEMBER_DIV_GENERATOR_3(type)
         
-#define    BOOST_QUATERNION_MEMBER_ALGEBRAIC_GENERATOR(type)   \
-        BOOST_QUATERNION_MEMBER_ADD_GENERATOR(type)            \
-        BOOST_QUATERNION_MEMBER_SUB_GENERATOR(type)            \
-        BOOST_QUATERNION_MEMBER_MUL_GENERATOR(type)            \
+#define    BOOST_QUATERNION_MEMBER_ALGEBRAIC_GENERATOR(type)   ¥
+        BOOST_QUATERNION_MEMBER_ADD_GENERATOR(type)            ¥
+        BOOST_QUATERNION_MEMBER_SUB_GENERATOR(type)            ¥
+        BOOST_QUATERNION_MEMBER_MUL_GENERATOR(type)            ¥
         BOOST_QUATERNION_MEMBER_DIV_GENERATOR(type)
         
         
@@ -1062,43 +1062,43 @@ namespace boost
         
         // operators
         
-#define    BOOST_QUATERNION_OPERATOR_GENERATOR_BODY(op)      \
-        {                                                    \
-            quaternion<T>    res(lhs);                       \
-            res op##= rhs;                                   \
-            return(res);                                     \
+#define    BOOST_QUATERNION_OPERATOR_GENERATOR_BODY(op)      ¥
+        {                                                    ¥
+            quaternion<T>    res(lhs);                       ¥
+            res op##= rhs;                                   ¥
+            return(res);                                     ¥
         }
         
-#define    BOOST_QUATERNION_OPERATOR_GENERATOR_1_L(op)                                                  \
-        template<typename T>                                                                            \
-        inline quaternion<T>    operator op (T const & lhs, quaternion<T> const & rhs)                  \
+#define    BOOST_QUATERNION_OPERATOR_GENERATOR_1_L(op)                                                  ¥
+        template<typename T>                                                                            ¥
+        inline quaternion<T>    operator op (T const & lhs, quaternion<T> const & rhs)                  ¥
         BOOST_QUATERNION_OPERATOR_GENERATOR_BODY(op)
         
-#define    BOOST_QUATERNION_OPERATOR_GENERATOR_1_R(op)                                                  \
-        template<typename T>                                                                            \
-        inline quaternion<T>    operator op (quaternion<T> const & lhs, T const & rhs)                  \
+#define    BOOST_QUATERNION_OPERATOR_GENERATOR_1_R(op)                                                  ¥
+        template<typename T>                                                                            ¥
+        inline quaternion<T>    operator op (quaternion<T> const & lhs, T const & rhs)                  ¥
         BOOST_QUATERNION_OPERATOR_GENERATOR_BODY(op)
         
-#define    BOOST_QUATERNION_OPERATOR_GENERATOR_2_L(op)                                                  \
-        template<typename T>                                                                            \
-        inline quaternion<T>    operator op (::std::complex<T> const & lhs, quaternion<T> const & rhs)  \
+#define    BOOST_QUATERNION_OPERATOR_GENERATOR_2_L(op)                                                  ¥
+        template<typename T>                                                                            ¥
+        inline quaternion<T>    operator op (::std::complex<T> const & lhs, quaternion<T> const & rhs)  ¥
         BOOST_QUATERNION_OPERATOR_GENERATOR_BODY(op)
         
-#define    BOOST_QUATERNION_OPERATOR_GENERATOR_2_R(op)                                                  \
-        template<typename T>                                                                            \
-        inline quaternion<T>    operator op (quaternion<T> const & lhs, ::std::complex<T> const & rhs)  \
+#define    BOOST_QUATERNION_OPERATOR_GENERATOR_2_R(op)                                                  ¥
+        template<typename T>                                                                            ¥
+        inline quaternion<T>    operator op (quaternion<T> const & lhs, ::std::complex<T> const & rhs)  ¥
         BOOST_QUATERNION_OPERATOR_GENERATOR_BODY(op)
         
-#define    BOOST_QUATERNION_OPERATOR_GENERATOR_3(op)                                                    \
-        template<typename T>                                                                            \
-        inline quaternion<T>    operator op (quaternion<T> const & lhs, quaternion<T> const & rhs)      \
+#define    BOOST_QUATERNION_OPERATOR_GENERATOR_3(op)                                                    ¥
+        template<typename T>                                                                            ¥
+        inline quaternion<T>    operator op (quaternion<T> const & lhs, quaternion<T> const & rhs)      ¥
         BOOST_QUATERNION_OPERATOR_GENERATOR_BODY(op)
         
-#define    BOOST_QUATERNION_OPERATOR_GENERATOR(op)     \
-        BOOST_QUATERNION_OPERATOR_GENERATOR_1_L(op)    \
-        BOOST_QUATERNION_OPERATOR_GENERATOR_1_R(op)    \
-        BOOST_QUATERNION_OPERATOR_GENERATOR_2_L(op)    \
-        BOOST_QUATERNION_OPERATOR_GENERATOR_2_R(op)    \
+#define    BOOST_QUATERNION_OPERATOR_GENERATOR(op)     ¥
+        BOOST_QUATERNION_OPERATOR_GENERATOR_1_L(op)    ¥
+        BOOST_QUATERNION_OPERATOR_GENERATOR_1_R(op)    ¥
+        BOOST_QUATERNION_OPERATOR_GENERATOR_2_L(op)    ¥
+        BOOST_QUATERNION_OPERATOR_GENERATOR_2_R(op)    ¥
         BOOST_QUATERNION_OPERATOR_GENERATOR_3(op)
         
         
@@ -1193,9 +1193,9 @@ namespace boost
         }
         
         
-#define    BOOST_QUATERNION_NOT_EQUAL_GENERATOR  \
-        {                                        \
-            return(!(lhs == rhs));               \
+#define    BOOST_QUATERNION_NOT_EQUAL_GENERATOR  ¥
+        {                                        ¥
+            return(!(lhs == rhs));               ¥
         }
         
         template<typename T>
@@ -1573,14 +1573,14 @@ namespace boost
         }
         
         
-#define    BOOST_QUATERNION_VALARRAY_LOADER  \
-            using    ::std::valarray;        \
-                                             \
-            valarray<T>    temp(4);          \
-                                             \
-            temp[0] = q.R_component_1();     \
-            temp[1] = q.R_component_2();     \
-            temp[2] = q.R_component_3();     \
+#define    BOOST_QUATERNION_VALARRAY_LOADER  ¥
+            using    ::std::valarray;        ¥
+                                             ¥
+            valarray<T>    temp(4);          ¥
+                                             ¥
+            temp[0] = q.R_component_1();     ¥
+            temp[1] = q.R_component_2();     ¥
+            temp[2] = q.R_component_3();     ¥
             temp[3] = q.R_component_4();
         
         

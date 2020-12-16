@@ -20,7 +20,7 @@ local b = ::krkr.a;
 local c = ::krkr.b;
 ::krkr.c = 100;
 
-test <- "‚Ä‚·‚Æ‚ÌƒeƒLƒXƒg";
+test <- "ã¦ã™ã¨ã®ãƒ†ã‚­ã‚¹ãƒˆ";
 
 class Foo {
 
@@ -35,7 +35,7 @@ class Foo {
 	{
 		foreach(i,val in testy)
 		{
-			::print("idx = "+i+" = "+val+" \n");
+			::print("idx = "+i+" = "+val+" Â¥n");
 		}
 	}
 	//property
@@ -45,30 +45,30 @@ class Foo {
 
 function hoge(msg)
 {
-	print("ƒtƒ@ƒ“ƒNƒVƒ‡ƒ“ŒÄ‚Ño‚µ!:"+ msg);
+	print("ãƒ•ã‚¡ãƒ³ã‚¯ã‚·ãƒ§ãƒ³å‘¼ã³å‡ºã—!:"+ msg);
 }
 
 function main(tick)
 {
-	print("tick’l:" + tick);
+	print("tickå€¤:" + tick);
 }
 
-// ƒtƒ@ƒCƒ‹ŒÄ‚Ño‚µƒeƒXƒg
+// ãƒ•ã‚¡ã‚¤ãƒ«å‘¼ã³å‡ºã—ãƒ†ã‚¹ãƒˆ
 dofile("test2.nut");
 
-// ƒtƒ@ƒCƒ‹‘‚«ž‚ÝƒeƒXƒg
+// ãƒ•ã‚¡ã‚¤ãƒ«æ›¸ãè¾¼ã¿ãƒ†ã‚¹ãƒˆ
 local f = file("output.txt", "w");
 f.writen(10, 'l');
 f = null;
 
-// ”ŠwŠÖ”ƒeƒXƒg
+// æ•°å­¦é–¢æ•°ãƒ†ã‚¹ãƒˆ
 print("sin(PI):" + sin(PI));
 print("rand():" + rand());
 
-// •¶Žš—ñŠÖ”ƒeƒXƒg
+// æ–‡å­—åˆ—é–¢æ•°ãƒ†ã‚¹ãƒˆ
 print(format("%s %d 0x%02X","this is a test :",123,10));
 
-// ‹g—¢‹g—¢‘¤‚ÌƒIƒuƒWƒFƒNƒg¶¬
+// å‰é‡Œå‰é‡Œå´ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆ
 local layer2 = ::krkr.MyLayer(::krkr.win, ::krkr.win.base);
 layer2.setSize(100,100);
 layer2.setPos(100,100);

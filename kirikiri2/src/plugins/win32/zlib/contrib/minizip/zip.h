@@ -117,7 +117,7 @@ extern zipFile ZEXPORT zipOpen OF((const char *pathname, int append));
 extern zipFile ZEXPORT zipOpen64 OF((const void *pathname, int append));
 /*
   Create a zipfile.
-     pathname contain on Windows XP a filename like "c:\\zlib\\zlib113.zip" or on
+     pathname contain on Windows XP a filename like "c:¥¥zlib¥¥zlib113.zip" or on
        an Unix computer "zlib/zlib113.zip".
      if the file pathname exist and append==APPEND_STATUS_CREATEAFTER, the zip
        will be created at the end of the file.

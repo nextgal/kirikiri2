@@ -58,7 +58,7 @@ private:
     BOOST_STATIC_CONSTANT( int, half_place = Index / 2 );
     BOOST_STATIC_CONSTANT( unsigned long, lower_mask = (1ul << half_place)
      - 1ul );
-    BOOST_STATIC_CONSTANT( unsigned long, upper_mask = ~lower_mask );
+    BOOST_STATIC_CONSTANT( unsigned long, upper_mask = ‾lower_mask );
     BOOST_STATIC_CONSTANT( bool, do_shift = (Val & upper_mask) != 0ul );
 
     BOOST_STATIC_CONSTANT( unsigned long, new_val = do_shift ? (Val

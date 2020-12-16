@@ -44,7 +44,7 @@
 #define PSD_EPSILON_2 					1e-12
 #define PSD_EPSILON_A 					1e-5 /* Threshold for breaking lines at point insertions */
 #define PSD_M_SQRT2         			1.41421356237309504880  /* sqrt(2) */
-/* Note: BNEG is 1 for \ lines, and 0 for /. Thus,
+/* Note: BNEG is 1 for ¥ lines, and 0 for /. Thus,
    x[(flags & BNEG) ^ 1] <= x[flags & BNEG] */
 #define PSD_ART_ACTIVE_FLAGS_BNEG 		1
 /* This flag is set if the segment has been inserted into the active
@@ -1525,7 +1525,7 @@ static psd_int psd_art_svp_writer_rewind_add_segment(psd_art_svp_writer *self, p
 			right_filled = (wind_right > 0);
 			break;
 		default:
-			//art_die ("Unknown wind rule %d\n", swr->rule);
+			//art_die ("Unknown wind rule %d¥n", swr->rule);
 			psd_assert(0);
 		break;
 	}
@@ -1789,7 +1789,7 @@ static void psd_art_svp_intersect_horiz_commit(psd_art_intersect_ctx *ctx)
 		{
 			psd_art_active_seg *next = seg->horiz_right;
 
-			seg->flags &= ~PSD_ART_ACTIVE_FLAGS_IN_HORIZ;
+			seg->flags &= ‾PSD_ART_ACTIVE_FLAGS_IN_HORIZ;
 			horiz_wind += seg->horiz_delta_wind;
 			seg->horiz_delta_wind = 0;
 			if(seg->flags & PSD_ART_ACTIVE_FLAGS_DEL)
@@ -1842,7 +1842,7 @@ static void psd_art_svp_intersect_setup_seg(psd_art_active_seg *seg, psd_art_pri
 	seg->a = a = dy * s;
 	seg->b = b = -dx * s;
 	seg->c = -(a * x0 + b * y0);
-	seg->flags = (seg->flags & ~PSD_ART_ACTIVE_FLAGS_BNEG) | (dx > 0);
+	seg->flags = (seg->flags & ‾PSD_ART_ACTIVE_FLAGS_BNEG) | (dx > 0);
 	seg->x[0] = x0;
 	seg->x[1] = x1;
 	seg->y0 = y0;
@@ -2448,7 +2448,7 @@ static void psd_art_svp_intersect_horiz(psd_art_intersect_ctx *ctx, psd_art_acti
 	seg->x[0] = x1;
 	seg->x[1] = x1;
 	seg->horiz_x = x1;
-	seg->flags &= ~PSD_ART_ACTIVE_FLAGS_OUT;
+	seg->flags &= ‾PSD_ART_ACTIVE_FLAGS_OUT;
 }
 
 /**
@@ -2897,7 +2897,7 @@ static void psd_scan_convert_finish(psd_gimp_scan_convert *sc)
 	*   gint i;
 	*   for (i = 0; i < sc->num_nodes + 1; i++)
 	*     {
-	*       g_printerr ("X: %f, Y: %f, Type: %d\n", sc->vpath[i].x,
+	*       g_printerr ("X: %f, Y: %f, Type: %d¥n", sc->vpath[i].x,
 	*                                               sc->vpath[i].y,
 	*                                               sc->vpath[i].code );
 	*     }
@@ -3021,38 +3021,38 @@ static void psd_art_svp_render_delete_active(psd_int *active_segs, psd_int j, ps
 		active_segs[k] = active_segs[k + 1];
 }
 
-#define PSD_ADD_STEP(xpos, xdelta)                      \
-	/* stereotype code fragment for adding a step */    \
-	if(n_steps == 0 || steps[n_steps - 1].x < xpos)     \
-	{                                                   \
-		sx = n_steps;                                   \
-		steps[sx].x = xpos;                             \
-		steps[sx].delta = xdelta;                       \
-		n_steps++;                                      \
-	}                                                   \
-	else                                                \
-	{                                                   \
-		for(sx = n_steps; sx > 0; sx--)                 \
-		{                                               \
-			if(steps[sx - 1].x == xpos)                 \
-			{                                           \
-				steps[sx - 1].delta += xdelta;          \
-				sx = n_steps;                           \
-				break;                                  \
-			}                                           \
-			else if(steps[sx - 1].x < xpos)             \
-			{                                           \
-				break;                                  \
-			}                                           \
-		}                                               \
-		if(sx < n_steps)                                \
-		{                                               \
-			memmove(&steps[sx + 1], &steps[sx],         \
-				(n_steps - sx) * sizeof(steps[0]));     \
-			steps[sx].x = xpos;                         \
-			steps[sx].delta = xdelta;                   \
-			n_steps++;                                  \
-		}                                               \
+#define PSD_ADD_STEP(xpos, xdelta)                      ¥
+	/* stereotype code fragment for adding a step */    ¥
+	if(n_steps == 0 || steps[n_steps - 1].x < xpos)     ¥
+	{                                                   ¥
+		sx = n_steps;                                   ¥
+		steps[sx].x = xpos;                             ¥
+		steps[sx].delta = xdelta;                       ¥
+		n_steps++;                                      ¥
+	}                                                   ¥
+	else                                                ¥
+	{                                                   ¥
+		for(sx = n_steps; sx > 0; sx--)                 ¥
+		{                                               ¥
+			if(steps[sx - 1].x == xpos)                 ¥
+			{                                           ¥
+				steps[sx - 1].delta += xdelta;          ¥
+				sx = n_steps;                           ¥
+				break;                                  ¥
+			}                                           ¥
+			else if(steps[sx - 1].x < xpos)             ¥
+			{                                           ¥
+				break;                                  ¥
+			}                                           ¥
+		}                                               ¥
+		if(sx < n_steps)                                ¥
+		{                                               ¥
+			memmove(&steps[sx + 1], &steps[sx],         ¥
+				(n_steps - sx) * sizeof(steps[0]));     ¥
+			steps[sx].x = xpos;                         ¥
+			steps[sx].delta = xdelta;                   ¥
+			n_steps++;                                  ¥
+		}                                               ¥
 	}
 
 static void psd_art_svp_render_aa_iter_step(psd_art_svp_render_aa_iter *iter, psd_int *p_start,

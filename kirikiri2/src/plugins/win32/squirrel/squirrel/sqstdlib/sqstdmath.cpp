@@ -4,19 +4,19 @@
 #include <stdlib.h>
 #include <sqstdmath.h>
 
-#define SINGLE_ARG_FUNC(_funcname) static SQInteger math_##_funcname(HSQUIRRELVM v){ \
-	SQFloat f; \
-	sq_getfloat(v,2,&f); \
-	sq_pushfloat(v,(SQFloat)_funcname(f)); \
-	return 1; \
+#define SINGLE_ARG_FUNC(_funcname) static SQInteger math_##_funcname(HSQUIRRELVM v){ ¥
+	SQFloat f; ¥
+	sq_getfloat(v,2,&f); ¥
+	sq_pushfloat(v,(SQFloat)_funcname(f)); ¥
+	return 1; ¥
 }
 
-#define TWO_ARGS_FUNC(_funcname) static SQInteger math_##_funcname(HSQUIRRELVM v){ \
-	SQFloat p1,p2; \
-	sq_getfloat(v,2,&p1); \
-	sq_getfloat(v,3,&p2); \
-	sq_pushfloat(v,(SQFloat)_funcname(p1,p2)); \
-	return 1; \
+#define TWO_ARGS_FUNC(_funcname) static SQInteger math_##_funcname(HSQUIRRELVM v){ ¥
+	SQFloat p1,p2; ¥
+	sq_getfloat(v,2,&p1); ¥
+	sq_getfloat(v,3,&p2); ¥
+	sq_pushfloat(v,(SQFloat)_funcname(p1,p2)); ¥
+	return 1; ¥
 }
 
 static SQInteger math_srand(HSQUIRRELVM v)

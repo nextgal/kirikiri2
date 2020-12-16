@@ -37,7 +37,7 @@ private:
 public:
 	tTVPLocalFileStream(const ttstr &origname, const ttstr & localname,
 		tjs_uint32 flag);
-	~tTVPLocalFileStream();
+	‾tTVPLocalFileStream();
 
 	tjs_uint64 TJS_INTF_METHOD Seek(tjs_int64 offset, tjs_int whence);
 
@@ -87,7 +87,7 @@ public:
 		destruction.
 	*/
 
-	__fastcall ~TTVPStreamAdapter();
+	__fastcall ‾TTVPStreamAdapter();
 
 	int __fastcall Read(void *Buffer,int Count);
 		// read
@@ -123,7 +123,7 @@ public:
 		destruction.
 	*/
 
-	~tTVPIStreamAdapter();
+	‾tTVPIStreamAdapter();
 
 
 	// IUnknown
@@ -187,7 +187,7 @@ public:
 		destruction.
 	*/
 
-	~tTVPBinaryStreamAdapter();
+	‾tTVPBinaryStreamAdapter();
 
 	tjs_uint64 TJS_INTF_METHOD Seek(tjs_int64 offset, tjs_int whence);
 	tjs_uint TJS_INTF_METHOD Read(void *buffer, tjs_uint read_size);
@@ -225,7 +225,7 @@ private:
 
 public:
 	tTVPPluginHolder(const ttstr &aname);
-	~tTVPPluginHolder();
+	‾tTVPPluginHolder();
 
 	const ttstr & GetLocalName() const;
 };

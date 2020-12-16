@@ -153,7 +153,7 @@ public:
                 bs->reset(bit);
             return *this;
         }
-        bool operator~() const                    // flips the bit
+        bool operator‾() const                    // flips the bit
         {
             return ! bs->test(bit);
         }
@@ -285,7 +285,7 @@ public:
     bool test(size_type n) const;
     bool any() const;
     bool none() const;
-    dynamic_bitset operator~() const;
+    dynamic_bitset operator‾() const;
     size_type count() const;
 
     // subscript
@@ -518,7 +518,7 @@ resize(size_type num_bits, bool value)
     this->m_alloc.deallocate(d, this->m_num_blocks);
   } else { // grow
     std::copy(this->m_bits, this->m_bits + this->m_num_blocks, d);
-    Block val = value? ~static_cast<Block>(0) : static_cast<Block>(0);
+    Block val = value? ‾static_cast<Block>(0) : static_cast<Block>(0);
     std::fill(d + this->m_num_blocks, d + new_nblocks, val);
     std::swap(d, this->m_bits);
     for (std::size_t i = this->m_num_bits;
@@ -609,7 +609,7 @@ dynamic_bitset<Block, Allocator>::operator-=(const dynamic_bitset& rhs)
 {
     assert(size() == rhs.size());
     for (size_type i = 0; i < this->m_num_blocks; ++i)
-        this->m_bits[i] = this->m_bits[i] & ~rhs.m_bits[i];
+        this->m_bits[i] = this->m_bits[i] & ‾rhs.m_bits[i];
     m_zero_unused_bits();
     return *this;
 }
@@ -800,7 +800,7 @@ dynamic_bitset<Block, Allocator>::set()
 {
   if (this->m_num_bits > 0) {
     using namespace std;
-    memset(this->m_bits, ~0u, this->m_num_blocks * sizeof(this->m_bits[0]));
+    memset(this->m_bits, ‾0u, this->m_num_blocks * sizeof(this->m_bits[0]));
     m_zero_unused_bits();
   }
   return *this;
@@ -840,7 +840,7 @@ dynamic_bitset<Block, Allocator>&
 dynamic_bitset<Block, Allocator>::flip()
 {
     for (size_type i = 0; i < this->m_num_blocks; ++i)
-        this->m_bits[i] = ~this->m_bits[i];
+        this->m_bits[i] = ‾this->m_bits[i];
     m_zero_unused_bits();
     return *this;
 }
@@ -869,7 +869,7 @@ inline bool dynamic_bitset<Block, Allocator>::none() const
 
 template <typename Block, typename Allocator>
 dynamic_bitset<Block, Allocator>
-dynamic_bitset<Block, Allocator>::operator~() const
+dynamic_bitset<Block, Allocator>::operator‾() const
 {
     dynamic_bitset b(*this);
     b.flip();
@@ -1026,7 +1026,7 @@ to_ulong() const
       if (this->m_bits[i])
         throw overflow;
     const Block mask = static_cast<Block>(static_cast<unsigned long>(-1));
-    if (this->m_bits[0] & ~mask)
+    if (this->m_bits[0] & ‾mask)
       throw overflow;
     size_type N = std::min(sizeof(unsigned long) * CHAR_BIT, this->size());
     unsigned long num = 0;
@@ -1079,7 +1079,7 @@ is_subset_of(const dynamic_bitset<Block, Allocator>& a) const
 {
     assert(this->size() == a.size());
     for (size_type i = 0; i < this->m_num_blocks; ++i)
-        if (this->m_bits[i] & ~a.m_bits[i])
+        if (this->m_bits[i] & ‾a.m_bits[i])
             return false;
     return true;
 }
@@ -1092,9 +1092,9 @@ is_proper_subset_of(const dynamic_bitset<Block, Allocator>& a) const
     bool proper = false;
     for (size_type i = 0; i < this->m_num_blocks; ++i) {
         Block bt = this->m_bits[i], ba = a.m_bits[i];
-        if (ba & ~bt)
+        if (ba & ‾bt)
             proper = true;
-        if (bt & ~ba)
+        if (bt & ‾ba)
             return false;
     }
     return proper;
@@ -1400,7 +1400,7 @@ inline void dynamic_bitset<Block, Allocator>::m_zero_unused_bits()
     const size_type used_bits = this->m_num_bits % bits_per_block;
 
     if (used_bits != 0)
-        this->m_bits[this->m_num_blocks - 1] &= ~(~static_cast<Block>(0) << used_bits);
+        this->m_bits[this->m_num_blocks - 1] &= ‾(‾static_cast<Block>(0) << used_bits);
 
 }
 

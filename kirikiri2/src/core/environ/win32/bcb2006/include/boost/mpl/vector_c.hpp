@@ -28,8 +28,8 @@
 #   include "boost/preprocessor/cat.hpp"
 #   include "boost/preprocessor/stringize.hpp"
 
-#   define MPL_AUX_VECTOR_HEADER \
-    BOOST_PP_CAT(BOOST_PP_CAT(vector,BOOST_MPL_LIMIT_VECTOR_SIZE), _c).hpp \
+#   define MPL_AUX_VECTOR_HEADER ¥
+    BOOST_PP_CAT(BOOST_PP_CAT(vector,BOOST_MPL_LIMIT_VECTOR_SIZE), _c).hpp ¥
     /**/
 
 #   include BOOST_PP_STRINGIZE(boost/mpl/vector/MPL_AUX_VECTOR_HEADER)
@@ -39,7 +39,7 @@
 
 #include "boost/mpl/aux_/config/use_preprocessed.hpp"
 
-#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) && \
+#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) && ¥
     !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER vector_c.hpp
@@ -68,38 +68,38 @@
 namespace boost {
 namespace mpl {
 
-#   define AUX_VECTOR_C(i) \
-    BOOST_PP_CAT(BOOST_PP_CAT(vector,i),_c) \
+#   define AUX_VECTOR_C(i) ¥
+    BOOST_PP_CAT(BOOST_PP_CAT(vector,i),_c) ¥
     /**/
 
-#   define AUX_VECTOR_C_PARAMS(param) \
-    BOOST_PP_ENUM_PARAMS( \
-          BOOST_MPL_LIMIT_VECTOR_SIZE \
-        , param \
-        ) \
+#   define AUX_VECTOR_C_PARAMS(param) ¥
+    BOOST_PP_ENUM_PARAMS( ¥
+          BOOST_MPL_LIMIT_VECTOR_SIZE ¥
+        , param ¥
+        ) ¥
     /**/
 
-#   define AUX_VECTOR_C_DEFAULT_PARAMS(param, value) \
-     BOOST_PP_ENUM_PARAMS_WITH_A_DEFAULT( \
-          BOOST_MPL_LIMIT_VECTOR_SIZE \
-        , param \
-        , value \
-        ) \
+#   define AUX_VECTOR_C_DEFAULT_PARAMS(param, value) ¥
+     BOOST_PP_ENUM_PARAMS_WITH_A_DEFAULT( ¥
+          BOOST_MPL_LIMIT_VECTOR_SIZE ¥
+        , param ¥
+        , value ¥
+        ) ¥
     /**/
 
-#   define AUX_VECTOR_C_N_PARAMS(n, param) \
-    BOOST_PP_COMMA_IF(n) \
-    BOOST_PP_ENUM_PARAMS(n, param) \
+#   define AUX_VECTOR_C_N_PARAMS(n, param) ¥
+    BOOST_PP_COMMA_IF(n) ¥
+    BOOST_PP_ENUM_PARAMS(n, param) ¥
     /**/
 
-#   define AUX_VECTOR_C_N_PARTIAL_SPEC_PARAMS(n, param, def) \
-    BOOST_PP_ENUM_PARAMS(n, param) \
-    BOOST_PP_COMMA_IF(n) \
-    BOOST_PP_ENUM( \
-          BOOST_PP_SUB_D(1,BOOST_MPL_LIMIT_VECTOR_SIZE,n) \
-        , BOOST_PP_TUPLE_ELEM_3_2 \
-        , def \
-        ) \
+#   define AUX_VECTOR_C_N_PARTIAL_SPEC_PARAMS(n, param, def) ¥
+    BOOST_PP_ENUM_PARAMS(n, param) ¥
+    BOOST_PP_COMMA_IF(n) ¥
+    BOOST_PP_ENUM( ¥
+          BOOST_PP_SUB_D(1,BOOST_MPL_LIMIT_VECTOR_SIZE,n) ¥
+        , BOOST_PP_TUPLE_ELEM_3_2 ¥
+        , def ¥
+        ) ¥
     /**/
 
 #if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION)
@@ -115,7 +115,7 @@ template< BOOST_MPL_AUX_NTTP_DECL(int, N) > struct vector_c_impl_chooser;
 }
 #endif
 
-#define BOOST_PP_ITERATION_PARAMS_1 \
+#define BOOST_PP_ITERATION_PARAMS_1 ¥
     (3,(0, BOOST_MPL_LIMIT_VECTOR_SIZE, "boost/mpl/vector_c.hpp"))
 #include BOOST_PP_ITERATE()
 

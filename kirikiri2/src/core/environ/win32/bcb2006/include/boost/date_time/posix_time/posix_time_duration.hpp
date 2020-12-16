@@ -11,7 +11,7 @@ namespace boost {
 namespace posix_time {
 
   //! Allows expression of durations as an hour count
-  /*! \ingroup time_basics
+  /*! ¥ingroup time_basics
    */
   class hours : public time_duration
   {
@@ -22,7 +22,7 @@ namespace posix_time {
   };
 
   //! Allows expression of durations as a minute count
-  /*! \ingroup time_basics
+  /*! ¥ingroup time_basics
    */
   class minutes : public time_duration
   {
@@ -33,7 +33,7 @@ namespace posix_time {
   };
 
   //! Allows expression of durations as a seconds count
-  /*! \ingroup time_basics
+  /*! ¥ingroup time_basics
    */
   class seconds : public time_duration
   {
@@ -45,12 +45,12 @@ namespace posix_time {
 
 
   //! Allows expression of durations as milli seconds
-  /*! \ingroup time_basics
+  /*! ¥ingroup time_basics
    */
   typedef date_time::millisec_duration<time_duration> millisec;
 
   //! Allows expression of durations as micro seconds
-  /*! \ingroup time_basics
+  /*! ¥ingroup time_basics
    */
   typedef date_time::microsec_duration<time_duration> microsec;
 
@@ -58,7 +58,7 @@ namespace posix_time {
 #if defined(BOOST_DATE_TIME_HAS_NANOSECONDS)
 
   //! Allows expression of durations as nano seconds
-  /*! \ingroup time_basics
+  /*! ¥ingroup time_basics
    */
   typedef date_time::nanosec_duration<time_duration> nanosec;
 

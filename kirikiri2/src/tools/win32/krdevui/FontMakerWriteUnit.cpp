@@ -155,7 +155,7 @@ void __fastcall TFontMakerWriteForm::TimerTimer(TObject *Sender)
 	CancelButton->Enabled = true;
 
 	// write header
-	OutStream->WriteBuffer("TVP pre-rendered font\x1a\x01\x02", 24);
+	OutStream->WriteBuffer("TVP pre-rendered font¥x1a¥x01¥x02", 24);
 		// header + version + sizeof(wchar_t)
 	OutStream->WriteBuffer("            ", 12);
 		// count/offset to chindex/offset to index
@@ -236,7 +236,7 @@ void __fastcall TFontMakerWriteForm::TimerTimer(TObject *Sender)
 		if(size && gm.gmBlackBoxX && gm.gmBlackBoxY)
 		{
 			if(Antialiased)
-				pitch = (size / gm.gmBlackBoxY) & ~0x03; // data is aligned to DWORD
+				pitch = (size / gm.gmBlackBoxY) & ‾0x03; // data is aligned to DWORD
 			else
 				pitch = (((gm.gmBlackBoxX -1)>>5)+1)<<2; // data is aligned to DWORD
 
@@ -304,7 +304,7 @@ void __fastcall TFontMakerWriteForm::TimerTimer(TObject *Sender)
 	// write character index/ index data
 
 	int chindexpos = OutStream->Position;
-	OutStream->WriteBuffer("\0\0\0\0", 4 - (chindexpos % 4));  // align
+	OutStream->WriteBuffer("¥0¥0¥0¥0", 4 - (chindexpos % 4));  // align
 	chindexpos = OutStream->Position;
 	for(i = Items.begin(); i != Items.end(); i++)
 	{
@@ -312,7 +312,7 @@ void __fastcall TFontMakerWriteForm::TimerTimer(TObject *Sender)
 	}
 
 	int indexpos = OutStream->Position;
-	OutStream->WriteBuffer("\0\0\0\0", 4 - (indexpos % 4));  // align
+	OutStream->WriteBuffer("¥0¥0¥0¥0", 4 - (indexpos % 4));  // align
 	indexpos = OutStream->Position;
 	for(i = Items.begin(); i != Items.end(); i++)
 	{

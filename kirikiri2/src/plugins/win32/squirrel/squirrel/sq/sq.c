@@ -59,25 +59,25 @@ void printfunc(HSQUIRRELVM v,const SQChar *s,...)
 
 void PrintVersionInfos()
 {
-	scfprintf(stdout,_SC("%s %s (%d bits)\n"),SQUIRREL_VERSION,SQUIRREL_COPYRIGHT,sizeof(SQInteger)*8);
+	scfprintf(stdout,_SC("%s %s (%d bits)¥n"),SQUIRREL_VERSION,SQUIRREL_COPYRIGHT,sizeof(SQInteger)*8);
 	if(sizeof(SQFloat) != sizeof(float)) {
-		scfprintf(stdout,_SC("[%d bits floats]\n"),sizeof(SQFloat)*8);
+		scfprintf(stdout,_SC("[%d bits floats]¥n"),sizeof(SQFloat)*8);
 	}
 }
 
 void PrintUsage()
 {
-	scfprintf(stderr,_SC("usage: sq <options> <scriptpath [args]>.\n")
-		_SC("Available options are:\n")
-		_SC("   -c              compiles the file to bytecode(default output 'out.cnut')\n")
-		_SC("   -o              specifies output file for the -c option\n")
-		_SC("   -e              specifies output file endian for the -c option\n")
-		_SC("                   0:default 1:little 2:big\n")
-		_SC("   -c              compiles only\n")
-	    _SC("   -p file         precompile file\n")
-		_SC("   -d              generates debug infos\n")
-		_SC("   -v              displays version infos\n")
-		_SC("   -h              prints help\n"));
+	scfprintf(stderr,_SC("usage: sq <options> <scriptpath [args]>.¥n")
+		_SC("Available options are:¥n")
+		_SC("   -c              compiles the file to bytecode(default output 'out.cnut')¥n")
+		_SC("   -o              specifies output file for the -c option¥n")
+		_SC("   -e              specifies output file endian for the -c option¥n")
+		_SC("                   0:default 1:little 2:big¥n")
+		_SC("   -c              compiles only¥n")
+	    _SC("   -p file         precompile file¥n")
+		_SC("   -d              generates debug infos¥n")
+		_SC("   -v              displays version infos¥n")
+		_SC("   -h              prints help¥n"));
 }
 
 #define _INTERACTIVE 0
@@ -138,7 +138,7 @@ int getargs(HSQUIRRELVM v,int argc, char* argv[])
 					break;
 				default:
 					PrintVersionInfos();
-					scprintf(_SC("unknown prameter '-%c'\n"),argv[arg][1]);
+					scprintf(_SC("unknown prameter '-%c'¥n"),argv[arg][1]);
 					PrintUsage();
 					return _ERROR;
 				}
@@ -153,7 +153,7 @@ int getargs(HSQUIRRELVM v,int argc, char* argv[])
 			int alen=(int)strlen(precompile);
 			a=sq_getscratchpad(v,(int)(alen*sizeof(SQChar)));
 			mbstowcs(sq_getscratchpad(v,-1),precompile,alen);
-			sq_getscratchpad(v,-1)[alen] = _SC('\0');
+			sq_getscratchpad(v,-1)[alen] = _SC('¥0');
 #else
 			a=precompile;
 #endif
@@ -161,7 +161,7 @@ int getargs(HSQUIRRELVM v,int argc, char* argv[])
 				const SQChar *err;
 				sq_getlasterror(v);
 				if(SQ_SUCCEEDED(sq_getstring(v,-1,&err))) {
-					scprintf(_SC("Error [%s]\n"),err);
+					scprintf(_SC("Error [%s]¥n"),err);
 					return _ERROR;
 				}
 			}
@@ -189,7 +189,7 @@ int getargs(HSQUIRRELVM v,int argc, char* argv[])
 				int alen=(int)strlen(argv[i]);
 				a=sq_getscratchpad(v,(int)(alen*sizeof(SQChar)));
 				mbstowcs(sq_getscratchpad(v,-1),argv[i],alen);
-				sq_getscratchpad(v,-1)[alen] = _SC('\0');
+				sq_getscratchpad(v,-1)[alen] = _SC('¥0');
 #else
 				a=argv[i];
 #endif
@@ -225,7 +225,7 @@ int getargs(HSQUIRRELVM v,int argc, char* argv[])
 				const SQChar *err;
 				sq_getlasterror(v);
 				if(SQ_SUCCEEDED(sq_getstring(v,-1,&err))) {
-					scprintf(_SC("Error [%s]\n"),err);
+					scprintf(_SC("Error [%s]¥n"),err);
 					return _ERROR;
 				}
 			}
@@ -258,37 +258,37 @@ void Interactive(HSQUIRRELVM v)
     while (!done) 
 	{
 		SQInteger i = 0;
-		scprintf(_SC("\nsq>"));
+		scprintf(_SC("¥nsq>"));
 		for(;;) {
 			int c;
 			if(done)return;
 			c = getchar();
-			if (c == _SC('\n')) {
-				if (i>0 && buffer[i-1] == _SC('\\'))
+			if (c == _SC('¥n')) {
+				if (i>0 && buffer[i-1] == _SC('¥¥'))
 				{
-					buffer[i-1] = _SC('\n');
+					buffer[i-1] = _SC('¥n');
 				}
 				else if(blocks==0)break;
-				buffer[i++] = _SC('\n');
+				buffer[i++] = _SC('¥n');
 			}
 			else if (c==_SC('}')) {blocks--; buffer[i++] = (SQChar)c;}
 			else if(c==_SC('{') && !string){
 					blocks++;
 					buffer[i++] = (SQChar)c;
 			}
-			else if(c==_SC('"') || c==_SC('\'')){
+			else if(c==_SC('"') || c==_SC('¥'')){
 					string=!string;
 					buffer[i++] = (SQChar)c;
 			}
 			else if (i >= MAXINPUT-1) {
-				scfprintf(stderr, _SC("sq : input line too long\n"));
+				scfprintf(stderr, _SC("sq : input line too long¥n"));
 				break;
 			}
 			else{
 				buffer[i++] = (SQChar)c;
 			}
 		}
-		buffer[i] = _SC('\0');
+		buffer[i] = _SC('¥0');
 		
 		if(buffer[0]==_SC('=')){
 			scsprintf(sq_getscratchpad(v,MAXINPUT),_SC("return (%s)"),&buffer[1]);
@@ -301,7 +301,7 @@ void Interactive(HSQUIRRELVM v)
 			if(SQ_SUCCEEDED(sq_compilebuffer(v,buffer,i,_SC("interactive console"),SQTrue))){
 				sq_pushroottable(v);
 				if(SQ_SUCCEEDED(sq_call(v,1,retval,SQTrue)) &&	retval){
-					scprintf(_SC("\n"));
+					scprintf(_SC("¥n"));
 					sq_pushroottable(v);
 					sq_pushstring(v,_SC("print"),-1);
 					sq_get(v,-2);
@@ -309,7 +309,7 @@ void Interactive(HSQUIRRELVM v)
 					sq_push(v,-4);
 					sq_call(v,2,SQFalse,SQTrue);
 					retval=0;
-					scprintf(_SC("\n"));
+					scprintf(_SC("¥n"));
 				}
 			}
 			

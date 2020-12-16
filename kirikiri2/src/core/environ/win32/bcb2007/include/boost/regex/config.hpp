@@ -167,7 +167,7 @@
 
 // We don't make our templates external if the compiler
 // can't handle it:
-#if (defined(BOOST_NO_MEMBER_FUNCTION_SPECIALIZATIONS) || defined(__HP_aCC) || defined(__MWERKS__) || defined(__COMO__) || defined(__ICL) || defined(__ICC))\
+#if (defined(BOOST_NO_MEMBER_FUNCTION_SPECIALIZATIONS) || defined(__HP_aCC) || defined(__MWERKS__) || defined(__COMO__) || defined(__ICL) || defined(__ICC))¥
    && !defined(BOOST_MSVC) && !defined(__BORLANDC__)
 #  define BOOST_REGEX_NO_EXTERNAL_TEMPLATES
 #endif
@@ -344,11 +344,11 @@ using std::distance;
 // <cstdio> seems not to make stderr usable with Borland:
 #include <stdio.h>
 #endif
-#  define BOOST_REGEX_NOEH_ASSERT(x)\
-if(0 == (x))\
-{\
-   std::fprintf(stderr, "Error: critical regex++ failure in \"%s\"", #x);\
-   std::abort();\
+#  define BOOST_REGEX_NOEH_ASSERT(x)¥
+if(0 == (x))¥
+{¥
+   std::fprintf(stderr, "Error: critical regex++ failure in ¥"%s¥"", #x);¥
+   std::abort();¥
 }
 #else
 //
@@ -396,7 +396,7 @@ public:
    int line;
    char g2[32];
    debug_guard(const char* f, int l, const char* p1 = 0, char* p2 = 0);
-   ~debug_guard();
+   ‾debug_guard();
 };
 
 #  define BOOST_RE_GUARD_STACK boost::re_detail::debug_guard sg(__FILE__, __LINE__);
@@ -625,7 +625,7 @@ namespace boost{ namespace re_detail{
 
 template <class T>
 inline void pointer_destroy(T* p)
-{ p->~T(); (void)p; }
+{ p->‾T(); (void)p; }
 
 #ifdef BOOST_MSVC
 #pragma warning (pop)

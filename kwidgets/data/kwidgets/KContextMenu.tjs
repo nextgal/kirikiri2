@@ -5,15 +5,15 @@
 
 class KContextMenu extends KWindow
 {
-  // ƒ‹[ƒgƒAƒCƒeƒ€
+  // ãƒ«ãƒ¼ãƒˆã‚¢ã‚¤ãƒ†ãƒ 
   var rootItem;
-  // ƒƒjƒ…[‚ğ•Â‚¶‚½ŒãA©“®“I‚Éƒƒjƒ…[‚ğinvalidate‚·‚é‚©‚Ç‚¤‚©
+  // ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’é–‰ã˜ãŸå¾Œã€è‡ªå‹•çš„ã«ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’invalidateã™ã‚‹ã‹ã©ã†ã‹
   var toExit;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    * 
-   * @param toExit ˆê‰ñƒƒjƒ…[‚ğŠJ‚¢‚½ŒãA©“®“I‚ÉÁ–Å‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚éB
+   * @param toExit ä¸€å›ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’é–‹ã„ãŸå¾Œã€è‡ªå‹•çš„ã«æ¶ˆæ»…ã™ã‚‹ã‹ã©ã†ã‹ã‚’è¨­å®šã™ã‚‹ã€‚
    ------------------------------*/
   function KContextMenu(_toExit = true) {
     if (! k_kirikiriz)
@@ -21,136 +21,136 @@ class KContextMenu extends KWindow
     else
       super.KWindow("", global.Window.mainWindow);
     toExit = _toExit;
-    // •\¦À•W‚ğ“¾‚é‚½‚ß‚ÉAƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„‚ğƒTƒCƒYİ’è
+    // è¡¨ç¤ºåº§æ¨™ã‚’å¾—ã‚‹ãŸã‚ã«ã€ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤ã‚’ã‚µã‚¤ã‚ºè¨­å®š
     primaryLayer.setFixedSize(1, 1);
-    // ƒ‹[ƒgƒAƒCƒeƒ€‚ğ’Ç‰Á
-    rootItem = new KMenuItem(this, "ƒ‹[ƒg");
+    // ãƒ«ãƒ¼ãƒˆã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ 
+    rootItem = new KMenuItem(this, "ãƒ«ãƒ¼ãƒˆ");
     menu.add(rootItem);
   }
 
   /**------------------------------
-   * ƒAƒCƒeƒ€‚ğ‘Síœ
+   * ã‚¢ã‚¤ãƒ†ãƒ ã‚’å…¨å‰Šé™¤
    ------------------------------*/
   function clearItmes {
     rootItem.clearItems();
   }
 
   /**------------------------------
-   * ƒZƒpƒŒ[ƒ^‚ğ’Ç‰Á
+   * ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ã‚’è¿½åŠ 
    ------------------------------*/
   function addSeparator {
     return rootItem.add(new global.MenuItem(window, "-"));
   }
 
   /**------------------------------
-   * ƒAƒCƒeƒ€‚ğ’Ç‰Á
+   * ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ 
    *
-   * @param caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @param name –¼‘O 
-   * @param enabled —LŒø‚©‚Ç‚¤‚©
-   * @param func onValueModified ŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒhw’è
+   * @param caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @param name åå‰ 
+   * @param enabled æœ‰åŠ¹ã‹ã©ã†ã‹
+   * @param func onValueModified é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰æŒ‡å®š
    ------------------------------*/
   function addItem(caption, name = "", enabled = true, func = void) {
     return rootItem.addItem(...);
   }
 
   /**------------------------------
-   * ’l‚¿ƒAƒCƒeƒ€‚ğ’Ç‰Á
+   * å€¤æŒã¡ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ 
    *
-   * @param caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @param value ’l
-   * @param name –¼‘O 
-   * @param enabled —LŒø‚©‚Ç‚¤‚©
-   * @param func onValueModified ŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒhw’è
+   * @param caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @param value å€¤
+   * @param name åå‰ 
+   * @param enabled æœ‰åŠ¹ã‹ã©ã†ã‹
+   * @param func onValueModified é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰æŒ‡å®š
    ------------------------------*/
   function addValueItem(caption, value, name = "", enabled = true, func = void) {
     return rootItem.addValueItem(...);
   }
 
   /**------------------------------
-   * ƒgƒOƒ‹ƒAƒCƒeƒ€‚ğ’Ç‰Á
+   * ãƒˆã‚°ãƒ«ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ 
    *
-   * @param caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @param value ƒgƒOƒ‹‚Ì‰Šú’l
-   * @param name –¼‘O 
-   * @param enabled —LŒø‚©‚Ç‚¤‚©
-   * @param func onValueModified ŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒhw’è
+   * @param caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @param value ãƒˆã‚°ãƒ«ã®åˆæœŸå€¤
+   * @param name åå‰ 
+   * @param enabled æœ‰åŠ¹ã‹ã©ã†ã‹
+   * @param func onValueModified é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰æŒ‡å®š
    ------------------------------*/
   function addToggleItem(caption, value, name = "", enabled = true, func = void) {
     return rootItem.addToggleItem(...);
   }
 
   /**------------------------------
-   * ƒ‰ƒWƒIƒAƒCƒeƒ€‚ğ’Ç‰Á
+   * ãƒ©ã‚¸ã‚ªã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ 
    *
-   * @param caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @param value ƒAƒCƒeƒ€‚Ì’l
-   * @param name –¼‘O 
-   * @param enabled —LŒø‚©‚Ç‚¤‚©
-   * @param func onValueModified ŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒhw’è
+   * @param caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @param value ã‚¢ã‚¤ãƒ†ãƒ ã®å€¤
+   * @param name åå‰ 
+   * @param enabled æœ‰åŠ¹ã‹ã©ã†ã‹
+   * @param func onValueModified é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰æŒ‡å®š
    ------------------------------*/
   function addRadioItem(caption, value, name = "", enabled = true, func = void) {
     return rootItem.addRadioItem(...);
   }
 
   /**------------------------------
-   * ƒZƒpƒŒ[ƒ^‚ğ’Ç‰Á
+   * ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ã‚’è¿½åŠ 
    ------------------------------*/
   function addSeparator {
     return rootItem.addSeparator(...);
   }
 
   /**------------------------------
-   * “ü‚êq‚ğ’Ç‰Á
+   * å…¥ã‚Œå­ã‚’è¿½åŠ 
    *
-   * @param caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @param enabled —LŒø‚©
-   * @param cmds  ƒRƒ}ƒ“ƒh”z—ñ
-   * @return ’Ç‰Á‚µ‚½ƒlƒXƒgƒAƒCƒeƒ€
+   * @param caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @param enabled æœ‰åŠ¹ã‹
+   * @param cmds  ã‚³ãƒãƒ³ãƒ‰é…åˆ—
+   * @return è¿½åŠ ã—ãŸãƒã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ 
    ------------------------------*/
   function addNest(caption, enabled, cmds = []) {
     return rootItem.addNest(...);
   }
 
   /**------------------------------
-   * ’l‚Ìon/off‚ğ’Ç‰Á
+   * å€¤ã®on/offã‚’è¿½åŠ 
    *
-   * @param caption ƒLƒƒƒvƒVƒ‡ƒ“
-   * @param enabled —LŒø‰»
-   * @param object ƒIƒuƒWƒFƒNƒg
-   * @param member ƒƒ“ƒo–¼
-   * @param method ƒƒ\ƒbƒh
-   * @return ’Ç‰Á‚µ‚½ƒoƒŠƒ…[ƒAƒCƒeƒ€
+   * @param caption ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
+   * @param enabled æœ‰åŠ¹åŒ–
+   * @param object ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+   * @param member ãƒ¡ãƒ³ãƒå
+   * @param method ãƒ¡ã‚½ãƒƒãƒ‰
+   * @return è¿½åŠ ã—ãŸãƒãƒªãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ 
    ------------------------------*/
   function addValueCommand(caption, enabled, object, member, method = void) {
     return rootItem.addValueCommand(...);
   }
 
   /**------------------------------
-   * ƒƒjƒ…[•\¦
+   * ãƒ¡ãƒ‹ãƒ¥ãƒ¼è¡¨ç¤º
    *
-   * •\¦Šî€ƒŒƒCƒ„‚ÆŠî€À•W‚ğİ’è‚µ‚ÄŒÄ‚Ño‚·‚ÆA
-   * ‚»‚ÌˆÊ’u‚ÉƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[‚ªŠJ‚­B
+   * è¡¨ç¤ºåŸºæº–ãƒ¬ã‚¤ãƒ¤ã¨åŸºæº–åº§æ¨™ã‚’è¨­å®šã—ã¦å‘¼ã³å‡ºã™ã¨ã€
+   * ãã®ä½ç½®ã«ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ãŒé–‹ãã€‚
    *
-   * w’è‚ğÈ—ª‚·‚é‚ÆAƒJ[ƒ\ƒ‹‚Ì·‚µ‚Ä‚¢‚éˆÊ’u‚ÉŠJ‚­B
+   * æŒ‡å®šã‚’çœç•¥ã™ã‚‹ã¨ã€ã‚«ãƒ¼ã‚½ãƒ«ã®å·®ã—ã¦ã„ã‚‹ä½ç½®ã«é–‹ãã€‚
    *
-   * @param baseLayer •\¦Šî€ƒŒƒCƒ„
-   * @param x •\¦Šî€XÀ•W
-   * @param y •\¦Šî€YÀ•W
+   * @param baseLayer è¡¨ç¤ºåŸºæº–ãƒ¬ã‚¤ãƒ¤
+   * @param x è¡¨ç¤ºåŸºæº–Xåº§æ¨™
+   * @param y è¡¨ç¤ºåŸºæº–Yåº§æ¨™
    ------------------------------*/
   function show(baseLayer = void, x = void, y = void) {
-    // ƒƒjƒ…[”ñ‘I‘ğ‚É onPopupHide ‚ªŒÄ‚Î‚ê‚é‚æ‚¤‚Éƒpƒ‰ƒ[ƒ^‚ğİ’è
+    // ãƒ¡ãƒ‹ãƒ¥ãƒ¼éé¸æŠæ™‚ã« onPopupHide ãŒå‘¼ã°ã‚Œã‚‹ã‚ˆã†ã«ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¨­å®š
     stayOnTop = true;
     focusable = false;
-    // ƒEƒBƒ“ƒhƒE‚ªŒ©‚¦‚È‚¢‚æ‚¤‚É×H‚·‚é
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒè¦‹ãˆãªã„ã‚ˆã†ã«ç´°å·¥ã™ã‚‹
     borderStyle = bsNone;
     //    setMinSize(0, 0);
     //    setMaxSize(0, 0);
     setSize(0, 0);
 
-    // •\¦ŠJn
+    // è¡¨ç¤ºé–‹å§‹
     visible = true;
-    // ƒ}ƒEƒXˆÊ’u‚ğE‚¤
+    // ãƒã‚¦ã‚¹ä½ç½®ã‚’æ‹¾ã†
     var baseX, baseY;
     baseX = primaryLayer.cursorX;
     baseY = primaryLayer.cursorY;
@@ -159,32 +159,32 @@ class KContextMenu extends KWindow
       baseY -= (baseLayer.cursorY - y) * baseLayer.window.zoomNumer / baseLayer.window.zoomDenom;
     }
       
-    // ƒ‹[ƒgƒAƒCƒeƒ€‚ğƒ}ƒEƒXˆÊ’u‚Éƒ|ƒbƒvƒAƒbƒv
+    // ãƒ«ãƒ¼ãƒˆã‚¢ã‚¤ãƒ†ãƒ ã‚’ãƒã‚¦ã‚¹ä½ç½®ã«ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—
     rootItem.popup(0,  baseX, baseY);
   }
 
-  // ƒƒjƒ…[”ñ‘I‘ğA‚à‚µ‚­‚ÍŒˆ’èŒã•ÊƒEƒBƒ“ƒhƒE‚ÌƒtƒH[ƒJƒX‚ÉŒÄ‚Î‚ê‚é
+  // ãƒ¡ãƒ‹ãƒ¥ãƒ¼éé¸æŠæ™‚ã€ã‚‚ã—ãã¯æ±ºå®šå¾Œåˆ¥ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ãƒ•ã‚©ãƒ¼ã‚«ã‚¹æ™‚ã«å‘¼ã°ã‚Œã‚‹
   function onPopupHide {
-    // ƒEƒBƒ“ƒhƒE‚ğ©“®‚Å•Â‚¶‚é
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’è‡ªå‹•ã§é–‰ã˜ã‚‹
     closeMenu();
   }
 
 
-  // ƒƒjƒ…[Œˆ’èA‚à‚µ‚­‚ÍƒLƒƒƒ“ƒZƒ‹‚É©“®‚ÅƒEƒBƒ“ƒhƒE‚ğ•Â‚¶‚é
+  // ãƒ¡ãƒ‹ãƒ¥ãƒ¼æ±ºå®šæ™‚ã€ã‚‚ã—ãã¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«æ™‚ã«è‡ªå‹•ã§ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’é–‰ã˜ã‚‹
   function closeMenu {
-    // ”ñ•\¦‚É
+    // éè¡¨ç¤ºã«
     visible = false;
-    // ƒƒjƒ…[©‘Ì‚ğÁ‚·
+    // ãƒ¡ãƒ‹ãƒ¥ãƒ¼è‡ªä½“ã‚’æ¶ˆã™
     if (toExit){
       invalidate(this);
     }
   }
 
-  // ƒ_ƒ~[ŠÖ”
+  // ãƒ€ãƒŸãƒ¼é–¢æ•°
   function invalidateLayout {
   }
 
-  // ƒ_ƒ~[ŠÖ”
+  // ãƒ€ãƒŸãƒ¼é–¢æ•°
   function onResize {
   }
 };

@@ -15,10 +15,10 @@ function dm(msg) {
 
 
 /**
- * ‰Šú‰»ˆ—ƒTƒ“ƒvƒ‹
+ * åˆæœŸåŒ–å‡¦ç†ã‚µãƒ³ãƒ—ãƒ«
  */
 function initData(device) {
-	dm("ƒf[ƒ^‚ğ‰Šú‰»");
+	dm("ãƒ‡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–");
 	var driver = device.videoDriver;
 	var smgr = device.sceneManager;
 	var gui = device.guiEnvironment;
@@ -27,10 +27,10 @@ function initData(device) {
 	smgr.loadScene("example.irr");
 	smgr.addLightSceneNode(null, [0,0,0], 0xffffff, 100, 1);
 
-	// ƒAƒjƒ[ƒVƒ‡ƒ“’Ç‰Á‚µ‚Ä‚İ‚é
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³è¿½åŠ ã—ã¦ã¿ã‚‹
 	var node = smgr.addSphereSceneNode(5, 16, 0, -1, [0,0,0], [0,0,0], [1,1,1]);
 	if (node) {
-		dm("sphere scene node ‚ğ’Ç‰Á");
+		dm("sphere scene node ã‚’è¿½åŠ ");
 		node.position = [0,0,30];
 		node.setMaterialTexture(0, driver.getTexture("wall.jpg"));
 		node.setMaterialFlag(3, false);
@@ -38,25 +38,25 @@ function initData(device) {
 
 	var n = smgr.addCubeSceneNode(10,0,-1,[0,0,0],[0,0,0],[1,1,1]);
 	if (n) {
-		dm("cube ‚ğ’Ç‰Á");
+		dm("cube ã‚’è¿½åŠ ");
 		n.setMaterialTexture(0, driver.getTexture("t351sml.jpg"));
 		n.setMaterialFlag(3, false);
 		var anim = smgr.createFlyCircleAnimator([0,0,30], 20, 0.001, [0,1,0]);
 		if (anim) {
-			dm("cube ‚É‚ ‚É‚ß[‚½‚ğ’Ç‰Á");
+			dm("cube ã«ã‚ã«ã‚ãƒ¼ãŸã‚’è¿½åŠ ");
 			n.addAnimator(anim);
 		} else {
-			dm("‚ ‚É‚ß[‚½æ“¾¸”sH:" + anim);
+			dm("ã‚ã«ã‚ãƒ¼ãŸå–å¾—å¤±æ•—ï¼Ÿ:" + anim);
 		}
 	}
 
 	var anms = smgr.addAnimatedMeshSceneNode(smgr.getMesh("sydney.md2"),
 											 0, -1, [0,0,0], [0,0,0], [1,1,1], false);
 	if (anms) {
-		dm("AnimatedMesh ‚ğ’Ç‰Á");
+		dm("AnimatedMesh ã‚’è¿½åŠ ");
 		var anim = smgr.createFlyStraightAnimator([100,0,60], [-100,0,60], 2500, true);
 		if (anim){
-			dm("AnimatedMesh ‚É‚ ‚É‚ß[‚½‚ğ’Ç‰Á");
+			dm("AnimatedMesh ã«ã‚ã«ã‚ãƒ¼ãŸã‚’è¿½åŠ ");
 			anms.addAnimator(anim);
 		}
 		anms.setMaterialFlag(3, false);
@@ -73,8 +73,8 @@ function initData(device) {
 }
 
 /**
- * ƒx[ƒXƒŒƒCƒ„
- * Irrlicht “I‚ÉƒeƒNƒXƒ`ƒƒ‚Æ‚µ‚Ä”z’u‰Â”\‚ÈƒŒƒCƒ„‚Æ‚µ‚Ä‹@”\‚·‚é
+ * ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
+ * Irrlicht çš„ã«ãƒ†ã‚¯ã‚¹ãƒãƒ£ã¨ã—ã¦é…ç½®å¯èƒ½ãªãƒ¬ã‚¤ãƒ¤ã¨ã—ã¦æ©Ÿèƒ½ã™ã‚‹
  */
 class BaseLayer extends Layer
 {
@@ -86,7 +86,7 @@ class BaseLayer extends Layer
 		setSize(width, height);
 		fillRect(0,0,width,height,0);
 		
-		// •\¦ƒŒƒCƒ„
+		// è¡¨ç¤ºãƒ¬ã‚¤ãƒ¤
 		layer = new AffineLayer(window, this);
 		layer.loadImages("test.png");
 		layer.setSizeToImageSize();
@@ -99,8 +99,8 @@ class BaseLayer extends Layer
 }
 
 /**
- * DrawDevice—p‚ÌƒeƒXƒg
- * ‹g—¢‹g—¢‚Ì•\¦Œn‚»‚Ì‚à‚Ì‚ª Irrlicht ƒx[ƒX‚É‚È‚é
+ * DrawDeviceç”¨ã®ãƒ†ã‚¹ãƒˆ
+ * å‰é‡Œå‰é‡Œã®è¡¨ç¤ºç³»ãã®ã‚‚ã®ãŒ Irrlicht ãƒ™ãƒ¼ã‚¹ã«ãªã‚‹
  */
 class DrawDeviceWindow extends Window
 {
@@ -109,7 +109,7 @@ class DrawDeviceWindow extends Window
 	var base3;
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 */
 	function DrawDeviceWindow() {
 		super.Window();
@@ -121,20 +121,20 @@ class DrawDeviceWindow extends Window
 		drawDevice.onAttach = initData;
 		//drawDevice.zoomMode = false;
 		
-		// 1–‡–Ú‚Ìƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„
-		// ‰ğ‘œ“x”¼•ª
+		// 1æšç›®ã®ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤
+		// è§£åƒåº¦åŠåˆ†
 		//base = new BaseLayer(this, WIDTH/2, HEIGHT/2);
 		//add(base);
 		
-		// 2–‡–Ú‚Ìƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„
+		// 2æšç›®ã®ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤
 		base2 = new BaseLayer(this, WIDTH, HEIGHT);
 		add(base2);
 
-		// 3–‡–Ú‚Ìƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„
+		// 3æšç›®ã®ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤
 		base3 = new BaseLayer(this, WIDTH*2, HEIGHT*2);
 		add(base3);
 
-		// XVˆ—
+		// æ›´æ–°å‡¦ç†
 		System.addContinuousHandler(update);
 	}
 
@@ -142,10 +142,10 @@ class DrawDeviceWindow extends Window
 		System.removeContinuousHandler(update);
 	}
 
-	// ƒŒƒCƒ„‚É‘Î‚µ‚Ä•`‰æXV‚·‚é
+	// ãƒ¬ã‚¤ãƒ¤ã«å¯¾ã—ã¦æç”»æ›´æ–°ã™ã‚‹
 	function update(tick) {
 		if (drawDevice.videoDriver) {
-			caption = "drawdevice‚ÌƒeƒXƒg:" + drawDevice.videoDriver.getFPS();
+			caption = "drawdeviceã®ãƒ†ã‚¹ãƒˆ:" + drawDevice.videoDriver.getFPS();
 		}
 	}
 	
@@ -159,8 +159,8 @@ class DrawDeviceWindow extends Window
 };
 
 /**
- * ƒŒƒCƒ„•`‰æ‚ÌƒeƒXƒgB
- * device.updateToLayer() ‚ÅƒŒƒCƒ„‚É‘Î‚µ‚Ä•`‰æŒ‹‰Ê‚ªƒRƒs[‚³‚ê‚éB
+ * ãƒ¬ã‚¤ãƒ¤æç”»ã®ãƒ†ã‚¹ãƒˆã€‚
+ * device.updateToLayer() ã§ãƒ¬ã‚¤ãƒ¤ã«å¯¾ã—ã¦æç”»çµæœãŒã‚³ãƒ”ãƒ¼ã•ã‚Œã‚‹ã€‚
  */
 class SimpleDeviceWindow extends Window
 {
@@ -168,7 +168,7 @@ class SimpleDeviceWindow extends Window
 	var base;
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 */
 	function SimpleDeviceWindow() {
 		super.Window();
@@ -180,12 +180,12 @@ class SimpleDeviceWindow extends Window
 		device.onAttach = initData;
 		add(device);
 
-		// ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„
+		// ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤
 		base = new Layer(this, null);
 		base.setSize(WIDTH, HEIGHT);
 		add(base);
 		
-		// XVˆ—
+		// æ›´æ–°å‡¦ç†
 		System.addContinuousHandler(update);
 	}
 
@@ -193,11 +193,11 @@ class SimpleDeviceWindow extends Window
 		System.removeContinuousHandler(update);
 	}
 	
-	// ƒŒƒCƒ„‚É‘Î‚µ‚Ä•`‰æXV‚·‚é
+	// ãƒ¬ã‚¤ãƒ¤ã«å¯¾ã—ã¦æç”»æ›´æ–°ã™ã‚‹
 	function update(tick) {
 		device.updateToLayer(base);
 		if (device.videoDriver) {
-			caption = "ƒŒƒCƒ„•`‰æ‚ÌƒeƒXƒg:" + device.videoDriver.getFPS();
+			caption = "ãƒ¬ã‚¤ãƒ¤æç”»ã®ãƒ†ã‚¹ãƒˆ:" + device.videoDriver.getFPS();
 		}
 	}
 
@@ -211,15 +211,15 @@ class SimpleDeviceWindow extends Window
 };
 
 /**
- * ƒŒƒCƒ„•`‰æ‚ÌƒeƒXƒgB
- * device.updateToLayer() ‚ÅƒŒƒCƒ„‚É‘Î‚µ‚Ä•`‰æŒ‹‰Ê‚ªƒRƒs[‚³‚ê‚éB
+ * ãƒ¬ã‚¤ãƒ¤æç”»ã®ãƒ†ã‚¹ãƒˆã€‚
+ * device.updateToLayer() ã§ãƒ¬ã‚¤ãƒ¤ã«å¯¾ã—ã¦æç”»çµæœãŒã‚³ãƒ”ãƒ¼ã•ã‚Œã‚‹ã€‚
  */
 class WindowWindow extends Window
 {
 	var device;
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 */
 	function WindowWindow() {
 		super.Window();
@@ -232,7 +232,7 @@ class WindowWindow extends Window
 		add(device);
 		device.visible = true;
 		
-		// XVˆ—
+		// æ›´æ–°å‡¦ç†
 		System.addContinuousHandler(update);
 	}
 
@@ -240,10 +240,10 @@ class WindowWindow extends Window
 		System.removeContinuousHandler(update);
 	}
 
-	// ƒŒƒCƒ„‚É‘Î‚µ‚Ä•`‰æXV‚·‚é
+	// ãƒ¬ã‚¤ãƒ¤ã«å¯¾ã—ã¦æç”»æ›´æ–°ã™ã‚‹
 	function update(tick) {
 		if (device.videoDriver) {
-			caption = "ƒEƒCƒ“ƒhƒE•`‰æ‚ÌƒeƒXƒg:" + device.videoDriver.getFPS();
+			caption = "ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦æç”»ã®ãƒ†ã‚¹ãƒˆ:" + device.videoDriver.getFPS();
 		}
 	}
 

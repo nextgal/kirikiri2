@@ -29,7 +29,7 @@ class TTotalView : public TCustomControl
 //-- constructor and destructor
 public:
 	__fastcall TTotalView(Classes::TComponent* AOwner);
-	__fastcall ~TTotalView();
+	__fastcall ‾TTotalView();
 
 private:
 	double FMagnify;

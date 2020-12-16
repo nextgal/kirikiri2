@@ -42,7 +42,7 @@ operator-(chset<CharT> const& a, chset<CharT> const& b)
 //////////////////////////////////
 template <typename CharT>
 inline chset<CharT>
-operator~(chset<CharT> const& a)
+operator‾(chset<CharT> const& a)
 {
     return chset<CharT>(a).inverse();
 }
@@ -89,7 +89,7 @@ namespace impl {
 
 template <typename CharT>
 inline chset<CharT>
-operator~(range<CharT> const& a)
+operator‾(range<CharT> const& a)
 {
     chset<CharT> a_;
     a_.set(range<CharT>(std::numeric_limits<CharT>::min(),
@@ -254,9 +254,9 @@ operator^(CharT a, chset<CharT> const& b)
 ///////////////////////////////////////////////////////////////////////////////
 template <typename CharT>
 inline chset<CharT>
-operator~(chlit<CharT> const& a)
+operator‾(chlit<CharT> const& a)
 {
-    return ~range<CharT>(a.ch, a.ch);
+    return ‾range<CharT>(a.ch, a.ch);
 }
 
 //////////////////////////////////
@@ -333,7 +333,7 @@ operator^(chlit<CharT> const& a, chset<CharT> const& b)
 //
 //      Where a is a chlit, implements:
 //
-//          ~a
+//          ‾a
 //
 ///////////////////////////////////////////////////////////////////////////////
 namespace impl {
@@ -359,7 +359,7 @@ namespace impl {
 
 //////////////////////////////////
 inline nothing_parser
-operator~(anychar_parser)
+operator‾(anychar_parser)
 {
     return nothing_p;
 }
@@ -393,7 +393,7 @@ template <typename CharT>
 inline chset<CharT>
 operator^(chset<CharT> const& a, anychar_parser)
 {
-    return ~a;
+    return ‾a;
 }
 
 //////////////////////////////////
@@ -417,7 +417,7 @@ template <typename CharT>
 inline chset<CharT>
 operator-(anychar_parser, chset<CharT> const& b)
 {
-    return ~b;
+    return ‾b;
 }
 
 //////////////////////////////////
@@ -425,7 +425,7 @@ template <typename CharT>
 inline chset<CharT>
 operator^(anychar_parser, chset<CharT> const& b)
 {
-    return ~b;
+    return ‾b;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

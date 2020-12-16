@@ -14,7 +14,7 @@ SlideCompressor::SlideCompressor()
 		AddMap(i);
 }
 //---------------------------------------------------------------------------
-SlideCompressor::~SlideCompressor()
+SlideCompressor::‾SlideCompressor()
 {
 }
 //---------------------------------------------------------------------------

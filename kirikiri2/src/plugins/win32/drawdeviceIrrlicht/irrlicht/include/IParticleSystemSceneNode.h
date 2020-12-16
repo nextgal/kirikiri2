@@ -28,7 +28,7 @@ namespace scene
 can be controlling by setting the right particle emitters and effectors.
 You can for example easily a campfire by doing this:
 
-\code
+¥code
 	scene::IParticleSystemSceneNode* p = scenemgr->addParticleSystemSceneNode();
 	p->setParticleSize(core::dimension2d<f32>(20.0f, 10.0f));
 	scene::IParticleEmitter* em = p->createBoxEmitter(
@@ -40,7 +40,7 @@ You can for example easily a campfire by doing this:
 	scene::IParticleAffector* paf = p->createFadeOutParticleAffector();
 	p->addAffector(paf);
 	paf->drop();
-\endcode
+¥endcode
 
 */
 class IParticleSystemSceneNode : public ISceneNode
@@ -65,14 +65,14 @@ public:
 	virtual void setParticlesAreGlobal(bool global) = 0;
 
 	//! Gets the particle emitter, which creates the particles.
-	/** \return The particle emitter. Can be 0 if none is set. */
+	/** ¥return The particle emitter. Can be 0 if none is set. */
 	virtual IParticleEmitter* getEmitter() =0;
 
 	//! Sets the particle emitter, which creates the particles.
 	/** A particle emitter can be created using one of the methods. For
 	example to create and use a simple PointEmitter, call
 	IParticleEmitter* p = createPointEmitter(); setEmitter(p); p->drop();
-	\param emitter: Sets the particle emitter. You can set this to 0 for
+	¥param emitter: Sets the particle emitter. You can set this to 0 for
 	removing the current emitter and stopping the particle system emitting
 	new particles. */
 	virtual void setEmitter(IParticleEmitter* emitter) = 0;
@@ -81,54 +81,54 @@ public:
 	/** A particle affector modifies the particles. For example, the FadeOut
 	affector lets all particles fade out after some time. It is created and
 	used in this way:
-	\code
+	¥code
 	IParticleAffector* p = createFadeOutParticleAffector();
 	addAffector(p);
 	p->drop();
-	\endcode
+	¥endcode
 	Please note that a affector is not necessary for the particle system to
 	work.
-	\param affector: New affector. */
+	¥param affector: New affector. */
 	virtual void addAffector(IParticleAffector* affector) = 0;
 
 	//! Removes all particle affectors in the particle system.
 	virtual void removeAllAffectors() = 0;
 
 	//! Creates a particle emitter for an animated mesh scene node
-	/** \param node: Pointer to the animated mesh scene node to emit
+	/** ¥param node: Pointer to the animated mesh scene node to emit
 	particles from
-	\param useNormalDirection: If true, the direction of each particle
+	¥param useNormalDirection: If true, the direction of each particle
 	created will be the normal of the vertex that it's emitting from. The
 	normal is divided by the normalDirectionModifier parameter, which
 	defaults to 100.0f.
-	\param direction: Direction and speed of particle emission.
-	\param normalDirectionModifier: If the emitter is using the normal
+	¥param direction: Direction and speed of particle emission.
+	¥param normalDirectionModifier: If the emitter is using the normal
 	direction then the normal of the vertex that is being emitted from is
 	divided by this number.
-	\param mbNumber: This allows you to specify a specific meshBuffer for
+	¥param mbNumber: This allows you to specify a specific meshBuffer for
 	the IMesh* to emit particles from. The default value is -1, which
 	means a random meshBuffer picked from all of the meshes meshBuffers
 	will be selected to pick a random vertex from. If the value is 0 or
 	greater, it will only pick random vertices from the meshBuffer
 	specified by this value.
-	\param everyMeshVertex: If true, the emitter will emit between min/max
+	¥param everyMeshVertex: If true, the emitter will emit between min/max
 	particles every second, for every vertex in the mesh, if false, it will
 	emit between min/max particles from random vertices in the mesh.
-	\param minParticlesPerSecond: Minimal amount of particles emitted per
+	¥param minParticlesPerSecond: Minimal amount of particles emitted per
 	second.
-	\param maxParticlesPerSecond: Maximal amount of particles emitted per
+	¥param maxParticlesPerSecond: Maximal amount of particles emitted per
 	second.
-	\param minStartColor: Minimal initial start color of a particle. The
+	¥param minStartColor: Minimal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param maxStartColor: Maximal initial start color of a particle. The
+	¥param maxStartColor: Maximal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
-	\param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
-	\param maxAngleDegrees: Maximal angle in degrees, the emitting
+	¥param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
+	¥param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
+	¥param maxAngleDegrees: Maximal angle in degrees, the emitting
 	direction of the particle will differ from the original direction.
-	\return Pointer to the created particle emitter. To set this emitter
+	¥return Pointer to the created particle emitter. To set this emitter
 	as new emitter of this particle system, just call setEmitter(). Note
 	that you'll have to drop() the returned pointer, after you don't need
 	it any more, see IReferenceCounted::drop() for more informations. */
@@ -144,23 +144,23 @@ public:
 		s32 maxAngleDegrees = 0 ) = 0;
 
 	//! Creates a box particle emitter.
-	/** \param box: The box for the emitter.
-	\param direction: Direction and speed of particle emission.
-	\param minParticlesPerSecond: Minimal amount of particles emitted per
+	/** ¥param box: The box for the emitter.
+	¥param direction: Direction and speed of particle emission.
+	¥param minParticlesPerSecond: Minimal amount of particles emitted per
 	second.
-	\param maxParticlesPerSecond: Maximal amount of particles emitted per
+	¥param maxParticlesPerSecond: Maximal amount of particles emitted per
 	second.
-	\param minStartColor: Minimal initial start color of a particle. The
+	¥param minStartColor: Minimal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param maxStartColor: Maximal initial start color of a particle. The
+	¥param maxStartColor: Maximal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
-	\param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
-	\param maxAngleDegrees: Maximal angle in degrees, the emitting
+	¥param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
+	¥param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
+	¥param maxAngleDegrees: Maximal angle in degrees, the emitting
 	direction of the particle will differ from the original direction.
-	\return Pointer to the created particle emitter. To set this emitter
+	¥return Pointer to the created particle emitter. To set this emitter
 	as new emitter of this particle system, just call setEmitter(). Note
 	that you'll have to drop() the returned pointer, after you don't need
 	it any more, see IReferenceCounted::drop() for more informations. */
@@ -175,28 +175,28 @@ public:
 		s32 maxAngleDegrees=0) = 0;
 
 	//! Creates a particle emitter for emitting from a cylinder
-	/** \param center: The center of the circle at the base of the cylinder
-	\param radius: The thickness of the cylinder
-	\param normal: Direction of the length of the cylinder
-	\param length: The length of the the cylinder
-	\param outlineOnly: Whether or not to put points inside the cylinder or
+	/** ¥param center: The center of the circle at the base of the cylinder
+	¥param radius: The thickness of the cylinder
+	¥param normal: Direction of the length of the cylinder
+	¥param length: The length of the the cylinder
+	¥param outlineOnly: Whether or not to put points inside the cylinder or
 	on the outline only
-	\param direction: Direction and speed of particle emission.
-	\param minParticlesPerSecond: Minimal amount of particles emitted per
+	¥param direction: Direction and speed of particle emission.
+	¥param minParticlesPerSecond: Minimal amount of particles emitted per
 	second.
-	\param maxParticlesPerSecond: Maximal amount of particles emitted per
+	¥param maxParticlesPerSecond: Maximal amount of particles emitted per
 	second.
-	\param minStartColor: Minimal initial start color of a particle. The
+	¥param minStartColor: Minimal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param maxStartColor: Maximal initial start color of a particle. The
+	¥param maxStartColor: Maximal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
-	\param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
-	\param maxAngleDegrees: Maximal angle in degrees, the emitting
+	¥param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
+	¥param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
+	¥param maxAngleDegrees: Maximal angle in degrees, the emitting
 	direction of the particle will differ from the original direction.
-	\return Pointer to the created particle emitter. To set this emitter
+	¥return Pointer to the created particle emitter. To set this emitter
 	as new emitter of this particle system, just call setEmitter(). Note
 	that you'll have to drop() the returned pointer, after you don't need
 	it any more, see IReferenceCounted::drop() for more informations. */
@@ -212,39 +212,39 @@ public:
 		s32 maxAngleDegrees = 0 ) = 0;
 
 	//! Creates a mesh particle emitter.
-	/** \param mesh: Pointer to mesh to emit particles from
-	\param useNormalDirection: If true, the direction of each particle
+	/** ¥param mesh: Pointer to mesh to emit particles from
+	¥param useNormalDirection: If true, the direction of each particle
 	created will be the normal of the vertex that it's emitting from. The
 	normal is divided by the normalDirectionModifier parameter, which
 	defaults to 100.0f.
-	\param direction: Direction and speed of particle emission.
-	\param normalDirectionModifier: If the emitter is using the normal
+	¥param direction: Direction and speed of particle emission.
+	¥param normalDirectionModifier: If the emitter is using the normal
 	direction then the normal of the vertex that is being emitted from is
 	divided by this number.
-	\param mbNumber: This allows you to specify a specific meshBuffer for
+	¥param mbNumber: This allows you to specify a specific meshBuffer for
 	the IMesh* to emit particles from. The default value is -1, which
 	means a random meshBuffer picked from all of the meshes meshBuffers
 	will be selected to pick a random vertex from. If the value is 0 or
 	greater, it will only pick random vertices from the meshBuffer
 	specified by this value.
-	\param everyMeshVertex: If true, the emitter will emit between min/max
+	¥param everyMeshVertex: If true, the emitter will emit between min/max
 	particles every second, for every vertex in the mesh, if false, it will
 	emit between min/max particles from random vertices in the mesh.
-	\param minParticlesPerSecond: Minimal amount of particles emitted per
+	¥param minParticlesPerSecond: Minimal amount of particles emitted per
 	second.
-	\param maxParticlesPerSecond: Maximal amount of particles emitted per
+	¥param maxParticlesPerSecond: Maximal amount of particles emitted per
 	second.
-	\param minStartColor: Minimal initial start color of a particle. The
+	¥param minStartColor: Minimal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param maxStartColor: Maximal initial start color of a particle. The
+	¥param maxStartColor: Maximal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
-	\param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
-	\param maxAngleDegrees: Maximal angle in degrees, the emitting
+	¥param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
+	¥param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
+	¥param maxAngleDegrees: Maximal angle in degrees, the emitting
 	direction of the particle will differ from the original direction.
-	\return Pointer to the created particle emitter. To set this emitter
+	¥return Pointer to the created particle emitter. To set this emitter
 	as new emitter of this particle system, just call setEmitter(). Note
 	that you'll have to drop() the returned pointer, after you don't need
 	it any more, see IReferenceCounted::drop() for more informations. */
@@ -260,22 +260,22 @@ public:
 		s32 maxAngleDegrees = 0 ) = 0;
 
 	//! Creates a point particle emitter.
-	/** \param direction: Direction and speed of particle emission.
-	\param minParticlesPerSecond: Minimal amount of particles emitted per
+	/** ¥param direction: Direction and speed of particle emission.
+	¥param minParticlesPerSecond: Minimal amount of particles emitted per
 	second.
-	\param maxParticlesPerSecond: Maximal amount of particles emitted per
+	¥param maxParticlesPerSecond: Maximal amount of particles emitted per
 	second.
-	\param minStartColor: Minimal initial start color of a particle. The
+	¥param minStartColor: Minimal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param maxStartColor: Maximal initial start color of a particle. The
+	¥param maxStartColor: Maximal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
-	\param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
-	\param maxAngleDegrees: Maximal angle in degrees, the emitting
+	¥param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
+	¥param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
+	¥param maxAngleDegrees: Maximal angle in degrees, the emitting
 	direction of the particle will differ from the original direction.
-	\return Pointer to the created particle emitter. To set this emitter
+	¥return Pointer to the created particle emitter. To set this emitter
 	as new emitter of this particle system, just call setEmitter(). Note
 	that you'll have to drop() the returned pointer, after you don't need
 	it any more, see IReferenceCounted::drop() for more informations. */
@@ -289,27 +289,27 @@ public:
 		s32 maxAngleDegrees=0) = 0;
 
 	//! Creates a ring particle emitter.
-	/** \param center: Center of ring
-	\param radius: Distance of points from center, points will be rotated
+	/** ¥param center: Center of ring
+	¥param radius: Distance of points from center, points will be rotated
 	around the Y axis at a random 360 degrees and will then be shifted by
 	the provided ringThickness values in each axis.
-	\param ringThickness : thickness of the ring or how wide the ring is
-	\param direction: Direction and speed of particle emission.
-	\param minParticlesPerSecond: Minimal amount of particles emitted per
+	¥param ringThickness : thickness of the ring or how wide the ring is
+	¥param direction: Direction and speed of particle emission.
+	¥param minParticlesPerSecond: Minimal amount of particles emitted per
 	second.
-	\param maxParticlesPerSecond: Maximal amount of particles emitted per
+	¥param maxParticlesPerSecond: Maximal amount of particles emitted per
 	second.
-	\param minStartColor: Minimal initial start color of a particle. The
+	¥param minStartColor: Minimal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param maxStartColor: Maximal initial start color of a particle. The
+	¥param maxStartColor: Maximal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
-	\param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
-	\param maxAngleDegrees: Maximal angle in degrees, the emitting
+	¥param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
+	¥param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
+	¥param maxAngleDegrees: Maximal angle in degrees, the emitting
 	direction of the particle will differ from the original direction.
-	\return Pointer to the created particle emitter. To set this emitter
+	¥return Pointer to the created particle emitter. To set this emitter
 	as new emitter of this particle system, just call setEmitter(). Note
 	that you'll have to drop() the returned pointer, after you don't need
 	it any more, see IReferenceCounted::drop() for more informations. */
@@ -324,24 +324,24 @@ public:
 		s32 maxAngleDegrees=0) = 0;
 
 	//! Creates a sphere particle emitter.
-	/** \param center: Center of sphere
-	\param radius: Radius of sphere
-	\param direction: Direction and speed of particle emission.
-	\param minParticlesPerSecond: Minimal amount of particles emitted per
+	/** ¥param center: Center of sphere
+	¥param radius: Radius of sphere
+	¥param direction: Direction and speed of particle emission.
+	¥param minParticlesPerSecond: Minimal amount of particles emitted per
 	second.
-	\param maxParticlesPerSecond: Maximal amount of particles emitted per
+	¥param maxParticlesPerSecond: Maximal amount of particles emitted per
 	second.
-	\param minStartColor: Minimal initial start color of a particle. The
+	¥param minStartColor: Minimal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param maxStartColor: Maximal initial start color of a particle. The
+	¥param maxStartColor: Maximal initial start color of a particle. The
 	real color of every particle is calculated as random interpolation
 	between minStartColor and maxStartColor.
-	\param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
-	\param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
-	\param maxAngleDegrees: Maximal angle in degrees, the emitting
+	¥param lifeTimeMin: Minimal lifetime of a particle, in milliseconds.
+	¥param lifeTimeMax: Maximal lifetime of a particle, in milliseconds.
+	¥param maxAngleDegrees: Maximal angle in degrees, the emitting
 	direction of the particle will differ from the original direction.
-	\return Pointer to the created particle emitter. To set this emitter
+	¥return Pointer to the created particle emitter. To set this emitter
 	as new emitter of this particle system, just call setEmitter(). Note
 	that you'll have to drop() the returned pointer, after you don't need
 	it any more, see IReferenceCounted::drop() for more informations. */
@@ -358,18 +358,18 @@ public:
 	//! Creates a point attraction affector.
 	/** This affector modifies the positions of the particles and attracts
 	them to a specified point at a specified speed per second.
-	\param point: Point to attract particles to.
-	\param speed: Speed in units per second, to attract to the specified
+	¥param point: Point to attract particles to.
+	¥param speed: Speed in units per second, to attract to the specified
 	point.
-	\param attract: Whether the particles attract or detract from this
+	¥param attract: Whether the particles attract or detract from this
 	point.
-	\param affectX: Whether or not this will affect the X position of the
+	¥param affectX: Whether or not this will affect the X position of the
 	particle.
-	\param affectY: Whether or not this will affect the Y position of the
+	¥param affectY: Whether or not this will affect the Y position of the
 	particle.
-	\param affectZ: Whether or not this will affect the Z position of the
+	¥param affectZ: Whether or not this will affect the Z position of the
 	particle.
-	\return Pointer to the created particle affector. To add this affector
+	¥return Pointer to the created particle affector. To add this affector
 	as new affector of this particle system, just call addAffector(). Note
 	that you'll have to drop() the returned pointer, after you don't need
 	it any more, see IReferenceCounted::drop() for more informations. */
@@ -383,10 +383,10 @@ public:
 	good, if the EMT_TRANSPARENT_VERTEX_ALPHA material is used and the
 	targetColor is video::SColor(0,0,0,0): Particles are fading out into
 	void with this setting.
-	\param targetColor: Color whereto the color of the particle is changed.
-	\param timeNeededToFadeOut: How much time in milli seconds should the
+	¥param targetColor: Color whereto the color of the particle is changed.
+	¥param timeNeededToFadeOut: How much time in milli seconds should the
 	affector need to change the color to the targetColor.
-	\return Pointer to the created particle affector. To add this affector
+	¥return Pointer to the created particle affector. To add this affector
 	as new affector of this particle system, just call addAffector(). Note
 	that you'll have to drop() the returned pointer, after you don't need
 	it any more, see IReferenceCounted::drop() for more informations. */
@@ -399,11 +399,11 @@ public:
 	that the particle is fired out of the emitter with huge force, but is
 	loosing this after some time and is catched by the gravity then. This
 	affector is ideal for creating things like fountains.
-	\param gravity: Direction and force of gravity.
-	\param timeForceLost: Time in milli seconds when the force of the
+	¥param gravity: Direction and force of gravity.
+	¥param timeForceLost: Time in milli seconds when the force of the
 	emitter is totally lost and the particle does not move any more. This
 	is the time where gravity fully affects the particle.
-	\return Pointer to the created particle affector. To add this affector
+	¥return Pointer to the created particle affector. To add this affector
 	as new affector of this particle system, just call addAffector(). Note
 	that you'll have to drop() the returned pointer, after you don't need
 	it any more, see IReferenceCounted::drop() for more informations. */
@@ -414,9 +414,9 @@ public:
 	//! Creates a rotation affector.
 	/** This affector modifies the positions of the particles and attracts
 	them to a specified point at a specified speed per second.
-	\param speed: Rotation in degrees per second
-	\param pivotPoint: Point to rotate the particles around
-	\return Pointer to the created particle affector. To add this affector
+	¥param speed: Rotation in degrees per second
+	¥param pivotPoint: Point to rotate the particles around
+	¥return Pointer to the created particle affector. To add this affector
 	as new affector of this particle system, just call addAffector(). Note
 	that you'll have to drop() the returned pointer, after you don't need
 	it any more, see IReferenceCounted::drop() for more informations. */

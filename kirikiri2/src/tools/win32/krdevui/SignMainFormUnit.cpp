@@ -85,8 +85,8 @@ void __fastcall TSignMainForm::GenerateButtonClick(TObject *Sender)
 		base64_encode(buf, outlen, buf_asc, &asc_outlen);
 		buf_asc[asc_outlen] = 0;
 		GeneratedPublicKeyEdit->Text =
-			AnsiString("-----BEGIN PUBLIC KEY-----\r\n") + Split64(buf_asc) +
-			AnsiString("-----END PUBLIC KEY-----\r\n");
+			AnsiString("-----BEGIN PUBLIC KEY-----¥r¥n") + Split64(buf_asc) +
+			AnsiString("-----END PUBLIC KEY-----¥r¥n");
 
 		// private key
 		outlen = sizeof(buf) - 1;
@@ -96,8 +96,8 @@ void __fastcall TSignMainForm::GenerateButtonClick(TObject *Sender)
 		base64_encode(buf, outlen, buf_asc, &asc_outlen);
 		buf_asc[asc_outlen] = 0;
 		GeneratedPrivateKeyEdit->Text =
-			AnsiString("-----BEGIN RSA PRIVATE KEY-----\r\n") + Split64(buf_asc) +
-			AnsiString("-----END RSA PRIVATE KEY-----\r\n");
+			AnsiString("-----BEGIN RSA PRIVATE KEY-----¥r¥n") + Split64(buf_asc) +
+			AnsiString("-----END RSA PRIVATE KEY-----¥r¥n");
 	}
 	catch(...)
 	{
@@ -169,7 +169,7 @@ extern int CheckKrkrExecutable(AnsiString fn, const char *mark);
 	{
 		if(ignorestart && !signofs)
 		{
-			Application->MessageBox("Warning: Signature area is not found.\n"
+			Application->MessageBox("Warning: Signature area is not found.¥n"
 				"Target kirikiri executable may be too old.", Caption.c_str(),
 				MB_OK|MB_ICONWARNING);
 		}
@@ -282,7 +282,7 @@ void __fastcall TSignMainForm::WMDropFiles(TMessage &Msg)
 //---------------------------------------------------------------------------
 static AnsiString ReadTextFile(AnsiString fn)
 {
-	// fn ��S�ēǂ݁AAnsiString �Ƃ��ĕԂ�
+	// fn を全て読み、AnsiString として返す
 	TFileStream *s = new TFileStream(fn, fmOpenRead|fmShareDenyWrite);
 	AnsiString ret;
 	char *buf = NULL;
@@ -291,7 +291,7 @@ static AnsiString ReadTextFile(AnsiString fn)
 		int size = s->Size;
 		buf = new char [ size + 1];
 		s->ReadBuffer(buf, size);
-		buf[size] = '\0';
+		buf[size] = '¥0';
 		ret = buf;
 	}
 	catch(...)

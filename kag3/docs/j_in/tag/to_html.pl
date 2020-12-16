@@ -1,30 +1,30 @@
-# tags.database.tml ‚ğ HTML Œ`®‚É•ÏŠ·‚µAtags.html ‚Éo—Í‚·‚é
-# perl ƒXƒNƒŠƒvƒg
+# tags.database.tml ã‚’ HTML å½¢å¼ã«å¤‰æ›ã—ã€tags.html ã«å‡ºåŠ›ã™ã‚‹
+# perl ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
 
-# ‰ğß‚ª‚¢‚¢‰ÁŒ¸‚È‚Ì‚Å’ˆÓ
+# è§£é‡ˆãŒã„ã„åŠ æ¸›ãªã®ã§æ³¨æ„
 
 @keywords = ();
 
-# ‚Ü‚¸‚Íƒtƒ@ƒCƒ‹ˆêŒÂ‚æ‚İ‚±‚ñ‚À‚Ü‚¦
+# ã¾ãšã¯ãƒ•ã‚¡ã‚¤ãƒ«ä¸€å€‹ã‚ˆã¿ã“ã‚“ã¢ã¾ãˆ
 
 open FH,"tags.database.tml";
 @all=<FH>;
 $all=join('',@all);
 
 
-# s“ª‚Æs––‚Ì‹ó”’•¶š‚ğíœ‚µAs‚ğ˜AŒ‹
+# è¡Œé ­ã¨è¡Œæœ«ã®ç©ºç™½æ–‡å­—ã‚’å‰Šé™¤ã—ã€è¡Œã‚’é€£çµ
 sub cliptext
 {
 	$kdata=$_[0];
-	$kdata=~ s/^\s*(.+)\s*$/$1/gm;
-	$kdata=~ s/\n//g;
-	$kdata=~ s/\s*$//g;
+	$kdata=â€¾ s/^Â¥s*(.+)Â¥s*$/$1/gm;
+	$kdata=â€¾ s/Â¥n//g;
+	$kdata=â€¾ s/Â¥s*$//g;
 	return $kdata;
 }
 
-# ƒ^ƒO•ª‰ğ
-# tml ‚Å‚Í“¯‚¶–¼‘O‚Ìƒ^ƒO‚ª“ü‚êq‚É‚È‚é‚±‚Æ‚Í‚È‚¢‚Ì‚Å
-# ‚»‚¤‚¢‚¤‰ğÍ‚Í‚µ‚È‚¢
+# ã‚¿ã‚°åˆ†è§£
+# tml ã§ã¯åŒã˜åå‰ã®ã‚¿ã‚°ãŒå…¥ã‚Œå­ã«ãªã‚‹ã“ã¨ã¯ãªã„ã®ã§
+# ãã†ã„ã†è§£æã¯ã—ãªã„
 
 sub taganalysis
 {
@@ -32,11 +32,11 @@ sub taganalysis
 	$tag=$_[1];
 	local(@contents);
 	@contents=();
-	while($data =~ m/(\<$tag[^\>]+\>)/i)
+	while($data =â€¾ m/(Â¥<$tag[^Â¥>]+Â¥>)/i)
 	{
 		$taginfo=$1;
 		$data2=$';
-		$data2=~ /\<\/$tag\>/;
+		$data2=â€¾ /Â¥<Â¥/$tagÂ¥>/;
 		$content=$`;
 		push(@contents,$taginfo.$content);
 		$data=$';
@@ -49,108 +49,108 @@ sub taganalysis
 
 foreach $tagcontent (@tags)
 {
-	# tag ‚ğ‚Ü‚½‰ğÍ
-	$tagcontent=~ /\<tag name\=[\'\"]([^\'\"]+)[\'\"]\>/i;
+	# tag ã‚’ã¾ãŸè§£æ
+	$tagcontent=â€¾ /Â¥<tag nameÂ¥=[Â¥'Â¥"]([^Â¥'Â¥"]+)[Â¥'Â¥"]Â¥>/i;
 
 	$tagname=$1;
 	$tagcontent=$';  #'
 
-	# shortinfo ‚Ìæ“¾
+	# shortinfo ã®å–å¾—
 	$temp=$tagcontent;
-	$temp=~ /\<shortinfo\>/i;
+	$temp=â€¾ /Â¥<shortinfoÂ¥>/i;
 	$temp=$'; #'
-	$temp=~ /\<\/shortinfo\>/i;
+	$temp=â€¾ /Â¥<Â¥/shortinfoÂ¥>/i;
 	$shortinfo=$`;
 
-	# shortinfo ‚ÌŠi”[
+	# shortinfo ã®æ ¼ç´
 	$tagdata{$tagname}{"shortinfo"}=&cliptext($shortinfo);
 
-	# group ‚Ìæ“¾
+	# group ã®å–å¾—
 	$temp=$tagcontent;
-	$temp=~ /\<group\>/i;
+	$temp=â€¾ /Â¥<groupÂ¥>/i;
 	$temp=$';
-	$temp=~ /\<\/group\>/i;
+	$temp=â€¾ /Â¥<Â¥/groupÂ¥>/i;
 	$group=$`;  #'
 
-	# group ‚ÌŠi”[
+	# group ã®æ ¼ç´
 	$tagdata{$tagname}{"group"}=&cliptext($group);
 
-	# remarks ‚Ìæ“¾
+	# remarks ã®å–å¾—
 	$temp=$tagcontent;
-	$temp=~ /\<remarks\>/i;
+	$temp=â€¾ /Â¥<remarksÂ¥>/i;
 	$temp=$';  #'
-	$temp=~ /\<\/remarks\>/i;
+	$temp=â€¾ /Â¥<Â¥/remarksÂ¥>/i;
 	$remarks=$`;
 
 
-	# remarks ‚ÌŠi”[
+	# remarks ã®æ ¼ç´
 	$tagdata{$tagname}{"remarks"}=&cliptext($remarks);
 
-	# example ‚Ìæ“¾
+	# example ã®å–å¾—
 	$temp=$tagcontent;
-	if($temp=~ /\<example\>/i)
+	if($temp=â€¾ /Â¥<exampleÂ¥>/i)
 	{
 		$temp=$';  #'
-		$temp=~ /\<\/example\>/i;
+		$temp=â€¾ /Â¥<Â¥/exampleÂ¥>/i;
 		$example=$`;
 
-		# example ‚ÌŠi”[
+		# example ã®æ ¼ç´
 		$tagdata{$tagname}{"example"}=&cliptext($example);
 	}
 
 
-	# attribs ‚Ìæ“¾
+	# attribs ã®å–å¾—
 	$temp=$tagcontent;
-	if($temp=~ /\<attribs\>/i)
+	if($temp=â€¾ /Â¥<attribsÂ¥>/i)
 	{
 		$temp=$';  #'
-		$temp=~ /\<\/attribs\>/i;
+		$temp=â€¾ /Â¥<Â¥/attribsÂ¥>/i;
 		$attribscontent=$`;
 
-		# attrib ‚Ì•ª‰ğ
+		# attrib ã®åˆ†è§£
 		$no=0;
 		@attribs=&taganalysis($attribscontent,"attrib");
 		foreach $attribscontent (@attribs)
 		{
-			# attrib –¼‘O‚Ìæ“¾
-			$attribscontent=~ /\<attrib name\=[\'\"]([^\'\"]+)[\'\"]/i;  #'
-			@attribnames=split(/\,/,$1);
+			# attrib åå‰ã®å–å¾—
+			$attribscontent=â€¾ /Â¥<attrib nameÂ¥=[Â¥'Â¥"]([^Â¥'Â¥"]+)[Â¥'Â¥"]/i;  #'
+			@attribnames=split(/Â¥,/,$1);
 
 
-			# shortinfo ‚Ìæ“¾
+			# shortinfo ã®å–å¾—
 			$attribshortinfo="";
 			$temp=$attribscontent;
-			$temp=~ /\<shortinfo\>/i;
+			$temp=â€¾ /Â¥<shortinfoÂ¥>/i;
 			$temp=$';  #'
-			$temp=~ /\<\/shortinfo\>/i;
+			$temp=â€¾ /Â¥<Â¥/shortinfoÂ¥>/i;
 			$attribshortinfo=$`;
 
-			# required ‚Ìæ“¾
+			# required ã®å–å¾—
 			$attribrequired="";
 			$temp=$attribscontent;
-			$temp=~ /\<required\>/i;
+			$temp=â€¾ /Â¥<requiredÂ¥>/i;
 			$temp=$';  #'
-			$temp=~ /\<\/required\>/i;
+			$temp=â€¾ /Â¥<Â¥/requiredÂ¥>/i;
 			$attribrequired=$`;
 
-			# format ‚Ìæ“¾
+			# format ã®å–å¾—
 			$attribformat="";
 			$temp=$attribscontent;
-			$temp=~ /\<format\>/i;
+			$temp=â€¾ /Â¥<formatÂ¥>/i;
 			$temp=$';  #'
-			$temp=~ /\<\/format\>/i;
+			$temp=â€¾ /Â¥<Â¥/formatÂ¥>/i;
 			$attribformat=$`;
 
-			# info ‚Ìæ“¾
+			# info ã®å–å¾—
 			$attribinfo="";
 			$temp=$attribscontent;
-			$temp=~ /\<info\>/i;
+			$temp=â€¾ /Â¥<infoÂ¥>/i;
 			$temp=$';  #'
-			$temp=~ /\<\/info\>/i;
+			$temp=â€¾ /Â¥<Â¥/infoÂ¥>/i;
 			$attribinfo=$`;
 
 
-			# ƒf[ƒ^‚ÌŠi”[
+			# ãƒ‡ãƒ¼ã‚¿ã®æ ¼ç´
 			foreach $attribname(@attribnames)
 			{
 
@@ -179,7 +179,7 @@ foreach $tagcontent (@tags)
 
 
 
-# ƒf[ƒ^‚Ì“f‚«o‚µ
+# ãƒ‡ãƒ¼ã‚¿ã®åãå‡ºã—
 
 
 @data=<DATA>;
@@ -189,10 +189,10 @@ print @data;
 sub conv_html
 {
 	$data=$_[0];
-	$data=~ s/\<ref\s+tag\=[\"\']([^\"\']+)[\"\']\>/\<a class=\"jump\" href=\"\#$1\"\>/gi;
-	$data=~ s/\<\/ref\>/\<\/a\>/gi;
-	$data=~ s/<br>/<br \/>/gi;
-	$data =~ s/<tt>(.*?)<\/tt>/<span class=\"script\">$1<\/span>/gsi;
+	$data=â€¾ s/Â¥<refÂ¥s+tagÂ¥=[Â¥"Â¥']([^Â¥"Â¥']+)[Â¥"Â¥']Â¥>/Â¥<a class=Â¥"jumpÂ¥" href=Â¥"Â¥#$1Â¥"Â¥>/gi;
+	$data=â€¾ s/Â¥<Â¥/refÂ¥>/Â¥<Â¥/aÂ¥>/gi;
+	$data=â€¾ s/<br>/<br Â¥/>/gi;
+	$data =â€¾ s/<tt>(.*?)<Â¥/tt>/<span class=Â¥"scriptÂ¥">$1<Â¥/span>/gsi;
 	return $data;
 }
 
@@ -207,12 +207,12 @@ sub conv_html
 for($i=0;$i<=$#h_tagdata;$i+=2)
 {
 	$od = "";
-	$od.="\n";
+	$od.="Â¥n";
 	$current_tag = $h_tagdata[$i];
-	push @keywords, $h_tagdata[$i] . "\t" . $h_tagdata[$i] . "\t". "Tags.html" . "\t". "ƒ^ƒOƒŠƒtƒ@ƒŒƒ“ƒX";
-	$od.="<h1><a name=\"$h_tagdata[$i]\" id=\"$h_tagdata[$i]\" class=\"targanchor\"><span class=\"b\">$h_tagdata[$i]</span> ( ".$h_tagdata[$i+1]{"shortinfo"}." )</a></h1>\n";
-	$od.="<div class=\"taggenre\">".$h_tagdata[$i+1]{"group"}."</div>\n";
-	$od.="<div class=\"para\"><div>";
+	push @keywords, $h_tagdata[$i] . "Â¥t" . $h_tagdata[$i] . "Â¥t". "Tags.html" . "Â¥t". "ã‚¿ã‚°ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹";
+	$od.="<h1><a name=Â¥"$h_tagdata[$i]Â¥" id=Â¥"$h_tagdata[$i]Â¥" class=Â¥"targanchorÂ¥"><span class=Â¥"bÂ¥">$h_tagdata[$i]</span> ( ".$h_tagdata[$i+1]{"shortinfo"}." )</a></h1>Â¥n";
+	$od.="<div class=Â¥"taggenreÂ¥">".$h_tagdata[$i+1]{"group"}."</div>Â¥n";
+	$od.="<div class=Â¥"paraÂ¥"><div>";
 
 	$gd=$h_tagdata[$i+1]{"group"}."__SPLIT__".$h_tagdata[$i]."__SPLIT__".
 		$h_tagdata[$i+1]{"shortinfo"};
@@ -225,11 +225,11 @@ for($i=0;$i<=$#h_tagdata;$i+=2)
 
 		@h_data=%data;
 
-		$od.="<table class=\"tagparams\" frame=\"box\" rules=\"all\" summary=\"ƒ^ƒO " . $h_tagdata[$i] ." (" . $h_tagdata[$i+1]{"shortinfo"}.") ‚Ì‘®«‚Ìˆê——\">";
+		$od.="<table class=Â¥"tagparamsÂ¥" frame=Â¥"boxÂ¥" rules=Â¥"allÂ¥" summary=Â¥"ã‚¿ã‚° " . $h_tagdata[$i] ." (" . $h_tagdata[$i+1]{"shortinfo"}.") ã®å±æ€§ã®ä¸€è¦§Â¥">";
 		$od.="<thead><tr>";
-		$od.="<td>‘®«</td><td>•K{?</td>";
-		$od.="<td>’l</td><td>à–¾</td>";
-		$od.="</tr></thead><tbody>\n";
+		$od.="<td>å±æ€§</td><td>å¿…é ˆ?</td>";
+		$od.="<td>å€¤</td><td>èª¬æ˜</td>";
+		$od.="</tr></thead><tbody>Â¥n";
 
 		$no=0;
 		
@@ -238,15 +238,15 @@ for($i=0;$i<=$#h_tagdata;$i+=2)
 			%data=split(/__SPLIT__/,$h_tagdata[$i+1]{"attribs_data_".$no});
 		
 			$od.="<tr>";
-			$od.="<td class=\"tagattribname\"><a class=\"targanchor\" name=\"". $current_tag . "_" . $data{"nam__e"} . "\" id=\"". $current_tag . "_" . $data{"nam__e"} . "\">";
+			$od.="<td class=Â¥"tagattribnameÂ¥"><a class=Â¥"targanchorÂ¥" name=Â¥"". $current_tag . "_" . $data{"nam__e"} . "Â¥" id=Â¥"". $current_tag . "_" . $data{"nam__e"} . "Â¥">";
 			$od.=$data{"nam__e"};
-			push @keywords, $data{"nam__e"} . "\t" . $current_tag . "_" . $data{"nam__e"} . "\t" .
-				"Tags.html" . "\t". "ƒ^ƒOƒŠƒtƒ@ƒŒƒ“ƒX-" . $current_tag;
+			push @keywords, $data{"nam__e"} . "Â¥t" . $current_tag . "_" . $data{"nam__e"} . "Â¥t" .
+				"Tags.html" . "Â¥t". "ã‚¿ã‚°ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹-" . $current_tag;
 			$od.="</a></td>";
-			$od.="<td class=\"tagattribrequired\">";
+			$od.="<td class=Â¥"tagattribrequiredÂ¥">";
 			if($data{"required"} eq "yes")
 			{
-				$od.="<span class=\"tagrequiredattrib\">";
+				$od.="<span class=Â¥"tagrequiredattribÂ¥">";
 			}
 			$od.=$data{"required"};
 			if($data{"required"} eq "yes")
@@ -254,13 +254,13 @@ for($i=0;$i<=$#h_tagdata;$i+=2)
 				$od.="</span>";
 			}
 			$od.="</td>";
-			$od.="<td class=\"tagattribformat\">";
+			$od.="<td class=Â¥"tagattribformatÂ¥">";
 			$od.=$data{"format"};
 			$od.="</td>";
-			$od.="<td class=\"tagattribdesc\">";
+			$od.="<td class=Â¥"tagattribdescÂ¥">";
 			$od.=&conv_html($data{"info"});
 			$od.="</td>";
-			$od.="</tr>\n";
+			$od.="</tr>Â¥n";
 
 			$no++;
 			
@@ -269,23 +269,23 @@ for($i=0;$i<=$#h_tagdata;$i+=2)
 		$od.="</tbody></table>";
 	}
 	
-	$od.= "<div class=\"tagremarks\">". &conv_html($h_tagdata[$i+1]{"remarks"}) ."</div>\n";
+	$od.= "<div class=Â¥"tagremarksÂ¥">". &conv_html($h_tagdata[$i+1]{"remarks"}) ."</div>Â¥n";
 
 
 	if($h_tagdata[$i+1]{"example"} ne "")
 	{
-		$od.="<div class=\"tagexample\"><code class=\"bq\"><span class=\"weak\">—á:</span><br />\n";
-		$od.=&conv_html($h_tagdata[$i+1]{"example"})."\n";
-		$od.="</code></div>\n";
+		$od.="<div class=Â¥"tagexampleÂ¥"><code class=Â¥"bqÂ¥"><span class=Â¥"weakÂ¥">ä¾‹:</span><br />Â¥n";
+		$od.=&conv_html($h_tagdata[$i+1]{"example"})."Â¥n";
+		$od.="</code></div>Â¥n";
 	}
 
-	$od.="<div class=\"toindex\"><a class=\"jump\" href=\"#genre\"><span class=\"toindexanchor\">ƒWƒƒƒ“ƒ‹Eƒ^ƒOˆê——‚É–ß‚é</span></a></div>";
-	$od.="</div></div>\n";
+	$od.="<div class=Â¥"toindexÂ¥"><a class=Â¥"jumpÂ¥" href=Â¥"#genreÂ¥"><span class=Â¥"toindexanchorÂ¥">ã‚¸ãƒ£ãƒ³ãƒ«ãƒ»ã‚¿ã‚°ä¸€è¦§ã«æˆ»ã‚‹</span></a></div>";
+	$od.="</div></div>Â¥n";
 
 	push(@outdata,$od);
 }
 
-print "<div class=\"para\"><div>";
+print "<div class=Â¥"paraÂ¥"><div>";
 
 $genre="";
 $phase=0;
@@ -294,36 +294,36 @@ foreach $data( sort @genredata)
 	@dat=split(/__SPLIT__/,$data);
 	if($genre ne $dat[0])
 	{
-		print "</tbody></table>\n" if $genre ne "";
+		print "</tbody></table>Â¥n" if $genre ne "";
 		$genre=$dat[0];
-		print "<br />\n<div class=\"taggenrehead\">$genre</div><br />\n";
-		print "<table class=\"taglist\" summary=\"$genre ƒ^ƒOˆê——\"><tbody>\n";
+		print "<br />Â¥n<div class=Â¥"taggenreheadÂ¥">$genre</div><br />Â¥n";
+		print "<table class=Â¥"taglistÂ¥" summary=Â¥"$genre ã‚¿ã‚°ä¸€è¦§Â¥"><tbody>Â¥n";
 	}
 	print "<tr>";
 	if($phase)
 	{
-		print "<td class=\"taglistodd\">";
+		print "<td class=Â¥"taglistoddÂ¥">";
 	}
 	else
 	{
-		print "<td class=\"taglisteven\">";
+		print "<td class=Â¥"taglistevenÂ¥">";
 	}
-	print "<span class=\"taglistlink\"><a class=\"jump\" href=\"#$dat[1]\">$dat[1]</a></span>";
+	print "<span class=Â¥"taglistlinkÂ¥"><a class=Â¥"jumpÂ¥" href=Â¥"#$dat[1]Â¥">$dat[1]</a></span>";
 	print "</td>";
 	if($phase)
 	{
-		print "<td class=\"taglistodd\">";
+		print "<td class=Â¥"taglistoddÂ¥">";
 	}
 	else
 	{
-		print "<td class=\"taglisteven\">";
+		print "<td class=Â¥"taglistevenÂ¥">";
 	}
 	$phase ^=1;
 	print "( $dat[2] )";
-	print "</td></tr>\n";
+	print "</td></tr>Â¥n";
 }
 
-print "</tbody></table><br /><br /></div></div>\n";
+print "</tbody></table><br /><br /></div></div>Â¥n";
 
 foreach $data (sort @outdata)
 {
@@ -337,16 +337,16 @@ print <<EOF;
 EOF
 
 
-print "</body></html>\n";
+print "</body></html>Â¥n";
 
-push keywords, "ƒ^ƒO‚ÌŠT—v\ttag_overview\tTags.html\tƒ^ƒOƒŠƒtƒ@ƒŒƒ“ƒX";
-push keywords, "ƒRƒ}ƒ“ƒhs\ttag_command\tTags.html\tƒ^ƒOƒŠƒtƒ@ƒŒƒ“ƒX";
-push keywords, "cond ‘®«\ttag_cond_attrib\tTags.html\tƒ^ƒOƒŠƒtƒ@ƒŒƒ“ƒX";
-push keywords, "ƒ^ƒOƒŠƒtƒ@ƒŒƒ“ƒX\ttags\tTags.html\tƒ^ƒOƒŠƒtƒ@ƒŒƒ“ƒX";
+push keywords, "ã‚¿ã‚°ã®æ¦‚è¦Â¥ttag_overviewÂ¥tTags.htmlÂ¥tã‚¿ã‚°ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹";
+push keywords, "ã‚³ãƒãƒ³ãƒ‰è¡ŒÂ¥ttag_commandÂ¥tTags.htmlÂ¥tã‚¿ã‚°ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹";
+push keywords, "cond å±æ€§Â¥ttag_cond_attribÂ¥tTags.htmlÂ¥tã‚¿ã‚°ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹";
+push keywords, "ã‚¿ã‚°ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹Â¥ttagsÂ¥tTags.htmlÂ¥tã‚¿ã‚°ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹";
 
 open OH, ">keys.txt";
-print OH join("\n", @keywords);
-print OH "\n";
+print OH join("Â¥n", @keywords);
+print OH "Â¥n";
 
 
 __DATA__
@@ -356,43 +356,43 @@ __DATA__
 <html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
-	<title>ƒ^ƒOƒŠƒtƒ@ƒŒƒ“ƒX</title>
+	<title>ã‚¿ã‚°ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹</title>
 	<meta name="author" content="W.Dee" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
-	<link href="browser.css" type="text/css" rel="stylesheet" title="‹g—¢‹g—¢ŠÖ˜AƒŠƒtƒ@ƒŒƒ“ƒX—p•W€ƒXƒ^ƒCƒ‹" />
+	<link href="browser.css" type="text/css" rel="stylesheet" title="å‰é‡Œå‰é‡Œé–¢é€£ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ç”¨æ¨™æº–ã‚¹ã‚¿ã‚¤ãƒ«" />
 	<link href="mailto:dee@kikyou.info" rev="Made" />
-	<link href="index.html" target="_top" rel="Start" title="ƒgƒbƒvƒy[ƒW" />
+	<link href="index.html" target="_top" rel="Start" title="ãƒˆãƒƒãƒ—ãƒšãƒ¼ã‚¸" />
 </head>
 <body>
 
-<h1><a name="tags" id="tags">ƒ^ƒOƒŠƒtƒ@ƒŒƒ“ƒX</a></h1>
-<div class="para"><div>@KAG ‚Åg—p‰Â”\‚Èƒ^ƒO‚ÌƒŠƒtƒ@ƒŒƒ“ƒX‚Å‚·B</div></div>
-<h1><a name="tag_overview" id="tag_overview">ƒ^ƒO‚ÌŠT—v</a></h1>
+<h1><a name="tags" id="tags">ã‚¿ã‚°ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹</a></h1>
+<div class="para"><div>ã€€KAG ã§ä½¿ç”¨å¯èƒ½ãªã‚¿ã‚°ã®ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã§ã™ã€‚</div></div>
+<h1><a name="tag_overview" id="tag_overview">ã‚¿ã‚°ã®æ¦‚è¦</a></h1>
 <div class="para"><div>
-@ƒ^ƒO‚ÍA[ ] ‚ÌŠÔ‚ÉˆÍ‚Ü‚ê‚½‚à‚Ì‚Å‚·BŠî–{“I‚É”¼Šp‰p”¬•¶š‚Å‹Lq‚µ‚Ü‚·B
-@<span class="script">[</span> ‚ÌŸ‚É‚·‚®‚Éƒ^ƒO–¼‚ğ‘‚«‚Ü‚·B‚½‚Æ‚¦‚ÎAtrans
-‚Æ‚¢‚¤ƒ^ƒO‚Å‚ ‚ê‚Î <span class="script">[trans</span> ‚Æ‚È‚è‚Ü‚·B<br />
-@ƒ^ƒO‚É‚ÍAƒ^ƒO‚ÌƒIƒvƒVƒ‡ƒ“‚ğw’è‚·‚é‚½‚ß‚É‘®«‚Æ‚¢‚¤‚à‚Ì‚ª‚ ‚è‚Ü‚·B‚È‚É‚à‘®«‚ğw’è‚µ‚È‚­‚Ä‚¢‚¢ê‡‚ÍAƒ^ƒO–¼‚Ì‚ ‚Æ‚É <span class="script">]</span> ‚ğ‘‚¢‚Äƒ^ƒO‚ÍI‚í‚è‚Å‚·B‚½‚Æ‚¦‚Î
+ã€€ã‚¿ã‚°ã¯ã€[ ] ã®é–“ã«å›²ã¾ã‚ŒãŸã‚‚ã®ã§ã™ã€‚åŸºæœ¬çš„ã«åŠè§’è‹±æ•°å°æ–‡å­—ã§è¨˜è¿°ã—ã¾ã™ã€‚
+ã€€<span class="script">[</span> ã®æ¬¡ã«ã™ãã«ã‚¿ã‚°åã‚’æ›¸ãã¾ã™ã€‚ãŸã¨ãˆã°ã€trans
+ã¨ã„ã†ã‚¿ã‚°ã§ã‚ã‚Œã° <span class="script">[trans</span> ã¨ãªã‚Šã¾ã™ã€‚<br />
+ã€€ã‚¿ã‚°ã«ã¯ã€ã‚¿ã‚°ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’æŒ‡å®šã™ã‚‹ãŸã‚ã«å±æ€§ã¨ã„ã†ã‚‚ã®ãŒã‚ã‚Šã¾ã™ã€‚ãªã«ã‚‚å±æ€§ã‚’æŒ‡å®šã—ãªãã¦ã„ã„å ´åˆã¯ã€ã‚¿ã‚°åã®ã‚ã¨ã« <span class="script">]</span> ã‚’æ›¸ã„ã¦ã‚¿ã‚°ã¯çµ‚ã‚ã‚Šã§ã™ã€‚ãŸã¨ãˆã°
 <span class="script">[ct]</span>
-‚Æ‚È‚è‚Ü‚·B<br />
-@‘®«‚ğw’è‚·‚éê‡‚ÍAƒ^ƒO–¼‚Ì‚ ‚Æ‚âA‘O‚Ì‘®«‚Ì‚ ‚Æ‚É‚Í•K‚¸”¼ŠpƒXƒy[ƒX‚ğ‹ó‚¯‚ÄA‘®«–¼‚ğ‘‚«‚Ü‚·B‘®«–¼‚ÌŒã‚É‚Í
-= ‚ğ‘‚«A‚»‚ÌŒã‚É‘®«‚Ì’l‚ğ‘‚«‚Ü‚·B‚·‚×‚Ä‚Ì‘®«‚ğ‘‚¢‚½‚ç <span class="script">]</span>
-‚Åƒ^ƒO‚ğ•Â‚¶‚Ü‚·B<br />
-@‚½‚Æ‚¦‚ÎAtrans ƒ^ƒO‚É time ‚Æ‚¢‚¤‘®«‚ğ‘‚«‚½‚¢ê‡‚ÍA<span class="script">[trans time=0]</span> ‚Æ‚µ‚Ü‚·B‚Ü‚½A‚³‚ç‚É rule=trans vague=1 ‚Æ‚¢‚¤‘®«‚ğ‘‚«‚½‚¢ê‡‚Í
-<span class="script">[trans time=0 rule=trans vague=1]</span> ‚Æ‚µ‚Ü‚·B<br />
-@‘®«‚Ì’l‚Í "" ‚ÅˆÍ‚ñ‚Å‚àˆÍ‚Ü‚È‚­‚Ä‚à“¯‚¶‚Å‚·B‚½‚Æ‚¦‚ÎA<span class="script">[trans time="0"]</span>‚Æ <span class="script">[trans time=0]</span>
-‚Í“¯‚¶‚Å‚·B‚½‚¾‚µA‘®«‚Ì’l‚É‹ó”’‚ğŠÜ‚Ş‚æ‚¤‚Èê‡‚ÍA"" ‚ÅˆÍ‚Ü‚È‚¯‚ê‚Î‚È‚è‚Ü‚¹‚ñB‚½‚Æ‚¦‚ÎA<span class="script">[font face="‚l‚r ‚oƒSƒVƒbƒN"]</span> ‚Å‚·B<br />
-@‚Ü‚½A‘®«‚Ì’l‚É‘Î‚µA&amp; ‚ğÅ‰‚É‚Â‚¯‚é‚ÆA‚»‚ÌŒã‚É‘‚¢‚½‚à‚Ì‚ğ
-TJS ®‚Æ‚µ‚Ä•]‰¿‚µA‚»‚ÌŒ‹‰Ê‚ğ‘®«‚Ì’l‚Æ‚µ‚Ü‚·B‚½‚Æ‚¦‚ÎA<span class="script">[trans time=&amp;f.clearTime]</span> ‚Æ‚·‚é‚ÆA<span class="script">f.clearTime</span> ‚Æ‚¢‚¤•Ï”‚Ì“à—e‚ªAtime
-‘®«‚Ì’l‚Æ‚È‚è‚Ü‚·B<br />
-@‘®«‚Ì’l‚ğÈ—ª‚·‚é‚Æ (‘®«‚Ì‚¤‚¿ '=' ˆÈ~‚ğ‘‚©‚È‚¢‚Æ)Atrue ‚Æ‚¢‚¤‘®«‚Ì’l‚ªw’è‚³‚ê‚½‚ÆŒ©‚È‚³‚ê‚Ü‚·B‚½‚Æ‚¦‚ÎA<span class="script">[playse loop storage="shock.wav"]</span> ‚ÍAloop ‘®«‚Ì’l‚ªÈ—ª‚³‚ê‚Ä‚¢‚Ü‚·‚ªA‚±‚ê‚Í <span class="script">[playse loop=true storage="shock.wav"]</span> ‚Æ“¯‚¶ˆÓ–¡‚É‚È‚è‚Ü‚·B<br />
+ã¨ãªã‚Šã¾ã™ã€‚<br />
+ã€€å±æ€§ã‚’æŒ‡å®šã™ã‚‹å ´åˆã¯ã€ã‚¿ã‚°åã®ã‚ã¨ã‚„ã€å‰ã®å±æ€§ã®ã‚ã¨ã«ã¯å¿…ãšåŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’ç©ºã‘ã¦ã€å±æ€§åã‚’æ›¸ãã¾ã™ã€‚å±æ€§åã®å¾Œã«ã¯
+= ã‚’æ›¸ãã€ãã®å¾Œã«å±æ€§ã®å€¤ã‚’æ›¸ãã¾ã™ã€‚ã™ã¹ã¦ã®å±æ€§ã‚’æ›¸ã„ãŸã‚‰ <span class="script">]</span>
+ã§ã‚¿ã‚°ã‚’é–‰ã˜ã¾ã™ã€‚<br />
+ã€€ãŸã¨ãˆã°ã€trans ã‚¿ã‚°ã« time ã¨ã„ã†å±æ€§ã‚’æ›¸ããŸã„å ´åˆã¯ã€<span class="script">[trans time=0]</span> ã¨ã—ã¾ã™ã€‚ã¾ãŸã€ã•ã‚‰ã« rule=trans vague=1 ã¨ã„ã†å±æ€§ã‚’æ›¸ããŸã„å ´åˆã¯
+<span class="script">[trans time=0 rule=trans vague=1]</span> ã¨ã—ã¾ã™ã€‚<br />
+ã€€å±æ€§ã®å€¤ã¯ "" ã§å›²ã‚“ã§ã‚‚å›²ã¾ãªãã¦ã‚‚åŒã˜ã§ã™ã€‚ãŸã¨ãˆã°ã€<span class="script">[trans time="0"]</span>ã¨ <span class="script">[trans time=0]</span>
+ã¯åŒã˜ã§ã™ã€‚ãŸã ã—ã€å±æ€§ã®å€¤ã«ç©ºç™½ã‚’å«ã‚€ã‚ˆã†ãªå ´åˆã¯ã€"" ã§å›²ã¾ãªã‘ã‚Œã°ãªã‚Šã¾ã›ã‚“ã€‚ãŸã¨ãˆã°ã€<span class="script">[font face="ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯"]</span> ã§ã™ã€‚<br />
+ã€€ã¾ãŸã€å±æ€§ã®å€¤ã«å¯¾ã—ã€&amp; ã‚’æœ€åˆã«ã¤ã‘ã‚‹ã¨ã€ãã®å¾Œã«æ›¸ã„ãŸã‚‚ã®ã‚’
+TJS å¼ã¨ã—ã¦è©•ä¾¡ã—ã€ãã®çµæœã‚’å±æ€§ã®å€¤ã¨ã—ã¾ã™ã€‚ãŸã¨ãˆã°ã€<span class="script">[trans time=&amp;f.clearTime]</span> ã¨ã™ã‚‹ã¨ã€<span class="script">f.clearTime</span> ã¨ã„ã†å¤‰æ•°ã®å†…å®¹ãŒã€time
+å±æ€§ã®å€¤ã¨ãªã‚Šã¾ã™ã€‚<br />
+ã€€å±æ€§ã®å€¤ã‚’çœç•¥ã™ã‚‹ã¨ (å±æ€§ã®ã†ã¡ '=' ä»¥é™ã‚’æ›¸ã‹ãªã„ã¨)ã€true ã¨ã„ã†å±æ€§ã®å€¤ãŒæŒ‡å®šã•ã‚ŒãŸã¨è¦‹ãªã•ã‚Œã¾ã™ã€‚ãŸã¨ãˆã°ã€<span class="script">[playse loop storage="shock.wav"]</span> ã¯ã€loop å±æ€§ã®å€¤ãŒçœç•¥ã•ã‚Œã¦ã„ã¾ã™ãŒã€ã“ã‚Œã¯ <span class="script">[playse loop=true storage="shock.wav"]</span> ã¨åŒã˜æ„å‘³ã«ãªã‚Šã¾ã™ã€‚<br />
 </div></div>
-<h1><a name="tag_command" id="tag_command">ƒRƒ}ƒ“ƒhs</a></h1>
+<h1><a name="tag_command" id="tag_command">ã‚³ãƒãƒ³ãƒ‰è¡Œ</a></h1>
 <div class="para"><div>
-@ƒRƒ}ƒ“ƒhs‚ÍA@ ‚Ån‚Ü‚èA‚»‚ÌŸ‚Éƒ^ƒO–¼‚Æ‘®«‚ğ‹Lq‚·‚é‚à‚Ì‚Å‚·B<br />
-@ˆê‚Â‚Ìs‚É‚Íˆê‚Â‚Ìƒ^ƒO‚Ì‚İ‚ğ‘‚­‚±‚Æ‚ª‚Å‚«‚Ü‚·B<br />
-@ˆÈ‰º‚Ì“ñ‚Â‚Ìs‚Í“™‰¿‚É‚È‚è‚Ü‚·B<br />
+ã€€ã‚³ãƒãƒ³ãƒ‰è¡Œã¯ã€@ ã§å§‹ã¾ã‚Šã€ãã®æ¬¡ã«ã‚¿ã‚°åã¨å±æ€§ã‚’è¨˜è¿°ã™ã‚‹ã‚‚ã®ã§ã™ã€‚<br />
+ã€€ä¸€ã¤ã®è¡Œã«ã¯ä¸€ã¤ã®ã‚¿ã‚°ã®ã¿ã‚’æ›¸ãã“ã¨ãŒã§ãã¾ã™ã€‚<br />
+ã€€ä»¥ä¸‹ã®äºŒã¤ã®è¡Œã¯ç­‰ä¾¡ã«ãªã‚Šã¾ã™ã€‚<br />
 <br />
 <div class="bq">
 [trans time=0 rule=trans vague=1]<br />
@@ -400,19 +400,19 @@ TJS ®‚Æ‚µ‚Ä•]‰¿‚µA‚»‚ÌŒ‹‰Ê‚ğ‘®«‚Ì’l‚Æ‚µ‚Ü‚·B‚½‚Æ‚¦‚ÎA<span class="script">[
 </div>
 </div>
 </div>
-<h1><a name="tag_cond_attrib" id="tag_cond_attrib">cond ‘®«</a></h1>
+<h1><a name="tag_cond_attrib" id="tag_cond_attrib">cond å±æ€§</a></h1>
 <div class="para"><div>
-@macro endmacro if else elsif endif ignore endignore iscript endscript ‚Ìƒ^ƒO‚ğ‚Ì‚¼‚«A‚·‚×‚Ä‚Ìƒ^ƒO‚É cond ‘®«‚ª‚ ‚è‚Ü‚·B<br />
-@cond ‘®«‚É‚Í TJS® ‚ğw’è‚µA‚±‚Ì®‚ğ•]‰¿‚µ‚½Œ‹‰Ê‚ª^‚Ì‚Ì‚İ‚É‚»‚Ìƒ^ƒO‚ªÀs‚³‚ê‚Ü‚·B‹U‚Ì‚Íƒ^ƒO‚ÍÀs‚³‚ê‚Ü‚¹‚ñB<br />
+ã€€macro endmacro if else elsif endif ignore endignore iscript endscript ã®ã‚¿ã‚°ã‚’ã®ããã€ã™ã¹ã¦ã®ã‚¿ã‚°ã« cond å±æ€§ãŒã‚ã‚Šã¾ã™ã€‚<br />
+ã€€cond å±æ€§ã«ã¯ TJSå¼ ã‚’æŒ‡å®šã—ã€ã“ã®å¼ã‚’è©•ä¾¡ã—ãŸçµæœãŒçœŸã®æ™‚ã®ã¿ã«ãã®ã‚¿ã‚°ãŒå®Ÿè¡Œã•ã‚Œã¾ã™ã€‚å½ã®æ™‚ã¯ã‚¿ã‚°ã¯å®Ÿè¡Œã•ã‚Œã¾ã›ã‚“ã€‚<br />
 <br />
-—á :<br />
+ä¾‹ :<br />
 <div class="bq">
 [l cond=f.noskip]<br />
-; ª f.noskip ‚ª^‚Ì‚Ì‚İ l ƒ^ƒO‚ğÀs<br />
+; â†‘ f.noskip ãŒçœŸã®æ™‚ã®ã¿ l ã‚¿ã‚°ã‚’å®Ÿè¡Œ<br />
 </div>
 </div>
 </div>
 
-<h1><a name="genre" id="genre" class="targanchor">ƒWƒƒƒ“ƒ‹Eƒ^ƒOˆê——</a></h1>
+<h1><a name="genre" id="genre" class="targanchor">ã‚¸ãƒ£ãƒ³ãƒ«ãƒ»ã‚¿ã‚°ä¸€è¦§</a></h1>
 
 

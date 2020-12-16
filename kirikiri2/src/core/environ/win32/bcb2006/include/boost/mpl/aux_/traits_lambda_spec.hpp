@@ -27,13 +27,13 @@
 
 #else
 
-#   define BOOST_MPL_ALGORITM_TRAITS_LAMBDA_SPEC(i, trait) \
-template<> struct trait<void_> \
-{ \
-    template< BOOST_MPL_PP_PARAMS(i, typename T) > struct algorithm \
-    { \
-    }; \
-}; \
+#   define BOOST_MPL_ALGORITM_TRAITS_LAMBDA_SPEC(i, trait) ¥
+template<> struct trait<void_> ¥
+{ ¥
+    template< BOOST_MPL_PP_PARAMS(i, typename T) > struct algorithm ¥
+    { ¥
+    }; ¥
+}; ¥
 /**/
 
 #endif // BOOST_MPL_NO_FULL_LAMBDA_SUPPORT

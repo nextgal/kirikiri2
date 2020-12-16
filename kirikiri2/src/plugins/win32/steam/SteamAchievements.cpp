@@ -16,7 +16,7 @@ SteamAchievements::SteamAchievements() :
 }
 
 
-SteamAchievements::~SteamAchievements()
+SteamAchievements::‾SteamAchievements()
 {
 }
 
@@ -111,12 +111,12 @@ SteamAchievements::OnUserStatsReceived(UserStatsReceived_t *pCallback)
  // we may get callbacks for other games' stats arriving, ignore them
 	if (m_iAppID == pCallback->m_nGameID) {
 		if (k_EResultOK == pCallback->m_eResult) {
-			OutputDebugString("Received stats and achievements from Steam\n");
+			OutputDebugString("Received stats and achievements from Steam¥n");
 			m_bInitialized = true;
 		}
 	} else {
 		char buffer[128];
-		_snprintf(buffer, 128, "RequestStats - failed, %d\n", pCallback->m_eResult);
+		_snprintf(buffer, 128, "RequestStats - failed, %d¥n", pCallback->m_eResult);
 		OutputDebugString(buffer);
 	}
 }
@@ -127,11 +127,11 @@ SteamAchievements::OnUserStatsStored(UserStatsStored_t *pCallback)
 	// we may get callbacks for other games' stats arriving, ignore them
 	if (m_iAppID == pCallback->m_nGameID) {
 		if (k_EResultOK == pCallback->m_eResult) {
-			OutputDebugString("Stored stats for Steam\n");
+			OutputDebugString("Stored stats for Steam¥n");
 		}
 	} else {
 		char buffer[128];
-		_snprintf(buffer, 128, "StatsStored - failed, %d\n", pCallback->m_eResult);
+		_snprintf(buffer, 128, "StatsStored - failed, %d¥n", pCallback->m_eResult);
 		OutputDebugString(buffer);
 	}
 }
@@ -141,7 +141,7 @@ SteamAchievements::OnAchievementStored(UserAchievementStored_t *pCallback)
 {
 	// we may get callbacks for other games' stats arriving, ignore them
 	if (m_iAppID == pCallback->m_nGameID) {
-		OutputDebugString("Stored Achievement for Steam\n");
+		OutputDebugString("Stored Achievement for Steam¥n");
 	}
 }
 

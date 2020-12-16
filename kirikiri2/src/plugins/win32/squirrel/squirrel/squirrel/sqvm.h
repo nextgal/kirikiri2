@@ -56,7 +56,7 @@ typedef sqvector<CallInfo> CallInfoVec;
 public:
 	enum ExecutionType { ET_CALL, ET_RESUME_GENERATOR, ET_RESUME_VM, ET_RESUME_THROW_VM };
 	SQVM(SQSharedState *ss);
-	~SQVM();
+	‾SQVM();
 	bool Init(SQVM *friendvm, SQInteger stacksize);
 	bool Execute(SQObjectPtr &func, SQInteger target, SQInteger nargs, SQInteger stackbase, SQObjectPtr &outres, SQBool raiseerror, ExecutionType et = ET_CALL);
 	//starts a native call return when the NATIVE closure returns
@@ -177,7 +177,7 @@ public:
 
 struct AutoDec{
 	AutoDec(SQInteger *n) { _n = n; }
-	~AutoDec() { (*_n)--; }
+	‾AutoDec() { (*_n)--; }
 	SQInteger *_n;
 };
 
@@ -191,21 +191,21 @@ inline SQObjectPtr &stack_get(HSQUIRRELVM v,SQInteger idx){return ((idx>=0)?(v->
 #define _opt_ss(_vm_) NULL
 #endif
 
-#define PUSH_CALLINFO(v,nci){ \
-	if(v->_callsstacksize == v->_alloccallsstacksize) { \
-		v->GrowCallStack(); \
-	} \
-	v->ci = &v->_callsstack[v->_callsstacksize]; \
-	*(v->ci) = nci; \
-	v->_callsstacksize++; \
+#define PUSH_CALLINFO(v,nci){ ¥
+	if(v->_callsstacksize == v->_alloccallsstacksize) { ¥
+		v->GrowCallStack(); ¥
+	} ¥
+	v->ci = &v->_callsstack[v->_callsstacksize]; ¥
+	*(v->ci) = nci; ¥
+	v->_callsstacksize++; ¥
 }
 
-#define POP_CALLINFO(v){ \
-	v->_callsstacksize--; \
-	v->ci->_closure.Null(); \
-	if(v->_callsstacksize)	\
-		v->ci = &v->_callsstack[v->_callsstacksize-1] ; \
-	else	\
-		v->ci = NULL; \
+#define POP_CALLINFO(v){ ¥
+	v->_callsstacksize--; ¥
+	v->ci->_closure.Null(); ¥
+	if(v->_callsstacksize)	¥
+		v->ci = &v->_callsstack[v->_callsstacksize-1] ; ¥
+	else	¥
+		v->ci = NULL; ¥
 }
 #endif //_SQVM_H_

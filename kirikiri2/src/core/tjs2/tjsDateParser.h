@@ -62,7 +62,7 @@ class tTJSDateParser
 
 public:
 	tTJSDateParser(const tjs_char *in);
-	~tTJSDateParser();
+	‾tTJSDateParser();
 
 	tjs_int64 GetTime();
 

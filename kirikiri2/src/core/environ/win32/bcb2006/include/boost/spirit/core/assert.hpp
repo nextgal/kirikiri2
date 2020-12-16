@@ -27,7 +27,7 @@
 #if defined(NDEBUG)
     #define BOOST_SPIRIT_ASSERT(x)
 #elif defined (BOOST_SPIRIT_ASSERT_EXCEPTION)
-    #define BOOST_SPIRIT_ASSERT_AUX(f, l, x) \
+    #define BOOST_SPIRIT_ASSERT_AUX(f, l, x) ¥
     do{ if (!(x)) boost::throw_exception(BOOST_SPIRIT_ASSERT_EXCEPTION(f "(" #l "): " #x)); } while(0)
     #define BOOST_SPIRIT_ASSERT(x) SPIRIT_ASSERT_AUX(__FILE__, __LINE__, x)
 #else

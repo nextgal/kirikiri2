@@ -17,12 +17,12 @@ static inline const wchar_t * GetOptionInfoString()
 	if(GetACP() == 932) // 932 = Japan
 	{
 		return
-L"ƒfƒoƒbƒO:ROTƒe[ƒuƒ‹‚Ö‚Ì“o˜^;ƒ€[ƒr[Ä¶‚É"
-L"ROT(Running Object Table)‚Ö“o˜^‚·‚é‚©‚Ç‚¤‚©‚Ìİ’è‚Å‚·B"
-L"u‚·‚év‚ğ‘I‘ğ‚·‚é‚ÆADirectX SDK•t‘®‚ÌGraphEdit‚ğ—p‚¢‚Ä"
-L"ƒ€[ƒr[Ä¶ƒgƒ‰ƒuƒ‹‚Ì‰ğÍ‚ğs‚¤‚±‚Æ‚ª‚Å‚«‚Ü‚·Buƒ|[ƒYv‚ğ‘I‘ğ‚·‚é‚ÆA‚³‚ç‚É"
-L"ƒOƒ‰ƒt‚Ì\’z’¼Œã‚ÉƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ğ•\¦‚µ‚Äˆê’â~‚·‚é‚æ‚¤‚É‚È‚è‚Ü‚·B|"
-L"movie_reg_rot|select,*no;‚¢‚¢‚¦,yes;‚Í‚¢,pause;ƒ|[ƒY\n";
+L"ãƒ‡ãƒãƒƒã‚°:ROTãƒ†ãƒ¼ãƒ–ãƒ«ã¸ã®ç™»éŒ²;ãƒ ãƒ¼ãƒ“ãƒ¼å†ç”Ÿæ™‚ã«"
+L"ROT(Running Object Table)ã¸ç™»éŒ²ã™ã‚‹ã‹ã©ã†ã‹ã®è¨­å®šã§ã™ã€‚"
+L"ã€Œã™ã‚‹ã€ã‚’é¸æŠã™ã‚‹ã¨ã€DirectX SDKä»˜å±ã®GraphEditã‚’ç”¨ã„ã¦"
+L"ãƒ ãƒ¼ãƒ“ãƒ¼å†ç”Ÿãƒˆãƒ©ãƒ–ãƒ«ã®è§£æã‚’è¡Œã†ã“ã¨ãŒã§ãã¾ã™ã€‚ã€Œãƒãƒ¼ã‚ºã€ã‚’é¸æŠã™ã‚‹ã¨ã€ã•ã‚‰ã«"
+L"ã‚°ãƒ©ãƒ•ã®æ§‹ç¯‰ç›´å¾Œã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ã‚’è¡¨ç¤ºã—ã¦ä¸€æ™‚åœæ­¢ã™ã‚‹ã‚ˆã†ã«ãªã‚Šã¾ã™ã€‚|"
+L"movie_reg_rot|select,*no;ã„ã„ãˆ,yes;ã¯ã„,pause;ãƒãƒ¼ã‚ºÂ¥n";
 	}
 	else
 	{
@@ -33,7 +33,7 @@ L"playbacking movies. Choosing 'Yes' enables you to inspect the trouble related 
 L"using GraphEdit(available from DirectX SDK). 'Pause' not only enables ROT registeration, "
 L"but makes the program also displaying message-box (this interrupts the program and makes a pause) "
 L"after the graph is built.|"
-L"movie_reg_rot|select,*no;No,yes;Yes,pause;Pause\n";
+L"movie_reg_rot|select,*no;No,yes;Yes,pause;PauseÂ¥n";
 	}
 }
 

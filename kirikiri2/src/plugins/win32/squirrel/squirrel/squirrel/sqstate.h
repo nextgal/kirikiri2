@@ -12,7 +12,7 @@ struct SQTable;
 struct StringTable
 {
 	StringTable();
-	~StringTable();
+	‾StringTable();
 	SQString *Add(const SQChar *,SQInteger len);
 	void Remove(SQString *);
 private:
@@ -30,7 +30,7 @@ struct RefTable {
 		struct RefNode *next;
 	};
 	RefTable();
-	~RefTable();
+	‾RefTable();
 	void AddRef(SQObject &obj);
 	SQBool Release(SQObject &obj);
 #ifndef NO_GARBAGE_COLLECTOR
@@ -57,7 +57,7 @@ struct SQObjectPtr;
 struct SQSharedState
 {
 	SQSharedState();
-	~SQSharedState();
+	‾SQSharedState();
 	void Init();
 public:
 	SQChar* GetScratchPad(SQInteger size);

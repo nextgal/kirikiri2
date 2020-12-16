@@ -141,47 +141,47 @@
 	</References>
 	<Files>
 		<Filter
-			Name="ソース ファイル"
+			Name="繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\sqobject\sqfunc.cpp"
+				RelativePath=".ﾂ･sqobjectﾂ･sqfunc.cpp"
 				>
 			</File>
 			<Filter
 				Name="sqstdlib"
 				>
 				<File
-					RelativePath=".\sqstdlib\sqstdaux.cpp"
+					RelativePath=".ﾂ･sqstdlibﾂ･sqstdaux.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\sqstdlib\sqstdblob.cpp"
+					RelativePath=".ﾂ･sqstdlibﾂ･sqstdblob.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\sqstdlib\sqstdio.cpp"
+					RelativePath=".ﾂ･sqstdlibﾂ･sqstdio.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\sqstdlib\sqstdmath.cpp"
+					RelativePath=".ﾂ･sqstdlibﾂ･sqstdmath.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\sqstdlib\sqstdrex.cpp"
+					RelativePath=".ﾂ･sqstdlibﾂ･sqstdrex.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\sqstdlib\sqstdstream.cpp"
+					RelativePath=".ﾂ･sqstdlibﾂ･sqstdstream.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\sqstdlib\sqstdstring.cpp"
+					RelativePath=".ﾂ･sqstdlibﾂ･sqstdstring.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\sqstdlib\sqstdsystem.cpp"
+					RelativePath=".ﾂ･sqstdlibﾂ･sqstdsystem.cpp"
 					>
 				</File>
 			</Filter>
@@ -189,55 +189,55 @@
 				Name="squirrel"
 				>
 				<File
-					RelativePath=".\squirrel\sqapi.cpp"
+					RelativePath=".ﾂ･squirrelﾂ･sqapi.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\squirrel\sqbaselib.cpp"
+					RelativePath=".ﾂ･squirrelﾂ･sqbaselib.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\squirrel\sqclass.cpp"
+					RelativePath=".ﾂ･squirrelﾂ･sqclass.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\squirrel\sqcompiler.cpp"
+					RelativePath=".ﾂ･squirrelﾂ･sqcompiler.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\sqobject\sqcont.cpp"
+					RelativePath=".ﾂ･sqobjectﾂ･sqcont.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\squirrel\sqdebug.cpp"
+					RelativePath=".ﾂ･squirrelﾂ･sqdebug.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\squirrel\sqfuncstate.cpp"
+					RelativePath=".ﾂ･squirrelﾂ･sqfuncstate.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\squirrel\sqlexer.cpp"
+					RelativePath=".ﾂ･squirrelﾂ･sqlexer.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\squirrel\sqmem.cpp"
+					RelativePath=".ﾂ･squirrelﾂ･sqmem.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\squirrel\sqobject.cpp"
+					RelativePath=".ﾂ･squirrelﾂ･sqobject.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\squirrel\sqstate.cpp"
+					RelativePath=".ﾂ･squirrelﾂ･sqstate.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\squirrel\sqtable.cpp"
+					RelativePath=".ﾂ･squirrelﾂ･sqtable.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\squirrel\sqvm.cpp"
+					RelativePath=".ﾂ･squirrelﾂ･sqvm.cpp"
 					>
 				</File>
 			</Filter>
@@ -245,23 +245,23 @@
 				Name="sqobject"
 				>
 				<File
-					RelativePath=".\sqobject\sqfile.cpp"
+					RelativePath=".ﾂ･sqobjectﾂ･sqfile.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\sqobject\sqmemfile.cpp"
+					RelativePath=".ﾂ･sqobjectﾂ･sqmemfile.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\sqobject\sqobjectclass.cpp"
+					RelativePath=".ﾂ･sqobjectﾂ･sqobjectclass.cpp"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
-							ObjectFile="$(IntDir)\$(InputName)1.obj"
-							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+							ObjectFile="$(IntDir)ﾂ･$(InputName)1.obj"
+							XMLDocumentationFileName="$(IntDir)ﾂ･$(InputName)1.xdc"
 						/>
 					</FileConfiguration>
 					<FileConfiguration
@@ -269,155 +269,155 @@
 						>
 						<Tool
 							Name="VCCLCompilerTool"
-							ObjectFile="$(IntDir)\$(InputName)1.obj"
-							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+							ObjectFile="$(IntDir)ﾂ･$(InputName)1.obj"
+							XMLDocumentationFileName="$(IntDir)ﾂ･$(InputName)1.xdc"
 						/>
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\sqobject\sqobjectinfo.cpp"
+					RelativePath=".ﾂ･sqobjectﾂ･sqobjectinfo.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\sqobject\sqthread.cpp"
+					RelativePath=".ﾂ･sqobjectﾂ･sqthread.cpp"
 					>
 				</File>
 			</Filter>
 		</Filter>
 		<Filter
-			Name="ヘッダー ファイル"
+			Name="繝倥ャ繝繝ｼ 繝輔ぃ繧､繝ｫ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\squirrel\sqarray.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqarray.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\sqclass.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqclass.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\sqclosure.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqclosure.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\sqcompiler.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqcompiler.h"
 				>
 			</File>
 			<File
-				RelativePath=".\sqobject\sqcont.h"
+				RelativePath=".ﾂ･sqobjectﾂ･sqcont.h"
 				>
 			</File>
 			<File
-				RelativePath=".\sqobject\sqfunc.h"
+				RelativePath=".ﾂ･sqobjectﾂ･sqfunc.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\sqfuncproto.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqfuncproto.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\sqfuncstate.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqfuncstate.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\sqlexer.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqlexer.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\sqobject.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqobject.h"
 				>
 			</File>
 			<File
-				RelativePath=".\sqobject\sqobjectclass.h"
+				RelativePath=".ﾂ･sqobjectﾂ･sqobjectclass.h"
 				>
 			</File>
 			<File
-				RelativePath=".\sqobject\sqobjectinfo.h"
+				RelativePath=".ﾂ･sqobjectﾂ･sqobjectinfo.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\sqopcodes.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqopcodes.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\sqpcheader.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqpcheader.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\sqstate.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqstate.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\sqstdaux.h"
+				RelativePath=".ﾂ･includeﾂ･sqstdaux.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\sqstdblob.h"
+				RelativePath=".ﾂ･includeﾂ･sqstdblob.h"
 				>
 			</File>
 			<File
-				RelativePath=".\sqstdlib\sqstdblobimpl.h"
+				RelativePath=".ﾂ･sqstdlibﾂ･sqstdblobimpl.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\sqstdio.h"
+				RelativePath=".ﾂ･includeﾂ･sqstdio.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\sqstdmath.h"
+				RelativePath=".ﾂ･includeﾂ･sqstdmath.h"
 				>
 			</File>
 			<File
-				RelativePath=".\sqstdlib\sqstdstream.h"
+				RelativePath=".ﾂ･sqstdlibﾂ･sqstdstream.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\sqstdstring.h"
+				RelativePath=".ﾂ･includeﾂ･sqstdstring.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\sqstdsystem.h"
+				RelativePath=".ﾂ･includeﾂ･sqstdsystem.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\sqstring.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqstring.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\sqtable.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqtable.h"
 				>
 			</File>
 			<File
-				RelativePath=".\sqobject\sqthread.h"
+				RelativePath=".ﾂ･sqobjectﾂ･sqthread.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\squirrel.h"
+				RelativePath=".ﾂ･includeﾂ･squirrel.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\squserdata.h"
+				RelativePath=".ﾂ･squirrelﾂ･squserdata.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\squtils.h"
+				RelativePath=".ﾂ･squirrelﾂ･squtils.h"
 				>
 			</File>
 			<File
-				RelativePath=".\squirrel\sqvm.h"
+				RelativePath=".ﾂ･squirrelﾂ･sqvm.h"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="リソース ファイル"
+			Name="繝ｪ繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
 		<File
-			RelativePath=".\ReadMe.txt"
+			RelativePath=".ﾂ･ReadMe.txt"
 			>
 		</File>
 	</Files>

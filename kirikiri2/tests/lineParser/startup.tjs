@@ -1,10 +1,10 @@
 // libexpat
-// XMLParser ƒNƒ‰ƒX
+// XMLParser ã‚¯ãƒ©ã‚¹
 Plugins.link("lineParser.dll");
 
 Debug.console.visible = true;
 
-// ‘‹
+// çª“
 var win = new Window();
 win.visible=true;
 
@@ -19,4 +19,4 @@ class MyParser extends LineParser {
 
 var parser = new MyParser();
 parser.parseStorage("test.txt");
-parser.parse("s1\ns2\ns3");
+parser.parse("è¡Œ1Â¥nè¡Œ2Â¥nè¡Œ3");

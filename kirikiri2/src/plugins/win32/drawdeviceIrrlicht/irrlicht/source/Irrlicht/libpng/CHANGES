@@ -1165,7 +1165,7 @@ version 1.2.3 [May 22, 2002]
 version 1.2.4beta1 [May 24, 2002]
   Added libpng.pc and libpng-config to "all:" target in 16 makefiles.
   Fixed bug in 16 makefiles: $(DESTDIR)/$(LIBPATH) to $(DESTDIR)$(LIBPATH)
-  Added missing "\" before closing double quote in makefile.gcmmx.
+  Added missing "¥" before closing double quote in makefile.gcmmx.
   Plugged various memory leaks; added png_malloc_warn() and png_set_text_2()
     functions.
 version 1.2.4beta2 [June 25, 2002]
@@ -1397,7 +1397,7 @@ version 1.2.8rc1 [November 24, 2004]
   Despammed mailing addresses by masking "@" with "at".
   Inadvertently installed a supposedly faster test version of pngrutil.c
 version 1.2.8rc2 [November 26, 2004]
-  Added two missing "\" in png.h
+  Added two missing "¥" in png.h
   Change tests in pngread.c and pngpread.c to
     if (png_ptr->transformations || (png_ptr->flags&PNG_FLAG_STRIP_ALPHA))
        png_do_read_transformations(png_ptr);
@@ -1578,7 +1578,7 @@ version 1.2.11beta2 [June 2, 2006]
 
 version 1.2.11beta3 [June 5, 2006]
   Prepended "#! /bin/sh" to ltmail.sh and contrib/pngminus/*.sh (Cosmin).
-  Removed the accidental leftover Makefile.in~ (Cosmin).
+  Removed the accidental leftover Makefile.in‾ (Cosmin).
   Avoided potential buffer overflow and optimized buffer in
     png_write_sCAL(), png_write_sCAL_s() (Cosmin).
   Removed the include directories and libraries from CFLAGS and LDFLAGS

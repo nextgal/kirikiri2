@@ -12,12 +12,12 @@ function testVariant() {
 		isFaild = true;
 	}
 
-	c = (a=1, b=2); // a=1, b=2 ‚ª•]‰¿‚³‚êAc ‚É‚Í 2 ‚ª‘ã“ü‚³‚ê‚é
+	c = (a=1, b=2); // a=1, b=2 ãŒè©•ä¾¡ã•ã‚Œã€c ã«ã¯ 2 ãŒä»£å…¥ã•ã‚Œã‚‹
 	if( c != 2 ) {
 		Debug.message("faild:c = (a=1, b=2);");
 		isFaild = true;
 	}
-	a=1, b=2, c=3; // a=1, b=2, c=3 ‚Ì‡‚É•]‰¿‚³‚ê‚é
+	a=1, b=2, c=3; // a=1, b=2, c=3 ã®é †ã«è©•ä¾¡ã•ã‚Œã‚‹
 	if( a == 1 && b == 2 && c == 3 ) {
 	} else {
 		Debug.message("faild:a=1, b=2, c=3");
@@ -52,10 +52,10 @@ function testVariant() {
 		Debug.message("faild: real10 = 10.0"); isFaild = true;
 	}
 	if( str5 != "5" ) {
-		Debug.message("faild: str5 = \"5\""); isFaild = true;
+		Debug.message("faild: str5 = Â¥"5Â¥""); isFaild = true;
 	}
 	if( str10 != "10" ) {
-		Debug.message("faild: str10 = \"10\""); isFaild = true;
+		Debug.message("faild: str10 = Â¥"10Â¥""); isFaild = true;
 	}
 	if( voidval !== void ) {
 		Debug.message("faild: voidval !== void"); isFaild = true;
@@ -144,7 +144,7 @@ function testVariant() {
 	}
 	tmp = 10;
 	if( (string tmp) !== "10" ) {
-		Debug.message("faild: (string tmp) !== \"10\""); isFaild = true;
+		Debug.message("faild: (string tmp) !== Â¥"10Â¥""); isFaild = true;
 	}
 	tmp = 5.5;
 	if( ((int)tmp) != 5 ) {
@@ -156,7 +156,7 @@ function testVariant() {
 	}
 	tmp = 10;
 	if( ((string)tmp) !== "10" ) {
-		Debug.message("faild: ((string)tmp) !== \"10\""); isFaild = true;
+		Debug.message("faild: ((string)tmp) !== Â¥"10Â¥""); isFaild = true;
 	}
 	if( isFaild ) {
 		Debug.message("faild:substitution");
@@ -165,7 +165,7 @@ function testVariant() {
 	}
 	isFaild = false;
 
-	// ‰ÁŒ¸Z‰‰Zq, æœ—]Z‰‰Zq
+	// åŠ æ¸›ç®—æ¼”ç®—å­, ä¹—é™¤ä½™ç®—æ¼”ç®—å­
 	if( (int5 + int10) != 15 ) {
 		Debug.message("faild:(int5 + int10) != 15");
 		isFaild = true;
@@ -186,12 +186,12 @@ function testVariant() {
 		Debug.message("faild:(int8 / int5) != 1.6");
 		isFaild = true;
 	}
-	if( (int10 \ int5) != 2 ) {
-		Debug.message("faild:(int10 \ int5) != 2");
+	if( (int10 Â¥ int5) != 2 ) {
+		Debug.message("faild:(int10 Â¥ int5) != 2");
 		isFaild = true;
 	}
-	if( (int8 \ int5) != 1 ) {
-		Debug.message("faild:(int8 \ int5) != 1");
+	if( (int8 Â¥ int5) != 1 ) {
+		Debug.message("faild:(int8 Â¥ int5) != 1");
 		isFaild = true;
 	}
 	if( (int10 * int5) != 50 ) {
@@ -256,9 +256,9 @@ function testVariant() {
 		isFaild = true;
 	}
 	tmp = int10;
-	tmp \= int8;
+	tmp Â¥= int8;
 	if( tmp != 1 ) {
-		Debug.message("faild:int10 \= int8");
+		Debug.message("faild:int10 Â¥= int8");
 		isFaild = true;
 	}
 	tmp = int10;
@@ -268,9 +268,9 @@ function testVariant() {
 		isFaild = true;
 	}
 	tmp = int10;
-	tmp \= int5;
+	tmp Â¥= int5;
 	if( tmp != 2 ) {
-		Debug.message("faild:int10 \= int5");
+		Debug.message("faild:int10 Â¥= int5");
 		isFaild = true;
 	}
 	tmp = int10;
@@ -332,7 +332,7 @@ function testVariant() {
 	@if(environment > 0) // java
 	if( tmp != 2147483647 ) {
 		Debug.message("faild:-1 >>>= 1");
-		Debug.message("intŒ^‚Å‚Í‚±‚¤‚È‚é‚ªAlong‚ª“à•”Œ^‚É‚È‚é‚Æ‚±‚ÌƒeƒXƒg‚Í³‚µ‚­‚È‚¢B’l‚ğ•Ï‚¦‚é‚×‚«");
+		Debug.message("intå‹ã§ã¯ã“ã†ãªã‚‹ãŒã€longãŒå†…éƒ¨å‹ã«ãªã‚‹ã¨ã“ã®ãƒ†ã‚¹ãƒˆã¯æ­£ã—ããªã„ã€‚å€¤ã‚’å¤‰ãˆã‚‹ã¹ã");
 		isFaild = true;
 	}
 	@endif
@@ -369,14 +369,14 @@ function testVariant() {
 	@if(environment > 0) // java
 	if( tmp != 2147483647 ) {
 		Debug.message("faild:-1 >>> 1");
-		Debug.message("intŒ^‚Å‚Í‚±‚¤‚È‚é‚ªAlong‚ª“à•”Œ^‚É‚È‚é‚Æ‚±‚ÌƒeƒXƒg‚Í³‚µ‚­‚È‚¢B’l‚ğ•Ï‚¦‚é‚×‚«");
+		Debug.message("intå‹ã§ã¯ã“ã†ãªã‚‹ãŒã€longãŒå†…éƒ¨å‹ã«ãªã‚‹ã¨ã“ã®ãƒ†ã‚¹ãƒˆã¯æ­£ã—ããªã„ã€‚å€¤ã‚’å¤‰ãˆã‚‹ã¹ã");
 		isFaild = true;
 	}
 	@endif
 	@if(environment == 0) // windows
 	if( tmp != 9223372036854775807 ) {
 		Debug.message("faild:-1 >>> 1,"+tmp);
-		Debug.message("intŒ^‚Å‚Í‚±‚¤‚È‚é‚ªAlong‚ª“à•”Œ^‚É‚È‚é‚Æ‚±‚ÌƒeƒXƒg‚Í³‚µ‚­‚È‚¢B’l‚ğ•Ï‚¦‚é‚×‚«");
+		Debug.message("intå‹ã§ã¯ã“ã†ãªã‚‹ãŒã€longãŒå†…éƒ¨å‹ã«ãªã‚‹ã¨ã“ã®ãƒ†ã‚¹ãƒˆã¯æ­£ã—ããªã„ã€‚å€¤ã‚’å¤‰ãˆã‚‹ã¹ã");
 		isFaild = true;
 	}
 	@endif
@@ -500,9 +500,9 @@ function testVariant() {
 		Debug.message("faild:!tmp(0)");
 		isFaild = true;
 	}
-	tmp = ~int5;
+	tmp = â€¾int5;
 	if( tmp != -6 ) {
-		Debug.message("faild:tmp = ~int5");
+		Debug.message("faild:tmp = â€¾int5");
 		isFaild = true;
 	}
 	tmp = int5;
@@ -538,7 +538,7 @@ function testVariant() {
 	 ************************************************************************************************
 	*/
 
-	// ‰ÁŒ¸Z‰‰Zq, æœ—]Z‰‰Zq
+	// åŠ æ¸›ç®—æ¼”ç®—å­, ä¹—é™¤ä½™ç®—æ¼”ç®—å­
 	if( (real5 + real10) != 15.0 ) {
 		Debug.message("faild:(real5 + real10) != 15.0");
 		isFaild = true;
@@ -559,12 +559,12 @@ function testVariant() {
 		Debug.message("faild:(real8 / real5) != 1.6");
 		isFaild = true;
 	}
-	if( (real10 \ real5) != 2 ) {
-		Debug.message("faild:(real10 \ real5) != 2");
+	if( (real10 Â¥ real5) != 2 ) {
+		Debug.message("faild:(real10 Â¥ real5) != 2");
 		isFaild = true;
 	}
-	if( (real8 \ real5) != 1 ) {
-		Debug.message("faild:(real8 \ real5) != 1");
+	if( (real8 Â¥ real5) != 1 ) {
+		Debug.message("faild:(real8 Â¥ real5) != 1");
 		isFaild = true;
 	}
 	if( (real10 * real5) != 50.0 ) {
@@ -629,9 +629,9 @@ function testVariant() {
 		isFaild = true;
 	}
 	tmp = real10;
-	tmp \= real8;
+	tmp Â¥= real8;
 	if( tmp != 1 ) {
-		Debug.message("faild:real10 \= real8");
+		Debug.message("faild:real10 Â¥= real8");
 		isFaild = true;
 	}
 	tmp = real10;
@@ -641,9 +641,9 @@ function testVariant() {
 		isFaild = true;
 	}
 	tmp = real10;
-	tmp \= real5;
+	tmp Â¥= real5;
 	if( tmp != 2 ) {
-		Debug.message("faild:real10 \= real5");
+		Debug.message("faild:real10 Â¥= real5");
 		isFaild = true;
 	}
 	tmp = real10;
@@ -705,7 +705,7 @@ function testVariant() {
 	@if(environment > 0) // java
 	if( tmp != 2147483647 ) {
 		Debug.message("faild:-1 >>>= 1");
-		Debug.message("intŒ^‚Å‚Í‚±‚¤‚È‚é‚ªAlong‚ª“à•”Œ^‚É‚È‚é‚Æ‚±‚ÌƒeƒXƒg‚Í³‚µ‚­‚È‚¢B’l‚ğ•Ï‚¦‚é‚×‚«");
+		Debug.message("intå‹ã§ã¯ã“ã†ãªã‚‹ãŒã€longãŒå†…éƒ¨å‹ã«ãªã‚‹ã¨ã“ã®ãƒ†ã‚¹ãƒˆã¯æ­£ã—ããªã„ã€‚å€¤ã‚’å¤‰ãˆã‚‹ã¹ã");
 		isFaild = true;
 	}
 	@endif
@@ -742,14 +742,14 @@ function testVariant() {
 	@if(environment > 0) // java
 	if( tmp != 2147483647 ) {
 		Debug.message("faild:-1 >>> 1");
-		Debug.message("intŒ^‚Å‚Í‚±‚¤‚È‚é‚ªAlong‚ª“à•”Œ^‚É‚È‚é‚Æ‚±‚ÌƒeƒXƒg‚Í³‚µ‚­‚È‚¢B’l‚ğ•Ï‚¦‚é‚×‚«");
+		Debug.message("intå‹ã§ã¯ã“ã†ãªã‚‹ãŒã€longãŒå†…éƒ¨å‹ã«ãªã‚‹ã¨ã“ã®ãƒ†ã‚¹ãƒˆã¯æ­£ã—ããªã„ã€‚å€¤ã‚’å¤‰ãˆã‚‹ã¹ã");
 		isFaild = true;
 	}
 	@endif
 	@if(environment == 0) // windows
 	if( tmp != 9223372036854775807 ) {
 		Debug.message("faild:-1 >>> 1,"+tmp);
-		Debug.message("intŒ^‚Å‚Í‚±‚¤‚È‚é‚ªAlong‚ª“à•”Œ^‚É‚È‚é‚Æ‚±‚ÌƒeƒXƒg‚Í³‚µ‚­‚È‚¢B’l‚ğ•Ï‚¦‚é‚×‚«");
+		Debug.message("intå‹ã§ã¯ã“ã†ãªã‚‹ãŒã€longãŒå†…éƒ¨å‹ã«ãªã‚‹ã¨ã“ã®ãƒ†ã‚¹ãƒˆã¯æ­£ã—ããªã„ã€‚å€¤ã‚’å¤‰ãˆã‚‹ã¹ã");
 		isFaild = true;
 	}
 	@endif
@@ -873,7 +873,7 @@ function testVariant() {
 	/*
 	 ************************************************************************************************
 	*/
-	// ‰ÁŒ¸Z‰‰Zq, æœ—]Z‰‰Zq
+	// åŠ æ¸›ç®—æ¼”ç®—å­, ä¹—é™¤ä½™ç®—æ¼”ç®—å­
 	if( (str5 + str10) != "510" ) {
 		Debug.message("faild:(str5 + str10) != 15");
 		isFaild = true;
@@ -894,12 +894,12 @@ function testVariant() {
 		Debug.message("faild:(str8 / str5) != 1.6");
 		isFaild = true;
 	}
-	if( (str10 \ str5) != 2 ) {
-		Debug.message("faild:(str10 \ str5) != 2");
+	if( (str10 Â¥ str5) != 2 ) {
+		Debug.message("faild:(str10 Â¥ str5) != 2");
 		isFaild = true;
 	}
-	if( (str8 \ str5) != 1 ) {
-		Debug.message("faild:(str8 \ str5) != 1");
+	if( (str8 Â¥ str5) != 1 ) {
+		Debug.message("faild:(str8 Â¥ str5) != 1");
 		isFaild = true;
 	}
 	if( (str10 * str5) != 50 ) {
@@ -964,9 +964,9 @@ function testVariant() {
 		isFaild = true;
 	}
 	tmp = str10;
-	tmp \= str8;
+	tmp Â¥= str8;
 	if( tmp != 1 ) {
-		Debug.message("faild:str10 \= str8");
+		Debug.message("faild:str10 Â¥= str8");
 		isFaild = true;
 	}
 	tmp = str10;
@@ -976,9 +976,9 @@ function testVariant() {
 		isFaild = true;
 	}
 	tmp = str10;
-	tmp \= str5;
+	tmp Â¥= str5;
 	if( tmp != 2 ) {
-		Debug.message("faild:str10 \= str5");
+		Debug.message("faild:str10 Â¥= str5");
 		isFaild = true;
 	}
 	tmp = str10;
@@ -1040,7 +1040,7 @@ function testVariant() {
 	@if(environment > 0) // java
 	if( tmp != 2147483647 ) {
 		Debug.message("faild:-1 >>>= 1");
-		Debug.message("intŒ^‚Å‚Í‚±‚¤‚È‚é‚ªAlong‚ª“à•”Œ^‚É‚È‚é‚Æ‚±‚ÌƒeƒXƒg‚Í³‚µ‚­‚È‚¢B’l‚ğ•Ï‚¦‚é‚×‚«");
+		Debug.message("intå‹ã§ã¯ã“ã†ãªã‚‹ãŒã€longãŒå†…éƒ¨å‹ã«ãªã‚‹ã¨ã“ã®ãƒ†ã‚¹ãƒˆã¯æ­£ã—ããªã„ã€‚å€¤ã‚’å¤‰ãˆã‚‹ã¹ã");
 		isFaild = true;
 	}
 	@endif
@@ -1077,14 +1077,14 @@ function testVariant() {
 	@if(environment > 0) // java
 	if( tmp != 2147483647 ) {
 		Debug.message("faild:-1 >>> 1");
-		Debug.message("intŒ^‚Å‚Í‚±‚¤‚È‚é‚ªAlong‚ª“à•”Œ^‚É‚È‚é‚Æ‚±‚ÌƒeƒXƒg‚Í³‚µ‚­‚È‚¢B’l‚ğ•Ï‚¦‚é‚×‚«");
+		Debug.message("intå‹ã§ã¯ã“ã†ãªã‚‹ãŒã€longãŒå†…éƒ¨å‹ã«ãªã‚‹ã¨ã“ã®ãƒ†ã‚¹ãƒˆã¯æ­£ã—ããªã„ã€‚å€¤ã‚’å¤‰ãˆã‚‹ã¹ã");
 		isFaild = true;
 	}
 	@endif
 	@if(environment == 0) // windows
 	if( tmp != 9223372036854775807 ) {
 		Debug.message("faild:-1 >>> 1,"+tmp);
-		Debug.message("intŒ^‚Å‚Í‚±‚¤‚È‚é‚ªAlong‚ª“à•”Œ^‚É‚È‚é‚Æ‚±‚ÌƒeƒXƒg‚Í³‚µ‚­‚È‚¢B’l‚ğ•Ï‚¦‚é‚×‚«");
+		Debug.message("intå‹ã§ã¯ã“ã†ãªã‚‹ãŒã€longãŒå†…éƒ¨å‹ã«ãªã‚‹ã¨ã“ã®ãƒ†ã‚¹ãƒˆã¯æ­£ã—ããªã„ã€‚å€¤ã‚’å¤‰ãˆã‚‹ã¹ã");
 		isFaild = true;
 	}
 	@endif
@@ -1199,7 +1199,7 @@ function testVariant() {
 		isFaild = true;
 	}
 
-	// ‘ã“ü‰‰Zq
+	// ä»£å…¥æ¼”ç®—å­
 	if( isFaild ) {
 		Debug.message("faild:str operation");
 	} else {
@@ -1210,7 +1210,7 @@ function testVariant() {
 	/*
 	 ************************************************************************************************
 	*/
-	// Ÿ‚ÍOctet ‚Ì‰ÁZ‚ğ‚â‚é
+	// æ¬¡ã¯Octet ã®åŠ ç®—ã‚’ã‚„ã‚‹
 	var iscatch;
 	if( (oct5 + oct10) != <% 05 10 %> ) {
 		//tmp = (oct5 + oct10);
@@ -1244,11 +1244,11 @@ function testVariant() {
 
 	iscatch = false;
 	try {
-		tmp = oct10 \ oct5;
+		tmp = oct10 Â¥ oct5;
 	} catch {
 		iscatch = true;
 	}
-	if( iscatch == false ) { Debug.message("faild:tmp = oct10 \ oct5"); isFaild = true; }
+	if( iscatch == false ) { Debug.message("faild:tmp = oct10 Â¥ oct5"); isFaild = true; }
 
 	iscatch = false;
 	try {
@@ -1336,11 +1336,11 @@ function testVariant() {
 	tmp = oct10;
 	iscatch = false;
 	try {
-		tmp \= oct8;
+		tmp Â¥= oct8;
 	} catch {
 		iscatch = true;
 	}
-	if( iscatch == false ) { Debug.message("faild:tmp \= oct8"); isFaild = true; }
+	if( iscatch == false ) { Debug.message("faild:tmp Â¥= oct8"); isFaild = true; }
 
 	tmp = oct10;
 	iscatch = false;
@@ -1567,11 +1567,11 @@ function testVariant() {
 
 	iscatch = false;
 	try {
-		tmp = ~oct10;
+		tmp = â€¾oct10;
 	} catch {
 		iscatch = true;
 	}
-	if( iscatch == false ) { Debug.message("faild:tmp = ~oct10"); isFaild = true; }
+	if( iscatch == false ) { Debug.message("faild:tmp = â€¾oct10"); isFaild = true; }
 
 	iscatch = false;
 	try {

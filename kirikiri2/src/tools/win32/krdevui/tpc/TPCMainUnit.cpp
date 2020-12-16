@@ -51,8 +51,8 @@ static AnsiString SelectFolder(HWND owner)
 	BROWSEINFO bi;
 	bi.hwndOwner = owner;
 	bi.pidlRoot = NULL;
-	bi.pszDisplayName = "ƒtƒHƒ‹ƒ_‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢";
-	bi.lpszTitle = "ƒtƒHƒ‹ƒ_‚Ì‘I‘ğ";
+	bi.pszDisplayName = "ãƒ•ã‚©ãƒ«ãƒ€ã‚’é¸æŠã—ã¦ãã ã•ã„";
+	bi.lpszTitle = "ãƒ•ã‚©ãƒ«ãƒ€ã®é¸æŠ";
 	bi.ulFlags = BIF_RETURNONLYFSDIRS;
 	bi.lpfn = NULL;
 	bi.lParam = 0;
@@ -374,7 +374,7 @@ static void BindMaskToMain(Graphics::TBitmap * main, Graphics::TBitmap * mask)
 	// bind 8bpp mask to 32bpp main
 
 	if(main->Width != mask->Width || mask->Height != mask->Height)
-		throw Exception("ƒƒCƒ“‰æ‘œ‚Æƒ}ƒXƒN‰æ‘œ‚ÌƒTƒCƒY‚ªˆÙ‚È‚è‚Ü‚·");
+		throw Exception("ãƒ¡ã‚¤ãƒ³ç”»åƒã¨ãƒã‚¹ã‚¯ç”»åƒã®ã‚µã‚¤ã‚ºãŒç•°ãªã‚Šã¾ã™");
 
 	if(main->PixelFormat != pf32bit) main->PixelFormat = pf32bit;
 	if(mask->PixelFormat != pf8bit) mask->PixelFormat = pf8bit;
@@ -465,7 +465,7 @@ static Graphics::TBitmap *LoadSingleImage(AnsiString infile,
 		}
 		else
 		{
-			throw Exception("”F¯‚Å‚«‚È‚¢‰æ‘œŒ`®‚Å‚·");
+			throw Exception("èªè­˜ã§ããªã„ç”»åƒå½¢å¼ã§ã™");
 		}
 	}
 	catch(...)
@@ -883,7 +883,7 @@ void __fastcall TTPCMainForm::WMDropFiles(TMessage &Msg)
 	}
 }
 //---------------------------------------------------------------------------
-const char * NotOverwritten = "“¯–¼‚Ìƒtƒ@ƒCƒ‹‚ª‚ ‚é‚½‚ß‚Éã‘‚«‚µ‚Ü‚¹‚ñ‚Å‚µ‚½ : ";
+const char * NotOverwritten = "åŒåã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹ãŸã‚ã«ä¸Šæ›¸ãã—ã¾ã›ã‚“ã§ã—ãŸ : ";
 bool __fastcall TTPCMainForm::ProcessFile(AnsiString infile)
 {
 	// process a file
@@ -895,7 +895,7 @@ bool __fastcall TTPCMainForm::ProcessFile(AnsiString infile)
 		// change current directory
 		SetCurrentDir(ExtractFileDir(infile));
 
-		Log += "•ÏŠ·’† " + ExtractFileName(infile) + " ...\n";
+		Log += "å¤‰æ›ä¸­ " + ExtractFileName(infile) + " ...Â¥n";
 
 		// check for output files
 		AnsiString out_base = ChangeFileExt(ExtractFileName(infile), "");
@@ -1116,19 +1116,19 @@ bool __fastcall TTPCMainForm::ProcessFile(AnsiString infile)
 	}
 	catch(Exception &e)
 	{
-		Log += "ƒGƒ‰[: " + e.Message + "\n";
+		Log += "ã‚¨ãƒ©ãƒ¼: " + e.Message + "Â¥n";
 		error = true;
 	}
 	catch(...)
 	{
-		Log += "•s–¾‚ÈƒGƒ‰[\n";
+		Log += "ä¸æ˜ãªã‚¨ãƒ©ãƒ¼Â¥n";
 		error = true;
 	}
 
 	if(!error)
-		Log += "OK\n";
+		Log += "OKÂ¥n";
 
-	Log += "\n";
+	Log += "Â¥n";
 
 	if(inbmp) delete inbmp;
 

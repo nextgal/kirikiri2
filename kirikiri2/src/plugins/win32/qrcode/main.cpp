@@ -22,7 +22,7 @@ public:
 		tTJSVariant *pvals[4] = { vals, vals +1, vals +2, vals +3 };
 		tTJSVariant	val;
 
-		//	QRƒR[ƒh‚É‚·‚éƒf[ƒ^
+		//	QRã‚³ãƒ¼ãƒ‰ã«ã™ã‚‹ãƒ‡ãƒ¼ã‚¿
 		if(numparams < 1)
 			return TJS_E_BADPARAMCOUNT;
 		ttstr	str	= param[0]->AsStringNoAddRef();
@@ -34,32 +34,32 @@ public:
 		dm(L"original len = "+ttstr((tjs_int)len)+" / convert len = "+ttstr((tjs_int)cvlen));
 		buf[len-1]	= 0x0;
 
-		//	‚»‚Ì‘¼d—l
+		//	ãã®ä»–ä»•æ§˜
 		tjs_int	ecLevel		= numparams > 1 && param[1]->Type() != tvtVoid ? param[1]->AsInteger() : QR_LEVEL_L;
 		tjs_int	qrVersion	= numparams > 2 && param[2]->Type() != tvtVoid ? param[2]->AsInteger() : QR_VRESION_S;
 		tjs_int	autoExtent	= numparams > 3 && param[3]->Type() != tvtVoid ? param[3]->AsInteger() : true;
 		tjs_int	maskPattern	= numparams > 4 && param[4]->Type() != tvtVoid ? param[4]->AsInteger() : -1;
 		dm(L"error correct level = "+ttstr(ecLevel)+" / version = "+ttstr(qrVersion)+" / auto extent = "+ttstr(autoExtent)+" / masking patter = "+ttstr(maskPattern));
 
-		//	QRƒGƒ“ƒR[ƒh
+		//	QRã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰
 		CQR_Encode	*pQR_Encode	= new CQR_Encode;
 		BOOL	res = pQR_Encode->EncodeData(ecLevel, qrVersion, autoExtent, maskPattern, buf, len-1);
 		dm(L"Version = "+ttstr((tjs_int)pQR_Encode->m_nVersion)+" / Masking Patter = "+ttstr((tjs_int)pQR_Encode->m_nMaskingNo));
 		if(!res)
 		{
 			if(result)
-				*result	= L"ƒf[ƒ^‚ª‘¶İ‚µ‚È‚¢‚©A—e—Ê‚ğƒI[ƒo[‚µ‚Ä‚¢‚Ü‚·";
+				*result	= L"ãƒ‡ãƒ¼ã‚¿ãŒå­˜åœ¨ã—ãªã„ã‹ã€å®¹é‡ã‚’ã‚ªãƒ¼ãƒãƒ¼ã—ã¦ã„ã¾ã™";
 			return TJS_S_OK;
 		}
 
-		//	ƒTƒCƒY‚ğ’²®
+		//	ã‚µã‚¤ã‚ºã‚’èª¿æ•´
 		tjs_int	symbolsize	= pQR_Encode->m_nSymbleSize;
 		tjs_int	whsize		= symbolsize + QR_MARGIN * 2;
 		vals[0]	= whsize;
 		vals[1] = whsize;
 		objthis->FuncCall(0, L"setImageSize", NULL, &val, 2, pvals, objthis);
 
-		//	ƒŒƒCƒ„[î•ñæ“¾
+		//	ãƒ¬ã‚¤ãƒ¤ãƒ¼æƒ…å ±å–å¾—
 /*		objthis->PropGet(0, L"imageWidth", NULL, &val, objthis);
 		tjs_int	imageWidth	= (tjs_int)val;
 		objthis->PropGet(0, L"imageHeight", NULL, &val, objthis);
@@ -69,7 +69,7 @@ public:
 		objthis->PropGet(0, L"mainImageBufferForWrite", NULL, &val, objthis);
 		tjs_uint8*	bufferptr	= (tjs_uint8*)(tjs_int)val;
 
-		//	‘‚«‚İ
+		//	æ›¸ãè¾¼ã¿
 		tjs_uint32*	lineptr		= (tjs_uint32*)bufferptr;
 		tjs_int		linepitch	= bufferpitch * sizeof(tjs_uint8) / sizeof(tjs_uint32);
 		for(tjs_int	y=0; y<QR_MARGIN; y++)
@@ -98,7 +98,7 @@ public:
 			lineptr	+= linepitch;
 		}
 
-/*		//	—Ìˆæ‚ğXV‚³‚¹‚é
+/*		//	é ˜åŸŸã‚’æ›´æ–°ã•ã›ã‚‹
 		vals[0] = (tjs_int64)0;
 		vals[1] = (tjs_int64)0;
 		vals[2] = (tjs_int64)imageWidth;

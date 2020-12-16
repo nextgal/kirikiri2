@@ -7,7 +7,7 @@ void *sq_vm_realloc(void *p,SQUnsignedInteger oldsize,SQUnsignedInteger size);
 void sq_vm_free(void *p,SQUnsignedInteger size);
 
 #define sq_new(__ptr,__type) {__ptr=(__type *)sq_vm_malloc(sizeof(__type));new (__ptr) __type;}
-#define sq_delete(__ptr,__type) {__ptr->~__type();sq_vm_free(__ptr,sizeof(__type));}
+#define sq_delete(__ptr,__type) {__ptr->‾__type();sq_vm_free(__ptr,sizeof(__type));}
 #define SQ_MALLOC(__size) sq_vm_malloc((__size));
 #define SQ_FREE(__ptr,__size) sq_vm_free((__ptr),(__size));
 #define SQ_REALLOC(__ptr,__oldsize,__size) sq_vm_realloc((__ptr),(__oldsize),(__size));
@@ -34,11 +34,11 @@ public:
 		}
 		_size = v._size;
 	}
-	~sqvector()
+	‾sqvector()
 	{
 		if(_allocated) {
 			for(SQUnsignedInteger i = 0; i < _size; i++)
-				_vals[i].~T();
+				_vals[i].‾T();
 			SQ_FREE(_vals, (_allocated * sizeof(T)));
 		}
 	}
@@ -55,7 +55,7 @@ public:
 		}
 		else{
 			for(SQUnsignedInteger i = newsize; i < _size; i++) {
-				_vals[i].~T();
+				_vals[i].‾T();
 			}
 			_size = newsize;
 		}
@@ -72,7 +72,7 @@ public:
 	}
 	inline void pop_back()
 	{
-		_size--; _vals[_size].~T();
+		_size--; _vals[_size].‾T();
 	}
 	void insert(SQUnsignedInteger idx, const T& val)
 	{
@@ -84,7 +84,7 @@ public:
 	}
 	void remove(SQUnsignedInteger idx)
 	{
-		_vals[idx].~T();
+		_vals[idx].‾T();
 		if(idx < (_size - 1)) {
 			memmove(&_vals[idx], &_vals[idx+1], sizeof(T) * (_size - idx - 1));
 		}

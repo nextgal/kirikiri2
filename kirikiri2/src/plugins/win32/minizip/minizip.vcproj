@@ -18,7 +18,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\..\..\..\bin\win32\plugin"
+			OutputDirectory="..ﾂ･..ﾂ･..ﾂ･..ﾂ･binﾂ･win32ﾂ･plugin"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="2"
@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories=".;..;..\zlib;..\zlib\contrib\minizip"
+				AdditionalIncludeDirectories=".;..;..ﾂ･zlib;..ﾂ･zlibﾂ･contribﾂ･minizip"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;MINIZIP_EXPORTS;_CRT_SECURE_NO_WARNINGS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -93,7 +93,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\..\..\bin\win32\plugin"
+			OutputDirectory="..ﾂ･..ﾂ･..ﾂ･..ﾂ･binﾂ･win32ﾂ･plugin"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="2"
@@ -116,7 +116,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories=".;..;..\zlib;..\zlib\contrib\minizip"
+				AdditionalIncludeDirectories=".;..;..ﾂ･zlib;..ﾂ･zlibﾂ･contribﾂ･minizip"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;MINIZIP_EXPORTS;_CRT_SECURE_NO_WARNINGS"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
@@ -171,43 +171,43 @@
 	</References>
 	<Files>
 		<Filter
-			Name="ソース ファイル"
+			Name="繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\ioapi.cpp"
+				RelativePath=".ﾂ･ioapi.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\main.cpp"
+				RelativePath=".ﾂ･main.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\ncbind\ncbind.cpp"
+				RelativePath="..ﾂ･ncbindﾂ･ncbind.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\storage.cpp"
+				RelativePath=".ﾂ･storage.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\tp_stub.cpp"
+				RelativePath="..ﾂ･tp_stub.cpp"
 				>
 			</File>
 			<Filter
 				Name="minizip"
 				>
 				<File
-					RelativePath="..\zlib\contrib\minizip\ioapi.c"
+					RelativePath="..ﾂ･zlibﾂ･contribﾂ･minizipﾂ･ioapi.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
-							ObjectFile="$(IntDir)\$(InputName)1.obj"
-							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+							ObjectFile="$(IntDir)ﾂ･$(InputName)1.obj"
+							XMLDocumentationFileName="$(IntDir)ﾂ･$(InputName)1.xdc"
 						/>
 					</FileConfiguration>
 					<FileConfiguration
@@ -215,47 +215,47 @@
 						>
 						<Tool
 							Name="VCCLCompilerTool"
-							ObjectFile="$(IntDir)\$(InputName)1.obj"
-							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+							ObjectFile="$(IntDir)ﾂ･$(InputName)1.obj"
+							XMLDocumentationFileName="$(IntDir)ﾂ･$(InputName)1.xdc"
 						/>
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\zlib\contrib\minizip\unzip.c"
+					RelativePath="..ﾂ･zlibﾂ･contribﾂ･minizipﾂ･unzip.c"
 					>
 				</File>
 				<File
-					RelativePath="..\zlib\contrib\minizip\zip.c"
+					RelativePath="..ﾂ･zlibﾂ･contribﾂ･minizipﾂ･zip.c"
 					>
 				</File>
 			</Filter>
 		</Filter>
 		<Filter
-			Name="ヘッダー ファイル"
+			Name="繝倥ャ繝繝ｼ 繝輔ぃ繧､繝ｫ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\tp_stub.h"
+				RelativePath="..ﾂ･tp_stub.h"
 				>
 			</File>
 			<Filter
 				Name="minizip"
 				>
 				<File
-					RelativePath="..\zlib\contrib\minizip\crypt.h"
+					RelativePath="..ﾂ･zlibﾂ･contribﾂ･minizipﾂ･crypt.h"
 					>
 				</File>
 				<File
-					RelativePath="..\zlib\contrib\minizip\ioapi.h"
+					RelativePath="..ﾂ･zlibﾂ･contribﾂ･minizipﾂ･ioapi.h"
 					>
 				</File>
 				<File
-					RelativePath="..\zlib\contrib\minizip\unzip.h"
+					RelativePath="..ﾂ･zlibﾂ･contribﾂ･minizipﾂ･unzip.h"
 					>
 				</File>
 				<File
-					RelativePath="..\zlib\contrib\minizip\zip.h"
+					RelativePath="..ﾂ･zlibﾂ･contribﾂ･minizipﾂ･zip.h"
 					>
 				</File>
 			</Filter>
@@ -263,21 +263,21 @@
 				Name="ncbind"
 				>
 				<File
-					RelativePath="..\ncbind\ncb_foreach.h"
+					RelativePath="..ﾂ･ncbindﾂ･ncb_foreach.h"
 					>
 				</File>
 				<File
-					RelativePath="..\ncbind\ncb_invoke.hpp"
+					RelativePath="..ﾂ･ncbindﾂ･ncb_invoke.hpp"
 					>
 				</File>
 				<File
-					RelativePath="..\ncbind\ncbind.hpp"
+					RelativePath="..ﾂ･ncbindﾂ･ncbind.hpp"
 					>
 				</File>
 			</Filter>
 		</Filter>
 		<Filter
-			Name="リソース ファイル"
+			Name="繝ｪ繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>

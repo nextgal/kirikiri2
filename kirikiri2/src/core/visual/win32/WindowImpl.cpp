@@ -323,7 +323,7 @@ void TVPDumpDirectDrawDriverInformation()
 				{
 					char syspath[1024];
 					GetSystemDirectory(syspath, 1023);
-					strcat(syspath, "\\drivers"); // SystemDir\drivers
+					strcat(syspath, "¥¥drivers"); // SystemDir¥drivers
 					success = SearchPath(syspath, DDID.szDriver, NULL, 1023, driverpath, &driverpath_filename);
 				}
 
@@ -331,7 +331,7 @@ void TVPDumpDirectDrawDriverInformation()
 				{
 					char syspath[1024];
 					GetWindowsDirectory(syspath, 1023);
-					strcat(syspath, "\\system32"); // WinDir\system32
+					strcat(syspath, "¥¥system32"); // WinDir¥system32
 					success = SearchPath(syspath, DDID.szDriver, NULL, 1023, driverpath, &driverpath_filename);
 				}
 
@@ -339,7 +339,7 @@ void TVPDumpDirectDrawDriverInformation()
 				{
 					char syspath[1024];
 					GetWindowsDirectory(syspath, 1023);
-					strcat(syspath, "\\system32\\drivers"); // WinDir\system32\drivers
+					strcat(syspath, "¥¥system32¥¥drivers"); // WinDir¥system32¥drivers
 					success = SearchPath(syspath, DDID.szDriver, NULL, 1023, driverpath, &driverpath_filename);
 				}
 

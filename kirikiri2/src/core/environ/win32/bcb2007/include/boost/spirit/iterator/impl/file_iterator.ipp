@@ -28,8 +28,8 @@
 #include <cassert>
 #include <fcntl.h>
 
-#if (defined (__COMO_VERSION__) && !defined (BOOST_DISABLE_WIN32)) \
-      || defined _BORLANDC_ || defined BOOST_INTEL_CXX_VERSION  \
+#if (defined (__COMO_VERSION__) && !defined (BOOST_DISABLE_WIN32)) ¥
+      || defined _BORLANDC_ || defined BOOST_INTEL_CXX_VERSION  ¥
       || defined BOOST_MSVC
     #include <io.h>
 #elif defined (__GLIBC__) && (__GLIBC__ == 2) && (__GLIBC_MINOR__ >= 3)
@@ -45,8 +45,8 @@ namespace boost { namespace spirit {
 namespace impl {
 
 // Systems that have _lseeki64, such as Win32.
-#if defined BOOST_MSVC              \
- || defined __MINGW32_VERSION       \
+#if defined BOOST_MSVC              ¥
+ || defined __MINGW32_VERSION       ¥
  || defined BOOST_INTEL_CXX_VERSION
 
    // These systems default to CR-LF translation for opened files. Using
@@ -127,7 +127,7 @@ inline file_iterator <CharT>::file_iterator (char const * pFilename)
 
 ///////////////////////////////////////////////////////////////////////////////
 template <typename CharT>
-inline file_iterator <CharT>::~file_iterator ()
+inline file_iterator <CharT>::‾file_iterator ()
 {
    if (
          m_CloseFile

@@ -1,107 +1,107 @@
 
 // ---------------------------------------------------------------
-// ƒŒƒCƒ„‹@”\Šg’£ˆ—
+// ãƒ¬ã‚¤ãƒ¤æ©Ÿèƒ½æ‹¡å¼µå‡¦ç†
 // ---------------------------------------------------------------
 
-// Šg’£ƒtƒ@ƒ“ƒNƒVƒ‡ƒ“ŒQ‚Ì‚æ‚İ‚±‚İ
+// æ‹¡å¼µãƒ•ã‚¡ãƒ³ã‚¯ã‚·ãƒ§ãƒ³ç¾¤ã®ã‚ˆã¿ã“ã¿
 
 //    /**
-//     * –¾“x‚ÆƒRƒ“ƒgƒ‰ƒXƒg
-//     * @param brightness –¾“x -255 ` 255, •‰”‚Ìê‡‚ÍˆÃ‚­‚È‚é
-//     * @param contrast ƒRƒ“ƒgƒ‰ƒXƒg -100 `100, 0 ‚Ìê‡•Ï‰»‚µ‚È‚¢
+//     * æ˜åº¦ã¨ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆ
+//     * @param brightness æ˜åº¦ -255 ã€œ 255, è² æ•°ã®å ´åˆã¯æš—ããªã‚‹
+//     * @param contrast ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆ -100 ã€œ100, 0 ã®å ´åˆå¤‰åŒ–ã—ãªã„
 //     */
 //    function light(brightness, contrast);
 //    
 //    /**
-//     * F‘Š‚ÆÊ“x
-//     * @param hue F‘Š
-//     * @param sat Ê“x
-//     * @param blend ƒuƒŒƒ“ƒh 0 (Œø‰Ê‚È‚µ) ` 1 (full effect)
+//     * è‰²ç›¸ã¨å½©åº¦
+//     * @param hue è‰²ç›¸
+//     * @param sat å½©åº¦
+//     * @param blend ãƒ–ãƒ¬ãƒ³ãƒ‰ 0 (åŠ¹æœãªã—) ã€œ 1 (full effect)
 //     */
 //    function colorize(hue, sat, blend);
 //    
 //    /**
-//     * ƒmƒCƒY’Ç‰Á
-//     * @param level ƒmƒCƒYƒŒƒxƒ‹ 0 (no noise) ` 255 (lot of noise).
+//     * ãƒã‚¤ã‚ºè¿½åŠ 
+//     * @param level ãƒã‚¤ã‚ºãƒ¬ãƒ™ãƒ« 0 (no noise) ã€œ 255 (lot of noise).
 //     */
 //    function noize(level);
 
 Plugins.link("layerExImage.dll");
 
 /**
- * ‰e‚ğ’Ç‰Á‚·‚é
- * @param dx ‰e‚ÌXˆÚ“®—Ê (‰E‚Éƒvƒ‰ƒX)
- * @param dy ‰e‚ÌYˆÚ“®—Ê (‰º‚Éƒvƒ‰ƒX)
- * @param blur ‚Ú‚©‚µ—Ê
- * @param shadowColor ‰e‚ÌF
- * @param shadoAlpha ‰e‚Ì•s“§–¾“x
+ * å½±ã‚’è¿½åŠ ã™ã‚‹
+ * @param dx å½±ã®Xç§»å‹•é‡ (å³ã«ãƒ—ãƒ©ã‚¹)
+ * @param dy å½±ã®Yç§»å‹•é‡ (ä¸‹ã«ãƒ—ãƒ©ã‚¹)
+ * @param blur ã¼ã‹ã—é‡
+ * @param shadowColor å½±ã®è‰²
+ * @param shadoAlpha å½±ã®ä¸é€æ˜åº¦
  */
 Layer.doDropShadow = function(dx=10, dy=10, blur=3, shadowColor=0x000000, shadowOpacity=200)
 {
     var THIS = global.Layer;
     
-    // ì‹Æ—pƒŒƒCƒ„
+    // ä½œæ¥­ç”¨ãƒ¬ã‚¤ãƒ¤
     var work = new THIS(window, parent);
     work.setImagePos(THIS.imageLeft, THIS.imageTop);
     work.setImageSize(THIS.imageWidth, THIS.imageHeight);
     
-    // ‰e¶¬ˆ—
+    // å½±ç”Ÿæˆå‡¦ç†
     var shadow = new THIS(window, parent);
     shadow.assignImages(this);
-    // “h‚è‚Â‚Ô‚µ
+    // å¡—ã‚Šã¤ã¶ã—
     shadow.face = dfMain;
     shadow.holdAlpha = true;
     shadow.fillRect(THIS.imageLeft, THIS.imageTop, THIS.imageWidth, THIS.imageHeight, shadowColor);
     shadow.face = dfBoth;
     shadow.holdAlpha = false;
-    // ‚Ú‚©‚·
+    // ã¼ã‹ã™
     shadow.doBoxBlur(blur, blur);
     
-    // ‰e‚ğƒRƒs[
+    // å½±ã‚’ã‚³ãƒ”ãƒ¼
     work.operateRect(THIS.imageLeft + dx, THIS.imageTop + dy, shadow, THIS.imageLeft, THIS.imageTop, THIS.imageWidth, THIS.imageHeight, ltPsNormal, shadowOpacity);
-    // ©•ª‚ğƒRƒs[
+    // è‡ªåˆ†ã‚’ã‚³ãƒ”ãƒ¼
     work.operateRect(THIS.imageLeft, THIS.imageTop, this, THIS.imageLeft, THIS.imageTop, THIS.imageWidth, THIS.imageHeight, ltPsNormal, 255);
     
-    // ‰æ‘œ‚³‚µ‚©‚¦
+    // ç”»åƒã•ã—ã‹ãˆ
     THIS.assignImages(work);
     
-    // Œã•Ğ•t‚¯
+    // å¾Œç‰‡ä»˜ã‘
     invalidate work;
     invalidate shadow;
 };
 
 /**
- * ‚Ú‚í‚Ú‚íŒõŒø‰Ê
- * @param blur ‚Ú‚©‚µ“x‡‚¢
- * @param blurOpacity ‚Ú‚©‚µ‡¬•s“§–¾“x
- * @param lightType Œõ‡¬í•Ê
- * @param lightOpacity Œõ•s“§–¾“x
+ * ã¼ã‚ã¼ã‚å…‰åŠ¹æœ
+ * @param blur ã¼ã‹ã—åº¦åˆã„
+ * @param blurOpacity ã¼ã‹ã—åˆæˆä¸é€æ˜åº¦
+ * @param lightType å…‰åˆæˆç¨®åˆ¥
+ * @param lightOpacity å…‰ä¸é€æ˜åº¦
  */
 Layer.doBlurLight = function (blur=10, blurOpacity=128, lightOpacity=200, lightType=ltPsHardLight)
 {
     var THIS = global.Layer;
     
-    // ‚Ú‚©‚µ¶¬ˆ—
+    // ã¼ã‹ã—ç”Ÿæˆå‡¦ç†
     var light = new THIS(window, parent);
     light.assignImages(this);
     light.doBoxBlur(blur, blur);
-    // ‚Ú‚©‚µ‚ğƒRƒs[
+    // ã¼ã‹ã—ã‚’ã‚³ãƒ”ãƒ¼
     THIS.operateRect(THIS.imageLeft, THIS.imageTop, light, THIS.imageLeft, THIS.imageTop, THIS.imageWidth, THIS.imageHeight, ltPsNormal, blurOpacity);
-    // Œõ‚ğƒRƒs[
+    // å…‰ã‚’ã‚³ãƒ”ãƒ¼
     THIS.operateRect(THIS.imageLeft, THIS.imageTop, light, THIS.imageLeft, THIS.imageTop, THIS.imageWidth, THIS.imageHeight, lightType, lightOpacity);
-    // Œã•Ğ•t‚¯
+    // å¾Œç‰‡ä»˜ã‘
     invalidate light;
 };
 
 /**
- * ƒŒƒCƒ„‚Ö‚Ìƒ^ƒCƒ‹•~‚«‹l‚ßˆ—
+ * ãƒ¬ã‚¤ãƒ¤ã¸ã®ã‚¿ã‚¤ãƒ«æ•·ãè©°ã‚å‡¦ç†
  * @param left
  * @param top
  * @param width
  * @param height
- * @param tile •~‚«‹l‚ß‚éƒŒƒCƒ„i‰æ‘œ•”•ª‚ªQÆ‚³‚ê‚éj
- * @param x X•ûŒü‚¸‚ê—Ê
- * @param y Y•ûŒü‚¸‚ê—Ê
+ * @param tile æ•·ãè©°ã‚ã‚‹ãƒ¬ã‚¤ãƒ¤ï¼ˆç”»åƒéƒ¨åˆ†ãŒå‚ç…§ã•ã‚Œã‚‹ï¼‰
+ * @param x Xæ–¹å‘ãšã‚Œé‡
+ * @param y Yæ–¹å‘ãšã‚Œé‡
  */
 Layer.tileRect = function (left, top, width, height, tile, x=0, y=0)
 {
@@ -131,7 +131,7 @@ Layer.tileRect = function (left, top, width, height, tile, x=0, y=0)
                     var sy = tt;
                     var sw = tw;
                     var sh = th;
-                    // ƒNƒŠƒbƒsƒ“ƒO
+                    // ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°
                     if (dx < 0) {
                         sx -= dx;
                         sw += dx;
@@ -155,18 +155,18 @@ Layer.tileRect = function (left, top, width, height, tile, x=0, y=0)
             }
         }
     } else {
-        throw new Exception("Layer.tile() ‚Ì‘æˆêˆø”‚Í Layer ‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·");
+        throw new Exception("Layer.tile() ã®ç¬¬ä¸€å¼•æ•°ã¯ Layer ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™");
     }
 };
 
 /**
- * ƒŒƒCƒ„‚Ö‚ÌF”½‰fˆ—
+ * ãƒ¬ã‚¤ãƒ¤ã¸ã®è‰²åæ˜ å‡¦ç†
  * @param left
  * @param top
  * @param width
  * @param height
- * @param color “h‚è‚Â‚Ô‚·F(ƒ}ƒXƒN’l‚ğŠÜ‚Şj
- * @param mode ‡¬ƒ‚[ƒh
+ * @param color å¡—ã‚Šã¤ã¶ã™è‰²(ãƒã‚¹ã‚¯å€¤ã‚’å«ã‚€ï¼‰
+ * @param mode åˆæˆãƒ¢ãƒ¼ãƒ‰
  */
 Layer.fillOperateRect = function (left, top, width, height, color, mode)
 {

@@ -33,7 +33,7 @@ CCameraMayaSceneNode::CCameraMayaSceneNode(ISceneNode* parent, ISceneManager* mg
 
 
 //! destructor
-CCameraMayaSceneNode::~CCameraMayaSceneNode()
+CCameraMayaSceneNode::‾CCameraMayaSceneNode()
 {
 }
 

@@ -29,7 +29,7 @@ CGUIImage::CGUIImage(IGUIEnvironment* environment, IGUIElement* parent, s32 id, 
 
 
 //! destructor
-CGUIImage::~CGUIImage()
+CGUIImage::‾CGUIImage()
 {
 	if (Texture)
 		Texture->drop();

@@ -1,13 +1,13 @@
 /**
- * XP3�̃t�@�C���ꗗ���擾����
+ * XP3のファイル一覧を取得する
  *
- * @param name �Ώۂ�XP3�t�@�C���p�X
- * @return �t�@�C�����̔z��i�p�X�������܂܂�܂��j
+ * @param name 対象のXP3ファイルパス
+ * @return ファイル名の配列（パス文字も含まれます）
  *
- * ���v BinaryStream.dll, memfile.dll �v���O�C��
- * �R�[�h�̍\���� XP3Archive.cpp �ɏK���č���Ă���܂��iTJS�|��̂��߈ꕔ�قȂ镔������j
- * �t�@�C�����擾�݂̂ŁC�T�C�Y��Z�O�����g��񓙂͎擾���܂���
- * �����ȃ`�F�b�N�����Ă��Ȃ����߉�ꂽXP3�t�@�C����ǂ܂���Ɨ�O����������ꍇ������܂�
+ * ※要 BinaryStream.dll, memfile.dll プラグイン
+ * コードの構成は XP3Archive.cpp に習って作ってあります（TJS翻訳のため一部異なる部分あり）
+ * ファイル名取得のみで，サイズやセグメント情報等は取得しません
+ * 厳密なチェックをしていないため壊れたXP3ファイルを読ませると例外が発生する場合があります
  */
 
 Storages.getXP3ArchiveIndex = function (name)
@@ -76,8 +76,8 @@ Storages.getXP3ArchiveIndex = function (name)
 
 		st.seek(0, BinaryStream.bsSeekSet);
 		var XP3Mark = [
-			0x58/*'X'*/, 0x50/*'P'*/, 0x33/*'3'*/, 0x0d/*'\r'*/,
-			0x0a/*'\n'*/, 0x20/*' '*/, 0x0a/*'\n'*/, 0x1a/*EOF*/,
+			0x58/*'X'*/, 0x50/*'P'*/, 0x33/*'3'*/, 0x0d/*'¥r'*/,
+			0x0a/*'¥n'*/, 0x20/*' '*/, 0x0a/*'¥n'*/, 0x1a/*EOF*/,
 			0x8b, 0x67, 0x01 ];
 		var memcmp = function(a, b, ofs, len) {
 			for (var i = 0; i < len; i++) if (a[i] != b[i+ofs]) return a[i] - b[i+ofs];

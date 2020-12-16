@@ -40,7 +40,7 @@ class tTVPVideoModule
 
 public:
 	tTVPVideoModule(const ttstr & name);
-	~tTVPVideoModule();
+	â€¾tTVPVideoModule();
 
 	void GetAPIVersion(DWORD *version) { procGetAPIVersion(version); }
 	void GetVideoOverlayObject(HWND callbackwin, IStream *stream,
@@ -114,7 +114,7 @@ tTVPVideoModule::tTVPVideoModule(const ttstr &name)
 	}
 }
 //---------------------------------------------------------------------------
-tTVPVideoModule::~tTVPVideoModule()
+tTVPVideoModule::â€¾tTVPVideoModule()
 {
 	procV2Unlink();
 	FreeLibrary(Handle);
@@ -683,7 +683,7 @@ void __fastcall tTJSNI_VideoOverlay::WndProc(Messages::TMessage &Msg)
 							if( Layer1 == NULL && Layer2 == NULL )	// nothing to do.
 								return;
 
-							// 2ƒtƒŒ[ƒ€ˆÈã·‚ª‚ ‚é‚Æ‚«‚ÍGetFrame() ‚ğŒ»İ‚ÌƒtƒŒ[ƒ€‚Æ‚·‚é
+							// 2ãƒ•ãƒ¬ãƒ¼ãƒ ä»¥ä¸Šå·®ãŒã‚ã‚‹ã¨ãã¯GetFrame() ã‚’ç¾åœ¨ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã¨ã™ã‚‹
 							int frame = GetFrame();
 							if( (frame+1) < curFrame || (frame-1) > curFrame )
 								curFrame = frame;
@@ -691,7 +691,7 @@ void __fastcall tTJSNI_VideoOverlay::WndProc(Messages::TMessage &Msg)
 							if( (!IsPrepare) && (SegLoopEndFrame > 0) && (frame >= SegLoopEndFrame) ) {
 								SetFrame( SegLoopStartFrame > 0 ? SegLoopStartFrame : 0 );
 								FirePeriodEvent(perSegLoop); // fire period event by segment loop rewind
-								return; // Update‚ğs‚í‚È‚¢
+								return; // Updateã‚’è¡Œã‚ãªã„
 							}
 
 							// get video image size
@@ -723,7 +723,7 @@ void __fastcall tTJSNI_VideoOverlay::WndProc(Messages::TMessage &Msg)
 								if( l1 ) l1->AssignMainImage( Bitmap[0] );
 								if( l2 ) l2->AssignMainImage( Bitmap[0] );
 							}
-							else	// 0‚¶‚á‚È‚©‚Á‚½‚çA1‚Æ‚İ‚È‚·B
+							else	// 0ã˜ã‚ƒãªã‹ã£ãŸã‚‰ã€1ã¨ã¿ãªã™ã€‚
 							{
 								if( l1 ) l1->AssignMainImage( Bitmap[1] );
 								if( l2 ) l2->AssignMainImage( Bitmap[1] );
@@ -885,7 +885,7 @@ void tTJSNI_VideoOverlay::SetLayer2( tTJSNI_BaseLayer *l )
 }
 void tTJSNI_VideoOverlay::SetMode( tTVPVideoOverlayMode m )
 {
-	// ƒrƒfƒIƒI[ƒvƒ“Œã‚Ìƒ‚[ƒh•ÏX‚Í‹Ö~
+	// ãƒ“ãƒ‡ã‚ªã‚ªãƒ¼ãƒ—ãƒ³å¾Œã®ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´ã¯ç¦æ­¢
 	if( !VideoOverlay )
 	{
 		Mode = m;
@@ -1020,11 +1020,11 @@ void tTJSNI_VideoOverlay::SetMixingLayer( tTJSNI_BaseLayer *l )
 				{
 					HDC hdc;
 					if( (hdc = bmp->GetBitmapDC()) != NULL )
-					{	// ‚·‚Å‚ÉHDC‚ª‚ ‚é‚Ì‚Å‚»‚ê‚ğg‚¤
+					{	// ã™ã§ã«HDCãŒã‚ã‚‹ã®ã§ãã‚Œã‚’ä½¿ã†
 						VideoOverlay->SetMixingBitmap( hdc, &dest, alpha );
 					}
 					else
-					{	// ©‘O‚ÅDC‚ğì‚é
+					{	// è‡ªå‰ã§DCã‚’ä½œã‚‹
 						HDC			ref = GetDC(0);
 						HBITMAP		myDIB = CreateDIBitmap( ref, bmp->GetBITMAPINFOHEADER(), CBM_INIT, bmp->GetBits(), bmp->GetBITMAPINFO(), bmp->Is8bit() ? DIB_PAL_COLORS : DIB_RGB_COLORS );
 						hdc = CreateCompatibleDC( NULL );

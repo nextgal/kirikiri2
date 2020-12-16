@@ -20,8 +20,8 @@
 #include "boost/preprocessor/cat.hpp"
 #include "boost/preprocessor/stringize.hpp"
 
-#   define AUX_PREPROCESSED_HEADER \
-    aux_/preprocessed/BOOST_MPL_COMPILER_DIR/BOOST_MPL_PREPROCESSED_HEADER \
+#   define AUX_PREPROCESSED_HEADER ¥
+    aux_/preprocessed/BOOST_MPL_COMPILER_DIR/BOOST_MPL_PREPROCESSED_HEADER ¥
 /**/
 
 #   include BOOST_PP_STRINGIZE(boost/mpl/AUX_PREPROCESSED_HEADER)

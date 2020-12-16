@@ -50,7 +50,7 @@ png_error(png_structp png_ptr, png_const_charp error_message)
               int i;
               for (i=0; i<offset-1; i++)
                  msg[i]=error_message[i+1];
-              msg[i]='\0';
+              msg[i]='¥0';
               error_message=msg;
            }
            else
@@ -61,7 +61,7 @@ png_error(png_structp png_ptr, png_const_charp error_message)
            if (png_ptr->flags&PNG_FLAG_STRIP_ERROR_TEXT)
            {
               msg[0]='0';
-              msg[1]='\0';
+              msg[1]='¥0';
               error_message=msg;
            }
        }
@@ -199,16 +199,16 @@ png_default_error(png_structp png_ptr, png_const_charp error_message)
      }
      if((offset > 1) && (offset < 15))
      {
-       error_number[offset-1]='\0';
-       fprintf(stderr, "libpng error no. %s: %s\n", error_number,
+       error_number[offset-1]='¥0';
+       fprintf(stderr, "libpng error no. %s: %s¥n", error_number,
           error_message+offset);
      }
      else
-       fprintf(stderr, "libpng error: %s, offset=%d\n", error_message,offset);
+       fprintf(stderr, "libpng error: %s, offset=%d¥n", error_message,offset);
    }
    else
 #endif
-   fprintf(stderr, "libpng error: %s\n", error_message);
+   fprintf(stderr, "libpng error: %s¥n", error_message);
 #endif
 
 #ifdef PNG_SETJMP_SUPPORTED
@@ -256,16 +256,16 @@ png_default_warning(png_structp png_ptr, png_const_charp warning_message)
      }
      if((offset > 1) && (offset < 15))
      {
-       warning_number[offset-1]='\0';
-       fprintf(stderr, "libpng warning no. %s: %s\n", warning_number,
+       warning_number[offset-1]='¥0';
+       fprintf(stderr, "libpng warning no. %s: %s¥n", warning_number,
           warning_message+offset);
      }
      else
-       fprintf(stderr, "libpng warning: %s\n", warning_message);
+       fprintf(stderr, "libpng warning: %s¥n", warning_message);
    }
    else
 #  endif
-     fprintf(stderr, "libpng warning: %s\n", warning_message);
+     fprintf(stderr, "libpng warning: %s¥n", warning_message);
 #else
    /* make compiler happy */ ;
    if (warning_message)
@@ -313,7 +313,7 @@ png_set_strip_error_numbers(png_structp png_ptr, png_uint_32 strip_mode)
    if(png_ptr != NULL)
    {
      png_ptr->flags &=
-       ((~(PNG_FLAG_STRIP_ERROR_NUMBERS|PNG_FLAG_STRIP_ERROR_TEXT))&strip_mode);
+       ((‾(PNG_FLAG_STRIP_ERROR_NUMBERS|PNG_FLAG_STRIP_ERROR_TEXT))&strip_mode);
    }
 }
 #endif

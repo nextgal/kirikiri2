@@ -6,7 +6,7 @@ Plugins.link("layerExDraw.dll");
 
 var WIDTH=800;
 var HEIGHT=600;
-var dm = Debug.message; // ‚±‚ê‚Å dm("message"); ‚ÅƒRƒ“ƒ\[ƒ‹‚É message ‚ğ•\¦‚Å‚«‚é
+var dm = Debug.message; // ã“ã‚Œã§ dm("message"); ã§ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã« message ã‚’è¡¨ç¤ºã§ãã‚‹
 
 class MyWindow extends Window
 {
@@ -31,13 +31,13 @@ class MyWindow extends Window
 		super.Window();
 		setInnerSize(WIDTH, HEIGHT);
 
-		// ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„
+		// ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤
 		base = new Layer(this, null);
 		base.setSize(WIDTH, HEIGHT);
 		base.fillRect(0,0,WIDTH,HEIGHT,0xff000000);
 		add(base);
 
-		// •\¦ƒŒƒCƒ„
+		// è¡¨ç¤ºãƒ¬ã‚¤ãƒ¤
 		layer = new Layer(this, base);
 		layer.setSize(WIDTH, HEIGHT);
 		layer.setPos(0, 0);
@@ -114,17 +114,17 @@ class MyWindow extends Window
 				 lineJoin:GdiPlus.LineJoinRound], 0, 0);
 		app.addBrush(0xff333333, 0, 0);
 		app.addPen(0xffff0000, 1, 0, 0);
-		var font = new GdiPlus.Font("‚l‚r ƒSƒVƒbƒN", 40, GdiPlus.FontStyleBold);
-		dm("ƒtƒHƒ“ƒgî•ñ ascent:" + font.ascent + " descent:" + font.descent + " linespacing:" + font.lineSpacing);
+		var font = new GdiPlus.Font("ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 40, GdiPlus.FontStyleBold);
+		dm("ãƒ•ã‚©ãƒ³ãƒˆæƒ…å ± ascent:" + font.ascent + " descent:" + font.descent + " linespacing:" + font.lineSpacing);
 
-		var text = "¡ƒeƒLƒXƒg•`‰æƒeƒXƒgABCghijklpq¡";
+		var text = "â– ãƒ†ã‚­ã‚¹ãƒˆæç”»ãƒ†ã‚¹ãƒˆABCghijklpqâ– ";
 
 		var frect = layer.measureString(font, text);
-		dm("measureString—Ìˆæ" + frect.left + "," + frect.top + "," + frect.width + "," + frect.height);
+		dm("measureStringé ˜åŸŸ" + frect.left + "," + frect.top + "," + frect.width + "," + frect.height);
 		
 		var trect = layer.drawPathString(font, app, x, y-font.ascent, text);
-		dm("ƒeƒLƒXƒg•`‰æˆÊ’u" + x + "," + y);
-		dm("drawPathString—Ìˆæ" + trect.left + "," + trect.top + "," + trect.width + "," + trect.height);
+		dm("ãƒ†ã‚­ã‚¹ãƒˆæç”»ä½ç½®" + x + "," + y);
+		dm("drawPathStringé ˜åŸŸ" + trect.left + "," + trect.top + "," + trect.width + "," + trect.height);
 
 		app.clear();
 		app.addPen(0xff0000ff, 1, 0, 0);
@@ -142,8 +142,8 @@ class MyWindow extends Window
 		app.addBrush(0xffffffff, 0, 0);
 		
 		var trect = layer.drawString(font, app, x, y-font.ascent, text);
-		dm("ƒeƒLƒXƒg•`‰æˆÊ’u" + x + "," + y);
-		dm("drawString—Ìˆæ" + trect.left + "," + trect.top + "," + trect.width + "," + trect.height);
+		dm("ãƒ†ã‚­ã‚¹ãƒˆæç”»ä½ç½®" + x + "," + y);
+		dm("drawStringé ˜åŸŸ" + trect.left + "," + trect.top + "," + trect.width + "," + trect.height);
 
 		app.clear();
 		app.addPen(0xff0000ff, 1, 0, 0);
@@ -155,7 +155,7 @@ class MyWindow extends Window
 		app.addPen(0xffff0000, 1, 0, 0);
 		layer.drawRectangle(app, trect.left, trect.top, trect.width, trect.height);
 
-		// ƒAƒtƒBƒ“ƒŒƒCƒ„‚ÌƒeƒXƒg—p
+		// ã‚¢ãƒ•ã‚£ãƒ³ãƒ¬ã‚¤ãƒ¤ã®ãƒ†ã‚¹ãƒˆç”¨
 		alayer = new AffineLayer(this, base);
 		alayer.setPos(WIDTH/2+WIDTH/4, HEIGHT/4);
 		alayer.visible = true;
@@ -170,7 +170,7 @@ class MyWindow extends Window
 
 	function onKeyDown(key, shift)
 	{
-		Debug.message("ƒL[‚ª‚¨‚³‚ê‚½:" + key);
+		Debug.message("ã‚­ãƒ¼ãŒãŠã•ã‚ŒãŸ:" + key);
 		if(key == VK_ESCAPE) {
 			close();
 		} else if(key == VK_TAB) {

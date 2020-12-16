@@ -36,7 +36,7 @@ void CSceneNodeAnimatorFlyStraight::recalculateImidiateValues()
 
 
 //! destructor
-CSceneNodeAnimatorFlyStraight::~CSceneNodeAnimatorFlyStraight()
+CSceneNodeAnimatorFlyStraight::‾CSceneNodeAnimatorFlyStraight()
 {
 }
 

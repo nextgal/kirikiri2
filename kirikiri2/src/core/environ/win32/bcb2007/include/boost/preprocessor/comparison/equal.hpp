@@ -21,7 +21,7 @@
 #
 # /* BOOST_PP_EQUAL */
 #
-# if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
+# if ‾BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_EDG()
 #    define BOOST_PP_EQUAL(x, y) BOOST_PP_COMPL(BOOST_PP_NOT_EQUAL(x, y))
 # else
 #    define BOOST_PP_EQUAL(x, y) BOOST_PP_EQUAL_I(x, y)

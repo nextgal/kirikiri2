@@ -53,22 +53,22 @@ typedef sqvector<SQOuterVar> SQOuterVarVec;
 typedef sqvector<SQLocalVarInfo> SQLocalVarInfoVec;
 typedef sqvector<SQLineInfo> SQLineInfoVec;
 
-#define _FUNC_SIZE(ni,nl,nparams,nfuncs,nouters,nlineinf,localinf,defparams) (sizeof(SQFunctionProto) \
-		+((ni-1)*sizeof(SQInstruction))+(nl*sizeof(SQObjectPtr)) \
-		+(nparams*sizeof(SQObjectPtr))+(nfuncs*sizeof(SQObjectPtr)) \
-		+(nouters*sizeof(SQOuterVar))+(nlineinf*sizeof(SQLineInfo)) \
+#define _FUNC_SIZE(ni,nl,nparams,nfuncs,nouters,nlineinf,localinf,defparams) (sizeof(SQFunctionProto) ¥
+		+((ni-1)*sizeof(SQInstruction))+(nl*sizeof(SQObjectPtr)) ¥
+		+(nparams*sizeof(SQObjectPtr))+(nfuncs*sizeof(SQObjectPtr)) ¥
+		+(nouters*sizeof(SQOuterVar))+(nlineinf*sizeof(SQLineInfo)) ¥
 		+(localinf*sizeof(SQLocalVarInfo))+(defparams*sizeof(SQInteger)))
 
-#define _CONSTRUCT_VECTOR(type,size,ptr) { \
-	for(SQInteger n = 0; n < size; n++) { \
-			new (&ptr[n]) type(); \
-		} \
+#define _CONSTRUCT_VECTOR(type,size,ptr) { ¥
+	for(SQInteger n = 0; n < size; n++) { ¥
+			new (&ptr[n]) type(); ¥
+		} ¥
 }
 
-#define _DESTRUCT_VECTOR(type,size,ptr) { \
-	for(SQInteger nl = 0; nl < size; nl++) { \
-			ptr[nl].~type(); \
-	} \
+#define _DESTRUCT_VECTOR(type,size,ptr) { ¥
+	for(SQInteger nl = 0; nl < size; nl++) { ¥
+			ptr[nl].‾type(); ¥
+	} ¥
 }
 struct SQFunctionProto : public SQRefCounted
 {
@@ -118,7 +118,7 @@ public:
 		//_DESTRUCT_VECTOR(SQLineInfo,_nlineinfos,_lineinfos); //not required are 2 integers
 		_DESTRUCT_VECTOR(SQLocalVarInfo,_nlocalvarinfos,_localvarinfos);
 		SQInteger size = _FUNC_SIZE(_ninstructions,_nliterals,_nparameters,_nfunctions,_noutervalues,_nlineinfos,_nlocalvarinfos,_ndefaultparams);
-		this->~SQFunctionProto();
+		this->‾SQFunctionProto();
 		sq_vm_free(this,size);
 	}
 	const SQChar* GetLocal(SQVM *v,SQUnsignedInteger stackbase,SQUnsignedInteger nseq,SQUnsignedInteger nop);

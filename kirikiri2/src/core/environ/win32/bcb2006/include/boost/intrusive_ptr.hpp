@@ -77,7 +77,7 @@ public:
         if(p_ != 0) intrusive_ptr_add_ref(p_);
     }
 
-    ~intrusive_ptr()
+    ‾intrusive_ptr()
     {
         if(p_ != 0) intrusive_ptr_release(p_);
     }

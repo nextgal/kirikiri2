@@ -88,8 +88,8 @@ namespace core
 		}
 
 		//! Returns if a 2d point is within this rectangle.
-		//! \param pos: Position to test if it lies within this rectangle.
-		//! \return Returns true if the position is within the rectangle, false if not.
+		//! ¥param pos: Position to test if it lies within this rectangle.
+		//! ¥return Returns true if the position is within the rectangle, false if not.
 		bool isPointInside(const position2d<T>& pos) const
 		{
 			return (UpperLeftCorner.X <= pos.X &&
@@ -128,7 +128,7 @@ namespace core
 		}
 
 		//! Moves this rectangle to fit inside another one.
-		//! \return: returns true on success, false if not possible
+		//! ¥return: returns true on success, false if not possible
 		bool constrainTo(const rect<T>& other)
 		{
 			if (other.getWidth() < getWidth() || other.getHeight() < getHeight())
@@ -221,7 +221,7 @@ namespace core
 
 		//! Adds a point to the rectangle, causing it to grow bigger,
 		//! if point is outside of the box
-		//! \param p: Point to add into the box.
+		//! ¥param p: Point to add into the box.
 		void addInternalPoint(const position2d<T>& p)
 		{
 			addInternalPoint(p.X, p.Y);
@@ -229,8 +229,8 @@ namespace core
 
 		//! Adds a point to the bounding rectangle, causing it to grow bigger,
 		//! if point is outside of the box.
-		//! \param x: X Coordinate of the point to add to this box.
-		//! \param y: Y Coordinate of the point to add to this box.
+		//! ¥param x: X Coordinate of the point to add to this box.
+		//! ¥param y: Y Coordinate of the point to add to this box.
 		void addInternalPoint(T x, T y)
 		{
 			if (x>LowerRightCorner.X)

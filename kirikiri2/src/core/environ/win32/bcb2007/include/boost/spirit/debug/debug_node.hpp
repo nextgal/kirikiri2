@@ -42,29 +42,29 @@ namespace impl {
         template<typename CharT>
         static void print(CharT c)
         {
-            if (c == static_cast<CharT>('\a'))
-                BOOST_SPIRIT_DEBUG_OUT << "\\a";
+            if (c == static_cast<CharT>('¥a'))
+                BOOST_SPIRIT_DEBUG_OUT << "¥¥a";
 
-            else if (c == static_cast<CharT>('\b'))
-                BOOST_SPIRIT_DEBUG_OUT << "\\b";
+            else if (c == static_cast<CharT>('¥b'))
+                BOOST_SPIRIT_DEBUG_OUT << "¥¥b";
 
-            else if (c == static_cast<CharT>('\f'))
-                BOOST_SPIRIT_DEBUG_OUT << "\\f";
+            else if (c == static_cast<CharT>('¥f'))
+                BOOST_SPIRIT_DEBUG_OUT << "¥¥f";
 
-            else if (c == static_cast<CharT>('\n'))
-                BOOST_SPIRIT_DEBUG_OUT << "\\n";
+            else if (c == static_cast<CharT>('¥n'))
+                BOOST_SPIRIT_DEBUG_OUT << "¥¥n";
 
-            else if (c == static_cast<CharT>('\r'))
-                BOOST_SPIRIT_DEBUG_OUT << "\\r";
+            else if (c == static_cast<CharT>('¥r'))
+                BOOST_SPIRIT_DEBUG_OUT << "¥¥r";
 
-            else if (c == static_cast<CharT>('\t'))
-                BOOST_SPIRIT_DEBUG_OUT << "\\t";
+            else if (c == static_cast<CharT>('¥t'))
+                BOOST_SPIRIT_DEBUG_OUT << "¥¥t";
 
-            else if (c == static_cast<CharT>('\v'))
-                BOOST_SPIRIT_DEBUG_OUT << "\\v";
+            else if (c == static_cast<CharT>('¥v'))
+                BOOST_SPIRIT_DEBUG_OUT << "¥¥v";
 
             else if (iscntrl_(c))
-                BOOST_SPIRIT_DEBUG_OUT << "\\" << static_cast<int>(c);
+                BOOST_SPIRIT_DEBUG_OUT << "¥¥" << static_cast<int>(c);
 
             else
                 BOOST_SPIRIT_DEBUG_OUT << static_cast<char>(c);
@@ -130,7 +130,7 @@ namespace impl {
                 else
                     BOOST_SPIRIT_DEBUG_OUT << "#";
             }
-            BOOST_SPIRIT_DEBUG_OUT << name << ":\t\"";
+            BOOST_SPIRIT_DEBUG_OUT << name << ":¥t¥"";
             IteratorT iter = first;
             IteratorT ilast = last;
             for (int j = 0; j < BOOST_SPIRIT_DEBUG_PRINT_SOME; ++j)
@@ -141,7 +141,7 @@ namespace impl {
                 token_printer(*iter);
                 ++iter;
             }
-            BOOST_SPIRIT_DEBUG_OUT << "\"\n";
+            BOOST_SPIRIT_DEBUG_OUT << "¥"¥n";
         }
     }
 #endif  // BOOST_SPIRIT_DEBUG_FLAGS & BOOST_SPIRIT_DEBUG_FLAGS_NODES
@@ -157,7 +157,7 @@ namespace impl {
 
         // for now, print out the return value only
             BOOST_SPIRIT_DEBUG_OUT
-                << "^" << name << ":\t" << hit.value() << "\n";
+                << "^" << name << ":¥t" << hit.value() << "¥n";
         }
         return hit;
     }

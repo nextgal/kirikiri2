@@ -67,10 +67,10 @@ class plane3d
 
 
 		//! Get an intersection with a 3d line.
-		/** \param lineVect Vector of the line to intersect with.
-		\param linePoint Point of the line to intersect with.
-		\param outIntersection Place to store the intersection point, if there is one.
-		\return True if there was an intersection, false if there was not.
+		/** ¥param lineVect Vector of the line to intersect with.
+		¥param linePoint Point of the line to intersect with.
+		¥param outIntersection Place to store the intersection point, if there is one.
+		¥return True if there was an intersection, false if there was not.
 		*/
 		bool getIntersectionWithLine(const vector3d<T>& linePoint,
 				const vector3d<T>& lineVect,
@@ -88,9 +88,9 @@ class plane3d
 
 		//! Get percentage of line between two points where an intersection with this plane happens.
 		/** Only useful if known that there is an intersection.
-		\param linePoint1 Point1 of the line to intersect with.
-		\param linePoint2 Point2 of the line to intersect with.
-		\return Where on a line between two points an intersection with this plane happened.
+		¥param linePoint1 Point1 of the line to intersect with.
+		¥param linePoint2 Point2 of the line to intersect with.
+		¥return Where on a line between two points an intersection with this plane happened.
 		For example, 0.5 is returned if the intersection happened exactly in the middle of the two points.
 		*/
 		f32 getKnownIntersectionWithLine(const vector3d<T>& linePoint1,
@@ -102,10 +102,10 @@ class plane3d
 		}
 
 		//! Get an intersection with a 3d line, limited between two 3d points.
-		/** \param linePoint1 Point 1 of the line.
-		\param linePoint2 Point 2 of the line.
-		\param outIntersection Place to store the intersection point, if there is one.
-		\return True if there was an intersection, false if there was not.
+		/** ¥param linePoint1 Point 1 of the line.
+		¥param linePoint2 Point 2 of the line.
+		¥param outIntersection Place to store the intersection point, if there is one.
+		¥return True if there was an intersection, false if there was not.
 		*/
 		bool getIntersectionWithLimitedLine(
 				const vector3d<T>& linePoint1,
@@ -117,8 +117,8 @@ class plane3d
 		}
 
 		//! Classifies the relation of a point to this plane.
-		/** \param point Point to classify its relation.
-		\return ISREL3D_FRONT if the point is in front of the plane,
+		/** ¥param point Point to classify its relation.
+		¥return ISREL3D_FRONT if the point is in front of the plane,
 		ISREL3D_BACK if the point is behind of the plane, and
 		ISREL3D_PLANAR if the point is within the plane. */
 		EIntersectionRelation3D classifyPointRelation(const vector3d<T>& point) const
@@ -147,7 +147,7 @@ class plane3d
 		}
 
 		//! Tests if there is an intersection with the other plane
-		/** \return True if there is a intersection. */
+		/** ¥return True if there is a intersection. */
 		bool existsIntersection(const plane3d<T>& other) const
 		{
 			vector3d<T> cross = other.Normal.crossProduct(Normal);
@@ -155,10 +155,10 @@ class plane3d
 		}
 
 		//! Intersects this plane with another.
-		/** \param other Other plane to intersect with.
-		\param outLinePoint Base point of intersection line.
-		\param outLineVect Vector of intersection.
-		\return True if there is a intersection, false if not. */
+		/** ¥param other Other plane to intersect with.
+		¥param outLinePoint Base point of intersection line.
+		¥param outLineVect Vector of intersection.
+		¥return True if there is a intersection, false if not. */
 		bool getIntersectionWithPlane(const plane3d<T>& other,
 				vector3d<T>& outLinePoint,
 				vector3d<T>& outLineVect) const
@@ -197,8 +197,8 @@ class plane3d
 		the given direction.
 		Note that this only works if the normal is Normalized.
 		Do not use this method with points as it will give wrong results!
-		\param lookDirection: Look direction.
-		\return True if the plane is front facing and
+		¥param lookDirection: Look direction.
+		¥return True if the plane is front facing and
 		false if it is backfacing. */
 		bool isFrontFacing(const vector3d<T>& lookDirection) const
 		{

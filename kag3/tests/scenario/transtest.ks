@@ -1,23 +1,23 @@
-[position left=16 top=16 width=&(640-32) height=&(480-32)]\
-[image storage="_24" page=fore layer=base bfloor=128 gfloor=128 rfloor=128]\
-[link]トランジション[endlink]を開始します。[l]\
-[backlay]\
-[image storage="_24_3" page=back layer=base]\
-[image storage="uni" page=back layer=0 left=0 visible=true]\
-;[image storage="PageBreak" page=back layer=1 left=200 top=100 visible=true]\
-[trans rule=trans1 children=true layer=base vague=64 time=1000]\
-[wt]\
+[position left=16 top=16 width=&(640-32) height=&(480-32)]ﾂ･
+[image storage="_24" page=fore layer=base bfloor=128 gfloor=128 rfloor=128]ﾂ･
+[link]繝医Λ繝ｳ繧ｸ繧ｷ繝ｧ繝ｳ[endlink]繧帝幕蟋九＠縺ｾ縺吶�[l]ﾂ･
+[backlay]ﾂ･
+[image storage="_24_3" page=back layer=base]ﾂ･
+[image storage="uni" page=back layer=0 left=0 visible=true]ﾂ･
+;[image storage="PageBreak" page=back layer=1 left=200 top=100 visible=true]ﾂ･
+[trans rule=trans1 children=true layer=base vague=64 time=1000]ﾂ･
+[wt]ﾂ･
 *loop
-もう[link]一回[endlink](children=true)[l]\
-[backlay]\
-[image storage="_24" page=back layer=base]\
-[image storage="uni" page=back layer=0 left=100 visible=true]\
-[trans rule=trans1 children=true layer=base vague=64 time=1000]\
-[wt]\
-もう[link]一回[endlink][l]\
-[backlay]\
-[image storage="_24_3" page=back layer=base]\
-[image storage="uni" page=back layer=0 left=0 visible=true]\
-[trans rule=trans1 children=false layer=base vague=64 time=1000]\
-[wt]\
+繧ゅ≧[link]荳蝗杣endlink](children=true)[l]ﾂ･
+[backlay]ﾂ･
+[image storage="_24" page=back layer=base]ﾂ･
+[image storage="uni" page=back layer=0 left=100 visible=true]ﾂ･
+[trans rule=trans1 children=true layer=base vague=64 time=1000]ﾂ･
+[wt]ﾂ･
+繧ゅ≧[link]荳蝗杣endlink][l]ﾂ･
+[backlay]ﾂ･
+[image storage="_24_3" page=back layer=base]ﾂ･
+[image storage="uni" page=back layer=0 left=0 visible=true]ﾂ･
+[trans rule=trans1 children=false layer=base vague=64 time=1000]ﾂ･
+[wt]ﾂ･
 [jump target=*loop]

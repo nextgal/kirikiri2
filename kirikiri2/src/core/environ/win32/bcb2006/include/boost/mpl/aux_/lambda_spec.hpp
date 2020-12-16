@@ -25,17 +25,17 @@
 
 #if !defined(BOOST_MPL_NO_FULL_LAMBDA_SUPPORT)
 
-#   define BOOST_MPL_AUX_PASS_THROUGH_LAMBDA_SPEC(i, name) \
-template< \
-      BOOST_MPL_PP_PARAMS(i, typename T) \
-    > \
-struct lambda< \
-      name< BOOST_MPL_PP_PARAMS(i, T) > \
-    BOOST_MPL_AUX_LAMBDA_ARITY_PARAM(int_<-1>) \
-    > \
-{ \
-    typedef name< BOOST_MPL_PP_PARAMS(i, T) > type; \
-}; \
+#   define BOOST_MPL_AUX_PASS_THROUGH_LAMBDA_SPEC(i, name) ¥
+template< ¥
+      BOOST_MPL_PP_PARAMS(i, typename T) ¥
+    > ¥
+struct lambda< ¥
+      name< BOOST_MPL_PP_PARAMS(i, T) > ¥
+    BOOST_MPL_AUX_LAMBDA_ARITY_PARAM(int_<-1>) ¥
+    > ¥
+{ ¥
+    typedef name< BOOST_MPL_PP_PARAMS(i, T) > type; ¥
+}; ¥
 /**/
 
 #else

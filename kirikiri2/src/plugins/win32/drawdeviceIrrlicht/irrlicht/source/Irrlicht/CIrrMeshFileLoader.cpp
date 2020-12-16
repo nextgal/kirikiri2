@@ -30,7 +30,7 @@ CIrrMeshFileLoader::CIrrMeshFileLoader(video::IVideoDriver* driver,
 
 
 //! destructor
-CIrrMeshFileLoader::~CIrrMeshFileLoader()
+CIrrMeshFileLoader::‾CIrrMeshFileLoader()
 {
 }
 
@@ -45,7 +45,7 @@ bool CIrrMeshFileLoader::isALoadableFileExtension(const c8* fileName) const
 
 
 //! creates/loads an animated mesh from the file.
-//! \return Pointer to the created mesh. Returns 0 if loading failed.
+//! ¥return Pointer to the created mesh. Returns 0 if loading failed.
 //! If you no longer need the mesh, you should call IAnimatedMesh::drop().
 //! See IReferenceCounted::drop() for more information.
 IAnimatedMesh* CIrrMeshFileLoader::createMesh(io::IReadFile* file)
@@ -522,7 +522,7 @@ void CIrrMeshFileLoader::skipCurrentNoneWhiteSpace(const c8** start)
 {
 	const c8* p = *start;
 
-	while(*p && !(*p==' ' || *p=='\n' || *p=='\r' || *p=='\t'))
+	while(*p && !(*p==' ' || *p=='¥n' || *p=='¥r' || *p=='¥t'))
 		++p;
 
 	// TODO: skip comments <!-- -->
@@ -535,7 +535,7 @@ void CIrrMeshFileLoader::findNextNoneWhiteSpace(const c8** start)
 {
 	const c8* p = *start;
 
-	while(*p && (*p==' ' || *p=='\n' || *p=='\r' || *p=='\t'))
+	while(*p && (*p==' ' || *p=='¥n' || *p=='¥r' || *p=='¥t'))
 		++p;
 
 	// TODO: skip comments <!-- -->

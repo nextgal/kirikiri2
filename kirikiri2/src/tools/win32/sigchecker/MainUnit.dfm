@@ -10,7 +10,7 @@ object MainForm: TMainForm
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   Position = poDefaultPosOnly
@@ -22,7 +22,7 @@ object MainForm: TMainForm
     Top = 328
     Width = 51
     Height = 12
-    Caption = '–¢ƒ`ƒFƒbƒN'
+    Caption = 'æœªãƒã‚§ãƒƒã‚¯'
     Visible = False
   end
   object CheckingLabel: TLabel
@@ -30,7 +30,7 @@ object MainForm: TMainForm
     Top = 328
     Width = 83
     Height = 12
-    Caption = 'ƒ`ƒFƒbƒN’†(%d%%)'
+    Caption = 'ãƒã‚§ãƒƒã‚¯ä¸­(%d%%)'
     Visible = False
   end
   object BrokenLabel: TLabel
@@ -38,7 +38,7 @@ object MainForm: TMainForm
     Top = 328
     Width = 24
     Height = 12
-    Caption = '”j‘¹'
+    Caption = 'ç ´æ'
     Visible = False
   end
   object NotBrokenLabel: TLabel
@@ -46,7 +46,7 @@ object MainForm: TMainForm
     Top = 328
     Width = 24
     Height = 12
-    Caption = '³í'
+    Caption = 'æ­£å¸¸'
     Visible = False
   end
   object MoreThanOneFileIsBrokenLabel: TLabel
@@ -54,12 +54,12 @@ object MainForm: TMainForm
     Top = 344
     Width = 148
     Height = 12
-    Caption = ' ”j‘¹‚µ‚½ƒtƒ@ƒCƒ‹‚ª‚ ‚è‚Ü‚· '
+    Caption = ' ç ´æã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚Šã¾ã™ '
     Color = clRed
     Font.Charset = SHIFTJIS_CHARSET
     Font.Color = clWhite
     Font.Height = -12
-    Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+    Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
     Font.Style = []
     ParentColor = False
     ParentFont = False
@@ -70,7 +70,7 @@ object MainForm: TMainForm
     Top = 352
     Width = 57
     Height = 12
-    Caption = 'ƒ`ƒFƒbƒN’†...'
+    Caption = 'ãƒã‚§ãƒƒã‚¯ä¸­...'
     Visible = False
   end
   object TheResultWasCopiedIntoClipboardLabel: TLabel
@@ -78,7 +78,7 @@ object MainForm: TMainForm
     Top = 328
     Width = 187
     Height = 12
-    Caption = 'Œ‹‰Ê‚ğƒNƒŠƒbƒvƒ{[ƒh‚ÉƒRƒs[‚µ‚Ü‚µ‚½'
+    Caption = 'çµæœã‚’ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚³ãƒ”ãƒ¼ã—ã¾ã—ãŸ'
     Visible = False
   end
   object NoticeMemo: TMemo
@@ -91,7 +91,7 @@ object MainForm: TMainForm
     Font.Charset = SHIFTJIS_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
-    Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+    Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
     Font.Style = []
     ParentFont = False
     ReadOnly = True
@@ -104,11 +104,11 @@ object MainForm: TMainForm
     Height = 249
     Columns = <
       item
-        Caption = 'ƒtƒ@ƒCƒ‹–¼'
+        Caption = 'ãƒ•ã‚¡ã‚¤ãƒ«å'
         Width = 180
       end
       item
-        Caption = 'ó‘Ô'
+        Caption = 'çŠ¶æ…‹'
         Width = 80
       end>
     ColumnClick = False
@@ -124,7 +124,7 @@ object MainForm: TMainForm
     Top = 336
     Width = 89
     Height = 25
-    Caption = 'ƒ`ƒFƒbƒN(&V)'
+    Caption = 'ãƒã‚§ãƒƒã‚¯(&V)'
     Default = True
     TabOrder = 2
     OnClick = CheckButtonClick
@@ -135,7 +135,7 @@ object MainForm: TMainForm
     Width = 89
     Height = 25
     Cancel = True
-    Caption = '•Â‚¶‚é(&X)'
+    Caption = 'é–‰ã˜ã‚‹(&X)'
     TabOrder = 4
     OnClick = CloseButtonClick
   end
@@ -144,8 +144,8 @@ object MainForm: TMainForm
     Top = 336
     Width = 107
     Height = 25
-    Hint = 'Œ‹‰Ê‚ğƒNƒŠƒbƒvƒ{[ƒh‚ÉƒRƒs[‚µ‚Ü‚·'
-    Caption = 'Œ‹‰Ê‚ğƒRƒs[(&C)'
+    Hint = 'çµæœã‚’ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚³ãƒ”ãƒ¼ã—ã¾ã™'
+    Caption = 'çµæœã‚’ã‚³ãƒ”ãƒ¼(&C)'
     Enabled = False
     ParentShowHint = False
     ShowHint = True

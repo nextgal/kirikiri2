@@ -498,7 +498,7 @@ REALINLINE tFixPoint imulFix_tex4(const tFixPoint x, const tFixPoint y)
 REALINLINE tFixPoint clampfix_maxcolor ( const tFixPoint a)
 {
 	tFixPoint c = (a - FIXPOINT_COLOR_MAX) >> 31;	
-	return (a & c) | ( FIXPOINT_COLOR_MAX & ~c);
+	return (a & c) | ( FIXPOINT_COLOR_MAX & ‾c);
 }
 
 /*!

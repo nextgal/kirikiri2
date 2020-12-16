@@ -123,7 +123,7 @@ z_streamp strm;
     state->lencode = state->distcode = state->next = state->codes;
     state->sane = 1;
     state->back = -1;
-    Tracev((stderr, "inflate: reset\n"));
+    Tracev((stderr, "inflate: reset¥n"));
     return Z_OK;
 }
 
@@ -187,7 +187,7 @@ int stream_size;
     state = (struct inflate_state FAR *)
             ZALLOC(strm, 1, sizeof(struct inflate_state));
     if (state == Z_NULL) return Z_MEM_ERROR;
-    Tracev((stderr, "inflate: allocated\n"));
+    Tracev((stderr, "inflate: allocated¥n"));
     strm->state = (struct internal_state FAR *)state;
     state->window = Z_NULL;
     ret = inflateReset2(strm, windowBits);
@@ -320,24 +320,24 @@ void makefixed()
     printf("    static const code lenfix[%u] = {", size);
     low = 0;
     for (;;) {
-        if ((low % 7) == 0) printf("\n        ");
+        if ((low % 7) == 0) printf("¥n        ");
         printf("{%u,%u,%d}", state.lencode[low].op, state.lencode[low].bits,
                state.lencode[low].val);
         if (++low == size) break;
         putchar(',');
     }
-    puts("\n    };");
+    puts("¥n    };");
     size = 1U << 5;
-    printf("\n    static const code distfix[%u] = {", size);
+    printf("¥n    static const code distfix[%u] = {", size);
     low = 0;
     for (;;) {
-        if ((low % 6) == 0) printf("\n        ");
+        if ((low % 6) == 0) printf("¥n        ");
         printf("{%u,%u,%d}", state.distcode[low].op, state.distcode[low].bits,
                state.distcode[low].val);
         if (++low == size) break;
         putchar(',');
     }
-    puts("\n    };");
+    puts("¥n    };");
 }
 #endif /* MAKEFIXED */
 
@@ -409,7 +409,7 @@ unsigned out;
 
 /* check function to use adler32() for zlib or crc32() for gzip */
 #ifdef GUNZIP
-#  define UPDATE(check, buf, len) \
+#  define UPDATE(check, buf, len) ¥
     (state->flags ? crc32(check, buf, len) : adler32(check, buf, len))
 #else
 #  define UPDATE(check, buf, len) adler32(check, buf, len)
@@ -417,91 +417,91 @@ unsigned out;
 
 /* check macros for header crc */
 #ifdef GUNZIP
-#  define CRC2(check, word) \
-    do { \
-        hbuf[0] = (unsigned char)(word); \
-        hbuf[1] = (unsigned char)((word) >> 8); \
-        check = crc32(check, hbuf, 2); \
+#  define CRC2(check, word) ¥
+    do { ¥
+        hbuf[0] = (unsigned char)(word); ¥
+        hbuf[1] = (unsigned char)((word) >> 8); ¥
+        check = crc32(check, hbuf, 2); ¥
     } while (0)
 
-#  define CRC4(check, word) \
-    do { \
-        hbuf[0] = (unsigned char)(word); \
-        hbuf[1] = (unsigned char)((word) >> 8); \
-        hbuf[2] = (unsigned char)((word) >> 16); \
-        hbuf[3] = (unsigned char)((word) >> 24); \
-        check = crc32(check, hbuf, 4); \
+#  define CRC4(check, word) ¥
+    do { ¥
+        hbuf[0] = (unsigned char)(word); ¥
+        hbuf[1] = (unsigned char)((word) >> 8); ¥
+        hbuf[2] = (unsigned char)((word) >> 16); ¥
+        hbuf[3] = (unsigned char)((word) >> 24); ¥
+        check = crc32(check, hbuf, 4); ¥
     } while (0)
 #endif
 
 /* Load registers with state in inflate() for speed */
-#define LOAD() \
-    do { \
-        put = strm->next_out; \
-        left = strm->avail_out; \
-        next = strm->next_in; \
-        have = strm->avail_in; \
-        hold = state->hold; \
-        bits = state->bits; \
+#define LOAD() ¥
+    do { ¥
+        put = strm->next_out; ¥
+        left = strm->avail_out; ¥
+        next = strm->next_in; ¥
+        have = strm->avail_in; ¥
+        hold = state->hold; ¥
+        bits = state->bits; ¥
     } while (0)
 
 /* Restore state from registers in inflate() */
-#define RESTORE() \
-    do { \
-        strm->next_out = put; \
-        strm->avail_out = left; \
-        strm->next_in = next; \
-        strm->avail_in = have; \
-        state->hold = hold; \
-        state->bits = bits; \
+#define RESTORE() ¥
+    do { ¥
+        strm->next_out = put; ¥
+        strm->avail_out = left; ¥
+        strm->next_in = next; ¥
+        strm->avail_in = have; ¥
+        state->hold = hold; ¥
+        state->bits = bits; ¥
     } while (0)
 
 /* Clear the input bit accumulator */
-#define INITBITS() \
-    do { \
-        hold = 0; \
-        bits = 0; \
+#define INITBITS() ¥
+    do { ¥
+        hold = 0; ¥
+        bits = 0; ¥
     } while (0)
 
 /* Get a byte of input into the bit accumulator, or return from inflate()
    if there is no input available. */
-#define PULLBYTE() \
-    do { \
-        if (have == 0) goto inf_leave; \
-        have--; \
-        hold += (unsigned long)(*next++) << bits; \
-        bits += 8; \
+#define PULLBYTE() ¥
+    do { ¥
+        if (have == 0) goto inf_leave; ¥
+        have--; ¥
+        hold += (unsigned long)(*next++) << bits; ¥
+        bits += 8; ¥
     } while (0)
 
 /* Assure that there are at least n bits in the bit accumulator.  If there is
    not enough available input to do that, then return from inflate(). */
-#define NEEDBITS(n) \
-    do { \
-        while (bits < (unsigned)(n)) \
-            PULLBYTE(); \
+#define NEEDBITS(n) ¥
+    do { ¥
+        while (bits < (unsigned)(n)) ¥
+            PULLBYTE(); ¥
     } while (0)
 
 /* Return the low n bits of the bit accumulator (n < 16) */
-#define BITS(n) \
+#define BITS(n) ¥
     ((unsigned)hold & ((1U << (n)) - 1))
 
 /* Remove n bits from the bit accumulator */
-#define DROPBITS(n) \
-    do { \
-        hold >>= (n); \
-        bits -= (unsigned)(n); \
+#define DROPBITS(n) ¥
+    do { ¥
+        hold >>= (n); ¥
+        bits -= (unsigned)(n); ¥
     } while (0)
 
 /* Remove zero to seven bits as needed to go to a byte boundary */
-#define BYTEBITS() \
-    do { \
-        hold >>= bits & 7; \
-        bits -= bits & 7; \
+#define BYTEBITS() ¥
+    do { ¥
+        hold >>= bits & 7; ¥
+        bits -= bits & 7; ¥
     } while (0)
 
 /* Reverse the bytes in a 32-bit value */
-#define REVERSE(q) \
-    ((((q) >> 24) & 0xff) + (((q) >> 8) & 0xff00) + \
+#define REVERSE(q) ¥
+    ((((q) >> 24) & 0xff) + (((q) >> 8) & 0xff00) + ¥
      (((q) & 0xff00) << 8) + (((q) & 0xff) << 24))
 
 /*
@@ -662,7 +662,7 @@ int flush;
                 break;
             }
             state->dmax = 1U << len;
-            Tracev((stderr, "inflate:   zlib header ok\n"));
+            Tracev((stderr, "inflate:   zlib header ok¥n"));
             strm->adler = state->check = adler32(0L, Z_NULL, 0);
             state->mode = hold & 0x200 ? DICTID : TYPE;
             INITBITS();
@@ -820,13 +820,13 @@ int flush;
             DROPBITS(1);
             switch (BITS(2)) {
             case 0:                             /* stored block */
-                Tracev((stderr, "inflate:     stored block%s\n",
+                Tracev((stderr, "inflate:     stored block%s¥n",
                         state->last ? " (last)" : ""));
                 state->mode = STORED;
                 break;
             case 1:                             /* fixed block */
                 fixedtables(state);
-                Tracev((stderr, "inflate:     fixed codes block%s\n",
+                Tracev((stderr, "inflate:     fixed codes block%s¥n",
                         state->last ? " (last)" : ""));
                 state->mode = LEN_;             /* decode codes */
                 if (flush == Z_TREES) {
@@ -835,7 +835,7 @@ int flush;
                 }
                 break;
             case 2:                             /* dynamic block */
-                Tracev((stderr, "inflate:     dynamic codes block%s\n",
+                Tracev((stderr, "inflate:     dynamic codes block%s¥n",
                         state->last ? " (last)" : ""));
                 state->mode = TABLE;
                 break;
@@ -854,7 +854,7 @@ int flush;
                 break;
             }
             state->length = (unsigned)hold & 0xffff;
-            Tracev((stderr, "inflate:       stored length %u\n",
+            Tracev((stderr, "inflate:       stored length %u¥n",
                     state->length));
             INITBITS();
             state->mode = COPY_;
@@ -875,7 +875,7 @@ int flush;
                 state->length -= copy;
                 break;
             }
-            Tracev((stderr, "inflate:       stored end\n"));
+            Tracev((stderr, "inflate:       stored end¥n"));
             state->mode = TYPE;
             break;
         case TABLE:
@@ -893,7 +893,7 @@ int flush;
                 break;
             }
 #endif
-            Tracev((stderr, "inflate:       table sizes ok\n"));
+            Tracev((stderr, "inflate:       table sizes ok¥n"));
             state->have = 0;
             state->mode = LENLENS;
         case LENLENS:
@@ -914,7 +914,7 @@ int flush;
                 state->mode = BAD;
                 break;
             }
-            Tracev((stderr, "inflate:       code lengths ok\n"));
+            Tracev((stderr, "inflate:       code lengths ok¥n"));
             state->have = 0;
             state->mode = CODELENS;
         case CODELENS:
@@ -998,7 +998,7 @@ int flush;
                 state->mode = BAD;
                 break;
             }
-            Tracev((stderr, "inflate:       codes ok\n"));
+            Tracev((stderr, "inflate:       codes ok¥n"));
             state->mode = LEN_;
             if (flush == Z_TREES) goto inf_leave;
         case LEN_:
@@ -1034,13 +1034,13 @@ int flush;
             state->length = (unsigned)here.val;
             if ((int)(here.op) == 0) {
                 Tracevv((stderr, here.val >= 0x20 && here.val < 0x7f ?
-                        "inflate:         literal '%c'\n" :
-                        "inflate:         literal 0x%02x\n", here.val));
+                        "inflate:         literal '%c'¥n" :
+                        "inflate:         literal 0x%02x¥n", here.val));
                 state->mode = LIT;
                 break;
             }
             if (here.op & 32) {
-                Tracevv((stderr, "inflate:         end of block\n"));
+                Tracevv((stderr, "inflate:         end of block¥n"));
                 state->back = -1;
                 state->mode = TYPE;
                 break;
@@ -1059,7 +1059,7 @@ int flush;
                 DROPBITS(state->extra);
                 state->back += state->extra;
             }
-            Tracevv((stderr, "inflate:         length %u\n", state->length));
+            Tracevv((stderr, "inflate:         length %u¥n", state->length));
             state->was = state->length;
             state->mode = DIST;
         case DIST:
@@ -1103,7 +1103,7 @@ int flush;
                 break;
             }
 #endif
-            Tracevv((stderr, "inflate:         distance %u\n", state->offset));
+            Tracevv((stderr, "inflate:         distance %u¥n", state->offset));
             state->mode = MATCH;
         case MATCH:
             if (left == 0) goto inf_leave;
@@ -1117,7 +1117,7 @@ int flush;
                         break;
                     }
 #ifdef INFLATE_ALLOW_INVALID_DISTANCE_TOOFAR_ARRR
-                    Trace((stderr, "inflate.c too far\n"));
+                    Trace((stderr, "inflate.c too far¥n"));
                     copy -= state->whave;
                     if (copy > state->length) copy = state->length;
                     if (copy > left) copy = left;
@@ -1176,7 +1176,7 @@ int flush;
                     break;
                 }
                 INITBITS();
-                Tracev((stderr, "inflate:   check matches trailer\n"));
+                Tracev((stderr, "inflate:   check matches trailer¥n"));
             }
 #ifdef GUNZIP
             state->mode = LENGTH;
@@ -1189,7 +1189,7 @@ int flush;
                     break;
                 }
                 INITBITS();
-                Tracev((stderr, "inflate:   length matches trailer\n"));
+                Tracev((stderr, "inflate:   length matches trailer¥n"));
             }
 #endif
             state->mode = DONE;
@@ -1245,7 +1245,7 @@ z_streamp strm;
     if (state->window != Z_NULL) ZFREE(strm, state->window);
     ZFREE(strm, strm->state);
     strm->state = Z_NULL;
-    Tracev((stderr, "inflate: end\n"));
+    Tracev((stderr, "inflate: end¥n"));
     return Z_OK;
 }
 
@@ -1287,7 +1287,7 @@ uInt dictLength;
         state->whave = dictLength;
     }
     state->havedict = 1;
-    Tracev((stderr, "inflate:   dictionary set\n"));
+    Tracev((stderr, "inflate:   dictionary set¥n"));
     return Z_OK;
 }
 

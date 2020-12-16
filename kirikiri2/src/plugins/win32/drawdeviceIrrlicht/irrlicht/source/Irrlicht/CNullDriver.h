@@ -38,7 +38,7 @@ namespace video
 		CNullDriver(io::IFileSystem* io, const core::dimension2d<s32>& screenSize);
 
 		//! destructor
-		virtual ~CNullDriver();
+		virtual ‾CNullDriver();
 
 		virtual bool beginScene(bool backBuffer, bool zBuffer, SColor color);
 
@@ -129,16 +129,16 @@ namespace video
 		are clipped against clipRect (if != 0).
 		The subtextures are defined by the array of sourceRects
 		and are chosen by the indices given.
-		\param texture: Texture to be drawn.
-		\param pos: Upper left 2d destination position where the image will be drawn.
-		\param sourceRects: Source rectangles of the image.
-		\param indices: List of indices which choose the actual rectangle used each time.
-		\param kerningWidth: offset on position
-		\param clipRect: Pointer to rectangle on the screen where the image is clipped to.
+		¥param texture: Texture to be drawn.
+		¥param pos: Upper left 2d destination position where the image will be drawn.
+		¥param sourceRects: Source rectangles of the image.
+		¥param indices: List of indices which choose the actual rectangle used each time.
+		¥param kerningWidth: offset on position
+		¥param clipRect: Pointer to rectangle on the screen where the image is clipped to.
 		This pointer can be 0. Then the image is not clipped.
-		\param color: Color with which the image is colored.
+		¥param color: Color with which the image is colored.
 		Note that the alpha component is used: If alpha is other than 255, the image will be transparent.
-		\param useAlphaChannelOfTexture: If true, the alpha channel of the texture is
+		¥param useAlphaChannelOfTexture: If true, the alpha channel of the texture is
 		used to draw the image. */
 		virtual void draw2DImage(const video::ITexture* texture,
 				const core::position2d<s32>& pos,
@@ -202,13 +202,13 @@ namespace video
 		//! returns the maximal amount of dynamic lights the device can handle
 		virtual u32 getMaximalDynamicLightAmount() const;
 
-		//! \return Returns the name of the video driver. Example: In case of the DIRECT3D8
+		//! ¥return Returns the name of the video driver. Example: In case of the DIRECT3D8
 		//! driver, it would return "Direct3D8.1".
 		virtual const wchar_t* getName() const;
 
 		//! Sets the dynamic ambient light color. The default color is
 		//! (0,0,0,0) which means it is dark.
-		//! \param color: New color of the ambient light.
+		//! ¥param color: New color of the ambient light.
 		virtual void setAmbientLight(const SColorf& color);
 
 		//! Adds an external image loader to the engine.
@@ -232,13 +232,13 @@ namespace video
 			video::SColor rightDownEdge = video::SColor(0,0,0,0));
 
 		//! Returns current amount of dynamic lights set
-		//! \return Current amount of dynamic lights set
+		//! ¥return Current amount of dynamic lights set
 		virtual u32 getDynamicLightCount() const;
 
 		//! Returns light data which was previously set with IVideDriver::addDynamicLight().
-		//! \param idx: Zero based index of the light. Must be greater than 0 and smaller
+		//! ¥param idx: Zero based index of the light. Must be greater than 0 and smaller
 		//! than IVideoDriver()::getDynamicLightCount.
-		//! \return Light data.
+		//! ¥return Light data.
 		virtual const SLight& getDynamicLight(u32 idx) const;
 
 		//! Removes a texture from the texture cache and deletes it, freeing lot of
@@ -259,7 +259,7 @@ namespace video
 		virtual void makeColorKeyTexture(video::ITexture* texture, core::position2d<s32> colorKeyPixelPos) const;
 
 		//! Creates a normal map from a height map texture. 
-		//! \param amplitude: Constant value by which the height information is multiplied.
+		//! ¥param amplitude: Constant value by which the height information is multiplied.
 		virtual void makeNormalMapTexture(video::ITexture* texture, f32 amplitude=1.0f) const;
 
 		//! Returns the maximum amount of primitives (mostly vertices) which
@@ -280,7 +280,7 @@ namespace video
 		virtual IImage* createImageFromFile(io::IReadFile* file);
 
 		//! Creates a software image from a byte array.
-		/** \param useForeignMemory: If true, the image will use the data pointer
+		/** ¥param useForeignMemory: If true, the image will use the data pointer
 		directly and own it from now on, which means it will also try to delete [] the
 		data when the image will be destructed. If false, the memory will by copied. */
 		virtual IImage* createImageFromData(ECOLOR_FORMAT format, 
@@ -419,15 +419,15 @@ namespace video
 
 		//! Set/unset a clipping plane.
 		//! There are at least 6 clipping planes available for the user to set at will.
-		//! \param index: The plane index. Must be between 0 and MaxUserClipPlanes.
-		//! \param plane: The plane itself.
-		//! \param enable: If true, enable the clipping plane else disable it.
+		//! ¥param index: The plane index. Must be between 0 and MaxUserClipPlanes.
+		//! ¥param plane: The plane itself.
+		//! ¥param enable: If true, enable the clipping plane else disable it.
 		virtual bool setClipPlane(u32 index, const core::plane3df& plane, bool enable=false);
 
 		//! Enable/disable a clipping plane.
 		//! There are at least 6 clipping planes available for the user to set at will.
-		//! \param index: The plane index. Must be between 0 and MaxUserClipPlanes.
-		//! \param enable: If true, enable the clipping plane else disable it.
+		//! ¥param index: The plane index. Must be between 0 and MaxUserClipPlanes.
+		//! ¥param enable: If true, enable the clipping plane else disable it.
 		virtual void enableClipPlane(u32 index, bool enable);
 
 		virtual void setAllowZWriteOnTransparent(bool flag)

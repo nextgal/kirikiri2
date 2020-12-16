@@ -1,17 +1,17 @@
-object TVPWatchForm: TTVPWatchForm
+ï»¿object TVPWatchForm: TTVPWatchForm
   Left = 50
   Top = 127
   Width = 299
   Height = 223
   HorzScrollBar.Visible = False
   VertScrollBar.Visible = False
-  Caption = 'ŠÄ‹®'
+  Caption = 'ç›£è¦–å¼'
   Color = clBtnFace
   DefaultMonitor = dmDesktop
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   PopupMenu = PopupMenu
@@ -38,8 +38,8 @@ object TVPWatchForm: TTVPWatchForm
     object UpdateButton: TToolButton
       Left = 0
       Top = 0
-      Hint = 'XV'
-      Caption = 'XV'
+      Hint = 'æ›´æ–°'
+      Caption = 'æ›´æ–°'
       ImageIndex = 4
       ParentShowHint = False
       ShowHint = True
@@ -48,8 +48,8 @@ object TVPWatchForm: TTVPWatchForm
     object AutoUpdateButton: TToolButton
       Left = 19
       Top = 0
-      Hint = '©“®XV'
-      Caption = '©“®XV'
+      Hint = 'è‡ªå‹•æ›´æ–°'
+      Caption = 'è‡ªå‹•æ›´æ–°'
       ImageIndex = 5
       ParentShowHint = False
       ShowHint = True
@@ -67,8 +67,8 @@ object TVPWatchForm: TTVPWatchForm
     object NewExprButton: TToolButton
       Left = 46
       Top = 0
-      Hint = 'V‹K‚Ì®'
-      Caption = 'V‹K‚Ì®'
+      Hint = 'æ–°è¦ã®å¼'
+      Caption = 'æ–°è¦ã®å¼'
       ImageIndex = 6
       ParentShowHint = False
       ShowHint = True
@@ -77,8 +77,8 @@ object TVPWatchForm: TTVPWatchForm
     object DeleteButton: TToolButton
       Left = 65
       Top = 0
-      Hint = 'íœ'
-      Caption = 'íœ'
+      Hint = 'å‰Šé™¤'
+      Caption = 'å‰Šé™¤'
       ImageIndex = 7
       ParentShowHint = False
       ShowHint = True
@@ -103,11 +103,11 @@ object TVPWatchForm: TTVPWatchForm
     Anchors = [akLeft, akTop, akRight, akBottom]
     Columns = <
       item
-        Caption = '®'
+        Caption = 'å¼'
         Width = 140
       end
       item
-        Caption = 'Œ‹‰Ê'
+        Caption = 'çµæœ'
         Width = 400
       end>
     ColumnClick = False
@@ -125,111 +125,111 @@ object TVPWatchForm: TTVPWatchForm
     Left = 256
     Top = 24
     object NewExprMenuItem: TMenuItem
-      Caption = 'V‹K‚Ì®(&N) ...'
-      Hint = 'V‹K‚Ì®'
+      Caption = 'æ–°è¦ã®å¼(&N) ...'
+      Hint = 'æ–°è¦ã®å¼'
       ImageIndex = 27
       ShortCut = 45
       OnClick = NewExprButtonClick
     end
     object DeleteExprMenuItem: TMenuItem
-      Caption = 'íœ(&X)'
-      Hint = 'íœ'
+      Caption = 'å‰Šé™¤(&X)'
+      Hint = 'å‰Šé™¤'
       ImageIndex = 15
       ShortCut = 46
       OnClick = DeleteButtonClick
     end
     object EditExpressionMenuItem: TMenuItem
-      Caption = '®‚Ì•ÒW(&E)'
+      Caption = 'å¼ã®ç·¨é›†(&E)'
       OnClick = EditExpressionMenuItemClick
     end
     object N2: TMenuItem
       Caption = '-'
     end
     object UpdateMenuItem: TMenuItem
-      Caption = 'XV(&U)'
+      Caption = 'æ›´æ–°(&U)'
       ImageIndex = 25
       ShortCut = 116
       OnClick = UpdateButtonClick
     end
     object AutoUpdateMenuItem: TMenuItem
-      Caption = '©“®XV(&A)'
+      Caption = 'è‡ªå‹•æ›´æ–°(&A)'
       ImageIndex = 26
       ShortCut = 16500
       OnClick = AutoUpdateMenuItemClick
     end
     object AutoUpdateIntervalMenuItem: TMenuItem
-      Caption = '©“®XV‚ÌŠÔŠu(&I)'
-      Hint = '©“®XV‚ÌŠÔŠu'
+      Caption = 'è‡ªå‹•æ›´æ–°ã®é–“éš”(&I)'
+      Hint = 'è‡ªå‹•æ›´æ–°ã®é–“éš”'
       object UIRealTimeMenuItem: TMenuItem
-        Caption = 'ƒŠƒAƒ‹ƒ^ƒCƒ€(&R)'
+        Caption = 'ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ (&R)'
         GroupIndex = 11
-        Hint = 'ƒŠƒAƒ‹ƒ^ƒCƒ€'
+        Hint = 'ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ '
         RadioItem = True
         Visible = False
         OnClick = UIRealTimeMenuItemClick
       end
       object UI0_2SecMenuItem: TMenuItem
         Tag = 200
-        Caption = '0.2•b(&A)'
+        Caption = '0.2ç§’(&A)'
         GroupIndex = 11
-        Hint = '0.2•b'
+        Hint = '0.2ç§’'
         RadioItem = True
         OnClick = UIRealTimeMenuItemClick
       end
       object UI0_5SecMenuItem: TMenuItem
         Tag = 500
-        Caption = '0.5•b(&B)'
+        Caption = '0.5ç§’(&B)'
         GroupIndex = 11
-        Hint = '0.5•b'
+        Hint = '0.5ç§’'
         RadioItem = True
         OnClick = UIRealTimeMenuItemClick
       end
       object N071: TMenuItem
         Tag = 700
-        Caption = '0.7•b(&C)'
+        Caption = '0.7ç§’(&C)'
         GroupIndex = 11
-        Hint = '0.7•b'
+        Hint = '0.7ç§’'
         RadioItem = True
         OnClick = UIRealTimeMenuItemClick
       end
       object UI1SecMenuItem: TMenuItem
         Tag = 1000
-        Caption = '1•b(&1)'
+        Caption = '1ç§’(&1)'
         Checked = True
         GroupIndex = 11
-        Hint = '1•b'
+        Hint = '1ç§’'
         RadioItem = True
         OnClick = UIRealTimeMenuItemClick
       end
       object N221: TMenuItem
         Tag = 2000
-        Caption = '2•b(&2)'
+        Caption = '2ç§’(&2)'
         GroupIndex = 11
-        Hint = '2•b'
+        Hint = '2ç§’'
         RadioItem = True
         OnClick = UIRealTimeMenuItemClick
       end
       object UI3SecMenuItem: TMenuItem
         Tag = 3000
-        Caption = '3•b(&3)'
+        Caption = '3ç§’(&3)'
         GroupIndex = 11
-        Hint = '3•b'
+        Hint = '3ç§’'
         RadioItem = True
         OnClick = UIRealTimeMenuItemClick
       end
       object UI5SecMenuItem: TMenuItem
         Tag = 5000
-        Caption = '5•b(&5)'
+        Caption = '5ç§’(&5)'
         GroupIndex = 11
-        Hint = '5•b'
+        Hint = '5ç§’'
         RadioItem = True
         OnClick = UIRealTimeMenuItemClick
       end
       object UI9SecMenuItem: TMenuItem
         Tag = 9000
-        Caption = '9•b(&9)'
+        Caption = '9ç§’(&9)'
         GroupIndex = 11
-        Hint = '9•b'
+        Hint = '9ç§’'
         RadioItem = True
         OnClick = UIRealTimeMenuItemClick
       end
@@ -238,28 +238,28 @@ object TVPWatchForm: TTVPWatchForm
       Caption = '-'
     end
     object ShowControllerMenuItem: TMenuItem
-      Caption = 'ƒRƒ“ƒgƒ[ƒ‰(&Z)'
-      Hint = 'ƒRƒ“ƒgƒ[ƒ‰‚ğ•\¦'
+      Caption = 'ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©(&Z)'
+      Hint = 'ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ã‚’è¡¨ç¤º'
       ImageIndex = 28
       ShortCut = 8304
       OnClick = ShowControllerMenuItemClick
     end
     object ShowScriptEditorMenuItem: TMenuItem
-      Caption = 'ƒXƒNƒŠƒvƒgƒGƒfƒBƒ^(&E)'
-      Hint = 'ƒXƒNƒŠƒvƒgƒGƒfƒBƒ^‚ğ•\¦'
+      Caption = 'ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ‡ã‚£ã‚¿(&E)'
+      Hint = 'ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ã‚’è¡¨ç¤º'
       ImageIndex = 2
       ShortCut = 8305
       OnClick = ShowScriptEditorMenuItemClick
     end
     object ShowWatchMenuItem: TMenuItem
-      Caption = 'ŠÄ‹®(&W)'
+      Caption = 'ç›£è¦–å¼(&W)'
       ShortCut = 8306
       Visible = False
       OnClick = ShowWatchMenuItemClick
     end
     object ShowConsoleMenuItem: TMenuItem
-      Caption = 'ƒRƒ“ƒ\[ƒ‹(&D)'
-      Hint = 'ƒRƒ“ƒ\[ƒ‹‚ğ•\¦'
+      Caption = 'ã‚³ãƒ³ã‚½ãƒ¼ãƒ«(&D)'
+      Hint = 'ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‚’è¡¨ç¤º'
       ImageIndex = 13
       ShortCut = 8307
       OnClick = ShowConsoleMenuItemClick
@@ -268,7 +268,7 @@ object TVPWatchForm: TTVPWatchForm
       Caption = '-'
     end
     object ShowOnTopMenuItem: TMenuItem
-      Caption = 'í‚Éè‘O‚É•\¦(&F)'
+      Caption = 'å¸¸ã«æ‰‹å‰ã«è¡¨ç¤º(&F)'
       ImageIndex = 10
       OnClick = ShowOnTopMenuItemClick
     end

@@ -4,10 +4,10 @@ var dm = Debug.message;
 
 Plugins.link("Magick++.dll");
 
-// ƒo[ƒWƒ‡ƒ“
+// ãƒãƒ¼ã‚¸ãƒ§ãƒ³
 dm(MagickPP.version);
 
-// ƒTƒ|[ƒg‚³‚ê‚éƒtƒH[ƒ}ƒbƒg
+// ã‚µãƒãƒ¼ãƒˆã•ã‚Œã‚‹ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 var info = MagickPP.supports;
 for (var i = 0; i < info.count; i++) {
 	var c = info[i];

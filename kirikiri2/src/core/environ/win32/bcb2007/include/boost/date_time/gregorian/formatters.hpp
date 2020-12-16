@@ -17,14 +17,14 @@ namespace gregorian {
 
 
   //! To YYYY-mmm-DD string where mmm 3 char month name. Example:  2002-Jan-01
-  /*!\ingroup date_format
+  /*!¥ingroup date_format
    */
   inline std::string to_simple_string(const date& d) {
     return date_time::date_formatter<date,date_time::simple_format>::date_to_string(d);
   }
 
   //! Convert date period to simple string. Example: [2002-Jan-01/2002-Jan-02]
-  /*!\ingroup date_format
+  /*!¥ingroup date_format
    */
   inline std::string to_simple_string(const date_period& d) {
     std::string s("[");
@@ -34,7 +34,7 @@ namespace gregorian {
   }
 
   //! Date period to iso standard format CCYYMMDD/CCYYMMDD. Example: 20021225/20021231
-  /*!\ingroup date_format
+  /*!¥ingroup date_format
    */
   inline std::string to_iso_string(const date_period& d) {
     std::string s(date_time::date_formatter<date,date_time::iso_format>::date_to_string(d.begin()));
@@ -43,14 +43,14 @@ namespace gregorian {
 
 
   //! Convert to iso extended format string CCYY-MM-DD. Example 2002-12-31
-  /*!\ingroup date_format
+  /*!¥ingroup date_format
    */
   inline std::string to_iso_extended_string(const date& d) {
     return date_time::date_formatter<date,date_time::iso_extended_format>::date_to_string(d);
   }
 
   //! Convert to iso standard string YYYYMMDD. Example: 20021231
-  /*!\ingroup date_format
+  /*!¥ingroup date_format
    */
   inline std::string to_iso_string(const date& d) {
     return date_time::date_formatter<date,date_time::iso_format>::date_to_string(d);

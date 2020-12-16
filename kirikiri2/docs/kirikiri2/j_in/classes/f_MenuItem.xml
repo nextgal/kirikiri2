@@ -2,37 +2,37 @@
 <doc>
 <title>MenuItem</title>
 <desc>
-�@MenuItem �N���X�́A<kw>���j���[����</kw>���Ǘ����邽�߂̃N���X�ł��B<r/>
-�@�E�B���h�E�̃��j���[�o�[�Ƀ��j���[���ڂ���ׂ����ꍇ�́A<ref>Window.menu</ref> �v���p�e�B��
-�q�Ƃ��ă��j���[���ڂ�ǉ����܂��B<r/>
+　MenuItem クラスは、<kw>メニュー項目</kw>を管理するためのクラスです。<r/>
+　ウィンドウのメニューバーにメニュー項目を並べたい場合は、<ref>Window.menu</ref> プロパティの
+子としてメニュー項目を追加します。<r/>
 </desc>
 
 <member>
 	<name>MenuItem</name>
 	<type>constructor</type>
-	<shortdesc>MenuItem �I�u�W�F�N�g�̍\�z</shortdesc>
+	<shortdesc>MenuItem オブジェクトの構築</shortdesc>
 	<arg>
 		<argitem>
 			<name>window</name>
 			<default></default>
 			<desc>
-				�@���̃��j���[���ڂ��쐬����E�B���h�E���w�肵�܂��B<r/>
+				　このメニュー項目を作成するウィンドウを指定します。<r/>
 			</desc>
 		</argitem>
 		<argitem>
 			<name>caption</name>
 			<default>''</default>
 			<desc>
-				�@���j���[���ڂ̃L���v�V���� (�\�����镶����) ���w�肵�܂��B<r/>
-				�@<ref>MenuItem.caption</ref> �v���p�e�B�Őݒ�/�擾�ł��܂��B<r/>
+				　メニュー項目のキャプション (表示する文字列) を指定します。<r/>
+				　<ref>MenuItem.caption</ref> プロパティで設定/取得できます。<r/>
 			</desc>
 		</argitem>
 	</arg>
 	<result></result>
 	<desc>
-		�@MenuItem �N���X�̃I�u�W�F�N�g���\�z���܂��B<r/>
-		�@�쐬�������j���[���ڂ�e���j���[���ڂɒǉ�����ɂ́A�e���j���[���ڂ�
-		<ref>MenuItem.add</ref> ���\�b�h���g���܂��B<r/>
+		　MenuItem クラスのオブジェクトを構築します。<r/>
+		　作成したメニュー項目を親メニュー項目に追加するには、親メニュー項目の
+		<ref>MenuItem.add</ref> メソッドを使います。<r/>
 	</desc>
 </member>
 
@@ -40,12 +40,12 @@
 <member>
 	<name>onClick</name>
 	<type>event</type>
-	<shortdesc>���j���[���ڂ��I�����ꂽ</shortdesc>
+	<shortdesc>メニュー項目が選択された</shortdesc>
 	<arg>
 	</arg>
 	<result></result>
 	<desc>
-		�@���j���[���ڂ��I�����ꂽ ( �N���b�N���ꂽ�� Enter �L�[�������ꂽ ) ���ɔ������܂��B<r/>
+		　メニュー項目が選択された ( クリックされたり Enter キーが押された ) 時に発生します。<r/>
 	</desc>
 </member>
 
@@ -53,80 +53,80 @@
 <member>
 	<name>add</name>
 	<type>method</type>
-	<shortdesc>�q���j���[���ڂ̒ǉ�</shortdesc>
+	<shortdesc>子メニュー項目の追加</shortdesc>
 	<arg>
 		<argitem>
 			<name>item</name>
 			<default></default>
 			<desc>
-				�@�ǉ�����q���j���[���ڂ��w�肵�܂��B<r/>
-				�@�q���j���[���ڂ́A���łɎq�ƂȂ��Ă��郁�j���[���ڂ̍Ō�ɒǉ�����܂��B
+				　追加する子メニュー項目を指定します。<r/>
+				　子メニュー項目は、すでに子となっているメニュー項目の最後に追加されます。
 			</desc>
 		</argitem>
 	</arg>
 	<result></result>
 	<desc>
-		�@�q���j���[���ڂ�ǉ����܂��B���j���[���ڂ����̃��j���[���ڂ̎q�ɂȂ�ƁA
-		�e���j���[���ڂ������������Ƃ��Ɏ����I�Ɏq���j���[���ڂ������������悤�ɂȂ�܂��B<r/>
-		�@�܂��A���j���[�K�w�ɂ����Ă��e�q�̊֌W�����悤�ɂȂ�܂��B<r/>
+		　子メニュー項目を追加します。メニュー項目が他のメニュー項目の子になると、
+		親メニュー項目が無効化されるときに自動的に子メニュー項目も無効化されるようになります。<r/>
+		　また、メニュー階層においても親子の関係を持つようになります。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>insert</name>
 	<type>method</type>
-	<shortdesc>�q���j���[���ڂ̑}��</shortdesc>
+	<shortdesc>子メニュー項目の挿入</shortdesc>
 	<arg>
 		<argitem>
 			<name>item</name>
 			<default></default>
 			<desc>
-				�@�}������q���j���[���ڂ��w�肵�܂��B<r/>
+				　挿入する子メニュー項目を指定します。<r/>
 			</desc>
 		</argitem>
 		<argitem>
 			<name>index</name>
 			<default></default>
 			<desc>
-				�@�}������ʒu���w�肵�܂��B0 ���w�肷��Ɛ擪�ɑ}������܂��B<r/>
+				　挿入する位置を指定します。0 を指定すると先頭に挿入されます。<r/>
 			</desc>
 		</argitem>
 	</arg>
 	<result></result>
 	<desc>
-		�@�q���j���[���ڂ��w��ʒu�ɑ}�����܂��B<r/>
+		　子メニュー項目を指定位置に挿入します。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>remove</name>
 	<type>method</type>
-	<shortdesc>�q���j���[���ڂ̍폜</shortdesc>
+	<shortdesc>子メニュー項目の削除</shortdesc>
 	<arg>
 		<argitem>
 			<name>item</name>
 			<default></default>
 			<desc>
-				�@�폜����q���j���[���ڂ��w�肵�܂��B<r/>
+				　削除する子メニュー項目を指定します。<r/>
 			</desc>
 		</argitem>
 	</arg>
 	<result></result>
 	<desc>
-		�@�w�肳�ꂽ�q���j���[���ڂ����X�g����폜���܂��B<r/>
+		　指定された子メニュー項目をリストから削除します。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>popup</name>
 	<type>method</type>
-	<shortdesc>���j���[���ڂ̃|�b�v�A�b�v�\��</shortdesc>
+	<shortdesc>メニュー項目のポップアップ表示</shortdesc>
 	<arg>
 		<argitem>
 			<name>flags</name>
 			<default></default>
 			<desc>
-				���j���[�̋�����\���t���O�ł��B�ȉ��̒l�̃r�b�g�_���a���w�肵�Ă��������B<r/>
+				メニューの挙動を表すフラグです。以下の値のビット論理和を指定してください。<r/>
 				<kw>tpmLeftButton</kw><r/>
 				<kw>tpmRightButton</kw><r/>
 				<kw>tpmLeftAlign</kw><r/>
@@ -145,7 +145,7 @@
 				<kw>tpmVerPosAnimation</kw><r/>
 				<kw>tpmVerNegAnimation</kw><r/>
 				<kw>tpmNoAnimation</kw><r/>
-				�����̃t���O�̏ڍׂɂ��Ă�<at target="_top" href="http://msdn.microsoft.com/library/ja/jpwinui/html/_win32_trackpopupmenu.asp?frame=true">MSDN�̊Y���y�[�W</at>���Q�Ƃ��Ă��������B
+				これらのフラグの詳細については<at target="_top" href="http://msdn.microsoft.com/library/ja/jpwinui/html/_win32_trackpopupmenu.asp?frame=true">MSDNの該当ページ</at>を参照してください。
 				
 			</desc>
 		</argitem>
@@ -153,27 +153,27 @@
 			<name>x</name>
 			<default></default>
 			<desc>
-				�E�B���h�E�̃N���C�A���g���W��ł�x�ʒu��\���܂��B
+				ウィンドウのクライアント座標上でのx位置を表します。
 			</desc>
 		</argitem>
 		<argitem>
 			<name>y</name>
 			<default></default>
 			<desc>
-				�E�B���h�E�̃N���C�A���g���W��ł�y�ʒu��\���܂��B
+				ウィンドウのクライアント座標上でのy位置を表します。
 			</desc>
 		</argitem>
 	</arg>
-	<result>flags��tpmReturnCmd���w�肳��Ă����ꍇ�́A
-		�I�����ꂽ���j���[���ڂ�ID�𐮐��ŕԂ��܂�(�������A���o�[�W�����ł͂���ID���g���g��������ݒ肷�邱�Ƃ��ł��Ȃ����߁Aflags��tpmReturnCmd���w�肷�邱�Ƃ͈Ӗ�������܂���)�B
-		�����I�����ꂸ�ɃL�����Z�����ꂽ�ꍇ��0��Ԃ��܂��B
+	<result>flagsにtpmReturnCmdが指定されていた場合は、
+		選択されたメニュー項目のIDを整数で返します(ただし、現バージョンではこのIDを吉里吉里側から設定することができないため、flagsにtpmReturnCmdを指定することは意味がありません)。
+		何も選択されずにキャンセルされた場合は0を返します。
 	</result>
 	<desc>
-		���j���[���ڂ��|�b�v�A�b�v�\�����܂��B���̃��\�b�h�́A���j���[��������܂ŋA���Ă��܂���B<r/>
-		���j���[��������܂ł̊Ԃɑ��̔񓯊��C�x���g����������\��������̂Œ��ӂ��Ă��������B<r/>
-		<ref>Window.menu</ref>���̂��̂̓|�b�v�A�b�v�ł��܂���B<r/>
-		��\����Ԃ̃��j���[���ڂ̓|�b�v�A�b�v�ł��܂���B<r/>
-		<ref>Window.menu</ref>�̎q�łȂ����j���[�̓|�b�v�A�b�v�ł��܂���B<r/>
+		メニュー項目をポップアップ表示します。このメソッドは、メニューが閉じられるまで帰ってきません。<r/>
+		メニューが閉じられるまでの間に他の非同期イベントが発生する可能性があるので注意してください。<r/>
+		<ref>Window.menu</ref>そのものはポップアップできません。<r/>
+		非表示状態のメニュー項目はポップアップできません。<r/>
+		<ref>Window.menu</ref>の子でないメニューはポップアップできません。<r/>
 	</desc>
 </member>
 
@@ -183,40 +183,40 @@
 <member>
 	<name>caption</name>
 	<type>property</type>
-	<shortdesc>�L���v�V����</shortdesc>
+	<shortdesc>キャプション</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�L���v�V���� ( �\�����镶���� ) ��\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@'-' ( �n�C�t�� ) ���w�肷��Ƌ�؂����\������悤�ɂȂ�܂��B<r/>
+		　キャプション ( 表示する文字列 ) を表します。値を設定することもできます。<r/>
+		　'-' ( ハイフン ) を指定すると区切り線を表示するようになります。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>visible</name>
 	<type>property</type>
-	<shortdesc>�����ǂ���</shortdesc>
+	<shortdesc>可視かどうか</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@���j���[���ڂ������ǂ�����\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@�^�Ȃ�Ε\������A�U�Ȃ�Δ�\���ł��B<r/>
+		　メニュー項目が可視かどうかを表します。値を設定することもできます。<r/>
+		　真ならば表示され、偽ならば非表示です。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>checked</name>
 	<type>property</type>
-	<shortdesc>�`�F�b�N�}�[�N��\�����邩�ǂ���</shortdesc>
+	<shortdesc>チェックマークを表示するかどうか</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@���j���[���ڂ̉��Ƀ`�F�b�N�}�[�N��\�����邩�ǂ�����\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@�^���w�肷��ƃ`�F�b�N�}�[�N���\������܂��B<r/>
-		�@<ref>MenuItem.radio</ref> �v���p�e�B���^�̏ꍇ�́A�`�F�b�N�}�[�N�ł͂Ȃ��A�����ۂ��\������܂��B<r/>  
-		�@<ref>MenuItem.group</ref> �ɂē����O���[�v�ԍ��������A�������e�������A�����
-		<ref>MenuItem.radio</ref> �v���p�e�B���^�̃��j���[���ڂ́A
-		���̃v���p�e�B�𓯎��ɓ�ȏ��
-		�^�ɂ��邱�Ƃ͂ł��܂���B���̃��j���[���ڂ̂��̃v���p�e�B���^�ɂȂ����ꍇ�A
-		���ɐ^�ɂȂ��Ă��郁�j���[���ڂ�����΁A�����I�ɂ��̃��j���[���ڂ̂��̃v���p�e�B�͋U��
-		�ݒ肳��܂��B<r/>
+		　メニュー項目の横にチェックマークを表示するかどうかを表します。値を設定することもできます。<r/>
+		　真を指定するとチェックマークが表示されます。<r/>
+		　<ref>MenuItem.radio</ref> プロパティが真の場合は、チェックマークではなく、黒い丸が表示されます。<r/>  
+		　<ref>MenuItem.group</ref> にて同じグループ番号を持ち、かつ同じ親を持ち、さらに
+		<ref>MenuItem.radio</ref> プロパティが真のメニュー項目は、
+		このプロパティを同時に二つ以上を
+		真にすることはできません。他のメニュー項目のこのプロパティが真になった場合、
+		他に真になっているメニュー項目があれば、自動的にそのメニュー項目のこのプロパティは偽に
+		設定されます。<r/>
 
 	</desc>
 </member>
@@ -224,34 +224,34 @@
 <member>
 	<name>enabled</name>
 	<type>property</type>
-	<shortdesc>�I���\���ǂ���</shortdesc>
+	<shortdesc>選択可能かどうか</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@���j���[���ڂ�I���\���ǂ�����\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@�^�̏ꍇ�̓��j���[���ڂ��I���\�A�U�̏ꍇ�͑I��s�\�ɂȂ�܂��B<r/>
+		　メニュー項目を選択可能かどうかを表します。値を設定することもできます。<r/>
+		　真の場合はメニュー項目が選択可能、偽の場合は選択不可能になります。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>window</name>
 	<type>property</type>
-	<shortdesc>�I�[�i�[�E�B���h�E</shortdesc>
+	<shortdesc>オーナーウィンドウ</shortdesc>
 	<access>r</access>
 	<desc>
-		�@���̃��j���[�A�C�e����ێ�����I�[�i�[�E�B���h�E(Window�N���X�̃I�u�W�F�N�g)��\���܂��B<r/>
+		　このメニューアイテムを保持するオーナーウィンドウ(Windowクラスのオブジェクト)を表します。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>group</name>
 	<type>property</type>
-	<shortdesc>�O���[�v�ԍ�</shortdesc>
+	<shortdesc>グループ番号</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�O���[�v�ԍ���\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@�����O���[�v�ԍ��������A�������e�������A<ref>MenuItem.radio</ref> �v���p�e�B��
-		�^�̃��j���[���ڂ́A<ref>MenuItem.checked</ref> �v���p�e�B�𓯎��ɓ�ȏ��
-		�^�ɂ��邱�Ƃ͂ł��܂���B<r/>
+		　グループ番号を表します。値を設定することもできます。<r/>
+		　同じグループ番号を持ち、かつ同じ親を持ち、<ref>MenuItem.radio</ref> プロパティが
+		真のメニュー項目は、<ref>MenuItem.checked</ref> プロパティを同時に二つ以上を
+		真にすることはできません。<r/>
 		<r/>
 	</desc>
 </member>
@@ -259,85 +259,85 @@
 <member>
 	<name>radio</name>
 	<type>property</type>
-	<shortdesc>���W�I���ڂ��ǂ���</shortdesc>
+	<shortdesc>ラジオ項目かどうか</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@���W�I���ڂ��ǂ������w�肵�܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@���̍��ڂ��^�̏ꍇ�̓���ɂ��Ă� <ref>MenuItem.checked</ref> �v���p�e�B��
-		�Q�Ƃ��Ă��������B<r/>
+		　ラジオ項目かどうかを指定します。値を設定することもできます。<r/>
+		　この項目が真の場合の動作については <ref>MenuItem.checked</ref> プロパティを
+		参照してください。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>index</name>
 	<type>property</type>
-	<shortdesc>����</shortdesc>
+	<shortdesc>順番</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�����e�������j���[���ڊԂɂ����鏇�Ԃ�\���A0�܂��͐��̐����ł��B<r/>
-		�@0���擪��\���܂��B<r/>
-		�@���݈ʒu���擾������A�ʒu��ύX����Ƃ��ɕ֗��ł��B<r/>
-		�@�l��ݒ肷��ƁA���̈ʒu�Ƀ��j���[���ڂ��ړ����܂��B<r/>
+		　同じ親を持つメニュー項目間における順番を表す、0または正の整数です。<r/>
+		　0が先頭を表します。<r/>
+		　現在位置を取得したり、位置を変更するときに便利です。<r/>
+		　値を設定すると、その位置にメニュー項目が移動します。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>HMENU</name>
 	<type>property</type>
-	<shortdesc>HMENU���j���[���ڃn���h��</shortdesc>
+	<shortdesc>HMENUメニュー項目ハンドル</shortdesc>
 	<access>r</access>
 	<desc>
-		�@Windows API�ɂ�����HMENU�^�̃��j���[���ڃn���h����\���܂��B<r/>
-		�@���̃v���p�e�B�̓v���O�C���ȂǂŃ��j���[���ڂɒ��ڃA�N�Z�X�������Ƃ��ɗp���܂��B<r/>
-		�@TJS2����̃A�N�Z�X�͈Ӗ�������܂���B<r/>
-		�@�����œ�����̂͐����ł����A�v���O�C���Ȃǂł��̐��l���g���ꍇ��
-		HMENU �^�� �L���X�g���Ďg���Ă��������B<r/>
+		　Windows APIにおけるHMENU型のメニュー項目ハンドルを表します。<r/>
+		　このプロパティはプラグインなどでメニュー項目に直接アクセスしたいときに用います。<r/>
+		　TJS2からのアクセスは意味がありません。<r/>
+		　ここで得られるのは整数ですが、プラグインなどでこの数値を使う場合は
+		HMENU 型に キャストして使ってください。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>shortcut</name>
 	<type>property</type>
-	<shortdesc>�V���[�g�J�b�g�L�[</shortdesc>
+	<shortdesc>ショートカットキー</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�V���[�g�J�b�g�L�[��\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@�V���[�g�J�b�g�L�[�͕�����Ŏw�肵�܂��B�u�V�t�g�n�L�[+�ΏۃL�[���v�̑g�ݍ��킹��
-		�w�肵�܂��B�啶���Ə������͋�ʂ���܂���B�ȉ��͗L���ȃV���[�g�J�b�g�L�[�̗�ł��B<r/>
+		　ショートカットキーを表します。値を設定することもできます。<r/>
+		　ショートカットキーは文字列で指定します。「シフト系キー+対象キー名」の組み合わせで
+		指定します。大文字と小文字は区別されません。以下は有効なショートカットキーの例です。<r/>
 		<r/>
 		<tt>"Shift+Esc"</tt><r/>
 		<tt>"Ctrl+S"</tt><r/>
 		<tt>"Shift+Alt+E"</tt><r/>
 		<tt>"Alt+Enter"</tt><r/>
 		<tt>"Ctrl+F1"</tt><r/>
-		<tt>"T"</tt> (�V�t�g�n�L�[�̎w������Ȃ����Ƃ��ł��܂�)<r/>
+		<tt>"T"</tt> (シフト系キーの指定をしないこともできます)<r/>
 		<r/>
-		�@�����ȃV���[�g�J�b�g�L�[�̑g�ݍ��킹��A"" (�󕶎���) ���w�肷��ƃV���[�g�J�b�g�L�[�͖����ɂȂ�܂��B<r/>
-		�@���o�[�W�����ł́ATab �� Shift+F1 �ȂǁA�V�X�e����g���g���ł��炩���ߗp�r�̌��܂��Ă���L�[�̈ꕔ��A�ꕔ�̃L�[
-		(Shift�L�[���̂��̂Ȃ�)���w�肵�Ă��������܂���B<r/>
-		�@�V���[�g�J�b�g�L�[���w�肷��ƁA���̃L�[�ɑΉ����� onKeyDown ���̃C�x���g�͔������Ȃ��Ȃ�A�V���[�g�J�b�g�L�[��
-		�w�肵�����j���[���ڂɂ̂݃C�x���g����������悤�ɂȂ�܂��B<r/>
+		　無効なショートカットキーの組み合わせや、"" (空文字列) を指定するとショートカットキーは無効になります。<r/>
+		　現バージョンでは、Tab や Shift+F1 など、システムや吉里吉里であらかじめ用途の決まっているキーの一部や、一部のキー
+		(Shiftキーそのものなど)を指定しても反応しません。<r/>
+		　ショートカットキーを指定すると、そのキーに対応する onKeyDown 等のイベントは発生しなくなり、ショートカットキーを
+		指定したメニュー項目にのみイベントが発生するようになります。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>parent</name>
 	<type>property</type>
-	<shortdesc>�e���j���[����</shortdesc>
+	<shortdesc>親メニュー項目</shortdesc>
 	<access>r</access>
 	<desc>
-		�@�e���j���[���ڂ�\���܂��B<r/>
+		　親メニュー項目を表します。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>children</name>
 	<type>property</type>
-	<shortdesc>�q���j���[����</shortdesc>
+	<shortdesc>子メニュー項目</shortdesc>
 	<access>r</access>
 	<desc>
-		�@�q���j���[���ڂ����X�g���ꂽ�z��I�u�W�F�N�g��\���܂��B<r/>
-		�@�����œ���ꂽ�z��ɒl���������񂾂�A���ڂ̍폜��ǉ��Ȃǂ����Ă����ۂ̃��j���[���ڂ̏�Ԃɂ͔��f����܂���B�ǂݎ��݂̂��s����ƍl���Ă��������B<r/>
+		　子メニュー項目がリストされた配列オブジェクトを表します。<r/>
+		　ここで得られた配列に値を書き込んだり、項目の削除や追加などをしても実際のメニュー項目の状態には反映されません。読み取りのみが行えると考えてください。<r/>
 	</desc>
 </member>
 
@@ -345,10 +345,10 @@
 <member>
 	<name>root</name>
 	<type>property</type>
-	<shortdesc>���[�g���j���[����</shortdesc>
+	<shortdesc>ルートメニュー項目</shortdesc>
 	<access>r</access>
 	<desc>
-		�@���[�g(��{)�̃��j���[����(MenuItem�N���X�̃C���X�^���X)��\���܂��B<r/>
+		　ルート(大本)のメニュー項目(MenuItemクラスのインスタンス)を表します。<r/>
 	</desc>
 </member>
 

@@ -6,9 +6,9 @@ For conditions of distribution and use, see copyright notice in png.h
 
 
 Assumptions:
-* The libpng source files are in ..\..
-* The zlib source files are in ..\..\..\zlib
-* The zlib project files are in ..\..\..\zlib\projects\visualc6
+* The libpng source files are in ..¥..
+* The zlib source files are in ..¥..¥..¥zlib
+* The zlib project files are in ..¥..¥..¥zlib¥projects¥visualc6
 
 
 To use:
@@ -31,15 +31,15 @@ To use:
 
 This project builds the libpng binaries as follows:
 
-* Win32_DLL_Release\libpng13.dll      DLL build
-* Win32_DLL_Debug\libpng13d.dll       DLL build (debug version)
-* Win32_DLL_ASM_Release\libpng13.dll  DLL build using ASM code
-* Win32_DLL_ASM_Debug\libpng13d.dll   DLL build using ASM (debug version)
-* Win32_DLL_VB\libpng13vb.dll         DLL build for Visual Basic, using stdcall
-* Win32_LIB_Release\libpng.lib        static build
-* Win32_LIB_Debug\libpngd.lib         static build (debug version)
-* Win32_LIB_ASM_Release\libpng.lib    static build using ASM code
-* Win32_LIB_ASM_Debug\libpngd.lib     static build using ASM (debug version)
+* Win32_DLL_Release¥libpng13.dll      DLL build
+* Win32_DLL_Debug¥libpng13d.dll       DLL build (debug version)
+* Win32_DLL_ASM_Release¥libpng13.dll  DLL build using ASM code
+* Win32_DLL_ASM_Debug¥libpng13d.dll   DLL build using ASM (debug version)
+* Win32_DLL_VB¥libpng13vb.dll         DLL build for Visual Basic, using stdcall
+* Win32_LIB_Release¥libpng.lib        static build
+* Win32_LIB_Debug¥libpngd.lib         static build (debug version)
+* Win32_LIB_ASM_Release¥libpng.lib    static build using ASM code
+* Win32_LIB_ASM_Debug¥libpngd.lib     static build using ASM (debug version)
 
 
 Notes:
@@ -54,4 +54,4 @@ All DLLs built by this project use the Microsoft dynamic C runtime library
 MSVCRT.DLL (MSVCRTD.DLL for debug versions).  If you distribute any of the
 above mentioned libraries you should also include this DLL in your package.
 For a list of files that are redistributable in Visual C++ 6.0, see
-Common\Redist\Redist.txt on Disc 1 of the Visual C++ 6.0 product CDs.
+Common¥Redist¥Redist.txt on Disc 1 of the Visual C++ 6.0 product CDs.

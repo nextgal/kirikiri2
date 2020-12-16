@@ -12,14 +12,14 @@ win.visible = true;
 Debug.console.visible = true;
 
 var zip = new Zip();
-zip.open("‚Ä‚·‚Æ.zip", true);
+zip.open("ã¦ã™ã¨.zip", true);
 zip.add("file1.txt", "filex.txt");
-zip.add("file1.txt", "ƒtƒ@ƒCƒ‹\x2661.txt");
+zip.add("file1.txt", "ãƒ•ã‚¡ã‚¤ãƒ«Â¥x2661.txt");
 zip.add("file2.txt", "folder/zipfile2.txt");
 zip.close();
 
 var unzip = new Unzip();
-unzip.open("‚Ä‚·‚Æ.zip");
+unzip.open("ã¦ã™ã¨.zip");
 var list = unzip.list();
 for (var i=0;i<list.count;i++) {
 	var info = list[i];
@@ -36,13 +36,13 @@ for (var i=0;i<list.count;i++) {
 }
 unzip.close();
 
-Storages.mountZip("‚Ä‚·‚Æ", "‚Ä‚·‚Æ.zip");
-Storages.exportFile("zip://‚Ä‚·‚Æ/filex.txt", "export_file1.txt");
-Storages.exportFile("zip://‚Ä‚·‚Æ/ƒtƒ@ƒCƒ‹\x2661.txt", "export_ƒtƒ@ƒCƒ‹‚P.txt");
-Storages.exportFile("zip://‚Ä‚·‚Æ/folder/zipfile2.txt", "export_file2.txt");
-Storages.addAutoPath("zip://‚Ä‚·‚Æ/");
-Storages.addAutoPath("zip://‚Ä‚·‚Æ/folder/");
+Storages.mountZip("ã¦ã™ã¨", "ã¦ã™ã¨.zip");
+Storages.exportFile("zip://ã¦ã™ã¨/filex.txt", "export_file1.txt");
+Storages.exportFile("zip://ã¦ã™ã¨/ãƒ•ã‚¡ã‚¤ãƒ«Â¥x2661.txt", "export_ãƒ•ã‚¡ã‚¤ãƒ«ï¼‘.txt");
+Storages.exportFile("zip://ã¦ã™ã¨/folder/zipfile2.txt", "export_file2.txt");
+Storages.addAutoPath("zip://ã¦ã™ã¨/");
+Storages.addAutoPath("zip://ã¦ã™ã¨/folder/");
 Storages.exportFile("filex.txt", "export2_file1.txt");
-Storages.exportFile("ƒtƒ@ƒCƒ‹\x2661.txt", "export2_ƒtƒ@ƒCƒ‹\x2661.txt");
+Storages.exportFile("ãƒ•ã‚¡ã‚¤ãƒ«Â¥x2661.txt", "export2_ãƒ•ã‚¡ã‚¤ãƒ«Â¥x2661.txt");
 Storages.exportFile("zipfile2.txt", "export2_file2.txt");
-Storages.unmountZip("‚Ä‚·‚Æ");
+Storages.unmountZip("ã¦ã™ã¨");

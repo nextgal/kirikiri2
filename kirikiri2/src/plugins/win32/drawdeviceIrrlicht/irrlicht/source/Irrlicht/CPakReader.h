@@ -48,7 +48,7 @@ namespace io
 	public:
 
 		CPakReader(IReadFile* file, bool ignoreCase, bool ignorePaths);
-		virtual ~CPakReader();
+		virtual ‾CPakReader();
 
 		//! opens a file by file name
 		virtual IReadFile* openFile(const c8* filename);

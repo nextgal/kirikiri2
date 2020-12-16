@@ -64,7 +64,7 @@ namespace video
 		IBurningShader(IDepthBuffer* zbuffer);
 
 		//! destructor
-		virtual ~IBurningShader();
+		virtual ‾IBurningShader();
 
 		//! sets a render target
 		virtual void setRenderTarget(video::IImage* surface, const core::rect<s32>& viewPort);

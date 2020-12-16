@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------
- * ƒ}ƒ‹ƒ`ƒZƒŒƒNƒVƒ‡ƒ“—p‚ÌƒŠƒXƒg
+ * ãƒãƒ«ãƒã‚»ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ç”¨ã®ãƒªã‚¹ãƒˆ
  ----------------------------------------------------------------------*/
 class MultiSelectionList extends KList
 {
@@ -8,21 +8,21 @@ class MultiSelectionList extends KList
   }
 
   function onSelectionDragEnter() {
-    // ‘I‘ğ”ÍˆÍ‚É‚Â‚¢‚Ä‚Ü‚Æ‚ß‚Äƒhƒ‰ƒbƒO‚ğŠJn‚·‚é
+    // é¸æŠç¯„å›²ã«ã¤ã„ã¦ã¾ã¨ã‚ã¦ãƒ‰ãƒ©ãƒƒã‚°ã‚’é–‹å§‹ã™ã‚‹
     beginDragPacket(new KPacket("ddlistitem2", selectedItemParentOnlyList));
   }
 
   function isChildPacketAcceptable(insertionIndex, packet) {
-    // “¯ƒeƒXƒg—p‚ÌƒpƒPƒbƒg‚ğó‚¯“ü‚ê‚é
+    // åŒãƒ†ã‚¹ãƒˆç”¨ã®ãƒ‘ã‚±ãƒƒãƒˆã‚’å—ã‘å…¥ã‚Œã‚‹
     return (packet.name == "ddlistitem2");
   }
 
   function onChildPacketDrop(insertionIndex, x, y, packet, shift) {
-    // ’¼‘O‚É‘I‘ğ‚µ‚Ä‚¢‚½ƒAƒCƒeƒ€‚ğ‹L‰¯
+    // ç›´å‰ã«é¸æŠã—ã¦ã„ãŸã‚¢ã‚¤ãƒ†ãƒ ã‚’è¨˜æ†¶
     var prevSelectedItemList = selectedItemList;
-    // ’¼‘O‚ÉƒtƒH[ƒJƒX‚µ‚Ä‚¢‚½ƒAƒCƒeƒ€‚ğ‹L‰¯
+    // ç›´å‰ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã—ã¦ã„ãŸã‚¢ã‚¤ãƒ†ãƒ ã‚’è¨˜æ†¶
     var prevFocusedItem = focusedItem;
-    // ‘I‘ğ”ÍˆÍ‚ÌƒAƒCƒeƒ€‚ğw’èˆÊ’u‚É‘}“üB
+    // é¸æŠç¯„å›²ã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒ‡å®šä½ç½®ã«æŒ¿å…¥ã€‚
     for (var i = 0; i < packet.arg.count; i++) {
       var item = packet.arg[i];
       if (item.parent == this && item.index < insertionIndex)
@@ -31,7 +31,7 @@ class MultiSelectionList extends KList
       insert(insertionIndex, item);
       insertionIndex++;
     }
-    // ’¼‘O‚Ì‘I‘ğó‘Ô‚ÆƒtƒH[ƒJƒX‚ğÄŒ»B
+    // ç›´å‰ã®é¸æŠçŠ¶æ…‹ã¨ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å†ç¾ã€‚
     updateDrawItemList();
     clearAllSelection();
     for (var i = 0; i < prevSelectedItemList.count; i++)
@@ -41,7 +41,7 @@ class MultiSelectionList extends KList
 };
 
 /*----------------------------------------------------------------------
- * ƒ}ƒ‹ƒ`ƒZƒŒƒNƒVƒ‡ƒ“—p‚ÌƒŠƒXƒgƒAƒCƒeƒ€
+ * ãƒãƒ«ãƒã‚»ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ç”¨ã®ãƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ 
  ----------------------------------------------------------------------*/
 class MultiSelectionListItem extends KListItem
 {
@@ -50,25 +50,25 @@ class MultiSelectionListItem extends KListItem
   }
 
   function isChildPacketAcceptable(insertionIndex, packet) {
-    // “¯ƒeƒXƒg—p‚ÌƒpƒPƒbƒg‚Ì‚İó‚¯“ü‚ê‚é
+    // åŒãƒ†ã‚¹ãƒˆç”¨ã®ãƒ‘ã‚±ãƒƒãƒˆã®ã¿å—ã‘å…¥ã‚Œã‚‹
     if (packet.name != "ddlistitem2")
       return false;
-    // ˆÚ“®‘ÎÛŒó•â‚ª©•ª‚Ì‘cæ‚¾‚Á‚½‚çó‚¯“ü‚ê‚È‚¢
+    // ç§»å‹•å¯¾è±¡å€™è£œãŒè‡ªåˆ†ã®ç¥–å…ˆã ã£ãŸã‚‰å—ã‘å…¥ã‚Œãªã„
     for (var i = 0; i < packet.arg.count; i++)
       if (packet.arg[i].isAncestorOf(this))
         return false;
-    // ‚»‚¤‚Å‚È‚¯‚ê‚Îó‚¯“ü‚ê‚é
+    // ãã†ã§ãªã‘ã‚Œã°å—ã‘å…¥ã‚Œã‚‹
     return true;
   }
 
   function onChildPacketDrop(insertionIndex, x, y, packet, shift) {
-    // ’¼‘O‚É‘I‘ğ‚µ‚Ä‚¢‚½ƒAƒCƒeƒ€‚ğ‹L‰¯
+    // ç›´å‰ã«é¸æŠã—ã¦ã„ãŸã‚¢ã‚¤ãƒ†ãƒ ã‚’è¨˜æ†¶
     var prevSelectedItemList = root.selectedItemList;
-    // ’¼‘O‚ÉƒtƒH[ƒJƒX‚µ‚Ä‚¢‚½ƒAƒCƒeƒ€‚ğ‹L‰¯
+    // ç›´å‰ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã—ã¦ã„ãŸã‚¢ã‚¤ãƒ†ãƒ ã‚’è¨˜æ†¶
     var prevFocusedItem = root.focusedItem;
-    // q‚ğ‘}“ü‚µ‚½‚Ì‚ÅƒI[ƒvƒ“ó‘Ô‚É‚µ‚Ä‰Â‹‰»B
+    // å­ã‚’æŒ¿å…¥ã—ãŸã®ã§ã‚ªãƒ¼ãƒ—ãƒ³çŠ¶æ…‹ã«ã—ã¦å¯è¦–åŒ–ã€‚
     opened = true;
-    // ‘I‘ğ”ÍˆÍ‚ÌƒAƒCƒeƒ€‚ğw’èˆÊ’u‚É‘}“üB
+    // é¸æŠç¯„å›²ã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒ‡å®šä½ç½®ã«æŒ¿å…¥ã€‚
     for (var i = 0; i < packet.arg.count; i++) {
       var item = packet.arg[i];
       if (item.parent == this && item.index < insertionIndex)
@@ -77,7 +77,7 @@ class MultiSelectionListItem extends KListItem
       insert(insertionIndex, item);
       insertionIndex++;
     }
-    // ’¼‘O‚Ì‘I‘ğó‘Ô‚ÆƒtƒH[ƒJƒX‚ğÄŒ»B
+    // ç›´å‰ã®é¸æŠçŠ¶æ…‹ã¨ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å†ç¾ã€‚
     root.updateDrawItemList();
     root.clearAllSelection();
     for (var i = 0; i < prevSelectedItemList.count; i++)
@@ -87,21 +87,21 @@ class MultiSelectionListItem extends KListItem
 };
 
 /*----------------------------------------------------------------------
- * ƒŠƒXƒgƒTƒ“ƒvƒ‹2(ƒ}ƒ‹ƒ`ƒZƒŒƒNƒVƒ‡ƒ“‚ÌƒeƒXƒg)
+ * ãƒªã‚¹ãƒˆã‚µãƒ³ãƒ—ãƒ«2(ãƒãƒ«ãƒã‚»ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã®ãƒ†ã‚¹ãƒˆ)
  ----------------------------------------------------------------------*/
 class ListSample2 extends KWindow
 {
   function ListSample2 {
     super.KWindow("ListSample2");
 
-    // ƒEƒBƒ“ƒhƒE‰Šúİ’è
-    caption = 'ƒŠƒXƒgƒTƒ“ƒvƒ‹2';
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦åˆæœŸè¨­å®š
+    caption = 'ãƒªã‚¹ãƒˆã‚µãƒ³ãƒ—ãƒ«2';
     imeMode = imDontCare;
 
-    // ƒfƒtƒHƒ‹ƒg’l
+    // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
     defaultFocusable = true;
 
-    // ƒXƒNƒ[ƒ‹ƒŒƒCƒAƒEƒg‚ğìƒŠA‚»‚Ì’†‚ÉƒŠƒXƒg‚ğ”z’u
+    // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ä½œãƒªã€ãã®ä¸­ã«ãƒªã‚¹ãƒˆã‚’é…ç½®
     primaryWidget.add(new KScrollLayout(this, true, true, "scroll"));
     scroll.resize = true;
     scroll.add(new MultiSelectionList(this, "list"));
@@ -109,10 +109,10 @@ class ListSample2 extends KWindow
     list.spaceVertical = 2;
     list.multipleSelection = true;
 
-    // ƒŠƒXƒg€–Ú‚ğ”z’u‚µ‚Ü‚­‚é
-    locateListItem(list, "ƒŠƒXƒgƒAƒCƒeƒ€", 4);
+    // ãƒªã‚¹ãƒˆé …ç›®ã‚’é…ç½®ã—ã¾ãã‚‹
+    locateListItem(list, "ãƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ ", 4);
 
-    // ‰i‘±‰»«‘‚Ìì¬
+    // æ°¸ç¶šåŒ–è¾æ›¸ã®ä½œæˆ
     var dict = new KPersistentDictionary(System.dataPath + name + "_dict.txt");
     add(dict);
     bindPersistentDictionary(dict);
@@ -132,7 +132,7 @@ class ListSample2 extends KWindow
 
 
 //----------------------------------------------------------------------
-// ƒTƒ“ƒvƒ‹•\¦E”ñ•\¦‚ÌØ‚è‘Ö‚¦
+// ã‚µãƒ³ãƒ—ãƒ«è¡¨ç¤ºãƒ»éè¡¨ç¤ºã®åˆ‡ã‚Šæ›¿ãˆ
 global.listSample2 = void;
 
 function showListSample2

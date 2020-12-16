@@ -1,61 +1,61 @@
-*m11|é‹Ê
+*m11|åŸ¼ç‰
 @cm
-‚»‚±‚Íé‹Ê‚Å‚·B[l]
+ãã“ã¯åŸ¼ç‰ã§ã™ã€‚[l]
 @jump storage="maptest.ks" target="*start"
 
-*m8|ŒQ”n
+*m8|ç¾¤é¦¬
 @cm
-‚»‚±‚ÍŒQ”n‚Å‚·B[l]
+ãã“ã¯ç¾¤é¦¬ã§ã™ã€‚[l]
 @jump storage="maptest.ks" target="*start"
 
-*m7|“È–Ø
+*m7|æ ƒæœ¨
 @cm
-‚»‚±‚Í“È–Ø‚Å‚·B[l]
+ãã“ã¯æ ƒæœ¨ã§ã™ã€‚[l]
 @jump storage="maptest.ks" target="*start"
 
-*m9|ˆïé
+*m9|èŒ¨åŸ
 @cm
-‚»‚±‚Íˆïé‚Å‚·B[l]
+ãã“ã¯èŒ¨åŸã§ã™ã€‚[l]
 @jump storage="maptest.ks" target="*start"
 
-*m10|ç—t
+*m10|åƒè‘‰
 @cm
-‚»‚±‚Íç—t‚Å‚·B[l]
+ãã“ã¯åƒè‘‰ã§ã™ã€‚[l]
 @jump storage="maptest.ks" target="*start"
 
-*m12|“Œ‹
+*m12|æ±äº¬
 @cm
-‚»‚±‚Í“Œ‹‚Å‚·B[l]
+ãã“ã¯æ±äº¬ã§ã™ã€‚[l]
 @jump storage="maptest.ks" target="*start"
 
-*m2|_“Şì
+*m2|ç¥å¥ˆå·
 @cm
-‚»‚±‚Í_“Şì‚Å‚·B[l]
+ãã“ã¯ç¥å¥ˆå·ã§ã™ã€‚[l]
 @jump storage="maptest.ks" target="*start"
 
-*m3|R—œ
+*m3|å±±æ¢¨
 @cm
-‚»‚±‚ÍR—œ‚Å‚·B[l]
+ãã“ã¯å±±æ¢¨ã§ã™ã€‚[l]
 @jump storage="maptest.ks" target="*start"
 
-*m1|Ã‰ª
+*m1|é™å²¡
 @cm
-‚»‚±‚ÍÃ‰ª‚Å‚·B[l]
+ãã“ã¯é™å²¡ã§ã™ã€‚[l]
 @jump storage="maptest.ks" target="*start"
 
-*m4|’·–ì
+*m4|é•·é‡
 @cm
-‚»‚±‚Í’·–ì‚Å‚·B[l]
+ãã“ã¯é•·é‡ã§ã™ã€‚[l]
 @jump storage="maptest.ks" target="*start"
 
-*m5|VŠƒ
+*m5|æ–°æ½Ÿ
 @cm
-‚»‚±‚ÍVŠƒ‚Å‚·B[l]
+ãã“ã¯æ–°æ½Ÿã§ã™ã€‚[l]
 @jump storage="maptest.ks" target="*start"
 
-*m6|•Ÿ“‡
+*m6|ç¦å³¶
 @cm
-‚»‚±‚Í•Ÿ“‡‚Å‚·B[l]
+ãã“ã¯ç¦å³¶ã§ã™ã€‚[l]
 @jump storage="maptest.ks" target="*start"
 
 

@@ -1,6 +1,6 @@
 //  lambda_fwd.hpp - Boost Lambda Library -------------------------------
 
-// Copyright (C) 1999, 2000 Jaakko J�rvi (jaakko.jarvi@cs.utu.fi)
+// Copyright (C) 1999, 2000 Jaakko J舐vi (jaakko.jarvi@cs.utu.fi)
 //
 // Permission to copy, use, sell and distribute this software is granted
 // provided this copyright notice appears in all copies. 
@@ -71,7 +71,7 @@ void do_nothing(A1&, A2&, A3&, A4&) {}
 } // boost
 
 // prevent the warnings from unused argumetns
-#define CALL_USE_ARGS \
+#define CALL_USE_ARGS ¥
 ::boost::lambda::detail::do_nothing(a, b, c, env)
 
 

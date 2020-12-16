@@ -23,7 +23,7 @@ CSceneNodeAnimatorDelete::CSceneNodeAnimatorDelete(ISceneManager* manager, u32 t
 
 
 //! destructor
-CSceneNodeAnimatorDelete::~CSceneNodeAnimatorDelete()
+CSceneNodeAnimatorDelete::‾CSceneNodeAnimatorDelete()
 {
 }
 

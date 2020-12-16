@@ -18,7 +18,7 @@ struct BOOST_PYTHON_DECL instance_holder : private noncopyable
 {
  public:
     instance_holder();
-    virtual ~instance_holder();
+    virtual ‾instance_holder();
     
     // return the next holder in a chain
     instance_holder* next() const;

@@ -44,9 +44,9 @@ static void writepng_error_handler(png_structp png_ptr, png_const_charp msg);
 
 void writepng_version_info(void)
 {
-  fprintf(stderr, "   Compiled with libpng %s; using libpng %s.\n",
+  fprintf(stderr, "   Compiled with libpng %s; using libpng %s.¥n",
     PNG_LIBPNG_VER_STRING, png_libpng_ver);
-  fprintf(stderr, "   Compiled with zlib %s; using zlib %s.\n",
+  fprintf(stderr, "   Compiled with zlib %s; using zlib %s.¥n",
     ZLIB_VERSION, zlib_version);
 }
 
@@ -353,13 +353,13 @@ static void writepng_error_handler(png_structp png_ptr, png_const_charp msg)
      * regardless of whether _BSD_SOURCE or anything else has (or has not)
      * been defined. */
 
-    fprintf(stderr, "writepng libpng error: %s\n", msg);
+    fprintf(stderr, "writepng libpng error: %s¥n", msg);
     fflush(stderr);
 
     mainprog_ptr = png_get_error_ptr(png_ptr);
     if (mainprog_ptr == NULL) {         /* we are completely hosed now */
         fprintf(stderr,
-          "writepng severe error:  jmpbuf not recoverable; terminating.\n");
+          "writepng severe error:  jmpbuf not recoverable; terminating.¥n");
         fflush(stderr);
         exit(99);
     }

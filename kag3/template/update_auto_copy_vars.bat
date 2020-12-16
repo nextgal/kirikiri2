@@ -1,4 +1,4 @@
-rem 一応怖いのでバックアップ(^^;
+rem 荳蠢懈悶＞縺ｮ縺ｧ繝舌ャ繧ｯ繧｢繝�繝�(^^;
 cd system
 copy MessageLayer.tjs "%TEMP%"
 perl MessageLayer.tjs

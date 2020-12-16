@@ -55,7 +55,7 @@ public:
 		}
 	}
 
-	~tTJSMessageHolder()
+	‾tTJSMessageHolder()
 	{
 		if(Name) TJSUnregisterMessageMap(Name);
 		if(AssignedMessage) delete [] AssignedMessage, AssignedMessage = NULL;

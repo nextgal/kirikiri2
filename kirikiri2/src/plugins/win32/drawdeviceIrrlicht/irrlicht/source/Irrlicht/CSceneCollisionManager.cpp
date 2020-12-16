@@ -31,7 +31,7 @@ CSceneCollisionManager::CSceneCollisionManager(ISceneManager* smanager, video::I
 
 
 //! destructor
-CSceneCollisionManager::~CSceneCollisionManager()
+CSceneCollisionManager::‾CSceneCollisionManager()
 {
 	if (Driver)
 		Driver->drop();

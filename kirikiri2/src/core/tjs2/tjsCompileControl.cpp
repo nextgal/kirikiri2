@@ -79,7 +79,7 @@ tTJSPPExprParser::tTJSPPExprParser(tTJS * tjs, const tjs_char *script)
 	Script = script;
 }
 //---------------------------------------------------------------------------
-tTJSPPExprParser::~tTJSPPExprParser()
+tTJSPPExprParser::‾tTJSPPExprParser()
 {
 	delete [] Script;
 }

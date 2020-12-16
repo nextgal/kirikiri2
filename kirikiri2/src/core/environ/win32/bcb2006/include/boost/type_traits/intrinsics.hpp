@@ -27,7 +27,7 @@
 // BOOST_HAS_TRIVIAL_CONSTRUCTOR(T) should evaluate to true if "T x;" has no effect
 // BOOST_HAS_TRIVIAL_COPY(T) should evaluate to true if T(t) <==> memcpy
 // BOOST_HAS_TRIVIAL_ASSIGN(T) should evaluate to true if t = u <==> memcpy
-// BOOST_HAS_TRIVIAL_DESTRUCTOR(T) should evaluate to true if ~T() has no effect
+// BOOST_HAS_TRIVIAL_DESTRUCTOR(T) should evaluate to true if ‾T() has no effect
 
 #ifdef BOOST_HAS_SGI_TYPE_TRAITS
     // Hook into SGI's __type_traits class, this will pick up user supplied

@@ -36,7 +36,7 @@ void CLimitReadFile::init()
 
 
 
-CLimitReadFile::~CLimitReadFile()
+CLimitReadFile::‾CLimitReadFile()
 {
 	if (File)
 		File->drop();

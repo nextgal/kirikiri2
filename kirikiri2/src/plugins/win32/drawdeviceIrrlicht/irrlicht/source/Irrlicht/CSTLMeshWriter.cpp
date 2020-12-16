@@ -28,7 +28,7 @@ CSTLMeshWriter::CSTLMeshWriter(scene::ISceneManager* smgr)
 }
 
 
-CSTLMeshWriter::~CSTLMeshWriter()
+CSTLMeshWriter::‾CSTLMeshWriter()
 {
 	if (SceneManager)
 		SceneManager->drop();
@@ -155,7 +155,7 @@ bool CSTLMeshWriter::writeMeshASCII(io::IWriteFile* file, scene::IMesh* mesh, s3
 	file->write("solid ",6);
 	const core::stringc name(SceneManager->getMeshCache()->getMeshFilename(mesh));
 	file->write(name.c_str(),name.size());
-	file->write("\n\n",2);
+	file->write("¥n¥n",2);
 
 	// write mesh buffers
 	
@@ -199,7 +199,7 @@ bool CSTLMeshWriter::writeMeshASCII(io::IWriteFile* file, scene::IMesh* mesh, s3
 				}
 				break;
 			}
-			file->write("\n",1);
+			file->write("¥n",1);
 		}
 	}
 
@@ -217,7 +217,7 @@ void CSTLMeshWriter::getVectorAsStringLine(const core::vector3df& v, core::strin
 	s += v.Y;
 	s += " ";
 	s += v.Z;
-	s += "\n";
+	s += "¥n";
 }
 
 
@@ -230,7 +230,7 @@ void CSTLMeshWriter::writeFace(io::IWriteFile* file,
 	file->write("facet normal ",13);
 	getVectorAsStringLine(core::plane3df(v1,v2,v3).Normal, tmp);
 	file->write(tmp.c_str(),tmp.size());
-	file->write("  outer loop\n",13);
+	file->write("  outer loop¥n",13);
 	file->write("    vertex ",11);
 	getVectorAsStringLine(v1, tmp);
 	file->write(tmp.c_str(),tmp.size());
@@ -240,8 +240,8 @@ void CSTLMeshWriter::writeFace(io::IWriteFile* file,
 	file->write("    vertex ",11);
 	getVectorAsStringLine(v3, tmp);
 	file->write(tmp.c_str(),tmp.size());
-	file->write("  endloop\n",10);
-	file->write("endfacet\n",9);
+	file->write("  endloop¥n",10);
+	file->write("endfacet¥n",9);
 }
 
 

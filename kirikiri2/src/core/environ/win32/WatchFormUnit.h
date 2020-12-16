@@ -22,7 +22,7 @@
 //---------------------------------------------------------------------------
 class TTVPWatchForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TToolBar *ToolBar;
 	TStatusBar *StatusBar;
 	TToolButton *UpdateButton;
@@ -85,9 +85,9 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall CopyImportantLogMenuItemClick(TObject *Sender);
 	void __fastcall ShowOnTopMenuItemClick(TObject *Sender);
 	void __fastcall ShowWatchMenuItemClick(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TTVPWatchForm(TComponent* Owner);
 
 private:

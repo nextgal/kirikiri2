@@ -153,7 +153,7 @@ class tTVPBaseInputEvent // base user input event class
 	tjs_int Tag;
 public:
 	tTVPBaseInputEvent(void *source, tjs_int tag) { Source = source; Tag = tag; }
-	virtual ~tTVPBaseInputEvent() {};
+	virtual ‾tTVPBaseInputEvent() {};
 	virtual void Deliver() const = 0;
 	void * GetSource() const { return Source; }
 	tjs_int GetTag() const { return Tag; }
@@ -192,33 +192,33 @@ TJS_EXP_FUNC_DEF(iTJSDispatch2 *, TVPCreateEventObject, (const tjs_char *type,
 // some macros for driving "action" method
 //---------------------------------------------------------------------------
 extern ttstr TVPActionName;
-#define TVP_ACTION_INVOKE_BEGIN(argnum, name, object) \
-	{ \
-		if(numparams < (argnum)) return TJS_E_BADPARAMCOUNT; \
-		tjs_int arg_count = 0; \
-		iTJSDispatch2 *evobj = TVPCreateEventObject(TJS_W(name), (object), \
-			(object)); \
-		tTJSVariant evval(evobj, evobj); \
+#define TVP_ACTION_INVOKE_BEGIN(argnum, name, object) ¥
+	{ ¥
+		if(numparams < (argnum)) return TJS_E_BADPARAMCOUNT; ¥
+		tjs_int arg_count = 0; ¥
+		iTJSDispatch2 *evobj = TVPCreateEventObject(TJS_W(name), (object), ¥
+			(object)); ¥
+		tTJSVariant evval(evobj, evobj); ¥
 		evobj->Release();
 
-#define TVP_ACTION_INVOKE_MEMBER(name) \
-	{\
-		static ttstr member_name(TJS_W(name)); \
-		evobj->PropSet(TJS_MEMBERENSURE|TJS_IGNOREPROP, \
-			member_name.c_str(), member_name.GetHint(), param[arg_count++], \
-			evobj); \
+#define TVP_ACTION_INVOKE_MEMBER(name) ¥
+	{¥
+		static ttstr member_name(TJS_W(name)); ¥
+		evobj->PropSet(TJS_MEMBERENSURE|TJS_IGNOREPROP, ¥
+			member_name.c_str(), member_name.GetHint(), param[arg_count++], ¥
+			evobj); ¥
 	}
 
-#define TVP_ACTION_INVOKE_END(object) \
-		tTJSVariant *pevval = &evval; \
-		(object).FuncCall(0, TVPActionName.c_str(), TVPActionName.GetHint(), \
-			result, 1, &pevval, NULL); \
+#define TVP_ACTION_INVOKE_END(object) ¥
+		tTJSVariant *pevval = &evval; ¥
+		(object).FuncCall(0, TVPActionName.c_str(), TVPActionName.GetHint(), ¥
+			result, 1, &pevval, NULL); ¥
 	}
 
-#define TVP_ACTION_INVOKE_END_NAME(object, name, hint) \
-		tTJSVariant *pevval = &evval; \
-		(object).FuncCall(0, (name), (hint), \
-			result, 1, &pevval, NULL); \
+#define TVP_ACTION_INVOKE_END_NAME(object, name, hint) ¥
+		tTJSVariant *pevval = &evval; ¥
+		(object).FuncCall(0, (name), (hint), ¥
+			result, 1, &pevval, NULL); ¥
 	}
 //---------------------------------------------------------------------------
 

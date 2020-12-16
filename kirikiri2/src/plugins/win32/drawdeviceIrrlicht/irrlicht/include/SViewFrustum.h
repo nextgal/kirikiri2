@@ -64,7 +64,7 @@ namespace scene
 		inline void setFrom(const core::matrix4& mat);
 
 		//! transforms the frustum by the matrix
-		/** \param mat: Matrix by which the view frustum is transformed.*/
+		/** ¥param mat: Matrix by which the view frustum is transformed.*/
 		void transform(const core::matrix4& mat);
 
 		//! returns the point which is on the far left upper corner inside the the view frustum.

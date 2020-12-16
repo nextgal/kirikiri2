@@ -204,7 +204,7 @@ namespace date_time {
         month_format_spec_(month_format)
       {
         separator_char_[0] = separator_char;
-        separator_char_[1] = '\0';
+        separator_char_[1] = '¥0';
 
       };
       typedef OutputIterator iter_type;

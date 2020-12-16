@@ -65,7 +65,7 @@ struct grammar_definition
     struct grammar_helper_base
     {
         virtual int undefine(GrammarT *) = 0;
-        virtual ~grammar_helper_base() {}
+        virtual ‾grammar_helper_base() {}
     };
 
     //////////////////////////////////
@@ -120,7 +120,7 @@ struct grammar_definition
     //////////////////////////////////
     struct grammar_extract_helper_list;
 
-#if !defined(BOOST_SPIRIT_SINGLE_GRAMMAR_INSTANCE)    \
+#if !defined(BOOST_SPIRIT_SINGLE_GRAMMAR_INSTANCE)    ¥
     && (!defined(__GNUC__) || (__GNUC__ > 2))
 
     struct grammar_extract_helper_list
@@ -257,7 +257,7 @@ struct grammar_definition
             self->helpers;
 # endif
 
-# if (defined(BOOST_MSVC) && (BOOST_MSVC <= 1200)) \
+# if (defined(BOOST_MSVC) && (BOOST_MSVC <= 1200)) ¥
     || defined(BOOST_INTEL_CXX_VERSION)
         for (iterator_t i = helpers.rbegin(); i != helpers.rend(); ++i)
             (*i)->undefine(self);
@@ -287,9 +287,9 @@ struct grammar_definition
 
 ///////////////////////////////////////
 #if !defined(BOOST_SPIRIT_SINGLE_GRAMMAR_INSTANCE)
-#define BOOST_SPIRIT_GRAMMAR_STATE                            \
-    BOOST_SPIRIT_GRAMMAR_ACCESS                               \
-    friend struct impl::grammar_extract_helper_list;    \
+#define BOOST_SPIRIT_GRAMMAR_STATE                            ¥
+    BOOST_SPIRIT_GRAMMAR_ACCESS                               ¥
+    friend struct impl::grammar_extract_helper_list;    ¥
     mutable impl::grammar_helper_list<self_t> helpers;
 #else
 #define BOOST_SPIRIT_GRAMMAR_STATE

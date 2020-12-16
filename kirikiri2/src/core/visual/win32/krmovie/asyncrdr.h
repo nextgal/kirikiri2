@@ -55,7 +55,7 @@ public:
 	CAsyncIo *pIo,
         CCritSec * pLock);
 
-    ~CAsyncOutputPin();
+    ‾CAsyncOutputPin();
 
     // --- CUnknown ---
 
@@ -199,7 +199,7 @@ public:
         LPUNKNOWN pUnk,
         CAsyncStream *pStream,
         HRESULT *phr);
-    ~CAsyncReader();
+    ‾CAsyncReader();
 
 
     // --- CBaseFilter methods ---

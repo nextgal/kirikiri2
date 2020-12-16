@@ -109,7 +109,7 @@ will terminate the iteration but will not be returned as foreach iteration
 ***version 2.0.3 stable***
 -dofile() and loadfile() in the iolib now can decode ASCII, UTF8 files UCS2 big-endian and little-endian
 -sq_setparamscheck() : now typemesk can check for null
--added string escape sequence \xhhhh
+-added string escape sequence ¥xhhhh
 -fixed some C++ standard incompatibilities
 
 ***2005-05-15	       ***

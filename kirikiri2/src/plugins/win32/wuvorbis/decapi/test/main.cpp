@@ -8,7 +8,7 @@
 
 
 //---------------------------------------------------------------------------
-// ŠeƒR[ƒ‹ƒoƒbƒNŠÖ”‚Ì€”õ
+// å„ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯é–¢æ•°ã®æº–å‚™
 //---------------------------------------------------------------------------
 static size_t _cdecl cb_read_func(void *ptr, size_t size, size_t nmemb, void *datasource)
 {
@@ -35,81 +35,81 @@ static long _cdecl cb_tell_func(void *datasource)
 
 
 //---------------------------------------------------------------------------
-// main ŠÖ”
+// main é–¢æ•°
 //---------------------------------------------------------------------------
 #pragma argsused
 //---------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
-	// ˆø”ƒ`ƒFƒbƒN
+	// å¼•æ•°ãƒã‚§ãƒƒã‚¯
 	if(argc < 3)
 	{
-		fprintf(stderr, "Usage: wu_decapi_test <input_vorbis_stream.ogg> <output_raw_pcm_file> [<path_to_wuvorbis.dll>]\n");
+		fprintf(stderr, "Usage: wu_decapi_test <input_vorbis_stream.ogg> <output_raw_pcm_file> [<path_to_wuvorbis.dll>]Â¥n");
 	}
 
 	const char *wuvorbis_dll = argc >= 4 ? argv[3] : NULL;
 
-	// WuVorbis ‚ğ‰Šú‰»
-	// WuVorbisInit ‚Í wuvorbis.dll ‚Ìƒtƒ@ƒCƒ‹–¼‚ÅANULL ‚È‚ç‚Î
-	// ƒfƒtƒHƒ‹ƒg‚ÌŒŸõƒpƒXã‚Ìƒtƒ@ƒCƒ‹‚ªg‚í‚ê‚é (LoadLibrary("wuborbis.dll") )
-	// WuvVorbisInit ‚ğŒÄ‚Ño‚³‚È‚¢‚ÆAwu_ ‚ª“ª‚É‚Â‚­ŠÖ”‚ÌŒÄ‚Ño‚µ‚Í‚·‚×‚Ä
-	// ¸”s‚·‚é‚Ì‚Å’ˆÓB
+	// WuVorbis ã‚’åˆæœŸåŒ–
+	// WuVorbisInit ã¯ wuvorbis.dll ã®ãƒ•ã‚¡ã‚¤ãƒ«åã§ã€NULL ãªã‚‰ã°
+	// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®æ¤œç´¢ãƒ‘ã‚¹ä¸Šã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒä½¿ã‚ã‚Œã‚‹ (LoadLibrary("wuborbis.dll") )
+	// WuvVorbisInit ã‚’å‘¼ã³å‡ºã•ãªã„ã¨ã€wu_ ãŒé ­ã«ã¤ãé–¢æ•°ã®å‘¼ã³å‡ºã—ã¯ã™ã¹ã¦
+	// å¤±æ•—ã™ã‚‹ã®ã§æ³¨æ„ã€‚
 	if(WuVorbisInit(wuvorbis_dll))
 	{
-		fprintf(stderr, "Cannot load or incorrect wuvorbis.dll\n");
+		fprintf(stderr, "Cannot load or incorrect wuvorbis.dllÂ¥n");
 		return 3;
 	}
 
-	// CPU ƒ`ƒFƒbƒN‚Æ CPU g—p‹@”\‚Ìİ’è
-	// wu_DetectCPU ‚Í CPU ‹@”\‚ğæ“¾‚·‚é‚½‚ß‚Ég‚¤B
-	// ’ÊíAwu_DetectCPU ‚Ì–ß‚è’l‚ğ‚»‚Ì‚Ü‚Ü wu_SetCPUType ‚É“n‚µ‚Ä
-	// g‚¤Bwu_SetCPUType ‚ğg‚í‚È‚¢‚ÆASSE ‚â 3DNow! ‚È‚Ç‚Ì CPU Šg’£‹@”\‚Í
-	// ‚Ü‚Á‚½‚­g‚í‚ê‚È‚¢‚Ì‚Å’ˆÓ‚·‚éB
-	// wu_SetCPUType ‚ª‚İ‚éƒrƒbƒg‚ÍAwu_DetectCPU ‚ª•Ô‚·’l‚Ì‚¤‚¿
+	// CPU ãƒã‚§ãƒƒã‚¯ã¨ CPU ä½¿ç”¨æ©Ÿèƒ½ã®è¨­å®š
+	// wu_DetectCPU ã¯ CPU æ©Ÿèƒ½ã‚’å–å¾—ã™ã‚‹ãŸã‚ã«ä½¿ã†ã€‚
+	// é€šå¸¸ã€wu_DetectCPU ã®æˆ»ã‚Šå€¤ã‚’ãã®ã¾ã¾ wu_SetCPUType ã«æ¸¡ã—ã¦
+	// ä½¿ã†ã€‚wu_SetCPUType ã‚’ä½¿ã‚ãªã„ã¨ã€SSE ã‚„ 3DNow! ãªã©ã® CPU æ‹¡å¼µæ©Ÿèƒ½ã¯
+	// ã¾ã£ãŸãä½¿ã‚ã‚Œãªã„ã®ã§æ³¨æ„ã™ã‚‹ã€‚
+	// wu_SetCPUType ãŒã¿ã‚‹ãƒ“ãƒƒãƒˆã¯ã€wu_DetectCPU ãŒè¿”ã™å€¤ã®ã†ã¡
 	// #define WU_CPU_HAS_MMX 0x000020000
 	// #define WU_CPU_HAS_3DN 0x000040000
 	// #define WU_CPU_HAS_SSE 0x000080000
-	// ‚Ì‚R‚Â‚¾‚¯‚Å‚ ‚éB
+	// ã®ï¼“ã¤ã ã‘ã§ã‚ã‚‹ã€‚
 	unsigned __int32 cputype = wu_DetectCPU();
 	wu_SetCPUType(cputype);
 
-	// ƒtƒ@ƒCƒ‹‚ğŠJ‚­
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
 	FILE *file = fopen(argv[1], "rb");
 	if(!file)
 	{
-		// ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚È‚¢
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ãªã„
 		WuVorbisUninit();
-		fprintf(stderr, "Cannot open %s\n", argv[1]);
+		fprintf(stderr, "Cannot open %sÂ¥n", argv[1]);
 		return 3;
 	}
 
 	FILE *outfile = fopen(argv[2], "wb");
 	if(!outfile)
 	{
-		// ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚È‚¢
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ãªã„
 		fclose(file);
 		WuVorbisUninit();
-		fprintf(stderr, "Cannot open %s\n", argv[2]);
+		fprintf(stderr, "Cannot open %sÂ¥n", argv[2]);
 		return 3;
 	}
 
-	// ƒR[ƒ‹ƒoƒbƒNŠÖ”‚ÌƒZƒbƒgƒAƒbƒv
+	// ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯é–¢æ•°ã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—
 	wu_ov_callbacks callbacks = {cb_read_func, cb_seek_func, cb_close_func, cb_tell_func};
 
-	// wu_og_open_callbacks ‚ğg—p‚µ‚ÄŠJ‚­
+	// wu_og_open_callbacks ã‚’ä½¿ç”¨ã—ã¦é–‹ã
 	wu_OggVorbis_File ovfile;
 
 	if(wu_ov_open_callbacks((void*)file, &ovfile, NULL, 0, callbacks) < 0)
 	{
-		// ƒtƒ@ƒCƒ‹‚ğ³í‚ÉŠJ‚¯‚È‚¢
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ­£å¸¸ã«é–‹ã‘ãªã„
 		fclose(file);
 		fclose(outfile);
 		WuVorbisUninit();
-		fprintf(stderr, "Cannot open %s (in ov_open_callbacks)\n", argv[1]);
+		fprintf(stderr, "Cannot open %s (in ov_open_callbacks)Â¥n", argv[1]);
 		return 3;
 	}
 
-	// î•ñ‚ğ•\¦
+	// æƒ…å ±ã‚’è¡¨ç¤º
 	wu_vorbis_info *info = wu_ov_info(&ovfile, -1);
 
 	if(!info)
@@ -117,53 +117,53 @@ int main(int argc, char* argv[])
 		wu_ov_clear(&ovfile);
 		fclose(outfile);
 		WuVorbisUninit();
-		fprintf(stderr, "ov_info failed\n", argv[1]);
+		fprintf(stderr, "ov_info failedÂ¥n", argv[1]);
 		return 3;
 	}
 
 	fprintf(stderr,
-		"version   : %d\n"
-		"channels  : %d\n"
-		"rate      : %d\n"
-		"bitrate_upper   : %d\n"
-		"bitrate_nominal : %d\n"
-		"bitrate_lower   : %d\n"
-		"bitrate_window  : %d\n",
+		"version   : %dÂ¥n"
+		"channels  : %dÂ¥n"
+		"rate      : %dÂ¥n"
+		"bitrate_upper   : %dÂ¥n"
+		"bitrate_nominal : %dÂ¥n"
+		"bitrate_lower   : %dÂ¥n"
+		"bitrate_window  : %dÂ¥n",
 		info->version, info->channels, info->rate, info->bitrate_upper,
 		info->bitrate_nominal, info->bitrate_lower, info->bitrate_window);
 
-	// ƒfƒR[ƒh‚µ‚Ä‚İ‚é
-	// ‚±‚ÌƒeƒXƒgƒvƒƒOƒ‰ƒ€‚ªo—Í‚·‚éƒfƒR[ƒhŒ‹‰Ê‚Í raw pcm ‚È‚Ì‚Å’ˆÓ
+	// ãƒ‡ã‚³ãƒ¼ãƒ‰ã—ã¦ã¿ã‚‹
+	// ã“ã®ãƒ†ã‚¹ãƒˆãƒ—ãƒ­ã‚°ãƒ©ãƒ ãŒå‡ºåŠ›ã™ã‚‹ãƒ‡ã‚³ãƒ¼ãƒ‰çµæœã¯ raw pcm ãªã®ã§æ³¨æ„
 	int section = -1;
 	while(true)
 	{
 		char buf[1024];
-		// wu_ov_read ‚Ì bigendianp ‚Í 0A
-		// word ‚Í 2(16bit signed integer) ‚© 4 (32bit float) A
-		// signed ‚Í 1 ‚Ì•K—v‚ª‚ ‚é
+		// wu_ov_read ã® bigendianp ã¯ 0ã€
+		// word ã¯ 2(16bit signed integer) ã‹ 4 (32bit float) ã€
+		// signed ã¯ 1 ã®å¿…è¦ãŒã‚ã‚‹
 		int res = wu_ov_read(&ovfile, buf, 1024, 0, 2, 1, &section);
-		// wu_ov_read ‚Í—v‹‚³‚ê‚½ƒTƒCƒY‚ğ–‚½‚³‚¸‚É‹A‚éê‡‚ª‚ ‚é‚Ì‚Å’ˆÓB
-		// 0 ‚ª–ß‚ê‚ÎƒfƒR[ƒhI—¹A³‚Ì”‚ª–ß‚ê‚Î
-		// ƒfƒR[ƒh¬Œ÷(–ß‚è’l‚Í‘‚«‚Ü‚ê‚½ƒoƒCƒg”)A
-		// •‰‚Ì”‚ª–ß‚Á‚½ê‡‚ÍƒpƒPƒbƒg•s‘«‚ÅƒfƒR[ƒh‚Å‚«‚È‚¢“™B
-		//  (ƒlƒbƒgƒ[ƒN‚©‚ç‚ÌƒXƒgƒŠ[ƒ~ƒ“ƒO‚Æ‚©‚Å‚È‚­‚Ä‚à‚±‚Ìó‹µ‚Í”­¶‚·‚é)
-		// •‰‚Ì”‚ª–ß‚Á‚½ê‡‚ÍA“Ç‚İæ‚ê‚é‚æ‚¤‚É‚È‚é‚Ü‚Å
-		// ‚»‚Ì‚Ü‚Ü wu_ov_read ‚ğŒJ‚è•Ô‚¹‚Î‚æ‚¢
+		// wu_ov_read ã¯è¦æ±‚ã•ã‚ŒãŸã‚µã‚¤ã‚ºã‚’æº€ãŸã•ãšã«å¸°ã‚‹å ´åˆãŒã‚ã‚‹ã®ã§æ³¨æ„ã€‚
+		// 0 ãŒæˆ»ã‚Œã°ãƒ‡ã‚³ãƒ¼ãƒ‰çµ‚äº†ã€æ­£ã®æ•°ãŒæˆ»ã‚Œã°
+		// ãƒ‡ã‚³ãƒ¼ãƒ‰æˆåŠŸ(æˆ»ã‚Šå€¤ã¯æ›¸ãè¾¼ã¾ã‚ŒãŸãƒã‚¤ãƒˆæ•°)ã€
+		// è² ã®æ•°ãŒæˆ»ã£ãŸå ´åˆã¯ãƒ‘ã‚±ãƒƒãƒˆä¸è¶³ã§ãƒ‡ã‚³ãƒ¼ãƒ‰ã§ããªã„ç­‰ã€‚
+		//  (ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ã‹ã‚‰ã®ã‚¹ãƒˆãƒªãƒ¼ãƒŸãƒ³ã‚°ã¨ã‹ã§ãªãã¦ã‚‚ã“ã®çŠ¶æ³ã¯ç™ºç”Ÿã™ã‚‹)
+		// è² ã®æ•°ãŒæˆ»ã£ãŸå ´åˆã¯ã€èª­ã¿å–ã‚Œã‚‹ã‚ˆã†ã«ãªã‚‹ã¾ã§
+		// ãã®ã¾ã¾ wu_ov_read ã‚’ç¹°ã‚Šè¿”ã›ã°ã‚ˆã„
 
-		if(res == 0) break; // ƒfƒR[ƒhI—¹
+		if(res == 0) break; // ãƒ‡ã‚³ãƒ¼ãƒ‰çµ‚äº†
 		if(res > 0)	fwrite(buf, 1, res, outfile);
 	}
 
-	// wu_ov_clear ‚Å ovfile \‘¢‘Ì‚ğƒNƒŠƒA
+	// wu_ov_clear ã§ ovfile æ§‹é€ ä½“ã‚’ã‚¯ãƒªã‚¢
 	wu_ov_clear(&ovfile);
-	// (“ü—Íƒtƒ@ƒCƒ‹‚Í ov_clear ‚ª cb_close_func ‚ğŒÄ‚Ño‚µ‚Ä©“®“I‚É•Â‚¶‚é‚Ì‚Å‚±‚±‚Å‚Í•Â‚¶‚È‚¢)
+	// (å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã¯ ov_clear ãŒ cb_close_func ã‚’å‘¼ã³å‡ºã—ã¦è‡ªå‹•çš„ã«é–‰ã˜ã‚‹ã®ã§ã“ã“ã§ã¯é–‰ã˜ãªã„)
 
-	// o—Íƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
+	// å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
 	fclose(outfile);
 
-	// WuVorbis ‚ğI—¹
-	// ’Êí Windows ‚ÍƒAƒvƒŠƒP[ƒVƒ‡ƒ“I—¹‚É©“®“I‚É DLL ‚ğ‰ğ•ú‚·‚é‚Ì‚Å
-	// ‚±‚ê‚Í•K—v‚È‚¢‚©‚àBBB
+	// WuVorbis ã‚’çµ‚äº†
+	// é€šå¸¸ Windows ã¯ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†æ™‚ã«è‡ªå‹•çš„ã« DLL ã‚’è§£æ”¾ã™ã‚‹ã®ã§
+	// ã“ã‚Œã¯å¿…è¦ãªã„ã‹ã‚‚ã€‚ã€‚ã€‚
 	WuVorbisUninit();
 
 	return 0;

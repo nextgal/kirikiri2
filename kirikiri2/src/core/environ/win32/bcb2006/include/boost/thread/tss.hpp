@@ -33,7 +33,7 @@ class BOOST_THREAD_DECL tss : private noncopyable
 {
 public:
     tss(void (*cleanup)(void*)=0);
-    ~tss();
+    ‾tss();
 
     void* get() const;
     bool set(void* value);

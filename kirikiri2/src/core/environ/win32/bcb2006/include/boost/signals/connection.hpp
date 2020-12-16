@@ -63,7 +63,7 @@ namespace boost {
     public:
       connection();
       connection(const connection&);
-      ~connection();
+      ‾connection();
 
       // Disconnect the signal and slot, if they are connected
       void disconnect() const;
@@ -112,7 +112,7 @@ namespace boost {
       scoped_connection() : connection(), released(false) {}
       scoped_connection(const connection&);
       scoped_connection(const scoped_connection&);
-      ~scoped_connection();
+      ‾scoped_connection();
 
       connection release();
 
@@ -135,7 +135,7 @@ namespace boost {
     {
     }
 
-    inline connection::~connection()
+    inline connection::‾connection()
     {
       if (controlling_connection) {
         disconnect();
@@ -195,7 +195,7 @@ namespace boost {
     {
     }
 
-    inline scoped_connection::~scoped_connection()
+    inline scoped_connection::‾scoped_connection()
     {
       if (!released) {
         this->disconnect();
@@ -272,7 +272,7 @@ namespace boost {
         {
         }
 
-        ~auto_disconnect_bound_object()
+        ‾auto_disconnect_bound_object()
         {
           if (auto_disconnect)
             binding.disconnect(binding.obj, binding.data);

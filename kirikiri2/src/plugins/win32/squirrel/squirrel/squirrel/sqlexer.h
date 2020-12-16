@@ -11,7 +11,7 @@ typedef	unsigned char LexChar;
 struct SQLexer
 {
 	SQLexer();
-	~SQLexer();
+	‾SQLexer();
 	void Init(SQSharedState *ss,SQLEXREADFUNC rg,SQUserPointer up,CompilerErrorFunc efunc,void *ed);
 	void Error(const SQChar *err);
 	SQInteger Lex();

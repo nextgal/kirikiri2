@@ -1,18 +1,18 @@
 Plugins.link("stdio.dll");
 //Debug.console.visible = true;
 //Debug.controller.visible = true;
-Debug.message("•W€“üo—ÍÚ‘±ó‘Ô:%0x".sprintf(System.stdioState));
+Debug.message("æ¨™æº–å…¥å‡ºåŠ›æ¥ç¶šçŠ¶æ…‹:%0x".sprintf(System.stdioState));
 if (System.stdioState != 7 && !System.attachConsole()) {
-	System.inform("ƒRƒ“ƒ\[ƒ‹‚ÆÚ‘±‚Å‚«‚Ü‚¹‚ñ");
+	System.inform("ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã¨æ¥ç¶šã§ãã¾ã›ã‚“");
 	if (!System.allocConsole()) {
-		System.inform("ƒRƒ“ƒ\[ƒ‹‚ğ¶¬‚Å‚«‚Ü‚¹‚ñ");
+		System.inform("ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‚’ç”Ÿæˆã§ãã¾ã›ã‚“");
 	}
 }
-Debug.message("•W€“üo—ÍÚ‘±ó‘Ô:%0x".sprintf(System.stdioState));
+Debug.message("æ¨™æº–å…¥å‡ºåŠ›æ¥ç¶šçŠ¶æ…‹:%0x".sprintf(System.stdioState));
 if ((System.stdioState & 0x01)) {
 	var line = System.stdin();
-	System.stdout(@"•W€o—Í‚Éo‚·:${line}\n");
-	System.stderr(@"•W€ƒGƒ‰[o—Í‚Éo‚·:${line}\n");
+	System.stdout(@"æ¨™æº–å‡ºåŠ›ã«å‡ºã™:${line}Â¥n");
+	System.stderr(@"æ¨™æº–ã‚¨ãƒ©ãƒ¼å‡ºåŠ›ã«å‡ºã™:${line}Â¥n");
 }
-System.inform("Š®—¹‚µ‚Ü‚µ‚½");
+System.inform("å®Œäº†ã—ã¾ã—ãŸ");
 System.freeConsole();

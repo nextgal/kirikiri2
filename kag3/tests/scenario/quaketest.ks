@@ -3,19 +3,19 @@
 *first
 @er
 @quake
-ƒfƒtƒHƒ‹ƒg‚Ì—h‚ê[l]
+ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®æºã‚Œ[l]
 @stopquake
-’â~[l]
+åœæ­¢[l]
 @quake hmax=10 vmax=2
-‰¡ 10 c 2[l]
+æ¨ª 10 ç¸¦ 2[l]
 @stopquake
-’â~[l]
+åœæ­¢[l]
 @quake hmax=1 vmax=10
-‰¡ 1 c 10[l]
+æ¨ª 1 ç¸¦ 10[l]
 @stopquake
-’â~[l]
+åœæ­¢[l]
 @quake time=5000 timemode=ms
-5•bŠÔ‚Ì—h‚ê‚ğ‘Ò‚Â
+5ç§’é–“ã®æºã‚Œã‚’å¾…ã¤
 @wq canskip=true
-‘Ò‚Á‚½[l]
-[link target=*first]‚à‚¤ˆê“x[endlink]
+å¾…ã£ãŸ[l]
+[link target=*first]ã‚‚ã†ä¸€åº¦[endlink]

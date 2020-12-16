@@ -41,7 +41,7 @@ COctTreeTriangleSelector::COctTreeTriangleSelector(IMesh* mesh,
 
 
 //! destructor
-COctTreeTriangleSelector::~COctTreeTriangleSelector()
+COctTreeTriangleSelector::‾COctTreeTriangleSelector()
 {
 	delete Root;
 }

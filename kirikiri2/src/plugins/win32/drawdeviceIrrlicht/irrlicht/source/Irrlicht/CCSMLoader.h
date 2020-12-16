@@ -56,7 +56,7 @@ namespace scene
 	public:
 
 		CCSMLoader(ISceneManager* manager, io::IFileSystem* fs);
-		virtual ~CCSMLoader();
+		virtual ‾CCSMLoader();
 
 		//! returns true if the file maybe is able to be loaded by this class
 		//! based on the file extension (e.g. ".bsp")

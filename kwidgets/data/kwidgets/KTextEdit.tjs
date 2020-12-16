@@ -3,57 +3,57 @@
 //
 
 /*----------------------------------------------------------------------
- * ƒeƒLƒXƒgƒGƒfƒBƒbƒg‚Ì1s
+ * ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ãƒƒãƒˆã®1è¡Œ
  ----------------------------------------------------------------------*/
 class KTextEditRow extends Layer
 {
-  // ƒLƒƒƒ‰‚ÌƒŠƒXƒg(•¶š—ñ‚»‚Ì‚à‚Ì)  
+  // ã‚­ãƒ£ãƒ©ã®ãƒªã‚¹ãƒˆ(æ–‡å­—åˆ—ãã®ã‚‚ã®)  
   var charList;
-  // Œ©‚½–Úã‚Ì•¶š—ñ‚ÌƒŠƒXƒg
+  // è¦‹ãŸç›®ä¸Šã®æ–‡å­—åˆ—ã®ãƒªã‚¹ãƒˆ
   var charViewList;
-  // ƒLƒƒƒ‰‚ÌƒŠƒXƒg(•¶š—ñ‚»‚Ì‚à‚Ì)  
+  // ã‚­ãƒ£ãƒ©ã®ãƒªã‚¹ãƒˆ(æ–‡å­—åˆ—ãã®ã‚‚ã®)  
   var charList;
-  // ƒLƒƒƒ‰‚Ì•\¦•‚ÌƒŠƒXƒg
+  // ã‚­ãƒ£ãƒ©ã®è¡¨ç¤ºå¹…ã®ãƒªã‚¹ãƒˆ
   var charWidthList;
-  // Å¬•(ƒLƒƒƒ‰‚Ì•\¦•‚Ì“àÅ‘å‚Ì‚à‚Ì)
+  // æœ€å°å¹…(ã‚­ãƒ£ãƒ©ã®è¡¨ç¤ºå¹…ã®å†…æœ€å¤§ã®ã‚‚ã®)
   var minWidth;
-  // ƒeƒLƒXƒg•‚Ì‡Œv
+  // ãƒ†ã‚­ã‚¹ãƒˆå¹…ã®åˆè¨ˆ
   var textWidth;
-  // ƒLƒƒƒ‰‚Ì•\¦À•WB•¶š”+1‚ÌƒTƒCƒY‚ğ‚Â(––”ö‚ÌƒJ[ƒ\ƒ‹•\¦À•W)
+  // ã‚­ãƒ£ãƒ©ã®è¡¨ç¤ºåº§æ¨™ã€‚æ–‡å­—æ•°+1ã®ã‚µã‚¤ã‚ºã‚’æŒã¤(æœ«å°¾ã®ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤ºåº§æ¨™)
   var charX, charY;
-  // s‚Ì•\¦”ÍˆÍ(”z—ñ‚ÅA¶’[ƒCƒ“ƒfƒbƒNƒXA‰E’[ƒCƒ“ƒfƒbƒNƒXA‰E’[XÀ•W‚ğ‹L˜^)
+  // è¡Œã®è¡¨ç¤ºç¯„å›²(é…åˆ—ã§ã€å·¦ç«¯ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€å³ç«¯ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€å³ç«¯Xåº§æ¨™ã‚’è¨˜éŒ²)
   var rowRange;
-  // ƒŒƒCƒAƒEƒg•ÏX‚ª•K{‚©‚Ç‚¤‚©H
+  // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆå¤‰æ›´ãŒå¿…é ˆã‹ã©ã†ã‹ï¼Ÿ
   var requireLayout;
-  // ‘I‘ğ”ÍˆÍ
+  // é¸æŠç¯„å›²
   var selectionBegin, selectionEnd;
-  // ƒeƒLƒXƒg‚ğ‰B‚·H
+  // ãƒ†ã‚­ã‚¹ãƒˆã‚’éš ã™ï¼Ÿ
   var _hideText = false;
-  // ‰B‚µƒpƒ^[ƒ“
+  // éš ã—ãƒ‘ã‚¿ãƒ¼ãƒ³
   var hidePat = /./g;
 
   /*------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    ------------------------------*/
   function KTextEditRow(window, parent) {
     super.Layer(window, parent);
-    // e‚ÌƒtƒHƒ“ƒgŠî€‚ÉƒtƒHƒ“ƒgŒˆ’è
+    // è¦ªã®ãƒ•ã‚©ãƒ³ãƒˆåŸºæº–ã«ãƒ•ã‚©ãƒ³ãƒˆæ±ºå®š
     font.height = parent.font.height;
     font.face = parent.font.face;
-    // ‰Šú‰»
+    // åˆæœŸåŒ–
     charList = charViewList = "";
     charWidthList = [];
     charX = [];
     charY = [];
     selectionBegin = selectionEnd = -1;
-    // ƒ}ƒEƒXƒCƒxƒ“ƒg‚Í“§‰ß
+    // ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã¯é€é
     hitThreshold = 256;
-    // ƒJ[ƒ\ƒ‹‚ÌŒã‚ë‚É•\¦
+    // ã‚«ãƒ¼ã‚½ãƒ«ã®å¾Œã‚ã«è¡¨ç¤º
     absolute = 0;
   }
 
   /*------------------------------
-   * ‰B‚µƒeƒLƒXƒgƒGƒ“ƒR[ƒh
+   * éš ã—ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰
    ------------------------------*/
   function encodeHidden(v) {
     if (_hideText)
@@ -63,7 +63,7 @@ class KTextEditRow extends Layer
   }
 
   /*------------------------------
-   * ƒeƒLƒXƒg‚ğ‰B‚·H
+   * ãƒ†ã‚­ã‚¹ãƒˆã‚’éš ã™ï¼Ÿ
    ------------------------------*/
   property hideText {
     getter {
@@ -82,10 +82,10 @@ class KTextEditRow extends Layer
   }
 
   /*------------------------------
-   * ƒtƒHƒ“ƒgƒAƒbƒvƒf[ƒg
+   * ãƒ•ã‚©ãƒ³ãƒˆã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
    ------------------------------*/
   function updateFont {
-    // e‚ÌƒtƒHƒ“ƒgŠî€‚ÉƒtƒHƒ“ƒgŒˆ’è
+    // è¦ªã®ãƒ•ã‚©ãƒ³ãƒˆåŸºæº–ã«ãƒ•ã‚©ãƒ³ãƒˆæ±ºå®š
     font.height = parent.font.height;
     font.face = parent.font.face;
     for (var i = 0; i < charList.length; i++) {
@@ -95,7 +95,7 @@ class KTextEditRow extends Layer
   }
 
   /*------------------------------
-   * ƒeƒLƒXƒg‚ğ––”ö‚É’Ç‰Á‚·‚é
+   * ãƒ†ã‚­ã‚¹ãƒˆã‚’æœ«å°¾ã«è¿½åŠ ã™ã‚‹
    ------------------------------*/
   function add(str) {
     charList += str;
@@ -108,7 +108,7 @@ class KTextEditRow extends Layer
   }
 
   /*------------------------------
-   * ƒeƒLƒXƒg‚ğ”CˆÓ‚ÌˆÊ’u‚É‘}“ü‚·‚é
+   * ãƒ†ã‚­ã‚¹ãƒˆã‚’ä»»æ„ã®ä½ç½®ã«æŒ¿å…¥ã™ã‚‹
    ------------------------------*/
   function insert(index, str) {
     charList = charList.substr(0, index) + str + charList.substr(index);
@@ -121,7 +121,7 @@ class KTextEditRow extends Layer
   }
 
   /*------------------------------
-   * ”CˆÓ‚Ì”ÍˆÍ‚ÌƒeƒLƒXƒg‚ğíœ‚·‚é
+   * ä»»æ„ã®ç¯„å›²ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’å‰Šé™¤ã™ã‚‹
    ------------------------------*/
   function erase(index, size = 1) {
     charList = charList.substr(0, index) + charList.substr(index + size);
@@ -132,7 +132,7 @@ class KTextEditRow extends Layer
   }
 
   /*------------------------------
-   * ƒeƒLƒXƒg‚ğƒNƒŠƒA‚·‚é
+   * ãƒ†ã‚­ã‚¹ãƒˆã‚’ã‚¯ãƒªã‚¢ã™ã‚‹
    ------------------------------*/
   function clear() {
     charList = charViewList = "";
@@ -143,7 +143,7 @@ class KTextEditRow extends Layer
   }
 
   /*------------------------------
-   * •¶š‚»‚Ì‚à‚Ì‚ğQÆ‚·‚é
+   * æ–‡å­—ãã®ã‚‚ã®ã‚’å‚ç…§ã™ã‚‹
    ------------------------------*/
   property str {
     getter {
@@ -152,14 +152,14 @@ class KTextEditRow extends Layer
   }
 
   /*------------------------------
-   * •”•ª•¶š—ñ‚ğQÆ‚·‚é
+   * éƒ¨åˆ†æ–‡å­—åˆ—ã‚’å‚ç…§ã™ã‚‹
    ------------------------------*/
   function substr {
     return charList.substr(...);
   }
 
   /*------------------------------
-   * •¶š”‚ğƒJƒEƒ“ƒg‚·‚é
+   * æ–‡å­—æ•°ã‚’ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹
    ------------------------------*/
   property count {
     getter {
@@ -168,7 +168,7 @@ class KTextEditRow extends Layer
   }
 
   /*------------------------------
-   * ‹ós‚©H
+   * ç©ºè¡Œã‹ï¼Ÿ
    ------------------------------*/
   property isEmptyLine {
     getter {
@@ -180,10 +180,10 @@ class KTextEditRow extends Layer
   }
 
   /*------------------------------
-   * •¶šƒCƒ“ƒfƒbƒNƒX‚É‘Î‰‚µ‚½ƒ|ƒCƒ“ƒ^‚ÌˆÊ’u‚ğe‚ÌÀ•WŒn‚Å•Ô‚·
+   * æ–‡å­—ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã«å¯¾å¿œã—ãŸãƒã‚¤ãƒ³ã‚¿ã®ä½ç½®ã‚’è¦ªã®åº§æ¨™ç³»ã§è¿”ã™
    *
-   * @param index ƒCƒ“ƒfƒbƒNƒX
-   * @param tail s––•¶š‚©‚Ç‚¤‚©(‰E’[‚Å©“®‰üs‚·‚és‚ÍAÜ‚è•Ô‚µ‚Ì‰E’[‚ÆŸ‚Ìs‚Ì¶’[‚ª“¯‚¶ƒ|ƒCƒ“ƒ^ˆÊ’u‚ğˆÓ–¡‚·‚éB‚»‚Ì‚Ç‚¿‚ç‚ÌÀ•W‚ğæ‚é‚©‚Ì‘I‘ğ)
+   * @param index ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+   * @param tail è¡Œæœ«æ–‡å­—ã‹ã©ã†ã‹(å³ç«¯ã§è‡ªå‹•æ”¹è¡Œã™ã‚‹è¡Œã¯ã€æŠ˜ã‚Šè¿”ã—ã®å³ç«¯ã¨æ¬¡ã®è¡Œã®å·¦ç«¯ãŒåŒã˜ãƒã‚¤ãƒ³ã‚¿ä½ç½®ã‚’æ„å‘³ã™ã‚‹ã€‚ãã®ã©ã¡ã‚‰ã®åº§æ¨™ã‚’å–ã‚‹ã‹ã®é¸æŠ)
    ------------------------------*/
   function pointerPos(index, tail = false) {
     if (tail) {
@@ -197,8 +197,8 @@ class KTextEditRow extends Layer
   }
 
   /*------------------------------
-   * À•W‚Éˆê”Ô‹ß‚¢•¶šî•ñ‚ğ•Ô‚·
-   * [ ƒCƒ“ƒfƒbƒNƒX, s––‚Ì•¶š‚©‚Ç‚¤‚© ]
+   * åº§æ¨™ã«ä¸€ç•ªè¿‘ã„æ–‡å­—æƒ…å ±ã‚’è¿”ã™
+   * [ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹, è¡Œæœ«ã®æ–‡å­—ã‹ã©ã†ã‹ ]
    ------------------------------*/
   function nearestChar(x, y) {
     x -= left;
@@ -223,7 +223,7 @@ class KTextEditRow extends Layer
   }
 
   /*------------------------------
-   * ‘I‘ğ”ÍˆÍ‚ğİ’è‚·‚é
+   * é¸æŠç¯„å›²ã‚’è¨­å®šã™ã‚‹
    ------------------------------*/
   function select(begin, end) {
     if (begin == selectionBegin
@@ -235,20 +235,20 @@ class KTextEditRow extends Layer
   }
 
   /*------------------------------
-   * ‘I‘ğ”ÍˆÍ‚ğ‰ğœ‚·‚é
+   * é¸æŠç¯„å›²ã‚’è§£é™¤ã™ã‚‹
    ------------------------------*/
   function deselect {
     select(-1, -1);
   }
 
   /*------------------------------
-   * ‘S‘I‘ğ
+   * å…¨é¸æŠ
    ------------------------------*/
   function selectAll {
     select(0, count);
   }
 
-  // Å¬•‚ÌÄŒvZ
+  // æœ€å°å¹…ã®å†è¨ˆç®—
   function calcMinWidth {
     minWidth = 0;
     textWidth = 0;
@@ -264,18 +264,18 @@ class KTextEditRow extends Layer
     requireLayout = true;
   }
 
-  // Ä•`‰æ
+  // å†æç”»
   function redraw {
-    // ƒtƒHƒ“ƒg‚ğÀÛ‚É•`‰æ‚·‚é
+    // ãƒ•ã‚©ãƒ³ãƒˆã‚’å®Ÿéš›ã«æç”»ã™ã‚‹
     fillRect(0, 0, width, height, WIN_WHITE);
-    // s’PˆÊ‚Å‚³‚­‚Á‚Æ•`‰æ
+    // è¡Œå˜ä½ã§ã•ãã£ã¨æç”»
     for (var i = 0; i < rowRange.count; i++) {
-      // ‚Ü‚¸•’Ê‚É•`‰æ
+      // ã¾ãšæ™®é€šã«æç”»
       var from, to;
       from = rowRange[i][0];
       to = rowRange[i][1];
       drawText(charX[from], charY[from], charViewList.substr(from, to - from), 0);
-      // ‘I‘ğ”ÍˆÍ‚É“ü‚Á‚Ä‚¢‚½‚çA‚»‚Ì•ª‚Ì•¶š‚ğ•`‰æ
+      // é¸æŠç¯„å›²ã«å…¥ã£ã¦ã„ãŸã‚‰ã€ãã®åˆ†ã®æ–‡å­—ã‚’æç”»
       if (selectionBegin <= to && selectionEnd >= from) {
         from = int(Math.max(selectionBegin, from));
         to = int(Math.min(selectionEnd, to));
@@ -290,14 +290,14 @@ class KTextEditRow extends Layer
     }
   }
     
-  // ƒŒƒCƒAƒEƒg‚Ì‚â‚è’¼‚µ
+  // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®ã‚„ã‚Šç›´ã—
   function layout(w) {
-    // ƒŒƒCƒAƒEƒg‚Ì•K—v‚ª–³‚­A‰¡•‚ª•Ï‰»‚µ‚Ä‚È‚¢‚È‚çA‚»‚Ì‚Ü‚ÜI—¹
+    // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®å¿…è¦ãŒç„¡ãã€æ¨ªå¹…ãŒå¤‰åŒ–ã—ã¦ãªã„ãªã‚‰ã€ãã®ã¾ã¾çµ‚äº†
     if (! requireLayout
         && width == w)
       return;
 
-    // ƒŒƒCƒAƒEƒg‚Ì•K—v‚ª–³‚­As‚ª1s‚¾‚¯‚Ì‚ÍA‰E’[‚ğ”’‚­”G‚è‚Â‚Ô‚·‚¾‚¯‚ÅI—¹
+    // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®å¿…è¦ãŒç„¡ãã€è¡ŒãŒ1è¡Œã ã‘ã®æ™‚ã¯ã€å³ç«¯ã‚’ç™½ãæ¿¡ã‚Šã¤ã¶ã™ã ã‘ã§çµ‚äº†
      if (! requireLayout
 	 && rowRange.count <= 1
 	 && charX[charList.length] <= w) {
@@ -314,40 +314,40 @@ class KTextEditRow extends Layer
     x = y = h = n = 0;
     rowRange = [];
 
-    // ‘S•¶š‚É‚Â‚¢‚Ä‘–¸A•\¦À•W‚ğŒˆ’è
+    // å…¨æ–‡å­—ã«ã¤ã„ã¦èµ°æŸ»ã€è¡¨ç¤ºåº§æ¨™ã‚’æ±ºå®š
     for (i = 0; i < charWidthList.count; i++) {
       var charWidth = charWidthList[i];
-      // ‰¡•‚ğƒI[ƒo[‚µ‚Ä‚½‚ç‰üs
+      // æ¨ªå¹…ã‚’ã‚ªãƒ¼ãƒãƒ¼ã—ã¦ãŸã‚‰æ”¹è¡Œ
       if (x + charWidth > w) {
-	// sî•ñ‚ğ‹L˜^
+	// è¡Œæƒ…å ±ã‚’è¨˜éŒ²
         rowRange.add([ n, i, x ]);
-	// ‰üs
+	// æ”¹è¡Œ
         y += font.height;
         x = 0;
         n = i;
       }
-      // •¶š‚ÌÀ•W‚ğ‹L˜^
+      // æ–‡å­—ã®åº§æ¨™ã‚’è¨˜éŒ²
       charX[i] = x;
       charY[i] = y;
       x += charWidth;
     }
-    // ––”ö‚Ì‰üsˆÊ’u‚ÌÀ•W‚ğ‹L˜^
+    // æœ«å°¾ã®æ”¹è¡Œä½ç½®ã®åº§æ¨™ã‚’è¨˜éŒ²
     charX[i] = x;
     charY[i] = y;
-    // ÅIs‚Ìî•ñ‚ğ‹L˜^
+    // æœ€çµ‚è¡Œã®æƒ…å ±ã‚’è¨˜éŒ²
     rowRange.add([ n, i, x ]);
     h = y + font.height;
-    // ƒTƒCƒYİ’è
+    // ã‚µã‚¤ã‚ºè¨­å®š
     setSize(w, h);
 
-    // Ä•`‰æ
+    // å†æç”»
     redraw();
   }
 }
 
 
 /*----------------------------------------------------------------------
- * ƒeƒLƒXƒgƒGƒfƒBƒbƒgƒ|ƒCƒ“ƒg
+ * ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ãƒƒãƒˆãƒã‚¤ãƒ³ãƒˆ
  ----------------------------------------------------------------------*/
 class KTextEditPoint
 {
@@ -406,119 +406,119 @@ class KTextEditPoint
 }
 
 /**----------------------------------------------------------------------
- * ƒeƒLƒXƒgƒGƒfƒBƒbƒg
+ * ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ãƒƒãƒˆ
  ----------------------------------------------------------------------*/
 class KTextEdit extends KValueWidget
 {
-  // Å¬ŒÀƒTƒCƒY
+  // æœ€å°é™ã‚µã‚¤ã‚º
   var _marginalWidth, _marginalHeight;
-  // sƒŒƒCƒ„‚ÌƒŠƒXƒg
+  // è¡Œãƒ¬ã‚¤ãƒ¤ã®ãƒªã‚¹ãƒˆ
   var rowList, rowPool;
-  // ”wŒi–„‚ß‚é‚½‚ß‚ÌƒŒƒCƒ„
+  // èƒŒæ™¯åŸ‹ã‚ã‚‹ãŸã‚ã®ãƒ¬ã‚¤ãƒ¤
   var bgLayer;
-  // ƒ|ƒCƒ“ƒ^ƒŒƒCƒ„
+  // ãƒã‚¤ãƒ³ã‚¿ãƒ¬ã‚¤ãƒ¤
   var pointerLayer;
-  // ‰üs‚ğ‚ ‚ç‚í‚·³‹K•\Œ»
+  // æ”¹è¡Œã‚’ã‚ã‚‰ã‚ã™æ­£è¦è¡¨ç¾
   var linefeedPat;
-  // “ü—Í‰Â”\‚È•¶š‚ğ‚ ‚ç‚í‚·³‹K•\Œ»
+  // å…¥åŠ›å¯èƒ½ãªæ–‡å­—ã‚’ã‚ã‚‰ã‚ã™æ­£è¦è¡¨ç¾
   var strPat;
-  // u’PŒêv‚Ìƒpƒ^[ƒ“
+  // ã€Œå˜èªã€ã®ãƒ‘ã‚¿ãƒ¼ãƒ³
   var wordPat;
-  // uƒ^ƒuv‚Ìƒpƒ^[ƒ“
+  // ã€Œã‚¿ãƒ–ã€ã®ãƒ‘ã‚¿ãƒ¼ãƒ³
   var tabPat;
-  // ƒ|ƒCƒ“ƒ^‚Ìs‚Æ—ñ
+  // ãƒã‚¤ãƒ³ã‚¿ã®è¡Œã¨åˆ—
   var pointer;
-  // ƒ|ƒCƒ“ƒ^‚Ì•\¦À•W
+  // ãƒã‚¤ãƒ³ã‚¿ã®è¡¨ç¤ºåº§æ¨™
   var pointerX, pointerY;
-  // ƒ|ƒCƒ“ƒ^“_–Å—pƒ^ƒCƒ}[
+  // ãƒã‚¤ãƒ³ã‚¿ç‚¹æ»…ç”¨ã‚¿ã‚¤ãƒãƒ¼
   var pointerTimer;
-  // ƒ|ƒCƒ“ƒ^Šî€XÀ•W
+  // ãƒã‚¤ãƒ³ã‚¿åŸºæº–Xåº§æ¨™
   var pointerMoveBaseX;
-  // ƒL[ƒoƒCƒ“ƒh
+  // ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰
   var keyBind;
-  // CTRL-SPACE‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©H(emacs bind‚Ì‚½‚ß‚Ìƒtƒ‰ƒO)
+  // CTRL-SPACEãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ã‹ï¼Ÿ(emacs bindã®ãŸã‚ã®ãƒ•ãƒ©ã‚°)
   var ctrlSpacePressed;
-  // ‘I‘ğ”ÍˆÍ
+  // é¸æŠç¯„å›²
   var selectionBegin, selectionEnd;
-  // ƒ}[ƒN
+  // ãƒãƒ¼ã‚¯
   var marker;
   var wordSelection;
   var wordSelectionBegin, wordSelectionEnd;
   var doubleClicked;
-  // ƒhƒ‰ƒbƒO’†
+  // ãƒ‰ãƒ©ãƒƒã‚°ä¸­
   var dragging;
   var firstMove;
-  // UNDOƒ‚[ƒh
+  // UNDOãƒ¢ãƒ¼ãƒ‰
   var UNDO_DELETE = 1, UNDO_PASTE = 2;
   var undoMode;
-  // UNDO—píœ•¶š—ñ
+  // UNDOç”¨å‰Šé™¤æ–‡å­—åˆ—
   var undoDeleteStr, undoDeletePoint;
-  // UNDO—p“\‚è‚Â‚¯”ÍˆÍ
+  // UNDOç”¨è²¼ã‚Šã¤ã‘ç¯„å›²
   var undoPasteBegin, undoPasteEnd;
-  // ƒ^ƒu•
+  // ã‚¿ãƒ–å¹…
   var _tabWidth;
-  // s‰E’[‚Å‚ÌÜ‚è•Ô‚µ
+  // è¡Œå³ç«¯ã§ã®æŠ˜ã‚Šè¿”ã—
   var _lineWrapping;
-  // ’l‚ÌXV‚É”½‰‚·‚éH
+  // å€¤ã®æ›´æ–°ã«åå¿œã™ã‚‹ï¼Ÿ
   var _respondToValueModification;
-  // ƒeƒLƒXƒg‚ğ‰B‚·H
+  // ãƒ†ã‚­ã‚¹ãƒˆã‚’éš ã™ï¼Ÿ
   var _hideText;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
    * @param window
-   * @param name –¼‘O
+   * @param name åå‰
    ------------------------------*/
   function KTextEdit(window, name) {
     super.KWidget(...);
-    // ƒEƒBƒ“ƒhƒE‰Šú‰»
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦åˆæœŸåŒ–
     focusable = true;
     hasImage = false;
     hitThreshold = 0;
     cursor = crIBeam;
     useAttention = true;
     imeMode = imDontCare;
-    // Šî€ƒTƒCƒY1000x1000‚Å‰Šú‰»
+    // åŸºæº–ã‚µã‚¤ã‚º1000x1000ã§åˆæœŸåŒ–
     _marginalWidth = _marginalHeight = 1000;
-    // s”z—ñ‰Šú‰»
+    // è¡Œé…åˆ—åˆæœŸåŒ–
     rowList = [];
     rowPool = [];
-    // ƒ^ƒuƒEƒCƒhƒX‚Í4‚Å‰Šú‰»
+    // ã‚¿ãƒ–ã‚¦ã‚¤ãƒ‰ã‚¹ã¯4ã§åˆæœŸåŒ–
     _tabWidth = 4;
-    // sÜ‚è•Ô‚µ‚ ‚è
+    // è¡ŒæŠ˜ã‚Šè¿”ã—ã‚ã‚Š
     _lineWrapping = true;
-    // ’l‚ÌXV‚É”½‰‚µ‚È‚¢
+    // å€¤ã®æ›´æ–°ã«åå¿œã—ãªã„
     _respondToValueModification = false;
-    // ‘I‘ğ”ÍˆÍ‰Šú‰»
+    // é¸æŠç¯„å›²åˆæœŸåŒ–
     selectionBegin = new KTextEditPoint(-1, -1);
     selectionEnd = new KTextEditPoint(-1, -1);
-    // ƒ|ƒCƒ“ƒ^À•W‚Í(0,0)‚©‚ç
+    // ãƒã‚¤ãƒ³ã‚¿åº§æ¨™ã¯(0,0)ã‹ã‚‰
     pointer = new KTextEditPoint(0, 0);
     marker = new KTextEditPoint(0, 0);
-    // ƒeƒLƒXƒg‚Í‰B‚³‚È‚¢
+    // ãƒ†ã‚­ã‚¹ãƒˆã¯éš ã•ãªã„
     _hideText = false;
-    // UNDO‰Šú‰»
+    // UNDOåˆæœŸåŒ–
     undoDeletePoint = new KTextEditPoint(0, 0);
     undoPasteBegin = new KTextEditPoint(0, 0);
     undoPasteEnd = new KTextEditPoint(0, 0);
-    // ³‹K•\Œ»‰Šú‰»
-    linefeedPat = new RegExp("\r\n|\r|\n");
+    // æ­£è¦è¡¨ç¾åˆæœŸåŒ–
+    linefeedPat = new RegExp("Â¥rÂ¥n|Â¥r|Â¥n");
     if (k_kirikiriz)
-      strPat = new RegExp("[^\\000\\000-\\037\\000]");
+      strPat = new RegExp("[^Â¥Â¥000Â¥Â¥000-Â¥Â¥037Â¥Â¥000]");
     else
-      strPat = new RegExp("[^\\000-\\037]");
-    wordPat = new RegExp("[a-zA-Z0-9]+|[ƒ@-ƒ–[]+[‚Ÿ-‚ñ[]*|[ˆŸ-ê[]+[‚Ÿ-‚ñ[]*|[‚Ÿ-‚ñ[]+");
-    tabPat = new RegExp("\t", "g");
-    // ƒL[ƒoƒCƒ“ƒh”z—ñ
+      strPat = new RegExp("[^Â¥Â¥000-Â¥Â¥037]");
+    wordPat = new RegExp("[a-zA-Z0-9]+|[ã‚¡-ãƒ¶ãƒ¼]+[ã-ã‚“ãƒ¼]*|[äºœ-é¾ ãƒ¼]+[ã-ã‚“ãƒ¼]*|[ã-ã‚“ãƒ¼]+");
+    tabPat = new RegExp("Â¥t", "g");
+    // ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰é…åˆ—
     keyBind = [];
-    // ”wŒiƒŒƒCƒ„ì¬
+    // èƒŒæ™¯ãƒ¬ã‚¤ãƒ¤ä½œæˆ
     bgLayer = new global.Layer(window, this);
     bgLayer.visible = true;
     bgLayer.neutralColor = WIN_WHITE;
     bgLayer.fillRect(0, 0, bgLayer.width, bgLayer.height, WIN_WHITE);
     bgLayer.hitThreshold = 256;
-    // ƒ|ƒCƒ“ƒ^ƒŒƒCƒ„ì¬
+    // ãƒã‚¤ãƒ³ã‚¿ãƒ¬ã‚¤ãƒ¤ä½œæˆ
     pointerLayer = new global.Layer(window, this);
     pointerLayer.setSize(2, font.height);
     pointerLayer.fillRect(0, 0, 2, font.height, WIN_WHITE);
@@ -527,36 +527,36 @@ class KTextEdit extends KValueWidget
     pointerLayer.setPos(pointerX, pointerY);
     pointerLayer.absolute = 100;
     pointerLayer.type = ltPsDifference;
-    // ƒ|ƒCƒ“ƒ^—p‚Ìƒ^ƒCƒ}ì¬
+    // ãƒã‚¤ãƒ³ã‚¿ç”¨ã®ã‚¿ã‚¤ãƒä½œæˆ
     pointerTimer = new Timer(this, "onPointerTimer");
     pointerTimer.interval = 300;
-    // ‚Æ‚è‚ ‚¦‚¸‹ó•¶š—ñ‚Å‰Šú‰»
+    // ã¨ã‚Šã‚ãˆãšç©ºæ–‡å­—åˆ—ã§åˆæœŸåŒ–
     value = "";
-    // ƒEƒBƒ“ƒhƒEƒY‚ÌƒL[ƒ}ƒbƒv‚ÅƒoƒCƒ“ƒh‚·‚é
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚ºã®ã‚­ãƒ¼ãƒãƒƒãƒ—ã§ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
     bindWindowsKeyMap();
   }
 
   /*------------------------------
-   * ƒtƒ@ƒCƒiƒ‰ƒCƒU
+   * ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
    ------------------------------*/
   function finalize {
-    // ƒ^ƒCƒ}‚ğÁ‹
+    // ã‚¿ã‚¤ãƒã‚’æ¶ˆå»
     discard(pointerTimer);
     super.finalize(...);
   }
 
   /**------------------------------
-   * ƒeƒLƒXƒg‚Ì’l
+   * ãƒ†ã‚­ã‚¹ãƒˆã®å€¤
    *
-   * @param v ƒeƒLƒXƒg‚Ì’l
-   * @return ƒeƒLƒXƒg‚Ì’l
+   * @param v ãƒ†ã‚­ã‚¹ãƒˆã®å€¤
+   * @return ãƒ†ã‚­ã‚¹ãƒˆã®å€¤
    ------------------------------*/
   property value {
     getter {
       var textRows = [];
       for (var i = 0; i < rowList.count; i++)
         textRows.add(rowList[i].str);
-      return textRows.join("\r\n");
+      return textRows.join("Â¥rÂ¥n");
     }
     setter(v) {
       initAllRows(expandTab(v).split(linefeedPat));
@@ -564,13 +564,13 @@ class KTextEdit extends KValueWidget
   }
 
   /**------------------------------
-   * ƒ^ƒu•
+   * ã‚¿ãƒ–å¹…
    *
-   * ƒ^ƒu“ü‚è‚Ì•¶š—ñ‚ğH‚í‚¹‚½‚ÉA‚»‚Ìƒ^ƒu‚ğ‰½•¶š‚Ì
-   * ƒXƒy[ƒX‚É“WŠJ‚·‚é‚©‚ğİ’è‚µ‚Ü‚·B
+   * ã‚¿ãƒ–å…¥ã‚Šã®æ–‡å­—åˆ—ã‚’é£Ÿã‚ã›ãŸæ™‚ã«ã€ãã®ã‚¿ãƒ–ã‚’ä½•æ–‡å­—ã®
+   * ã‚¹ãƒšãƒ¼ã‚¹ã«å±•é–‹ã™ã‚‹ã‹ã‚’è¨­å®šã—ã¾ã™ã€‚
    *
-   * @param v ƒ^ƒu•
-   * @return ƒ^ƒu•
+   * @param v ã‚¿ãƒ–å¹…
+   * @return ã‚¿ãƒ–å¹…
    ------------------------------*/
   property tabWidth {
     getter {
@@ -582,10 +582,10 @@ class KTextEdit extends KValueWidget
   }
 
   /**------------------------------
-   * ƒ‰ƒCƒ“‰E’[‚ÌÜ‚è•Ô‚µ‚ğs‚¤‚©‚Ç‚¤‚©
+   * ãƒ©ã‚¤ãƒ³å³ç«¯ã®æŠ˜ã‚Šè¿”ã—ã‚’è¡Œã†ã‹ã©ã†ã‹
    *
-   * @param v ƒ‰ƒCƒ“‰E’[‚ÌÜ‚è•Ô‚µ‚ğs‚¤‚©‚Ç‚¤‚©
-   * @return ƒ‰ƒCƒ“‰E’[‚ÌÜ‚è•Ô‚µ‚ğs‚¤‚©‚Ç‚¤‚©
+   * @param v ãƒ©ã‚¤ãƒ³å³ç«¯ã®æŠ˜ã‚Šè¿”ã—ã‚’è¡Œã†ã‹ã©ã†ã‹
+   * @return ãƒ©ã‚¤ãƒ³å³ç«¯ã®æŠ˜ã‚Šè¿”ã—ã‚’è¡Œã†ã‹ã©ã†ã‹
    ------------------------------*/
   property lineWrapping {
     getter {
@@ -600,10 +600,10 @@ class KTextEdit extends KValueWidget
   }
 
   /**------------------------------
-   * ’l‚ÌXV‚É”½‰‚·‚é‚©‚Ç‚¤‚©
+   * å€¤ã®æ›´æ–°ã«åå¿œã™ã‚‹ã‹ã©ã†ã‹
    *
-   * @param v ’l‚ÌXV‚É”½‰‚·‚é‚©‚Ç‚¤‚©
-   * @return ’l‚ÌXV‚É”½‰‚·‚é‚©‚Ç‚¤‚©
+   * @param v å€¤ã®æ›´æ–°ã«åå¿œã™ã‚‹ã‹ã©ã†ã‹
+   * @return å€¤ã®æ›´æ–°ã«åå¿œã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   property respondToValueModification {
     getter {
@@ -615,7 +615,7 @@ class KTextEdit extends KValueWidget
   }
 
   /**------------------------------
-   * s”
+   * è¡Œæ•°
    ------------------------------*/
   property rowCount {
     getter {
@@ -624,35 +624,35 @@ class KTextEdit extends KValueWidget
   }
 
   /**------------------------------
-   * sƒf[ƒ^
+   * è¡Œãƒ‡ãƒ¼ã‚¿
    * 
-   * @param row s
+   * @param row è¡Œ
    ------------------------------*/
   function rowAt(row) {
     return rowList[row];
   }
 
   /**------------------------------
-   * ƒL[ƒoƒCƒ“ƒh‚ğƒNƒŠƒA‚·‚é
+   * ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹
    ------------------------------*/
   function clearKeyBind {
     keyBind = [];
   }
 
   /**------------------------------
-   * ƒL[‚ğ‹@”\‚ÆƒoƒCƒ“ƒh‚·‚é
+   * ã‚­ãƒ¼ã‚’æ©Ÿèƒ½ã¨ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    *
-   * @param key ‰¼‘zƒL[ƒR[ƒh
-   * @param shift ƒRƒ“ƒgƒ[ƒ‹ƒL[
-   * @param shiftSelect ƒVƒtƒgƒL[‚ğ‰Ÿ‚µ‚È‚ª‚ç‚ÌˆÚ“®‚É‚æ‚é‘I‘ğ‚ğ—LŒø‚É‚·‚é‚©
-   * @param func Às‚·‚éŠÖ”
+   * @param key ä»®æƒ³ã‚­ãƒ¼ã‚³ãƒ¼ãƒ‰
+   * @param shift ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚­ãƒ¼
+   * @param shiftSelect ã‚·ãƒ•ãƒˆã‚­ãƒ¼ã‚’æŠ¼ã—ãªãŒã‚‰ã®ç§»å‹•ã«ã‚ˆã‚‹é¸æŠã‚’æœ‰åŠ¹ã«ã™ã‚‹ã‹
+   * @param func å®Ÿè¡Œã™ã‚‹é–¢æ•°
    ------------------------------*/
   function bindKey(key, shiftSelect, shift, func) {
     keyBind.add([ key, shiftSelect, shift, func ]);
   }
 
   /**------------------------------
-   * ƒEƒBƒ“ƒhƒEƒYƒƒ‚’ d—l‚ÌƒL[ƒ}ƒbƒv‚ğƒoƒCƒ“ƒh‚·‚é
+   * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚ºãƒ¡ãƒ¢å¸³ä»•æ§˜ã®ã‚­ãƒ¼ãƒãƒƒãƒ—ã‚’ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    ------------------------------*/
   function bindWindowsKeyMap {
     clearKeyBind();
@@ -682,7 +682,7 @@ class KTextEdit extends KValueWidget
   }
 
   /**------------------------------
-   * emacsd—l‚ÌƒL[ƒ}ƒbƒv‚ğƒoƒCƒ“ƒh‚·‚é
+   * emacsä»•æ§˜ã®ã‚­ãƒ¼ãƒãƒƒãƒ—ã‚’ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
    ------------------------------*/
   function bindEmacsKeyMap {
     clearKeyBind();
@@ -709,10 +709,10 @@ class KTextEdit extends KValueWidget
     bindKey(VK_W,      0, ssCtrl, cutMarkToPointer);
     bindKey(VK_K,      0, ssCtrl, killLine);
     bindKey(VK_SPACE,  0, ssCtrl, markAtPointer);
-    bindKey(VK_2,      0, ssCtrl | ssShift, markAtPointer); // Ctrl-@ (‰pŒêƒL[ƒ{[ƒh)
-    bindKey(0xC0,      0, ssCtrl, markAtPointer);   // Ctrl-@ (“ú–{ŒêƒL[ƒ{[ƒh)
-    bindKey(0xBD,      2, ssShift | ssCtrl, undo);  // Shift-Ctrl-_ (‰pŒêƒL[ƒ{[ƒh)
-    bindKey(0xE2,      2, ssShift | ssCtrl, undo);  // Shift-Ctrl-_ (“ú–{ŒêƒL[ƒ{[ƒh)
+    bindKey(VK_2,      0, ssCtrl | ssShift, markAtPointer); // Ctrl-@ (è‹±èªã‚­ãƒ¼ãƒœãƒ¼ãƒ‰)
+    bindKey(0xC0,      0, ssCtrl, markAtPointer);   // Ctrl-@ (æ—¥æœ¬èªã‚­ãƒ¼ãƒœãƒ¼ãƒ‰)
+    bindKey(0xBD,      2, ssShift | ssCtrl, undo);  // Shift-Ctrl-_ (è‹±èªã‚­ãƒ¼ãƒœãƒ¼ãƒ‰)
+    bindKey(0xE2,      2, ssShift | ssCtrl, undo);  // Shift-Ctrl-_ (æ—¥æœ¬èªã‚­ãƒ¼ãƒœãƒ¼ãƒ‰)
     bindKey(VK_PRIOR,  0, 0,      pageUp);
     bindKey(VK_NEXT,   0, 0,      pageDown);
     bindKey(VK_V,      0, ssAlt,  pageUp);
@@ -728,29 +728,29 @@ class KTextEdit extends KValueWidget
   }
 
   /**------------------------------
-   * ‰EƒNƒŠƒbƒN‚Å•\¦‚³‚ê‚éƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[‚Ì’†g‚ğì¬‚·‚é
-   * Œp³ƒNƒ‰ƒX‚ÅƒI[ƒo[ƒ‰ƒCƒh‚·‚é‚±‚Æ‚ÅAD‚«‚ÉƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[‚ğ
-   * Šg’£‚·‚é‚±‚Æ‚ªo—ˆ‚é
+   * å³ã‚¯ãƒªãƒƒã‚¯ã§è¡¨ç¤ºã•ã‚Œã‚‹ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®ä¸­èº«ã‚’ä½œæˆã™ã‚‹
+   * ç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã§ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã™ã‚‹ã“ã¨ã§ã€å¥½ãã«ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’
+   * æ‹¡å¼µã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã‚‹
    * 
-   * @return ƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[
+   * @return ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼
    ------------------------------*/
   function buildContextMenu {
     var menu = new KContextMenu();
-    menu.addItem("Œ³‚É–ß‚·", "", undoAvailable, this.undo);
+    menu.addItem("å…ƒã«æˆ»ã™", "", undoAvailable, this.undo);
     menu.addSeparator();
-    menu.addItem("Ø‚èæ‚è", "", hasSelection, this.cutSelection);
-    menu.addItem("ƒRƒs[",   "", hasSelection, this.copySelection);
-    menu.addItem("“\‚è•t‚¯", "", Clipboard.hasFormat(cbfText), this.pasteAtPointer);
-    menu.addItem("íœ",     "", hasSelection, this.deleteSelection);
+    menu.addItem("åˆ‡ã‚Šå–ã‚Š", "", hasSelection, this.cutSelection);
+    menu.addItem("ã‚³ãƒ”ãƒ¼",   "", hasSelection, this.copySelection);
+    menu.addItem("è²¼ã‚Šä»˜ã‘", "", Clipboard.hasFormat(cbfText), this.pasteAtPointer);
+    menu.addItem("å‰Šé™¤",     "", hasSelection, this.deleteSelection);
     menu.addSeparator();
-    menu.addItem("‚·‚×‚Ä‘I‘ğ", "", ! hasAllSelection, this.selectAll);
+    menu.addItem("ã™ã¹ã¦é¸æŠ", "", ! hasAllSelection, this.selectAll);
     return menu;
   }
 
   /*----------------------------------------------------------------------
-   * ˆÈ‰ºAƒL[ƒoƒCƒ“ƒh‚É‘Î‰‚·‚éŠeíƒRƒ}ƒ“ƒhŠÖ”
+   * ä»¥ä¸‹ã€ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰ã«å¯¾å¿œã™ã‚‹å„ç¨®ã‚³ãƒãƒ³ãƒ‰é–¢æ•°
    ----------------------------------------------------------------------*/
-  // ƒAƒ“ƒhƒD
+  // ã‚¢ãƒ³ãƒ‰ã‚¥
   function undo {
     switch (undoMode) {
     case UNDO_DELETE: {
@@ -768,7 +768,7 @@ class KTextEdit extends KValueWidget
     }
   }
 
-  // ƒ|ƒCƒ“ƒ^ˆÊ’u‚ÉƒNƒŠƒbƒvƒ|[ƒh‚©‚ç‘}“ü
+  // ãƒã‚¤ãƒ³ã‚¿ä½ç½®ã«ã‚¯ãƒªãƒƒãƒ—ãƒãƒ¼ãƒ‰ã‹ã‚‰æŒ¿å…¥
   function pasteAtPointer {
     if (Clipboard.hasFormat(cbfText)) {
       if (hasSelection)
@@ -777,12 +777,12 @@ class KTextEdit extends KValueWidget
     }
   }
 
-  // ƒ}[ƒN‚ğİ’è
+  // ãƒãƒ¼ã‚¯ã‚’è¨­å®š
   function markAtPointer {
     marker.assign(pointer);
   }
 
-  // ¶‚ÖˆÚ“®
+  // å·¦ã¸ç§»å‹•
   function moveLeft {
     if (! isOnHeadOfCol)
       setPointer(pointer.row, pointer.col - 1);
@@ -791,7 +791,7 @@ class KTextEdit extends KValueWidget
     pointerMoveBaseX = pointerX;
   }
 
-  // ‰E‚ÖˆÚ“®
+  // å³ã¸ç§»å‹•
   function moveRight {
     if (! isOnTailOfCol)
       setPointer(pointer.row, pointer.col + 1, true);
@@ -800,73 +800,73 @@ class KTextEdit extends KValueWidget
     pointerMoveBaseX = pointerX;
   }
 
-  // ã‚ÖˆÚ“®
+  // ä¸Šã¸ç§»å‹•
   function moveUp {
     setPointerPos(Math.max(pointerX, pointerMoveBaseX), pointerY - font.height);
   }
 
-  // ‰º‚ÖˆÚ“®
+  // ä¸‹ã¸ç§»å‹•
   function moveDown {
     setPointerPos(Math.max(pointerX, pointerMoveBaseX), pointerY + font.height);
   }
 
-  // ƒy[ƒWƒAƒbƒv
+  // ãƒšãƒ¼ã‚¸ã‚¢ãƒƒãƒ—
   function pageUp {
     var rect = viewingRect;
     setPointerPos(Math.max(pointerX, pointerMoveBaseX), Math.min(pointerY - font.height, rect.top - rect.height + font.height * 2));
   }
 
-  // ƒy[ƒWƒ_ƒEƒ“
+  // ãƒšãƒ¼ã‚¸ãƒ€ã‚¦ãƒ³
   function pageDown {
     var rect = viewingRect;
     setPointerPos(Math.max(pointerX, pointerMoveBaseX), Math.max(pointerY + font.height, rect.bottom + rect.height - font.height * 2));
   }
 
-  // •¶“ª
+  // æ–‡é ­
   function headOfRow {
     setPointer(0, 0);
   }
 
-  // •¶––
+  // æ–‡æœ«
   function tailOfRow {
     setPointer(rowList.count - 1, rowList[rowList.count - 1].count);
   }
 
-  // ƒ}[ƒN‚µ‚Ä•¶“ª
+  // ãƒãƒ¼ã‚¯ã—ã¦æ–‡é ­
   function markAndHeadOfRow {
     markAtPointer();
     setPointer(0, 0);
   }
 
-  // ƒ}[ƒN‚µ‚Ä•¶––
+  // ãƒãƒ¼ã‚¯ã—ã¦æ–‡æœ«
   function markAndTailOfRow {
     markAtPointer();
     setPointer(rowList.count - 1, rowList[rowList.count - 1].count);
   }
 
-  // s“ª
+  // è¡Œé ­
   function headOfCol {
     setPointer(pointer.row, 0);
   }
 
-  // s––
+  // è¡Œæœ«
   function tailOfCol {
     setPointer(pointer.row, curRow.count);
   }
 
-  // •¨—“Is“ª
+  // ç‰©ç†çš„è¡Œé ­
   function physicalHeadOfCol {
     var nearestChar = curRow.nearestChar(0, pointerY);
     setPointer(pointer.row, nearestChar[0], nearestChar[1]);
   }
 
-  // •¨—“Is––
+  // ç‰©ç†çš„è¡Œæœ«
   function physicalTailOfCol {
     var nearestChar = curRow.nearestChar(width, pointerY);
     setPointer(pointer.row, nearestChar[0], nearestChar[1]);
   }
 
-  // Ÿ‚Ìƒpƒ‰ƒOƒ‰ƒt
+  // æ¬¡ã®ãƒ‘ãƒ©ã‚°ãƒ©ãƒ•
   function forwardParagraph {
     pointer.col = 0;
     while (pointer.row != rowList.count - 1
@@ -878,7 +878,7 @@ class KTextEdit extends KValueWidget
     setPointer(pointer.row, pointer.col);
   }
 
-  // ‘O‚Ìƒpƒ‰ƒOƒ‰ƒt
+  // å‰ã®ãƒ‘ãƒ©ã‚°ãƒ©ãƒ•
   function backwardParagraph {
         pointer.col = 0;
     while (! isOnHeadOfRow
@@ -890,7 +890,7 @@ class KTextEdit extends KValueWidget
     setPointer(pointer.row, pointer.col);
   }
 
-  // Ÿ‚Ì’PŒê
+  // æ¬¡ã®å˜èª
   function forwardWord {
     var i, wordRange;
 
@@ -913,7 +913,7 @@ class KTextEdit extends KValueWidget
     tailOfRow();
   }
 
-  // ‘O‚Ì’PŒê
+  // å‰ã®å˜èª
   function backwardWord {
     var i, wordRange;
 
@@ -936,7 +936,7 @@ class KTextEdit extends KValueWidget
     headOfRow();
   }
 
-  // 1síœ(emacsd—l)
+  // 1è¡Œå‰Šé™¤(emacsä»•æ§˜)
   function killLine {
     var n;
 
@@ -956,7 +956,7 @@ class KTextEdit extends KValueWidget
     Clipboard.asText = undoDeleteStr;
   }
 
-  // ƒ|ƒCƒ“ƒ^ˆÊ’u‚ğ1•¶šíœ
+  // ãƒã‚¤ãƒ³ã‚¿ä½ç½®ã‚’1æ–‡å­—å‰Šé™¤
   function deleteAtPointer(locate = true) {
     if (hasSelection) {
       deleteSelection();
@@ -966,41 +966,41 @@ class KTextEdit extends KValueWidget
     
     var deleteStr, deleteOnBack;
     if (isOnTailOfCol) {
-      // s––
-      // ƒ}[ƒN‚ªƒ|ƒCƒ“ƒ^‚æ‚èŒã‚É‚ ‚Á‚½‚çAˆÊ’u•â³
+      // è¡Œæœ«
+      // ãƒãƒ¼ã‚¯ãŒãƒã‚¤ãƒ³ã‚¿ã‚ˆã‚Šå¾Œã«ã‚ã£ãŸã‚‰ã€ä½ç½®è£œæ­£
       if (marker.gt(pointer)) {
         marker.row--;
         if (marker.row == pointer.row)
           marker.col += pointer.col;
       }
-      // UNDO‹L˜^
-      deleteStr = "\r\n";
+      // UNDOè¨˜éŒ²
+      deleteStr = "Â¥rÂ¥n";
       deleteOnBack = (undoDeletePoint.row == pointer.row + 1
                       && undoDeletePoint.col == 0);
-      // Ÿ‚Ìs‚Æ‚ÌŒ‹‡ˆ—
+      // æ¬¡ã®è¡Œã¨ã®çµåˆå‡¦ç†
       curRow.insert(pointer.col, nextRow.str);
       deleteRowLayer(nextRow);
       rowList.erase(pointer.row + 1);
       onJoinAt(pointer.row, pointer.col);
-      // Ä•`‰æ
+      // å†æç”»
       if (locate) {
         locateLayout();
-        // ’l‚ÌXV‚ğ’Ê’m
+        // å€¤ã®æ›´æ–°ã‚’é€šçŸ¥
         if (respondToValueModification)
           invalidateValue();
       }
     } else {
-      // ƒ}[ƒN‚ªƒ|ƒCƒ“ƒ^‚Æ“¯‚¶s‚Åƒ|ƒCƒ“ƒ^‚æ‚èŒã‚É‚ ‚Á‚½‚çAˆÊ’u•â³
+      // ãƒãƒ¼ã‚¯ãŒãƒã‚¤ãƒ³ã‚¿ã¨åŒã˜è¡Œã§ãƒã‚¤ãƒ³ã‚¿ã‚ˆã‚Šå¾Œã«ã‚ã£ãŸã‚‰ã€ä½ç½®è£œæ­£
       if (marker.row == pointer.row && marker.col > pointer.col)
         marker.col--;
-      // 1•¶šíœ
+      // 1æ–‡å­—å‰Šé™¤
       deleteStr = curRow.substr(pointer.col, 1);
       deleteOnBack = (undoDeletePoint.row == pointer.row
                       && undoDeletePoint.col == pointer.col + 1);
       curRow.erase(pointer.col, 1);
-      // ƒtƒbƒNŠÖ”ŒÄ‚Ño‚µ
+      // ãƒ•ãƒƒã‚¯é–¢æ•°å‘¼ã³å‡ºã—
       onDeleteAt(pointer.row, pointer.col, deleteStr);
-      // Ä•`‰æ
+      // å†æç”»
       if (locate) {
         var h = curRow.height;
         curRow.layout(width);
@@ -1011,31 +1011,31 @@ class KTextEdit extends KValueWidget
 	  setPointer(pointer.row, pointer.col);
 	  onRedraw();
 	}
-        // ’l‚ÌXV‚ğ’Ê’m
+        // å€¤ã®æ›´æ–°ã‚’é€šçŸ¥
         if (respondToValueModification)
           invalidateValue();
       }
     }
 
-    // UNDO‹L˜^
+    // UNDOè¨˜éŒ²
     if (undoMode === UNDO_DELETE
         && undoDeletePoint.eq(pointer)) {
-      // Œ»İ‚ÌUNDOíœˆÊ’u‚Å‚Ìíœ
+      // ç¾åœ¨ã®UNDOå‰Šé™¤ä½ç½®ã§ã®å‰Šé™¤
       undoDeleteStr += deleteStr;
     } else if (undoMode === UNDO_DELETE
                && deleteOnBack) {
-      // Œ»İ‚ÌUNDOíœˆÊ’u‚ÌˆêŒÂ‘O‚Å‚Ìíœ
+      // ç¾åœ¨ã®UNDOå‰Šé™¤ä½ç½®ã®ä¸€å€‹å‰ã§ã®å‰Šé™¤
       undoDeleteStr = deleteStr + undoDeleteStr;
       undoDeletePoint.assign(pointer);
     } else {
-      // ‚»‚êˆÈŠOBV‹KUNDOíœ‹L˜^ŠJn
+      // ãã‚Œä»¥å¤–ã€‚æ–°è¦UNDOå‰Šé™¤è¨˜éŒ²é–‹å§‹
       undoMode = UNDO_DELETE;
       undoDeleteStr = deleteStr;
       undoDeletePoint.assign(pointer);
     }
   }
 
-  // ƒ|ƒCƒ“ƒ^ˆÊ’u‚ğ1•¶šƒoƒbƒNƒXƒy[ƒX
+  // ãƒã‚¤ãƒ³ã‚¿ä½ç½®ã‚’1æ–‡å­—ãƒãƒƒã‚¯ã‚¹ãƒšãƒ¼ã‚¹
   function backspaceAtPointer(locate = true) {
     if (hasSelection) {
       deleteSelection();
@@ -1043,22 +1043,22 @@ class KTextEdit extends KValueWidget
     } else if (isOnHeadOfRow)
       return;
     else {
-      // ˆêŒÂ¶‚ÉˆÚ“®‚µ‚Ä
+      // ä¸€å€‹å·¦ã«ç§»å‹•ã—ã¦
       moveLeft();
-      // íœˆ—
+      // å‰Šé™¤å‡¦ç†
       deleteAtPointer(locate);
     }
   }
   
-  // ƒ|ƒCƒ“ƒ^ˆÊ’u‚Ås‚ğ2‚Â‚É•ªŠ„
+  // ãƒã‚¤ãƒ³ã‚¿ä½ç½®ã§è¡Œã‚’2ã¤ã«åˆ†å‰²
   function splitAtPointer(locate = true) {
-    // ƒ}[ƒN‚ªƒ|ƒCƒ“ƒ^‚æ‚èŒã‚É‚ ‚Á‚½‚çAˆÊ’u•â³
+    // ãƒãƒ¼ã‚¯ãŒãƒã‚¤ãƒ³ã‚¿ã‚ˆã‚Šå¾Œã«ã‚ã£ãŸã‚‰ã€ä½ç½®è£œæ­£
     if (marker.gt(pointer)) {
       if (marker.row == pointer.row)
         marker.col -= pointer.col;
       marker.row++;
     }
-    // UNDO‹L˜^
+    // UNDOè¨˜éŒ²
     if (undoMode === UNDO_PASTE
         && undoPasteEnd.eq(pointer)) {
       undoPasteEnd.row++;
@@ -1068,42 +1068,42 @@ class KTextEdit extends KValueWidget
       undoPasteBegin.assign(pointer);
       undoPasteEnd.set(pointer.row + 1, 0);
     }
-    // •ªŠ„ˆÊ’u‚ğ‹L‰¯
+    // åˆ†å‰²ä½ç½®ã‚’è¨˜æ†¶
     var splitPoint = new KTextEditPoint();
     splitPoint.assign(pointer);
-    // ƒ|ƒCƒ“ƒ^ˆÈ~‚Ì•¶š—ñ‚ğ•ª—£
+    // ãƒã‚¤ãƒ³ã‚¿ä»¥é™ã®æ–‡å­—åˆ—ã‚’åˆ†é›¢
     var tailStr = curRow.substr(pointer.col);
     curRow.erase(pointer.col, curRow.count - pointer.col);
-    // V‹Ks‚ğì¬‚µ‘}“üAƒ|ƒCƒ“ƒ^‚ğ‚»‚Ìs‚Ìæ“ª‚ÉˆÚ“®
+    // æ–°è¦è¡Œã‚’ä½œæˆã—æŒ¿å…¥ã€ãƒã‚¤ãƒ³ã‚¿ã‚’ãã®è¡Œã®å…ˆé ­ã«ç§»å‹•
     var rowLayer = newRowLayer();
     rowLayer.add(tailStr);
     rowList.insert(++pointer.row, rowLayer);
     pointer.col = 0;
-    // ƒtƒbƒNŠÖ”ŒÄ‚Ño‚µ
+    // ãƒ•ãƒƒã‚¯é–¢æ•°å‘¼ã³å‡ºã—
     onSplitAt(splitPoint.row, splitPoint.col);
-      // Ä•`‰æ
+      // å†æç”»
     if (locate) {
       locateLayout();
-      // ’l‚ÌXV‚ğ’Ê’m
+      // å€¤ã®æ›´æ–°ã‚’é€šçŸ¥
       if (respondToValueModification)
         invalidateValue();
     }
   }
 
-  // ƒ|ƒCƒ“ƒ^ˆÊ’u‚É•¶š—ñ‚ğ‘}“ü
+  // ãƒã‚¤ãƒ³ã‚¿ä½ç½®ã«æ–‡å­—åˆ—ã‚’æŒ¿å…¥
   function insertAtPointer(str, locate = true) {
     if (hasSelection)
       deleteSelection(false);
 
-    // ‚Ü‚¸•¶š‚ğ‰üs‚Å•ªŠ„‚·‚é
+    // ã¾ãšæ–‡å­—ã‚’æ”¹è¡Œã§åˆ†å‰²ã™ã‚‹
     var list = str.split(linefeedPat);
 
     if (list.count == 1) {
-      // 1s•ª‚Ì‘}“üˆ—
-      // ƒ}[ƒN‚ªƒ|ƒCƒ“ƒ^‚Æ“¯‚¶s‚Åƒ|ƒCƒ“ƒ^‚æ‚èŒã‚É‚ ‚Á‚½‚çAˆÊ’u•â³
+      // 1è¡Œåˆ†ã®æŒ¿å…¥å‡¦ç†
+      // ãƒãƒ¼ã‚¯ãŒãƒã‚¤ãƒ³ã‚¿ã¨åŒã˜è¡Œã§ãƒã‚¤ãƒ³ã‚¿ã‚ˆã‚Šå¾Œã«ã‚ã£ãŸã‚‰ã€ä½ç½®è£œæ­£
       if (marker.row == pointer.row && marker.col > pointer.col)
         marker.col += list[0].length;
-      // UNDO‹L˜^
+      // UNDOè¨˜éŒ²
       if (undoMode === UNDO_PASTE
           && undoPasteEnd.eq(pointer)) {
         undoPasteEnd.col += str.length;
@@ -1112,15 +1112,15 @@ class KTextEdit extends KValueWidget
         undoPasteBegin.assign(pointer);
         undoPasteEnd.set(pointer.row, pointer.col + str.length);
       }
-      // ‘}“üˆÊ’u‚ğ‹L‰¯
+      // æŒ¿å…¥ä½ç½®ã‚’è¨˜æ†¶
       var insertPoint = new KTextEditPoint();
       insertPoint.assign(pointer);
-      // ƒ|ƒCƒ“ƒ^ˆÊ’u‚É•¶š—ñ‘}“üAƒ|ƒCƒ“ƒ^‚ği‚ß‚é
+      // ãƒã‚¤ãƒ³ã‚¿ä½ç½®ã«æ–‡å­—åˆ—æŒ¿å…¥ã€ãƒã‚¤ãƒ³ã‚¿ã‚’é€²ã‚ã‚‹
       curRow.insert(pointer.col, list[0]);
       pointer.col += str.length;
-      // ƒtƒbƒNŠÖ”ŒÄ‚Ño‚µ
+      // ãƒ•ãƒƒã‚¯é–¢æ•°å‘¼ã³å‡ºã—
       onInsertAt(insertPoint.row, insertPoint.col, str);
-      // Ä•`‰æ
+      // å†æç”»
       if (locate) {
         var h = curRow.height;
         curRow.layout(width);
@@ -1131,77 +1131,77 @@ class KTextEdit extends KValueWidget
 	  setPointer(pointer.row, pointer.col);
 	  onRedraw();
 	}
-        // ’l‚ÌXV‚ğ’Ê’m
+        // å€¤ã®æ›´æ–°ã‚’é€šçŸ¥
         if (respondToValueModification)
           invalidateValue();
       }
     } else {
-      // •¡”s•ª‚Ìˆ—
+      // è¤‡æ•°è¡Œåˆ†ã®å‡¦ç†
 
       for (var i = 0; i < list.count; i++) {
-        // ‚±‚Ìs‚Ì•ª‚Ì•¶š—ñ‚ğƒ|ƒCƒ“ƒ^ˆÊ’u‚É‘}“ü
+        // ã“ã®è¡Œã®åˆ†ã®æ–‡å­—åˆ—ã‚’ãƒã‚¤ãƒ³ã‚¿ä½ç½®ã«æŒ¿å…¥
         insertAtPointer(list[i], false);
-        // ÅIs‚Å–³‚¯‚ê‚ÎA‚±‚±‚Ås‚ğ•ªŠ„
+        // æœ€çµ‚è¡Œã§ç„¡ã‘ã‚Œã°ã€ã“ã“ã§è¡Œã‚’åˆ†å‰²
         if (i != list.count - 1)
           splitAtPointer(false);
       }
-      // Ä•`‰æ
+      // å†æç”»
       if (locate) {
         locateLayout();
-        // ’l‚ÌXV‚ğ’Ê’m
+        // å€¤ã®æ›´æ–°ã‚’é€šçŸ¥
         if (respondToValueModification)
           invalidateValue();
       }
     }
   }
 
-  // ‘I‘ğ”ÍˆÍ‚ğíœ
+  // é¸æŠç¯„å›²ã‚’å‰Šé™¤
   function deleteSelection(responce = true) {
     if (! hasSelection)
       return;
 
-    // ƒ}[ƒN‚ª‘I‘ğ”ÍˆÍ“à‚É‚ ‚ê‚ÎA‘I‘ğ”ÍˆÍ‚Ìæ“ª‚Éƒ}[ƒN‚ğˆÚ“®
+    // ãƒãƒ¼ã‚¯ãŒé¸æŠç¯„å›²å†…ã«ã‚ã‚Œã°ã€é¸æŠç¯„å›²ã®å…ˆé ­ã«ãƒãƒ¼ã‚¯ã‚’ç§»å‹•
     if (selectionBegin.le(marker)
         && selectionEnd.ge(marker)) {
       marker.assign(selectionBegin);
     }
 
-    // íœ”ÍˆÍ‚ğUNDO‹L˜^
+    // å‰Šé™¤ç¯„å›²ã‚’UNDOè¨˜éŒ²
     undoMode = UNDO_DELETE;
     undoDeleteStr = selectionStr;
     undoDeletePoint.assign(selectionBegin);
 
-    // ƒ|ƒCƒ“ƒ^‚ğ‘I‘ğ”ÍˆÍ‚Ìæ“ª‚ÉˆÚ“®
+    // ãƒã‚¤ãƒ³ã‚¿ã‚’é¸æŠç¯„å›²ã®å…ˆé ­ã«ç§»å‹•
     pointer.assign(selectionBegin);
-    // ‚Ü‚¸‘S‚Ä‚Ìs‚É‚Â‚¢‚ÄAíœ”ÍˆÍ‚Ì•¶š—ñ‚ğíœ
+    // ã¾ãšå…¨ã¦ã®è¡Œã«ã¤ã„ã¦ã€å‰Šé™¤ç¯„å›²ã®æ–‡å­—åˆ—ã‚’å‰Šé™¤
     for (var i = selectionBegin.row; i <= selectionEnd.row; i++) {
       var from, to;
       from = (i == selectionBegin.row) ? selectionBegin.col : 0;
       to = (i == selectionEnd.row) ? selectionEnd.col : rowList[i].count;
       var deleteStr = rowList[i].substr(from, to - from);
       rowList[i].erase(from, to - from);
-      // ƒtƒbƒNŠÖ”‚ğƒR[ƒ‹
+      // ãƒ•ãƒƒã‚¯é–¢æ•°ã‚’ã‚³ãƒ¼ãƒ«
       onDeleteAt(i, from, deleteStr);
     }
-    // ‘±‚¯‚ÄA•K—v‚È‰ñ”‚¾‚¯s‚ğ“‡
+    // ç¶šã‘ã¦ã€å¿…è¦ãªå›æ•°ã ã‘è¡Œã‚’çµ±åˆ
     for (var n = selectionEnd.row - selectionBegin.row; n > 0; n--) {
       curRow.insert(pointer.col, nextRow.str);
       deleteRowLayer(nextRow);
       rowList.erase(pointer.row + 1);
-      // ƒtƒbƒNŠÖ”‚ğƒR[ƒ‹
+      // ãƒ•ãƒƒã‚¯é–¢æ•°ã‚’ã‚³ãƒ¼ãƒ«
       onJoinAt(pointer.row, pointer.col);
     }
-    // ‘I‘ğ‰ğœ
+    // é¸æŠè§£é™¤
     deselect();
-    // ƒŒƒCƒAƒEƒg‚â‚è’¼‚µ
+    // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚„ã‚Šç›´ã—
     locateLayout();
-    // ’l‚ÌXV‚ğ’Ê’m
+    // å€¤ã®æ›´æ–°ã‚’é€šçŸ¥
     if (respondToValueModification
         && responce)
       invalidateValue();
   }
 
-  // ‘I‘ğ”ÍˆÍ‚ğƒRƒs[
+  // é¸æŠç¯„å›²ã‚’ã‚³ãƒ”ãƒ¼
   function copySelection {
     if (! hasSelection)
       return;
@@ -1211,13 +1211,13 @@ class KTextEdit extends KValueWidget
     Clipboard.asText = selectionStr;
   }
 
-  // ‘I‘ğ”ÍˆÍ‚ğƒJƒbƒg
+  // é¸æŠç¯„å›²ã‚’ã‚«ãƒƒãƒˆ
   function cutSelection {
     copySelection();
     deleteSelection();
   }
 
-  // ƒ}[ƒN‚©‚çƒ|ƒCƒ“ƒ^‚Ü‚ÅƒRƒs[
+  // ãƒãƒ¼ã‚¯ã‹ã‚‰ãƒã‚¤ãƒ³ã‚¿ã¾ã§ã‚³ãƒ”ãƒ¼
   function copyMarkToPointer {
     if (! hasSelection) 
       select(marker, pointer);
@@ -1225,7 +1225,7 @@ class KTextEdit extends KValueWidget
     deselect();
   }
 
-  // ƒ}[ƒN‚©‚çƒ|ƒCƒ“ƒ^‚Ü‚ÅƒJƒbƒg
+  // ãƒãƒ¼ã‚¯ã‹ã‚‰ãƒã‚¤ãƒ³ã‚¿ã¾ã§ã‚«ãƒƒãƒˆ
   function cutMarkToPointer {
     if (! hasSelection)
       select(marker, pointer);
@@ -1233,119 +1233,119 @@ class KTextEdit extends KValueWidget
   }
 
   /*----------------------------------------------------------------------
-   * ˆÈ‰ºA•¶š•ÒW‚É”º‚Á‚ÄŒÄ‚Ño‚³‚ê‚éƒtƒbƒNŠÖ”‚ÌŒû
+   * ä»¥ä¸‹ã€æ–‡å­—ç·¨é›†ã«ä¼´ã£ã¦å‘¼ã³å‡ºã•ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°ã®å£
    ----------------------------------------------------------------------*/
   /**------------------------------
-   * ƒ|ƒCƒ“ƒ^‚ªˆÚ“®‚µ‚½‚ÉŒÄ‚Î‚ê‚é
+   * ãƒã‚¤ãƒ³ã‚¿ãŒç§»å‹•ã—ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
    *
-   * @param row s
-   * @param col —ñ
+   * @param row è¡Œ
+   * @param col åˆ—
    ------------------------------*/
   function onPointAt(row, col) {
   }
 
   /**------------------------------
-   * s‚ª•ªŠ„‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * è¡ŒãŒåˆ†å‰²ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param row s
-   * @param col —ñ
+   * @param row è¡Œ
+   * @param col åˆ—
    ------------------------------*/
   function onSplitAt(row, col) {
   }
 
   /**------------------------------
-   * s‚ªŒ‹‡‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * è¡ŒãŒçµåˆã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    *
-   * @param row s
-   * @param col —ñ
+   * @param row è¡Œ
+   * @param col åˆ—
    ------------------------------*/
   function onJoinAt(row, col) {
   }
 
   /**------------------------------
-   * •¶š—ñ‚ª‘}“ü‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * æ–‡å­—åˆ—ãŒæŒ¿å…¥ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    * 
-   * ‘}“ü‚Íí‚És’PˆÊ‚Åˆ—‚³‚êAs‚ğ‚Ü‚½‚®‚±‚Æ‚Í–³‚¢
+   * æŒ¿å…¥ã¯å¸¸ã«è¡Œå˜ä½ã§å‡¦ç†ã•ã‚Œã€è¡Œã‚’ã¾ãŸãã“ã¨ã¯ç„¡ã„
    *
-   * @param row s
-   * @param col —ñ
-   * @param str ‘}“ü‚³‚ê‚½•¶š—ñ
+   * @param row è¡Œ
+   * @param col åˆ—
+   * @param str æŒ¿å…¥ã•ã‚ŒãŸæ–‡å­—åˆ—
    ------------------------------*/
   function onInsertAt(row, col, str) {
   }
 
   /**------------------------------
-   * •¶š—ñ‚ªíœ‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+   * æ–‡å­—åˆ—ãŒå‰Šé™¤ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
    * 
-   * íœ‚Íí‚És’PˆÊ‚Åˆ—‚³‚êAs‚ğ‚Ü‚½‚®‚±‚Æ‚Í–³‚¢
+   * å‰Šé™¤ã¯å¸¸ã«è¡Œå˜ä½ã§å‡¦ç†ã•ã‚Œã€è¡Œã‚’ã¾ãŸãã“ã¨ã¯ç„¡ã„
    *
-   * @param row s
-   * @param col —ñ
-   * @param str íœ‚³‚ê‚½•¶š—ñ
+   * @param row è¡Œ
+   * @param col åˆ—
+   * @param str å‰Šé™¤ã•ã‚ŒãŸæ–‡å­—åˆ—
    ------------------------------*/
   function onDeleteAt(row, col, str) {
   }
 
   /**------------------------------
-   * •¶š•Ï”‚ÌŒ‹‰ÊAÄ•`‰æ‚ª”­¶‚µ‚½‚ÉŒÄ‚Î‚ê‚é
+   * æ–‡å­—å¤‰æ•°ã®çµæœã€å†æç”»ãŒç™ºç”Ÿã—ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹
    ------------------------------*/
   function onRedraw {
   }
   
   /*----------------------------------------------------------------------
-   * ˆÈ‰ºAKTextEdit‚ÌŠeíƒ†[ƒeƒBƒŠƒeƒBŠÖ”
+   * ä»¥ä¸‹ã€KTextEditã®å„ç¨®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£é–¢æ•°
    ----------------------------------------------------------------------*/
 
-  // ƒJƒŒƒ“ƒgs
+  // ã‚«ãƒ¬ãƒ³ãƒˆè¡Œ
   property curRow {
     getter {
       return rowList[pointer.row];
     }
   }
 
-  // ˆêŒÂ‘O‚Ìs
+  // ä¸€å€‹å‰ã®è¡Œ
   property prevRow {
     getter {
       return rowList[pointer.row - 1];
     }
   }
 
-  // Ÿ‚Ìs
+  // æ¬¡ã®è¡Œ
   property nextRow {
     getter {
       return rowList[pointer.row + 1];
     }
   }
 
-  // •¶“ª‚É‚¢‚é‚©‚Ç‚¤‚©H
+  // æ–‡é ­ã«ã„ã‚‹ã‹ã©ã†ã‹ï¼Ÿ
   property isOnHeadOfRow {
     getter {
       return isOnHeadOfCol && (pointer.row == 0);
     }
   }
 
-  // •¶––‚É‚¢‚é‚©‚Ç‚¤‚©H
+  // æ–‡æœ«ã«ã„ã‚‹ã‹ã©ã†ã‹ï¼Ÿ
   property isOnTailOfRow {
     getter {
       return isOnTailOfCol && (pointer.row == rowList.count -1);
     }
   }
 
-  // s“ª‚É‚¢‚é‚©‚Ç‚¤‚©H
+  // è¡Œé ­ã«ã„ã‚‹ã‹ã©ã†ã‹ï¼Ÿ
   property isOnHeadOfCol {
     getter {
       return pointer.col == 0;
     }
   }
 
-  // s––‚É‚¢‚é‚©‚Ç‚¤‚©H
+  // è¡Œæœ«ã«ã„ã‚‹ã‹ã©ã†ã‹ï¼Ÿ
   property isOnTailOfCol {
     getter {
       return pointer.col == rowList[pointer.row].count;
     }
   }
 
-  // •¶š—ñ‚ğ’PŒê’PˆÊ‚É‚Î‚ç‚·
+  // æ–‡å­—åˆ—ã‚’å˜èªå˜ä½ã«ã°ã‚‰ã™
   function parseWordRange(str) {
     var result = [], index = 0;
     while (wordPat.test(str)) {
@@ -1356,7 +1356,7 @@ class KTextEdit extends KValueWidget
     return result;
   }
 
-  // •¶š—ñ‚ğ’PŒê’PˆÊ‚É‚Î‚ç‚µ‚½‚Ì•ªŠ„ˆÊ’u‚ğƒŠƒXƒg‰»
+  // æ–‡å­—åˆ—ã‚’å˜èªå˜ä½ã«ã°ã‚‰ã—ãŸæ™‚ã®åˆ†å‰²ä½ç½®ã‚’ãƒªã‚¹ãƒˆåŒ–
   function parseWordSplit(str) {
     var wordRange = parseWordRange(str);
     var result = [ 0 ];
@@ -1370,7 +1370,7 @@ class KTextEdit extends KValueWidget
     return result;
   }
   
-  // “Á’èÀ•W‚Å‚Ì’PŒê•ªŠ„ˆÊ’u‚ğØ‚èo‚µ
+  // ç‰¹å®šåº§æ¨™ã§ã®å˜èªåˆ†å‰²ä½ç½®ã‚’åˆ‡ã‚Šå‡ºã—
   function getWordPointPairAtPos(x, y) {
     var rowIndex = findRowIndex(y);
     var row = rowList[rowIndex];
@@ -1389,14 +1389,14 @@ class KTextEdit extends KValueWidget
              new KTextEditPoint(rowIndex, split[ split.count - 1]) ];
   }
 
-  // undo‰Â”\?
+  // undoå¯èƒ½?
   property undoAvailable {
     getter {
       return undoMode !== void;
     }
   }
 
-  // ‘I‘ğ”ÍˆÍ‚Ì•ÏX
+  // é¸æŠç¯„å›²ã®å¤‰æ›´
   function select(begin, end) {
     if (begin.eq(end)) {
       begin = new KTextEditPoint(-1, -1);
@@ -1428,26 +1428,26 @@ class KTextEdit extends KValueWidget
     }
   }
 
-  // ‘S‘I‘ğ
+  // å…¨é¸æŠ
   function selectAll {
     select(new KTextEditPoint(0, 0),
            new KTextEditPoint(rowList.count - 1, rowList[rowList.count - 1].count));
   }
 
-  // ‘I‘ğ‰ğœ
+  // é¸æŠè§£é™¤
   function deselect {
     if (hasSelection)
       select(new KTextEditPoint(-1, -1), new KTextEditPoint(-1, -1));
   }
 
-  // ‘I‘ğ‚ª‚ ‚é‚©‚Ç‚¤‚©H
+  // é¸æŠãŒã‚ã‚‹ã‹ã©ã†ã‹ï¼Ÿ
   property hasSelection {
     getter {
       return selectionBegin.row != -1;
     }
   }
 
-  // ‘S‘I‘ğ‚©‚Ç‚¤‚©
+  // å…¨é¸æŠã‹ã©ã†ã‹
   property hasAllSelection {
     getter {
       return selectionBegin.row == 0
@@ -1457,7 +1457,7 @@ class KTextEdit extends KValueWidget
     }
   }
 
-  // ”ÍˆÍ“à‚Ì•¶š—ñ
+  // ç¯„å›²å†…ã®æ–‡å­—åˆ—
   function getStrInRange(begin, end) {
     var list = [];
     for (var i = begin.row; i <= end.row; i++) {
@@ -1466,10 +1466,10 @@ class KTextEdit extends KValueWidget
       to = (i == end.row) ? end.col : rowList[i].count;
       list.add(rowList[i].substr(from, to - from));
     }
-    return list.join("\r\n");
+    return list.join("Â¥rÂ¥n");
   }
 
-  // ‘I‘ğ”ÍˆÍ‚Ì•¶š—ñ
+  // é¸æŠç¯„å›²ã®æ–‡å­—åˆ—
   property selectionStr {
     getter {
       if (! hasSelection)
@@ -1478,15 +1478,15 @@ class KTextEdit extends KValueWidget
     }
   }
 
-  // sƒŒƒCƒ„‚ğV‹K¶¬
+  // è¡Œãƒ¬ã‚¤ãƒ¤ã‚’æ–°è¦ç”Ÿæˆ
   function newRowLayer {
     var rowLayer;
     if (rowPool.count) {
-      // ƒv[ƒ‹‚É‚ ‚ê‚Î‚»‚±‚©‚çE‚¤
+      // ãƒ—ãƒ¼ãƒ«ã«ã‚ã‚Œã°ãã“ã‹ã‚‰æ‹¾ã†
       rowLayer = rowPool[rowPool.count - 1];
       rowPool.erase(rowPool.count - 1);
     } else {
-      // ƒv[ƒ‹‚É–³‚¯‚ê‚ÎV‹Kì¬
+      // ãƒ—ãƒ¼ãƒ«ã«ç„¡ã‘ã‚Œã°æ–°è¦ä½œæˆ
       rowLayer = new KTextEditRow(window, this);
     }
     rowLayer.visible = true;
@@ -1494,19 +1494,19 @@ class KTextEdit extends KValueWidget
     return rowLayer;
   }
 
-  // sƒŒƒCƒ„‚ğíœ
+  // è¡Œãƒ¬ã‚¤ãƒ¤ã‚’å‰Šé™¤
   function deleteRowLayer(rowLayer) {
-    // ”ñ•\¦‚É‚µ‚Äƒv[ƒ‹‚Ö’™‚ß‚é
+    // éè¡¨ç¤ºã«ã—ã¦ãƒ—ãƒ¼ãƒ«ã¸è²¯ã‚ã‚‹
     rowLayer.clear();
     rowLayer.visible = false;
     rowPool.add(rowLayer);
   }
 
-  // value‚Ì‘ã“üAƒeƒLƒXƒg‚ğ‘S‰Šú‰»‚·‚é
+  // valueã®ä»£å…¥æ™‚ã€ãƒ†ã‚­ã‚¹ãƒˆã‚’å…¨åˆæœŸåŒ–ã™ã‚‹
   function initAllRows(textRows) {
-    // ‘I‘ğ”ÍˆÍ‚ğ‰ğœ
+    // é¸æŠç¯„å›²ã‚’è§£é™¤
     deselect();
-    // ‘S‚Ä‚Ìs‚ğíœ
+    // å…¨ã¦ã®è¡Œã‚’å‰Šé™¤
     for (var i = 0; i < rowList.count; i++) {
       deleteRowLayer(rowList[i]);
     }
@@ -1515,7 +1515,7 @@ class KTextEdit extends KValueWidget
     var charCount = 0;
     var minW, minH;
 
-    // V‹Ks‚ğ¶¬
+    // æ–°è¦è¡Œã‚’ç”Ÿæˆ
     for (var i = 0; i < textRows.count; i++) {
       var textRow = textRows[i];
       var rowLayer = newRowLayer();
@@ -1525,16 +1525,16 @@ class KTextEdit extends KValueWidget
       minW = Math.max(minW, rowLayer.minWidth);
     }
     minH = font.height;
-    // ƒTƒCƒY‚ğ‰¼Œˆ’è
+    // ã‚µã‚¤ã‚ºã‚’ä»®æ±ºå®š
     setMinMaxSize(minW, minH, Math.max(minW, _marginalWidth), Math.max(minH, _marginalHeight));
-    // ƒŒƒCƒAƒEƒg‚ğs‚¤
+    // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’è¡Œã†
     locateLayout();
   }
 
-  // ƒŒƒCƒAƒEƒg‚ğs‚¤
+  // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’è¡Œã†
   function locateLayout {
     if (lineWrapping) {
-      // ‘S‚Ä‚Ìs‚ğA‰¡•‚É‡‚í‚¹‚ÄƒŒƒCƒAƒEƒg‚·‚é
+      // å…¨ã¦ã®è¡Œã‚’ã€æ¨ªå¹…ã«åˆã‚ã›ã¦ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã™ã‚‹
       var y = 0;
       for (var i = 0; i < rowList.count; i++) {
         var rowLayer = rowList[i];
@@ -1542,15 +1542,15 @@ class KTextEdit extends KValueWidget
         rowLayer.layout(width);
         y += rowLayer.height;
       }
-      // Å¬ƒTƒCƒY‚ğŒˆ’è‚·‚é
+      // æœ€å°ã‚µã‚¤ã‚ºã‚’æ±ºå®šã™ã‚‹
       setMinMaxSize(minWidth, y, maxWidth, Math.max(y, _marginalHeight));
-      // s‚ª‘«‚è‚È‚­‚Ä‰æ–Ê‚ª—]‚Á‚½‚çAbgLayer‚Å–„‚ß‚é
+      // è¡ŒãŒè¶³ã‚Šãªãã¦ç”»é¢ãŒä½™ã£ãŸã‚‰ã€bgLayerã§åŸ‹ã‚ã‚‹
       bgLayer.setPos(0, y);
       bgLayer.setSize(width, height - y);
-      // ƒ|ƒCƒ“ƒ^‚ğŒ»İˆÊ’u‚ÉÄ•\¦
+      // ãƒã‚¤ãƒ³ã‚¿ã‚’ç¾åœ¨ä½ç½®ã«å†è¡¨ç¤º
       setPointer(pointer.row, pointer.col);
     } else {
-      // ‘S‚Ä‚Ìs‚ğAÅ‘å‚Ì‰¡•‚ÅƒŒƒCƒAƒEƒg‚·‚é
+      // å…¨ã¦ã®è¡Œã‚’ã€æœ€å¤§ã®æ¨ªå¹…ã§ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã™ã‚‹
       var w = 0;
       for (var i = 0; i < rowList.count; i++) {
         w = Math.max(rowList[i].textWidth, w);
@@ -1562,18 +1562,18 @@ class KTextEdit extends KValueWidget
         rowLayer.layout(w);
         y += rowLayer.height;
       }
-      // Å¬ƒTƒCƒY‚ğŒˆ’è‚·‚é
+      // æœ€å°ã‚µã‚¤ã‚ºã‚’æ±ºå®šã™ã‚‹
       setMinMaxSize(w, y, Math.max(w, _marginalWidth), Math.max(y, _marginalHeight));
-      // s‚ª‘«‚è‚È‚­‚Ä‰æ–Ê‚ª—]‚Á‚½‚çAbgLayer‚Å–„‚ß‚é
+      // è¡ŒãŒè¶³ã‚Šãªãã¦ç”»é¢ãŒä½™ã£ãŸã‚‰ã€bgLayerã§åŸ‹ã‚ã‚‹
       bgLayer.setPos(0, y);
       bgLayer.setSize(width, height - y);
-      // ƒ|ƒCƒ“ƒ^‚ğŒ»İˆÊ’u‚ÉÄ•\¦
+      // ãƒã‚¤ãƒ³ã‚¿ã‚’ç¾åœ¨ä½ç½®ã«å†è¡¨ç¤º
       setPointer(pointer.row, pointer.col);
     }
     onRedraw();
   }
 
-  // YÀ•W‚É‘Î‰‚·‚ésƒŒƒCƒ„‚ÌƒCƒ“ƒfƒbƒNƒX‚ğæ“¾‚·‚é
+  // Yåº§æ¨™ã«å¯¾å¿œã™ã‚‹è¡Œãƒ¬ã‚¤ãƒ¤ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’å–å¾—ã™ã‚‹
   function findRowIndex(y) {
     if (y < 0)
       return 0;
@@ -1593,14 +1593,14 @@ class KTextEdit extends KValueWidget
     }
   }
 
-  // ƒ|ƒCƒ“ƒ^[‚ÌˆÊ’u‚ğÀ•W‚ÅŒˆ’è‚·‚é
+  // ãƒã‚¤ãƒ³ã‚¿ãƒ¼ã®ä½ç½®ã‚’åº§æ¨™ã§æ±ºå®šã™ã‚‹
   function setPointerPos(x, y) {
     var row = findRowIndex(y);
     var nearestChar = rowList[row].nearestChar(x, y);
     setPointer(row, nearestChar[0], nearestChar[1]);
   }    
 
-  // ƒ|ƒCƒ“ƒ^‚ÌˆÊ’u‚ğs‚Æ—ñ‚ÅŒˆ’è‚·‚é
+  // ãƒã‚¤ãƒ³ã‚¿ã®ä½ç½®ã‚’è¡Œã¨åˆ—ã§æ±ºå®šã™ã‚‹
   function setPointer(row, col, tail = false) {
     row = int(Math.max(0, Math.min(rowList.count - 1, row)));
     col = int(Math.max(0, Math.min(rowList[row].count, col)));
@@ -1613,24 +1613,24 @@ class KTextEdit extends KValueWidget
     onPointAt(row, col);
   }
 
-  // ƒ|ƒCƒ“ƒ^‚Ì“_–ÅŠJn
+  // ãƒã‚¤ãƒ³ã‚¿ã®ç‚¹æ»…é–‹å§‹
   function startPointerBlink {
     pointerLayer.visible = true;
     pointerTimer.enabled = true;
   }
 
-  // ƒ|ƒCƒ“ƒ^‚Ì“_–ÅI—¹
+  // ãƒã‚¤ãƒ³ã‚¿ã®ç‚¹æ»…çµ‚äº†
   function stopPointerBlink {
     pointerLayer.visible = false;
     pointerTimer.enabled = false;
   }
 
-  // ƒ|ƒCƒ“ƒ^‚ğƒ^ƒCƒ}[‚Å“_–Å‚³‚¹‚é
+  // ãƒã‚¤ãƒ³ã‚¿ã‚’ã‚¿ã‚¤ãƒãƒ¼ã§ç‚¹æ»…ã•ã›ã‚‹
   function onPointerTimer {
     pointerLayer.visible = ! pointerLayer.visible;
   }
 
-  // ƒtƒHƒ“ƒgXV
+  // ãƒ•ã‚©ãƒ³ãƒˆæ›´æ–°
   function updateRowFont {
     for (var i = 0; i < rowList.count; i++)
       rowList[i].updateFont();
@@ -1641,7 +1641,7 @@ class KTextEdit extends KValueWidget
     locateLayout();
   }
 
-  // ƒeƒLƒXƒg‰B•Á
+  // ãƒ†ã‚­ã‚¹ãƒˆéš è”½
   property hideText {
     getter {
       return _hideText;
@@ -1660,20 +1660,20 @@ class KTextEdit extends KValueWidget
     }
   }
 
-  // ƒ^ƒu‚ğ“WŠJ‚·‚é
+  // ã‚¿ãƒ–ã‚’å±•é–‹ã™ã‚‹
   function expandTab(str) {
     return str.replace(tabPat, " ".repeat(tabWidth));
   }
 
   /*----------------------------------------------------------------------
-   * ˆÈ‰ºAŠeíƒtƒbƒNˆ—
+   * ä»¥ä¸‹ã€å„ç¨®ãƒ•ãƒƒã‚¯å‡¦ç†
    ----------------------------------------------------------------------*/
-  // ƒ_ƒuƒ‹ƒNƒŠƒbƒN‚ÅAƒ[ƒhƒZƒŒƒNƒVƒ‡ƒ“‚ÖˆÚs
+  // ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã§ã€ãƒ¯ãƒ¼ãƒ‰ã‚»ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã¸ç§»è¡Œ
   function onDoubleClick {
     wordSelection = true;
   }
 
-  // ƒ}ƒEƒXƒ_ƒEƒ“‚ÅƒtƒH[ƒJƒXAƒ|ƒCƒ“ƒ^ˆÚ“®
+  // ãƒã‚¦ã‚¹ãƒ€ã‚¦ãƒ³ã§ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã€ãƒã‚¤ãƒ³ã‚¿ç§»å‹•
   function onMouseDown(x, y, button) {
     if (button == mbLeft) {
       dragging = true;
@@ -1694,7 +1694,7 @@ class KTextEdit extends KValueWidget
     super.onMouseDown(...);
   }
 
-  // ƒ}ƒEƒXƒ€[ƒu‚Å‘I‘ğ”ÍˆÍ•ÏX
+  // ãƒã‚¦ã‚¹ãƒ ãƒ¼ãƒ–ã§é¸æŠç¯„å›²å¤‰æ›´
   function onMouseMove(x, y) {
     if (dragging) {
       if (firstMove) {
@@ -1742,7 +1742,7 @@ class KTextEdit extends KValueWidget
     super.onMouseUp(...);
   }
 
-  // ƒL[“ü—Í‚Å•¶š‘}“ü
+  // ã‚­ãƒ¼å…¥åŠ›ã§æ–‡å­—æŒ¿å…¥
   function onKeyPress(key) {
     if (dragging)
       return;
@@ -1754,22 +1754,22 @@ class KTextEdit extends KValueWidget
     }
   }
 
-  // ƒL[ƒ_ƒEƒ“‚ÅƒL[ƒoƒCƒ“ƒhˆ—
+  // ã‚­ãƒ¼ãƒ€ã‚¦ãƒ³ã§ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰å‡¦ç†
   function onKeyDown(key, shift) {
     if (dragging)
       return;
 
-    // —]•ª‚ÈƒVƒtƒg‚ğƒ}ƒXƒN
+    // ä½™åˆ†ãªã‚·ãƒ•ãƒˆã‚’ãƒã‚¹ã‚¯
     shift &= ssAlt | ssShift | ssCtrl;
 
-    // C-SPACE‚ª‰Ÿ‚³‚ê‚Ä‚½‚çƒXƒy[ƒX‚Ì•¶š“ü—Í‚ğ‰ñ”ğ(emacsƒoƒCƒ“ƒh—pˆ—)
+    // C-SPACEãŒæŠ¼ã•ã‚Œã¦ãŸã‚‰ã‚¹ãƒšãƒ¼ã‚¹ã®æ–‡å­—å…¥åŠ›ã‚’å›é¿(emacsãƒã‚¤ãƒ³ãƒ‰ç”¨å‡¦ç†)
     if (key == VK_SPACE && shift == ssCtrl)
       ctrlSpacePressed = true;
 
-    // ƒL[ƒoƒCƒ“ƒhˆ—
+    // ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰å‡¦ç†
     for (var i = 0; i < keyBind.count; i++)
       if (keyBind[i][0] == key
-	  && keyBind[i][2] == ((keyBind[i][1] == 1) ? (shift & ~ssShift) : shift)) {
+	  && keyBind[i][2] == ((keyBind[i][1] == 1) ? (shift & â€¾ssShift) : shift)) {
         var prevRow, prevCol;
         prevRow = pointer.row, prevCol = pointer.col;
 	keyBind[i][3]();
@@ -1789,7 +1789,7 @@ class KTextEdit extends KValueWidget
 	return;
       }
 
-    // ƒJ[ƒ\ƒ‹ƒL[‚ğH‚¢æ‚é
+    // ã‚«ãƒ¼ã‚½ãƒ«ã‚­ãƒ¼ã‚’é£Ÿã„å–ã‚‹
     switch (key) {
     default:
       super.onKeyDown(...);
@@ -1802,13 +1802,13 @@ class KTextEdit extends KValueWidget
     }
   }
 
-  // ƒL[ƒAƒbƒv
+  // ã‚­ãƒ¼ã‚¢ãƒƒãƒ—
   function onKeyUp(key) {
     if (key == VK_SPACE)
       ctrlSpacePressed = false;
   }
 
-  // ƒ‰ƒCƒgƒNƒŠƒbƒN
+  // ãƒ©ã‚¤ãƒˆã‚¯ãƒªãƒƒã‚¯
   function onRightClick {
     if (dragging)
       return;
@@ -1817,38 +1817,38 @@ class KTextEdit extends KValueWidget
     menu.show();
   }
 
-  // ƒtƒH[ƒJƒX‚µ‚½‚çƒJ[ƒ\ƒ‹“_–Å
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã—ãŸã‚‰ã‚«ãƒ¼ã‚½ãƒ«ç‚¹æ»…
   function onFocus {
     startPointerBlink();
   }
   
-  // ƒtƒH[ƒJƒXƒƒXƒg‚µ‚½‚çƒJ[ƒ\ƒ‹Á‹
+  // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãƒ­ã‚¹ãƒˆã—ãŸã‚‰ã‚«ãƒ¼ã‚½ãƒ«æ¶ˆå»
   function onBlur {
     stopPointerBlink();
   }
 
-  // ƒTƒCƒY‚ª•Ï‚í‚Á‚½‚çƒŒƒCƒAƒEƒg‚â‚è’¼‚µ
+  // ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã£ãŸã‚‰ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚„ã‚Šç›´ã—
   function onSizeModified {
     locateLayout();
   }
 
-  // ƒtƒHƒ“ƒg‚ª•Ï‚í‚Á‚½‚çƒAƒbƒvƒf[ƒg
+  // ãƒ•ã‚©ãƒ³ãƒˆãŒå¤‰ã‚ã£ãŸã‚‰ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
   function onFontFaceModified {
     updateRowFont();
   }
 
-  // ƒtƒHƒ“ƒg‚ª•Ï‚í‚Á‚½‚çƒAƒbƒvƒf[ƒg
+  // ãƒ•ã‚©ãƒ³ãƒˆãŒå¤‰ã‚ã£ãŸã‚‰ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
   function onFontHeightModified {
     updateRowFont();
   }
 
-  // ƒm[ƒh‚ªƒCƒl[ƒuƒ‹‚³‚ê‚½‚ç•s“§–¾‚É
+  // ãƒãƒ¼ãƒ‰ãŒã‚¤ãƒãƒ¼ãƒ–ãƒ«ã•ã‚ŒãŸã‚‰ä¸é€æ˜ã«
   function onNodeEnabled {
     for (var i = 0; i < children.count; i++)
       children[i].opacity = 255;
   }
 
-  // ƒm[ƒh‚ªƒfƒBƒZ[ƒuƒ‹‚³‚ê‚½‚ç”¼“§–¾‚É
+  // ãƒãƒ¼ãƒ‰ãŒãƒ‡ã‚£ã‚»ãƒ¼ãƒ–ãƒ«ã•ã‚ŒãŸã‚‰åŠé€æ˜ã«
   function onNodeDisabled {
     for (var i = 0; i < children.count; i++)
       children[i].opacity = 64;

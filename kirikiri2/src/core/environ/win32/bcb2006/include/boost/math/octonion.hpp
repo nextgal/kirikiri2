@@ -36,159 +36,159 @@ namespace boost
         using    ::std::cosh;
 #endif /* defined(__GNUC__) && (__GNUC__ < 3) */
     
-#define    BOOST_OCTONION_ACCESSOR_GENERATOR(type)                      \
-            type                        real() const                    \
-            {                                                           \
-                return(a);                                              \
-            }                                                           \
-                                                                        \
-            octonion<type>                unreal() const                \
-            {                                                           \
-                return(octonion(static_cast<type>(0),b,c,d,e,f,g,h));   \
-            }                                                           \
-                                                                        \
-            type                            R_component_1() const       \
-            {                                                           \
-                return(a);                                              \
-            }                                                           \
-                                                                        \
-            type                            R_component_2() const       \
-            {                                                           \
-                return(b);                                              \
-            }                                                           \
-                                                                        \
-            type                            R_component_3() const       \
-            {                                                           \
-                return(c);                                              \
-            }                                                           \
-                                                                        \
-            type                            R_component_4() const       \
-            {                                                           \
-                return(d);                                              \
-            }                                                           \
-                                                                        \
-            type                            R_component_5() const       \
-            {                                                           \
-                return(e);                                              \
-            }                                                           \
-                                                                        \
-            type                            R_component_6() const       \
-            {                                                           \
-                return(f);                                              \
-            }                                                           \
-                                                                        \
-            type                            R_component_7() const       \
-            {                                                           \
-                return(g);                                              \
-            }                                                           \
-                                                                        \
-            type                            R_component_8() const       \
-            {                                                           \
-                return(h);                                              \
-            }                                                           \
-                                                                        \
-            ::std::complex<type>            C_component_1() const       \
-            {                                                           \
-                return(::std::complex<type>(a,b));                      \
-            }                                                           \
-                                                                        \
-            ::std::complex<type>            C_component_2() const       \
-            {                                                           \
-                return(::std::complex<type>(c,d));                      \
-            }                                                           \
-                                                                        \
-            ::std::complex<type>            C_component_3() const       \
-            {                                                           \
-                return(::std::complex<type>(e,f));                      \
-            }                                                           \
-                                                                        \
-            ::std::complex<type>            C_component_4() const       \
-            {                                                           \
-                return(::std::complex<type>(g,h));                      \
-            }                                                           \
-                                                                        \
-            ::boost::math::quaternion<type>    H_component_1() const    \
-            {                                                           \
-                return(::boost::math::quaternion<type>(a,b,c,d));       \
-            }                                                           \
-                                                                        \
-            ::boost::math::quaternion<type>    H_component_2() const    \
-            {                                                           \
-                return(::boost::math::quaternion<type>(e,f,g,h));       \
+#define    BOOST_OCTONION_ACCESSOR_GENERATOR(type)                      ¥
+            type                        real() const                    ¥
+            {                                                           ¥
+                return(a);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            octonion<type>                unreal() const                ¥
+            {                                                           ¥
+                return(octonion(static_cast<type>(0),b,c,d,e,f,g,h));   ¥
+            }                                                           ¥
+                                                                        ¥
+            type                            R_component_1() const       ¥
+            {                                                           ¥
+                return(a);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            type                            R_component_2() const       ¥
+            {                                                           ¥
+                return(b);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            type                            R_component_3() const       ¥
+            {                                                           ¥
+                return(c);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            type                            R_component_4() const       ¥
+            {                                                           ¥
+                return(d);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            type                            R_component_5() const       ¥
+            {                                                           ¥
+                return(e);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            type                            R_component_6() const       ¥
+            {                                                           ¥
+                return(f);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            type                            R_component_7() const       ¥
+            {                                                           ¥
+                return(g);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            type                            R_component_8() const       ¥
+            {                                                           ¥
+                return(h);                                              ¥
+            }                                                           ¥
+                                                                        ¥
+            ::std::complex<type>            C_component_1() const       ¥
+            {                                                           ¥
+                return(::std::complex<type>(a,b));                      ¥
+            }                                                           ¥
+                                                                        ¥
+            ::std::complex<type>            C_component_2() const       ¥
+            {                                                           ¥
+                return(::std::complex<type>(c,d));                      ¥
+            }                                                           ¥
+                                                                        ¥
+            ::std::complex<type>            C_component_3() const       ¥
+            {                                                           ¥
+                return(::std::complex<type>(e,f));                      ¥
+            }                                                           ¥
+                                                                        ¥
+            ::std::complex<type>            C_component_4() const       ¥
+            {                                                           ¥
+                return(::std::complex<type>(g,h));                      ¥
+            }                                                           ¥
+                                                                        ¥
+            ::boost::math::quaternion<type>    H_component_1() const    ¥
+            {                                                           ¥
+                return(::boost::math::quaternion<type>(a,b,c,d));       ¥
+            }                                                           ¥
+                                                                        ¥
+            ::boost::math::quaternion<type>    H_component_2() const    ¥
+            {                                                           ¥
+                return(::boost::math::quaternion<type>(e,f,g,h));       ¥
             }
         
     
-#define    BOOST_OCTONION_MEMBER_ASSIGNMENT_GENERATOR(type)                                         \
-            template<typename X>                                                                    \
-            octonion<type> &        operator = (octonion<X> const & a_affecter)                     \
-            {                                                                                       \
-                a = static_cast<type>(a_affecter.R_component_1());                                  \
-                b = static_cast<type>(a_affecter.R_component_2());                                  \
-                c = static_cast<type>(a_affecter.R_component_3());                                  \
-                d = static_cast<type>(a_affecter.R_component_4());                                  \
-                e = static_cast<type>(a_affecter.R_component_5());                                  \
-                f = static_cast<type>(a_affecter.R_component_6());                                  \
-                g = static_cast<type>(a_affecter.R_component_7());                                  \
-                h = static_cast<type>(a_affecter.R_component_8());                                  \
-                                                                                                    \
-                return(*this);                                                                      \
-            }                                                                                       \
-                                                                                                    \
-            octonion<type> &        operator = (octonion<type> const & a_affecter)                  \
-            {                                                                                       \
-                a = a_affecter.a;                                                                   \
-                b = a_affecter.b;                                                                   \
-                c = a_affecter.c;                                                                   \
-                d = a_affecter.d;                                                                   \
-                e = a_affecter.e;                                                                   \
-                f = a_affecter.f;                                                                   \
-                g = a_affecter.g;                                                                   \
-                h = a_affecter.h;                                                                   \
-                                                                                                    \
-                return(*this);                                                                      \
-            }                                                                                       \
-                                                                                                    \
-            octonion<type> &        operator = (type const & a_affecter)                            \
-            {                                                                                       \
-                a = a_affecter;                                                                     \
-                                                                                                    \
-                b = c = d = e = f= g = h = static_cast<type>(0);                                    \
-                                                                                                    \
-                return(*this);                                                                      \
-            }                                                                                       \
-                                                                                                    \
-            octonion<type> &        operator = (::std::complex<type> const & a_affecter)            \
-            {                                                                                       \
-                a = a_affecter.real();                                                              \
-                b = a_affecter.imag();                                                              \
-                                                                                                    \
-                c = d = e = f = g = h = static_cast<type>(0);                                       \
-                                                                                                    \
-                return(*this);                                                                      \
-            }                                                                                       \
-                                                                                                    \
-            octonion<type> &        operator = (::boost::math::quaternion<type> const & a_affecter) \
-            {                                                                                       \
-                a = a_affecter.R_component_1();                                                     \
-                b = a_affecter.R_component_2();                                                     \
-                c = a_affecter.R_component_3();                                                     \
-                d = a_affecter.R_component_4();                                                     \
-                                                                                                    \
-                e = f = g = h = static_cast<type>(0);                                               \
-                                                                                                    \
-                return(*this);                                                                      \
+#define    BOOST_OCTONION_MEMBER_ASSIGNMENT_GENERATOR(type)                                         ¥
+            template<typename X>                                                                    ¥
+            octonion<type> &        operator = (octonion<X> const & a_affecter)                     ¥
+            {                                                                                       ¥
+                a = static_cast<type>(a_affecter.R_component_1());                                  ¥
+                b = static_cast<type>(a_affecter.R_component_2());                                  ¥
+                c = static_cast<type>(a_affecter.R_component_3());                                  ¥
+                d = static_cast<type>(a_affecter.R_component_4());                                  ¥
+                e = static_cast<type>(a_affecter.R_component_5());                                  ¥
+                f = static_cast<type>(a_affecter.R_component_6());                                  ¥
+                g = static_cast<type>(a_affecter.R_component_7());                                  ¥
+                h = static_cast<type>(a_affecter.R_component_8());                                  ¥
+                                                                                                    ¥
+                return(*this);                                                                      ¥
+            }                                                                                       ¥
+                                                                                                    ¥
+            octonion<type> &        operator = (octonion<type> const & a_affecter)                  ¥
+            {                                                                                       ¥
+                a = a_affecter.a;                                                                   ¥
+                b = a_affecter.b;                                                                   ¥
+                c = a_affecter.c;                                                                   ¥
+                d = a_affecter.d;                                                                   ¥
+                e = a_affecter.e;                                                                   ¥
+                f = a_affecter.f;                                                                   ¥
+                g = a_affecter.g;                                                                   ¥
+                h = a_affecter.h;                                                                   ¥
+                                                                                                    ¥
+                return(*this);                                                                      ¥
+            }                                                                                       ¥
+                                                                                                    ¥
+            octonion<type> &        operator = (type const & a_affecter)                            ¥
+            {                                                                                       ¥
+                a = a_affecter;                                                                     ¥
+                                                                                                    ¥
+                b = c = d = e = f= g = h = static_cast<type>(0);                                    ¥
+                                                                                                    ¥
+                return(*this);                                                                      ¥
+            }                                                                                       ¥
+                                                                                                    ¥
+            octonion<type> &        operator = (::std::complex<type> const & a_affecter)            ¥
+            {                                                                                       ¥
+                a = a_affecter.real();                                                              ¥
+                b = a_affecter.imag();                                                              ¥
+                                                                                                    ¥
+                c = d = e = f = g = h = static_cast<type>(0);                                       ¥
+                                                                                                    ¥
+                return(*this);                                                                      ¥
+            }                                                                                       ¥
+                                                                                                    ¥
+            octonion<type> &        operator = (::boost::math::quaternion<type> const & a_affecter) ¥
+            {                                                                                       ¥
+                a = a_affecter.R_component_1();                                                     ¥
+                b = a_affecter.R_component_2();                                                     ¥
+                c = a_affecter.R_component_3();                                                     ¥
+                d = a_affecter.R_component_4();                                                     ¥
+                                                                                                    ¥
+                e = f = g = h = static_cast<type>(0);                                               ¥
+                                                                                                    ¥
+                return(*this);                                                                      ¥
             }
         
         
-#define    BOOST_OCTONION_MEMBER_DATA_GENERATOR(type) \
-            type    a;                                \
-            type    b;                                \
-            type    c;                                \
-            type    d;                                \
-            type    e;                                \
-            type    f;                                \
-            type    g;                                \
-            type    h;                                \
+#define    BOOST_OCTONION_MEMBER_DATA_GENERATOR(type) ¥
+            type    a;                                ¥
+            type    b;                                ¥
+            type    c;                                ¥
+            type    d;                                ¥
+            type    e;                                ¥
+            type    f;                                ¥
+            type    g;                                ¥
+            type    h;                                ¥
         
         
         template<typename T>
@@ -708,246 +708,246 @@ namespace boost
         // implementation of octonion specialization
         
         
-#define    BOOST_OCTONION_CONSTRUCTOR_GENERATOR(type)                                                                               \
-            explicit                    octonion(   type const & requested_a = static_cast<type>(0),                                \
-                                                    type const & requested_b = static_cast<type>(0),                                \
-                                                    type const & requested_c = static_cast<type>(0),                                \
-                                                    type const & requested_d = static_cast<type>(0),                                \
-                                                    type const & requested_e = static_cast<type>(0),                                \
-                                                    type const & requested_f = static_cast<type>(0),                                \
-                                                    type const & requested_g = static_cast<type>(0),                                \
-                                                    type const & requested_h = static_cast<type>(0))                                \
-            :   a(requested_a),                                                                                                     \
-                b(requested_b),                                                                                                     \
-                c(requested_c),                                                                                                     \
-                d(requested_d),                                                                                                     \
-                e(requested_e),                                                                                                     \
-                f(requested_f),                                                                                                     \
-                g(requested_g),                                                                                                     \
-                h(requested_h)                                                                                                      \
-            {                                                                                                                       \
-            }                                                                                                                       \
-                                                                                                                                    \
-            explicit                    octonion(   ::std::complex<type> const & z0,                                                \
-                                                    ::std::complex<type> const & z1 = ::std::complex<type>(),                       \
-                                                    ::std::complex<type> const & z2 = ::std::complex<type>(),                       \
-                                                    ::std::complex<type> const & z3 = ::std::complex<type>())                       \
-            :   a(z0.real()),                                                                                                       \
-                b(z0.imag()),                                                                                                       \
-                c(z1.real()),                                                                                                       \
-                d(z1.imag()),                                                                                                       \
-                e(z2.real()),                                                                                                       \
-                f(z2.imag()),                                                                                                       \
-                g(z3.real()),                                                                                                       \
-                h(z3.imag())                                                                                                        \
-            {                                                                                                                       \
-            }                                                                                                                       \
-                                                                                                                                    \
-            explicit                    octonion(   ::boost::math::quaternion<type> const & q0,                                     \
-                                                    ::boost::math::quaternion<type> const & q1 = ::boost::math::quaternion<type>()) \
-            :   a(q0.R_component_1()),                                                                                              \
-                b(q0.R_component_2()),                                                                                              \
-                c(q0.R_component_3()),                                                                                              \
-                d(q0.R_component_4()),                                                                                              \
-                e(q1.R_component_1()),                                                                                              \
-                f(q1.R_component_2()),                                                                                              \
-                g(q1.R_component_3()),                                                                                              \
-                h(q1.R_component_4())                                                                                               \
-            {                                                                                                                       \
+#define    BOOST_OCTONION_CONSTRUCTOR_GENERATOR(type)                                                                               ¥
+            explicit                    octonion(   type const & requested_a = static_cast<type>(0),                                ¥
+                                                    type const & requested_b = static_cast<type>(0),                                ¥
+                                                    type const & requested_c = static_cast<type>(0),                                ¥
+                                                    type const & requested_d = static_cast<type>(0),                                ¥
+                                                    type const & requested_e = static_cast<type>(0),                                ¥
+                                                    type const & requested_f = static_cast<type>(0),                                ¥
+                                                    type const & requested_g = static_cast<type>(0),                                ¥
+                                                    type const & requested_h = static_cast<type>(0))                                ¥
+            :   a(requested_a),                                                                                                     ¥
+                b(requested_b),                                                                                                     ¥
+                c(requested_c),                                                                                                     ¥
+                d(requested_d),                                                                                                     ¥
+                e(requested_e),                                                                                                     ¥
+                f(requested_f),                                                                                                     ¥
+                g(requested_g),                                                                                                     ¥
+                h(requested_h)                                                                                                      ¥
+            {                                                                                                                       ¥
+            }                                                                                                                       ¥
+                                                                                                                                    ¥
+            explicit                    octonion(   ::std::complex<type> const & z0,                                                ¥
+                                                    ::std::complex<type> const & z1 = ::std::complex<type>(),                       ¥
+                                                    ::std::complex<type> const & z2 = ::std::complex<type>(),                       ¥
+                                                    ::std::complex<type> const & z3 = ::std::complex<type>())                       ¥
+            :   a(z0.real()),                                                                                                       ¥
+                b(z0.imag()),                                                                                                       ¥
+                c(z1.real()),                                                                                                       ¥
+                d(z1.imag()),                                                                                                       ¥
+                e(z2.real()),                                                                                                       ¥
+                f(z2.imag()),                                                                                                       ¥
+                g(z3.real()),                                                                                                       ¥
+                h(z3.imag())                                                                                                        ¥
+            {                                                                                                                       ¥
+            }                                                                                                                       ¥
+                                                                                                                                    ¥
+            explicit                    octonion(   ::boost::math::quaternion<type> const & q0,                                     ¥
+                                                    ::boost::math::quaternion<type> const & q1 = ::boost::math::quaternion<type>()) ¥
+            :   a(q0.R_component_1()),                                                                                              ¥
+                b(q0.R_component_2()),                                                                                              ¥
+                c(q0.R_component_3()),                                                                                              ¥
+                d(q0.R_component_4()),                                                                                              ¥
+                e(q1.R_component_1()),                                                                                              ¥
+                f(q1.R_component_2()),                                                                                              ¥
+                g(q1.R_component_3()),                                                                                              ¥
+                h(q1.R_component_4())                                                                                               ¥
+            {                                                                                                                       ¥
             }
         
     
-#define    BOOST_OCTONION_MEMBER_ADD_GENERATOR_1(type)                  \
-            octonion<type> &            operator += (type const & rhs)  \
-            {                                                           \
-                a += rhs;                                               \
-                                                                        \
-                return(*this);                                          \
+#define    BOOST_OCTONION_MEMBER_ADD_GENERATOR_1(type)                  ¥
+            octonion<type> &            operator += (type const & rhs)  ¥
+            {                                                           ¥
+                a += rhs;                                               ¥
+                                                                        ¥
+                return(*this);                                          ¥
             }
     
-#define    BOOST_OCTONION_MEMBER_ADD_GENERATOR_2(type)                                  \
-            octonion<type> &            operator += (::std::complex<type> const & rhs)  \
-            {                                                                           \
-                a += rhs.real();                                                        \
-                b += rhs.imag();                                                        \
-                                                                                        \
-                return(*this);                                                          \
+#define    BOOST_OCTONION_MEMBER_ADD_GENERATOR_2(type)                                  ¥
+            octonion<type> &            operator += (::std::complex<type> const & rhs)  ¥
+            {                                                                           ¥
+                a += rhs.real();                                                        ¥
+                b += rhs.imag();                                                        ¥
+                                                                                        ¥
+                return(*this);                                                          ¥
             }
     
-#define    BOOST_OCTONION_MEMBER_ADD_GENERATOR_3(type)                                              \
-            octonion<type> &            operator += (::boost::math::quaternion<type> const & rhs)   \
-            {                                                                                       \
-                a += rhs.R_component_1();                                                           \
-                b += rhs.R_component_2();                                                           \
-                c += rhs.R_component_3();                                                           \
-                d += rhs.R_component_4();                                                           \
-                                                                                                    \
-                return(*this);                                                                      \
+#define    BOOST_OCTONION_MEMBER_ADD_GENERATOR_3(type)                                              ¥
+            octonion<type> &            operator += (::boost::math::quaternion<type> const & rhs)   ¥
+            {                                                                                       ¥
+                a += rhs.R_component_1();                                                           ¥
+                b += rhs.R_component_2();                                                           ¥
+                c += rhs.R_component_3();                                                           ¥
+                d += rhs.R_component_4();                                                           ¥
+                                                                                                    ¥
+                return(*this);                                                                      ¥
             }
     
-#define    BOOST_OCTONION_MEMBER_ADD_GENERATOR_4(type)                          \
-            template<typename X>                                                \
-            octonion<type> &            operator += (octonion<X> const & rhs)   \
-            {                                                                   \
-                a += static_cast<type>(rhs.R_component_1());                    \
-                b += static_cast<type>(rhs.R_component_2());                    \
-                c += static_cast<type>(rhs.R_component_3());                    \
-                d += static_cast<type>(rhs.R_component_4());                    \
-                e += static_cast<type>(rhs.R_component_5());                    \
-                f += static_cast<type>(rhs.R_component_6());                    \
-                g += static_cast<type>(rhs.R_component_7());                    \
-                h += static_cast<type>(rhs.R_component_8());                    \
-                                                                                \
-                return(*this);                                                  \
+#define    BOOST_OCTONION_MEMBER_ADD_GENERATOR_4(type)                          ¥
+            template<typename X>                                                ¥
+            octonion<type> &            operator += (octonion<X> const & rhs)   ¥
+            {                                                                   ¥
+                a += static_cast<type>(rhs.R_component_1());                    ¥
+                b += static_cast<type>(rhs.R_component_2());                    ¥
+                c += static_cast<type>(rhs.R_component_3());                    ¥
+                d += static_cast<type>(rhs.R_component_4());                    ¥
+                e += static_cast<type>(rhs.R_component_5());                    ¥
+                f += static_cast<type>(rhs.R_component_6());                    ¥
+                g += static_cast<type>(rhs.R_component_7());                    ¥
+                h += static_cast<type>(rhs.R_component_8());                    ¥
+                                                                                ¥
+                return(*this);                                                  ¥
             }
     
-#define    BOOST_OCTONION_MEMBER_SUB_GENERATOR_1(type)                  \
-            octonion<type> &            operator -= (type const & rhs)  \
-            {                                                           \
-                a -= rhs;                                               \
-                                                                        \
-                return(*this);                                          \
+#define    BOOST_OCTONION_MEMBER_SUB_GENERATOR_1(type)                  ¥
+            octonion<type> &            operator -= (type const & rhs)  ¥
+            {                                                           ¥
+                a -= rhs;                                               ¥
+                                                                        ¥
+                return(*this);                                          ¥
             }
     
-#define    BOOST_OCTONION_MEMBER_SUB_GENERATOR_2(type)                                  \
-            octonion<type> &            operator -= (::std::complex<type> const & rhs)  \
-            {                                                                           \
-                a -= rhs.real();                                                        \
-                b -= rhs.imag();                                                        \
-                                                                                        \
-                return(*this);                                                          \
+#define    BOOST_OCTONION_MEMBER_SUB_GENERATOR_2(type)                                  ¥
+            octonion<type> &            operator -= (::std::complex<type> const & rhs)  ¥
+            {                                                                           ¥
+                a -= rhs.real();                                                        ¥
+                b -= rhs.imag();                                                        ¥
+                                                                                        ¥
+                return(*this);                                                          ¥
             }
     
-#define    BOOST_OCTONION_MEMBER_SUB_GENERATOR_3(type)                                              \
-            octonion<type> &            operator -= (::boost::math::quaternion<type> const & rhs)   \
-            {                                                                                       \
-                a -= rhs.R_component_1();                                                           \
-                b -= rhs.R_component_2();                                                           \
-                c -= rhs.R_component_3();                                                           \
-                d -= rhs.R_component_4();                                                           \
-                                                                                                    \
-                return(*this);                                                                      \
+#define    BOOST_OCTONION_MEMBER_SUB_GENERATOR_3(type)                                              ¥
+            octonion<type> &            operator -= (::boost::math::quaternion<type> const & rhs)   ¥
+            {                                                                                       ¥
+                a -= rhs.R_component_1();                                                           ¥
+                b -= rhs.R_component_2();                                                           ¥
+                c -= rhs.R_component_3();                                                           ¥
+                d -= rhs.R_component_4();                                                           ¥
+                                                                                                    ¥
+                return(*this);                                                                      ¥
             }
     
-#define    BOOST_OCTONION_MEMBER_SUB_GENERATOR_4(type)                        \
-            template<typename X>                                              \
-            octonion<type> &            operator -= (octonion<X> const & rhs) \
-            {                                                                 \
-                a -= static_cast<type>(rhs.R_component_1());                  \
-                b -= static_cast<type>(rhs.R_component_2());                  \
-                c -= static_cast<type>(rhs.R_component_3());                  \
-                d -= static_cast<type>(rhs.R_component_4());                  \
-                e -= static_cast<type>(rhs.R_component_5());                  \
-                f -= static_cast<type>(rhs.R_component_6());                  \
-                g -= static_cast<type>(rhs.R_component_7());                  \
-                h -= static_cast<type>(rhs.R_component_8());                  \
-                                                                              \
-                return(*this);                                                \
+#define    BOOST_OCTONION_MEMBER_SUB_GENERATOR_4(type)                        ¥
+            template<typename X>                                              ¥
+            octonion<type> &            operator -= (octonion<X> const & rhs) ¥
+            {                                                                 ¥
+                a -= static_cast<type>(rhs.R_component_1());                  ¥
+                b -= static_cast<type>(rhs.R_component_2());                  ¥
+                c -= static_cast<type>(rhs.R_component_3());                  ¥
+                d -= static_cast<type>(rhs.R_component_4());                  ¥
+                e -= static_cast<type>(rhs.R_component_5());                  ¥
+                f -= static_cast<type>(rhs.R_component_6());                  ¥
+                g -= static_cast<type>(rhs.R_component_7());                  ¥
+                h -= static_cast<type>(rhs.R_component_8());                  ¥
+                                                                              ¥
+                return(*this);                                                ¥
             }
     
-#define    BOOST_OCTONION_MEMBER_MUL_GENERATOR_1(type)                   \
-            octonion<type> &            operator *= (type const & rhs)   \
-            {                                                            \
-                a *= rhs;                                                \
-                b *= rhs;                                                \
-                c *= rhs;                                                \
-                d *= rhs;                                                \
-                e *= rhs;                                                \
-                f *= rhs;                                                \
-                g *= rhs;                                                \
-                h *= rhs;                                                \
-                                                                         \
-                return(*this);                                           \
+#define    BOOST_OCTONION_MEMBER_MUL_GENERATOR_1(type)                   ¥
+            octonion<type> &            operator *= (type const & rhs)   ¥
+            {                                                            ¥
+                a *= rhs;                                                ¥
+                b *= rhs;                                                ¥
+                c *= rhs;                                                ¥
+                d *= rhs;                                                ¥
+                e *= rhs;                                                ¥
+                f *= rhs;                                                ¥
+                g *= rhs;                                                ¥
+                h *= rhs;                                                ¥
+                                                                         ¥
+                return(*this);                                           ¥
             }
     
-#define    BOOST_OCTONION_MEMBER_MUL_GENERATOR_2(type)                                  \
-            octonion<type> &            operator *= (::std::complex<type> const & rhs)  \
-            {                                                                           \
-                type    ar = rhs.real();                                                \
-                type    br = rhs.imag();                                                \
-                                                                                        \
-                type    at = +a*ar-b*br;                                                \
-                type    bt = +a*br+b*ar;                                                \
-                type    ct = +c*ar+d*br;                                                \
-                type    dt = -c*br+d*ar;                                                \
-                type    et = +e*ar+f*br;                                                \
-                type    ft = -e*br+f*ar;                                                \
-                type    gt = +g*ar-h*br;                                                \
-                type    ht = +g*br+h*ar;                                                \
-                                                                                        \
-                a = at;                                                                 \
-                b = bt;                                                                 \
-                c = ct;                                                                 \
-                d = dt;                                                                 \
-                e = et;                                                                 \
-                f = ft;                                                                 \
-                g = gt;                                                                 \
-                h = ht;                                                                 \
-                                                                                        \
-                return(*this);                                                          \
+#define    BOOST_OCTONION_MEMBER_MUL_GENERATOR_2(type)                                  ¥
+            octonion<type> &            operator *= (::std::complex<type> const & rhs)  ¥
+            {                                                                           ¥
+                type    ar = rhs.real();                                                ¥
+                type    br = rhs.imag();                                                ¥
+                                                                                        ¥
+                type    at = +a*ar-b*br;                                                ¥
+                type    bt = +a*br+b*ar;                                                ¥
+                type    ct = +c*ar+d*br;                                                ¥
+                type    dt = -c*br+d*ar;                                                ¥
+                type    et = +e*ar+f*br;                                                ¥
+                type    ft = -e*br+f*ar;                                                ¥
+                type    gt = +g*ar-h*br;                                                ¥
+                type    ht = +g*br+h*ar;                                                ¥
+                                                                                        ¥
+                a = at;                                                                 ¥
+                b = bt;                                                                 ¥
+                c = ct;                                                                 ¥
+                d = dt;                                                                 ¥
+                e = et;                                                                 ¥
+                f = ft;                                                                 ¥
+                g = gt;                                                                 ¥
+                h = ht;                                                                 ¥
+                                                                                        ¥
+                return(*this);                                                          ¥
             }
     
-#define    BOOST_OCTONION_MEMBER_MUL_GENERATOR_3(type)                                                    \
-            octonion<type> &            operator *= (::boost::math::quaternion<type> const & rhs)   \
-            {                                                                                       \
-                type    ar = rhs.R_component_1();                                                   \
-                type    br = rhs.R_component_2();                                                   \
-                type    cr = rhs.R_component_2();                                                   \
-                type    dr = rhs.R_component_2();                                                   \
-                                                                                                    \
-                type    at = +a*ar-b*br-c*cr-d*dr;                                                  \
-                type    bt = +a*br+b*ar+c*dr-d*cr;                                                  \
-                type    ct = +a*cr-b*dr+c*ar+d*br;                                                  \
-                type    dt = +a*dr+b*cr-c*br+d*ar;                                                  \
-                type    et = +e*ar+f*br+g*cr+h*dr;                                                  \
-                type    ft = -e*br+f*ar-g*dr+h*cr;                                                  \
-                type    gt = -e*cr+f*dr+g*ar-h*br;                                                  \
-                type    ht = -e*dr-f*cr+g*br+h*ar;                                                  \
-                                                                                                    \
-                a = at;                                                                             \
-                b = bt;                                                                             \
-                c = ct;                                                                             \
-                d = dt;                                                                             \
-                e = et;                                                                             \
-                f = ft;                                                                             \
-                g = gt;                                                                             \
-                h = ht;                                                                             \
-                                                                                                    \
-                return(*this);                                                                      \
+#define    BOOST_OCTONION_MEMBER_MUL_GENERATOR_3(type)                                                    ¥
+            octonion<type> &            operator *= (::boost::math::quaternion<type> const & rhs)   ¥
+            {                                                                                       ¥
+                type    ar = rhs.R_component_1();                                                   ¥
+                type    br = rhs.R_component_2();                                                   ¥
+                type    cr = rhs.R_component_2();                                                   ¥
+                type    dr = rhs.R_component_2();                                                   ¥
+                                                                                                    ¥
+                type    at = +a*ar-b*br-c*cr-d*dr;                                                  ¥
+                type    bt = +a*br+b*ar+c*dr-d*cr;                                                  ¥
+                type    ct = +a*cr-b*dr+c*ar+d*br;                                                  ¥
+                type    dt = +a*dr+b*cr-c*br+d*ar;                                                  ¥
+                type    et = +e*ar+f*br+g*cr+h*dr;                                                  ¥
+                type    ft = -e*br+f*ar-g*dr+h*cr;                                                  ¥
+                type    gt = -e*cr+f*dr+g*ar-h*br;                                                  ¥
+                type    ht = -e*dr-f*cr+g*br+h*ar;                                                  ¥
+                                                                                                    ¥
+                a = at;                                                                             ¥
+                b = bt;                                                                             ¥
+                c = ct;                                                                             ¥
+                d = dt;                                                                             ¥
+                e = et;                                                                             ¥
+                f = ft;                                                                             ¥
+                g = gt;                                                                             ¥
+                h = ht;                                                                             ¥
+                                                                                                    ¥
+                return(*this);                                                                      ¥
             }
     
-#define    BOOST_OCTONION_MEMBER_MUL_GENERATOR_4(type)                          \
-            template<typename X>                                                \
-            octonion<type> &            operator *= (octonion<X> const & rhs)   \
-            {                                                                   \
-                type    ar = static_cast<type>(rhs.R_component_1());            \
-                type    br = static_cast<type>(rhs.R_component_2());            \
-                type    cr = static_cast<type>(rhs.R_component_3());            \
-                type    dr = static_cast<type>(rhs.R_component_4());            \
-                type    er = static_cast<type>(rhs.R_component_5());            \
-                type    fr = static_cast<type>(rhs.R_component_6());            \
-                type    gr = static_cast<type>(rhs.R_component_7());            \
-                type    hr = static_cast<type>(rhs.R_component_8());            \
-                                                                                \
-                type    at = +a*ar-b*br-c*cr-d*dr-e*er-f*fr-g*gr-h*hr;          \
-                type    bt = +a*br+b*ar+c*dr-d*cr+e*fr-f*er-g*hr+h*gr;          \
-                type    ct = +a*cr-b*dr+c*ar+d*br+e*gr+f*hr-g*er-h*fr;          \
-                type    dt = +a*dr+b*cr-c*br+d*ar+e*hr-f*gr+g*fr-h*er;          \
-                type    et = +a*er-b*fr-c*gr-d*hr+e*ar+f*br+g*cr+h*dr;          \
-                type    ft = +a*fr+b*er-c*hr+d*gr-e*br+f*ar-g*dr+h*cr;          \
-                type    gt = +a*gr+b*hr+c*er-d*fr-e*cr+f*dr+g*ar-h*br;          \
-                type    ht = +a*hr-b*gr+c*fr+d*er-e*dr-f*cr+g*br+h*ar;          \
-                                                                                \
-                a = at;                                                         \
-                b = bt;                                                         \
-                c = ct;                                                         \
-                d = dt;                                                         \
-                e = et;                                                         \
-                f = ft;                                                         \
-                g = gt;                                                         \
-                h = ht;                                                         \
-                                                                                \
-                return(*this);                                                  \
+#define    BOOST_OCTONION_MEMBER_MUL_GENERATOR_4(type)                          ¥
+            template<typename X>                                                ¥
+            octonion<type> &            operator *= (octonion<X> const & rhs)   ¥
+            {                                                                   ¥
+                type    ar = static_cast<type>(rhs.R_component_1());            ¥
+                type    br = static_cast<type>(rhs.R_component_2());            ¥
+                type    cr = static_cast<type>(rhs.R_component_3());            ¥
+                type    dr = static_cast<type>(rhs.R_component_4());            ¥
+                type    er = static_cast<type>(rhs.R_component_5());            ¥
+                type    fr = static_cast<type>(rhs.R_component_6());            ¥
+                type    gr = static_cast<type>(rhs.R_component_7());            ¥
+                type    hr = static_cast<type>(rhs.R_component_8());            ¥
+                                                                                ¥
+                type    at = +a*ar-b*br-c*cr-d*dr-e*er-f*fr-g*gr-h*hr;          ¥
+                type    bt = +a*br+b*ar+c*dr-d*cr+e*fr-f*er-g*hr+h*gr;          ¥
+                type    ct = +a*cr-b*dr+c*ar+d*br+e*gr+f*hr-g*er-h*fr;          ¥
+                type    dt = +a*dr+b*cr-c*br+d*ar+e*hr-f*gr+g*fr-h*er;          ¥
+                type    et = +a*er-b*fr-c*gr-d*hr+e*ar+f*br+g*cr+h*dr;          ¥
+                type    ft = +a*fr+b*er-c*hr+d*gr-e*br+f*ar-g*dr+h*cr;          ¥
+                type    gt = +a*gr+b*hr+c*er-d*fr-e*cr+f*dr+g*ar-h*br;          ¥
+                type    ht = +a*hr-b*gr+c*fr+d*er-e*dr-f*cr+g*br+h*ar;          ¥
+                                                                                ¥
+                a = at;                                                         ¥
+                b = bt;                                                         ¥
+                c = ct;                                                         ¥
+                d = dt;                                                         ¥
+                e = et;                                                         ¥
+                f = ft;                                                         ¥
+                g = gt;                                                         ¥
+                h = ht;                                                         ¥
+                                                                                ¥
+                return(*this);                                                  ¥
             }
     
 // There is quite a lot of repetition in the code below. This is intentional.
@@ -957,451 +957,451 @@ namespace boost
 // not, we will be able to remove the clutter. This is makes the situation
 // (painfully) explicit.
     
-#define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_1(type)                  \
-            octonion<type> &            operator /= (type const & rhs)  \
-            {                                                           \
-                a /= rhs;                                               \
-                b /= rhs;                                               \
-                c /= rhs;                                               \
-                d /= rhs;                                               \
-                                                                        \
-                return(*this);                                          \
+#define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_1(type)                  ¥
+            octonion<type> &            operator /= (type const & rhs)  ¥
+            {                                                           ¥
+                a /= rhs;                                               ¥
+                b /= rhs;                                               ¥
+                c /= rhs;                                               ¥
+                d /= rhs;                                               ¥
+                                                                        ¥
+                return(*this);                                          ¥
             }
     
 #if defined(__GNUC__) && (__GNUC__ < 3)
-    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_2(type)                                              \
-            octonion<type> &            operator /= (::std::complex<type> const & rhs)                  \
-            {                                                                                           \
-                using    ::std::valarray;                                                               \
-                                                                                                        \
-                valarray<type>    tr(2);                                                                \
-                                                                                                        \
-                tr[0] = rhs.real();                                                                     \
-                tr[1] = rhs.imag();                                                                     \
-                                                                                                        \
-                type            mixam = BOOST_GET_VALARRAY(type,static_cast<type>(1)/abs(tr)).max();    \
-                                                                                                        \
-                tr *= mixam;                                                                            \
-                                                                                                        \
-                valarray<type>    tt(8);                                                                \
-                                                                                                        \
-                tt[0] = +a*tr[0]-b*tr[1];                                                               \
-                tt[1] = -a*tr[1]+b*tr[0];                                                               \
-                tt[2] = +c*tr[0]-d*tr[1];                                                               \
-                tt[3] = +c*tr[1]+d*tr[0];                                                               \
-                tt[4] = +e*tr[0]-f*tr[1];                                                               \
-                tt[5] = +e*tr[1]+f*tr[0];                                                               \
-                tt[6] = +g*tr[0]+h*tr[1];                                                               \
-                tt[7] = +g*tr[1]+h*tr[0];                                                               \
-                                                                                                        \
-                tr *= tr;                                                                               \
-                                                                                                        \
-                tt *= (mixam/tr.sum());                                                                 \
-                                                                                                        \
-                a = tt[0];                                                                              \
-                b = tt[1];                                                                              \
-                c = tt[2];                                                                              \
-                d = tt[3];                                                                              \
-                e = tt[4];                                                                              \
-                f = tt[5];                                                                              \
-                g = tt[6];                                                                              \
-                h = tt[7];                                                                              \
-                                                                                                        \
-                return(*this);                                                                          \
+    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_2(type)                                              ¥
+            octonion<type> &            operator /= (::std::complex<type> const & rhs)                  ¥
+            {                                                                                           ¥
+                using    ::std::valarray;                                                               ¥
+                                                                                                        ¥
+                valarray<type>    tr(2);                                                                ¥
+                                                                                                        ¥
+                tr[0] = rhs.real();                                                                     ¥
+                tr[1] = rhs.imag();                                                                     ¥
+                                                                                                        ¥
+                type            mixam = BOOST_GET_VALARRAY(type,static_cast<type>(1)/abs(tr)).max();    ¥
+                                                                                                        ¥
+                tr *= mixam;                                                                            ¥
+                                                                                                        ¥
+                valarray<type>    tt(8);                                                                ¥
+                                                                                                        ¥
+                tt[0] = +a*tr[0]-b*tr[1];                                                               ¥
+                tt[1] = -a*tr[1]+b*tr[0];                                                               ¥
+                tt[2] = +c*tr[0]-d*tr[1];                                                               ¥
+                tt[3] = +c*tr[1]+d*tr[0];                                                               ¥
+                tt[4] = +e*tr[0]-f*tr[1];                                                               ¥
+                tt[5] = +e*tr[1]+f*tr[0];                                                               ¥
+                tt[6] = +g*tr[0]+h*tr[1];                                                               ¥
+                tt[7] = +g*tr[1]+h*tr[0];                                                               ¥
+                                                                                                        ¥
+                tr *= tr;                                                                               ¥
+                                                                                                        ¥
+                tt *= (mixam/tr.sum());                                                                 ¥
+                                                                                                        ¥
+                a = tt[0];                                                                              ¥
+                b = tt[1];                                                                              ¥
+                c = tt[2];                                                                              ¥
+                d = tt[3];                                                                              ¥
+                e = tt[4];                                                                              ¥
+                f = tt[5];                                                                              ¥
+                g = tt[6];                                                                              ¥
+                h = tt[7];                                                                              ¥
+                                                                                                        ¥
+                return(*this);                                                                          ¥
             }
 #elif    defined(BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP)
-    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_2(type)                              \
-            octonion<type> &            operator /= (::std::complex<type> const & rhs)  \
-            {                                                                           \
-                using    ::std::valarray;                                               \
-                using    ::std::abs;                                                    \
-                                                                                        \
-                valarray<type>    tr(2);                                                \
-                                                                                        \
-                tr[0] = rhs.real();                                                     \
-                tr[1] = rhs.imag();                                                     \
-                                                                                        \
-                type            mixam = static_cast<type>(1)/abs(tr).max();             \
-                                                                                        \
-                tr *= mixam;                                                            \
-                                                                                        \
-                valarray<type>    tt(8);                                                \
-                                                                                        \
-                tt[0] = +a*tr[0]-b*tr[1];                                               \
-                tt[1] = -a*tr[1]+b*tr[0];                                               \
-                tt[2] = +c*tr[0]-d*tr[1];                                               \
-                tt[3] = +c*tr[1]+d*tr[0];                                               \
-                tt[4] = +e*tr[0]-f*tr[1];                                               \
-                tt[5] = +e*tr[1]+f*tr[0];                                               \
-                tt[6] = +g*tr[0]+h*tr[1];                                               \
-                tt[7] = +g*tr[1]+h*tr[0];                                               \
-                                                                                        \
-                tr *= tr;                                                               \
-                                                                                        \
-                tt *= (mixam/tr.sum());                                                 \
-                                                                                        \
-                a = tt[0];                                                              \
-                b = tt[1];                                                              \
-                c = tt[2];                                                              \
-                d = tt[3];                                                              \
-                e = tt[4];                                                              \
-                f = tt[5];                                                              \
-                g = tt[6];                                                              \
-                h = tt[7];                                                              \
-                                                                                        \
-                return(*this);                                                          \
+    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_2(type)                              ¥
+            octonion<type> &            operator /= (::std::complex<type> const & rhs)  ¥
+            {                                                                           ¥
+                using    ::std::valarray;                                               ¥
+                using    ::std::abs;                                                    ¥
+                                                                                        ¥
+                valarray<type>    tr(2);                                                ¥
+                                                                                        ¥
+                tr[0] = rhs.real();                                                     ¥
+                tr[1] = rhs.imag();                                                     ¥
+                                                                                        ¥
+                type            mixam = static_cast<type>(1)/abs(tr).max();             ¥
+                                                                                        ¥
+                tr *= mixam;                                                            ¥
+                                                                                        ¥
+                valarray<type>    tt(8);                                                ¥
+                                                                                        ¥
+                tt[0] = +a*tr[0]-b*tr[1];                                               ¥
+                tt[1] = -a*tr[1]+b*tr[0];                                               ¥
+                tt[2] = +c*tr[0]-d*tr[1];                                               ¥
+                tt[3] = +c*tr[1]+d*tr[0];                                               ¥
+                tt[4] = +e*tr[0]-f*tr[1];                                               ¥
+                tt[5] = +e*tr[1]+f*tr[0];                                               ¥
+                tt[6] = +g*tr[0]+h*tr[1];                                               ¥
+                tt[7] = +g*tr[1]+h*tr[0];                                               ¥
+                                                                                        ¥
+                tr *= tr;                                                               ¥
+                                                                                        ¥
+                tt *= (mixam/tr.sum());                                                 ¥
+                                                                                        ¥
+                a = tt[0];                                                              ¥
+                b = tt[1];                                                              ¥
+                c = tt[2];                                                              ¥
+                d = tt[3];                                                              ¥
+                e = tt[4];                                                              ¥
+                f = tt[5];                                                              ¥
+                g = tt[6];                                                              ¥
+                h = tt[7];                                                              ¥
+                                                                                        ¥
+                return(*this);                                                          ¥
             }
 #else
-    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_2(type)                              \
-            octonion<type> &            operator /= (::std::complex<type> const & rhs)  \
-            {                                                                           \
-                using    ::std::valarray;                                               \
-                                                                                        \
-                valarray<type>    tr(2);                                                \
-                                                                                        \
-                tr[0] = rhs.real();                                                     \
-                tr[1] = rhs.imag();                                                     \
-                                                                                        \
-                type            mixam = static_cast<type>(1)/abs(tr).max();             \
-                                                                                        \
-                tr *= mixam;                                                            \
-                                                                                        \
-                valarray<type>    tt(8);                                                \
-                                                                                        \
-                tt[0] = +a*tr[0]-b*tr[1];                                               \
-                tt[1] = -a*tr[1]+b*tr[0];                                               \
-                tt[2] = +c*tr[0]-d*tr[1];                                               \
-                tt[3] = +c*tr[1]+d*tr[0];                                               \
-                tt[4] = +e*tr[0]-f*tr[1];                                               \
-                tt[5] = +e*tr[1]+f*tr[0];                                               \
-                tt[6] = +g*tr[0]+h*tr[1];                                               \
-                tt[7] = +g*tr[1]+h*tr[0];                                               \
-                                                                                        \
-                tr *= tr;                                                               \
-                                                                                        \
-                tt *= (mixam/tr.sum());                                                 \
-                                                                                        \
-                a = tt[0];                                                              \
-                b = tt[1];                                                              \
-                c = tt[2];                                                              \
-                d = tt[3];                                                              \
-                e = tt[4];                                                              \
-                f = tt[5];                                                              \
-                g = tt[6];                                                              \
-                h = tt[7];                                                              \
-                                                                                        \
-                return(*this);                                                          \
+    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_2(type)                              ¥
+            octonion<type> &            operator /= (::std::complex<type> const & rhs)  ¥
+            {                                                                           ¥
+                using    ::std::valarray;                                               ¥
+                                                                                        ¥
+                valarray<type>    tr(2);                                                ¥
+                                                                                        ¥
+                tr[0] = rhs.real();                                                     ¥
+                tr[1] = rhs.imag();                                                     ¥
+                                                                                        ¥
+                type            mixam = static_cast<type>(1)/abs(tr).max();             ¥
+                                                                                        ¥
+                tr *= mixam;                                                            ¥
+                                                                                        ¥
+                valarray<type>    tt(8);                                                ¥
+                                                                                        ¥
+                tt[0] = +a*tr[0]-b*tr[1];                                               ¥
+                tt[1] = -a*tr[1]+b*tr[0];                                               ¥
+                tt[2] = +c*tr[0]-d*tr[1];                                               ¥
+                tt[3] = +c*tr[1]+d*tr[0];                                               ¥
+                tt[4] = +e*tr[0]-f*tr[1];                                               ¥
+                tt[5] = +e*tr[1]+f*tr[0];                                               ¥
+                tt[6] = +g*tr[0]+h*tr[1];                                               ¥
+                tt[7] = +g*tr[1]+h*tr[0];                                               ¥
+                                                                                        ¥
+                tr *= tr;                                                               ¥
+                                                                                        ¥
+                tt *= (mixam/tr.sum());                                                 ¥
+                                                                                        ¥
+                a = tt[0];                                                              ¥
+                b = tt[1];                                                              ¥
+                c = tt[2];                                                              ¥
+                d = tt[3];                                                              ¥
+                e = tt[4];                                                              ¥
+                f = tt[5];                                                              ¥
+                g = tt[6];                                                              ¥
+                h = tt[7];                                                              ¥
+                                                                                        ¥
+                return(*this);                                                          ¥
             }
 #endif    /* defined(__GNUC__) && (__GNUC__ < 3) */ /* BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP */
     
 #if defined(__GNUC__) && (__GNUC__ < 3)
-    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_3(type)                                           \
-            octonion<type> &            operator /= (::boost::math::quaternion<type> const & rhs)    \
-            {                                                                                        \
-                using    ::std::valarray;                                                            \
-                                                                                                     \
-                valarray<type>    tr(4);                                                             \
-                                                                                                     \
-                tr[0] = static_cast<type>(rhs.R_component_1());                                      \
-                tr[1] = static_cast<type>(rhs.R_component_2());                                      \
-                tr[2] = static_cast<type>(rhs.R_component_3());                                      \
-                tr[3] = static_cast<type>(rhs.R_component_4());                                      \
-                                                                                                     \
-                type            mixam = BOOST_GET_VALARRAY(type,static_cast<type>(1)/abs(tr)).max(); \
-                                                                                                     \
-                tr *= mixam;                                                                         \
-                                                                                                     \
-                valarray<type>    tt(8);                                                             \
-                                                                                                     \
-                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3];                                            \
-                tt[1] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2];                                            \
-                tt[2] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1];                                            \
-                tt[3] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0];                                            \
-                tt[4] = +e*tr[0]-f*tr[1]-g*tr[2]-h*tr[3];                                            \
-                tt[5] = +e*tr[1]+f*tr[0]+g*tr[3]-h*tr[2];                                            \
-                tt[6] = +e*tr[2]-f*tr[3]+g*tr[0]+h*tr[1];                                            \
-                tt[7] = +e*tr[3]+f*tr[2]-g*tr[1]+h*tr[0];                                            \
-                                                                                                     \
-                tr *= tr;                                                                            \
-                                                                                                     \
-                tt *= (mixam/tr.sum());                                                              \
-                                                                                                     \
-                a = tt[0];                                                                           \
-                b = tt[1];                                                                           \
-                c = tt[2];                                                                           \
-                d = tt[3];                                                                           \
-                e = tt[4];                                                                           \
-                f = tt[5];                                                                           \
-                g = tt[6];                                                                           \
-                h = tt[7];                                                                           \
-                                                                                                     \
-                return(*this);                                                                       \
+    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_3(type)                                           ¥
+            octonion<type> &            operator /= (::boost::math::quaternion<type> const & rhs)    ¥
+            {                                                                                        ¥
+                using    ::std::valarray;                                                            ¥
+                                                                                                     ¥
+                valarray<type>    tr(4);                                                             ¥
+                                                                                                     ¥
+                tr[0] = static_cast<type>(rhs.R_component_1());                                      ¥
+                tr[1] = static_cast<type>(rhs.R_component_2());                                      ¥
+                tr[2] = static_cast<type>(rhs.R_component_3());                                      ¥
+                tr[3] = static_cast<type>(rhs.R_component_4());                                      ¥
+                                                                                                     ¥
+                type            mixam = BOOST_GET_VALARRAY(type,static_cast<type>(1)/abs(tr)).max(); ¥
+                                                                                                     ¥
+                tr *= mixam;                                                                         ¥
+                                                                                                     ¥
+                valarray<type>    tt(8);                                                             ¥
+                                                                                                     ¥
+                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3];                                            ¥
+                tt[1] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2];                                            ¥
+                tt[2] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1];                                            ¥
+                tt[3] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0];                                            ¥
+                tt[4] = +e*tr[0]-f*tr[1]-g*tr[2]-h*tr[3];                                            ¥
+                tt[5] = +e*tr[1]+f*tr[0]+g*tr[3]-h*tr[2];                                            ¥
+                tt[6] = +e*tr[2]-f*tr[3]+g*tr[0]+h*tr[1];                                            ¥
+                tt[7] = +e*tr[3]+f*tr[2]-g*tr[1]+h*tr[0];                                            ¥
+                                                                                                     ¥
+                tr *= tr;                                                                            ¥
+                                                                                                     ¥
+                tt *= (mixam/tr.sum());                                                              ¥
+                                                                                                     ¥
+                a = tt[0];                                                                           ¥
+                b = tt[1];                                                                           ¥
+                c = tt[2];                                                                           ¥
+                d = tt[3];                                                                           ¥
+                e = tt[4];                                                                           ¥
+                f = tt[5];                                                                           ¥
+                g = tt[6];                                                                           ¥
+                h = tt[7];                                                                           ¥
+                                                                                                     ¥
+                return(*this);                                                                       ¥
             }
 #elif    defined(BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP)
-    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_3(type)                                           \
-            octonion<type> &            operator /= (::boost::math::quaternion<type> const & rhs)    \
-            {                                                                                        \
-                using    ::std::valarray;                                                            \
-                using    ::std::abs;                                                                 \
-                                                                                                     \
-                valarray<type>    tr(4);                                                             \
-                                                                                                     \
-                tr[0] = static_cast<type>(rhs.R_component_1());                                      \
-                tr[1] = static_cast<type>(rhs.R_component_2());                                      \
-                tr[2] = static_cast<type>(rhs.R_component_3());                                      \
-                tr[3] = static_cast<type>(rhs.R_component_4());                                      \
-                                                                                                     \
-                type            mixam = static_cast<type>(1)/abs(tr).max();                          \
-                                                                                                     \
-                tr *= mixam;                                                                         \
-                                                                                                     \
-                valarray<type>    tt(8);                                                             \
-                                                                                                     \
-                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3];                                            \
-                tt[1] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2];                                            \
-                tt[2] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1];                                            \
-                tt[3] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0];                                            \
-                tt[4] = +e*tr[0]-f*tr[1]-g*tr[2]-h*tr[3];                                            \
-                tt[5] = +e*tr[1]+f*tr[0]+g*tr[3]-h*tr[2];                                            \
-                tt[6] = +e*tr[2]-f*tr[3]+g*tr[0]+h*tr[1];                                            \
-                tt[7] = +e*tr[3]+f*tr[2]-g*tr[1]+h*tr[0];                                            \
-                                                                                                     \
-                tr *= tr;                                                                            \
-                                                                                                     \
-                tt *= (mixam/tr.sum());                                                              \
-                                                                                                     \
-                a = tt[0];                                                                           \
-                b = tt[1];                                                                           \
-                c = tt[2];                                                                           \
-                d = tt[3];                                                                           \
-                e = tt[4];                                                                           \
-                f = tt[5];                                                                           \
-                g = tt[6];                                                                           \
-                h = tt[7];                                                                           \
-                                                                                                     \
-                return(*this);                                                                       \
+    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_3(type)                                           ¥
+            octonion<type> &            operator /= (::boost::math::quaternion<type> const & rhs)    ¥
+            {                                                                                        ¥
+                using    ::std::valarray;                                                            ¥
+                using    ::std::abs;                                                                 ¥
+                                                                                                     ¥
+                valarray<type>    tr(4);                                                             ¥
+                                                                                                     ¥
+                tr[0] = static_cast<type>(rhs.R_component_1());                                      ¥
+                tr[1] = static_cast<type>(rhs.R_component_2());                                      ¥
+                tr[2] = static_cast<type>(rhs.R_component_3());                                      ¥
+                tr[3] = static_cast<type>(rhs.R_component_4());                                      ¥
+                                                                                                     ¥
+                type            mixam = static_cast<type>(1)/abs(tr).max();                          ¥
+                                                                                                     ¥
+                tr *= mixam;                                                                         ¥
+                                                                                                     ¥
+                valarray<type>    tt(8);                                                             ¥
+                                                                                                     ¥
+                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3];                                            ¥
+                tt[1] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2];                                            ¥
+                tt[2] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1];                                            ¥
+                tt[3] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0];                                            ¥
+                tt[4] = +e*tr[0]-f*tr[1]-g*tr[2]-h*tr[3];                                            ¥
+                tt[5] = +e*tr[1]+f*tr[0]+g*tr[3]-h*tr[2];                                            ¥
+                tt[6] = +e*tr[2]-f*tr[3]+g*tr[0]+h*tr[1];                                            ¥
+                tt[7] = +e*tr[3]+f*tr[2]-g*tr[1]+h*tr[0];                                            ¥
+                                                                                                     ¥
+                tr *= tr;                                                                            ¥
+                                                                                                     ¥
+                tt *= (mixam/tr.sum());                                                              ¥
+                                                                                                     ¥
+                a = tt[0];                                                                           ¥
+                b = tt[1];                                                                           ¥
+                c = tt[2];                                                                           ¥
+                d = tt[3];                                                                           ¥
+                e = tt[4];                                                                           ¥
+                f = tt[5];                                                                           ¥
+                g = tt[6];                                                                           ¥
+                h = tt[7];                                                                           ¥
+                                                                                                     ¥
+                return(*this);                                                                       ¥
             }
 #else
-    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_3(type)                                           \
-            octonion<type> &            operator /= (::boost::math::quaternion<type> const & rhs)    \
-            {                                                                                        \
-                using    ::std::valarray;                                                            \
-                                                                                                     \
-                valarray<type>    tr(4);                                                             \
-                                                                                                     \
-                tr[0] = static_cast<type>(rhs.R_component_1());                                      \
-                tr[1] = static_cast<type>(rhs.R_component_2());                                      \
-                tr[2] = static_cast<type>(rhs.R_component_3());                                      \
-                tr[3] = static_cast<type>(rhs.R_component_4());                                      \
-                                                                                                     \
-                type            mixam = static_cast<type>(1)/abs(tr).max();                          \
-                                                                                                     \
-                tr *= mixam;                                                                         \
-                                                                                                     \
-                valarray<type>    tt(8);                                                             \
-                                                                                                     \
-                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3];                                            \
-                tt[1] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2];                                            \
-                tt[2] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1];                                            \
-                tt[3] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0];                                            \
-                tt[4] = +e*tr[0]-f*tr[1]-g*tr[2]-h*tr[3];                                            \
-                tt[5] = +e*tr[1]+f*tr[0]+g*tr[3]-h*tr[2];                                            \
-                tt[6] = +e*tr[2]-f*tr[3]+g*tr[0]+h*tr[1];                                            \
-                tt[7] = +e*tr[3]+f*tr[2]-g*tr[1]+h*tr[0];                                            \
-                                                                                                     \
-                tr *= tr;                                                                            \
-                                                                                                     \
-                tt *= (mixam/tr.sum());                                                              \
-                                                                                                     \
-                a = tt[0];                                                                           \
-                b = tt[1];                                                                           \
-                c = tt[2];                                                                           \
-                d = tt[3];                                                                           \
-                e = tt[4];                                                                           \
-                f = tt[5];                                                                           \
-                g = tt[6];                                                                           \
-                h = tt[7];                                                                           \
-                                                                                                     \
-                return(*this);                                                                       \
+    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_3(type)                                           ¥
+            octonion<type> &            operator /= (::boost::math::quaternion<type> const & rhs)    ¥
+            {                                                                                        ¥
+                using    ::std::valarray;                                                            ¥
+                                                                                                     ¥
+                valarray<type>    tr(4);                                                             ¥
+                                                                                                     ¥
+                tr[0] = static_cast<type>(rhs.R_component_1());                                      ¥
+                tr[1] = static_cast<type>(rhs.R_component_2());                                      ¥
+                tr[2] = static_cast<type>(rhs.R_component_3());                                      ¥
+                tr[3] = static_cast<type>(rhs.R_component_4());                                      ¥
+                                                                                                     ¥
+                type            mixam = static_cast<type>(1)/abs(tr).max();                          ¥
+                                                                                                     ¥
+                tr *= mixam;                                                                         ¥
+                                                                                                     ¥
+                valarray<type>    tt(8);                                                             ¥
+                                                                                                     ¥
+                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3];                                            ¥
+                tt[1] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2];                                            ¥
+                tt[2] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1];                                            ¥
+                tt[3] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0];                                            ¥
+                tt[4] = +e*tr[0]-f*tr[1]-g*tr[2]-h*tr[3];                                            ¥
+                tt[5] = +e*tr[1]+f*tr[0]+g*tr[3]-h*tr[2];                                            ¥
+                tt[6] = +e*tr[2]-f*tr[3]+g*tr[0]+h*tr[1];                                            ¥
+                tt[7] = +e*tr[3]+f*tr[2]-g*tr[1]+h*tr[0];                                            ¥
+                                                                                                     ¥
+                tr *= tr;                                                                            ¥
+                                                                                                     ¥
+                tt *= (mixam/tr.sum());                                                              ¥
+                                                                                                     ¥
+                a = tt[0];                                                                           ¥
+                b = tt[1];                                                                           ¥
+                c = tt[2];                                                                           ¥
+                d = tt[3];                                                                           ¥
+                e = tt[4];                                                                           ¥
+                f = tt[5];                                                                           ¥
+                g = tt[6];                                                                           ¥
+                h = tt[7];                                                                           ¥
+                                                                                                     ¥
+                return(*this);                                                                       ¥
             }
 #endif    /* defined(__GNUC__) && (__GNUC__ < 3) */ /* BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP */
     
 #if defined(__GNUC__) && (__GNUC__ < 3)
-    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_4(type)                                           \
-            template<typename X>                                                                     \
-            octonion<type> &            operator /= (octonion<X> const & rhs)                        \
-            {                                                                                        \
-                using    ::std::valarray;                                                            \
-                                                                                                     \
-                valarray<type>    tr(8);                                                             \
-                                                                                                     \
-                tr[0] = static_cast<type>(rhs.R_component_1());                                      \
-                tr[1] = static_cast<type>(rhs.R_component_2());                                      \
-                tr[2] = static_cast<type>(rhs.R_component_3());                                      \
-                tr[3] = static_cast<type>(rhs.R_component_4());                                      \
-                tr[4] = static_cast<type>(rhs.R_component_5());                                      \
-                tr[5] = static_cast<type>(rhs.R_component_6());                                      \
-                tr[6] = static_cast<type>(rhs.R_component_7());                                      \
-                tr[7] = static_cast<type>(rhs.R_component_8());                                      \
-                                                                                                     \
-                type            mixam = BOOST_GET_VALARRAY(type,static_cast<type>(1)/abs(tr)).max(); \
-                                                                                                     \
-                tr *= mixam;                                                                         \
-                                                                                                     \
-                valarray<type>    tt(8);                                                             \
-                                                                                                     \
-                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3]+e*tr[4]+f*tr[5]+g*tr[6]+h*tr[7];            \
-                tt[0] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2]-e*tr[5]+f*tr[4]+g*tr[7]-h*tr[6];            \
-                tt[0] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1]-e*tr[6]-f*tr[7]+g*tr[4]+h*tr[5];            \
-                tt[0] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0]-e*tr[7]+f*tr[6]-g*tr[5]+h*tr[4];            \
-                tt[0] = -a*tr[4]+b*tr[5]+c*tr[6]+d*tr[7]+e*tr[0]-f*tr[1]-g*tr[2]-h*tr[3];            \
-                tt[0] = -a*tr[5]-b*tr[4]+c*tr[7]-d*tr[6]+e*tr[1]+f*tr[0]+g*tr[3]-h*tr[2];            \
-                tt[0] = -a*tr[6]-b*tr[7]-c*tr[4]+d*tr[5]+e*tr[2]-f*tr[3]+g*tr[0]+h*tr[1];            \
-                tt[0] = -a*tr[7]+b*tr[6]-c*tr[5]-d*tr[4]+e*tr[3]+f*tr[2]-g*tr[1]+h*tr[0];            \
-                                                                                                     \
-                tr *= tr;                                                                            \
-                                                                                                     \
-                tt *= (mixam/tr.sum());                                                              \
-                                                                                                     \
-                a = tt[0];                                                                           \
-                b = tt[1];                                                                           \
-                c = tt[2];                                                                           \
-                d = tt[3];                                                                           \
-                e = tt[4];                                                                           \
-                f = tt[5];                                                                           \
-                g = tt[6];                                                                           \
-                h = tt[7];                                                                           \
-                                                                                                     \
-                return(*this);                                                                       \
+    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_4(type)                                           ¥
+            template<typename X>                                                                     ¥
+            octonion<type> &            operator /= (octonion<X> const & rhs)                        ¥
+            {                                                                                        ¥
+                using    ::std::valarray;                                                            ¥
+                                                                                                     ¥
+                valarray<type>    tr(8);                                                             ¥
+                                                                                                     ¥
+                tr[0] = static_cast<type>(rhs.R_component_1());                                      ¥
+                tr[1] = static_cast<type>(rhs.R_component_2());                                      ¥
+                tr[2] = static_cast<type>(rhs.R_component_3());                                      ¥
+                tr[3] = static_cast<type>(rhs.R_component_4());                                      ¥
+                tr[4] = static_cast<type>(rhs.R_component_5());                                      ¥
+                tr[5] = static_cast<type>(rhs.R_component_6());                                      ¥
+                tr[6] = static_cast<type>(rhs.R_component_7());                                      ¥
+                tr[7] = static_cast<type>(rhs.R_component_8());                                      ¥
+                                                                                                     ¥
+                type            mixam = BOOST_GET_VALARRAY(type,static_cast<type>(1)/abs(tr)).max(); ¥
+                                                                                                     ¥
+                tr *= mixam;                                                                         ¥
+                                                                                                     ¥
+                valarray<type>    tt(8);                                                             ¥
+                                                                                                     ¥
+                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3]+e*tr[4]+f*tr[5]+g*tr[6]+h*tr[7];            ¥
+                tt[0] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2]-e*tr[5]+f*tr[4]+g*tr[7]-h*tr[6];            ¥
+                tt[0] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1]-e*tr[6]-f*tr[7]+g*tr[4]+h*tr[5];            ¥
+                tt[0] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0]-e*tr[7]+f*tr[6]-g*tr[5]+h*tr[4];            ¥
+                tt[0] = -a*tr[4]+b*tr[5]+c*tr[6]+d*tr[7]+e*tr[0]-f*tr[1]-g*tr[2]-h*tr[3];            ¥
+                tt[0] = -a*tr[5]-b*tr[4]+c*tr[7]-d*tr[6]+e*tr[1]+f*tr[0]+g*tr[3]-h*tr[2];            ¥
+                tt[0] = -a*tr[6]-b*tr[7]-c*tr[4]+d*tr[5]+e*tr[2]-f*tr[3]+g*tr[0]+h*tr[1];            ¥
+                tt[0] = -a*tr[7]+b*tr[6]-c*tr[5]-d*tr[4]+e*tr[3]+f*tr[2]-g*tr[1]+h*tr[0];            ¥
+                                                                                                     ¥
+                tr *= tr;                                                                            ¥
+                                                                                                     ¥
+                tt *= (mixam/tr.sum());                                                              ¥
+                                                                                                     ¥
+                a = tt[0];                                                                           ¥
+                b = tt[1];                                                                           ¥
+                c = tt[2];                                                                           ¥
+                d = tt[3];                                                                           ¥
+                e = tt[4];                                                                           ¥
+                f = tt[5];                                                                           ¥
+                g = tt[6];                                                                           ¥
+                h = tt[7];                                                                           ¥
+                                                                                                     ¥
+                return(*this);                                                                       ¥
             }
 #elif    defined(BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP)
-    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_4(type)                                           \
-            template<typename X>                                                                     \
-            octonion<type> &            operator /= (octonion<X> const & rhs)                        \
-            {                                                                                        \
-                using    ::std::valarray;                                                            \
-                using    ::std::abs;                                                                 \
-                                                                                                     \
-                valarray<type>    tr(8);                                                             \
-                                                                                                     \
-                tr[0] = static_cast<type>(rhs.R_component_1());                                      \
-                tr[1] = static_cast<type>(rhs.R_component_2());                                      \
-                tr[2] = static_cast<type>(rhs.R_component_3());                                      \
-                tr[3] = static_cast<type>(rhs.R_component_4());                                      \
-                tr[4] = static_cast<type>(rhs.R_component_5());                                      \
-                tr[5] = static_cast<type>(rhs.R_component_6());                                      \
-                tr[6] = static_cast<type>(rhs.R_component_7());                                      \
-                tr[7] = static_cast<type>(rhs.R_component_8());                                      \
-                                                                                                     \
-                type            mixam = static_cast<type>(1)/abs(tr).max();                          \
-                                                                                                     \
-                tr *= mixam;                                                                         \
-                                                                                                     \
-                valarray<type>    tt(8);                                                             \
-                                                                                                     \
-                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3]+e*tr[4]+f*tr[5]+g*tr[6]+h*tr[7];            \
-                tt[0] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2]-e*tr[5]+f*tr[4]+g*tr[7]-h*tr[6];            \
-                tt[0] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1]-e*tr[6]-f*tr[7]+g*tr[4]+h*tr[5];            \
-                tt[0] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0]-e*tr[7]+f*tr[6]-g*tr[5]+h*tr[4];            \
-                tt[0] = -a*tr[4]+b*tr[5]+c*tr[6]+d*tr[7]+e*tr[0]-f*tr[1]-g*tr[2]-h*tr[3];            \
-                tt[0] = -a*tr[5]-b*tr[4]+c*tr[7]-d*tr[6]+e*tr[1]+f*tr[0]+g*tr[3]-h*tr[2];            \
-                tt[0] = -a*tr[6]-b*tr[7]-c*tr[4]+d*tr[5]+e*tr[2]-f*tr[3]+g*tr[0]+h*tr[1];            \
-                tt[0] = -a*tr[7]+b*tr[6]-c*tr[5]-d*tr[4]+e*tr[3]+f*tr[2]-g*tr[1]+h*tr[0];            \
-                                                                                                     \
-                tr *= tr;                                                                            \
-                                                                                                     \
-                tt *= (mixam/tr.sum());                                                              \
-                                                                                                     \
-                a = tt[0];                                                                           \
-                b = tt[1];                                                                           \
-                c = tt[2];                                                                           \
-                d = tt[3];                                                                           \
-                e = tt[4];                                                                           \
-                f = tt[5];                                                                           \
-                g = tt[6];                                                                           \
-                h = tt[7];                                                                           \
-                                                                                                     \
-                return(*this);                                                                       \
+    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_4(type)                                           ¥
+            template<typename X>                                                                     ¥
+            octonion<type> &            operator /= (octonion<X> const & rhs)                        ¥
+            {                                                                                        ¥
+                using    ::std::valarray;                                                            ¥
+                using    ::std::abs;                                                                 ¥
+                                                                                                     ¥
+                valarray<type>    tr(8);                                                             ¥
+                                                                                                     ¥
+                tr[0] = static_cast<type>(rhs.R_component_1());                                      ¥
+                tr[1] = static_cast<type>(rhs.R_component_2());                                      ¥
+                tr[2] = static_cast<type>(rhs.R_component_3());                                      ¥
+                tr[3] = static_cast<type>(rhs.R_component_4());                                      ¥
+                tr[4] = static_cast<type>(rhs.R_component_5());                                      ¥
+                tr[5] = static_cast<type>(rhs.R_component_6());                                      ¥
+                tr[6] = static_cast<type>(rhs.R_component_7());                                      ¥
+                tr[7] = static_cast<type>(rhs.R_component_8());                                      ¥
+                                                                                                     ¥
+                type            mixam = static_cast<type>(1)/abs(tr).max();                          ¥
+                                                                                                     ¥
+                tr *= mixam;                                                                         ¥
+                                                                                                     ¥
+                valarray<type>    tt(8);                                                             ¥
+                                                                                                     ¥
+                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3]+e*tr[4]+f*tr[5]+g*tr[6]+h*tr[7];            ¥
+                tt[0] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2]-e*tr[5]+f*tr[4]+g*tr[7]-h*tr[6];            ¥
+                tt[0] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1]-e*tr[6]-f*tr[7]+g*tr[4]+h*tr[5];            ¥
+                tt[0] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0]-e*tr[7]+f*tr[6]-g*tr[5]+h*tr[4];            ¥
+                tt[0] = -a*tr[4]+b*tr[5]+c*tr[6]+d*tr[7]+e*tr[0]-f*tr[1]-g*tr[2]-h*tr[3];            ¥
+                tt[0] = -a*tr[5]-b*tr[4]+c*tr[7]-d*tr[6]+e*tr[1]+f*tr[0]+g*tr[3]-h*tr[2];            ¥
+                tt[0] = -a*tr[6]-b*tr[7]-c*tr[4]+d*tr[5]+e*tr[2]-f*tr[3]+g*tr[0]+h*tr[1];            ¥
+                tt[0] = -a*tr[7]+b*tr[6]-c*tr[5]-d*tr[4]+e*tr[3]+f*tr[2]-g*tr[1]+h*tr[0];            ¥
+                                                                                                     ¥
+                tr *= tr;                                                                            ¥
+                                                                                                     ¥
+                tt *= (mixam/tr.sum());                                                              ¥
+                                                                                                     ¥
+                a = tt[0];                                                                           ¥
+                b = tt[1];                                                                           ¥
+                c = tt[2];                                                                           ¥
+                d = tt[3];                                                                           ¥
+                e = tt[4];                                                                           ¥
+                f = tt[5];                                                                           ¥
+                g = tt[6];                                                                           ¥
+                h = tt[7];                                                                           ¥
+                                                                                                     ¥
+                return(*this);                                                                       ¥
             }
 #else
-    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_4(type)                                           \
-            template<typename X>                                                                     \
-            octonion<type> &            operator /= (octonion<X> const & rhs)                        \
-            {                                                                                        \
-                using    ::std::valarray;                                                            \
-                                                                                                     \
-                valarray<type>    tr(8);                                                             \
-                                                                                                     \
-                tr[0] = static_cast<type>(rhs.R_component_1());                                      \
-                tr[1] = static_cast<type>(rhs.R_component_2());                                      \
-                tr[2] = static_cast<type>(rhs.R_component_3());                                      \
-                tr[3] = static_cast<type>(rhs.R_component_4());                                      \
-                tr[4] = static_cast<type>(rhs.R_component_5());                                      \
-                tr[5] = static_cast<type>(rhs.R_component_6());                                      \
-                tr[6] = static_cast<type>(rhs.R_component_7());                                      \
-                tr[7] = static_cast<type>(rhs.R_component_8());                                      \
-                                                                                                     \
-                type            mixam = static_cast<type>(1)/abs(tr).max();                          \
-                                                                                                     \
-                tr *= mixam;                                                                         \
-                                                                                                     \
-                valarray<type>    tt(8);                                                             \
-                                                                                                     \
-                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3]+e*tr[4]+f*tr[5]+g*tr[6]+h*tr[7];            \
-                tt[0] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2]-e*tr[5]+f*tr[4]+g*tr[7]-h*tr[6];            \
-                tt[0] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1]-e*tr[6]-f*tr[7]+g*tr[4]+h*tr[5];            \
-                tt[0] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0]-e*tr[7]+f*tr[6]-g*tr[5]+h*tr[4];            \
-                tt[0] = -a*tr[4]+b*tr[5]+c*tr[6]+d*tr[7]+e*tr[0]-f*tr[1]-g*tr[2]-h*tr[3];            \
-                tt[0] = -a*tr[5]-b*tr[4]+c*tr[7]-d*tr[6]+e*tr[1]+f*tr[0]+g*tr[3]-h*tr[2];            \
-                tt[0] = -a*tr[6]-b*tr[7]-c*tr[4]+d*tr[5]+e*tr[2]-f*tr[3]+g*tr[0]+h*tr[1];            \
-                tt[0] = -a*tr[7]+b*tr[6]-c*tr[5]-d*tr[4]+e*tr[3]+f*tr[2]-g*tr[1]+h*tr[0];            \
-                                                                                                     \
-                tr *= tr;                                                                            \
-                                                                                                     \
-                tt *= (mixam/tr.sum());                                                              \
-                                                                                                     \
-                a = tt[0];                                                                           \
-                b = tt[1];                                                                           \
-                c = tt[2];                                                                           \
-                d = tt[3];                                                                           \
-                e = tt[4];                                                                           \
-                f = tt[5];                                                                           \
-                g = tt[6];                                                                           \
-                h = tt[7];                                                                           \
-                                                                                                     \
-                return(*this);                                                                       \
+    #define    BOOST_OCTONION_MEMBER_DIV_GENERATOR_4(type)                                           ¥
+            template<typename X>                                                                     ¥
+            octonion<type> &            operator /= (octonion<X> const & rhs)                        ¥
+            {                                                                                        ¥
+                using    ::std::valarray;                                                            ¥
+                                                                                                     ¥
+                valarray<type>    tr(8);                                                             ¥
+                                                                                                     ¥
+                tr[0] = static_cast<type>(rhs.R_component_1());                                      ¥
+                tr[1] = static_cast<type>(rhs.R_component_2());                                      ¥
+                tr[2] = static_cast<type>(rhs.R_component_3());                                      ¥
+                tr[3] = static_cast<type>(rhs.R_component_4());                                      ¥
+                tr[4] = static_cast<type>(rhs.R_component_5());                                      ¥
+                tr[5] = static_cast<type>(rhs.R_component_6());                                      ¥
+                tr[6] = static_cast<type>(rhs.R_component_7());                                      ¥
+                tr[7] = static_cast<type>(rhs.R_component_8());                                      ¥
+                                                                                                     ¥
+                type            mixam = static_cast<type>(1)/abs(tr).max();                          ¥
+                                                                                                     ¥
+                tr *= mixam;                                                                         ¥
+                                                                                                     ¥
+                valarray<type>    tt(8);                                                             ¥
+                                                                                                     ¥
+                tt[0] = +a*tr[0]+b*tr[1]+c*tr[2]+d*tr[3]+e*tr[4]+f*tr[5]+g*tr[6]+h*tr[7];            ¥
+                tt[0] = -a*tr[1]+b*tr[0]-c*tr[3]+d*tr[2]-e*tr[5]+f*tr[4]+g*tr[7]-h*tr[6];            ¥
+                tt[0] = -a*tr[2]+b*tr[3]+c*tr[0]-d*tr[1]-e*tr[6]-f*tr[7]+g*tr[4]+h*tr[5];            ¥
+                tt[0] = -a*tr[3]-b*tr[2]+c*tr[1]+d*tr[0]-e*tr[7]+f*tr[6]-g*tr[5]+h*tr[4];            ¥
+                tt[0] = -a*tr[4]+b*tr[5]+c*tr[6]+d*tr[7]+e*tr[0]-f*tr[1]-g*tr[2]-h*tr[3];            ¥
+                tt[0] = -a*tr[5]-b*tr[4]+c*tr[7]-d*tr[6]+e*tr[1]+f*tr[0]+g*tr[3]-h*tr[2];            ¥
+                tt[0] = -a*tr[6]-b*tr[7]-c*tr[4]+d*tr[5]+e*tr[2]-f*tr[3]+g*tr[0]+h*tr[1];            ¥
+                tt[0] = -a*tr[7]+b*tr[6]-c*tr[5]-d*tr[4]+e*tr[3]+f*tr[2]-g*tr[1]+h*tr[0];            ¥
+                                                                                                     ¥
+                tr *= tr;                                                                            ¥
+                                                                                                     ¥
+                tt *= (mixam/tr.sum());                                                              ¥
+                                                                                                     ¥
+                a = tt[0];                                                                           ¥
+                b = tt[1];                                                                           ¥
+                c = tt[2];                                                                           ¥
+                d = tt[3];                                                                           ¥
+                e = tt[4];                                                                           ¥
+                f = tt[5];                                                                           ¥
+                g = tt[6];                                                                           ¥
+                h = tt[7];                                                                           ¥
+                                                                                                     ¥
+                return(*this);                                                                       ¥
             }
 #endif    /* defined(__GNUC__) && (__GNUC__ < 3) */ /* BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP */
     
     
-#define    BOOST_OCTONION_MEMBER_ADD_GENERATOR(type)       \
-        BOOST_OCTONION_MEMBER_ADD_GENERATOR_1(type)        \
-        BOOST_OCTONION_MEMBER_ADD_GENERATOR_2(type)        \
-        BOOST_OCTONION_MEMBER_ADD_GENERATOR_3(type)        \
+#define    BOOST_OCTONION_MEMBER_ADD_GENERATOR(type)       ¥
+        BOOST_OCTONION_MEMBER_ADD_GENERATOR_1(type)        ¥
+        BOOST_OCTONION_MEMBER_ADD_GENERATOR_2(type)        ¥
+        BOOST_OCTONION_MEMBER_ADD_GENERATOR_3(type)        ¥
         BOOST_OCTONION_MEMBER_ADD_GENERATOR_4(type)
         
-#define    BOOST_OCTONION_MEMBER_SUB_GENERATOR(type)       \
-        BOOST_OCTONION_MEMBER_SUB_GENERATOR_1(type)        \
-        BOOST_OCTONION_MEMBER_SUB_GENERATOR_2(type)        \
-        BOOST_OCTONION_MEMBER_SUB_GENERATOR_3(type)        \
+#define    BOOST_OCTONION_MEMBER_SUB_GENERATOR(type)       ¥
+        BOOST_OCTONION_MEMBER_SUB_GENERATOR_1(type)        ¥
+        BOOST_OCTONION_MEMBER_SUB_GENERATOR_2(type)        ¥
+        BOOST_OCTONION_MEMBER_SUB_GENERATOR_3(type)        ¥
         BOOST_OCTONION_MEMBER_SUB_GENERATOR_4(type)
         
-#define    BOOST_OCTONION_MEMBER_MUL_GENERATOR(type)       \
-        BOOST_OCTONION_MEMBER_MUL_GENERATOR_1(type)        \
-        BOOST_OCTONION_MEMBER_MUL_GENERATOR_2(type)        \
-        BOOST_OCTONION_MEMBER_MUL_GENERATOR_3(type)        \
+#define    BOOST_OCTONION_MEMBER_MUL_GENERATOR(type)       ¥
+        BOOST_OCTONION_MEMBER_MUL_GENERATOR_1(type)        ¥
+        BOOST_OCTONION_MEMBER_MUL_GENERATOR_2(type)        ¥
+        BOOST_OCTONION_MEMBER_MUL_GENERATOR_3(type)        ¥
         BOOST_OCTONION_MEMBER_MUL_GENERATOR_4(type)
         
-#define    BOOST_OCTONION_MEMBER_DIV_GENERATOR(type)       \
-        BOOST_OCTONION_MEMBER_DIV_GENERATOR_1(type)        \
-        BOOST_OCTONION_MEMBER_DIV_GENERATOR_2(type)        \
-        BOOST_OCTONION_MEMBER_DIV_GENERATOR_3(type)        \
+#define    BOOST_OCTONION_MEMBER_DIV_GENERATOR(type)       ¥
+        BOOST_OCTONION_MEMBER_DIV_GENERATOR_1(type)        ¥
+        BOOST_OCTONION_MEMBER_DIV_GENERATOR_2(type)        ¥
+        BOOST_OCTONION_MEMBER_DIV_GENERATOR_3(type)        ¥
         BOOST_OCTONION_MEMBER_DIV_GENERATOR_4(type)
         
-#define    BOOST_OCTONION_MEMBER_ALGEBRAIC_GENERATOR(type) \
-        BOOST_OCTONION_MEMBER_ADD_GENERATOR(type)          \
-        BOOST_OCTONION_MEMBER_SUB_GENERATOR(type)          \
-        BOOST_OCTONION_MEMBER_MUL_GENERATOR(type)          \
+#define    BOOST_OCTONION_MEMBER_ALGEBRAIC_GENERATOR(type) ¥
+        BOOST_OCTONION_MEMBER_ADD_GENERATOR(type)          ¥
+        BOOST_OCTONION_MEMBER_SUB_GENERATOR(type)          ¥
+        BOOST_OCTONION_MEMBER_MUL_GENERATOR(type)          ¥
         BOOST_OCTONION_MEMBER_DIV_GENERATOR(type)
         
         
@@ -1631,55 +1631,55 @@ namespace boost
         
         // operators
         
-#define    BOOST_OCTONION_OPERATOR_GENERATOR_BODY(op) \
-        {                                             \
-            octonion<T>    res(lhs);                  \
-            res op##= rhs;                            \
-            return(res);                              \
+#define    BOOST_OCTONION_OPERATOR_GENERATOR_BODY(op) ¥
+        {                                             ¥
+            octonion<T>    res(lhs);                  ¥
+            res op##= rhs;                            ¥
+            return(res);                              ¥
         }
         
-#define    BOOST_OCTONION_OPERATOR_GENERATOR_1_L(op)                                                                              \
-        template<typename T>                                                                                                      \
-        inline octonion<T>                        operator op (T const & lhs, octonion<T> const & rhs)                            \
+#define    BOOST_OCTONION_OPERATOR_GENERATOR_1_L(op)                                                                              ¥
+        template<typename T>                                                                                                      ¥
+        inline octonion<T>                        operator op (T const & lhs, octonion<T> const & rhs)                            ¥
         BOOST_OCTONION_OPERATOR_GENERATOR_BODY(op)
         
-#define    BOOST_OCTONION_OPERATOR_GENERATOR_1_R(op)                                                                              \
-        template<typename T>                                                                                                      \
-        inline octonion<T>                        operator op (octonion<T> const & lhs, T const & rhs)                            \
+#define    BOOST_OCTONION_OPERATOR_GENERATOR_1_R(op)                                                                              ¥
+        template<typename T>                                                                                                      ¥
+        inline octonion<T>                        operator op (octonion<T> const & lhs, T const & rhs)                            ¥
         BOOST_OCTONION_OPERATOR_GENERATOR_BODY(op)
         
-#define    BOOST_OCTONION_OPERATOR_GENERATOR_2_L(op)                                                                              \
-        template<typename T>                                                                                                      \
-        inline octonion<T>                        operator op (::std::complex<T> const & lhs, octonion<T> const & rhs)            \
+#define    BOOST_OCTONION_OPERATOR_GENERATOR_2_L(op)                                                                              ¥
+        template<typename T>                                                                                                      ¥
+        inline octonion<T>                        operator op (::std::complex<T> const & lhs, octonion<T> const & rhs)            ¥
         BOOST_OCTONION_OPERATOR_GENERATOR_BODY(op)
         
-#define    BOOST_OCTONION_OPERATOR_GENERATOR_2_R(op)                                                                              \
-        template<typename T>                                                                                                      \
-        inline octonion<T>                        operator op (octonion<T> const & lhs, ::std::complex<T> const & rhs)            \
+#define    BOOST_OCTONION_OPERATOR_GENERATOR_2_R(op)                                                                              ¥
+        template<typename T>                                                                                                      ¥
+        inline octonion<T>                        operator op (octonion<T> const & lhs, ::std::complex<T> const & rhs)            ¥
         BOOST_OCTONION_OPERATOR_GENERATOR_BODY(op)
         
-#define    BOOST_OCTONION_OPERATOR_GENERATOR_3_L(op)                                                                              \
-        template<typename T>                                                                                                      \
-        inline octonion<T>                        operator op (::boost::math::quaternion<T> const & lhs, octonion<T> const & rhs) \
+#define    BOOST_OCTONION_OPERATOR_GENERATOR_3_L(op)                                                                              ¥
+        template<typename T>                                                                                                      ¥
+        inline octonion<T>                        operator op (::boost::math::quaternion<T> const & lhs, octonion<T> const & rhs) ¥
         BOOST_OCTONION_OPERATOR_GENERATOR_BODY(op)
         
-#define    BOOST_OCTONION_OPERATOR_GENERATOR_3_R(op)                                                                              \
-        template<typename T>                                                                                                      \
-        inline octonion<T>                        operator op (octonion<T> const & lhs, ::boost::math::quaternion<T> const & rhs) \
+#define    BOOST_OCTONION_OPERATOR_GENERATOR_3_R(op)                                                                              ¥
+        template<typename T>                                                                                                      ¥
+        inline octonion<T>                        operator op (octonion<T> const & lhs, ::boost::math::quaternion<T> const & rhs) ¥
         BOOST_OCTONION_OPERATOR_GENERATOR_BODY(op)
         
-#define    BOOST_OCTONION_OPERATOR_GENERATOR_4(op)                                                                                \
-        template<typename T>                                                                                                      \
-        inline octonion<T>                        operator op (octonion<T> const & lhs, octonion<T> const & rhs)                  \
+#define    BOOST_OCTONION_OPERATOR_GENERATOR_4(op)                                                                                ¥
+        template<typename T>                                                                                                      ¥
+        inline octonion<T>                        operator op (octonion<T> const & lhs, octonion<T> const & rhs)                  ¥
         BOOST_OCTONION_OPERATOR_GENERATOR_BODY(op)
         
-#define    BOOST_OCTONION_OPERATOR_GENERATOR(op)     \
-        BOOST_OCTONION_OPERATOR_GENERATOR_1_L(op)    \
-        BOOST_OCTONION_OPERATOR_GENERATOR_1_R(op)    \
-        BOOST_OCTONION_OPERATOR_GENERATOR_2_L(op)    \
-        BOOST_OCTONION_OPERATOR_GENERATOR_2_R(op)    \
-        BOOST_OCTONION_OPERATOR_GENERATOR_3_L(op)    \
-        BOOST_OCTONION_OPERATOR_GENERATOR_3_R(op)    \
+#define    BOOST_OCTONION_OPERATOR_GENERATOR(op)     ¥
+        BOOST_OCTONION_OPERATOR_GENERATOR_1_L(op)    ¥
+        BOOST_OCTONION_OPERATOR_GENERATOR_1_R(op)    ¥
+        BOOST_OCTONION_OPERATOR_GENERATOR_2_L(op)    ¥
+        BOOST_OCTONION_OPERATOR_GENERATOR_2_R(op)    ¥
+        BOOST_OCTONION_OPERATOR_GENERATOR_3_L(op)    ¥
+        BOOST_OCTONION_OPERATOR_GENERATOR_3_R(op)    ¥
         BOOST_OCTONION_OPERATOR_GENERATOR_4(op)
         
         
@@ -1828,9 +1828,9 @@ namespace boost
         }
         
         
-#define    BOOST_OCTONION_NOT_EQUAL_GENERATOR \
-        {                                     \
-            return(!(lhs == rhs));            \
+#define    BOOST_OCTONION_NOT_EQUAL_GENERATOR ¥
+        {                                     ¥
+            return(!(lhs == rhs));            ¥
         }
         
         template<typename T>
@@ -4390,18 +4390,18 @@ namespace boost
         }
         
         
-#define    BOOST_OCTONION_VALARRAY_LOADER   \
-            using    ::std::valarray;       \
-                                            \
-            valarray<T>    temp(8);         \
-                                            \
-            temp[0] = o.R_component_1();    \
-            temp[1] = o.R_component_2();    \
-            temp[2] = o.R_component_3();    \
-            temp[3] = o.R_component_4();    \
-            temp[4] = o.R_component_5();    \
-            temp[5] = o.R_component_6();    \
-            temp[6] = o.R_component_7();    \
+#define    BOOST_OCTONION_VALARRAY_LOADER   ¥
+            using    ::std::valarray;       ¥
+                                            ¥
+            valarray<T>    temp(8);         ¥
+                                            ¥
+            temp[0] = o.R_component_1();    ¥
+            temp[1] = o.R_component_2();    ¥
+            temp[2] = o.R_component_3();    ¥
+            temp[3] = o.R_component_4();    ¥
+            temp[4] = o.R_component_5();    ¥
+            temp[5] = o.R_component_6();    ¥
+            temp[6] = o.R_component_7();    ¥
             temp[7] = o.R_component_8();
         
         

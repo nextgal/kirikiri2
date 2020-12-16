@@ -1,6 +1,6 @@
-;@mappfont storage="D:\Documents and Settings\Administrator\ƒfƒXƒNƒgƒbƒv\font.tft"
-;[deffont size=24 antialiased=false bold=false]\
-;[position vertical=true]\
+;@mappfont storage="D:Â¥Documents and SettingsÂ¥AdministratorÂ¥ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—Â¥font.tft"
+;[deffont size=24 antialiased=false bold=false]Â¥
+;[position vertical=true]Â¥
 @image storage="_24" page=fore layer=base
 ;@image storage="pagebreak" layer=0 left=100 top=100 visible=true fliplr=true
 ;@image storage="linebreak" layer=1 left=150 top=100 visible=true flipud=true
@@ -8,17 +8,17 @@
 ;@position vertical=true
 @wait time=300
 @eval exp="f.hoge = [1,2,3]"
-*s0|&'“dqƒŒƒ“ƒW‚Ì—ğj'
+*s0|&'é›»å­ãƒ¬ãƒ³ã‚¸ã®æ­´å²'
 @ct
-[link hint="“dqƒŒƒ“ƒW‚Ì—ğj"]“dqƒŒƒ“ƒW”V—ğj[endlink][l]
-‚ [edit length=420]
+[link hint="é›»å­ãƒ¬ãƒ³ã‚¸ã®æ­´å²"]é›»å­ãƒ¬ãƒ³ã‚¸ä¹‹æ­´å²[endlink][l]
+ã‚[edit length=420]
 @eval exp="kag.fore.messages[0].links[1].object.focus()"
-[checkbox] ƒ`ƒFƒbƒNƒ{ƒbƒNƒX
+[checkbox] ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹
 ;@eval exp="kag.conductor.callLabel('*sub1')"
 @call target="&'*sub1'"
-[nowait]”Ş‚ç‚Í[endnowait]‰Î‚ğg‚í‚È‚¢‚©‚í‚è‚ÉA[l]è‚©‚ç[link hint="‹C"]u‹Cv[endlink]‚ÆŒÄ‚Î‚ê‚é[link hint="–¢’m"]–¢’m[endlink]‚È‚é‚à‚Ì‚ğ•úo‚µ‚Ä•¨‚ğ‰·‚ß‚Ä‚¢‚éB[p]
+[nowait]å½¼ã‚‰ã¯[endnowait]ç«ã‚’ä½¿ã‚ãªã„ã‹ã‚ã‚Šã«ã€[l]æ‰‹ã‹ã‚‰[link hint="æ°—"]ã€Œæ°—ã€[endlink]ã¨å‘¼ã°ã‚Œã‚‹[link hint="æœªçŸ¥"]æœªçŸ¥[endlink]ãªã‚‹ã‚‚ã®ã‚’æ”¾å‡ºã—ã¦ç‰©ã‚’æ¸©ã‚ã¦ã„ã‚‹ã€‚[p]
 @jump target=*s1 storage=_oven2.ks
 
 *sub1
-[DEFFONT FACE="‚l‚r ‚oƒSƒVƒbƒN"][resetfont]’†‘‚Ì‰œ’n‚É–¢‚¾[deffont face="user"][resetfont]‰Î‚ğg‚í‚È‚¢[link hint="–¯‘°"]–¯‘°[endlink]‚ªZ‚ñ‚Å‚¢‚éB[l]
+[DEFFONT FACE="ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯"][resetfont]ä¸­å›½ã®å¥¥åœ°ã«æœªã [deffont face="user"][resetfont]ç«ã‚’ä½¿ã‚ãªã„[link hint="æ°‘æ—"]æ°‘æ—[endlink]ãŒä½ã‚“ã§ã„ã‚‹ã€‚[l]
 @return

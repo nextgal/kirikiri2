@@ -28,7 +28,7 @@ text_getc (FILE * file)
   if (ch == '#') {
     do {
       ch = getc(file);
-    } while (ch != '\n' && ch != EOF);
+    } while (ch != '¥n' && ch != EOF);
   }
   return ch;
 }
@@ -88,21 +88,21 @@ read_quant_tables (j_compress_ptr cinfo, char * filename,
   unsigned int table[DCTSIZE2];
 
   if ((fp = fopen(filename, "r")) == NULL) {
-    fprintf(stderr, "Can't open table file %s\n", filename);
+    fprintf(stderr, "Can't open table file %s¥n", filename);
     return FALSE;
   }
   tblno = 0;
 
   while (read_text_integer(fp, &val, &termchar)) { /* read 1st element of table */
     if (tblno >= NUM_QUANT_TBLS) {
-      fprintf(stderr, "Too many tables in file %s\n", filename);
+      fprintf(stderr, "Too many tables in file %s¥n", filename);
       fclose(fp);
       return FALSE;
     }
     table[0] = (unsigned int) val;
     for (i = 1; i < DCTSIZE2; i++) {
       if (! read_text_integer(fp, &val, &termchar)) {
-	fprintf(stderr, "Invalid table data in file %s\n", filename);
+	fprintf(stderr, "Invalid table data in file %s¥n", filename);
 	fclose(fp);
 	return FALSE;
       }
@@ -113,7 +113,7 @@ read_quant_tables (j_compress_ptr cinfo, char * filename,
   }
 
   if (termchar != EOF) {
-    fprintf(stderr, "Non-numeric data in file %s\n", filename);
+    fprintf(stderr, "Non-numeric data in file %s¥n", filename);
     fclose(fp);
     return FALSE;
   }
@@ -180,7 +180,7 @@ read_scan_script (j_compress_ptr cinfo, char * filename)
   jpeg_scan_info scans[MAX_SCANS];
 
   if ((fp = fopen(filename, "r")) == NULL) {
-    fprintf(stderr, "Can't open scan definition file %s\n", filename);
+    fprintf(stderr, "Can't open scan definition file %s¥n", filename);
     return FALSE;
   }
   scanptr = scans;
@@ -188,7 +188,7 @@ read_scan_script (j_compress_ptr cinfo, char * filename)
 
   while (read_scan_integer(fp, &val, &termchar)) {
     if (scanno >= MAX_SCANS) {
-      fprintf(stderr, "Too many scans defined in file %s\n", filename);
+      fprintf(stderr, "Too many scans defined in file %s¥n", filename);
       fclose(fp);
       return FALSE;
     }
@@ -196,7 +196,7 @@ read_scan_script (j_compress_ptr cinfo, char * filename)
     ncomps = 1;
     while (termchar == ' ') {
       if (ncomps >= MAX_COMPS_IN_SCAN) {
-	fprintf(stderr, "Too many components in one scan in file %s\n",
+	fprintf(stderr, "Too many components in one scan in file %s¥n",
 		filename);
 	fclose(fp);
 	return FALSE;
@@ -229,7 +229,7 @@ read_scan_script (j_compress_ptr cinfo, char * filename)
     }
     if (termchar != ';' && termchar != EOF) {
 bogus:
-      fprintf(stderr, "Invalid scan entry format in file %s\n", filename);
+      fprintf(stderr, "Invalid scan entry format in file %s¥n", filename);
       fclose(fp);
       return FALSE;
     }
@@ -237,7 +237,7 @@ bogus:
   }
 
   if (termchar != EOF) {
-    fprintf(stderr, "Non-numeric data in file %s\n", filename);
+    fprintf(stderr, "Non-numeric data in file %s¥n", filename);
     fclose(fp);
     return FALSE;
   }
@@ -281,7 +281,7 @@ set_quant_slots (j_compress_ptr cinfo, char *arg)
       if (ch != ',')		/* syntax check */
 	return FALSE;
       if (val < 0 || val >= NUM_QUANT_TBLS) {
-	fprintf(stderr, "JPEG quantization tables are numbered 0..%d\n",
+	fprintf(stderr, "JPEG quantization tables are numbered 0..%d¥n",
 		NUM_QUANT_TBLS-1);
 	return FALSE;
       }
@@ -315,7 +315,7 @@ set_sample_factors (j_compress_ptr cinfo, char *arg)
       if ((ch1 != 'x' && ch1 != 'X') || ch2 != ',') /* syntax check */
 	return FALSE;
       if (val1 <= 0 || val1 > 4 || val2 <= 0 || val2 > 4) {
-	fprintf(stderr, "JPEG sampling factors must be 1..4\n");
+	fprintf(stderr, "JPEG sampling factors must be 1..4¥n");
 	return FALSE;
       }
       cinfo->comp_info[ci].h_samp_factor = val1;

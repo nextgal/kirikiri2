@@ -44,7 +44,7 @@ struct tTVPWaveFormat
 class tTVPWaveDecoder
 {
 public:
-	virtual ~tTVPWaveDecoder() {};
+	virtual ‾tTVPWaveDecoder() {};
 
 	virtual void GetFormat(tTVPWaveFormat & format) = 0;
 		/* Retrieve PCM format, etc. */
@@ -78,7 +78,7 @@ class TWaveReader : public tTVPWaveDecoder
 
 public:
 	TWaveReader();
-	~TWaveReader();
+	‾TWaveReader();
 
 private:
 	bool FReadDone;

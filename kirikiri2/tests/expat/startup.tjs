@@ -6,7 +6,7 @@ class MyWindow extends Window
     
     function MyWindow() {
         super.Window();
-        // ƒx[ƒXƒŒƒCƒ„
+        // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
         base = new Layer(this,null);
         base.visible=true;
         base.setSize(640,480);
@@ -15,11 +15,11 @@ class MyWindow extends Window
     }
 }
 
-// ‘‹
+// çª“
 var win = new MyWindow();
 win.visible=true;
 
-// XML ƒhƒLƒ…ƒƒ“ƒg
+// XML ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ
 
 function showNode(node, indent) {
     switch (node.nodeType) {

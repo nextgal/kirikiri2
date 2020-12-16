@@ -36,7 +36,7 @@ namespace date_time {
     typedef std::input_iterator_tag iterator_category;
 
     date_itr_base(date_type d) : current_(d) {}
-    virtual ~date_itr_base() {};
+    virtual ‾date_itr_base() {};
     date_itr_base& operator++() 
     {
       current_ = current_ + get_offset(current_);

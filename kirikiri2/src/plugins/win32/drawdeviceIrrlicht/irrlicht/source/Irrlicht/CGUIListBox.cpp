@@ -59,7 +59,7 @@ CGUIListBox::CGUIListBox(IGUIEnvironment* environment, IGUIElement* parent,
 
 
 //! destructor
-CGUIListBox::~CGUIListBox()
+CGUIListBox::‾CGUIListBox()
 {
 	if (ScrollBar)
 		ScrollBar->drop();

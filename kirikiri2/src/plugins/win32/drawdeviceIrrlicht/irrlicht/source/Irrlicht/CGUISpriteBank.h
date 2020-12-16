@@ -30,7 +30,7 @@ class CGUISpriteBank : public IGUISpriteBank
 public:
 
 	CGUISpriteBank(IGUIEnvironment* env);
-	virtual ~CGUISpriteBank();
+	virtual ‾CGUISpriteBank();
 
 	virtual core::array< core::rect<s32> >& getPositions();
 	virtual core::array< SGUISprite >& getSprites();

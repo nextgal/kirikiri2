@@ -19,8 +19,8 @@
 
 #include "boost/config.hpp"
 
-#if defined(__GNUC__) && (__GNUC__ < 3 || __GNUC__ == 3 && __GNUC_MINOR__ <= 2 \
-    || !defined(BOOST_STRICT_CONFIG)) \
+#if defined(__GNUC__) && (__GNUC__ < 3 || __GNUC__ == 3 && __GNUC_MINOR__ <= 2 ¥
+    || !defined(BOOST_STRICT_CONFIG)) ¥
  || defined(__BORLANDC__) && (__BORLANDC__ <= 0x561 || !defined(BOOST_STRICT_CONFIG))
 
 namespace boost { namespace mpl { namespace aux {

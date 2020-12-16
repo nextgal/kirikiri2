@@ -27,7 +27,7 @@ public:
 	CD3D8NormalMapRenderer(
 		IDirect3DDevice8* d3ddev, video::IVideoDriver* driver,
 		s32& outMaterialTypeNr, IMaterialRenderer* baseMaterial);
-	~CD3D8NormalMapRenderer();
+	‾CD3D8NormalMapRenderer();
 
 	//! Called by the engine when the vertex and/or pixel shader constants for an
 	//! material renderer should be set.

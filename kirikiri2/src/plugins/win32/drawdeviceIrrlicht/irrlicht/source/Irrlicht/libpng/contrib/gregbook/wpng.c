@@ -228,7 +228,7 @@ int main(int argc, char **argv)
                     ++error;
                 else if (wpng_info.gamma > 1.01)
                     fprintf(stderr, PROGNAME
-                      " warning:  file gammas are usually less than 1.0\n");
+                      " warning:  file gammas are usually less than 1.0¥n");
             }
         } else if (!strncmp(*argv, "-bgcolor", 4)) {
             if (!*++argv)
@@ -263,7 +263,7 @@ int main(int argc, char **argv)
     if (!inname) {
         if (isatty(0)) {
             fprintf(stderr, PROGNAME
-              ":  must give input filename or provide image data via stdin\n");
+              ":  must give input filename or provide image data via stdin¥n");
             ++error;
         } else {
 #ifdef DOS_OS2_W32
@@ -273,23 +273,23 @@ int main(int argc, char **argv)
 #endif
             if ((wpng_info.infile = fdopen(fileno(stdin), "rb")) == NULL) {
                 fprintf(stderr, PROGNAME
-                  ":  unable to reopen stdin in binary mode\n");
+                  ":  unable to reopen stdin in binary mode¥n");
                 ++error;
             } else
             if ((wpng_info.outfile = fdopen(fileno(stdout), "wb")) == NULL) {
                 fprintf(stderr, PROGNAME
-                  ":  unable to reopen stdout in binary mode\n");
+                  ":  unable to reopen stdout in binary mode¥n");
                 fclose(wpng_info.infile);
                 ++error;
             } else
                 wpng_info.filter = TRUE;
         }
     } else if ((len = strlen(inname)) > 250) {
-        fprintf(stderr, PROGNAME ":  input filename is too long [%d chars]\n",
+        fprintf(stderr, PROGNAME ":  input filename is too long [%d chars]¥n",
           len);
         ++error;
     } else if (!(wpng_info.infile = fopen(inname, "rb"))) {
-        fprintf(stderr, PROGNAME ":  can't open input file [%s]\n", inname);
+        fprintf(stderr, PROGNAME ":  can't open input file [%s]¥n", inname);
         ++error;
     }
 
@@ -299,7 +299,7 @@ int main(int argc, char **argv)
             pnmchar != '6' && pnmchar != '8'))
         {
             fprintf(stderr, PROGNAME
-              ":  input file [%s] is not a binary PGM, PPM or PAM file\n",
+              ":  input file [%s] is not a binary PGM, PPM or PAM file¥n",
               inname);
             ++error;
         } else {
@@ -318,7 +318,7 @@ int main(int argc, char **argv)
                 maxval != 255)
             {
                 fprintf(stderr, PROGNAME
-                  ":  only positive width/height, maxval == 255 allowed \n");
+                  ":  only positive width/height, maxval == 255 allowed ¥n");
                 ++error;
             }
             wpng_info.sample_depth = 8;  /* <==> maxval 255 */
@@ -337,12 +337,12 @@ int main(int argc, char **argv)
                 }
                 /* check if outname already exists; if not, open */
                 if ((wpng_info.outfile = fopen(outname, "rb")) != NULL) {
-                    fprintf(stderr, PROGNAME ":  output file exists [%s]\n",
+                    fprintf(stderr, PROGNAME ":  output file exists [%s]¥n",
                       outname);
                     fclose(wpng_info.outfile);
                     ++error;
                 } else if (!(wpng_info.outfile = fopen(outname, "wb"))) {
-                    fprintf(stderr, PROGNAME ":  can't open output file [%s]\n",
+                    fprintf(stderr, PROGNAME ":  can't open output file [%s]¥n",
                       outname);
                     ++error;
                 }
@@ -362,33 +362,33 @@ int main(int argc, char **argv)
     /* if we had any errors, print usage and die horrible death...arrr! */
 
     if (error) {
-        fprintf(stderr, "\n%s %s:  %s\n", PROGNAME, VERSION, APPNAME);
+        fprintf(stderr, "¥n%s %s:  %s¥n", PROGNAME, VERSION, APPNAME);
         writepng_version_info();
-        fprintf(stderr, "\n"
-"Usage:  %s [-gamma exp] [-bgcolor bg] [-text] [-time] [-interlace] pnmfile\n"
-"or: ... | %s [-gamma exp] [-bgcolor bg] [-text] [-time] [-interlace] | ...\n"
-         "    exp \ttransfer-function exponent (``gamma'') of the image in\n"
-         "\t\t  floating-point format (e.g., ``%.5f''); if image looks\n"
-         "\t\t  correct on given display system, image gamma is equal to\n"
-         "\t\t  inverse of display-system exponent, i.e., 1 / (LUT * CRT)\n"
-         "\t\t  (where LUT = lookup-table exponent and CRT = CRT exponent;\n"
-         "\t\t  first varies, second is usually 2.2, all are positive)\n"
-         "    bg  \tdesired background color for alpha-channel images, in\n"
-         "\t\t  7-character hex RGB format (e.g., ``#ff7700'' for orange:\n"
-         "\t\t  same as HTML colors)\n"
-         "    -text\tprompt interactively for text info (tEXt chunks)\n"
-         "    -time\tinclude a tIME chunk (last modification time)\n"
-         "    -interlace\twrite interlaced PNG image\n"
-         "\n"
-"pnmfile or stdin must be a binary PGM (`P5'), PPM (`P6') or (extremely\n"
-"unofficial and unsupported!) PAM (`P8') file.  Currently it is required\n"
-"to have maxval == 255 (i.e., no scaling).  If pnmfile is specified, it\n"
-"is converted to the corresponding PNG file with the same base name but a\n"
-"``.png'' extension; files read from stdin are converted and sent to stdout.\n"
-"The conversion is progressive (low memory usage) unless interlacing is\n"
-"requested; in that case the whole image will be buffered in memory and\n"
-"written in one call.\n"
-         "\n", PROGNAME, PROGNAME, default_gamma);
+        fprintf(stderr, "¥n"
+"Usage:  %s [-gamma exp] [-bgcolor bg] [-text] [-time] [-interlace] pnmfile¥n"
+"or: ... | %s [-gamma exp] [-bgcolor bg] [-text] [-time] [-interlace] | ...¥n"
+         "    exp ¥ttransfer-function exponent (``gamma'') of the image in¥n"
+         "¥t¥t  floating-point format (e.g., ``%.5f''); if image looks¥n"
+         "¥t¥t  correct on given display system, image gamma is equal to¥n"
+         "¥t¥t  inverse of display-system exponent, i.e., 1 / (LUT * CRT)¥n"
+         "¥t¥t  (where LUT = lookup-table exponent and CRT = CRT exponent;¥n"
+         "¥t¥t  first varies, second is usually 2.2, all are positive)¥n"
+         "    bg  ¥tdesired background color for alpha-channel images, in¥n"
+         "¥t¥t  7-character hex RGB format (e.g., ``#ff7700'' for orange:¥n"
+         "¥t¥t  same as HTML colors)¥n"
+         "    -text¥tprompt interactively for text info (tEXt chunks)¥n"
+         "    -time¥tinclude a tIME chunk (last modification time)¥n"
+         "    -interlace¥twrite interlaced PNG image¥n"
+         "¥n"
+"pnmfile or stdin must be a binary PGM (`P5'), PPM (`P6') or (extremely¥n"
+"unofficial and unsupported!) PAM (`P8') file.  Currently it is required¥n"
+"to have maxval == 255 (i.e., no scaling).  If pnmfile is specified, it¥n"
+"is converted to the corresponding PNG file with the same base name but a¥n"
+"``.png'' extension; files read from stdin are converted and sent to stdout.¥n"
+"The conversion is progressive (low memory usage) unless interlacing is¥n"
+"requested; in that case the whole image will be buffered in memory and¥n"
+"written in one call.¥n"
+         "¥n", PROGNAME, PROGNAME, default_gamma);
         exit(1);
     }
 
@@ -406,8 +406,8 @@ int main(int argc, char **argv)
         int i, valid, result;
 
         fprintf(stderr,
-          "Enter text info (no more than 72 characters per line);\n");
-        fprintf(stderr, "to skip a field, hit the <Enter> key.\n");
+          "Enter text info (no more than 72 characters per line);¥n");
+        fprintf(stderr, "to skip a field, hit the <Enter> key.¥n");
         /* note:  just <Enter> leaves len == 1 */
 
         do {
@@ -416,23 +416,23 @@ int main(int argc, char **argv)
             fprintf(stderr, "  Title: ");
             fflush(stderr);
             if (FGETS(p, 74, keybd) && (len = strlen(p)) > 1) {
-                if (p[len-1] == '\n')
-                    p[--len] = '\0';
+                if (p[len-1] == '¥n')
+                    p[--len] = '¥0';
                 wpng_info.title = p;
                 wpng_info.have_text |= TEXT_TITLE;
                 if ((result = wpng_isvalid_latin1((uch *)p, len)) >= 0) {
                     fprintf(stderr, "    " PROGNAME " warning:  character code"
-                      " %u is %sdiscouraged by the PNG\n    specification "
-                      "[first occurrence was at character position #%d]\n",
+                      " %u is %sdiscouraged by the PNG¥n    specification "
+                      "[first occurrence was at character position #%d]¥n",
                       (unsigned)p[result], (p[result] == 27)? "strongly " : "",
                       result+1);
                     fflush(stderr);
 #ifdef FORBID_LATIN1_CTRL
-                    wpng_info.have_text &= ~TEXT_TITLE;
+                    wpng_info.have_text &= ‾TEXT_TITLE;
                     valid = FALSE;
 #else
                     if (p[result] == 27) {    /* escape character */
-                        wpng_info.have_text &= ~TEXT_TITLE;
+                        wpng_info.have_text &= ‾TEXT_TITLE;
                         valid = FALSE;
                     }
 #endif
@@ -446,23 +446,23 @@ int main(int argc, char **argv)
             fprintf(stderr, "  Author: ");
             fflush(stderr);
             if (FGETS(p, 74, keybd) && (len = strlen(p)) > 1) {
-                if (p[len-1] == '\n')
-                    p[--len] = '\0';
+                if (p[len-1] == '¥n')
+                    p[--len] = '¥0';
                 wpng_info.author = p;
                 wpng_info.have_text |= TEXT_AUTHOR;
                 if ((result = wpng_isvalid_latin1((uch *)p, len)) >= 0) {
                     fprintf(stderr, "    " PROGNAME " warning:  character code"
-                      " %u is %sdiscouraged by the PNG\n    specification "
-                      "[first occurrence was at character position #%d]\n",
+                      " %u is %sdiscouraged by the PNG¥n    specification "
+                      "[first occurrence was at character position #%d]¥n",
                       (unsigned)p[result], (p[result] == 27)? "strongly " : "",
                       result+1);
                     fflush(stderr);
 #ifdef FORBID_LATIN1_CTRL
-                    wpng_info.have_text &= ~TEXT_AUTHOR;
+                    wpng_info.have_text &= ‾TEXT_AUTHOR;
                     valid = FALSE;
 #else
                     if (p[result] == 27) {    /* escape character */
-                        wpng_info.have_text &= ~TEXT_AUTHOR;
+                        wpng_info.have_text &= ‾TEXT_AUTHOR;
                         valid = FALSE;
                     }
 #endif
@@ -473,7 +473,7 @@ int main(int argc, char **argv)
         do {
             valid = TRUE;
             p = textbuf + TEXT_DESC_OFFSET;
-            fprintf(stderr, "  Description (up to 9 lines):\n");
+            fprintf(stderr, "  Description (up to 9 lines):¥n");
             for (i = 1;  i < 10;  ++i) {
                 fprintf(stderr, "    [%d] ", i);
                 fflush(stderr);
@@ -483,8 +483,8 @@ int main(int argc, char **argv)
                     break;
             }
             if ((len = p - (textbuf + TEXT_DESC_OFFSET)) > 1) {
-                if (p[-1] == '\n') {
-                    p[-1] = '\0';
+                if (p[-1] == '¥n') {
+                    p[-1] = '¥0';
                     --len;
                 }
                 wpng_info.desc = textbuf + TEXT_DESC_OFFSET;
@@ -492,17 +492,17 @@ int main(int argc, char **argv)
                 p = textbuf + TEXT_DESC_OFFSET;
                 if ((result = wpng_isvalid_latin1((uch *)p, len)) >= 0) {
                     fprintf(stderr, "    " PROGNAME " warning:  character code"
-                      " %u is %sdiscouraged by the PNG\n    specification "
-                      "[first occurrence was at character position #%d]\n",
+                      " %u is %sdiscouraged by the PNG¥n    specification "
+                      "[first occurrence was at character position #%d]¥n",
                       (unsigned)p[result], (p[result] == 27)? "strongly " : "",
                       result+1);
                     fflush(stderr);
 #ifdef FORBID_LATIN1_CTRL
-                    wpng_info.have_text &= ~TEXT_DESC;
+                    wpng_info.have_text &= ‾TEXT_DESC;
                     valid = FALSE;
 #else
                     if (p[result] == 27) {    /* escape character */
-                        wpng_info.have_text &= ~TEXT_DESC;
+                        wpng_info.have_text &= ‾TEXT_DESC;
                         valid = FALSE;
                     }
 #endif
@@ -516,23 +516,23 @@ int main(int argc, char **argv)
             fprintf(stderr, "  Copyright: ");
             fflush(stderr);
             if (FGETS(p, 74, keybd) && (len = strlen(p)) > 1) {
-                if (p[len-1] == '\n')
-                    p[--len] = '\0';
+                if (p[len-1] == '¥n')
+                    p[--len] = '¥0';
                 wpng_info.copyright = p;
                 wpng_info.have_text |= TEXT_COPY;
                 if ((result = wpng_isvalid_latin1((uch *)p, len)) >= 0) {
                     fprintf(stderr, "    " PROGNAME " warning:  character code"
-                      " %u is %sdiscouraged by the PNG\n    specification "
-                      "[first occurrence was at character position #%d]\n",
+                      " %u is %sdiscouraged by the PNG¥n    specification "
+                      "[first occurrence was at character position #%d]¥n",
                       (unsigned)p[result], (p[result] == 27)? "strongly " : "",
                       result+1);
                     fflush(stderr);
 #ifdef FORBID_LATIN1_CTRL
-                    wpng_info.have_text &= ~TEXT_COPY;
+                    wpng_info.have_text &= ‾TEXT_COPY;
                     valid = FALSE;
 #else
                     if (p[result] == 27) {    /* escape character */
-                        wpng_info.have_text &= ~TEXT_COPY;
+                        wpng_info.have_text &= ‾TEXT_COPY;
                         valid = FALSE;
                     }
 #endif
@@ -546,23 +546,23 @@ int main(int argc, char **argv)
             fprintf(stderr, "  E-mail: ");
             fflush(stderr);
             if (FGETS(p, 74, keybd) && (len = strlen(p)) > 1) {
-                if (p[len-1] == '\n')
-                    p[--len] = '\0';
+                if (p[len-1] == '¥n')
+                    p[--len] = '¥0';
                 wpng_info.email = p;
                 wpng_info.have_text |= TEXT_EMAIL;
                 if ((result = wpng_isvalid_latin1((uch *)p, len)) >= 0) {
                     fprintf(stderr, "    " PROGNAME " warning:  character code"
-                      " %u is %sdiscouraged by the PNG\n    specification "
-                      "[first occurrence was at character position #%d]\n",
+                      " %u is %sdiscouraged by the PNG¥n    specification "
+                      "[first occurrence was at character position #%d]¥n",
                       (unsigned)p[result], (p[result] == 27)? "strongly " : "",
                       result+1);
                     fflush(stderr);
 #ifdef FORBID_LATIN1_CTRL
-                    wpng_info.have_text &= ~TEXT_EMAIL;
+                    wpng_info.have_text &= ‾TEXT_EMAIL;
                     valid = FALSE;
 #else
                     if (p[result] == 27) {    /* escape character */
-                        wpng_info.have_text &= ~TEXT_EMAIL;
+                        wpng_info.have_text &= ‾TEXT_EMAIL;
                         valid = FALSE;
                     }
 #endif
@@ -576,23 +576,23 @@ int main(int argc, char **argv)
             fprintf(stderr, "  URL: ");
             fflush(stderr);
             if (FGETS(p, 74, keybd) && (len = strlen(p)) > 1) {
-                if (p[len-1] == '\n')
-                    p[--len] = '\0';
+                if (p[len-1] == '¥n')
+                    p[--len] = '¥0';
                 wpng_info.url = p;
                 wpng_info.have_text |= TEXT_URL;
                 if ((result = wpng_isvalid_latin1((uch *)p, len)) >= 0) {
                     fprintf(stderr, "    " PROGNAME " warning:  character code"
-                      " %u is %sdiscouraged by the PNG\n    specification "
-                      "[first occurrence was at character position #%d]\n",
+                      " %u is %sdiscouraged by the PNG¥n    specification "
+                      "[first occurrence was at character position #%d]¥n",
                       (unsigned)p[result], (p[result] == 27)? "strongly " : "",
                       result+1);
                     fflush(stderr);
 #ifdef FORBID_LATIN1_CTRL
-                    wpng_info.have_text &= ~TEXT_URL;
+                    wpng_info.have_text &= ‾TEXT_URL;
                     valid = FALSE;
 #else
                     if (p[result] == 27) {    /* escape character */
-                        wpng_info.have_text &= ~TEXT_URL;
+                        wpng_info.have_text &= ‾TEXT_URL;
                         valid = FALSE;
                     }
 #endif
@@ -605,7 +605,7 @@ int main(int argc, char **argv)
 #endif
 
     } else if (text) {
-        fprintf(stderr, PROGNAME ":  unable to allocate memory for text\n");
+        fprintf(stderr, PROGNAME ":  unable to allocate memory for text¥n");
         text = FALSE;
         wpng_info.have_text = 0;
     }
@@ -617,18 +617,18 @@ int main(int argc, char **argv)
         switch (rc) {
             case 2:
                 fprintf(stderr, PROGNAME
-                  ":  libpng initialization problem (longjmp)\n");
+                  ":  libpng initialization problem (longjmp)¥n");
                 break;
             case 4:
-                fprintf(stderr, PROGNAME ":  insufficient memory\n");
+                fprintf(stderr, PROGNAME ":  insufficient memory¥n");
                 break;
             case 11:
                 fprintf(stderr, PROGNAME
-                  ":  internal logic error (unexpected PNM type)\n");
+                  ":  internal logic error (unexpected PNM type)¥n");
                 break;
             default:
                 fprintf(stderr, PROGNAME
-                  ":  unknown writepng_init() error\n");
+                  ":  unknown writepng_init() error¥n");
                 break;
         }
         exit(rc);
@@ -659,7 +659,7 @@ int main(int argc, char **argv)
     /* read and write the image, either in its entirety (if writing interlaced
      * PNG) or row by row (if non-interlaced) */
 
-    fprintf(stderr, "Encoding image data...\n");
+    fprintf(stderr, "Encoding image data...¥n");
     fflush(stderr);
 
     if (wpng_info.interlaced) {
@@ -670,7 +670,7 @@ int main(int argc, char **argv)
         wpng_info.image_data = (uch *)malloc(image_bytes);
         wpng_info.row_pointers = (uch **)malloc(wpng_info.height*sizeof(uch *));
         if (wpng_info.image_data == NULL || wpng_info.row_pointers == NULL) {
-            fprintf(stderr, PROGNAME ":  insufficient memory for image data\n");
+            fprintf(stderr, PROGNAME ":  insufficient memory for image data¥n");
             writepng_cleanup(&wpng_info);
             wpng_cleanup();
             exit(5);
@@ -679,13 +679,13 @@ int main(int argc, char **argv)
             wpng_info.row_pointers[i] = wpng_info.image_data + i*rowbytes;
         bytes = fread(wpng_info.image_data, 1, image_bytes, wpng_info.infile);
         if (bytes != image_bytes) {
-            fprintf(stderr, PROGNAME ":  expected %lu bytes, got %lu bytes\n",
+            fprintf(stderr, PROGNAME ":  expected %lu bytes, got %lu bytes¥n",
               image_bytes, bytes);
-            fprintf(stderr, "  (continuing anyway)\n");
+            fprintf(stderr, "  (continuing anyway)¥n");
         }
         if (writepng_encode_image(&wpng_info) != 0) {
             fprintf(stderr, PROGNAME
-              ":  libpng problem (longjmp) while writing image data\n");
+              ":  libpng problem (longjmp) while writing image data¥n");
             writepng_cleanup(&wpng_info);
             wpng_cleanup();
             exit(2);
@@ -697,7 +697,7 @@ int main(int argc, char **argv)
 
         wpng_info.image_data = (uch *)malloc(rowbytes);
         if (wpng_info.image_data == NULL) {
-            fprintf(stderr, PROGNAME ":  insufficient memory for row data\n");
+            fprintf(stderr, PROGNAME ":  insufficient memory for row data¥n");
             writepng_cleanup(&wpng_info);
             wpng_cleanup();
             exit(5);
@@ -707,14 +707,14 @@ int main(int argc, char **argv)
             bytes = fread(wpng_info.image_data, 1, rowbytes, wpng_info.infile);
             if (bytes != rowbytes) {
                 fprintf(stderr, PROGNAME
-                  ":  expected %lu bytes, got %lu bytes (row %ld)\n", rowbytes,
+                  ":  expected %lu bytes, got %lu bytes (row %ld)¥n", rowbytes,
                   bytes, wpng_info.height-j);
                 ++error;
                 break;
             }
             if (writepng_encode_row(&wpng_info) != 0) {
                 fprintf(stderr, PROGNAME
-                  ":  libpng problem (longjmp) while writing row %ld\n",
+                  ":  libpng problem (longjmp) while writing row %ld¥n",
                   wpng_info.height-j);
                 ++error;
                 break;
@@ -726,7 +726,7 @@ int main(int argc, char **argv)
             exit(2);
         }
         if (writepng_encode_finish(&wpng_info) != 0) {
-            fprintf(stderr, PROGNAME ":  error on final libpng call\n");
+            fprintf(stderr, PROGNAME ":  error on final libpng call¥n");
             writepng_cleanup(&wpng_info);
             wpng_cleanup();
             exit(2);
@@ -736,7 +736,7 @@ int main(int argc, char **argv)
 
     /* OK, we're done (successfully):  clean up all resources and quit */
 
-    fprintf(stderr, "Done.\n");
+    fprintf(stderr, "Done.¥n");
     fflush(stderr);
 
     writepng_cleanup(&wpng_info);
@@ -801,13 +801,13 @@ static char *dos_kbd_gets(char *buf, int len)
 
     do {
         buf[count++] = ch = getche();
-    } while (ch != '\r' && count < len-1);
+    } while (ch != '¥r' && count < len-1);
 
-    buf[count--] = '\0';        /* terminate string */
-    if (buf[count] == '\r')     /* Enter key makes CR, so change to newline */
-        buf[count] = '\n';
+    buf[count--] = '¥0';        /* terminate string */
+    if (buf[count] == '¥r')     /* Enter key makes CR, so change to newline */
+        buf[count] = '¥n';
 
-    fprintf(stderr, "\n");      /* Enter key does *not* cause a newline */
+    fprintf(stderr, "¥n");      /* Enter key does *not* cause a newline */
     fflush(stderr);
 
     return buf;

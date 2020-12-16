@@ -32,11 +32,11 @@
 #   include "boost/mpl/aux_/preprocessor/params.hpp"
 
 #   define AUX_COUNT_ARGS_REPEAT BOOST_MPL_PP_REPEAT
-#   define AUX_COUNT_ARGS_PARAMS(param) \
-    BOOST_MPL_PP_PARAMS( \
-          BOOST_MPL_AUX_COUNT_ARGS_ARITY \
-        , param \
-        ) \
+#   define AUX_COUNT_ARGS_PARAMS(param) ¥
+    BOOST_MPL_PP_PARAMS( ¥
+          BOOST_MPL_AUX_COUNT_ARGS_ARITY ¥
+        , param ¥
+        ) ¥
     /**/
 
 #else
@@ -46,23 +46,23 @@
 #   include "boost/preprocessor/inc.hpp"
 
 #   define AUX_COUNT_ARGS_REPEAT BOOST_PP_REPEAT_1
-#   define AUX_COUNT_ARGS_PARAMS(param) \
-    BOOST_PP_ENUM_SHIFTED_PARAMS( \
-          BOOST_PP_INC(BOOST_MPL_AUX_COUNT_ARGS_ARITY) \
-        , param \
-        ) \
+#   define AUX_COUNT_ARGS_PARAMS(param) ¥
+    BOOST_PP_ENUM_SHIFTED_PARAMS( ¥
+          BOOST_PP_INC(BOOST_MPL_AUX_COUNT_ARGS_ARITY) ¥
+        , param ¥
+        ) ¥
     /**/
 
 #endif // BOOST_MPL_AUX_COUNT_ARGS_USE_STANDARD_PP_PRIMITIVES
 
 
-#define AUX_IS_ARG_TEMPLATE_NAME \
-    BOOST_PP_CAT(is_,BOOST_PP_CAT(BOOST_MPL_AUX_COUNT_ARGS_PREFIX,_arg)) \
+#define AUX_IS_ARG_TEMPLATE_NAME ¥
+    BOOST_PP_CAT(is_,BOOST_PP_CAT(BOOST_MPL_AUX_COUNT_ARGS_PREFIX,_arg)) ¥
 /**/
 
-#define AUX_COUNT_ARGS_FUNC(unused, i, param) \
-    BOOST_PP_EXPR_IF(i, +) \
-    AUX_IS_ARG_TEMPLATE_NAME<BOOST_PP_CAT(param,BOOST_PP_INC(i))>::value \
+#define AUX_COUNT_ARGS_FUNC(unused, i, param) ¥
+    BOOST_PP_EXPR_IF(i, +) ¥
+    AUX_IS_ARG_TEMPLATE_NAME<BOOST_PP_CAT(param,BOOST_PP_INC(i))>::value ¥
 /**/
 
 // is_<xxx>_arg

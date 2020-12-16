@@ -2,77 +2,77 @@
 @l
 @call storage=gvolume.ks
 @gvolmenu name="BGM(&B)" control=bgm
-@gvolmenu name="Œø‰Ê‰¹‚»‚Ì‚P(&1)" control=0
-@gvolmenu name="Œø‰Ê‰¹‚»‚Ì‚Q(&2)" control=1
-*start|‚Í‚¶‚ß
+@gvolmenu name="åŠ¹æœéŸ³ãã®ï¼‘(&1)" control=0
+@gvolmenu name="åŠ¹æœéŸ³ãã®ï¼’(&2)" control=1
+*start|ã¯ã˜ã‚
 @startanchor
 @ct
-[playbgm storage=c:\mss\musicbox.ogg loop=false]\
-[wl canskip=true][l]\
-*1|‚P
+[playbgm storage=c:Â¥mssÂ¥musicbox.ogg loop=false]Â¥
+[wl canskip=true][l]Â¥
+*1|ï¼‘
 @ct
-[fadeinbgm time=6000 storage="c:\mss\trk.wav"]\
-‰¹Šy‚ğƒtƒF[ƒhƒCƒ“‚µ‚È‚ª‚çÄ¶[l]
-[wb canskip=true][l]\
+[fadeinbgm time=6000 storage="c:Â¥mssÂ¥trk.wav"]Â¥
+éŸ³æ¥½ã‚’ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³ã—ãªãŒã‚‰å†ç”Ÿ[l]
+[wb canskip=true][l]Â¥
 @pausebgm
 @l
 @resumebgm
 @l
-*1b|‚P‚‚
+*1b|ï¼‘ï½‚
 @ct
-‰¹Šy‚ğƒtƒF[ƒhƒCƒ“‚µ‚È‚ª‚çÄ¶‚µ‚½B[l]
-*2|‚Q
+éŸ³æ¥½ã‚’ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³ã—ãªãŒã‚‰å†ç”Ÿã—ãŸã€‚[l]
+*2|ï¼’
 @ct
-[xchgbgm storage="c:\mss\trk.ogg" time=5000 overlap=5000]\
-‰¹Šy‚ğƒNƒƒXƒtƒF[ƒh
-[wb][l]\
-;[xchgbgm storage="c:\mss\trk_e_03.ogg" outtime=5000 intime=0 overlap=3000]\
-;[xchgbgm storage="c:\mss\trk_e_03.ogg" overlap=5000]\
-[xchgbgm storage="c:\mss\trk_e_03.ogg" overlap=5000 volume=50]\
-‰¹Šy‚ğƒNƒƒXƒtƒF[ƒh
-[wb canskip=true][l]\
-[l]\
-*2b|‚Q‚‚
+[xchgbgm storage="c:Â¥mssÂ¥trk.ogg" time=5000 overlap=5000]Â¥
+éŸ³æ¥½ã‚’ã‚¯ãƒ­ã‚¹ãƒ•ã‚§ãƒ¼ãƒ‰
+[wb][l]Â¥
+;[xchgbgm storage="c:Â¥mssÂ¥trk_e_03.ogg" outtime=5000 intime=0 overlap=3000]Â¥
+;[xchgbgm storage="c:Â¥mssÂ¥trk_e_03.ogg" overlap=5000]Â¥
+[xchgbgm storage="c:Â¥mssÂ¥trk_e_03.ogg" overlap=5000 volume=50]Â¥
+éŸ³æ¥½ã‚’ã‚¯ãƒ­ã‚¹ãƒ•ã‚§ãƒ¼ãƒ‰
+[wb canskip=true][l]Â¥
+[l]Â¥
+*2b|ï¼’ï½‚
 @ct
-‰¹Šy‚ğƒNƒƒXƒtƒF[ƒh‚µ‚½B[l]
-[fadebgm volume=100 time=5000]\
-‰¹Šy‚ğ100%‰¹—Ê‚Ü‚ÅƒtƒF[ƒh
-[wb][l]\
-*3|‚R
+éŸ³æ¥½ã‚’ã‚¯ãƒ­ã‚¹ãƒ•ã‚§ãƒ¼ãƒ‰ã—ãŸã€‚[l]
+[fadebgm volume=100 time=5000]Â¥
+éŸ³æ¥½ã‚’100%éŸ³é‡ã¾ã§ãƒ•ã‚§ãƒ¼ãƒ‰
+[wb][l]Â¥
+*3|ï¼“
 @ct
-[fadebgm volume=50 time=5000]\
-‰¹Šy‚ğ50%‰¹—Ê‚Ü‚ÅƒtƒF[ƒh
-[wb][l]\
-*3b|‚R‚‚
+[fadebgm volume=50 time=5000]Â¥
+éŸ³æ¥½ã‚’50%éŸ³é‡ã¾ã§ãƒ•ã‚§ãƒ¼ãƒ‰
+[wb][l]Â¥
+*3b|ï¼“ï½‚
 @ct
-‰¹Šy‚ğ50%‰¹—Ê‚Ü‚ÅƒtƒF[ƒh‚µ‚½B[l]
-*4|‚S
+éŸ³æ¥½ã‚’50%éŸ³é‡ã¾ã§ãƒ•ã‚§ãƒ¼ãƒ‰ã—ãŸã€‚[l]
+*4|ï¼”
 @ct
-[bgmopt volume=100]\
-‰¹Šy‚ğ100%‰¹—Ê‚É‚µ‚½B[l]
-*4b|‚S‚‚
+[bgmopt volume=100]Â¥
+éŸ³æ¥½ã‚’100%éŸ³é‡ã«ã—ãŸã€‚[l]
+*4b|ï¼”ï½‚
 @ct
-‰¹Šy‚ğ100%‰¹—Ê‚É‚µ‚½‚»‚Ì‚QB[l]
-*5|‚T
+éŸ³æ¥½ã‚’100%éŸ³é‡ã«ã—ãŸãã®ï¼’ã€‚[l]
+*5|ï¼•
 @ct
 @stopbgm
-‰¹Šy‚ğ’â~‚µ‚½B[l]
-*5b|‚T‚‚
+éŸ³æ¥½ã‚’åœæ­¢ã—ãŸã€‚[l]
+*5b|ï¼•ï½‚
 @ct
-‰¹Šy‚ğ’â~‚µ‚½‚»‚Ì‚QB[l]
-*6|‚U
+éŸ³æ¥½ã‚’åœæ­¢ã—ãŸãã®ï¼’ã€‚[l]
+*6|ï¼–
 @ct
-[playbgm storage="c:\mss\trk.wav"]\
-‰¹Šy‚ğÄ¶‚µ‚½B[l]\
-*6b|‚U‚‚
+[playbgm storage="c:Â¥mssÂ¥trk.wav"]Â¥
+éŸ³æ¥½ã‚’å†ç”Ÿã—ãŸã€‚[l]Â¥
+*6b|ï¼–ï½‚
 @ct
-‰¹Šy‚ğÄ¶‚µ‚½‚»‚Ì‚QB[l]
-*7|‚V
+éŸ³æ¥½ã‚’å†ç”Ÿã—ãŸãã®ï¼’ã€‚[l]
+*7|ï¼—
 @ct
-[fadeoutbgm time=4000]\
-‰¹Šy‚ğƒtƒF[ƒhƒAƒEƒg‚·‚é[l]
-[wb]\
-*7b|‚V‚‚
+[fadeoutbgm time=4000]Â¥
+éŸ³æ¥½ã‚’ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã™ã‚‹[l]
+[wb]Â¥
+*7b|ï¼—ï½‚
 @ct
-‰¹Šy‚ğƒtƒF[ƒhƒAƒEƒg‚µ‚½[l]
+éŸ³æ¥½ã‚’ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã—ãŸ[l]
 [s]

@@ -17,8 +17,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\..\..\..\bin\win32\plugin"
-			IntermediateDirectory="obj\Release\libonig"
+			OutputDirectory="..¥..¥..¥..¥..¥bin¥win32¥plugin"
+			IntermediateDirectory="obj¥Release¥libonig"
 			ConfigurationType="4"
 			CharacterSet="2"
 			>
@@ -40,14 +40,14 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..;..\..\00_simplebinder;..\fakeFiles;..\onig;..\onig;..\onig\win32"
+				AdditionalIncludeDirectories="..¥..;..¥..¥00_simplebinder;..¥fakeFiles;..¥onig;..¥onig;..¥onig¥win32"
 				PreprocessorDefinitions="NDEBUG;__WIN32__;_CRT_SECURE_NO_WARNINGS;TJS_TEXT_OUT_CRLF;HAVE_CONFIG_H;NOT_RUBY;ONIG_EXTERN=extern"
 				StringPooling="true"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				ProgramDataBaseFileName="$(OutDir)\libonig.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥libonig.pdb"
 				DebugInformationFormat="0"
 			/>
 			<Tool
@@ -56,14 +56,14 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;__WIN32__;_CRT_SECURE_NO_WARNINGS;TJS_TEXT_OUT_CRLF;HAVE_CONFIG_H;NOT_RUBY;ONIG_EXTERN=extern"
-				AdditionalIncludeDirectories="..\..;..\..\00_simplebinder;..\fakeFiles;..\onig;..\onig;..\onig\win32"
+				AdditionalIncludeDirectories="..¥..;..¥..¥00_simplebinder;..¥fakeFiles;..¥onig;..¥onig;..¥onig¥win32"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\libonig.lib"
+				OutputFile="$(OutDir)¥libonig.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -92,8 +92,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\bin"
-			IntermediateDirectory="obj\Debug\libonig"
+			OutputDirectory="..¥bin"
+			IntermediateDirectory="obj¥Debug¥libonig"
 			ConfigurationType="4"
 			CharacterSet="2"
 			>
@@ -115,14 +115,14 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..;..\..\00_simplebinder;..\fakeFiles;..\onig;..\onig;..\onig\win32"
+				AdditionalIncludeDirectories="..¥..;..¥..¥00_simplebinder;..¥fakeFiles;..¥onig;..¥onig;..¥onig¥win32"
 				PreprocessorDefinitions="_DEBUG;__WIN32__;_CRT_SECURE_NO_WARNINGS;TJS_TEXT_OUT_CRLF;HAVE_CONFIG_H;NOT_RUBY;ONIG_EXTERN=extern"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				ProgramDataBaseFileName="$(OutDir)\libonig-d.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥libonig-d.pdb"
 				DebugInformationFormat="4"
 			/>
 			<Tool
@@ -131,14 +131,14 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG;__WIN32__;_CRT_SECURE_NO_WARNINGS;TJS_TEXT_OUT_CRLF;HAVE_CONFIG_H;NOT_RUBY;ONIG_EXTERN=extern"
-				AdditionalIncludeDirectories="..\..;..\..\00_simplebinder;..\fakeFiles;..\onig;..\onig;..\onig\win32"
+				AdditionalIncludeDirectories="..¥..;..¥..¥00_simplebinder;..¥fakeFiles;..¥onig;..¥onig;..¥onig¥win32"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\libonig-d.lib"
+				OutputFile="$(OutDir)¥libonig-d.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -178,7 +178,7 @@
 				Filter=""
 				>
 				<File
-					RelativePath="..\onig\enc\ascii.c"
+					RelativePath="..¥onig¥enc¥ascii.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -198,7 +198,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\big5.c"
+					RelativePath="..¥onig¥enc¥big5.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -218,7 +218,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\cp1251.c"
+					RelativePath="..¥onig¥enc¥cp1251.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -238,7 +238,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\euc_jp.c"
+					RelativePath="..¥onig¥enc¥euc_jp.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -258,7 +258,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\euc_kr.c"
+					RelativePath="..¥onig¥enc¥euc_kr.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -278,7 +278,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\euc_tw.c"
+					RelativePath="..¥onig¥enc¥euc_tw.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -298,7 +298,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\gb18030.c"
+					RelativePath="..¥onig¥enc¥gb18030.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -318,7 +318,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_1.c"
+					RelativePath="..¥onig¥enc¥iso8859_1.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -338,7 +338,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_10.c"
+					RelativePath="..¥onig¥enc¥iso8859_10.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -358,7 +358,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_11.c"
+					RelativePath="..¥onig¥enc¥iso8859_11.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -378,7 +378,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_13.c"
+					RelativePath="..¥onig¥enc¥iso8859_13.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -398,7 +398,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_14.c"
+					RelativePath="..¥onig¥enc¥iso8859_14.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -418,7 +418,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_15.c"
+					RelativePath="..¥onig¥enc¥iso8859_15.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -438,7 +438,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_16.c"
+					RelativePath="..¥onig¥enc¥iso8859_16.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -458,7 +458,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_2.c"
+					RelativePath="..¥onig¥enc¥iso8859_2.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -478,7 +478,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_3.c"
+					RelativePath="..¥onig¥enc¥iso8859_3.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -498,7 +498,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_4.c"
+					RelativePath="..¥onig¥enc¥iso8859_4.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -518,7 +518,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_5.c"
+					RelativePath="..¥onig¥enc¥iso8859_5.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -538,7 +538,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_6.c"
+					RelativePath="..¥onig¥enc¥iso8859_6.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -558,7 +558,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_7.c"
+					RelativePath="..¥onig¥enc¥iso8859_7.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -578,7 +578,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_8.c"
+					RelativePath="..¥onig¥enc¥iso8859_8.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -598,7 +598,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\iso8859_9.c"
+					RelativePath="..¥onig¥enc¥iso8859_9.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -618,7 +618,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\koi8.c"
+					RelativePath="..¥onig¥enc¥koi8.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -638,7 +638,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\koi8_r.c"
+					RelativePath="..¥onig¥enc¥koi8_r.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -658,7 +658,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\sjis.c"
+					RelativePath="..¥onig¥enc¥sjis.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -678,7 +678,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\unicode.c"
+					RelativePath="..¥onig¥enc¥unicode.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -698,7 +698,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\utf16_be.c"
+					RelativePath="..¥onig¥enc¥utf16_be.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -718,7 +718,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\utf16_le.c"
+					RelativePath="..¥onig¥enc¥utf16_le.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -738,7 +738,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\utf32_be.c"
+					RelativePath="..¥onig¥enc¥utf32_be.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -758,7 +758,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\utf32_le.c"
+					RelativePath="..¥onig¥enc¥utf32_le.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -778,7 +778,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\onig\enc\utf8.c"
+					RelativePath="..¥onig¥enc¥utf8.c"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -799,7 +799,7 @@
 				</File>
 			</Filter>
 			<File
-				RelativePath="..\onig\regcomp.c"
+				RelativePath="..¥onig¥regcomp.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -819,7 +819,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\onig\regenc.c"
+				RelativePath="..¥onig¥regenc.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -839,7 +839,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\onig\regerror.c"
+				RelativePath="..¥onig¥regerror.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -859,7 +859,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\onig\regexec.c"
+				RelativePath="..¥onig¥regexec.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -879,7 +879,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\onig\regext.c"
+				RelativePath="..¥onig¥regext.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -899,7 +899,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\onig\reggnu.c"
+				RelativePath="..¥onig¥reggnu.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -919,7 +919,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\onig\regparse.c"
+				RelativePath="..¥onig¥regparse.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -939,7 +939,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\onig\regposerr.c"
+				RelativePath="..¥onig¥regposerr.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -959,7 +959,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\onig\regposix.c"
+				RelativePath="..¥onig¥regposix.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -979,7 +979,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\onig\regsyntax.c"
+				RelativePath="..¥onig¥regsyntax.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -999,7 +999,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\onig\regtrav.c"
+				RelativePath="..¥onig¥regtrav.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1019,7 +1019,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\onig\regversion.c"
+				RelativePath="..¥onig¥regversion.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1039,7 +1039,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\onig\st.c"
+				RelativePath="..¥onig¥st.c"
 				>
 				<FileConfiguration
 					Name="Release|Win32"

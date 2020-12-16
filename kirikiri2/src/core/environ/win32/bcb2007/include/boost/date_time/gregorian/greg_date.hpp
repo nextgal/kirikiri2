@@ -27,7 +27,7 @@ namespace gregorian {
       greogorian dates.  The is a lightweight type that can be
       freely passed by value.  All comparison operators are 
       supported.  
-      \ingroup date_basics
+      ¥ingroup date_basics
   */
   class date : public date_time::date<date, gregorian_calendar, date_duration>
   {

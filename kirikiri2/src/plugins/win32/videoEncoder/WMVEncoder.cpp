@@ -164,7 +164,7 @@ HRESULT CWMVEncoder::LoadCustomProfile( LPCTSTR ptszProfileFile )
 	return( hr );
 }
 
-// ‰¹‚Í0.5•b•ª‚¸‚Â“n‚·‚±‚Æ
+// éŸ³ã¯0.5ç§’åˆ†ãšã¤æ¸¡ã™ã“ã¨
 HRESULT CWMVEncoder::WriteSample( CWMInput* pInput, void* sample, size_t sample_size )
 {
 	if( NULL == pInput )
@@ -199,20 +199,20 @@ HRESULT CWMVEncoder::WriteSample( CWMInput* pInput, void* sample, size_t sample_
 	DWORD dwFlags = 0;
 	if( FAILED( hr = m_WMWriter->WriteSample( pInput->m_dwInput, pInput->m_qwPresentTime, dwFlags, pSample ) ) ) {
 		if( hr == E_INVALIDARG ) {
-			DebugLog2("The dwInputNum value is greater than the highest index number. \n");
+			DebugLog2("The dwInputNum value is greater than the highest index number. Â¥n");
 		} else if( hr == E_UNEXPECTED ) {
-			DebugLog2("The method failed for an unspecified reason.  \n");
+			DebugLog2("The method failed for an unspecified reason.  Â¥n");
 //		} else if( hr == NS_E_INVALID_STATE ) {
-//			DebugLog2("The writer is not running.  \n");
+//			DebugLog2("The writer is not running.  Â¥n");
 		} else if( hr == NS_E_INVALID_DATA ) {
-			DebugLog2("The sample is not valid. This can occur when an input script stream contains a script sample that is not valid.  \n");
+			DebugLog2("The sample is not valid. This can occur when an input script stream contains a script sample that is not valid.  Â¥n");
 		}  else if( hr == NS_E_INVALID_NUM_PASSES ) {
-			DebugLog2("The wrong number of preprocessing passes was used for the stream's output type.  \n");
-			DebugLog2("Typically, this error will be returned if the stream configuration requires a preprocessing pass and a sample is passed without first configuring preprocessing. You can check for this error to determine whether a stream requires a preprocessing pass. Preprocessing passes are required only for bit-rate-based VBR. \n");
+			DebugLog2("The wrong number of preprocessing passes was used for the stream's output type.  Â¥n");
+			DebugLog2("Typically, this error will be returned if the stream configuration requires a preprocessing pass and a sample is passed without first configuring preprocessing. You can check for this error to determine whether a stream requires a preprocessing pass. Preprocessing passes are required only for bit-rate-based VBR. Â¥n");
 		} else if( hr == NS_E_LATE_OPERATION ) {
-			DebugLog2("The writer has received samples whose presentation times differ by an amount greater than the maximum synchronization tolerance. You can set the synchronization tolerance by callingIWMWriterAdvanced::SetSyncTolerance.  \n");
+			DebugLog2("The writer has received samples whose presentation times differ by an amount greater than the maximum synchronization tolerance. You can set the synchronization tolerance by callingIWMWriterAdvanced::SetSyncTolerance.  Â¥n");
 		}  else if( hr == NS_E_TOO_MUCH_DATA ) {
-			DebugLog2("Samples from a real-time source are arriving faster than expected. This error is returned only if IWMWriterAdvanced::SetLiveSource has been called to indicate a live source.  \n");
+			DebugLog2("Samples from a real-time source are arriving faster than expected. This error is returned only if IWMWriterAdvanced::SetLiveSource has been called to indicate a live source.  Â¥n");
 		}
 		return hr;
 	}
@@ -275,13 +275,13 @@ HRESULT CWMVEncoder::Initial( const WCHAR* pwszOutFile, LPCTSTR ptszProfileFile,
 	return( hr );
 }
 
-//! ƒvƒƒtƒ@ƒCƒ‹‚ðƒpƒ‰ƒ[ƒ^‚©‚ç¶¬‚·‚é”Å
+//! ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‹ã‚‰ç”Ÿæˆã™ã‚‹ç‰ˆ
 HRESULT CWMVEncoder::Initial( const WCHAR* pwszOutFile )
 {
 	if( NULL == pwszOutFile ) return( E_INVALIDARG );
 
 	video_input_.SetVideoSource( video_width_, video_height_, video_scale_, video_rate_ );
-	audio_input_.SetAudioSource( NULL, 0 );	// ‚Æ‚è‚ ‚¦‚¸‰¹‚Í‚È‚µ
+	audio_input_.SetAudioSource( NULL, 0 );	// ã¨ã‚Šã‚ãˆãšéŸ³ã¯ãªã—
 
 	HRESULT hr = S_OK;
 
@@ -292,7 +292,7 @@ HRESULT CWMVEncoder::Initial( const WCHAR* pwszOutFile )
 	if( FAILED( hr = CreateEmptyProfile( &m_WMProfile ) ) )
 		ThrowDShowException( TJS_W( "Could not create empty profile" ), hr );
 
-	// “ü—Í‚Éƒvƒƒtƒ@ƒCƒ‹‚ð“¯Šú‚³‚¹‚é(“ü—Í‚É‚ ‚Á‚½ƒvƒƒtƒ@ƒCƒ‹‚É‚·‚é)
+	// å…¥åŠ›ã«ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åŒæœŸã•ã›ã‚‹(å…¥åŠ›ã«ã‚ã£ãŸãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã«ã™ã‚‹)
 	if( FAILED( hr = UpdateProfile( m_WMProfile ) ) )
 		ThrowDShowException( TJS_W( "Failed to update profile" ), hr );
 #if 0
@@ -315,7 +315,7 @@ HRESULT CWMVEncoder::Initial( const WCHAR* pwszOutFile )
  	if( FAILED( hr = m_WMWriter->SetOutputFilename( pwszOutFile ) ) )
 		ThrowDShowException( TJS_W( "Failed to set output filename" ), hr );
 
-//	SaveProfile( L"c:\\test.prx", m_WMProfile );
+//	SaveProfile( L"c:Â¥Â¥test.prx", m_WMProfile );
 
 	return( hr );
 }
@@ -366,11 +366,11 @@ HRESULT CWMVEncoder::UpdateProfile( IWMProfile* pProfile )
 						hr = AddAudioStream( pProfile, pInput->m_pWFX->nSamplesPerSec, pInput->m_pWFX->nChannels, pInput->m_pWFX->wBitsPerSample, &wStreamNum, &pwszConnectionName );
 					}
 					if( SUCCEEDED( hr ) ) {
-						// ‚±‚Ì“ü—Í‚Ìƒvƒƒtƒ@ƒCƒ‹‚Ì¶¬¬Œ÷
-						// Ú‘±–¼‚ð•ÛŽ‚·‚é
+						// ã“ã®å…¥åŠ›ã®ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ã®ç”ŸæˆæˆåŠŸ
+						// æŽ¥ç¶šåã‚’ä¿æŒã™ã‚‹
 						pInput->m_pwszConnectionName = pwszConnectionName;
 					} else {
-						// ¶¬Ž¸”sB‚±‚Ì“ü—Í‚ðƒŠƒXƒg‚©‚çíœ‚·‚é‚½‚ß‚Éƒ}[ƒN‚·‚é
+						// ç”Ÿæˆå¤±æ•—ã€‚ã“ã®å…¥åŠ›ã‚’ãƒªã‚¹ãƒˆã‹ã‚‰å‰Šé™¤ã™ã‚‹ãŸã‚ã«ãƒžãƒ¼ã‚¯ã™ã‚‹
 						pInputElemRemove = pInputElem;
 					}
 				} while( FALSE );

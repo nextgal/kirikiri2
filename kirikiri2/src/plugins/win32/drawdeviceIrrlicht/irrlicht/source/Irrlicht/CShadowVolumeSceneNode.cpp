@@ -34,7 +34,7 @@ CShadowVolumeSceneNode::CShadowVolumeSceneNode(ISceneNode* parent,
 
 
 //! destructor
-CShadowVolumeSceneNode::~CShadowVolumeSceneNode()
+CShadowVolumeSceneNode::‾CShadowVolumeSceneNode()
 {
 	delete [] Edges;
 

@@ -8,10 +8,10 @@ class MyWindow extends Window {
 	function MyWindow()
 	{
 		super.Window();
-		menu.add(filemenu = new MenuItem(this, "ƒtƒ@ƒCƒ‹(&F)"));
-		filemenu.add(exitmenu = new MenuItem(this, "I—¹(&X)"));
+		menu.add(filemenu = new MenuItem(this, "ãƒ•ã‚¡ã‚¤ãƒ«(&F)"));
+		filemenu.add(exitmenu = new MenuItem(this, "çµ‚äº†(&X)"));
 
-		// ‰º•~‚«(ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„)
+		// ä¸‹æ•·ã(ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤)
 		add(primlayer = new Layer(this, null));
 		primlayer.name = "primlayer";
 		primlayer.left = primlayer.top = 0;
@@ -20,7 +20,7 @@ class MyWindow extends Window {
 		primlayer.setSizeToImageSize();
 		setInnerSize(primlayer.width, primlayer.height);
 
-		// ‰æ‘œ
+		// ç”»åƒ
 		add(graphlayer = new Layer(this, primlayer));
 		graphlayer.name = "graphlayer";
 		graphlayer.width = primlayer.width;
@@ -28,21 +28,21 @@ class MyWindow extends Window {
 		graphlayer.setPos(0, 0);
 		graphlayer.visible = true;
 		graphlayer.font.height = 18;
-		graphlayer.drawText(10, 10, "Explorer “™‚©‚çƒRƒ“ƒpƒCƒ‹‚µ‚½‚¢TJS2ƒXƒNƒŠƒvƒg‚ğ", 0xff0000, 255, true, 200, 0x000000, 3, 2, 2);
-		graphlayer.drawText(10, 30, "‚±‚±‚Éƒhƒƒbƒv‚µ‚Ä‚­‚¾‚³‚¢", 0xff0000, 255, true, 200, 0x000000, 3, 2, 2);
+		graphlayer.drawText(10, 10, "Explorer ç­‰ã‹ã‚‰ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã—ãŸã„TJS2ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’", 0xff0000, 255, true, 200, 0x000000, 3, 2, 2);
+		graphlayer.drawText(10, 30, "ã“ã“ã«ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ãã ã•ã„", 0xff0000, 255, true, 200, 0x000000, 3, 2, 2);
 
 		visible = true;
 	}
 
 	function compileScript(file) {
-		// TJS2ƒXƒNƒŠƒvƒg“Ç‚İ‚İ
+		// TJS2ã‚¹ã‚¯ãƒªãƒ—ãƒˆèª­ã¿è¾¼ã¿
 		try {
 			Scripts.compileStorage(file,Storages.extractStoragePath(file)+"output/"+Storages.extractStorageName(file),false,false,false);
 			graphlayer.fillRect(0, 70, 480, 50, 0);
-			graphlayer.drawText(10, 70, Storages.extractStorageName(file)+"‚ğƒRƒ“ƒpƒCƒ‹‚µ‚Ü‚µ‚½B", 0xff0000, 255, true, 200, 0x000000, 3, 2, 2);
-			graphlayer.drawText(10, 90, "savedataƒtƒHƒ‹ƒ_‚ğŠm”F‚µ‚Ä‚­‚¾‚³‚¢B", 0xff0000, 255, true, 200, 0x000000, 3, 2, 2);
+			graphlayer.drawText(10, 70, Storages.extractStorageName(file)+"ã‚’ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã—ã¾ã—ãŸã€‚", 0xff0000, 255, true, 200, 0x000000, 3, 2, 2);
+			graphlayer.drawText(10, 90, "savedataãƒ•ã‚©ãƒ«ãƒ€ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚", 0xff0000, 255, true, 200, 0x000000, 3, 2, 2);
 		} catch(e) {
-			System.inform("TJS2ƒXƒNƒŠƒvƒg‚ğ“Ç‚İ‚Ş‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñ : " + e.message);
+			System.inform("TJS2ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’èª­ã¿è¾¼ã‚€ã“ã¨ãŒã§ãã¾ã›ã‚“ : " + e.message);
 		}
 	}
 

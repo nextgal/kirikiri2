@@ -3,14 +3,14 @@ object ProgressForm: TProgressForm
   Top = 346
   ActiveControl = CancelButton
   BorderStyle = bsDialog
-  Caption = '•ÏŠ·’† ...'
+  Caption = 'å¤‰æ›ä¸­ ...'
   ClientHeight = 98
   ClientWidth = 261
   Color = clBtnFace
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
@@ -38,7 +38,7 @@ object ProgressForm: TProgressForm
     Width = 75
     Height = 25
     Cancel = True
-    Caption = 'ƒLƒƒƒ“ƒZƒ‹'
+    Caption = 'ã‚­ãƒ£ãƒ³ã‚»ãƒ«'
     TabOrder = 1
     OnClick = CancelButtonClick
   end

@@ -40,7 +40,7 @@ class BOOST_THREAD_DECL condition_impl : private noncopyable
 
 public:
     condition_impl();
-    ~condition_impl();
+    ‾condition_impl();
 
     void notify_one();
     void notify_all();
@@ -82,7 +82,7 @@ class condition : private noncopyable
 {
 public:
     condition() { }
-    ~condition() { }
+    ‾condition() { }
 
     void notify_one() { m_impl.notify_one(); }
     void notify_all() { m_impl.notify_all(); }

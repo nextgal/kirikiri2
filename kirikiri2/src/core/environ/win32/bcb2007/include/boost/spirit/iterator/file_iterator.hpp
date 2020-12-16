@@ -65,8 +65,8 @@ namespace boost { namespace spirit {
 namespace impl {
 
 // Systems that don't have a 64-bit off_t, but do have a 64-bit lseek
-#if defined BOOST_MSVC              \
- || defined __MINGW32_VERSION       \
+#if defined BOOST_MSVC              ¥
+ || defined __MINGW32_VERSION       ¥
  || defined BOOST_INTEL_CXX_VERSION
 
    // Always use 64-bit file access
@@ -113,7 +113,7 @@ class file_iterator
       explicit file_iterator (char const * pFilename);
 
       // Destructor
-      ~file_iterator ();
+      ‾file_iterator ();
 
       // Make an end of file iterator for the current file
       file_iterator make_end ();

@@ -1,18 +1,18 @@
-object TVPVersionForm: TTVPVersionForm
+ï»¿object TVPVersionForm: TTVPVersionForm
   Left = 40
   Top = 237
   HorzScrollBar.Visible = False
   VertScrollBar.Visible = False
   BorderStyle = bsDialog
   BorderWidth = 8
-  Caption = 'ƒo[ƒWƒ‡ƒ“E’˜ìŒ EŠÂ‹«î•ñ'
+  Caption = 'ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãƒ»è‘—ä½œæ¨©ãƒ»ç’°å¢ƒæƒ…å ±'
   ClientHeight = 292
   ClientWidth = 557
   Color = clBtnFace
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
@@ -25,7 +25,7 @@ object TVPVersionForm: TTVPVersionForm
     Height = 25
     Anchors = [akBottom]
     Cancel = True
-    Caption = '•Â‚¶‚é(&C)'
+    Caption = 'é–‰ã˜ã‚‹(&C)'
     Default = True
     ModalResult = 1
     TabOrder = 0
@@ -40,7 +40,7 @@ object TVPVersionForm: TTVPVersionForm
     Font.Charset = SHIFTJIS_CHARSET
     Font.Color = clBtnText
     Font.Height = -12
-    Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+    Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
     Font.Style = []
     HideScrollBars = False
     Lines.Strings = (
@@ -60,7 +60,7 @@ object TVPVersionForm: TTVPVersionForm
     Width = 253
     Height = 25
     Anchors = [akBottom]
-    Caption = 'ŠÂ‹«î•ñ‚ğƒNƒŠƒbƒvƒ{[ƒh‚ÉƒRƒs['
+    Caption = 'ç’°å¢ƒæƒ…å ±ã‚’ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚³ãƒ”ãƒ¼'
     TabOrder = 2
     OnClick = CopyEnvInfoButtonClick
   end
@@ -69,7 +69,7 @@ object TVPVersionForm: TTVPVersionForm
     OnPopup = PopupMenuPopup
     Top = 8
     object CopyMenuItem: TMenuItem
-      Caption = 'ƒRƒs[(&C)'
+      Caption = 'ã‚³ãƒ”ãƒ¼(&C)'
       ImageIndex = 6
       OnClick = CopyMenuItemClick
     end

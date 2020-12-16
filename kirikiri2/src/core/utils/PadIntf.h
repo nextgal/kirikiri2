@@ -30,7 +30,7 @@ public:
 
 //---------------------------------------------------------------------------
 // font ralated constants
-// core/visual/tvpfontstruc.h Ç∆ìØÇ∂Ç‡ÇÃÇ≈Ç∑ÅB
+// core/visual/tvpfontstruc.h „Å®Âêå„Åò„ÇÇ„ÅÆ„Åß„Åô„ÄÇ
 //---------------------------------------------------------------------------
 #define TVP_TF_ITALIC    0x01
 #define TVP_TF_BOLD      0x02

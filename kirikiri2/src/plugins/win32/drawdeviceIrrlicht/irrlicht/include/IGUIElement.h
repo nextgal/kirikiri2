@@ -77,7 +77,7 @@ public:
 
 
 	//! Destructor
-	virtual ~IGUIElement()
+	virtual ‾IGUIElement()
 	{
 		// delete all children
 		core::list<IGUIElement*>::Iterator it = Children.begin();
@@ -636,7 +636,7 @@ public:
 
 
 	//! Brings a child to front
-	/** \return Returns true if successful, false if not. */
+	/** ¥return Returns true if successful, false if not. */
 	virtual bool bringToFront(IGUIElement* element)
 	{
 		core::list<IGUIElement*>::Iterator it = Children.begin();
@@ -663,11 +663,11 @@ public:
 
 
 	//! Finds the first element with the given id.
-	/** \param id: Id to search for.
-	\param searchchildren: Set this to true, if also children of this
+	/** ¥param id: Id to search for.
+	¥param searchchildren: Set this to true, if also children of this
 	element may contain the element with the searched id and they
 	should be searched too.
-	\return Returns the first element with the given id. If no element
+	¥return Returns the first element with the given id. If no element
 	with this id was found, 0 is returned. */
 	virtual IGUIElement* getElementFromId(s32 id, bool searchchildren=false) const
 	{
@@ -691,7 +691,7 @@ public:
 
 
 	//! returns true if the given element is a child of this one.
-	//! \param child: The child element to check
+	//! ¥param child: The child element to check
 	bool isMyChild(IGUIElement* child) const
 	{
 		if (!child)
@@ -709,13 +709,13 @@ public:
 
 
 	//! searches elements to find the closest next element to tab to
-	//! \param startOrder: The TabOrder of the current element, -1 if none
-	//! \param reverse: true if searching for a lower number
-	//! \param group: true if searching for a higher one
-	//! \param first: element with the highest/lowest known tab order depending on search direction
-	//! \param closest: the closest match, depending on tab order and direction
-	//! \param includeInvisible: includes invisible elements in the search (default=false)
-	//! \return true if successfully found an element, false to continue searching/fail
+	//! ¥param startOrder: The TabOrder of the current element, -1 if none
+	//! ¥param reverse: true if searching for a lower number
+	//! ¥param group: true if searching for a higher one
+	//! ¥param first: element with the highest/lowest known tab order depending on search direction
+	//! ¥param closest: the closest match, depending on tab order and direction
+	//! ¥param includeInvisible: includes invisible elements in the search (default=false)
+	//! ¥return true if successfully found an element, false to continue searching/fail
 	bool getNextElement(s32 startOrder, bool reverse, bool group,
 		IGUIElement*& first, IGUIElement*& closest, bool includeInvisible=false) const
 	{

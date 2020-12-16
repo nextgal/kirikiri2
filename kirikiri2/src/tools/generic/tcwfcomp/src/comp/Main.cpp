@@ -15,13 +15,13 @@ typedef int int32;
 typedef unsigned char byte;
 struct TTCWFHeader
 {
-	char mark[6];  // = "TCWF0\x1a"
-	byte channels; // ƒ`ƒƒƒlƒ‹”
+	char mark[6];  // = "TCWF0Â¥x1a"
+	byte channels; // ãƒãƒ£ãƒãƒ«æ•°
 	byte reserved;
-	int32 frequency; // ƒTƒ“ƒvƒŠƒ“ƒOü”g”
-	int32 numblocks; // ƒuƒƒbƒN”
-	int32 bytesperblock; // ƒuƒƒbƒN‚²‚Æ‚ÌƒoƒCƒg”
-	int32 samplesperblock; // ƒuƒƒbƒN‚²‚Æ‚ÌƒTƒ“ƒvƒ‹”
+	int32 frequency; // ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°å‘¨æ³¢æ•°
+	int32 numblocks; // ãƒ–ãƒ­ãƒƒã‚¯æ•°
+	int32 bytesperblock; // ãƒ–ãƒ­ãƒƒã‚¯ã”ã¨ã®ãƒã‚¤ãƒˆæ•°
+	int32 samplesperblock; // ãƒ–ãƒ­ãƒƒã‚¯ã”ã¨ã®ã‚µãƒ³ãƒ—ãƒ«æ•°
 };
 
 struct TTCWUnexpectedPeak
@@ -30,7 +30,7 @@ struct TTCWUnexpectedPeak
 	short int revise;
 };
 
-struct TTCWBlockHeader  // ƒuƒƒbƒNƒwƒbƒ_ ( ƒXƒeƒŒƒI‚Ìê‡‚ÍƒuƒƒbƒN‚ª‰EE¶‚Ì‡‚É‚Q‚Â‘±‚­)
+struct TTCWBlockHeader  // ãƒ–ãƒ­ãƒƒã‚¯ãƒ˜ãƒƒãƒ€ ( ã‚¹ãƒ†ãƒ¬ã‚ªã®å ´åˆã¯ãƒ–ãƒ­ãƒƒã‚¯ãŒå³ãƒ»å·¦ã®é †ã«ï¼’ã¤ç¶šã)
 {
 	short int ms_sample0;
 	short int ms_sample1;
@@ -177,7 +177,7 @@ void encode_block(TTCWFHeader *header, short int *samples, int numsamples, FILE 
 	int p=0;
 	for (k = 2 ; k < numsamples ; k++)
 	{
-		/* MS ADPCM ˆ³k•” */
+		/* MS ADPCM åœ§ç¸®éƒ¨ */
 
 		predict = (samples[k-1] * AdaptCoeff1 [bpred] + samples [k-2] * AdaptCoeff2 [bpred]) >> 8 ;
 		errordelta = (samples [k] - predict) / idelta;
@@ -209,7 +209,7 @@ void encode_block(TTCWFHeader *header, short int *samples, int numsamples, FILE 
 		short int orgsamp = samples[k];
 		samples [k] = newsamp ;
 
-		/* IMA ADPCM ˆ³k•” */
+		/* IMA ADPCM åœ§ç¸®éƒ¨ */
 
 		diff = ms_diff-prev ;
 
@@ -256,7 +256,7 @@ void encode_block(TTCWFHeader *header, short int *samples, int numsamples, FILE 
 
 	}
 
-	/* Unexpected Peak ‚ÌŒŸo‚Æ‹L˜^ */
+	/* Unexpected Peak ã®æ¤œå‡ºã¨è¨˜éŒ² */
 
 	for(int i=0; i<6; i++)
 	{
@@ -285,11 +285,11 @@ void encode_block(TTCWFHeader *header, short int *samples, int numsamples, FILE 
 		}
 		bheader.peaks[i].pos = max_pos;
 		bheader.peaks[i].revise = -temp[max_pos];
-		temp[max_pos] += bheader.peaks[i].revise; // 0 ‚É‚È‚é
+		temp[max_pos] += bheader.peaks[i].revise; // 0 ã«ãªã‚‹
 	}
 
 
-	// ƒtƒ@ƒCƒ‹‚Éo—Í
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›
 	fwrite(&bheader, sizeof(bheader), 1, fout);
 	fwrite(out, p, 1, fout);
 }
@@ -304,23 +304,23 @@ void convert(char *srcfilename, char*destfilename)
 	int i;
 
 
-	// ƒ\[ƒXƒtƒ@ƒCƒ‹‚ğŠJ‚­
+	// ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
 	memset(&sfiin, sizeof(sfiin), 0);
 	sfin = sf_open_read(srcfilename, &sfiin);
 	if(!sfin)
 	{
-		printf("Can't open : %s\n", srcfilename);
+		printf("Can't open : %sÂ¥n", srcfilename);
 		return;
 	}
 
-	// o—Íƒtƒ@ƒCƒ‹‚ğŠJ‚­
+	// å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
 	fout = fopen(destfilename, "wb");
 	if(!fout)
 	{
-		printf("Can't open : %s\n", destfilename);
+		printf("Can't open : %sÂ¥n", destfilename);
 	}
 
-	// •\¦
+	// è¡¨ç¤º
 	if(srcfilename && destfilename)
 	{
 		char src[MAXPATH], srcext[MAXPATH];
@@ -329,22 +329,22 @@ void convert(char *srcfilename, char*destfilename)
 		fnsplit(destfilename, NULL, NULL, dest, destext);
 		strcat(src, srcext);
 		strcat(dest, destext);
-		printf("Compressing %s -> %s ...\n", src , dest);
+		printf("Compressing %s -> %s ...Â¥n", src , dest);
 	}
 
 
-	// ƒwƒbƒ_‚ğ€”õ
+	// ãƒ˜ãƒƒãƒ€ã‚’æº–å‚™
 	int chans;
 	TTCWFHeader header;
-	memcpy(header.mark, "TCWF0\x1a", 6);
+	memcpy(header.mark, "TCWF0Â¥x1a", 6);
 	chans = header.channels = sfiin.channels;
 	header.reserved = 0;
 	header.frequency = sfiin.samplerate;
-	header.numblocks = 0; // ‚±‚±‚ÍŒã‚Å‚¤‚ß‚é
+	header.numblocks = 0; // ã“ã“ã¯å¾Œã§ã†ã‚ã‚‹
 	header.bytesperblock = srate2blocksize(header.frequency);
 	header.samplesperblock = header.bytesperblock - sizeof(TTCWBlockHeader) + 2;
 
-	fwrite(&header, sizeof(header), 1, fout); // ‚Æ‚è‚ ‚¦‚¸‚¢‚Á‚½‚ñ‘‚¢‚Ä‚¨‚­
+	fwrite(&header, sizeof(header), 1, fout); // ã¨ã‚Šã‚ãˆãšã„ã£ãŸã‚“æ›¸ã„ã¦ãŠã
 
 	int numblocks = 0;
 	int totalblocks = sfiin.samples*chans / header.samplesperblock;
@@ -353,7 +353,7 @@ void convert(char *srcfilename, char*destfilename)
 
 	while( 0 < ( read = sf_read_short(sfin, buf, header.samplesperblock*chans) )   )
 	{
-		// ƒXƒeƒŒƒI‚Ìê‡‚ÍƒCƒ“ƒ^[ƒŠ[ƒu‰ğœ
+		// ã‚¹ãƒ†ãƒ¬ã‚ªã®å ´åˆã¯ã‚¤ãƒ³ã‚¿ãƒ¼ãƒªãƒ¼ãƒ–è§£é™¤
 		short int buf2[2][32768];
 		memset(buf2[0], sizeof(short int)*32768, 0);
 		memset(buf2[1], sizeof(short int)*32768, 0);
@@ -385,7 +385,7 @@ void convert(char *srcfilename, char*destfilename)
 
 		if(interval == 0)
 		{
-			printf("%2d %% done ...\r", numblocks *100 / totalblocks);
+			printf("%2d %% done ...Â¥r", numblocks *100 / totalblocks);
 			interval = dispinterval;
 		}
 		interval--;
@@ -393,19 +393,19 @@ void convert(char *srcfilename, char*destfilename)
 
 	header.numblocks = numblocks;
 	fseek(fout, 0, SEEK_SET);
-	fwrite(&header, sizeof(header), 1, fout); // ƒwƒbƒ_‚ğ‚à‚¤ˆê‰ñ‘‚«‚Ş
+	fwrite(&header, sizeof(header), 1, fout); // ãƒ˜ãƒƒãƒ€ã‚’ã‚‚ã†ä¸€å›æ›¸ãè¾¼ã‚€
 
 	sf_close(sfin);
 	fclose(fout);
 
-    printf("\r                  \r");
+    printf("Â¥r                  Â¥r");
 
 	return;
 }
 //---------------------------------------------------------------------------
 void userwait(void)
 {
-	printf("\nPress ENTER key to exit ...\n");
+	printf("Â¥nPress ENTER key to exit ...Â¥n");
 	char buf[256];
 	fgets(buf, 255, stdin);
 }
@@ -415,22 +415,22 @@ int main(int argc, char* argv[])
 {
 	if(argc<=1)
 	{
-		printf("TCWF compressor  copyright (C) 2000 W.Dee\n");
-		printf("\n");
-		printf("Usage : tcwfcomp <filename>\n");
-		printf("         Under Windows GUI, you can drag source file(s) that you want\n");
-		printf("        to compress, then drop on this application.\n");
-		printf("\n");
-		printf("  <filename> file can be one of following format :\n");
-		printf("  .WAV .AIFF .AU .PAF .SVX\n");
-		printf("\n");
-		printf("  <filename> can contain wildcards.\n");
-		printf("\n");
-		printf("  Output filename will be automatically the same as input filename,\n"
-			   " except for its extension that has \".tcw\".\n");
-		printf("\n");
-		printf("  You can use/modify/redistribute this program under GNU GPL, see\n"
-			   " the document for details.\n");
+		printf("TCWF compressor  copyright (C) 2000 W.DeeÂ¥n");
+		printf("Â¥n");
+		printf("Usage : tcwfcomp <filename>Â¥n");
+		printf("         Under Windows GUI, you can drag source file(s) that you wantÂ¥n");
+		printf("        to compress, then drop on this application.Â¥n");
+		printf("Â¥n");
+		printf("  <filename> file can be one of following format :Â¥n");
+		printf("  .WAV .AIFF .AU .PAF .SVXÂ¥n");
+		printf("Â¥n");
+		printf("  <filename> can contain wildcards.Â¥n");
+		printf("Â¥n");
+		printf("  Output filename will be automatically the same as input filename,Â¥n"
+			   " except for its extension that has Â¥".tcwÂ¥".Â¥n");
+		printf("Â¥n");
+		printf("  You can use/modify/redistribute this program under GNU GPL, seeÂ¥n"
+			   " the document for details.Â¥n");
 		userwait();
 		return 0;
 	}

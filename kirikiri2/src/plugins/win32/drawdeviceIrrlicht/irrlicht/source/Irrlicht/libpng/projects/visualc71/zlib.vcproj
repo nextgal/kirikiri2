@@ -10,13 +10,13 @@
 	<Configurations>
 		<Configuration
 			Name="DLL Release|Win32"
-			OutputDirectory=".\Win32_DLL_Release\ZLib"
-			IntermediateDirectory=".\Win32_DLL_Release\ZLib"
+			OutputDirectory=".¥Win32_DLL_Release¥ZLib"
+			IntermediateDirectory=".¥Win32_DLL_Release¥ZLib"
 			ConfigurationType="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;NDEBUG"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -27,9 +27,9 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)\zlib1.dll"
+				OutputFile="$(OutDir)¥zlib1.dll"
 				LinkIncremental="1"
-				ModuleDefinitionFile="..\..\..\zlib\win32\zlib.def"/>
+				ModuleDefinitionFile="..¥..¥..¥zlib¥win32¥zlib.def"/>
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
@@ -55,13 +55,13 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Debug|Win32"
-			OutputDirectory=".\Win32_DLL_Debug\ZLib"
-			IntermediateDirectory=".\Win32_DLL_Debug\ZLib"
+			OutputDirectory=".¥Win32_DLL_Debug¥ZLib"
+			IntermediateDirectory=".¥Win32_DLL_Debug¥ZLib"
 			ConfigurationType="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;_DEBUG"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -72,8 +72,8 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)\zlib1d.dll"
-				ModuleDefinitionFile="..\..\..\zlib\win32\zlib.def"
+				OutputFile="$(OutDir)¥zlib1d.dll"
+				ModuleDefinitionFile="..¥..¥..¥zlib¥win32¥zlib.def"
 				GenerateDebugInformation="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"/>
@@ -100,13 +100,13 @@
 		</Configuration>
 		<Configuration
 			Name="DLL ASM Release|Win32"
-			OutputDirectory=".\Win32_DLL_ASM_Release\ZLib"
-			IntermediateDirectory=".\Win32_DLL_ASM_Release\ZLib"
+			OutputDirectory=".¥Win32_DLL_ASM_Release¥ZLib"
+			IntermediateDirectory=".¥Win32_DLL_ASM_Release¥ZLib"
 			ConfigurationType="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;NDEBUG;ASMV;ASMINF"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -117,9 +117,9 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)\zlib1.dll"
+				OutputFile="$(OutDir)¥zlib1.dll"
 				LinkIncremental="1"
-				ModuleDefinitionFile="..\..\..\zlib\win32\zlib.def"/>
+				ModuleDefinitionFile="..¥..¥..¥zlib¥win32¥zlib.def"/>
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
@@ -145,13 +145,13 @@
 		</Configuration>
 		<Configuration
 			Name="DLL ASM Debug|Win32"
-			OutputDirectory=".\Win32_DLL_ASM_Debug\ZLib"
-			IntermediateDirectory=".\Win32_DLL_ASM_Debug\ZLib"
+			OutputDirectory=".¥Win32_DLL_ASM_Debug¥ZLib"
+			IntermediateDirectory=".¥Win32_DLL_ASM_Debug¥ZLib"
 			ConfigurationType="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;_DEBUG;ASMV;ASMINF"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -162,8 +162,8 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)\zlib1d.dll"
-				ModuleDefinitionFile="..\..\..\zlib\win32\zlib.def"
+				OutputFile="$(OutDir)¥zlib1d.dll"
+				ModuleDefinitionFile="..¥..¥..¥zlib¥win32¥zlib.def"
 				GenerateDebugInformation="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"/>
@@ -190,13 +190,13 @@
 		</Configuration>
 		<Configuration
 			Name="LIB Release|Win32"
-			OutputDirectory=".\Win32_LIB_Release\ZLib"
-			IntermediateDirectory=".\Win32_LIB_Release\ZLib"
+			OutputDirectory=".¥Win32_LIB_Release¥ZLib"
+			IntermediateDirectory=".¥Win32_LIB_Release¥ZLib"
 			ConfigurationType="4">
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;NDEBUG"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -207,7 +207,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\zlib.lib"/>
+				OutputFile="$(OutDir)¥zlib.lib"/>
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
@@ -229,13 +229,13 @@
 		</Configuration>
 		<Configuration
 			Name="LIB Debug|Win32"
-			OutputDirectory=".\Win32_LIB_Debug\ZLib"
-			IntermediateDirectory=".\Win32_LIB_Debug\ZLib"
+			OutputDirectory=".¥Win32_LIB_Debug¥ZLib"
+			IntermediateDirectory=".¥Win32_LIB_Debug¥ZLib"
 			ConfigurationType="4">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;_DEBUG"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -246,7 +246,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\zlibd.lib"/>
+				OutputFile="$(OutDir)¥zlibd.lib"/>
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
@@ -268,13 +268,13 @@
 		</Configuration>
 		<Configuration
 			Name="LIB ASM Release|Win32"
-			OutputDirectory=".\Win32_LIB_ASM_Release\ZLib"
-			IntermediateDirectory=".\Win32_LIB_ASM_Release\ZLib"
+			OutputDirectory=".¥Win32_LIB_ASM_Release¥ZLib"
+			IntermediateDirectory=".¥Win32_LIB_ASM_Release¥ZLib"
 			ConfigurationType="4">
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;NDEBUG;ASMV;ASMINF"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -285,7 +285,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\zlib.lib"/>
+				OutputFile="$(OutDir)¥zlib.lib"/>
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
@@ -307,13 +307,13 @@
 		</Configuration>
 		<Configuration
 			Name="LIB ASM Debug|Win32"
-			OutputDirectory=".\Win32_LIB_ASM_Debug\ZLib"
-			IntermediateDirectory=".\Win32_LIB_ASM_Debug\ZLib"
+			OutputDirectory=".¥Win32_LIB_ASM_Debug¥ZLib"
+			IntermediateDirectory=".¥Win32_LIB_ASM_Debug¥ZLib"
 			ConfigurationType="4">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\zlib"
+				AdditionalIncludeDirectories="..¥..¥..¥zlib"
 				PreprocessorDefinitions="WIN32;_DEBUG;ASMV;ASMINF"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -324,7 +324,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\zlibd.lib"/>
+				OutputFile="$(OutDir)¥zlibd.lib"/>
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
@@ -352,40 +352,40 @@
 			Name="Source Files"
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
 			<File
-				RelativePath="..\..\..\zlib\adler32.c">
+				RelativePath="..¥..¥..¥zlib¥adler32.c">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\compress.c">
+				RelativePath="..¥..¥..¥zlib¥compress.c">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\crc32.c">
+				RelativePath="..¥..¥..¥zlib¥crc32.c">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\deflate.c">
+				RelativePath="..¥..¥..¥zlib¥deflate.c">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\gzio.c">
+				RelativePath="..¥..¥..¥zlib¥gzio.c">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\infback.c">
+				RelativePath="..¥..¥..¥zlib¥infback.c">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\inffast.c">
+				RelativePath="..¥..¥..¥zlib¥inffast.c">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\inflate.c">
+				RelativePath="..¥..¥..¥zlib¥inflate.c">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\inftrees.c">
+				RelativePath="..¥..¥..¥zlib¥inftrees.c">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\trees.c">
+				RelativePath="..¥..¥..¥zlib¥trees.c">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\uncompr.c">
+				RelativePath="..¥..¥..¥zlib¥uncompr.c">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\win32\zlib.def">
+				RelativePath="..¥..¥..¥zlib¥win32¥zlib.def">
 				<FileConfiguration
 					Name="LIB Release|Win32"
 					ExcludedFromBuild="TRUE">
@@ -412,48 +412,48 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\zutil.c">
+				RelativePath="..¥..¥..¥zlib¥zutil.c">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl">
 			<File
-				RelativePath="..\..\..\zlib\crc32.h">
+				RelativePath="..¥..¥..¥zlib¥crc32.h">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\deflate.h">
+				RelativePath="..¥..¥..¥zlib¥deflate.h">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\inffast.h">
+				RelativePath="..¥..¥..¥zlib¥inffast.h">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\inffixed.h">
+				RelativePath="..¥..¥..¥zlib¥inffixed.h">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\inflate.h">
+				RelativePath="..¥..¥..¥zlib¥inflate.h">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\inftrees.h">
+				RelativePath="..¥..¥..¥zlib¥inftrees.h">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\trees.h">
+				RelativePath="..¥..¥..¥zlib¥trees.h">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\zconf.h">
+				RelativePath="..¥..¥..¥zlib¥zconf.h">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\zlib.h">
+				RelativePath="..¥..¥..¥zlib¥zlib.h">
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\zutil.h">
+				RelativePath="..¥..¥..¥zlib¥zutil.h">
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
 			Filter="ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
 			<File
-				RelativePath="..\..\..\zlib\win32\zlib1.rc">
+				RelativePath="..¥..¥..¥zlib¥win32¥zlib1.rc">
 				<FileConfiguration
 					Name="LIB Release|Win32"
 					ExcludedFromBuild="TRUE">
@@ -484,7 +484,7 @@
 			Name="Assembler Files (Unsupported)"
 			Filter="asm;obj;c;cpp;cxx;h;hpp;hxx">
 			<File
-				RelativePath="..\..\..\zlib\contrib\masmx86\gvmat32.asm">
+				RelativePath="..¥..¥..¥zlib¥contrib¥masmx86¥gvmat32.asm">
 				<FileConfiguration
 					Name="DLL Release|Win32"
 					ExcludedFromBuild="TRUE">
@@ -502,18 +502,18 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Assembling..."
-						CommandLine="ml /nologo /c /Cx /coff /Fo&quot;$(IntDir)\$(InputName).obj&quot; &quot;$(InputPath)&quot;
+						CommandLine="ml /nologo /c /Cx /coff /Fo&quot;$(IntDir)¥$(InputName).obj&quot; &quot;$(InputPath)&quot;
 "
-						Outputs="$(IntDir)\$(InputName).obj"/>
+						Outputs="$(IntDir)¥$(InputName).obj"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="DLL ASM Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Assembling..."
-						CommandLine="ml /nologo /c /Cx /coff /Zi /Fo&quot;$(IntDir)\$(InputName).obj&quot; &quot;$(InputPath)&quot;
+						CommandLine="ml /nologo /c /Cx /coff /Zi /Fo&quot;$(IntDir)¥$(InputName).obj&quot; &quot;$(InputPath)&quot;
 "
-						Outputs="$(IntDir)\$(InputName).obj"/>
+						Outputs="$(IntDir)¥$(InputName).obj"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="LIB Release|Win32"
@@ -532,22 +532,22 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Assembling..."
-						CommandLine="ml /nologo /c /Cx /coff /Fo&quot;$(IntDir)\$(InputName).obj&quot; &quot;$(InputPath)&quot;
+						CommandLine="ml /nologo /c /Cx /coff /Fo&quot;$(IntDir)¥$(InputName).obj&quot; &quot;$(InputPath)&quot;
 "
-						Outputs="$(IntDir)\$(InputName).obj"/>
+						Outputs="$(IntDir)¥$(InputName).obj"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="LIB ASM Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Assembling..."
-						CommandLine="ml /nologo /c /Cx /coff /Zi /Fo&quot;$(IntDir)\$(InputName).obj&quot; &quot;$(InputPath)&quot;
+						CommandLine="ml /nologo /c /Cx /coff /Zi /Fo&quot;$(IntDir)¥$(InputName).obj&quot; &quot;$(InputPath)&quot;
 "
-						Outputs="$(IntDir)\$(InputName).obj"/>
+						Outputs="$(IntDir)¥$(InputName).obj"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\contrib\masmx86\gvmat32c.c">
+				RelativePath="..¥..¥..¥zlib¥contrib¥masmx86¥gvmat32c.c">
 				<FileConfiguration
 					Name="DLL Release|Win32"
 					ExcludedFromBuild="TRUE">
@@ -564,13 +564,13 @@
 					Name="DLL ASM Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories="..\.."/>
+						AdditionalIncludeDirectories="..¥.."/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="DLL ASM Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories="..\.."/>
+						AdditionalIncludeDirectories="..¥.."/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="LIB Release|Win32"
@@ -588,17 +588,17 @@
 					Name="LIB ASM Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories="..\.."/>
+						AdditionalIncludeDirectories="..¥.."/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="LIB ASM Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories="..\.."/>
+						AdditionalIncludeDirectories="..¥.."/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\..\zlib\contrib\masmx86\inffas32.asm">
+				RelativePath="..¥..¥..¥zlib¥contrib¥masmx86¥inffas32.asm">
 				<FileConfiguration
 					Name="DLL Release|Win32"
 					ExcludedFromBuild="TRUE">
@@ -616,18 +616,18 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Assembling..."
-						CommandLine="ml /nologo /c /Cx /coff /Fo&quot;$(IntDir)\$(InputName).obj&quot; &quot;$(InputPath)&quot;
+						CommandLine="ml /nologo /c /Cx /coff /Fo&quot;$(IntDir)¥$(InputName).obj&quot; &quot;$(InputPath)&quot;
 "
-						Outputs="$(IntDir)\$(InputName).obj"/>
+						Outputs="$(IntDir)¥$(InputName).obj"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="DLL ASM Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Assembling..."
-						CommandLine="ml /nologo /c /Cx /coff /Zi /Fo&quot;$(IntDir)\$(InputName).obj&quot; &quot;$(InputPath)&quot;
+						CommandLine="ml /nologo /c /Cx /coff /Zi /Fo&quot;$(IntDir)¥$(InputName).obj&quot; &quot;$(InputPath)&quot;
 "
-						Outputs="$(IntDir)\$(InputName).obj"/>
+						Outputs="$(IntDir)¥$(InputName).obj"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="LIB Release|Win32"
@@ -646,18 +646,18 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Assembling..."
-						CommandLine="ml /nologo /c /Cx /coff /Fo&quot;$(IntDir)\$(InputName).obj&quot; &quot;$(InputPath)&quot;
+						CommandLine="ml /nologo /c /Cx /coff /Fo&quot;$(IntDir)¥$(InputName).obj&quot; &quot;$(InputPath)&quot;
 "
-						Outputs="$(IntDir)\$(InputName).obj"/>
+						Outputs="$(IntDir)¥$(InputName).obj"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="LIB ASM Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Assembling..."
-						CommandLine="ml /nologo /c /Cx /coff /Zi /Fo&quot;$(IntDir)\$(InputName).obj&quot; &quot;$(InputPath)&quot;
+						CommandLine="ml /nologo /c /Cx /coff /Zi /Fo&quot;$(IntDir)¥$(InputName).obj&quot; &quot;$(InputPath)&quot;
 "
-						Outputs="$(IntDir)\$(InputName).obj"/>
+						Outputs="$(IntDir)¥$(InputName).obj"/>
 				</FileConfiguration>
 			</File>
 		</Filter>

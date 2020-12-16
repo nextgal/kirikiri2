@@ -1,25 +1,25 @@
 //---------------------------------------------------------------------------
 /*
-	���̃\�[�X�ł́Axp3enc.dll ���g���� Releaser �ňÍ������� XP3 �t�@�C����
-	������悤�ɂ���g���g���p�v���O�C����������܂��B
+	このソースでは、xp3enc.dll を使って Releaser で暗号化した XP3 ファイルを
+	扱えるようにする吉里吉里用プラグインを説明します。
 
-	�v���O�C���̃t�@�C�����́A�g���q�� tpm �Ȃ�ΔC�ӂ̕��ł��܂��܂���B
-	�g���g���͊g���q�� tpm �̃t�@�C����������� startup.tjs ��ǂݍ�������
-	����O�A���Ȃ킿 XP3 �t�@�C�����ŏ��ɊJ�����O�ɓǂݍ��ނ̂ŁA�g���q��
-	tpm �ł���K�v������܂��B
-	�g���q�� tpm �Ȃ�΃t�@�C������(�v���O�C���Ԃ̈ˑ������Ȃ����)�Ȃ�ł�
-	���܂��܂��񂪁A�����ł͕֋X��Axp3dec.tpm �Ƃ��܂��B
+	プラグインのファイル名は、拡張子が tpm ならば任意の物でかまいません。
+	吉里吉里は拡張子が tpm のファイルを見つけると startup.tjs を読み込もうと
+	する前、すなわち XP3 ファイルが最初に開かれる前に読み込むので、拡張子は
+	tpm である必要があります。
+	拡張子が tpm ならばファイル名は(プラグイン間の依存性がなければ)なんでも
+	かまいませんが、ここでは便宜上、xp3dec.tpm とします。
 
-	xp3enc.dll �ƈقȂ�Axp3dec.tpm �͋g���g���{�̂̃v���O�C���Ƃ��ē��삵��
-	���B���̂��߁A�g���g���{�̗p�̃v���O�C���̍�@�ɏ]���č쐬����Ȃ���΂�
-	��Ȃ�܂��񂪁Atp_stub.h ����ė��p�\�ɂȂ�A�g���g���{�̂̊e�@�\��
-	���p���邱�Ƃ��ł��܂��B�������ATVPSetXP3ArchiveExtractionFilter �͕���
-	�X���b�h���瓯���ɌĂяo�����\��������܂����Atp_stub.h ����ė��p
-	�\�ɂȂ�֐��͂قƂ�ǂ����C���X���b�h����̌Ăяo���݂̂ɑΉ����Ă���
-	�̂Œ��ӂ��Ă��������B
+	xp3enc.dll と異なり、xp3dec.tpm は吉里吉里本体のプラグインとして動作しま
+	す。そのため、吉里吉里本体用のプラグインの作法に従って作成されなければな
+	らなりませんが、tp_stub.h を介して利用可能になる、吉里吉里本体の各機能を
+	利用することができます。ただし、TVPSetXP3ArchiveExtractionFilter は複数
+	スレッドから同時に呼び出される可能性がありますが、tp_stub.h を介して利用
+	可能になる関数はほとんどがメインスレッドからの呼び出しのみに対応している
+	ので注意してください。
 
-	�Í������Ɋւ��鏔���ӂɂ��āA xp3enc.dll �̃T���v���̃\�[�X main.cpp
-	���Q�Ƃ��Ă��������B
+	暗号方式に関する諸注意について、 xp3enc.dll のサンプルのソース main.cpp
+	も参照してください。
 */
 
 
@@ -29,11 +29,11 @@
 //---------------------------------------------------------------------------
 #include <windows.h>
 #include "tp_stub.h"
-	// tp_stub.h �ɂ̓C���N���[�h�E�p�X���w�肵�Ă����܂��B
-	// tp_stub.cpp ����� tp_stub.h �̃o�[�W�����͋g���g���{�̂�
-	// �������̕��ł��邱�Ƃ��D�܂����ł��B
-	// (�������{�̑��̃C���^�[�t�F�[�X���ς��Ȃ���΁A�Â�
-	// xp3dec.dll �ł��p�����ė��p�ł��܂�)
+	// tp_stub.h にはインクルード・パスを指定しておきます。
+	// tp_stub.cpp および tp_stub.h のバージョンは吉里吉里本体と
+	// 同時期の物であることが好ましいです。
+	// (もちろん本体側のインターフェースが変わらなければ、古い
+	// xp3dec.dll でも継続して利用できます)
 //---------------------------------------------------------------------------
 
 
@@ -42,43 +42,43 @@
 void TVP_tTVPXP3ArchiveExtractionFilter_CONVENTION
 	TVPXP3ArchiveExtractionFilter(tTVPXP3ExtractionFilterInfo *info)
 {
-	// TVPXP3ArchiveExtractionFilter �֐��͖{�̑�����Ăяo�����
-	// �R�[���o�b�N�֐��ł��B
-	// ����������A����� tTVPXP3ExtractionFilterInfo �\���̂ւ̃|�C���^
-	// �ł��B
+	// TVPXP3ArchiveExtractionFilter 関数は本体側から呼び出される
+	// コールバック関数です。
+	// 引数を一つ取り、それは tTVPXP3ExtractionFilterInfo 構造体へのポインタ
+	// です。
 
-	// TVPXP3ArchiveExtractionFilter �́A��q�� V2Link �֐�����
-	// TVPSetXP3ArchiveExtractionFilter �ɂ��ݒ肳��܂��B
+	// TVPXP3ArchiveExtractionFilter は、後述の V2Link 関数内で
+	// TVPSetXP3ArchiveExtractionFilter により設定されます。
 
-	// �����ł͒P���ɁAxp3enc.dll �̃T���v���ō쐬���ꂽ XP3 �A�[�J�C�u��
-	// �������ׂ��A�f�[�^�����ׂ� FileHash �̍ŉ��ʃo�C�g�� XOR
-	// ���邱�Ƃɂ��܂��B
+	// ここでは単純に、xp3enc.dll のサンプルで作成された XP3 アーカイブを
+	// 復号すべく、データをすべて FileHash の最下位バイトで XOR
+	// することにします。
 
-	// ���̊֐��͕����̃X���b�h���瓯���ɌĂяo�����\��������̂�
-	// ���ӂ��Ă��������B
+	// この関数は複数のスレッドから同時に呼び出される可能性があるので
+	// 注意してください。
 
 	/*
-		tTVPXP3ExtractionFilterInfo �̃����o�͈ȉ��̒ʂ�
-		* SizeOfSelf        : �������g�̍\���̂̃T�C�Y
-		* Offset            : "Buffer" �����o���w�������f�[�^���A
-		*                   : �A�[�J�C�u�Ɋi�[����Ă��邻�̃t�@�C���̐擪�����
-		*                   : �ǂ̃I�t�Z�b�g�ʒu����̂��̂��A��\��
-		* Buffer            : �f�[�^�{��
-		* BufferSize        : "Buffer" �����o�̎w�������f�[�^�̃T�C�Y(�o�C�g�P��)
-		* FileHash          : �t�@�C���̈Í���������Ԃł̃t�@�C�����e��32bit�n�b�V��
+		tTVPXP3ExtractionFilterInfo のメンバは以下の通り
+		* SizeOfSelf        : 自分自身の構造体のサイズ
+		* Offset            : "Buffer" メンバが指し示すデータが、
+		*                   : アーカイブに格納されているそのファイルの先頭からの
+		*                   : どのオフセット位置からのものか、を表す
+		* Buffer            : データ本体
+		* BufferSize        : "Buffer" メンバの指し示すデータのサイズ(バイト単位)
+		* FileHash          : ファイルの暗号化解除状態でのファイル内容の32bitハッシュ
 	*/
 
-	// �ꉞ�\���̂̃T�C�Y���`�F�b�N����
+	// 一応構造体のサイズをチェックする
 	if(info->SizeOfSelf != sizeof(tTVPXP3ExtractionFilterInfo))
 	{
-		// �\���̂̃T�C�Y���Ⴄ�ꍇ�͂����ŃG���[�ɂ��������悢
+		// 構造体のサイズが違う場合はここでエラーにした方がよい
 		TVPThrowExceptionMessage(TJS_W("Incompatible tTVPXP3ExtractionFilterInfo size"));
-			// TVPThrowExceptionMessage �͗�O���b�Z�[�W�𓊂���֐�
-			// ���̊֐��͖߂�Ȃ� ( �����ƌĂяo�����������̂ڂ����ʒu��
-			// ��O���⑫����邽�� )
+			// TVPThrowExceptionMessage は例外メッセージを投げる関数
+			// この関数は戻らない ( もっと呼び出し元をさかのぼった位置で
+			// 例外が補足されるため )
 	}
 
-	// ����
+	// 復号
 	tjs_uint i;
 	for(i = 0; i < info->BufferSize; i++)
 		((unsigned char *)info->Buffer)[i] ^= info->FileHash;
@@ -97,13 +97,13 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason,
 //---------------------------------------------------------------------------
 extern "C" HRESULT _stdcall V2Link(iTVPFunctionExporter *exporter)
 {
-	// V2Link �́A�g���g���{�̂ƃ����N�����Ƃ��ɌĂяo�����֐��ł�
+	// V2Link は、吉里吉里本体とリンクされるときに呼び出される関数です
 	
-	// �X�^�u�̏�����(�K���L�q����)
+	// スタブの初期化(必ず記述する)
 	TVPInitImportStub(exporter);
 
-	// TVPSetXP3ArchiveExtractionFilter �֐���
-	// TVPXP3ArchiveExtractionFilter ���w�肵�A�R�[���o�b�N�֐���ݒ肷��
+	// TVPSetXP3ArchiveExtractionFilter 関数に
+	// TVPXP3ArchiveExtractionFilter を指定し、コールバック関数を設定する
 	TVPSetXP3ArchiveExtractionFilter(TVPXP3ArchiveExtractionFilter);
 
 	return S_OK;
@@ -111,13 +111,13 @@ extern "C" HRESULT _stdcall V2Link(iTVPFunctionExporter *exporter)
 //---------------------------------------------------------------------------
 extern "C" HRESULT _stdcall V2Unlink()
 {
-	// V2Unlink �́A�g���g���{�̂���؂藣�����Ƃ��ɌĂяo�����֐��ł�
+	// V2Unlink は、吉里吉里本体から切り離されるときに呼び出される関数です
 
-	// �ꉞ TVPSetXP3ArchiveExtractionFilter �� NULL ��n���A
-	// �R�[���o�b�N�֐��̓o�^����������
+	// 一応 TVPSetXP3ArchiveExtractionFilter に NULL を渡し、
+	// コールバック関数の登録を解除する
 	TVPSetXP3ArchiveExtractionFilter(NULL);
 
-	// �X�^�u�̎g�p�I��(�K���L�q����)
+	// スタブの使用終了(必ず記述する)
 	TVPUninitImportStub();
 
 	return S_OK; 

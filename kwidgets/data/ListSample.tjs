@@ -4,28 +4,28 @@
 
 
 /*----------------------------------------------------------------------
- * ƒŠƒXƒgƒTƒ“ƒvƒ‹
+ * ãƒªã‚¹ãƒˆã‚µãƒ³ãƒ—ãƒ«
  ----------------------------------------------------------------------*/
 
-// D&D‚µ‚ÄˆÊ’u‚ğˆÚ“®‚Å‚«‚éƒŠƒXƒgƒAƒCƒeƒ€
+// D&Dã—ã¦ä½ç½®ã‚’ç§»å‹•ã§ãã‚‹ãƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ 
 class DragDropListItem extends KListItem
 {
   function DragDropListItem(label, name) {
     super.KListItem(label, name);
   }
 
-  // "ddlistitem"–¼‹`‚Åƒhƒ‰ƒbƒOŠJn
+  // "ddlistitem"åç¾©ã§ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
   function onDragEnter {
     beginDragPacket(new KPacket("ddlistitem", this));
   }
 
-  // "ddlistitem"‚ğó‚¯“ü‚ê‚é(©•ª©g‚Ìê‡‚ÍœŠO)
+  // "ddlistitem"ã‚’å—ã‘å…¥ã‚Œã‚‹(è‡ªåˆ†è‡ªèº«ã®å ´åˆã¯é™¤å¤–)
   function isPacketAcceptable(packet) {
     return (packet.name == "ddlistitem"
 	    && packet.arg != this);
   }
 
-  // ƒhƒƒbƒv‚µ‚½ƒŠƒXƒgƒAƒCƒeƒ€‚Ìparent‚ğ‚Â‚¯‚©‚¦‚éB
+  // ãƒ‰ãƒ­ãƒƒãƒ—ã—ãŸãƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ ã®parentã‚’ã¤ã‘ã‹ãˆã‚‹ã€‚
   function onPacketDrop(x, y, packet) {
     var item = packet.arg;
     item.parent.remove(item, false);
@@ -34,19 +34,19 @@ class DragDropListItem extends KListItem
 }
 
 //----------------------------------------------------------------------
-// DragDropListItem ‚ğ child‚Éó‚¯“ü‚ê‰Â”\‚ÈƒAƒCƒeƒ€
+// DragDropListItem ã‚’ childã«å—ã‘å…¥ã‚Œå¯èƒ½ãªã‚¢ã‚¤ãƒ†ãƒ 
 class DragDropTopListItem extends KListItem
 {
   function DragDropTopListItem(label, name) {
     super.KListItem(label, name);
   }
 
-  // "ddlistitem"‚ğó‚¯“ü‚ê‚é
+  // "ddlistitem"ã‚’å—ã‘å…¥ã‚Œã‚‹
   function isPacketAcceptable(packet) {
     return (packet.name == "ddlistitem");
   }
 
-  // ƒhƒƒbƒv‚µ‚½ƒŠƒXƒgƒAƒCƒeƒ€‚ğ©•ª‚Ìchild‚É‚·‚éB
+  // ãƒ‰ãƒ­ãƒƒãƒ—ã—ãŸãƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ ã‚’è‡ªåˆ†ã®childã«ã™ã‚‹ã€‚
   function onPacketDrop(x, y, packet) {
     var item = packet.arg;
     item.parent.remove(item, false);
@@ -55,7 +55,7 @@ class DragDropTopListItem extends KListItem
 }
 
 //----------------------------------------------------------------------
-// ƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[‚ğ•\¦‚·‚éƒŠƒXƒgƒAƒCƒeƒ€
+// ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ãƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ 
 class ContextMenuListItem extends KListItem
 {
   var checkValue;
@@ -63,73 +63,73 @@ class ContextMenuListItem extends KListItem
 
   function ContextMenuListItem(label, name) {
     super.KListItem(label, name);
-    // ƒ`ƒFƒbƒN’l‚Ì‰Šú’l
+    // ãƒã‚§ãƒƒã‚¯å€¤ã®åˆæœŸå€¤
     checkValue = true;
     checkValue2 = true;
   }
 
-  // ‰EƒNƒŠƒbƒNƒƒjƒ…[BŒÂX‚Ìƒƒjƒ…[ƒAƒCƒeƒ€‚Åˆ—ŠÖ”‚ğƒnƒ“ƒhƒ‹‚·‚é—áB
+  // å³ã‚¯ãƒªãƒƒã‚¯æ™‚ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã€‚å€‹ã€…ã®ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ ã§å‡¦ç†é–¢æ•°ã‚’ãƒãƒ³ãƒ‰ãƒ«ã™ã‚‹ä¾‹ã€‚
   function onRightClick {
     var menu = new KContextMenu();
-    menu.addItem("‘I‘ğƒAƒCƒeƒ€", "", true, this.onSelectItem);
-    menu.addToggleItem("ƒgƒOƒ‹ƒAƒCƒeƒ€", checkValue, "", true, this.onToggleItem);
+    menu.addItem("é¸æŠã‚¢ã‚¤ãƒ†ãƒ ", "", true, this.onSelectItem);
+    menu.addToggleItem("ãƒˆã‚°ãƒ«ã‚¢ã‚¤ãƒ†ãƒ ", checkValue, "", true, this.onToggleItem);
     menu.addSeparator();
-    menu.addItem("”ñ‘I‘ğƒAƒCƒeƒ€", "", false);
-    var nest = menu.addItem("“ü‚êqƒAƒCƒeƒ€");
-    nest.addItem("“ü‚êq‚Ì’†g‚»‚Ì1");
-    nest.addItem("“ü‚êq‚Ì’†g‚»‚Ì2");
-    nest.addItem("“ü‚êq‚Ì’†g‚»‚Ì3");
-    nest.addItem("[‚¢ƒlƒXƒg", "deepNestItem");
-    menu.deepNestItem.addItem("[‚¢ƒlƒXƒg‚ÉA–¼‘O‚Å’¼ÚƒAƒNƒZƒX‚Ì—á");
+    menu.addItem("éé¸æŠã‚¢ã‚¤ãƒ†ãƒ ", "", false);
+    var nest = menu.addItem("å…¥ã‚Œå­ã‚¢ã‚¤ãƒ†ãƒ ");
+    nest.addItem("å…¥ã‚Œå­ã®ä¸­èº«ãã®1");
+    nest.addItem("å…¥ã‚Œå­ã®ä¸­èº«ãã®2");
+    nest.addItem("å…¥ã‚Œå­ã®ä¸­èº«ãã®3");
+    nest.addItem("æ·±ã„ãƒã‚¹ãƒˆ", "deepNestItem");
+    menu.deepNestItem.addItem("æ·±ã„ãƒã‚¹ãƒˆã«ã€åå‰ã§ç›´æ¥ã‚¢ã‚¯ã‚»ã‚¹ã®ä¾‹");
     menu.show();
   }
 
   function onSelectItem {
-    System.inform("‘I‘ğƒAƒCƒeƒ€‚ğƒNƒŠƒbƒN");
+    System.inform("é¸æŠã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚¯ãƒªãƒƒã‚¯");
   }
 
   function onToggleItem(value) {
     checkValue = value;
-    Debug.message("ƒ`ƒFƒbƒN", value);
+    Debug.message("ãƒã‚§ãƒƒã‚¯", value);
   }
 
-  // ¶ƒNƒŠƒbƒNƒƒjƒ…[B‘Sƒƒjƒ…[ƒAƒCƒeƒ€‚Ì”½‰‚ğ‚Ü‚Æ‚ß‚Äˆê‰ÓŠ‚Åæ‚é—áB
+  // å·¦ã‚¯ãƒªãƒƒã‚¯æ™‚ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã€‚å…¨ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ ã®åå¿œã‚’ã¾ã¨ã‚ã¦ä¸€ç®‡æ‰€ã§å–ã‚‹ä¾‹ã€‚
   function onClick {
     var menu = new KContextMenu();
     menu.onChildValueModified = this.onChildValueModified;
-    menu.addItem("€–Ú1", "item1");
-    menu.addItem("€–Ú2", "item2");
-    menu.addValueItem("€–Ú3-’l123", 123, "item3");
-    menu.addValueItem("€–Ú3-’l456", 456, "item3");
-    menu.addToggleItem("€–Ú4", checkValue2, "item4");
+    menu.addItem("é …ç›®1", "item1");
+    menu.addItem("é …ç›®2", "item2");
+    menu.addValueItem("é …ç›®3-å€¤123", 123, "item3");
+    menu.addValueItem("é …ç›®3-å€¤456", 456, "item3");
+    menu.addToggleItem("é …ç›®4", checkValue2, "item4");
     menu.show();
   }
 
   function onChildValueModified(child, value) {
     switch (child.name) {
-    case "item1": System.inform("€–Ú1‚ğ‘I‘ğ‚µ‚Ü‚µ‚½"); break;
-    case "item2": System.inform("€–Ú2‚ğ‘I‘ğ‚µ‚Ü‚µ‚½"); break;
-    case "item3": System.inform("€–Ú3‚ğ’lu" + value + "v‚Å‘I‘ğ‚µ‚Ü‚µ‚½"); break;
-    case "item4": System.inform("€–Ú4‚Ì’l‚ªu" + value + "v‚É‚È‚è‚Ü‚µ‚½"); checkValue2 = value; break;
+    case "item1": System.inform("é …ç›®1ã‚’é¸æŠã—ã¾ã—ãŸ"); break;
+    case "item2": System.inform("é …ç›®2ã‚’é¸æŠã—ã¾ã—ãŸ"); break;
+    case "item3": System.inform("é …ç›®3ã‚’å€¤ã€Œ" + value + "ã€ã§é¸æŠã—ã¾ã—ãŸ"); break;
+    case "item4": System.inform("é …ç›®4ã®å€¤ãŒã€Œ" + value + "ã€ã«ãªã‚Šã¾ã—ãŸ"); checkValue2 = value; break;
     }
   }
 }
 
 //----------------------------------------------------------------------
-// ƒAƒCƒRƒ“‚Â‚«ƒŠƒXƒgƒAƒCƒeƒ€
+// ã‚¢ã‚¤ã‚³ãƒ³ã¤ããƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ 
 class IconListItem extends KListItem
 {
   function IconListItem(label, name) {
     super.KListItem(label, name);
-    // ƒAƒCƒRƒ“‚ğ‰Šúİ’è
+    // ã‚¢ã‚¤ã‚³ãƒ³ã‚’åˆæœŸè¨­å®š
     icons = [ "k_check_button_on", "gotta_mail" ];
   }
 
-  // ƒAƒCƒRƒ“‚ªƒNƒŠƒbƒN‚³‚ê‚½‚Ì”½‰
+  // ã‚¢ã‚¤ã‚³ãƒ³ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸæ™‚ã®åå¿œ
   function onIconClick(index) {
     if (index != 0)
       return;
-    // ƒAƒCƒRƒ“‚ğØ‚è‘Ö‚¦
+    // ã‚¢ã‚¤ã‚³ãƒ³ã‚’åˆ‡ã‚Šæ›¿ãˆ
     if (icon == "k_check_button_on")
       icons= [ "k_check_button_off", "gotta_mail" ];
     else
@@ -138,52 +138,52 @@ class IconListItem extends KListItem
 }
 
 //----------------------------------------------------------------------
-// ƒŠƒXƒgƒTƒ“ƒvƒ‹
+// ãƒªã‚¹ãƒˆã‚µãƒ³ãƒ—ãƒ«
 //----------------------------------------------------------------------
 class ListSample extends KWindow
 {
   function ListSample {
     super.KWindow("listsample");
     
-    // ƒEƒBƒ“ƒhƒE‰Šúİ’è
-    caption = 'ƒŠƒXƒgƒTƒ“ƒvƒ‹';
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦åˆæœŸè¨­å®š
+    caption = 'ãƒªã‚¹ãƒˆã‚µãƒ³ãƒ—ãƒ«';
     imeMode = imDontCare;
 
-    // ƒfƒtƒHƒ‹ƒg’l
+    // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
     defaultFocusable = true;
 
-    // ƒXƒNƒ[ƒ‹ƒŒƒCƒAƒEƒg‚ğìƒŠA‚»‚Ì’†‚ÉƒŠƒXƒg‚ğ”z’u
+    // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ä½œãƒªã€ãã®ä¸­ã«ãƒªã‚¹ãƒˆã‚’é…ç½®
     primaryWidget.add(new KScrollLayout(this, true, true, "scroll"));
     scroll.resize = true;
     scroll.add(new KList(this, "list"));
 
-    // ƒŠƒXƒg€–Ú‚ğ”z’u‚µ‚Ü‚­‚é
+    // ãƒªã‚¹ãƒˆé …ç›®ã‚’é…ç½®ã—ã¾ãã‚‹
     list.spaceVertical = 2;
-    list.add(new DragDropTopListItem("ƒgƒbƒv€–Ú1", "listitem1"));
+    list.add(new DragDropTopListItem("ãƒˆãƒƒãƒ—é …ç›®1", "listitem1"));
 
-    list.add(new DragDropTopListItem("ƒgƒbƒv€–Ú2", "listitem2"));
-    list.add(new KListItem("ƒgƒbƒv€–Ú3‚Í‚¿‚å‚Á‚Æ‰¡’·‚É•\¦‚µ‚Ü‚·‚Å‚·‚æ", "listitem3"));
-    list.add(new KListItem("ƒgƒbƒv€–Ú4‚ÍF2‚Å–¼‘O‚ğ•ÒW‰Â”\", "listitem4"));
-    list.add(new ContextMenuListItem("ƒgƒbƒv€–Ú5‚Í¶ƒNƒŠƒbƒN‚Ü‚½‚Í‰EƒNƒŠƒbƒN‚ÅƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[‚ªŠJ‚­"));
-    list.add(new IconListItem("ƒgƒbƒv€–Ú6‚ÍƒAƒCƒRƒ“‚Â‚«BƒAƒCƒRƒ“‚ğƒNƒŠƒbƒN‚ÅØ‚è‘Ö‚¦"));
-    list.add(new KListItem("ƒgƒbƒv€–Ú7‚Íƒqƒ“ƒg‚ªİ’è‚³‚ê‚Ä‚¢‚é", "listitem7"));
-    listitem7.hint = "‚±‚ñ‚È•—‚ÉƒŠƒXƒgƒAƒCƒeƒ€‚É‘Î‚µ‚Ä\nƒqƒ“ƒg‚ğİ’è‚·‚é‚±‚Æ‚ª‚Å‚«‚é";
+    list.add(new DragDropTopListItem("ãƒˆãƒƒãƒ—é …ç›®2", "listitem2"));
+    list.add(new KListItem("ãƒˆãƒƒãƒ—é …ç›®3ã¯ã¡ã‚‡ã£ã¨æ¨ªé•·ã«è¡¨ç¤ºã—ã¾ã™ã§ã™ã‚ˆ", "listitem3"));
+    list.add(new KListItem("ãƒˆãƒƒãƒ—é …ç›®4ã¯F2ã§åå‰ã‚’ç·¨é›†å¯èƒ½", "listitem4"));
+    list.add(new ContextMenuListItem("ãƒˆãƒƒãƒ—é …ç›®5ã¯å·¦ã‚¯ãƒªãƒƒã‚¯ã¾ãŸã¯å³ã‚¯ãƒªãƒƒã‚¯ã§ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ãŒé–‹ã"));
+    list.add(new IconListItem("ãƒˆãƒƒãƒ—é …ç›®6ã¯ã‚¢ã‚¤ã‚³ãƒ³ã¤ãã€‚ã‚¢ã‚¤ã‚³ãƒ³ã‚’ã‚¯ãƒªãƒƒã‚¯ã§åˆ‡ã‚Šæ›¿ãˆ"));
+    list.add(new KListItem("ãƒˆãƒƒãƒ—é …ç›®7ã¯ãƒ’ãƒ³ãƒˆãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹", "listitem7"));
+    listitem7.hint = "ã“ã‚“ãªé¢¨ã«ãƒªã‚¹ãƒˆã‚¢ã‚¤ãƒ†ãƒ ã«å¯¾ã—ã¦Â¥nãƒ’ãƒ³ãƒˆã‚’è¨­å®šã™ã‚‹ã“ã¨ãŒã§ãã‚‹";
 
-    listitem1.add(new DragDropListItem("€–Ú1-1 ‚c•‚c‚Å“ü‚ê‘Ö‚¦‰Â”\"));
-    listitem1.add(new DragDropListItem("€–Ú1-2 ‚c•‚c‚Å“ü‚ê‘Ö‚¦‰Â”\"));
-    listitem1.add(new DragDropListItem("€–Ú1-3 ‚c•‚c‚Å“ü‚ê‘Ö‚¦‰Â”\"));
-    listitem1.add(new DragDropListItem("€–Ú1-4 ‚c•‚c‚Å“ü‚ê‘Ö‚¦‰Â”\"));
+    listitem1.add(new DragDropListItem("é …ç›®1-1 ï¼¤ï¼†ï¼¤ã§å…¥ã‚Œæ›¿ãˆå¯èƒ½"));
+    listitem1.add(new DragDropListItem("é …ç›®1-2 ï¼¤ï¼†ï¼¤ã§å…¥ã‚Œæ›¿ãˆå¯èƒ½"));
+    listitem1.add(new DragDropListItem("é …ç›®1-3 ï¼¤ï¼†ï¼¤ã§å…¥ã‚Œæ›¿ãˆå¯èƒ½"));
+    listitem1.add(new DragDropListItem("é …ç›®1-4 ï¼¤ï¼†ï¼¤ã§å…¥ã‚Œæ›¿ãˆå¯èƒ½"));
 
-    listitem2.add(new DragDropListItem("€–Ú2-1 ‚c•‚c‚Å“ü‚ê‘Ö‚¦‰Â”\"));
-    listitem2.add(new DragDropListItem("€–Ú2-2 ‚c•‚c‚Å“ü‚ê‘Ö‚¦‰Â”\"));
-    listitem2.add(new DragDropListItem("€–Ú2-3 ‚c•‚c‚Å“ü‚ê‘Ö‚¦‰Â”\"));
-    listitem2.add(new DragDropListItem("€–Ú2-4 ‚c•‚c‚Å“ü‚ê‘Ö‚¦‰Â”\"));
+    listitem2.add(new DragDropListItem("é …ç›®2-1 ï¼¤ï¼†ï¼¤ã§å…¥ã‚Œæ›¿ãˆå¯èƒ½"));
+    listitem2.add(new DragDropListItem("é …ç›®2-2 ï¼¤ï¼†ï¼¤ã§å…¥ã‚Œæ›¿ãˆå¯èƒ½"));
+    listitem2.add(new DragDropListItem("é …ç›®2-3 ï¼¤ï¼†ï¼¤ã§å…¥ã‚Œæ›¿ãˆå¯èƒ½"));
+    listitem2.add(new DragDropListItem("é …ç›®2-4 ï¼¤ï¼†ï¼¤ã§å…¥ã‚Œæ›¿ãˆå¯èƒ½"));
 
     for (var i = 0; i < 50; i++) {
       var subItem;
-      listitem3.add(subItem = new KListItem("ƒTƒu€–Ú"));
+      listitem3.add(subItem = new KListItem("ã‚µãƒ–é …ç›®"));
       for (var j = 0; j < 10; j++) {
-	subItem.add(new KListItem("‘·€–Ú"));
+	subItem.add(new KListItem("å­«é …ç›®"));
       }
     }
     listitem4.labelEditable = true;
@@ -194,29 +194,29 @@ class ListSample extends KWindow
     defaultAlignHorizontal = ALIGN_CENTER;
     defaultAlignVertical = ALIGN_CENTER;
 
-    list.add(new KListItem("ƒ{ƒ^ƒ“ƒEƒBƒWƒFƒbƒg", "buttonWidgetHolder", true));
+    list.add(new KListItem("ãƒœã‚¿ãƒ³ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ", "buttonWidgetHolder", true));
     buttonWidgetHolder.add(new KFrameLayout(this, FRAME_FLATTEN, "", "buttonFrame"));
     buttonFrame.add(new KGridLayout(this, "buttonGrid"));
-    buttonGrid.add(0, 0, new KFrameLayout(this, FRAME_FLATTEN, "ƒm[ƒ}ƒ‹ƒ{ƒ^ƒ“", "normalButtonFrame"));
+    buttonGrid.add(0, 0, new KFrameLayout(this, FRAME_FLATTEN, "ãƒãƒ¼ãƒãƒ«ãƒœã‚¿ãƒ³", "normalButtonFrame"));
     normalButtonFrame.add(new KGridLayout(this, "normalButtonGrid"));
-    normalButtonGrid.add(0, 0, new KTextButton(this, "ƒ{ƒ^ƒ“", "textbutton"));
+    normalButtonGrid.add(0, 0, new KTextButton(this, "ãƒœã‚¿ãƒ³", "textbutton"));
     normalButtonGrid.add(1, 0, new KImageButton(this, "gotta_mail", "imagebutton"));
-    buttonGrid.add(0, 1, new KFrameLayout(this, FRAME_FLATTEN, "ƒm[ƒ}ƒ‹ƒ{ƒ^ƒ“", "toggleButtonFrame"));
+    buttonGrid.add(0, 1, new KFrameLayout(this, FRAME_FLATTEN, "ãƒãƒ¼ãƒãƒ«ãƒœã‚¿ãƒ³", "toggleButtonFrame"));
     toggleButtonFrame.add(new KGridLayout(this, "toggleButtonGrid"));
-    toggleButtonGrid.add(0, 0, new KTextToggleButton(this, "ƒ{ƒ^ƒ“", "texttogglebutton"));
+    toggleButtonGrid.add(0, 0, new KTextToggleButton(this, "ãƒœã‚¿ãƒ³", "texttogglebutton"));
     toggleButtonGrid.add(1, 0, new KImageToggleButton(this, "gotta_mail", "imagetogglebutton"));
 
-    // ‰i‘±‰»«‘‚Ìì¬
+    // æ°¸ç¶šåŒ–è¾æ›¸ã®ä½œæˆ
     var dict = new KPersistentDictionary(System.dataPath + name + "_dict.txt");
     add(dict);
     bindPersistentDictionary(dict);
   }
 
-  // ƒEƒBƒWƒFƒbƒg‚Ì’l‚ªXV‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒtƒbƒNŠÖ”
+  // ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®å€¤ãŒæ›´æ–°ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒ•ãƒƒã‚¯é–¢æ•°
   function onChildValueModified(child, value) {
     switch (child.name) {
     default: {
-      // XV‚Ì‚ ‚Á‚½ƒEƒBƒWƒFƒbƒg‚Ì–¼‘O‚Æ’l‚ğ•\¦B
+      // æ›´æ–°ã®ã‚ã£ãŸã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã®åå‰ã¨å€¤ã‚’è¡¨ç¤ºã€‚
       Debug.message("child value modified", child.name, typeof(value), value);
       break;
     }
@@ -225,7 +225,7 @@ class ListSample extends KWindow
 }
 
 //----------------------------------------------------------------------
-// ƒTƒ“ƒvƒ‹•\¦E”ñ•\¦‚ÌØ‚è‘Ö‚¦
+// ã‚µãƒ³ãƒ—ãƒ«è¡¨ç¤ºãƒ»éè¡¨ç¤ºã®åˆ‡ã‚Šæ›¿ãˆ
 global.listSample = void;
 
 function showListSample

@@ -81,8 +81,8 @@ int main(int argc, char *argv[])
           argi++;
           if ((fp_al = fopen (argv[argi], "rb")) == NULL)
           {
-            fprintf (stderr, "PNM2PNG\n");
-            fprintf (stderr, "Error:  alpha-channel file %s does not exist\n",
+            fprintf (stderr, "PNM2PNG¥n");
+            fprintf (stderr, "Error:  alpha-channel file %s does not exist¥n",
                argv[argi]);
             exit (1);
           }
@@ -93,8 +93,8 @@ int main(int argc, char *argv[])
           exit(0);
           break;
         default:
-          fprintf (stderr, "PNM2PNG\n");
-          fprintf (stderr, "Error:  unknown option %s\n", argv[argi]);
+          fprintf (stderr, "PNM2PNG¥n");
+          fprintf (stderr, "Error:  unknown option %s¥n", argv[argi]);
           usage();
           exit(1);
           break;
@@ -104,8 +104,8 @@ int main(int argc, char *argv[])
     {
       if ((fp_rd = fopen (argv[argi], "rb")) == NULL)
       {
-        fprintf (stderr, "PNM2PNG\n");
-        fprintf (stderr, "Error:  file %s does not exist\n", argv[argi]);
+        fprintf (stderr, "PNM2PNG¥n");
+        fprintf (stderr, "Error:  file %s does not exist¥n", argv[argi]);
         exit (1);
       }
     }
@@ -113,15 +113,15 @@ int main(int argc, char *argv[])
     {
       if ((fp_wr = fopen (argv[argi], "wb")) == NULL)
       {
-        fprintf (stderr, "PNM2PNG\n");
-        fprintf (stderr, "Error:  can not create PNG-file %s\n", argv[argi]);
+        fprintf (stderr, "PNM2PNG¥n");
+        fprintf (stderr, "Error:  can not create PNG-file %s¥n", argv[argi]);
         exit (1);
       }
     }
     else
     {
-      fprintf (stderr, "PNM2PNG\n");
-      fprintf (stderr, "Error:  too many parameters\n");
+      fprintf (stderr, "PNM2PNG¥n");
+      fprintf (stderr, "Error:  too many parameters¥n");
       usage();
       exit (1);
     }
@@ -142,8 +142,8 @@ int main(int argc, char *argv[])
   /* call the conversion program itself */
   if (pnm2png (fp_rd, fp_wr, fp_al, interlace, alpha) == FALSE)
   {
-    fprintf (stderr, "PNM2PNG\n");
-    fprintf (stderr, "Error:  unsuccessful converting to PNG-image\n");
+    fprintf (stderr, "PNM2PNG¥n");
+    fprintf (stderr, "Error:  unsuccessful converting to PNG-image¥n");
     exit (1);
   }
 
@@ -164,19 +164,19 @@ int main(int argc, char *argv[])
 
 void usage()
 {
-  fprintf (stderr, "PNM2PNG\n");
-  fprintf (stderr, "   by Willem van Schaik, 1999\n");
+  fprintf (stderr, "PNM2PNG¥n");
+  fprintf (stderr, "   by Willem van Schaik, 1999¥n");
 #ifdef __TURBOC__
-  fprintf (stderr, "   for Turbo-C and Borland-C compilers\n");
+  fprintf (stderr, "   for Turbo-C and Borland-C compilers¥n");
 #else
-  fprintf (stderr, "   for Linux (and Unix) compilers\n");
+  fprintf (stderr, "   for Linux (and Unix) compilers¥n");
 #endif
-  fprintf (stderr, "Usage:  pnm2png [options] <file>.<pnm> [<file>.png]\n");
-  fprintf (stderr, "   or:  ... | pnm2png [options]\n");
-  fprintf (stderr, "Options:\n");
-  fprintf (stderr, "   -i[nterlace]   write png-file with interlacing on\n");
-  fprintf (stderr, "   -a[lpha] <file>.pgm read PNG alpha channel as pgm-file\n");
-  fprintf (stderr, "   -h | -?  print this help-information\n");
+  fprintf (stderr, "Usage:  pnm2png [options] <file>.<pnm> [<file>.png]¥n");
+  fprintf (stderr, "   or:  ... | pnm2png [options]¥n");
+  fprintf (stderr, "Options:¥n");
+  fprintf (stderr, "   -i[nterlace]   write png-file with interlacing on¥n");
+  fprintf (stderr, "   -a[lpha] <file>.pgm read PNG alpha channel as pgm-file¥n");
+  fprintf (stderr, "   -h | -?  print this help-information¥n");
 }
 
 /*
@@ -452,7 +452,7 @@ void get_token(FILE *pnm_file, char *token)
   {
     token[i] = (unsigned char) fgetc (pnm_file);
   }
-  while ((token[i] == '\n') || (token[i] == '\r') || (token[i] == ' '));
+  while ((token[i] == '¥n') || (token[i] == '¥r') || (token[i] == ' '));
 
   /* read string */
   do
@@ -460,9 +460,9 @@ void get_token(FILE *pnm_file, char *token)
     i++;
     token[i] = (unsigned char) fgetc (pnm_file);
   }
-  while ((token[i] != '\n') && (token[i] != '\r') && (token[i] != ' '));
+  while ((token[i] != '¥n') && (token[i] != '¥r') && (token[i] != ' '));
 
-  token[i] = '\0';
+  token[i] = '¥0';
 
   return;
 }

@@ -14,7 +14,7 @@
 //---------------------------------------------------------------------------
 extern void __fastcall SetGrayscalePalette(Graphics::TBitmap *dib, int bit);
 //---------------------------------------------------------------------------
-// ó·äOÉNÉâÉX
+// ‰æãÂ§ñ„ÇØ„É©„Çπ
 class EDeePNG : public Exception
 {
 public:
@@ -37,11 +37,11 @@ public:
 		, const int Args_Size, int AHelpContext) : Sysutils::Exception(Ident,
 		 Args, Args_Size, AHelpContext) { }
 
-	__fastcall virtual ~EDeePNG(void) { }
+	__fastcall virtual ‚ÄæEDeePNG(void) { }
 
 };
 //---------------------------------------------------------------------------
-// TDeePNG ÉNÉâÉX
+// TDeePNG „ÇØ„É©„Çπ
 class TDeePNG : public Graphics::TBitmap
 {
 private:
@@ -56,15 +56,15 @@ protected:
 	int vpag_unit;
 
 public:
-	// ÉRÉìÉXÉgÉâÉNÉ^Ç∆ÉfÉXÉgÉâÉNÉ^
+	// „Ç≥„É≥„Çπ„Éà„É©„ÇØ„Çø„Å®„Éá„Çπ„Éà„É©„ÇØ„Çø
 	__fastcall TDeePNG(void);
-	__fastcall ~TDeePNG(void);
+	__fastcall ‚ÄæTDeePNG(void);
 
-	// Stream I/O  ÇÃÉIÅ[ÉoÅ[ÉâÉCÉh
+	// Stream I/O  „ÅÆ„Ç™„Éº„Éê„Éº„É©„Ç§„Éâ
 	void __fastcall LoadFromStream(Classes::TStream * Stream);
 	void __fastcall SaveToStream(Classes::TStream * Stream);
 
-	// ÉIÉtÉZÉbÉg
+	// „Ç™„Éï„Çª„ÉÉ„Éà
 	void SetOffset(int ofs_x, int ofs_y, int ofs_unit)
 	{
 		this->ofs_x = ofs_x;
@@ -80,7 +80,7 @@ public:
 		ofs_unit = this->ofs_unit;
 		return true;
 	}
-	// âºëzÉyÅ[ÉWÉTÉCÉY
+	// ‰ªÆÊÉ≥„Éö„Éº„Ç∏„Çµ„Ç§„Ç∫
 	void SetVirtualPage(int vpag_w, int vpag_h, int vpag_unit)
 	{
 		this->vpag_w = vpag_w;
@@ -96,7 +96,7 @@ public:
 		vpag_unit = this->vpag_unit;
 		return true;
 	}
-	// É^ÉO
+	// „Çø„Ç∞
 	void SetTags(TStringList *tags); // set tag information from tags
 	void AppendTags(TStringList *tags); // append tag information to tags
 

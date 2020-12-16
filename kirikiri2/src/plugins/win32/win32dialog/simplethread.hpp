@@ -18,7 +18,7 @@ public:
 	SimpleThreadBase(DWORD tout)
 		: threadHandle(0), prepareEvent(0), stopEvent(0), threadTimeout(tout)
 	{}
-	virtual ~SimpleThreadBase() {
+	virtual ‾SimpleThreadBase() {
 		threadStop(threadTimeout);
 		closeAllEvent();
 	}
@@ -97,7 +97,7 @@ public:
 		messageWindow = createMessageWindow(cname.c_str(), wname.c_str());
 	}
 
-	virtual ~SimpleThreadWithMessageWindow()
+	virtual ‾SimpleThreadWithMessageWindow()
 	{
 		messageWindow = destroyMessageWindow(messageWindow);
 		//UnregisterMessageWindowClass();

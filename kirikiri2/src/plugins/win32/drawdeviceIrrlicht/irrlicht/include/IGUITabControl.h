@@ -54,19 +54,19 @@ namespace gui
 		virtual s32 getTabCount() const = 0;
 
 		//! Returns a tab based on zero based index
-		/** \param idx: zero based index of tab. Is a value betwenn 0 and getTabcount()-1;
-		\return Returns pointer to the Tab. Returns 0 if no tab
+		/** ¥param idx: zero based index of tab. Is a value betwenn 0 and getTabcount()-1;
+		¥return Returns pointer to the Tab. Returns 0 if no tab
 		is corresponding to this tab. */
 		virtual IGUITab* getTab(s32 idx) const = 0;
 
 		//! Brings a tab to front.
-		/** \param idx: number of the tab.
-		\return Returns true if successful. */
+		/** ¥param idx: number of the tab.
+		¥return Returns true if successful. */
 		virtual bool setActiveTab(s32 idx) = 0;
 
 		//! Brings a tab to front.
-		/** \param tab: pointer to the tab.
-		\return Returns true if successful. */
+		/** ¥param tab: pointer to the tab.
+		¥return Returns true if successful. */
 		virtual bool setActiveTab(IGUIElement *tab) = 0;
 
 		//! Returns which tab is currently active

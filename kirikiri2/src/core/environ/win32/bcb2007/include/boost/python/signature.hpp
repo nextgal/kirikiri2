@@ -26,7 +26,7 @@
 #  include <boost/preprocessor/arithmetic/inc.hpp>
 #  include <boost/preprocessor/repetition/enum_trailing_params.hpp>
 
-# define BOOST_PYTHON_LIST_INC(n)        \
+# define BOOST_PYTHON_LIST_INC(n)        ¥
    BOOST_PP_CAT(mpl::list, BOOST_PP_INC(n))
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -61,7 +61,7 @@ namespace boost { namespace python { namespace detail {
 ///////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
-#  define BOOST_PP_ITERATION_PARAMS_1                                   \
+#  define BOOST_PP_ITERATION_PARAMS_1                                   ¥
     (3, (0, BOOST_PYTHON_MAX_ARITY, <boost/python/signature.hpp>))
 
 #  include BOOST_PP_ITERATE()
@@ -93,7 +93,7 @@ get_signature(RT(*)(BOOST_PP_ENUM_PARAMS_Z(1, N, T)))
 
 # undef N
 
-# define BOOST_PP_ITERATION_PARAMS_2 \
+# define BOOST_PP_ITERATION_PARAMS_2 ¥
     (3, (0, 3, <boost/python/signature.hpp>))
 # include BOOST_PP_ITERATE()
 

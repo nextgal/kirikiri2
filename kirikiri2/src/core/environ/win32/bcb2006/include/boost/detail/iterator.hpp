@@ -89,8 +89,8 @@ BOOST_MPL_HAS_XXX_TRAIT_DEF(pointer)
 BOOST_MPL_HAS_XXX_TRAIT_DEF(difference_type)
 BOOST_MPL_HAS_XXX_TRAIT_DEF(iterator_category)
 
-# if !defined(BOOST_NO_STD_ITERATOR_TRAITS)             \
-  && !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) \
+# if !defined(BOOST_NO_STD_ITERATOR_TRAITS)             ¥
+  && !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) ¥
   && !defined(BOOST_MSVC_STD_ITERATOR)
 // Define a new template so it can be specialized
 template <class Iterator>
@@ -98,7 +98,7 @@ struct iterator_traits
     : std::iterator_traits<Iterator>
 {};
 using std::distance;
-# elif  !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) \
+# elif  !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) ¥
      && !defined(BOOST_MSVC_STD_ITERATOR)
 
 // Rogue Wave Standard Library fools itself into thinking partial

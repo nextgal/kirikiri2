@@ -1,35 +1,35 @@
-// ƒTƒ“ƒvƒ‹ƒR[ƒh
+// ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰
 
-// TJS‚ÌƒNƒ‰ƒX‚ğƒvƒƒgƒ^ƒCƒv‚ÌŒ`‚Åæ“¾
+// TJSã®ã‚¯ãƒ©ã‚¹ã‚’ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—ã®å½¢ã§å–å¾—
 var Window = createTJSClass("Window");
 var Layer  = createTJSClass("Layer");
 
-// “Æ©ƒŒƒCƒ„ƒNƒ‰ƒX
+// ç‹¬è‡ªãƒ¬ã‚¤ãƒ¤ã‚¯ãƒ©ã‚¹
 function MyLayer(win, parent, width, height, color)
 {
-	// eƒRƒ“ƒXƒgƒ‰ƒNƒ^ŒÄ‚Ño‚µ
+	// è¦ªã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å‘¼ã³å‡ºã—
 	Layer.call(this, win, parent);
 	this.setSize(width,height);
 	this.fillRect(0,0,width,height,color);
 }
 
-// “Æ©ƒŒƒCƒ„‚Ìƒvƒƒgƒ^ƒCƒv
+// ç‹¬è‡ªãƒ¬ã‚¤ãƒ¤ã®ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—
 MyLayer.prototype = {
   __proto__: Layer.prototype
 };
 
-// “Æ©ƒEƒCƒ“ƒhƒEƒNƒ‰ƒX
+// ç‹¬è‡ªã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹
 function MyWindow(width, height)
 {
-	// eƒRƒ“ƒXƒgƒ‰ƒNƒ^ŒÄ‚Ño‚µ
+	// è¦ªã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å‘¼ã³å‡ºã—
 	Window.call(this);
 	this.setInnerSize(width, height);
 	this.add(new MyLayer(this, null, this.innerWidth, this.innerHeight, 0xff00ff));
-	// ƒCƒxƒ“ƒg“o˜^
+	// ã‚¤ãƒ™ãƒ³ãƒˆç™»éŒ²
 	this.tjsOverride("onKeyDown");
 }
 
-// “Æ©ƒEƒCƒ“ƒhƒE‚Ìƒvƒƒgƒ^ƒCƒv
+// ç‹¬è‡ªã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—
 MyWindow.prototype = {
   __proto__: Window.prototype,
   onKeyDown : function (key, shift) {
@@ -39,6 +39,6 @@ MyWindow.prototype = {
   }
 };
 
-// ¶¬
+// ç”Ÿæˆ
 var win = new MyWindow(400,200);
 win.visible = true;

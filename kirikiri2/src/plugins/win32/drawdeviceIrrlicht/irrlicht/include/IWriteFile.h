@@ -17,28 +17,28 @@ namespace io
 	{
 	public:
 		//! Destructor
-		virtual ~IWriteFile() {}
+		virtual ‾IWriteFile() {}
 
 		//! Writes an amount of bytes to the file.
-		/** \param buffer Pointer to buffer of bytes to write.
-		\param sizeToWrite Amount of bytes to write to the file.
-		\return How much bytes were written. */
+		/** ¥param buffer Pointer to buffer of bytes to write.
+		¥param sizeToWrite Amount of bytes to write to the file.
+		¥return How much bytes were written. */
 		virtual s32 write(const void* buffer, u32 sizeToWrite) = 0;
 
 		//! Changes position in file
-		/** \param finalPos Destination position in the file.
-		\param relativeMovement If set to true, the position in the file is
+		/** ¥param finalPos Destination position in the file.
+		¥param relativeMovement If set to true, the position in the file is
 		changed relative to current position. Otherwise the position is changed
 		from begin of file.
-		\return True if successful, otherwise false. */
+		¥return True if successful, otherwise false. */
 		virtual bool seek(long finalPos, bool relativeMovement = false) = 0;
 
 		//! Get the current position in the file.
-		/** \return Current position in the file in bytes. */
+		/** ¥return Current position in the file in bytes. */
 		virtual long getPos() const = 0;
 
 		//! Get name of file.
-		/** \return File name as zero terminated character string. */
+		/** ¥return File name as zero terminated character string. */
 		virtual const c8* getFileName() const = 0;
 	};
 

@@ -16,19 +16,19 @@
 #ifndef BOOST_TEST_MINIMAL_HPP
 #define BOOST_TEST_MINIMAL_HPP
 
-#define BOOST_CHECK(exp)       \
-  ( (exp)                      \
-      ? static_cast<void>(0)   \
+#define BOOST_CHECK(exp)       ¥
+  ( (exp)                      ¥
+      ? static_cast<void>(0)   ¥
       : boost::minimal_test::the_monitor->report_error(#exp,__FILE__,__LINE__, BOOST_CURRENT_FUNCTION) )
 
-#define BOOST_REQUIRE(exp)     \
-  ( (exp)                      \
-      ? static_cast<void>(0)   \
+#define BOOST_REQUIRE(exp)     ¥
+  ( (exp)                      ¥
+      ? static_cast<void>(0)   ¥
       : boost::minimal_test::the_monitor->report_critical_error(#exp,__FILE__,__LINE__,BOOST_CURRENT_FUNCTION))
 
-#define BOOST_ERROR( msg_ )    \
+#define BOOST_ERROR( msg_ )    ¥
         boost::minimal_test::the_monitor->report_error( (msg_),__FILE__,__LINE__, BOOST_CURRENT_FUNCTION, true )
-#define BOOST_FAIL( msg_ )     \
+#define BOOST_FAIL( msg_ )     ¥
         boost::minimal_test::the_monitor->report_critical_error( (msg_),__FILE__,__LINE__, BOOST_CURRENT_FUNCTION, true )
 
 //____________________________________________________________________________//
@@ -124,19 +124,19 @@ int main( int argc, char* argv[] )
     }
     catch( boost::execution_exception const& exex ) {
         if( exex.code() != boost::execution_exception::no_error )
-            BOOST_ERROR( (std::string( "exception \"" ) + exex.what() + "\" caught").c_str() );
-        std::cerr << "\n**** Testing aborted.";
+            BOOST_ERROR( (std::string( "exception ¥"" ) + exex.what() + "¥" caught").c_str() );
+        std::cerr << "¥n**** Testing aborted.";
     }
 
     if( boost::minimal_test::the_monitor->p_errors_counter != 0 ) {
-        std::cerr << "\n**** " << the_monitor->p_errors_counter.get()
-                  << " error" << (the_monitor->p_errors_counter > 1 ? "s" : "" ) << " detected\n";
+        std::cerr << "¥n**** " << the_monitor->p_errors_counter.get()
+                  << " error" << (the_monitor->p_errors_counter > 1 ? "s" : "" ) << " detected¥n";
 
         delete the_monitor;
         return boost::exit_test_failure;
     }
 
-    std::cout << "\n**** no errors detected\n";
+    std::cout << "¥n**** no errors detected¥n";
     
     delete the_monitor;
     return boost::exit_success;

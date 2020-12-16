@@ -128,7 +128,7 @@
 #if BITS_IN_JSAMPLE == 8
 #define DEQUANTIZE(coef,quantval)  (((IFAST_MULT_TYPE) (coef)) * (quantval))
 #else
-#define DEQUANTIZE(coef,quantval)  \
+#define DEQUANTIZE(coef,quantval)  ¥
 	DESCALE((coef)*(quantval), IFAST_SCALE_BITS-PASS1_BITS)
 #endif
 
@@ -144,9 +144,9 @@
 #else
 #define DCTELEMBITS  32		/* DCTELEM must be 32 bits */
 #endif
-#define IRIGHT_SHIFT(x,shft)  \
-    ((ishift_temp = (x)) < 0 ? \
-     (ishift_temp >> (shft)) | ((~((DCTELEM) 0)) << (DCTELEMBITS-(shft))) : \
+#define IRIGHT_SHIFT(x,shft)  ¥
+    ((ishift_temp = (x)) < 0 ? ¥
+     (ishift_temp >> (shft)) | ((‾((DCTELEM) 0)) << (DCTELEMBITS-(shft))) : ¥
      (ishift_temp >> (shft)))
 #else
 #define ISHIFT_TEMPS

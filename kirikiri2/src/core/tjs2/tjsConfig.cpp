@@ -120,8 +120,8 @@ tjs_int TJS_strnicmp(const tjs_char *s1, const tjs_char *s2,
 {
 	while(maxlen--)
 	{
-		if(*s1 == TJS_W('\0')) return (*s2 == TJS_W('\0')) ? 0 : -1;
-		if(*s2 == TJS_W('\0')) return (*s1 == TJS_W('\0')) ? 0 : 1;
+		if(*s1 == TJS_W('¥0')) return (*s2 == TJS_W('¥0')) ? 0 : -1;
+		if(*s2 == TJS_W('¥0')) return (*s1 == TJS_W('¥0')) ? 0 : 1;
 		if(*s1 < *s2) return -1;
 		if(*s1 > *s2) return 1;
 		s1++;
@@ -141,8 +141,8 @@ tjs_int TJS_stricmp(const tjs_char *s1, const tjs_char *s2)
 		tjs_char c1 = *s1, c2 = *s2;
 		if(c1 >= TJS_W('a') && c1 <= TJS_W('z')) c1 += TJS_W('Z')-TJS_W('z');
 		if(c2 >= TJS_W('a') && c2 <= TJS_W('z')) c2 += TJS_W('Z')-TJS_W('z');
-		if(c1 == TJS_W('\0')) return (c2 == TJS_W('\0')) ? 0 : -1;
-		if(c2 == TJS_W('\0')) return (c1 == TJS_W('\0')) ? 0 : 1;
+		if(c1 == TJS_W('¥0')) return (c2 == TJS_W('¥0')) ? 0 : -1;
+		if(c2 == TJS_W('¥0')) return (c1 == TJS_W('¥0')) ? 0 : 1;
 		if(c1 < c2) return -1;
 		if(c1 > c2) return 1;
 		s1++;
@@ -277,7 +277,7 @@ size_t TJS_wcstombs(tjs_nchar *s, const tjs_char *pwcs, size_t n)
 
 			for(int i = 0; i < retval; i++, count++)
 			{
-				if((s[count] = buffer[i]) == '\0') return count;
+				if((s[count] = buffer[i]) == '¥0') return count;
 			}
 
 			pwcs ++;
@@ -365,7 +365,7 @@ tTJSNarrowStringHolder::tTJSNarrowStringHolder(const wchar_t * wide)
 	Buf[TJS_wcstombs(Buf, wide, n)] = 0;
 }
 //---------------------------------------------------------------------------
-tTJSNarrowStringHolder::~tTJSNarrowStringHolder()
+tTJSNarrowStringHolder::‾tTJSNarrowStringHolder()
 {
 	if(Allocated) delete [] Buf;
 }

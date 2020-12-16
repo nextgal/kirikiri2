@@ -1,7 +1,7 @@
-// startup.tjs - ƒ{ƒ^ƒ“ƒŒƒCƒ„
-// Copyright (C)2001-2009, W.Dee  ‰ü•ÏE”z•z‚Í©—R‚Å‚·
+// startup.tjs - ãƒœã‚¿ãƒ³ãƒ¬ã‚¤ãƒ¤
+// Copyright (C)2001-2009, W.Dee  æ”¹å¤‰ãƒ»é…å¸ƒã¯è‡ªç”±ã§ã™
 
-class KAGLayer extends Layer // KAG —p‚Ì ButtonLayer.tjs ‚ğ‚»‚Ì‚Ü‚Ü—¬—p‚·‚é‚½‚ß
+class KAGLayer extends Layer // KAG ç”¨ã® ButtonLayer.tjs ã‚’ãã®ã¾ã¾æµç”¨ã™ã‚‹ãŸã‚
 {
 	function KAGLayer()
 	{
@@ -32,19 +32,19 @@ class LSliderLayer extends SliderLayer
 
 	function onChange(pos)
 	{
-		// e ( ContolLayer ) ‚É‚àƒCƒxƒ“ƒg‚ğ’Ê’m
+		// è¦ª ( ContolLayer ) ã«ã‚‚ã‚¤ãƒ™ãƒ³ãƒˆã‚’é€šçŸ¥
 		parent.sliderLayerChange(this, pos);
 	}
 }
 
-class ControlLayer extends Layer // ƒRƒ“ƒgƒ[ƒ‹ƒŒƒCƒ„ƒNƒ‰ƒX
+class ControlLayer extends Layer // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ¬ã‚¤ãƒ¤ã‚¯ãƒ©ã‚¹
 {
 	var startButton;
 	var timeSlider;
 	var vagueSlider;
 	var dragOriginX;
 	var dragOriginY;
-	var dragging = false; // ƒhƒ‰ƒbƒO’†‚©‚Ç‚¤‚©
+	var dragging = false; // ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã‹ã©ã†ã‹
 
 	function ControlLayer()
 	{
@@ -84,7 +84,7 @@ class ControlLayer extends Layer // ƒRƒ“ƒgƒ[ƒ‹ƒŒƒCƒ„ƒNƒ‰ƒX
 		startButton.top = 60;
 		startButton.width = width - 10;
 		startButton.height = 16;
-		startButton.caption = 'ƒXƒ^[ƒg';
+		startButton.caption = 'ã‚¹ã‚¿ãƒ¼ãƒˆ';
 		startButton.visible = true;
 
 		visible = true;
@@ -98,7 +98,7 @@ class ControlLayer extends Layer // ƒRƒ“ƒgƒ[ƒ‹ƒŒƒCƒ„ƒNƒ‰ƒX
 
 	function onMouseMove(x, y)
 	{
-		// ƒ}ƒEƒX‚ªˆÚ“®‚µ‚½
+		// ãƒã‚¦ã‚¹ãŒç§»å‹•ã—ãŸ
 		if(dragging)
 		{
 			var px = parent.cursorX;
@@ -116,7 +116,7 @@ class ControlLayer extends Layer // ƒRƒ“ƒgƒ[ƒ‹ƒŒƒCƒ„ƒNƒ‰ƒX
 
 	function onMouseDown(x, y, button)
 	{
-		// ƒ}ƒEƒXƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+		// ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 		if(y < 10)
 		{
 			dragging = true;
@@ -127,31 +127,31 @@ class ControlLayer extends Layer // ƒRƒ“ƒgƒ[ƒ‹ƒŒƒCƒ„ƒNƒ‰ƒX
 
 	function onMouseUp(x, y, button)
 	{
-		// ƒ}ƒEƒXƒ{ƒ^ƒ“‚ª—£‚³‚ê‚½
+		// ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ãŒé›¢ã•ã‚ŒãŸ
 		dragging = false;
 	}
 
 	function onMouseLeave()
 	{
-		// ƒ}ƒEƒX‚ªƒŒƒCƒ„—Ìˆæ‚©‚ço‚Ä‚¢‚Á‚½
+		// ãƒã‚¦ã‚¹ãŒãƒ¬ã‚¤ãƒ¤é ˜åŸŸã‹ã‚‰å‡ºã¦ã„ã£ãŸ
 //		dragging = false;
 		super.onMouseLeave(...);
 	}
 
 	function dispFileName(fn)
 	{
-		// ƒtƒ@ƒCƒ‹–¼‚ğ•\¦
+		// ãƒ•ã‚¡ã‚¤ãƒ«åã‚’è¡¨ç¤º
 		if(fn != '')
 			fn = Storages.extractStorageName(fn);
 		else
-			fn = "ƒ‹[ƒ‹‰æ‘œ‚ğƒhƒƒbƒv‚µ‚Ä‚­‚¾‚³‚¢";
+			fn = "ãƒ«ãƒ¼ãƒ«ç”»åƒã‚’ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ãã ã•ã„";
 		fillRect(5, 45, width-5, 12, 0xC0ffffff);
 		drawText(5, 45, fn, 0, 255);
 	}
 
 	function sliderLayerChange(object, pos)
 	{
-		// ƒXƒ‰ƒCƒ_[‚ÌˆÊ’u‚ª•ÏX‚³‚ê‚½‚Æ‚«
+		// ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®ä½ç½®ãŒå¤‰æ›´ã•ã‚ŒãŸã¨ã
 		if(object == timeSlider)
 		{
 			fillRect(32, 15, 50, 12, 0xc0ffffff);
@@ -166,38 +166,38 @@ class ControlLayer extends Layer // ƒRƒ“ƒgƒ[ƒ‹ƒŒƒCƒ„ƒNƒ‰ƒX
 	}
 }
 
-class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
+class MainWindow extends Window // ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹
 {
-	var foreLayer; // •\
-	var backLayer; // — 
-	var controlLayer; // ƒRƒ“ƒgƒ[ƒ‹ƒŒƒCƒ„‚Ìì¬
+	var foreLayer; // è¡¨
+	var backLayer; // è£
+	var controlLayer; // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ¬ã‚¤ãƒ¤ã®ä½œæˆ
 	var phase = true;
 	var transFile;
 
 	function MainWindow()
 	{
-		// MainWindow ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		// MainWindow ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		super.Window();
 
 		borderStyle = bsSingle;
 		setInnerSize(640, 480);
 
-		caption = System.title = "ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒrƒ…[ƒA";
+		caption = System.title = "ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãƒ“ãƒ¥ãƒ¼ã‚¢";
 
-		// ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„(•\)‚ğì¬
+		// ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤(è¡¨)ã‚’ä½œæˆ
 		add(foreLayer = new Layer(this, null));
 		foreLayer.loadImages('1');
 		foreLayer.setSizeToImageSize();
 
-		// — ƒŒƒCƒ„‚Ìì¬
+		// è£ãƒ¬ã‚¤ãƒ¤ã®ä½œæˆ
 		add(backLayer = new Layer(this, primaryLayer));
 		backLayer.type = ltCoverRect;
 
-		// ƒRƒ“ƒgƒ[ƒ‹ƒŒƒCƒ„‚Ìì¬
+		// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ¬ã‚¤ãƒ¤ã®ä½œæˆ
 		add(controlLayer = new ControlLayer(this, primaryLayer));
 		controlLayer.dispFileName("");
 
-		// •\¦ó‘Ô‚É
+		// è¡¨ç¤ºçŠ¶æ…‹ã«
 		visible = true;
 	}
 
@@ -208,13 +208,13 @@ class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
 
 	function action(ev)
 	{
-		// ƒCƒxƒ“ƒgW–ñƒnƒ“ƒhƒ‰
+		// ã‚¤ãƒ™ãƒ³ãƒˆé›†ç´„ãƒãƒ³ãƒ‰ãƒ©
 		var type = ev.type;
 		var target = ev.target;
 		if(type == 'onTransitionCompleted')
 		{
-			// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªI—¹‚µ‚½
-			// — ‚Æ•\‚ÌŠÇ—î•ñ‚ğ“ü‚ê‘Ö‚¦‚é
+			// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒçµ‚äº†ã—ãŸ
+			// è£ã¨è¡¨ã®ç®¡ç†æƒ…å ±ã‚’å…¥ã‚Œæ›¿ãˆã‚‹
 			var tmp = foreLayer;
 			foreLayer = backLayer;
 			backLayer = tmp;
@@ -222,18 +222,18 @@ class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
 		else if(controlLayer !== void && target == controlLayer.startButton &&
 			type == 'onClick')
 		{
-			// uƒXƒ^[ƒgvƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+			// ã€Œã‚¹ã‚¿ãƒ¼ãƒˆã€ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 			beginTransition();
 		}
 	}
 
 	function beginTransition()
 	{
-		// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÌŠJn
+		// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã®é–‹å§‹
 		if(transFile != '')
 		{
 			foreLayer.stopTransition();
-			backLayer.loadImages(phase?'2':'1'); // — ‚Ì‰æ‘œ‚ğ“Ç‚İ‚Ş
+			backLayer.loadImages(phase?'2':'1'); // è£ã®ç”»åƒã‚’èª­ã¿è¾¼ã‚€
 			backLayer.setSizeToImageSize();
 			phase = !phase;
 			var vague = controlLayer.vagueSlider.position;
@@ -244,14 +244,14 @@ class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
 		}
 		else
 		{
-			System.inform("ƒGƒNƒXƒvƒ[ƒ‰‚È‚Ç‚©‚çuƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒrƒ…[ƒAvƒEƒBƒ“ƒhƒE‚É\n"
-				"ƒ‹[ƒ‹‰æ‘œƒtƒ@ƒCƒ‹‚ğƒhƒƒbƒv‚µ‚Ä‚­‚¾‚³‚¢B");
+			System.inform("ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ãªã©ã‹ã‚‰ã€Œãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãƒ“ãƒ¥ãƒ¼ã‚¢ã€ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«Â¥n"
+				"ãƒ«ãƒ¼ãƒ«ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ãã ã•ã„ã€‚");
 		}
 	}
 
 	function onFileDrop(list)
 	{
-		// ƒtƒ@ƒCƒ‹‚ªƒEƒBƒ“ƒhƒE‚Éƒhƒƒbƒv‚³‚ê‚½‚Æ‚«
+		// ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ãƒ‰ãƒ­ãƒƒãƒ—ã•ã‚ŒãŸã¨ã
 		super.onFileDrop(...);
 		controlLayer.dispFileName(transFile = list[0]);
 	}

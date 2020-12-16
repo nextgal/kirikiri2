@@ -22,7 +22,7 @@ namespace video
 		CVideoModeList();
 
 		//! destructor
-		virtual ~CVideoModeList();
+		virtual ‾CVideoModeList();
 
 		//! Gets amount of video modes in the list.
 		virtual s32 getVideoModeCount() const;

@@ -27,35 +27,35 @@
 
 #define DECLARE_FRIEND( z, count, array ) friend class BOOST_PP_ARRAY_ELEM(count, array);
 
-#define BOOST_READONLY_PROPERTY( property_type, friends_num, friends )                                              \
-class BOOST_JOIN( readonly_property, __LINE__ )                                                                     \
-{                                                                                                                   \
-    BOOST_PP_REPEAT( friends_num, DECLARE_FRIEND, (friends_num, friends) )                                          \
-public:                                                                                                             \
-    explicit BOOST_JOIN( readonly_property, __LINE__ )( property_type const& init_value  ) : value( init_value ) {} \
-                                                                                                                    \
-    operator                property_type const &() const       { return value; }                                   \
-    property_type const&    get() const                         { return value; }                                   \
-private:                                                                                                            \
-    property_type           value;                                                                                  \
+#define BOOST_READONLY_PROPERTY( property_type, friends_num, friends )                                              ¥
+class BOOST_JOIN( readonly_property, __LINE__ )                                                                     ¥
+{                                                                                                                   ¥
+    BOOST_PP_REPEAT( friends_num, DECLARE_FRIEND, (friends_num, friends) )                                          ¥
+public:                                                                                                             ¥
+    explicit BOOST_JOIN( readonly_property, __LINE__ )( property_type const& init_value  ) : value( init_value ) {} ¥
+                                                                                                                    ¥
+    operator                property_type const &() const       { return value; }                                   ¥
+    property_type const&    get() const                         { return value; }                                   ¥
+private:                                                                                                            ¥
+    property_type           value;                                                                                  ¥
 }
 
 // ************************************************************************** //
 // **************              readwrite_property              ************** //
 // ************************************************************************** //
 
-#define BOOST_READWRITE_PROPERTY( property_type )                                                                   \
-class BOOST_JOIN( readwrite_property, __LINE__ )                                                                    \
-{                                                                                                                   \
-public:                                                                                                             \
-             BOOST_JOIN( readwrite_property, __LINE__ )()        {}                                                 \
-    explicit BOOST_JOIN( readwrite_property, __LINE__ )( property_type const& init_value  ) : value( init_value ) {}\
-                                                                                                                    \
-    operator                property_type const &() const       { return value; }                                   \
-    property_type const&    get() const                         { return value; }                                   \
-    void                    set( property_type const& v )       { value = v; }                                      \
-private:                                                                                                            \
-    property_type value;                                                                                            \
+#define BOOST_READWRITE_PROPERTY( property_type )                                                                   ¥
+class BOOST_JOIN( readwrite_property, __LINE__ )                                                                    ¥
+{                                                                                                                   ¥
+public:                                                                                                             ¥
+             BOOST_JOIN( readwrite_property, __LINE__ )()        {}                                                 ¥
+    explicit BOOST_JOIN( readwrite_property, __LINE__ )( property_type const& init_value  ) : value( init_value ) {}¥
+                                                                                                                    ¥
+    operator                property_type const &() const       { return value; }                                   ¥
+    property_type const&    get() const                         { return value; }                                   ¥
+    void                    set( property_type const& v )       { value = v; }                                      ¥
+private:                                                                                                            ¥
+    property_type value;                                                                                            ¥
 }
 
 // ***************************************************************************

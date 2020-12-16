@@ -39,8 +39,8 @@ namespace core
 		}
 
 		//! Determines if the triangle is totally inside a bounding box.
-		/** \param box Box to check.
-		\return True if triangle is within the box, otherwise false. */
+		/** ¥param box Box to check.
+		¥return True if triangle is within the box, otherwise false. */
 		bool isTotalInsideBox(const aabbox3d<T>& box) const
 		{
 			return (box.isPointInside(pointA) &&
@@ -49,8 +49,8 @@ namespace core
 		}
 
 		//! Get the closest point on a triangle to a point on the same plane.
-		/** \param p Point which must be on the same plane as the triangle.
-		\return The closest point of the triangle */
+		/** ¥param p Point which must be on the same plane as the triangle.
+		¥return The closest point of the triangle */
 		core::vector3d<T> closestPointOnTriangle(const core::vector3d<T>& p) const
 		{
 			const core::vector3d<T> rab = line3d<T>(pointA, pointB).getClosestPoint(p);
@@ -68,9 +68,9 @@ namespace core
 		}
 
 		//! Check if a point is inside the triangle
-		/** \param p Point to test. Assumes that this point is already
+		/** ¥param p Point to test. Assumes that this point is already
 		on the plane of the triangle.
-		\return True if the point is inside the triangle, otherwise false. */
+		¥return True if the point is inside the triangle, otherwise false. */
 		bool isPointInside(const vector3d<T>& p) const
 		{
 			return (isOnSameSide(p, pointA, pointB, pointC) &&
@@ -82,9 +82,9 @@ namespace core
 		/** This method is an implementation of the example used in a
 		paper by Kasper Fauerby original written by Keidy from
 		Mr-Gamemaker.
-		\param p Point to test. Assumes that this point is already
+		¥param p Point to test. Assumes that this point is already
 		on the plane of the triangle.
-		\return True if point is inside the triangle, otherwise false. */
+		¥return True if point is inside the triangle, otherwise false. */
 		bool isPointInsideFast(const vector3d<T>& p) const
 		{
 			const vector3d<T> f = pointB - pointA;
@@ -104,14 +104,14 @@ namespace core
 			f32 z = x+y-ac_bb;
 
 			// return sign(z) && !(sign(x)||sign(y))
-			return (( (IR(z)) & ~((IR(x))|(IR(y))) ) & 0x80000000)!=0;
+			return (( (IR(z)) & ‾((IR(x))|(IR(y))) ) & 0x80000000)!=0;
 		}
 
 
 		//! Get an intersection with a 3d line.
-		/** \param line Line to intersect with.
-		\param outIntersection Place to store the intersection point, if there is one.
-		\return True if there was an intersection, false if not. */
+		/** ¥param line Line to intersect with.
+		¥param outIntersection Place to store the intersection point, if there is one.
+		¥return True if there was an intersection, false if not. */
 		bool getIntersectionWithLimitedLine(const line3d<T>& line,
 			vector3d<T>& outIntersection) const
 		{
@@ -126,10 +126,10 @@ namespace core
 		are on the line, but not between the start and end point of the line.
 		If you want the returned point be between start and end
 		use getIntersectionWithLimitedLine().
-		\param linePoint Point of the line to intersect with.
-		\param lineVect Vector of the line to intersect with.
-		\param outIntersection Place to store the intersection point, if there is one.
-		\return True if there was an intersection, false if there was not. */
+		¥param linePoint Point of the line to intersect with.
+		¥param lineVect Vector of the line to intersect with.
+		¥param outIntersection Place to store the intersection point, if there is one.
+		¥return True if there was an intersection, false if there was not. */
 		bool getIntersectionWithLine(const vector3d<T>& linePoint,
 			const vector3d<T>& lineVect, vector3d<T>& outIntersection) const
 		{
@@ -141,10 +141,10 @@ namespace core
 
 
 		//! Calculates the intersection between a 3d line and the plane the triangle is on.
-		/** \param lineVect Vector of the line to intersect with.
-		\param linePoint Point of the line to intersect with.
-		\param outIntersection Place to store the intersection point, if there is one.
-		\return True if there was an intersection, else false. */
+		/** ¥param lineVect Vector of the line to intersect with.
+		¥param linePoint Point of the line to intersect with.
+		¥param outIntersection Place to store the intersection point, if there is one.
+		¥return True if there was an intersection, else false. */
 		bool getIntersectionOfPlaneWithLine(const vector3d<T>& linePoint,
 			const vector3d<T>& lineVect, vector3d<T>& outIntersection) const
 		{
@@ -172,8 +172,8 @@ namespace core
 		/** Thus, this method assumes a camera position from which the
 		triangle is definitely visible when looking at the given direction.
 		Do not use this method with points as it will give wrong results!
-		\param lookDirection Look direction.
-		\return True if the plane is front facing and false if it is backfacing. */
+		¥param lookDirection Look direction.
+		¥return True if the plane is front facing and false if it is backfacing. */
 		bool isFrontFacing(const vector3d<T>& lookDirection) const
 		{
 			const vector3d<T> n = getNormal().normalize();

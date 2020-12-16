@@ -175,7 +175,7 @@ public:
 	}
 
 
-	~tTVPTextReadStream()
+	‾tTVPTextReadStream()
 	{
 		if(Stream) delete Stream;
 		if(Buffer) delete [] Buffer;
@@ -424,7 +424,7 @@ public:
 		}
 	}
 
-	~tTVPTextWriteStream()
+	‾tTVPTextWriteStream()
 	{
 		if(CryptMode == 2)
 		{

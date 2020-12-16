@@ -19,7 +19,7 @@
 # include <limits>
 #endif
 
-#if (defined(BOOST_HAS_LONG_LONG) && defined(BOOST_NO_LONG_LONG_NUMERIC_LIMITS)) \
+#if (defined(BOOST_HAS_LONG_LONG) && defined(BOOST_NO_LONG_LONG_NUMERIC_LIMITS)) ¥
       || (defined(BOOST_HAS_MS_INT64) && defined(BOOST_NO_MS_INT64_NUMERIC_LIMITS))
 // Add missing specializations for numeric_limits:
 #ifdef BOOST_HAS_MS_INT64
@@ -47,7 +47,7 @@ namespace std
       static BOOST_LLT max(){ return LONGLONG_MAX; }
 #else
       static BOOST_LLT min(){ return 1LL << (sizeof(BOOST_LLT) * CHAR_BIT - 1); }
-      static BOOST_LLT max(){ return ~min(); }
+      static BOOST_LLT max(){ return ‾min(); }
 #endif
       BOOST_STATIC_CONSTANT(int, digits = sizeof(BOOST_LLT) * CHAR_BIT -1);
       BOOST_STATIC_CONSTANT(int, digits10 = (CHAR_BIT * sizeof (BOOST_LLT) - 1) * 301L / 1000);
@@ -100,7 +100,7 @@ namespace std
       static unsigned BOOST_LLT max(){ return ULONGLONG_MAX; }
 #else
       static unsigned BOOST_LLT min(){ return 0uLL; }
-      static unsigned BOOST_LLT max(){ return ~0uLL; }
+      static unsigned BOOST_LLT max(){ return ‾0uLL; }
 #endif
       BOOST_STATIC_CONSTANT(int, digits = sizeof(BOOST_LLT) * CHAR_BIT);
       BOOST_STATIC_CONSTANT(int, digits10 = (CHAR_BIT * sizeof (BOOST_LLT)) * 301L / 1000);

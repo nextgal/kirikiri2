@@ -92,68 +92,68 @@ usage (void)
 {
   fprintf(stderr, "usage: %s [switches] ", progname);
 #ifdef TWO_FILE_COMMANDLINE
-  fprintf(stderr, "inputfile outputfile\n");
+  fprintf(stderr, "inputfile outputfile¥n");
 #else
-  fprintf(stderr, "[inputfile]\n");
+  fprintf(stderr, "[inputfile]¥n");
 #endif
 
-  fprintf(stderr, "Switches (names may be abbreviated):\n");
-  fprintf(stderr, "  -colors N      Reduce image to no more than N colors\n");
-  fprintf(stderr, "  -fast          Fast, low-quality processing\n");
-  fprintf(stderr, "  -grayscale     Force grayscale output\n");
+  fprintf(stderr, "Switches (names may be abbreviated):¥n");
+  fprintf(stderr, "  -colors N      Reduce image to no more than N colors¥n");
+  fprintf(stderr, "  -fast          Fast, low-quality processing¥n");
+  fprintf(stderr, "  -grayscale     Force grayscale output¥n");
 #ifdef IDCT_SCALING_SUPPORTED
-  fprintf(stderr, "  -scale M/N     Scale output image by fraction M/N, eg, 1/8\n");
+  fprintf(stderr, "  -scale M/N     Scale output image by fraction M/N, eg, 1/8¥n");
 #endif
 #ifdef BMP_SUPPORTED
-  fprintf(stderr, "  -bmp           Select BMP output format (Windows style)%s\n",
+  fprintf(stderr, "  -bmp           Select BMP output format (Windows style)%s¥n",
 	  (DEFAULT_FMT == FMT_BMP ? " (default)" : ""));
 #endif
 #ifdef GIF_SUPPORTED
-  fprintf(stderr, "  -gif           Select GIF output format%s\n",
+  fprintf(stderr, "  -gif           Select GIF output format%s¥n",
 	  (DEFAULT_FMT == FMT_GIF ? " (default)" : ""));
 #endif
 #ifdef BMP_SUPPORTED
-  fprintf(stderr, "  -os2           Select BMP output format (OS/2 style)%s\n",
+  fprintf(stderr, "  -os2           Select BMP output format (OS/2 style)%s¥n",
 	  (DEFAULT_FMT == FMT_OS2 ? " (default)" : ""));
 #endif
 #ifdef PPM_SUPPORTED
-  fprintf(stderr, "  -pnm           Select PBMPLUS (PPM/PGM) output format%s\n",
+  fprintf(stderr, "  -pnm           Select PBMPLUS (PPM/PGM) output format%s¥n",
 	  (DEFAULT_FMT == FMT_PPM ? " (default)" : ""));
 #endif
 #ifdef RLE_SUPPORTED
-  fprintf(stderr, "  -rle           Select Utah RLE output format%s\n",
+  fprintf(stderr, "  -rle           Select Utah RLE output format%s¥n",
 	  (DEFAULT_FMT == FMT_RLE ? " (default)" : ""));
 #endif
 #ifdef TARGA_SUPPORTED
-  fprintf(stderr, "  -targa         Select Targa output format%s\n",
+  fprintf(stderr, "  -targa         Select Targa output format%s¥n",
 	  (DEFAULT_FMT == FMT_TARGA ? " (default)" : ""));
 #endif
-  fprintf(stderr, "Switches for advanced users:\n");
+  fprintf(stderr, "Switches for advanced users:¥n");
 #ifdef DCT_ISLOW_SUPPORTED
-  fprintf(stderr, "  -dct int       Use integer DCT method%s\n",
+  fprintf(stderr, "  -dct int       Use integer DCT method%s¥n",
 	  (JDCT_DEFAULT == JDCT_ISLOW ? " (default)" : ""));
 #endif
 #ifdef DCT_IFAST_SUPPORTED
-  fprintf(stderr, "  -dct fast      Use fast integer DCT (less accurate)%s\n",
+  fprintf(stderr, "  -dct fast      Use fast integer DCT (less accurate)%s¥n",
 	  (JDCT_DEFAULT == JDCT_IFAST ? " (default)" : ""));
 #endif
 #ifdef DCT_FLOAT_SUPPORTED
-  fprintf(stderr, "  -dct float     Use floating-point DCT method%s\n",
+  fprintf(stderr, "  -dct float     Use floating-point DCT method%s¥n",
 	  (JDCT_DEFAULT == JDCT_FLOAT ? " (default)" : ""));
 #endif
-  fprintf(stderr, "  -dither fs     Use F-S dithering (default)\n");
-  fprintf(stderr, "  -dither none   Don't use dithering in quantization\n");
-  fprintf(stderr, "  -dither ordered  Use ordered dither (medium speed, quality)\n");
+  fprintf(stderr, "  -dither fs     Use F-S dithering (default)¥n");
+  fprintf(stderr, "  -dither none   Don't use dithering in quantization¥n");
+  fprintf(stderr, "  -dither ordered  Use ordered dither (medium speed, quality)¥n");
 #ifdef QUANT_2PASS_SUPPORTED
-  fprintf(stderr, "  -map FILE      Map to colors used in named image file\n");
+  fprintf(stderr, "  -map FILE      Map to colors used in named image file¥n");
 #endif
-  fprintf(stderr, "  -nosmooth      Don't use high-quality upsampling\n");
+  fprintf(stderr, "  -nosmooth      Don't use high-quality upsampling¥n");
 #ifdef QUANT_1PASS_SUPPORTED
-  fprintf(stderr, "  -onepass       Use 1-pass quantization (fast, low quality)\n");
+  fprintf(stderr, "  -onepass       Use 1-pass quantization (fast, low quality)¥n");
 #endif
-  fprintf(stderr, "  -maxmemory N   Maximum memory to use (in kbytes)\n");
-  fprintf(stderr, "  -outfile name  Specify name for output file\n");
-  fprintf(stderr, "  -verbose  or  -debug   Emit debug output\n");
+  fprintf(stderr, "  -maxmemory N   Maximum memory to use (in kbytes)¥n");
+  fprintf(stderr, "  -outfile name  Specify name for output file¥n");
+  fprintf(stderr, "  -verbose  or  -debug   Emit debug output¥n");
   exit(EXIT_FAILURE);
 }
 
@@ -240,7 +240,7 @@ parse_switches (j_decompress_ptr cinfo, int argc, char **argv,
       static boolean printed_version = FALSE;
 
       if (! printed_version) {
-	fprintf(stderr, "Independent JPEG Group's DJPEG, version %s\n%s\n",
+	fprintf(stderr, "Independent JPEG Group's DJPEG, version %s¥n%s¥n",
 		JVERSION, JCOPYRIGHT);
 	printed_version = TRUE;
       }
@@ -272,7 +272,7 @@ parse_switches (j_decompress_ptr cinfo, int argc, char **argv,
 	FILE * mapfile;
 
 	if ((mapfile = fopen(argv[argn], READ_BINARY)) == NULL) {
-	  fprintf(stderr, "%s: can't open %s\n", progname, argv[argn]);
+	  fprintf(stderr, "%s: can't open %s¥n", progname, argv[argn]);
 	  exit(EXIT_FAILURE);
 	}
 	read_color_map(cinfo, mapfile);
@@ -379,9 +379,9 @@ print_text_marker (j_decompress_ptr cinfo)
 
   if (traceit) {
     if (cinfo->unread_marker == JPEG_COM)
-      fprintf(stderr, "Comment, length %ld:\n", (long) length);
+      fprintf(stderr, "Comment, length %ld:¥n", (long) length);
     else			/* assume it is an APPn otherwise */
-      fprintf(stderr, "APP%d, length %ld:\n",
+      fprintf(stderr, "APP%d, length %ld:¥n",
 	      cinfo->unread_marker - JPEG_APP0, (long) length);
   }
 
@@ -389,28 +389,28 @@ print_text_marker (j_decompress_ptr cinfo)
     ch = jpeg_getc(cinfo);
     if (traceit) {
       /* Emit the character in a readable form.
-       * Nonprintables are converted to \nnn form,
-       * while \ is converted to \\.
+       * Nonprintables are converted to ¥nnn form,
+       * while ¥ is converted to ¥¥.
        * Newlines in CR, CR/LF, or LF form will be printed as one newline.
        */
-      if (ch == '\r') {
-	fprintf(stderr, "\n");
-      } else if (ch == '\n') {
-	if (lastch != '\r')
-	  fprintf(stderr, "\n");
-      } else if (ch == '\\') {
-	fprintf(stderr, "\\\\");
+      if (ch == '¥r') {
+	fprintf(stderr, "¥n");
+      } else if (ch == '¥n') {
+	if (lastch != '¥r')
+	  fprintf(stderr, "¥n");
+      } else if (ch == '¥¥') {
+	fprintf(stderr, "¥¥¥¥");
       } else if (isprint(ch)) {
 	putc(ch, stderr);
       } else {
-	fprintf(stderr, "\\%03o", ch);
+	fprintf(stderr, "¥¥%03o", ch);
       }
       lastch = ch;
     }
   }
 
   if (traceit)
-    fprintf(stderr, "\n");
+    fprintf(stderr, "¥n");
 
   return TRUE;
 }
@@ -479,14 +479,14 @@ main (int argc, char **argv)
   /* Must have either -outfile switch or explicit output file name */
   if (outfilename == NULL) {
     if (file_index != argc-2) {
-      fprintf(stderr, "%s: must name one input and one output file\n",
+      fprintf(stderr, "%s: must name one input and one output file¥n",
 	      progname);
       usage();
     }
     outfilename = argv[file_index+1];
   } else {
     if (file_index != argc-1) {
-      fprintf(stderr, "%s: must name one input and one output file\n",
+      fprintf(stderr, "%s: must name one input and one output file¥n",
 	      progname);
       usage();
     }
@@ -494,7 +494,7 @@ main (int argc, char **argv)
 #else
   /* Unix style: expect zero or one file name */
   if (file_index < argc-1) {
-    fprintf(stderr, "%s: only one input file\n", progname);
+    fprintf(stderr, "%s: only one input file¥n", progname);
     usage();
   }
 #endif /* TWO_FILE_COMMANDLINE */
@@ -502,7 +502,7 @@ main (int argc, char **argv)
   /* Open the input file. */
   if (file_index < argc) {
     if ((input_file = fopen(argv[file_index], READ_BINARY)) == NULL) {
-      fprintf(stderr, "%s: can't open %s\n", progname, argv[file_index]);
+      fprintf(stderr, "%s: can't open %s¥n", progname, argv[file_index]);
       exit(EXIT_FAILURE);
     }
   } else {
@@ -513,7 +513,7 @@ main (int argc, char **argv)
   /* Open the output file. */
   if (outfilename != NULL) {
     if ((output_file = fopen(outfilename, WRITE_BINARY)) == NULL) {
-      fprintf(stderr, "%s: can't open %s\n", progname, outfilename);
+      fprintf(stderr, "%s: can't open %s¥n", progname, outfilename);
       exit(EXIT_FAILURE);
     }
   } else {

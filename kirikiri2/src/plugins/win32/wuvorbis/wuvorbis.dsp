@@ -1,24 +1,24 @@
 # Microsoft Developer Studio Project File - Name="wuvorbis" - Package Owner=<4>
 # Microsoft Developer Studio Generated Build File, Format Version 6.00
-# ** �ҏW���Ȃ��ł������� **
+# ** 編集しないでください **
 
 # TARGTYPE "Win32 (x86) Dynamic-Link Library" 0x0102
 
 CFG=wuvorbis - Win32 Debug
-!MESSAGE ����͗L����Ҳ�̧�قł͂���܂���B ������ۼު�Ă�����ނ��邽�߂ɂ� NMAKE ���g�p���Ă��������B
-!MESSAGE [Ҳ�̧�ق̴���߰�] ����ނ��g�p���Ď��s���Ă�������
+!MESSAGE これは有効なﾒｲｸﾌｧｲﾙではありません。 このﾌﾟﾛｼﾞｪｸﾄをﾋﾞﾙﾄﾞするためには NMAKE を使用してください。
+!MESSAGE [ﾒｲｸﾌｧｲﾙのｴｸｽﾎﾟｰﾄ] ｺﾏﾝﾄﾞを使用して実行してください
 !MESSAGE 
 !MESSAGE NMAKE /f "wuvorbis.mak".
 !MESSAGE 
-!MESSAGE NMAKE �̎��s���ɍ\�����w��ł��܂�
-!MESSAGE ����� ײݏ��ϸۂ̐ݒ���`���܂��B��:
+!MESSAGE NMAKE の実行時に構成を指定できます
+!MESSAGE ｺﾏﾝﾄﾞ ﾗｲﾝ上でﾏｸﾛの設定を定義します。例:
 !MESSAGE 
 !MESSAGE NMAKE /f "wuvorbis.mak" CFG="wuvorbis - Win32 Debug"
 !MESSAGE 
-!MESSAGE �I���\������� Ӱ��:
+!MESSAGE 選択可能なﾋﾞﾙﾄﾞ ﾓｰﾄﾞ:
 !MESSAGE 
-!MESSAGE "wuvorbis - Win32 Release" ("Win32 (x86) Dynamic-Link Library" �p)
-!MESSAGE "wuvorbis - Win32 Debug" ("Win32 (x86) Dynamic-Link Library" �p)
+!MESSAGE "wuvorbis - Win32 Release" ("Win32 (x86) Dynamic-Link Library" 用)
+!MESSAGE "wuvorbis - Win32 Debug" ("Win32 (x86) Dynamic-Link Library" 用)
 !MESSAGE 
 
 # Begin Project
@@ -38,12 +38,12 @@ RSC=rc.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "..\..\..\..\bin\win32\plugin\"
+# PROP Output_Dir "..¥..¥..¥..¥bin¥win32¥plugin¥"
 # PROP Intermediate_Dir "Release"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "WUVORBIS_EXPORTS" /YX /FD /c
-# ADD CPP /nologo /Gr /MT /W3 /GX /Zi /O2 /I "vorbis/include" /I "ogg/include" /I "..\\" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "WUVORBIS_EXPORTS" /D "DECODE_ONLY" /Fr /YX /FD /c
+# ADD CPP /nologo /Gr /MT /W3 /GX /Zi /O2 /I "vorbis/include" /I "ogg/include" /I "..¥¥" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "WUVORBIS_EXPORTS" /D "DECODE_ONLY" /Fr /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x411 /d "NDEBUG"
@@ -65,16 +65,16 @@ LINK32=link.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 1
-# PROP Output_Dir "..\..\..\..\bin\win32\plugin\"
+# PROP Output_Dir "..¥..¥..¥..¥bin¥win32¥plugin¥"
 # PROP Intermediate_Dir "Debug"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "WUVORBIS_EXPORTS" /YX /FD /GZ /c
-# ADD CPP /nologo /Gr /MTd /W3 /Gm /GX /ZI /Od /I "vorbis/include" /I "ogg/include" /I "..\\" /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "WUVORBIS_EXPORTS" /D "DECODE_ONLY" /FR /YX /FD /GZ /c
+# ADD CPP /nologo /Gr /MTd /W3 /Gm /GX /ZI /Od /I "vorbis/include" /I "ogg/include" /I "..¥¥" /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "WUVORBIS_EXPORTS" /D "DECODE_ONLY" /FR /YX /FD /GZ /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x411 /d "_DEBUG"
-# ADD RSC /l 0x411 /i "c:\vorbis\lib\vorbis" /d "_DEBUG"
+# ADD RSC /l 0x411 /i "c:¥vorbis¥lib¥vorbis" /d "_DEBUG"
 BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo
@@ -94,91 +94,91 @@ LINK32=link.exe
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=.\ogg\src\bitwise.c
+SOURCE=.¥ogg¥src¥bitwise.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\block.c
+SOURCE=.¥vorbis¥lib¥block.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\codebook.c
+SOURCE=.¥vorbis¥lib¥codebook.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\floor0.c
+SOURCE=.¥vorbis¥lib¥floor0.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\floor1.c
+SOURCE=.¥vorbis¥lib¥floor1.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\ogg\src\framing.c
+SOURCE=.¥ogg¥src¥framing.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\info.c
+SOURCE=.¥vorbis¥lib¥info.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\lpc.c
+SOURCE=.¥vorbis¥lib¥lpc.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\lsp.c
+SOURCE=.¥vorbis¥lib¥lsp.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\mapping0.c
+SOURCE=.¥vorbis¥lib¥mapping0.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\mdct.c
+SOURCE=.¥vorbis¥lib¥mdct.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\registry.c
+SOURCE=.¥vorbis¥lib¥registry.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\res0.c
+SOURCE=.¥vorbis¥lib¥res0.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\sharedbook.c
+SOURCE=.¥vorbis¥lib¥sharedbook.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\synthesis.c
+SOURCE=.¥vorbis¥lib¥synthesis.c
 # End Source File
 # Begin Source File
 
-SOURCE=..\tp_stub.cpp
+SOURCE=..¥tp_stub.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\tvpsnd.c
+SOURCE=.¥tvpsnd.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\vorbisfile.c
+SOURCE=.¥vorbis¥lib¥vorbisfile.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\window.c
+SOURCE=.¥vorbis¥lib¥window.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\wuvorbis.def
+SOURCE=.¥wuvorbis.def
 # End Source File
 # Begin Source File
 
-SOURCE=.\wuvorbis.rc
+SOURCE=.¥wuvorbis.rc
 # End Source File
 # Begin Source File
 
-SOURCE=.\WuVorbisMainUnit.cpp
+SOURCE=.¥WuVorbisMainUnit.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -186,67 +186,67 @@ SOURCE=.\WuVorbisMainUnit.cpp
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=.\vorbis\lib\backends.h
+SOURCE=.¥vorbis¥lib¥backends.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\bitrate.h
+SOURCE=.¥vorbis¥lib¥bitrate.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\codebook.h
+SOURCE=.¥vorbis¥lib¥codebook.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\codec_internal.h
+SOURCE=.¥vorbis¥lib¥codec_internal.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\lookup.h
+SOURCE=.¥vorbis¥lib¥lookup.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\lookup_data.h
+SOURCE=.¥vorbis¥lib¥lookup_data.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\lpc.h
+SOURCE=.¥vorbis¥lib¥lpc.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\lsp.h
+SOURCE=.¥vorbis¥lib¥lsp.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\masking.h
+SOURCE=.¥vorbis¥lib¥masking.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\mdct.h
+SOURCE=.¥vorbis¥lib¥mdct.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\os.h
+SOURCE=.¥vorbis¥lib¥os.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\psy.h
+SOURCE=.¥vorbis¥lib¥psy.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\registry.h
+SOURCE=.¥vorbis¥lib¥registry.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\scales.h
+SOURCE=.¥vorbis¥lib¥scales.h
 # End Source File
 # Begin Source File
 
-SOURCE=..\tp_stub.h
+SOURCE=..¥tp_stub.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\vorbis\lib\window.h
+SOURCE=.¥vorbis¥lib¥window.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"
@@ -255,7 +255,7 @@ SOURCE=.\vorbis\lib\window.h
 # End Group
 # Begin Source File
 
-SOURCE=..\..\..\core\visual\IA32\detect_cpu.obj
+SOURCE=..¥..¥..¥core¥visual¥IA32¥detect_cpu.obj
 # End Source File
 # End Target
 # End Project

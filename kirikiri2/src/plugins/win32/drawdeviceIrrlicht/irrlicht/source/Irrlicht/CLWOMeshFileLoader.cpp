@@ -33,7 +33,7 @@ LwoDebugPrint(const char* format, ...) {
 }
 #define LWO_DPRINT(...) LwoDebugPrint(__VA_ARGS__)
 #else
-#define LWO_DPRINT(...) {printf(__VA_ARGS__); printf("\n"); }
+#define LWO_DPRINT(...) {printf(__VA_ARGS__); printf("Â¥n"); }
 #endif
 #else
 #define LWO_DPRINT(...) ((void)0)
@@ -46,7 +46,7 @@ namespace scene
 
 #ifdef _DEBUG
 // #define LWO_READER_DEBUG
-//  #define LWO_READER_DEBUG_2 // ’Ç‰ÁƒR[ƒhA‚¨‚æ‚ÑƒXƒLƒbƒvŒnƒfƒoƒbƒOƒƒbƒZ[ƒW
+//  #define LWO_READER_DEBUG_2 // è¿½åŠ ã‚³ãƒ¼ãƒ‰ã€ãŠã‚ˆã³ã‚¹ã‚­ãƒƒãƒ—ç³»ãƒ‡ãƒãƒƒã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 #endif
 
 #define charsToUIntD(a, b, c, d) ((a << 24) | (b << 16) | (c << 8) | d)
@@ -149,7 +149,7 @@ CLWOMeshFileLoader::CLWOMeshFileLoader(scene::ISceneManager* smgr,
 
 
 //! destructor
-CLWOMeshFileLoader::~CLWOMeshFileLoader()
+CLWOMeshFileLoader::â€¾CLWOMeshFileLoader()
 {
 	if (Mesh)
 		Mesh->drop();
@@ -166,14 +166,14 @@ bool CLWOMeshFileLoader::isALoadableFileExtension(const c8* filename) const
 
 
 //! creates/loads an animated mesh from the file.
-//! \return Pointer to the created mesh. Returns 0 if loading failed.
+//! Â¥return Pointer to the created mesh. Returns 0 if loading failed.
 //! If you no longer need the mesh, you should call IAnimatedMesh::drop().
 //! See IUnknown::drop() for more information.
 IAnimatedMesh* CLWOMeshFileLoader::createMesh(io::IReadFile* file)
 {
 	File = file;
 
-  // ƒŒƒCƒ„ˆ—‚Ìó‘Ô•Ï”‚ğƒŠƒZƒbƒg
+  // ãƒ¬ã‚¤ãƒ¤å‡¦ç†ã®çŠ¶æ…‹å¤‰æ•°ã‚’ãƒªã‚»ãƒƒãƒˆ
   CurrentLayerId = -1;
   CurrentPolyIndexOffset = 0;
   CurrentPolyNum = 0;
@@ -202,7 +202,7 @@ IAnimatedMesh* CLWOMeshFileLoader::createMesh(io::IReadFile* file)
     const core::array<core::vector3df>& TargetPoints = Points[PolyMapping[polyIndex]];
     video::S3DVertex vertex;
 
-    // VMapName ‚ÉŒ»İ‚ÌƒŒƒCƒ„ID‚ğ¬‚º‚ñ‚Åƒ†ƒj[ƒN‚É‚µ‚ÄAmap‚©‚çŒŸõ‚·‚é
+    // VMapName ã«ç¾åœ¨ã®ãƒ¬ã‚¤ãƒ¤IDã‚’æ··ãœè¾¼ã‚“ã§ãƒ¦ãƒ‹ãƒ¼ã‚¯ã«ã—ã¦ã€mapã‹ã‚‰æ¤œç´¢ã™ã‚‹
     u32 layerId = PolyMapping[polyIndex];
 		core::stringc vmapName = getVMapNameByLayerId(layerId, Materials[tag]->Texture[0].VMapName);
     core::map<core::stringc, core::array<core::vector2df>*>::Node *vmapNode = VMAPMap.find(vmapName);
@@ -218,7 +218,7 @@ IAnimatedMesh* CLWOMeshFileLoader::createMesh(io::IReadFile* file)
 			const s32 j=poly[i];
 			vertex.Pos=TargetPoints[j];
 
-			// ƒeƒNƒXƒ`ƒƒÀ•W: VMAD ‚Éî•ñ‚ª‚ ‚ê‚Î‚»‚ê‚ğA–³‚¯‚ê‚Î VMAP ‚©‚çæ“¾
+			// ãƒ†ã‚¯ã‚¹ãƒãƒ£åº§æ¨™: VMAD ã«æƒ…å ±ãŒã‚ã‚Œã°ãã‚Œã‚’ã€ç„¡ã‘ã‚Œã° VMAP ã‹ã‚‰å–å¾—
 			core::map<VMADId, core::vector2df>::Node *vmadTCoordsNode =  NULL;
 			if (vmadTCoordsMap)
 				vmadTCoordsNode = vmadTCoordsMap->find(VMADId(polyIndex, j));
@@ -278,11 +278,11 @@ IAnimatedMesh* CLWOMeshFileLoader::createMesh(io::IReadFile* file)
 	MaterialMapping.clear();
 	core::map<core::stringc, core::array<core::vector2df>*>::Iterator vmapIt = VMAPMap.getIterator();
 	for (;!vmapIt.atEnd();vmapIt++)
-		delete (*vmapIt).getValue(); // Value ‘¤‚Í new ‚µ‚Ä‚ ‚é‚Ì‚Å©•ª‚ÅŠJ•ú‚ª•K—v
+		delete (*vmapIt).getValue(); // Value å´ã¯ new ã—ã¦ã‚ã‚‹ã®ã§è‡ªåˆ†ã§é–‹æ”¾ãŒå¿…è¦
   VMAPMap.clear();
 	core::map<core::stringc, core::map<VMADId, core::vector2df>* >::Iterator vmadIt = VMADMap.getIterator();
 	for (;!vmapIt.atEnd();vmadIt++)
-		delete (*vmadIt).getValue(); // Value ‘¤‚Í new ‚µ‚Ä‚ ‚é‚Ì‚Å©•ª‚ÅŠJ•ú‚ª•K—v
+		delete (*vmadIt).getValue(); // Value å´ã¯ new ã—ã¦ã‚ã‚‹ã®ã§è‡ªåˆ†ã§é–‹æ”¾ãŒå¿…è¦
 	VMADMap.clear();
 	Materials.clear();
 	Images.clear();
@@ -344,7 +344,7 @@ bool CLWOMeshFileLoader::readChunks()
 #endif
 						layer.Parent = tmp16;
 					}
-          // V‹KƒŒƒCƒ„‚É‚È‚Á‚½‚Ì‚ÅA‘O‚Ü‚Å‚Ìƒ|ƒŠƒIƒuƒWƒFƒNƒg”‚ğƒIƒtƒZƒbƒg’l‚É‰ÁZ‚µAŒ»İ‚Ìƒ|ƒŠ”‚ğ‰Šú‰»
+          // æ–°è¦ãƒ¬ã‚¤ãƒ¤ã«ãªã£ãŸã®ã§ã€å‰ã¾ã§ã®ãƒãƒªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆæ•°ã‚’ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã«åŠ ç®—ã—ã€ç¾åœ¨ã®ãƒãƒªæ•°ã‚’åˆæœŸåŒ–
           CurrentPolyIndexOffset += CurrentPolyNum;
           CurrentPolyNum = 0;
 				}
@@ -567,13 +567,13 @@ void CLWOMeshFileLoader::readObj1(u32 size)
 	}
 }
 
-// ƒJƒŒƒ“ƒgƒŒƒCƒ„ID‚É‡‚í‚¹‚½–¼‘O‚É•Ï‚¦‚é
+// ã‚«ãƒ¬ãƒ³ãƒˆãƒ¬ã‚¤ãƒ¤IDã«åˆã‚ã›ãŸåå‰ã«å¤‰ãˆã‚‹
 core::stringc CLWOMeshFileLoader::getVMapNameByLayerId(u32 layerId, core::stringc& name)
 {
   return core::stringc(layerId) + "_" + name;
 }
 
-// VMAD “Ç‚İ‚İ
+// VMAD èª­ã¿è¾¼ã¿
 void CLWOMeshFileLoader::readDiscontinuousVertexMapping(u32 size)
 {
 	char type[5];
@@ -599,9 +599,9 @@ void CLWOMeshFileLoader::readDiscontinuousVertexMapping(u32 size)
 		return;
 	}
 
-  // Œ»İ‚ÌƒŒƒCƒ„‚ÌVMADƒ}ƒbƒv‚ÉA“Ç‚İ‚ñ‚¾TXUVî•ñ‚ğ’Ç‰Á
-  // stringc("ƒŒƒCƒ„ID_" + VMapName) ¨ map(vtx index, TXUV)   ‚Æ‚¢‚¤ƒ}ƒbƒv‚É‚È‚Á‚Ä‚¢‚é
-  // VMapName ‚ÍA(‚¨‚»‚ç‚­c)ƒŒƒCƒ„“à‚Å‚Ì‚İˆê—¥‚È‚Ì‚ÅAƒŒƒCƒ„ID‚ğ‚Â‚¯‚Äunique‚É‚µ‚Ä‚¢‚é
+  // ç¾åœ¨ã®ãƒ¬ã‚¤ãƒ¤ã®VMADãƒãƒƒãƒ—ã«ã€èª­ã¿è¾¼ã‚“ã TXUVæƒ…å ±ã‚’è¿½åŠ 
+  // stringc("ãƒ¬ã‚¤ãƒ¤ID_" + VMapName) â†’ map(vtx index, TXUV)   ã¨ã„ã†ãƒãƒƒãƒ—ã«ãªã£ã¦ã„ã‚‹
+  // VMapName ã¯ã€(ãŠãã‚‰ãâ€¦)ãƒ¬ã‚¤ãƒ¤å†…ã§ã®ã¿ä¸€å¾‹ãªã®ã§ã€ãƒ¬ã‚¤ãƒ¤IDã‚’ã¤ã‘ã¦uniqueã«ã—ã¦ã„ã‚‹
 	// core::map<core::stringc, core::map<u16, core::vector2df>* > VMADMap;
   core::map<VMADId, core::vector2df> *tCoordsMap = new core::map<VMADId, core::vector2df>();
   VMADMap.insert(getVMapNameByLayerId(CurrentLayerId, name), tCoordsMap);
@@ -612,7 +612,7 @@ void CLWOMeshFileLoader::readDiscontinuousVertexMapping(u32 size)
 	{
 		size -= readVX(vmadId.vtxId);	  // vtxId
 		size -= readVX(vmadId.polyId);  // polyId
-		vmadId.polyId += CurrentPolyIndexOffset;  // ƒ|ƒŠID‚ÉƒŒƒCƒ„ƒIƒtƒZƒbƒg‚ğ‰ÁZ
+		vmadId.polyId += CurrentPolyIndexOffset;  // ãƒãƒªIDã«ãƒ¬ã‚¤ãƒ¤ã‚ªãƒ•ã‚»ãƒƒãƒˆã‚’åŠ ç®—
 		File->read(&tcoord.X, 4);
 #ifndef __BIG_ENDIAN__
 		tcoord.X=os::Byteswap::byteswap(tcoord.X);
@@ -630,7 +630,7 @@ void CLWOMeshFileLoader::readDiscontinuousVertexMapping(u32 size)
 	}
 }
 
-// VMAP “Ç‚İ‚İ
+// VMAP èª­ã¿è¾¼ã¿
 void CLWOMeshFileLoader::readVertexMapping(u32 size)
 {
 	char type[5];
@@ -656,9 +656,9 @@ void CLWOMeshFileLoader::readVertexMapping(u32 size)
 		return;
 	}
 
-  // Œ»İ‚ÌƒŒƒCƒ„‚ÌƒeƒNƒXƒ`ƒƒÀ•Wƒ}ƒbƒv‚ÉA“Ç‚İ‚ñ‚¾TXUVî•ñ‚ğ’Ç‰Á
-  // stringc("ƒŒƒCƒ„ID_" + VMapName) ¨ array(TXUV)   ‚Æ‚¢‚¤ƒ}ƒbƒv‚É‚È‚Á‚Ä‚¢‚é
-  // VMapName ‚ÍA(‚¨‚»‚ç‚­c)ƒŒƒCƒ„“à‚Å‚Ì‚İˆê—¥‚È‚Ì‚ÅAƒŒƒCƒ„ID‚ğ‚Â‚¯‚Äunique‚É‚µ‚Ä‚¢‚é
+  // ç¾åœ¨ã®ãƒ¬ã‚¤ãƒ¤ã®ãƒ†ã‚¯ã‚¹ãƒãƒ£åº§æ¨™ãƒãƒƒãƒ—ã«ã€èª­ã¿è¾¼ã‚“ã TXUVæƒ…å ±ã‚’è¿½åŠ 
+  // stringc("ãƒ¬ã‚¤ãƒ¤ID_" + VMapName) â†’ array(TXUV)   ã¨ã„ã†ãƒãƒƒãƒ—ã«ãªã£ã¦ã„ã‚‹
+  // VMapName ã¯ã€(ãŠãã‚‰ãâ€¦)ãƒ¬ã‚¤ãƒ¤å†…ã§ã®ã¿ä¸€å¾‹ãªã®ã§ã€ãƒ¬ã‚¤ãƒ¤IDã‚’ã¤ã‘ã¦uniqueã«ã—ã¦ã„ã‚‹
   core::array<core::vector2df> *tCoords = new core::array<core::vector2df>();
   VMAPMap.insert(getVMapNameByLayerId(CurrentLayerId, name), tCoords);
 	
@@ -756,7 +756,7 @@ void CLWOMeshFileLoader::readObj2(u32 size)
 #endif
     PolyMapping.push_back(CurrentLayerId);
 	}
-  // “Ç‚İ‚ñ‚¾ƒ|ƒŠ‚Ì•ª‚¾‚¯ƒ}ƒeƒŠƒAƒ‹ƒ}ƒbƒsƒ“ƒO‚ÌƒnƒR‚ğ—pˆÓ‚·‚é
+  // èª­ã¿è¾¼ã‚“ã ãƒãƒªã®åˆ†ã ã‘ãƒãƒ†ãƒªã‚¢ãƒ«ãƒãƒƒãƒ”ãƒ³ã‚°ã®ãƒã‚³ã‚’ç”¨æ„ã™ã‚‹
   for (u32 j=0; j<numPolys; ++j) {
     MaterialMapping.push_back(0);
   }
@@ -1562,7 +1562,7 @@ void CLWOMeshFileLoader::readMat(u32 size)
 #ifndef __BIG_ENDIAN__
 					mat->Texture[currTexture].AntiAliasing=os::Byteswap::byteswap(mat->Texture[currTexture].AntiAliasing);
 #endif
-					if (tmp16 & ~0x01)
+					if (tmp16 & â€¾0x01)
 						mat->Texture[currTexture].AntiAliasing=0.0f; // disabled
 					size -= 4;
 				}
@@ -1759,7 +1759,7 @@ void CLWOMeshFileLoader::readMat(u32 size)
 		}
 	}
 
-	if (mat->Texture[0].Map != "") // diffuse // MEMO ’Êí‚ÌƒeƒNƒXƒ`ƒƒƒ}ƒbƒv
+	if (mat->Texture[0].Map != "") // diffuse // MEMO é€šå¸¸ã®ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒãƒƒãƒ—
 		irrMat->setTexture(0,loadTexture(mat->Texture[0].Map));
 	if (mat->Texture[3].Map != "") // reflection
 	{
@@ -1884,7 +1884,7 @@ u32 CLWOMeshFileLoader::readVX(u32& num)
 #ifndef __BIG_ENDIAN__
 		tmpIndex=os::Byteswap::byteswap(tmpIndex);
 #endif
-		num=((num << 16)|tmpIndex) & ~0xFF000000;
+		num=((num << 16)|tmpIndex) & â€¾0xFF000000;
 		return 4;
 	}
 	return 2;
@@ -1928,7 +1928,7 @@ bool CLWOMeshFileLoader::readFileHeader()
 	return true;
 }
 
-// XXX exist ƒ`ƒFƒbƒN‚Í–³‘ÊƒRƒXƒg‚È‚Ì‚ÅŒˆ‚ß‘Å‚¿‚Å‚«‚é‚æ‚¤‚É‚·‚é
+// XXX exist ãƒã‚§ãƒƒã‚¯ã¯ç„¡é§„ã‚³ã‚¹ãƒˆãªã®ã§æ±ºã‚æ‰“ã¡ã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹
 #define LWO_LOADER_USE_TEX_DIR = 1
 #ifdef LWO_LOADER_USE_TEX_DIR
 static const core::stringc TEX_DIR = "texture/";
@@ -1938,12 +1938,12 @@ video::ITexture* CLWOMeshFileLoader::loadTexture(const core::stringc& file)
 	video::IVideoDriver* driver = SceneManager->getVideoDriver();
 
 #ifdef LWO_LOADER_USE_TEX_DIR
-  // MEMO ‹æØ‚è‚ÍƒXƒ‰ƒbƒVƒ…‚Ì‚İA”­Œ©‚Å‚«‚È‚©‚Á‚½ê‡‚ÌƒPƒA‚Í‚µ‚È‚¢
+  // MEMO åŒºåˆ‡ã‚Šã¯ã‚¹ãƒ©ãƒƒã‚·ãƒ¥ã®ã¿ã€ç™ºè¦‹ã§ããªã‹ã£ãŸå ´åˆã®ã‚±ã‚¢ã¯ã—ãªã„
   core::stringc targetName;
   s32 stringPos = file.findLast('/');
   if (stringPos != -1) {
     targetName = TEX_DIR + file.subString(stringPos+1, file.size()-stringPos);
-    // TODO exit ƒ`ƒFƒbƒN‚¢‚ç‚È‚¢‚©‚È
+    // TODO exit ãƒã‚§ãƒƒã‚¯ã„ã‚‰ãªã„ã‹ãª
 #ifdef LWO_READER_DEBUG
     LWO_DPRINT("XXX TARGET: %s", targetName.c_str());
 #endif
@@ -1957,7 +1957,7 @@ video::ITexture* CLWOMeshFileLoader::loadTexture(const core::stringc& file)
 	core::stringc strippedName;
 	s32 stringPos = file.findLast('/');
 	if (stringPos==-1)
-		stringPos = file.findLast('\\');
+		stringPos = file.findLast('Â¥Â¥');
 	if (stringPos != -1)
 	{
 		strippedName = file.subString(stringPos+1, file.size()-stringPos);
@@ -1969,7 +1969,7 @@ video::ITexture* CLWOMeshFileLoader::loadTexture(const core::stringc& file)
 	core::stringc newpath = File->getFileName();
 	stringPos = newpath.findLast('/');
 	if (stringPos==-1)
-		stringPos = newpath.findLast('\\');
+		stringPos = newpath.findLast('Â¥Â¥');
 	if (stringPos != -1)
 	{
 		newpath = newpath.subString(0,stringPos+1);

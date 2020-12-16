@@ -72,7 +72,7 @@ namespace boost { namespace spirit {
         closure_context(ClosureT const& clos)
         : frame(clos) {}
 
-        ~closure_context() {}
+        ‾closure_context() {}
 
         template <typename ParserT, typename ScannerT>
         void pre_parse(ParserT const&, ScannerT const&) {}
@@ -112,7 +112,7 @@ namespace boost { namespace spirit {
         init_closure_context(ClosureT const& clos)
         : frame(clos.subject(), phoenix::convert_actors<tuple_t>(clos.init)) {}
 
-        ~init_closure_context() {}
+        ‾init_closure_context() {}
 
         template <typename ParserT, typename ScannerT>
         void pre_parse(ParserT const& p, ScannerT const&) {}
@@ -989,7 +989,7 @@ namespace boost { namespace spirit {
     #endif
         };
 
-        ~closure() {}
+        ‾closure() {}
     };
 
     ///////////////////////////////////////////////////////////////////////////

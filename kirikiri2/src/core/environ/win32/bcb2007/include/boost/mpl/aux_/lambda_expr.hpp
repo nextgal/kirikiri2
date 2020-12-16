@@ -22,8 +22,8 @@
 #if defined(BOOST_MPL_NO_LAMBDA_HEURISTIC)
 #   define BOOST_MPL_AUX_IS_LAMBDA_EXPR(value) /**/
 #else
-#   define BOOST_MPL_AUX_IS_LAMBDA_EXPR(value) \
-    typedef value is_le; \
+#   define BOOST_MPL_AUX_IS_LAMBDA_EXPR(value) ¥
+    typedef value is_le; ¥
     /**/
 #endif
 

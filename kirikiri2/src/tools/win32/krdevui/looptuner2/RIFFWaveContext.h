@@ -39,7 +39,7 @@ protected:
 
 public:
 	__fastcall TRIFFWaveContext();
-	__fastcall ~TRIFFWaveContext();
+	__fastcall ‾TRIFFWaveContext();
 
 	bool __fastcall Start(AnsiString filename);
 	int __fastcall Read(__int16 * dest, int destgranules);

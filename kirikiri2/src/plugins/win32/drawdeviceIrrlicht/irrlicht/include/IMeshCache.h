@@ -29,7 +29,7 @@ namespace scene
 	public:
 
 		//! Destructor
-		virtual ~IMeshCache() {}
+		virtual ‾IMeshCache() {}
 
 		//! Adds a mesh to the internal list of loaded meshes.
 		/** Usually, ISceneManager::getMesh() is called to load a mesh
@@ -42,10 +42,10 @@ namespace scene
 		with one call. They can add additional meshes with this method
 		to the scene manager. The COLLADA loader for example uses this
 		method.
-		\param filename Filename of the mesh. When calling
+		¥param filename Filename of the mesh. When calling
 		ISceneManager::getMesh() with this name it will return the mesh
 		set by this method.
-		\param mesh Pointer to a mesh which will now be referenced by
+		¥param mesh Pointer to a mesh which will now be referenced by
 		this name. */
 		virtual void addMesh(const c8* filename, IAnimatedMesh* mesh) = 0;
 
@@ -53,14 +53,14 @@ namespace scene
 		/** After loading a mesh with getMesh(), the mesh can be
 		removed from the cache using this method, freeing a lot of
 		memory.
-		\param mesh Pointer to the mesh which shall be removed. */
+		¥param mesh Pointer to the mesh which shall be removed. */
 		virtual void removeMesh(const IAnimatedMesh* const mesh) = 0;
 
 		//! Removes a mesh from the cache.
 		/** After loading a mesh with getMesh(), the mesh can be
 		removed from the cache using this method, freeing a lot of
 		memory.
-		\param mesh Pointer to the mesh which shall be removed. */
+		¥param mesh Pointer to the mesh which shall be removed. */
 		virtual void removeMesh(const IMesh* const mesh) = 0;
 
 		//! Returns amount of loaded meshes in the cache.
@@ -68,48 +68,48 @@ namespace scene
 		addMesh(). If you ever need to access the internal mesh cache,
 		you can do this using removeMesh(), getMeshNumber(),
 		getMeshByIndex() and getMeshFilename().
-		\return Number of meshes in cache. */
+		¥return Number of meshes in cache. */
 		virtual u32 getMeshCount() const = 0;
 
 		//! Returns current index number of the mesh, and -1 if it is not in the cache.
-		/** \param mesh Pointer to the mesh to search for.
-		\return Index of the mesh in the cache, or -1 if not found. */
+		/** ¥param mesh Pointer to the mesh to search for.
+		¥return Index of the mesh in the cache, or -1 if not found. */
 		virtual s32 getMeshIndex(const IAnimatedMesh* const mesh) const = 0;
 
 		//! Returns current index number of the mesh, and -1 if it is not in the cache.
-		/** \param mesh Pointer to the mesh to search for.
-		\return Index of the mesh in the cache, or -1 if not found. */
+		/** ¥param mesh Pointer to the mesh to search for.
+		¥return Index of the mesh in the cache, or -1 if not found. */
 		virtual s32 getMeshIndex(const IMesh* const mesh) const = 0;
 
 		//! Returns a mesh based on its index number.
-		/** \param index: Index of the mesh, number between 0 and
+		/** ¥param index: Index of the mesh, number between 0 and
 		getMeshCount()-1.
 		Note that this number is only valid until a new mesh is loaded
 		or removed.
-		\return Pointer to the mesh or 0 if there is none with this
+		¥return Pointer to the mesh or 0 if there is none with this
 		number. */
 		virtual IAnimatedMesh* getMeshByIndex(u32 index) = 0;
 
 		//! Returns a mesh based on its filename.
-		/** \param filename Name of the mesh.
-		\return Pointer to the mesh or 0 if there is none with this number. */
+		/** ¥param filename Name of the mesh.
+		¥return Pointer to the mesh or 0 if there is none with this number. */
 		virtual IAnimatedMesh* getMeshByFilename(const c8* filename) = 0;
 
 		//! Get the filename of a loaded mesh, based on its index.
-		/** \param index: Index of the mesh, number between 0 and getMeshCount()-1.
-		\return String with name if mesh was found and has a name, else
+		/** ¥param index: Index of the mesh, number between 0 and getMeshCount()-1.
+		¥return String with name if mesh was found and has a name, else
 		0. */
 		virtual const c8* getMeshFilename(u32 index) const = 0;
 
 		//! Get the filename of a loaded mesh, if there is any.
-		/** \param mesh Pointer to mesh to query.
-		\return String with name if mesh was found and has a name, else
+		/** ¥param mesh Pointer to mesh to query.
+		¥return String with name if mesh was found and has a name, else
 		0. */
 		virtual const c8* getMeshFilename(const IAnimatedMesh* const mesh) const = 0;
 
 		//! Get the filename of a loaded mesh, if there is any.
-		/** \param mesh Pointer to mesh to query.
-		\return String with name if mesh was found and has a name, else
+		/** ¥param mesh Pointer to mesh to query.
+		¥return String with name if mesh was found and has a name, else
 		0. */
 		virtual const c8* getMeshFilename(const IMesh* const mesh) const = 0;
 
@@ -117,32 +117,32 @@ namespace scene
 		/** Note that renaming meshes might change the ordering of the
 		meshes, and so the index of the meshes as returned by
 		getMeshIndex() or taken by some methods will change.
-		\param index The index of the mesh in the cache.
-		\param filename New name for the mesh.
-		\return True if mesh was renamed. */
+		¥param index The index of the mesh in the cache.
+		¥param filename New name for the mesh.
+		¥return True if mesh was renamed. */
 		virtual bool setMeshFilename(u32 index, const c8* filename) = 0;
 
 		//! Renames a loaded mesh.
 		/** Note that renaming meshes might change the ordering of the
 		meshes, and so the index of the meshes as returned by
 		getMeshIndex() or taken by some methods will change.
-		\param mesh Mesh to be renamed.
-		\param filename New name for the mesh.
-		\return True if mesh was renamed. */
+		¥param mesh Mesh to be renamed.
+		¥param filename New name for the mesh.
+		¥return True if mesh was renamed. */
 		virtual bool setMeshFilename(const IAnimatedMesh* const mesh, const c8* filename) = 0;
 
 		//! Renames a loaded mesh.
 		/** Note that renaming meshes might change the ordering of the
 		meshes, and so the index of the meshes as returned by
 		getMeshIndex() or taken by some methods will change.
-		\param mesh Mesh to be renamed.
-		\param filename New name for the mesh.
-		\return True if mesh was renamed. */
+		¥param mesh Mesh to be renamed.
+		¥param filename New name for the mesh.
+		¥return True if mesh was renamed. */
 		virtual bool setMeshFilename(const IMesh* const mesh, const c8* filename) = 0;
 
 		//! Check if a mesh was already loaded.
-		/** \param filename Name of the mesh.
-		\return True if the mesh has been loaded, else false. */
+		/** ¥param filename Name of the mesh.
+		¥return True if the mesh has been loaded, else false. */
 		virtual bool isMeshLoaded(const c8* filename) = 0;
 
 		//! Clears the whole mesh cache, removing all meshes.

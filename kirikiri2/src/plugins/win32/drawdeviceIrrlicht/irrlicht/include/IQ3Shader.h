@@ -438,7 +438,7 @@ namespace quake3
 	struct SVarGroupList: public IReferenceCounted
 	{
 		SVarGroupList () {}
-		virtual ~SVarGroupList () {}
+		virtual ‾SVarGroupList () {}
 
 		core::array < SVarGroup > VariableGroup;
 	};
@@ -493,9 +493,9 @@ namespace quake3
 		{
 			buf = "";
 			for ( i = 0; i < stack - 1; ++i )
-				buf += '\t';
+				buf += '¥t';
 
-			buf += "{\n";
+			buf += "{¥n";
 			dest.append ( buf );
 		}
 
@@ -503,12 +503,12 @@ namespace quake3
 		{
 			buf = "";
 			for ( i = 0; i < stack; ++i )
-				buf += '\t';
+				buf += '¥t';
 
 			buf += group->Variable[g].name;
 			buf += " ";
 			buf += group->Variable[g].content;
-			buf += "\n";
+			buf += "¥n";
 			dest.append ( buf );
 		}
 
@@ -516,9 +516,9 @@ namespace quake3
 		{
 			buf = "";
 			for ( i = 0; i < stack - 1; ++i )
-				buf += '\t';
+				buf += '¥t';
 
-			buf += "}\n";
+			buf += "}¥n";
 			dest.append ( buf );
 		}
 
@@ -542,10 +542,10 @@ namespace quake3
 
 		if ( size <= 1 )
 		{
-			dest.append ( "{\n" );
+			dest.append ( "{¥n" );
 		}
 
-		dest.append ( "}\n" );
+		dest.append ( "}¥n" );
 		return dest;
 	}
 

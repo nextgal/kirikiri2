@@ -15,10 +15,10 @@ void process(void)
 		BOOL ret;
 
 		// append self filename to the executable path
-		me_strcpy(file + me_strlen(file), " \"");
+		me_strcpy(file + me_strlen(file), " ¥"");
 		GetModuleFileName(GetModuleHandle(NULL),
 				file + me_strlen(file), MAX_PATH);
-		me_strcpy(file + me_strlen(file), "\"");
+		me_strcpy(file + me_strlen(file), "¥"");
 
 		// execute the executable
 		zeromemory(&si, sizeof(si));

@@ -16,8 +16,8 @@
 	kag.fore.layers[1].colorRect(10,130,125,40,0xffff00,128);
 	kag.fore.layers[1].colorRect(10,170,124,40,0xffff00,1);
 	kag.fore.layers[1].font.height = 40;
-	kag.fore.layers[1].drawText(-10, -12, "Š´‚¶Š¿š", 0xffffff);
-	kag.fore.layers[1].drawText(100, 120, "Š´‚¶Š¿š", 0xffffff);
+	kag.fore.layers[1].drawText(-10, -12, "æ„Ÿã˜æ¼¢å­—", 0xffffff);
+	kag.fore.layers[1].drawText(100, 120, "æ„Ÿã˜æ¼¢å­—", 0xffffff);
 	kag.fore.base.face = dfOpaque;
 	kag.fore.base.holdAlpha = false;
 	kag.fore.base.operateAffine(kag.fore.layers[1], 0, 0, 256, 256, false, 30, 30, 194, 70, 120, 254);

@@ -8,16 +8,16 @@
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
 
-// ’ˆÓFˆÙ‚È‚éƒXƒŒƒbƒh‚ªŠ—L‚·‚é VCL ‚Ìƒƒ\ƒbƒh/ŠÖ”/ƒvƒƒpƒeƒB‚ğ•Ê‚Ì
-// ƒŒƒbƒhŠ—L‚ÌƒIƒuƒWƒFƒNƒg‚É‘Î‚µ‚Ä‚Í Synchronize ‚ğg—p‚Å‚«‚Ü‚·B
+// æ³¨æ„ï¼šç•°ãªã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ãŒæ‰€æœ‰ã™ã‚‹ VCL ã®ãƒ¡ã‚½ãƒƒãƒ‰/é–¢æ•°/ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’åˆ¥ã®
+// ãƒ¬ãƒƒãƒ‰æ‰€æœ‰ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¯¾ã—ã¦ã¯ Synchronize ã‚’ä½¿ç”¨ã§ãã¾ã™ã€‚
 //
 //      Synchronize(&UpdateCaption);
 //
-// —á‚¦‚Î UpdateCaption ‚ğˆÈ‰º‚Ì‚æ‚¤‚É’è‹`‚µ
+// ä¾‹ãˆã° UpdateCaption ã‚’ä»¥ä¸‹ã®ã‚ˆã†ã«å®šç¾©ã—
 //
 //      void __fastcall DebuggeeCheckThread::UpdateCaption()
 //      {
-//        Form1->Caption = "ƒXƒŒƒbƒh‚©‚ç‘‚«Š·‚¦‚Ü‚µ‚½";
+//        Form1->Caption = "ã‚¹ãƒ¬ãƒƒãƒ‰ã‹ã‚‰æ›¸ãæ›ãˆã¾ã—ãŸ";
 //      }
 //---------------------------------------------------------------------------
 
@@ -55,10 +55,10 @@ void __fastcall DebuggeeCheckThread::Execute()
 	debuggee_comm_area_size_ = 0;
 	debug_continue_status_ = DBG_CONTINUE;
 
-	// ‹N“®‘ÎÛ‚Ìƒpƒ‰ƒ[ƒ^‚ğ‚à‚ç‚¤
+	// èµ·å‹•å¯¾è±¡ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ã‚‚ã‚‰ã†
 	Synchronize(&GetParameters);
 
-	// ƒfƒoƒbƒM‹N“®	
+	// ãƒ‡ãƒãƒƒã‚®èµ·å‹•	
 	STARTUPINFO si;
 	ZeroMemory(&si,sizeof(si));
 	si.cb=sizeof(si);
@@ -78,12 +78,12 @@ void __fastcall DebuggeeCheckThread::Execute()
 		// error
 		ShowLastError();
 	} else {
-		// ƒvƒƒZƒXƒf[ƒ^‚ğİ’è
+		// ãƒ—ãƒ­ã‚»ã‚¹ãƒ‡ãƒ¼ã‚¿ã‚’è¨­å®š
 		Synchronize(&SetProcInfo);
 
 #if 0
-		// ‹N“®‘Ò‚¿
-		DWORD timeout = 50;	// 50ms‚Í‘Ò‚Â
+		// èµ·å‹•å¾…ã¡
+		DWORD timeout = 50;	// 50msã¯å¾…ã¤
 		while( Terminated == false ) {
 			// wait for wakeup debuggee
 			DWORD retwait = ::WaitForInputIdle( proc_info_.hProcess, timeout );
@@ -93,34 +93,34 @@ void __fastcall DebuggeeCheckThread::Execute()
 			} else if( retwait == WAIT_TIMEOUT ) {
 				// time out, retry
 			} else {
-				// ‹N“®‚ğ’Ê’m
+				// èµ·å‹•ã‚’é€šçŸ¥
 				Synchronize(&WakeupDebugee);
 				break;
 			}
 		}
 		if( result == 0 ) {
 			ShowLastError();
-			// ƒvƒƒZƒX‹­§I—¹
+			// ãƒ—ãƒ­ã‚»ã‚¹å¼·åˆ¶çµ‚äº†
 			::TerminateProcess(proc_info_.hProcess, 0);
 		} else
 #else
 		Synchronize(&WakeupDebugee);
 #endif
 		{
-			// Às’†
+			// å®Ÿè¡Œä¸­
 			while( Terminated == false && result ) {
 				DEBUG_EVENT deb_ev;
-				DWORD timeout = 50;	// 50ms‚Í‘Ò‚Â
+				DWORD timeout = 50;	// 50msã¯å¾…ã¤
 				result = ::WaitForDebugEvent( &deb_ev, timeout );
 				if( result ) {
 					int breakev = HandleDebugEvent( deb_ev );
 					if( breakev == 0 ) {
 						break;
 					} else if( breakev > 0 ) {
-						// ƒfƒoƒbƒO‚ğ‘±s‚·‚é
+						// ãƒ‡ãƒãƒƒã‚°ã‚’ç¶šè¡Œã™ã‚‹
 						::ContinueDebugEvent( proc_info_.dwProcessId, deb_ev.dwThreadId, debug_continue_status_ );
 					} else if( breakev < 0 ) {
-						// ƒuƒŒƒCƒN”­¶
+						// ãƒ–ãƒ¬ã‚¤ã‚¯ç™ºç”Ÿ
 						bool is_break_called = false;
 						while( Terminated == false ) {
 							Synchronize(&GetCommand);
@@ -131,7 +131,7 @@ void __fastcall DebuggeeCheckThread::Execute()
 								delete[] command_.data_;
 								command_.data_ = NULL;
 								if( retw == 0 || dwWrite != command_.size_ ) {
-									// ‘‚«‚İ¸”s
+									// æ›¸ãè¾¼ã¿å¤±æ•—
 									ShowLastError();
 									result = 0;
 									command_.size_ = 0;
@@ -150,7 +150,7 @@ void __fastcall DebuggeeCheckThread::Execute()
 						}
 					}
 				} else {
-					// ƒ^ƒCƒ€ƒAƒEƒgˆÈŠO‚ÅI—¹‚µ‚½ê‡‚ÍA‹­§I—¹‚µ‚Ä‚µ‚Ü‚¤B
+					// ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆä»¥å¤–ã§çµ‚äº†ã—ãŸå ´åˆã¯ã€å¼·åˆ¶çµ‚äº†ã—ã¦ã—ã¾ã†ã€‚
 					DWORD lasterror = ::GetLastError();
 					if( WAIT_TIMEOUT != lasterror && ERROR_SEM_TIMEOUT != lasterror ) {
 						::TerminateProcess(proc_info_.hProcess, 0);
@@ -159,13 +159,13 @@ void __fastcall DebuggeeCheckThread::Execute()
 					} else {
 						result = 1;
 					}
-					// ƒuƒŒ[ƒN—v‹‚ª‚ ‚é‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN
+					// ãƒ–ãƒ¬ãƒ¼ã‚¯è¦æ±‚ãŒã‚ã‚‹ã‹ã©ã†ã‹ãƒã‚§ãƒƒã‚¯
 					Synchronize(&CheckBreakRequest);
 					if( is_request_break_ ) {
-						// ƒuƒŒ[ƒN—v‹‚ª‚ ‚é
+						// ãƒ–ãƒ¬ãƒ¼ã‚¯è¦æ±‚ãŒã‚ã‚‹
 						DWORD retsus = ::SuspendThread(proc_info_.hThread);
 						if( retsus == (DWORD)-1 ) {
-							// ƒGƒ‰[‚ÅƒTƒXƒyƒ“ƒh‚Å‚«‚È‚¢
+							// ã‚¨ãƒ©ãƒ¼ã§ã‚µã‚¹ãƒšãƒ³ãƒ‰ã§ããªã„
 							ShowLastError();
 						} else {
 							Synchronize(&GetCommand);
@@ -174,7 +174,7 @@ void __fastcall DebuggeeCheckThread::Execute()
 								BOOL retw = ::WriteProcessMemory( proc_info_.hProcess, debuggee_comm_area_addr_,
 															command_.data_, command_.size_, &dwWrite );
 								if( retw == 0 || dwWrite != command_.size_ ) {
-									// ‘‚«‚İ¸”s
+									// æ›¸ãè¾¼ã¿å¤±æ•—
 									ShowLastError();
 								}
 								command_.size_ = 0;
@@ -184,10 +184,10 @@ void __fastcall DebuggeeCheckThread::Execute()
 							command_.size_ = 0;
 						}
 						if( retsus != (DWORD)-1 ) {
-							// ƒŠƒWƒ…[ƒ€
+							// ãƒªã‚¸ãƒ¥ãƒ¼ãƒ 
 							retsus = ::ResumeThread(proc_info_.hThread);
 							if( retsus == (DWORD)-1 ) {
-								// ƒŠƒWƒ…[ƒ€¸”s‚µ‚½ê‡‚ÍA‹­§I—¹‚µ‚Ä‚µ‚Ü‚¤B
+								// ãƒªã‚¸ãƒ¥ãƒ¼ãƒ å¤±æ•—ã—ãŸå ´åˆã¯ã€å¼·åˆ¶çµ‚äº†ã—ã¦ã—ã¾ã†ã€‚
 								::TerminateProcess(proc_info_.hProcess, 0);
 								result = 0;
 								break;
@@ -217,49 +217,49 @@ void __fastcall DebuggeeCheckThread::CheckBreakRequest()
 	if( is_request_break_ ) ScriptDebuggerForm->SetBreakCommand();
 }
 //---------------------------------------------------------------------------
-//! @return : ˆ—‚ğŒp‘±‚·‚é‚©‚Ç‚¤‚©
-//! @retval 0 : I—¹
-//! @retval > 0 : Œp‘±
-//! @retval < 0 : ƒuƒŒ[ƒN
+//! @return : å‡¦ç†ã‚’ç¶™ç¶šã™ã‚‹ã‹ã©ã†ã‹
+//! @retval 0 : çµ‚äº†
+//! @retval > 0 : ç¶™ç¶š
+//! @retval < 0 : ãƒ–ãƒ¬ãƒ¼ã‚¯
 int __fastcall DebuggeeCheckThread::HandleDebugEvent( DEBUG_EVENT& debug )
 {
 	debug_continue_status_ = DBG_CONTINUE;
 	switch(debug.dwDebugEventCode){
-		case OUTPUT_DEBUG_STRING_EVENT:	// ƒfƒoƒbƒO•¶š—ñ‚ğóM‚µ‚½
+		case OUTPUT_DEBUG_STRING_EVENT:	// ãƒ‡ãƒãƒƒã‚°æ–‡å­—åˆ—ã‚’å—ä¿¡ã—ãŸ
 			return HandleDebugString( debug );
-		case CREATE_PROCESS_DEBUG_EVENT:// ƒvƒƒZƒX‚ğ¶¬‚µ‚½
-//			debug.u.CreateProcessInfo Ú×‚Í–¢‘Î‰
-			debug_string_ = AnsiString("ƒvƒƒZƒX‚ª¶¬‚³‚ê‚Ü‚µ‚½B");
+		case CREATE_PROCESS_DEBUG_EVENT:// ãƒ—ãƒ­ã‚»ã‚¹ã‚’ç”Ÿæˆã—ãŸ
+//			debug.u.CreateProcessInfo è©³ç´°ã¯æœªå¯¾å¿œ
+			debug_string_ = AnsiString("ãƒ—ãƒ­ã‚»ã‚¹ãŒç”Ÿæˆã•ã‚Œã¾ã—ãŸã€‚");
 			Synchronize(&SetDebugString);
 			break;
-		case CREATE_THREAD_DEBUG_EVENT:	// ƒXƒŒƒbƒh‚ğ¶¬‚µ‚½
-			debug_string_ = AnsiString("ƒXƒŒƒbƒh ( 0x")
+		case CREATE_THREAD_DEBUG_EVENT:	// ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’ç”Ÿæˆã—ãŸ
+			debug_string_ = AnsiString("ã‚¹ãƒ¬ãƒƒãƒ‰ ( 0x")
 				+ AnsiString::IntToHex( debug.dwThreadId, 8 )
-				+ AnsiString(" ) ‚ªƒAƒhƒŒƒX ")
+				+ AnsiString(" ) ãŒã‚¢ãƒ‰ãƒ¬ã‚¹ ")
 				+ AnsiString::IntToHex( (int)debug.u.CreateThread.lpStartAddress, 8 )
-				+ AnsiString(" ‚ÅŠJn‚³‚ê‚Ü‚µ‚½B");
+				+ AnsiString(" ã§é–‹å§‹ã•ã‚Œã¾ã—ãŸã€‚");
 			Synchronize(&SetDebugString);
 			break;
-		case EXIT_THREAD_DEBUG_EVENT:	// ƒXƒŒƒbƒh‚ªI—¹‚µ‚½
-			debug_string_ = AnsiString("ƒXƒŒƒbƒh ( 0x")
+		case EXIT_THREAD_DEBUG_EVENT:	// ã‚¹ãƒ¬ãƒƒãƒ‰ãŒçµ‚äº†ã—ãŸ
+			debug_string_ = AnsiString("ã‚¹ãƒ¬ãƒƒãƒ‰ ( 0x")
 				+ AnsiString::IntToHex( debug.dwThreadId, 8 )
-				+ AnsiString(") ‚ÍƒR[ƒh ")
+				+ AnsiString(") ã¯ã‚³ãƒ¼ãƒ‰ ")
 				+ AnsiString::IntToHex( debug.u.ExitThread.dwExitCode, 8 )
-				+ AnsiString(" ‚ÅI—¹‚µ‚Ü‚µ‚½B");
+				+ AnsiString(" ã§çµ‚äº†ã—ã¾ã—ãŸã€‚");
 			Synchronize(&SetDebugString);
 			break;
-		case LOAD_DLL_DEBUG_EVENT:		// DLL‚ğƒ[ƒh‚µ‚½
+		case LOAD_DLL_DEBUG_EVENT:		// DLLã‚’ãƒ­ãƒ¼ãƒ‰ã—ãŸ
 			return HandleDllLoad( debug );
-		case UNLOAD_DLL_DEBUG_EVENT:	// DLL‚ğƒAƒ“ƒ[ƒh‚µ‚½
+		case UNLOAD_DLL_DEBUG_EVENT:	// DLLã‚’ã‚¢ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ãŸ
 			return HandleDllUnload( debug );
-		case EXCEPTION_DEBUG_EVENT:		// —áŠO‚ª”­¶‚µ‚½
+		case EXCEPTION_DEBUG_EVENT:		// ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸ
 			return HandleDebugException( debug );
-		case RIP_EVENT:					// RIPƒCƒxƒ“ƒg
+		case RIP_EVENT:					// RIPã‚¤ãƒ™ãƒ³ãƒˆ
 			break;
-		case EXIT_PROCESS_DEBUG_EVENT:	// ƒvƒƒZƒX‚ªI—¹‚µ‚½
-			debug_string_ = AnsiString("ƒvƒƒOƒ‰ƒ€‚ÍƒR[ƒh 0x")
+		case EXIT_PROCESS_DEBUG_EVENT:	// ãƒ—ãƒ­ã‚»ã‚¹ãŒçµ‚äº†ã—ãŸ
+			debug_string_ = AnsiString("ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã¯ã‚³ãƒ¼ãƒ‰ 0x")
 				+ AnsiString::IntToHex( debug.u.ExitProcess.dwExitCode, 8 )
-				+ AnsiString(" ‚ÅI—¹‚µ‚Ü‚µ‚½B");
+				+ AnsiString(" ã§çµ‚äº†ã—ã¾ã—ãŸã€‚");
 			Synchronize(&SetDebugString);
 			return 0;
 	}
@@ -270,98 +270,98 @@ int __fastcall DebuggeeCheckThread::HandleDebugException( DEBUG_EVENT& debug )
 {
 	debug_continue_status_ = DBG_EXCEPTION_NOT_HANDLED;
 
-	AnsiString theadStr( AnsiString( "ƒXƒŒƒbƒh ( " ) + AnsiString::IntToHex( debug.dwThreadId, 8 ) + AnsiString(" ) ") );
+	AnsiString theadStr( AnsiString( "ã‚¹ãƒ¬ãƒƒãƒ‰ ( " ) + AnsiString::IntToHex( debug.dwThreadId, 8 ) + AnsiString(" ) ") );
 	AnsiString epiStr( AnsiString( " ( EPI = 0x" ) + AnsiString::IntToHex( (int)debug.u.Exception.ExceptionRecord.ExceptionAddress, 8 ) + AnsiString(" ) ") );
 
 	switch( debug.u.Exception.ExceptionRecord.ExceptionCode ) {
 		case EXCEPTION_ACCESS_VIOLATION:
 			if( debug.u.Exception.ExceptionRecord.NumberParameters >= 2 ) {
-				debug_string_ = theadStr + AnsiString("‚ÅA0x");
+				debug_string_ = theadStr + AnsiString("ã§ã€0x");
 				debug_string_ += AnsiString::IntToHex( (int)debug.u.Exception.ExceptionRecord.ExceptionInformation[1], 8 );
-				debug_string_ += AnsiString("‚ğ");
+				debug_string_ += AnsiString("ã‚’");
 				if( debug.u.Exception.ExceptionRecord.ExceptionInformation[0] ) {
-					debug_string_ += AnsiString("‘‚«‚İ’†‚ÉƒAƒNƒZƒXˆá”½‚ª‚ ‚è‚Ü‚µ‚½") + epiStr;
+					debug_string_ += AnsiString("æ›¸ãè¾¼ã¿ä¸­ã«ã‚¢ã‚¯ã‚»ã‚¹é•åãŒã‚ã‚Šã¾ã—ãŸ") + epiStr;
 				} else {
-					debug_string_ += AnsiString("“Ç‚İ‚İ’†‚ÉƒAƒNƒZƒXˆá”½‚ª‚ ‚è‚Ü‚µ‚½") + epiStr;
+					debug_string_ += AnsiString("èª­ã¿è¾¼ã¿ä¸­ã«ã‚¢ã‚¯ã‚»ã‚¹é•åãŒã‚ã‚Šã¾ã—ãŸ") + epiStr;
 				}
 			} else {
-				debug_string_ = theadStr + AnsiString("‚ÅAƒAƒNƒZƒXˆá”½‚ª‚ ‚è‚Ü‚µ‚½") + epiStr;
+				debug_string_ = theadStr + AnsiString("ã§ã€ã‚¢ã‚¯ã‚»ã‚¹é•åãŒã‚ã‚Šã¾ã—ãŸ") + epiStr;
 			}
 			break;
 		case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
-			debug_string_ = theadStr + AnsiString("‚ÅA”z—ñ‚Ì”ÍˆÍŠO‚ÉƒAƒNƒZƒX‚ª‚ ‚è‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€é…åˆ—ã®ç¯„å›²å¤–ã«ã‚¢ã‚¯ã‚»ã‚¹ãŒã‚ã‚Šã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_BREAKPOINT:
 			debug_continue_status_ = DBG_CONTINUE;
 			if( is_first_break_ ) {
 				is_first_break_ = false;
 			} else {
-				// 1‰ñ–Ú‚ÌƒuƒŒ[ƒNƒ|ƒCƒ“ƒg‚ÍƒGƒ“ƒgƒŠ[ƒ|ƒCƒ“ƒg‚Å”­¶‚·‚é–Í—l
-//				debug_string_ = theadStr + AnsiString("‚ªAƒuƒŒ[ƒNƒ|ƒCƒ“ƒg‚Å’â~‚µ‚Ü‚µ‚½") + epiStr;
+				// 1å›ç›®ã®ãƒ–ãƒ¬ãƒ¼ã‚¯ãƒã‚¤ãƒ³ãƒˆã¯ã‚¨ãƒ³ãƒˆãƒªãƒ¼ãƒã‚¤ãƒ³ãƒˆã§ç™ºç”Ÿã™ã‚‹æ¨¡æ§˜
+//				debug_string_ = theadStr + AnsiString("ãŒã€ãƒ–ãƒ¬ãƒ¼ã‚¯ãƒã‚¤ãƒ³ãƒˆã§åœæ­¢ã—ã¾ã—ãŸ") + epiStr;
 //				Synchronize(&SetDebugString);
 				return ( (debug.u.Exception.ExceptionRecord.ExceptionFlags & EXCEPTION_NONCONTINUABLE) ? 0 : -1 );
 			}
 			break;
 		case EXCEPTION_DATATYPE_MISALIGNMENT:
-			debug_string_ = theadStr + AnsiString("‚ÅAƒAƒ‰ƒCƒƒ“ƒgƒGƒNƒZƒvƒVƒ‡ƒ“‚ª”­¶‚µ‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆã‚¨ã‚¯ã‚»ãƒ—ã‚·ãƒ§ãƒ³ãŒç™ºç”Ÿã—ã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_FLT_DENORMAL_OPERAND:
-			debug_string_ = theadStr + AnsiString("‚ÅA•‚“®¬”“_”‚Ì”ñ³‹K‰»”‰‰Z‚ª”­¶‚µ‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€æµ®å‹•å°æ•°ç‚¹æ•°ã®éæ­£è¦åŒ–æ•°æ¼”ç®—ãŒç™ºç”Ÿã—ã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_FLT_DIVIDE_BY_ZERO:
-			debug_string_ = theadStr + AnsiString("‚ÅA•‚“®¬”“_”‚Ì0œZ‚ª”­¶‚µ‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€æµ®å‹•å°æ•°ç‚¹æ•°ã®0é™¤ç®—ãŒç™ºç”Ÿã—ã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_FLT_INEXACT_RESULT:
-			debug_string_ = theadStr + AnsiString("‚ÅA•‚“®¬”“_”‚Ì‰‰ZŒ‹‰Ê‚ğ10i¬”‚Å³Šm‚É•\Œ»‚·‚é‚±‚Æ‚Ìo—ˆ‚È‚¢‰‰Z‚ª”­¶‚µ‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€æµ®å‹•å°æ•°ç‚¹æ•°ã®æ¼”ç®—çµæœã‚’10é€²å°æ•°ã§æ­£ç¢ºã«è¡¨ç¾ã™ã‚‹ã“ã¨ã®å‡ºæ¥ãªã„æ¼”ç®—ãŒç™ºç”Ÿã—ã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_FLT_INVALID_OPERATION:
-			debug_string_ = theadStr + AnsiString("‚ÅA•‚“®¬”“_”‰‰Z—áŠO‚ª”­¶‚µ‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€æµ®å‹•å°æ•°ç‚¹æ•°æ¼”ç®—ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_FLT_OVERFLOW:
-			debug_string_ = theadStr + AnsiString("‚ÅA•‚“®¬”“_”ƒI[ƒo[ƒtƒ[‚ª”­¶‚µ‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€æµ®å‹•å°æ•°ç‚¹æ•°ã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_FLT_STACK_CHECK:
-			debug_string_ = theadStr + AnsiString("‚ÅA•‚“®¬”“_”ƒXƒ^ƒbƒNƒI[ƒo[ƒtƒ[‚ª”­¶‚µ‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€æµ®å‹•å°æ•°ç‚¹æ•°ã‚¹ã‚¿ãƒƒã‚¯ã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_FLT_UNDERFLOW:
-			debug_string_ = theadStr + AnsiString("‚ÅA•‚“®¬”“_”ƒAƒ“ƒ_[ƒtƒ[‚ª”­¶‚µ‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€æµ®å‹•å°æ•°ç‚¹æ•°ã‚¢ãƒ³ãƒ€ãƒ¼ãƒ•ãƒ­ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_ILLEGAL_INSTRUCTION:
-			debug_string_ = theadStr + AnsiString("‚ÅA•s³‚È–½—ß(invalid instruction)‚ÌÀs‚ªs‚í‚ê‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€ä¸æ­£ãªå‘½ä»¤(invalid instruction)ã®å®Ÿè¡ŒãŒè¡Œã‚ã‚Œã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_IN_PAGE_ERROR:
-			debug_string_ = theadStr + AnsiString("‚ÍA‘¶İ‚µ‚Ä‚¢‚È‚¢ƒy[ƒW‚ÉƒAƒNƒZƒX‚µ‚æ‚¤‚Æ‚µAƒVƒXƒeƒ€‚Íƒy[ƒW‚ğƒ[ƒh‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã¯ã€å­˜åœ¨ã—ã¦ã„ãªã„ãƒšãƒ¼ã‚¸ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã‚ˆã†ã¨ã—ã€ã‚·ã‚¹ãƒ†ãƒ ã¯ãƒšãƒ¼ã‚¸ã‚’ãƒ­ãƒ¼ãƒ‰ã§ãã¾ã›ã‚“ã§ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_INT_DIVIDE_BY_ZERO:
-			debug_string_ = theadStr + AnsiString("‚ÅA0‚É‚æ‚éœZ‚ªs‚í‚ê‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€0ã«ã‚ˆã‚‹é™¤ç®—ãŒè¡Œã‚ã‚Œã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_INT_OVERFLOW:
-			debug_string_ = theadStr + AnsiString("‚ÅA®”‚ÌƒI[ƒo[ƒtƒ[‚ª”­¶‚µ‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€æ•´æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_INVALID_DISPOSITION:
-			debug_string_ = theadStr + AnsiString("‚ÅA—áŠOƒnƒ“ƒhƒ‰‚ª•s³‚È”z’u‚ğ—áŠOƒfƒBƒXƒpƒbƒ`ƒƒ‚É•Ô‚µ‚Ü‚µ‚½B‚…€Œ¾Œê‚ğg—p‚·‚éƒvƒƒOƒ‰ƒ}‚Í‚±‚Ì—áŠO‚ÉŒˆ‚µ‚Ä‘˜‹ö‚µ‚Ü‚¹‚ñ") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ãŒä¸æ­£ãªé…ç½®ã‚’ä¾‹å¤–ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒãƒ£ã«è¿”ã—ã¾ã—ãŸã€‚é«˜æ°´æº–è¨€èªã‚’ä½¿ç”¨ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒã¯ã“ã®ä¾‹å¤–ã«æ±ºã—ã¦é­é‡ã—ã¾ã›ã‚“") + epiStr;
 			break;
 		case EXCEPTION_NONCONTINUABLE_EXCEPTION:
-			debug_string_ = theadStr + AnsiString("‚ÅA‘±s•s‰Â”\‚È—áŠO‚ÌŒãA‚³‚ç‚ÉÀs‚³‚ê‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€ç¶šè¡Œä¸å¯èƒ½ãªä¾‹å¤–ã®å¾Œã€ã•ã‚‰ã«å®Ÿè¡Œã•ã‚Œã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_PRIV_INSTRUCTION:
-			debug_string_ = theadStr + AnsiString("‚ÍA‘€ì‚ªŒ»İ‚Ìƒ}ƒVƒ“ƒ‚[ƒh‚Å‹–‚³‚ê‚Ä‚¢‚È‚¢–½—ß(instruction)‚ğÀs‚µ‚æ‚¤‚Æ‚µ‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã¯ã€æ“ä½œãŒç¾åœ¨ã®ãƒã‚·ãƒ³ãƒ¢ãƒ¼ãƒ‰ã§è¨±ã•ã‚Œã¦ã„ãªã„å‘½ä»¤(instruction)ã‚’å®Ÿè¡Œã—ã‚ˆã†ã¨ã—ã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_SINGLE_STEP:
 			debug_continue_status_ = DBG_CONTINUE;
-			debug_string_ = theadStr + AnsiString("‚ÅAƒXƒeƒbƒvÀs‚ªs‚í‚ê‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€ã‚¹ãƒ†ãƒƒãƒ—å®Ÿè¡ŒãŒè¡Œã‚ã‚Œã¾ã—ãŸ") + epiStr;
 			break;
 		case EXCEPTION_STACK_OVERFLOW:
-			debug_string_ = theadStr + AnsiString("‚ÅAƒXƒ^ƒbƒNƒI[ƒo[ƒtƒ[‚ª”­¶‚µ‚Ü‚µ‚½") + epiStr;
+			debug_string_ = theadStr + AnsiString("ã§ã€ã‚¹ã‚¿ãƒƒã‚¯ã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ") + epiStr;
 			break;
 		default:
 			debug_continue_status_ = DBG_CONTINUE;
-			debug_string_ = theadStr + AnsiString("‚ÅA•s–¾‚È—áŠO ( ƒR[ƒh : 0x")
+			debug_string_ = theadStr + AnsiString("ã§ã€ä¸æ˜ãªä¾‹å¤– ( ã‚³ãƒ¼ãƒ‰ : 0x")
 				+ AnsiString::IntToHex( (int)debug.u.Exception.ExceptionRecord.ExceptionCode, 8 )
-				+ (" ) ‚ª”­¶‚µ‚Ü‚µ‚½") + epiStr;
+				+ (" ) ãŒç™ºç”Ÿã—ã¾ã—ãŸ") + epiStr;
 
 			if( debug.u.Exception.ExceptionRecord.NumberParameters ) {
-				debug_string_ += AnsiString(" ’Ç‰Áî•ñ :");
+				debug_string_ += AnsiString(" è¿½åŠ æƒ…å ± :");
 				for( int i = 0; i < debug.u.Exception.ExceptionRecord.NumberParameters; i++ ) {
 					debug_string_ += AnsiString(" 0x") + AnsiString::IntToHex( (int)debug.u.Exception.ExceptionRecord.ExceptionInformation[i], 8 );
 				}
@@ -395,7 +395,7 @@ int __fastcall DebuggeeCheckThread::HandleDebugString( DEBUG_EVENT& debug )
 		len = len * sizeof(char);
 	}
 
-	// ƒfƒoƒbƒO•¶š—ñ‚ğ“Ç‚İo‚·
+	// ãƒ‡ãƒãƒƒã‚°æ–‡å­—åˆ—ã‚’èª­ã¿å‡ºã™
 	DWORD dwRead;
 	BOOL result = ::ReadProcessMemory( proc_info_.hProcess, debug.u.DebugString.lpDebugStringData,
 						buffer, len, &dwRead );
@@ -416,7 +416,7 @@ int __fastcall DebuggeeCheckThread::HandleDebugString( DEBUG_EVENT& debug )
 int __fastcall DebuggeeCheckThread::HandleDllLoad( DEBUG_EVENT& debug )
 {
 	if( debug.u.LoadDll.lpImageName ) {
-		// ƒtƒ@ƒCƒ‹–¼‚ª“ü‚Á‚Ä‚¢‚é
+		// ãƒ•ã‚¡ã‚¤ãƒ«åãŒå…¥ã£ã¦ã„ã‚‹æ™‚
 		std::string dllname;
 		wchar_t wcBuf[MAX_PATH];
 		LONG_PTR lpData;
@@ -436,20 +436,20 @@ int __fastcall DebuggeeCheckThread::HandleDllLoad( DEBUG_EVENT& debug )
 
 
 		debug_string_ = AnsiString( dllname.c_str() );
-		debug_string_ += AnsiString( "‚ªƒ[ƒh‚³‚ê‚Ü‚µ‚½" );
+		debug_string_ += AnsiString( "ãŒãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¾ã—ãŸ" );
 		Synchronize(&SetDebugString);
 	} else {
-		// “ü‚Á‚Ä‚¢‚È‚¢‚Æ‚«
+		// å…¥ã£ã¦ã„ãªã„ã¨ã
 
 	}
 #if 0
 	typedef struct _LOAD_DLL_DEBUG_INFO {
-		HANDLE  hFile;                   /* DLL‚Ìƒtƒ@ƒCƒ‹ƒnƒ“ƒhƒ‹ */
-		LPVOID  lpBaseOfDll;             /* DLL‚Ìƒx[ƒXƒAƒhƒŒƒX */
-		DWORD   dwDebugInfoFileOffset;   /* ƒfƒoƒbƒOî•ñ‚Ü‚Å‚ÌƒIƒtƒZƒbƒg */
-		DWORD   nDebugInfoSize;          /* ƒfƒoƒbƒOî•ñ‚ÌƒTƒCƒY */
-		LPVOID  lpImageName;             /* DLL‚Ìƒtƒ@ƒCƒ‹–¼ */
-		WORD    fUnicode;                /* DLL‚Ìƒtƒ@ƒCƒ‹–¼‚Ì•¶šƒR[ƒhƒtƒ‰ƒO */
+		HANDLE  hFile;                   /* DLLã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒãƒ³ãƒ‰ãƒ« */
+		LPVOID  lpBaseOfDll;             /* DLLã®ãƒ™ãƒ¼ã‚¹ã‚¢ãƒ‰ãƒ¬ã‚¹ */
+		DWORD   dwDebugInfoFileOffset;   /* ãƒ‡ãƒãƒƒã‚°æƒ…å ±ã¾ã§ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆ */
+		DWORD   nDebugInfoSize;          /* ãƒ‡ãƒãƒƒã‚°æƒ…å ±ã®ã‚µã‚¤ã‚º */
+		LPVOID  lpImageName;             /* DLLã®ãƒ•ã‚¡ã‚¤ãƒ«å */
+		WORD    fUnicode;                /* DLLã®ãƒ•ã‚¡ã‚¤ãƒ«åã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ãƒ•ãƒ©ã‚° */
 	} LOAD_DLL_DEBUG_INFO;
 #endif
 	return 1;
@@ -460,7 +460,7 @@ int __fastcall DebuggeeCheckThread::HandleDllUnload( DEBUG_EVENT& debug )
 	std::string dllname;
 	if( GetDllInfo( debug.u.UnloadDll.lpBaseOfDll, dllname ) ) {
 		debug_string_ = AnsiString( dllname.c_str() );
-		debug_string_ += AnsiString( "‚ªƒAƒ“ƒ[ƒh‚³‚ê‚Ü‚µ‚½" );
+		debug_string_ += AnsiString( "ãŒã‚¢ãƒ³ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¾ã—ãŸ" );
 		Synchronize(&SetDebugString);
 	}
 	return 1;

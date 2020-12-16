@@ -54,7 +54,7 @@ class izstream
         izstream() : m_fp(0) {}
         izstream(FILE* fp) : m_fp(0) { open(fp); }
         izstream(const char* name) : m_fp(0) { open(name); }
-        ~izstream() { close(); }
+        ‾izstream() { close(); }
 
         /* Opens a gzip (.gz) file for reading.
          * open() can be used to read a file which is not in gzip format;
@@ -138,7 +138,7 @@ inline zstringlen::zstringlen(izstream& zs) {
 inline izstream& operator>(izstream& zs, char* x) {
     zstringlen len(zs);
     ::gzread(zs.fp(), x, len.value());
-    x[len.value()] = '\0';
+    x[len.value()] = '¥0';
     return zs;
 }
 
@@ -146,7 +146,7 @@ inline char* read_string(izstream& zs) {
     zstringlen len(zs);
     char* x = new char[len.value()+1];
     ::gzread(zs.fp(), x, len.value());
-    x[len.value()] = '\0';
+    x[len.value()] = '¥0';
     return x;
 }
 
@@ -165,7 +165,7 @@ class ozstream
             : m_fp(0), m_os(0) {
             open(name, level);
         }
-        ~ozstream() {
+        ‾ozstream() {
             close();
         }
 
@@ -175,7 +175,7 @@ class ozstream
          * (if errno is zero, the zlib error is Z_MEM_ERROR).
          */
         void open(const char* name, int level = Z_DEFAULT_COMPRESSION) {
-            char mode[4] = "wb\0";
+            char mode[4] = "wb¥0";
             if (level != Z_DEFAULT_COMPRESSION) mode[2] = '0'+level;
             if (m_fp) close();
             m_fp = ::gzopen(name, mode);
@@ -185,7 +185,7 @@ class ozstream
          */
         void open(FILE* fp, int level = Z_DEFAULT_COMPRESSION) {
             SET_BINARY_MODE(fp);
-            char mode[4] = "wb\0";
+            char mode[4] = "wb¥0";
             if (level != Z_DEFAULT_COMPRESSION) mode[2] = '0'+level;
             if (m_fp) close();
             m_fp = ::gzdopen(fileno(fp), mode);

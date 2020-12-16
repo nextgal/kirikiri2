@@ -2,277 +2,277 @@
 <doc>
 <title>Pad</title>
 <desc>
-�@Pad �N���X�́A�ȒP�ȃe�L�X�g�G�f�B�^�̋@�\��񋟂���N���X�ł��B
+　Pad クラスは、簡単なテキストエディタの機能を提供するクラスです。
 </desc>
 
 
 <member>
 	<name>Pad</name>
 	<type>constructor</type>
-	<shortdesc>Pad �I�u�W�F�N�g�̍\�z</shortdesc>
+	<shortdesc>Pad オブジェクトの構築</shortdesc>
 	<arg>
 	</arg>
 	<result></result>
 	<desc>
-		�@Pad �N���X�̃I�u�W�F�N�g���\�z���܂��B<r/>
+		　Pad クラスのオブジェクトを構築します。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>visible</name>
 	<type>property</type>
-	<shortdesc>�\������Ă��邩�ǂ���</shortdesc>
+	<shortdesc>表示されているかどうか</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�p�b�h���\������Ă��邩�ǂ�����\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@�^���w�肷��ƕ\������܂��B<r/>
+		　パッドが表示されているかどうかを表します。値を設定することもできます。<r/>
+		　真を指定すると表示されます。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>text</name>
 	<type>property</type>
-	<shortdesc>���e</shortdesc>
+	<shortdesc>内容</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�p�b�h�̓��e(�e�L�X�g�G�f�B�^�̓��e)��\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
+		　パッドの内容(テキストエディタの内容)を表します。値を設定することもできます。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>fileName</name>
 	<type>property</type>
-	<shortdesc>�t�@�C����</shortdesc>
+	<shortdesc>ファイル名</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�p�b�h�̓��e��ۑ�����t�@�C������\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@�p�b�h���E�N���b�N���āu�ۑ�...�v��I������ƁA�f�t�H���g�ł��̃t�@�C�������w�肳���悤�ɂȂ�܂��B
+		　パッドの内容を保存するファイル名を表します。値を設定することもできます。<r/>
+		　パッドを右クリックして「保存...」を選択すると、デフォルトでこのファイル名が指定されるようになります。
 	</desc>
 </member>
 
 <member>
 	<name>color</name>
 	<type>property</type>
-	<shortdesc>�w�i�F</shortdesc>
+	<shortdesc>背景色</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�p�b�h�̔w�i�F�� 0xRRGGBB �`���ŕ\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
+		　パッドの背景色を 0xRRGGBB 形式で表します。値を設定することもできます。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>title</name>
 	<type>property</type>
-	<shortdesc>�^�C�g��</shortdesc>
+	<shortdesc>タイトル</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�p�b�h�̃^�C�g��(�E�B���h�E�̃^�C�g��)��\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
+		　パッドのタイトル(ウィンドウのタイトル)を表します。値を設定することもできます。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>showScrollBars</name>
 	<type>property</type>
-	<shortdesc>�X�N���[���o�[�̕\�����</shortdesc>
+	<shortdesc>スクロールバーの表示状態</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�X�N���[���o�[�̕\����Ԃ�\���܂��B<r/>
-		�ȉ��̂����ꂩ�̒l���̂邱�Ƃ��ł��܂��B<r/>
-		<kw>ssNone</kw> �X�N���[���o�[��\�����Ȃ�<r/>
-		<kw>ssHorizontal</kw> �����X�N���[���o�[�݂̂�\������<r/>
-		<kw>ssVertical</kw> �����X�N���[���o�[�݂̂�\������<r/>
-		<kw>ssBoth</kw> �����E���������̃X�N���[���o�[��\������<r/>
-		�f�t�H���g��ssBoth�ł��B
+		　スクロールバーの表示状態を表します。<r/>
+		以下のいずれかの値を採ることができます。<r/>
+		<kw>ssNone</kw> スクロールバーを表示しない<r/>
+		<kw>ssHorizontal</kw> 水平スクロールバーのみを表示する<r/>
+		<kw>ssVertical</kw> 垂直スクロールバーのみを表示する<r/>
+		<kw>ssBoth</kw> 水平・垂直両方のスクロールバーを表示する<r/>
+		デフォルトはssBothです。
 	</desc>
 </member>
 
 <member>
 	<name>showStatusBar</name>
 	<type>property</type>
-	<shortdesc>�X�e�[�^�X�o�[��\�����邩�ǂ���</shortdesc>
+	<shortdesc>ステータスバーを表示するかどうか</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�X�e�[�^�X�o�[��\�����邩�ǂ�����\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�f�t�H���g�͐^�ł��B
+		ステータスバーを表示するかどうかを表します。値を設定することもできます。<r/>
+		デフォルトは真です。
 	</desc>
 </member>
 
 <member>
 	<name>statusText</name>
 	<type>property</type>
-	<shortdesc>�X�e�[�^�X�o�[�ɕ\������e�L�X�g</shortdesc>
+	<shortdesc>ステータスバーに表示するテキスト</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�X�e�[�^�X�o�[�ɕ\������e�L�X�g��\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
+		ステータスバーに表示するテキストを表します。値を設定することもできます。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>borderStyle</name>
 	<type>property</type>
-	<shortdesc>�E�B���h�E�O��</shortdesc>
+	<shortdesc>ウィンドウ外見</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�E�B���h�E�̊O����\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@�w��\�Ȓl�ɂ��Ă�<ref>Window.borderStyle</ref>���Q�Ƃ��Ă��������B<r/>
+		　ウィンドウの外見を表します。値を設定することもできます。<r/>
+		　指定可能な値については<ref>Window.borderStyle</ref>を参照してください。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>wordWrap</name>
 	<type>property</type>
-	<shortdesc>�E�[�Ő܂�Ԃ����ǂ���</shortdesc>
+	<shortdesc>右端で折り返すかどうか</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@���e���E�[�Ő܂�Ԃ����ǂ�����\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�^�ɂ���ƁA������\���̈�̉E�[�ŕ����񂪎����I�ɐ܂�Ԃ���܂��B<r/>
-		�������A�����Ƃ��Ẳ��s�R�[�h���}�������킯�ł͂Ȃ��A
-		�����܂ŕ\������s����邾���ł��B���̏ꍇ�A�����X�N���[���o�[�͖����ɂȂ�܂��B<r/>
-		�U�̏ꍇ�A�\���̈�𒴂��镶���񂪂����Ă��܂�Ԃ���܂���B<r/>
-		�f�t�H���g�͋U�ł��B
+		　内容を右端で折り返すかどうかを表します。値を設定することもできます。<r/>
+		真にすると、文字列表示領域の右端で文字列が自動的に折り返されます。<r/>
+		ただし、文字としての改行コードが挿入されるわけではなく、
+		あくまで表示上改行されるだけです。この場合、水平スクロールバーは無効になります。<r/>
+		偽の場合、表示領域を超える文字列があっても折り返されません。<r/>
+		デフォルトは偽です。
 	</desc>
 </member>
 
 <member>
 	<name>readOnly</name>
 	<type>property</type>
-	<shortdesc>�ǂݍ��ݐ�p���ǂ���</shortdesc>
+	<shortdesc>読み込み専用かどうか</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@���e���ǂݍ��ݐ�p���ǂ�����\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@�^���w�肷��Ɠ��e�̕ҏW�͂ł��Ȃ��Ȃ�܂����Atext�v���p�e�B�ł̃e�L�X�g�̐ݒ�͂ł��܂��B<r/>
+		　内容が読み込み専用かどうかを表します。値を設定することもできます。<r/>
+		　真を指定すると内容の編集はできなくなりますが、textプロパティでのテキストの設定はできます。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>fontColor</name>
 	<type>property</type>
-	<shortdesc>�t�H���g�̐F</shortdesc>
+	<shortdesc>フォントの色</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�t�H���g�̐F��0xRRGGBB�`���ŕ\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@�f�t�H���g��0xffffff(��)�ł��B<r/>
+		　フォントの色を0xRRGGBB形式で表します。値を設定することもできます。<r/>
+		　デフォルトは0xffffff(白)です。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>fontFace</name>
 	<type>property</type>
-	<shortdesc>�t�H���g��</shortdesc>
+	<shortdesc>フォント名</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�t�H���g����\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@�f�t�H���g��"MS ����"�ł��B
+		　フォント名を表します。値を設定することもできます。<r/>
+		　デフォルトは"MS 明朝"です。
 	</desc>
 </member>
 
 <member>
 	<name>fontHeight</name>
 	<type>property</type>
-	<shortdesc>�t�H���g�̍���</shortdesc>
+	<shortdesc>フォントの高さ</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�t�H���g�̍������s�N�Z���P�ʂŎw�肵�܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@�f�t�H���g��12�ł��B
+		　フォントの高さをピクセル単位で指定します。値を設定することもできます。<r/>
+		　デフォルトは12です。
 	</desc>
 </member>
 
 <member>
 	<name>fontSize</name>
 	<type>property</type>
-	<shortdesc>�t�H���g�̃T�C�Y</shortdesc>
+	<shortdesc>フォントのサイズ</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�t�H���g�̑傫���|�C���g�P�ʂŎw�肵�܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@�f�t�H���g��9�ł��B
+		　フォントの大きさポイント単位で指定します。値を設定することもできます。<r/>
+		　デフォルトは9です。
 	</desc>
 </member>
 
 <member>
 	<name>fontBold</name>
 	<type>property</type>
-	<shortdesc>����</shortdesc>
+	<shortdesc>太字</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�t�H���g�𑾎��ɂ��邩�ǂ�����\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@���̐ݒ�́A�ҏW�̈悷�ׂĂ̕����ɉe�����܂��B<r/>
-		�@�f�t�H���g�͋U�ł��B
+		　フォントを太字にするかどうかを表します。値を設定することもできます。<r/>
+		　この設定は、編集領域すべての文字に影響します。<r/>
+		　デフォルトは偽です。
 	</desc>
 </member>
 
 <member>
 	<name>fontItalic</name>
 	<type>property</type>
-	<shortdesc>�Α�</shortdesc>
+	<shortdesc>斜体</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�t�H���g���Α̂ɂ��邩�ǂ�����\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@���̐ݒ�́A�ҏW�̈悷�ׂĂ̕����ɉe�����܂��B<r/>
-		�@�f�t�H���g�͋U�ł��B
+		　フォントを斜体にするかどうかを表します。値を設定することもできます。<r/>
+		　この設定は、編集領域すべての文字に影響します。<r/>
+		　デフォルトは偽です。
 	</desc>
 </member>
 
 <member>
 	<name>fontUnderline</name>
 	<type>property</type>
-	<shortdesc>�A���_�[���C��</shortdesc>
+	<shortdesc>アンダーライン</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�t�H���g�ɃA���_�[���C�����������ǂ�����\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@���̐ݒ�́A�ҏW�̈悷�ׂĂ̕����ɉe�����܂��B<r/>
-		�@�f�t�H���g�͋U�ł��B
+		　フォントにアンダーラインを引くかどうかを表します。値を設定することもできます。<r/>
+		　この設定は、編集領域すべての文字に影響します。<r/>
+		　デフォルトは偽です。
 	</desc>
 </member>
 
 <member>
 	<name>fontStrikeOut</name>
 	<type>property</type>
-	<shortdesc>�����</shortdesc>
+	<shortdesc>取消線</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�t�H���g�Ɏ�������������ǂ�����\���܂��B�l��ݒ肷�邱�Ƃ��ł��܂��B<r/>
-		�@���̐ݒ�́A�ҏW�̈悷�ׂĂ̕����ɉe�����܂��B<r/>
-		�@�f�t�H���g�͋U�ł��B
+		　フォントに取消線を引くかどうかを表します。値を設定することもできます。<r/>
+		　この設定は、編集領域すべての文字に影響します。<r/>
+		　デフォルトは偽です。
 	</desc>
 </member>
 
 <member>
 	<name>left</name>
 	<type>property</type>
-	<shortdesc>�E�B���h�E�̍��[�ʒu</shortdesc>
+	<shortdesc>ウィンドウの左端位置</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�E�B���h�E�̍��[�ʒu��\���܂��B<r/>
+		　ウィンドウの左端位置を表します。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>top</name>
 	<type>property</type>
-	<shortdesc>�E�B���h�E�̏�[�ʒu</shortdesc>
+	<shortdesc>ウィンドウの上端位置</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�E�B���h�E�̏�[�ʒu��\���܂��B<r/>
+		　ウィンドウの上端位置を表します。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>width</name>
 	<type>property</type>
-	<shortdesc>�E�B���h�E�̕�</shortdesc>
+	<shortdesc>ウィンドウの幅</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�E�B���h�E�̕���\���܂��B<r/>
+		　ウィンドウの幅を表します。<r/>
 	</desc>
 </member>
 
 <member>
 	<name>height</name>
 	<type>property</type>
-	<shortdesc>�E�B���h�E�̍���</shortdesc>
+	<shortdesc>ウィンドウの高さ</shortdesc>
 	<access>r/w</access>
 	<desc>
-		�@�E�B���h�E�̍�����\���܂��B<r/>
+		　ウィンドウの高さを表します。<r/>
 	</desc>
 </member>
 

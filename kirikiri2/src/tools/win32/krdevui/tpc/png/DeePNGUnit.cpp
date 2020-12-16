@@ -11,7 +11,7 @@
 
 #include "DeePNGUnit.h"
 #pragma option push -pr
-#include <libpng\png.h> // libpng
+#include <libpng¥png.h> // libpng
 #pragma option pop
 
 
@@ -250,8 +250,8 @@ static int __fastcall PNG_read_chunk_callback(png_structp png_ptr,png_unknown_ch
 			uchar unit
 		*/
 		// be careful because the integers are stored in network byte order
-		#define PNG_read_be32(a) (((unsigned long)(a)[0]<<24)+\
-			((unsigned long)(a)[1]<<16)+((unsigned long)(a)[2]<<8)+\
+		#define PNG_read_be32(a) (((unsigned long)(a)[0]<<24)+¥
+			((unsigned long)(a)[1]<<16)+((unsigned long)(a)[2]<<8)+¥
 			((unsigned long)(a)[3]))
 		unsigned long width  = PNG_read_be32(chunk->data+0);
 		unsigned long height = PNG_read_be32(chunk->data+4);
@@ -276,7 +276,7 @@ __fastcall TDeePNG::TDeePNG(void)
 	vpag_set = false;
 }
 //---------------------------------------------------------------------------
-__fastcall TDeePNG::~TDeePNG(void)
+__fastcall TDeePNG::‾TDeePNG(void)
 {
 	// desturctor
 }
@@ -567,12 +567,12 @@ void __fastcall TDeePNG::SaveToStream(Classes::TStream * Stream)
 		// write vpAg private chunk
 		if(vpag_set)
 		{
-			png_byte png_vpAg[5] = {118, 112,  65, 103, '\0'};
+			png_byte png_vpAg[5] = {118, 112,  65, 103, '¥0'};
 			unsigned char vpag_chunk_data[9];
-		#define PNG_write_be32(p, a) (\
-			((unsigned char *)(p))[0] = (unsigned char)(((a) >>24) & 0xff), \
-			((unsigned char *)(p))[1] = (unsigned char)(((a) >>16) & 0xff), \
-			((unsigned char *)(p))[2] = (unsigned char)(((a) >> 8) & 0xff), \
+		#define PNG_write_be32(p, a) (¥
+			((unsigned char *)(p))[0] = (unsigned char)(((a) >>24) & 0xff), ¥
+			((unsigned char *)(p))[1] = (unsigned char)(((a) >>16) & 0xff), ¥
+			((unsigned char *)(p))[2] = (unsigned char)(((a) >> 8) & 0xff), ¥
 			((unsigned char *)(p))[3] = (unsigned char)(((a)     ) & 0xff)  )
 			PNG_write_be32(vpag_chunk_data,     vpag_w);
 			PNG_write_be32(vpag_chunk_data + 4, vpag_h);

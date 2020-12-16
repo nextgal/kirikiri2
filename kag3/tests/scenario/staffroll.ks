@@ -1,7 +1,7 @@
 @if exp="typeof(global.staffroll_object) == 'undefined'"
 @iscript
 
-// ƒXƒ^ƒbƒtƒ[ƒ‹ƒvƒ‰ƒOƒCƒ“
+// ã‚¹ã‚¿ãƒƒãƒ•ãƒ­ãƒ¼ãƒ«ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
 
 
 class StaffRollPlugin extends KAGPlugin
@@ -29,7 +29,7 @@ class StaffRollPlugin extends KAGPlugin
 
 	function init()
 	{
-		// ƒXƒ^ƒbƒtƒ[ƒ‹‚Ì‰Šú‰»
+		// ã‚¹ã‚¿ãƒƒãƒ•ãƒ­ãƒ¼ãƒ«ã®åˆæœŸåŒ–
 		uninit();
 		vertical = kag.current.vertical;
 		if(!vertical)
@@ -40,7 +40,7 @@ class StaffRollPlugin extends KAGPlugin
 
 	function addText(opt)
 	{
-		// ƒXƒ^ƒbƒtƒ[ƒ‹‚ÉƒeƒLƒXƒg‚ğ’Ç‰Á
+		// ã‚¹ã‚¿ãƒƒãƒ•ãƒ­ãƒ¼ãƒ«ã«ãƒ†ã‚­ã‚¹ãƒˆã‚’è¿½åŠ 
 		var fore = new Layer(kag, kag.fore.base);
 		var back = new Layer(kag, kag.back.base);
 		fore.absolute = 2000000-5;
@@ -84,11 +84,11 @@ class StaffRollPlugin extends KAGPlugin
 		fore.fillRect(0, 0, fore.imageWidth, fore.imageHeight, 0);
 
 		if(ml.edge)
-			fore.drawText(tx, ty, text, ml.chColor, 255, ml.antialiased, 512, ml.edgeColor, 1, 0, 0); // •¶š
+			fore.drawText(tx, ty, text, ml.chColor, 255, ml.antialiased, 512, ml.edgeColor, 1, 0, 0); // æ–‡å­—
 		else if(ml.shadow)
-			fore.drawText(tx, ty, text, ml.chColor, 255, ml.antialiased, 255, ml.shadowColor, 0, 2, 2); // •¶š
+			fore.drawText(tx, ty, text, ml.chColor, 255, ml.antialiased, 255, ml.shadowColor, 0, 2, 2); // æ–‡å­—
 		else
-			fore.drawText(tx, ty, text, ml.chColor, 255, ml.antialiased); // •¶š
+			fore.drawText(tx, ty, text, ml.chColor, 255, ml.antialiased); // æ–‡å­—
 
 		back.setImageSize(fore.imageWidth, fore.imageHeight);
 		back.assignImages(fore);
@@ -127,7 +127,7 @@ class StaffRollPlugin extends KAGPlugin
 
 	function addImage(opt)
 	{
-		// ƒXƒ^ƒbƒtƒ[ƒ‹‚É‰æ‘œ‚ğ’Ç‰Á
+		// ã‚¹ã‚¿ãƒƒãƒ•ãƒ­ãƒ¼ãƒ«ã«ç”»åƒã‚’è¿½åŠ 
 		var fore = new Layer(kag, kag.fore.base);
 		var back = new Layer(kag, kag.back.base);
 		fore.absolute = 2000000-5;
@@ -170,7 +170,7 @@ class StaffRollPlugin extends KAGPlugin
 
 	function startMove(height, time)
 	{
-		// ˆÚ“®‚ğŠJn
+		// ç§»å‹•ã‚’é–‹å§‹
 
 		if(moving) return;
 
@@ -190,7 +190,7 @@ class StaffRollPlugin extends KAGPlugin
 
 	function uninit()
 	{
-		// ’â~‚ÆƒNƒŠ[ƒ“ƒAƒbƒv
+		// åœæ­¢ã¨ã‚¯ãƒªãƒ¼ãƒ³ã‚¢ãƒƒãƒ—
 
 		if(moving)
 		{
@@ -210,9 +210,9 @@ class StaffRollPlugin extends KAGPlugin
 
 	function moveHandler()
 	{
-		// ˆÚ“®ƒnƒ“ƒhƒ‰
+		// ç§»å‹•ãƒãƒ³ãƒ‰ãƒ©
 		var current = System.getTickCount() - moveStartTick;
-		var current = moveHeight * current \ moveTime;
+		var current = moveHeight * current Â¥ moveTime;
 
 		var laycount = foreLayers.count;
 		var f = foreLayers;
@@ -237,11 +237,11 @@ class StaffRollPlugin extends KAGPlugin
 }
 
 kag.addPlugin(global.staffroll_object = new StaffRollPlugin());
-	// ƒvƒ‰ƒOƒCƒ“ƒIƒuƒWƒFƒNƒg‚ğì¬‚µA“o˜^‚·‚é
+	// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã€ç™»éŒ²ã™ã‚‹
 
 @endscript
 @endif
-; ƒ}ƒNƒ’è‹`
+; ãƒã‚¯ãƒ­å®šç¾©
 @macro name=staffrollinit
 @eval exp="staffroll_object.init()"
 @endmacro

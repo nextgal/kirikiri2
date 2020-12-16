@@ -1,24 +1,24 @@
 # Microsoft Developer Studio Project File - Name="agg" - Package Owner=<4>
 # Microsoft Developer Studio Generated Build File, Format Version 6.00
-# ** •ÒW‚µ‚È‚¢‚Å‚­‚¾‚³‚¢ **
+# ** ç·¨é›†ã—ãªã„ã§ãã ã•ã„ **
 
 # TARGTYPE "Win32 (x86) Dynamic-Link Library" 0x0102
 
 CFG=agg - Win32 Debug
-!MESSAGE ‚±‚ê‚Í—LŒø‚ÈÒ²¸Ì§²Ù‚Å‚Í‚ ‚è‚Ü‚¹‚ñB ‚±‚ÌÌßÛ¼Şª¸Ä‚ğËŞÙÄŞ‚·‚é‚½‚ß‚É‚Í NMAKE ‚ğg—p‚µ‚Ä‚­‚¾‚³‚¢B
-!MESSAGE [Ò²¸Ì§²Ù‚Ì´¸½Îß°Ä] ºÏİÄŞ‚ğg—p‚µ‚ÄÀs‚µ‚Ä‚­‚¾‚³‚¢
+!MESSAGE ã“ã‚Œã¯æœ‰åŠ¹ãªï¾’ï½²ï½¸ï¾Œï½§ï½²ï¾™ã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚ ã“ã®ï¾Œï¾Ÿï¾›ï½¼ï¾ï½ªï½¸ï¾„ã‚’ï¾‹ï¾ï¾™ï¾„ï¾ã™ã‚‹ãŸã‚ã«ã¯ NMAKE ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
+!MESSAGE [ï¾’ï½²ï½¸ï¾Œï½§ï½²ï¾™ã®ï½´ï½¸ï½½ï¾ï¾Ÿï½°ï¾„] ï½ºï¾ï¾ï¾„ï¾ã‚’ä½¿ç”¨ã—ã¦å®Ÿè¡Œã—ã¦ãã ã•ã„
 !MESSAGE 
 !MESSAGE NMAKE /f "agg.mak".
 !MESSAGE 
-!MESSAGE NMAKE ‚ÌÀs‚É\¬‚ğw’è‚Å‚«‚Ü‚·
-!MESSAGE ºÏİÄŞ ×²İã‚ÅÏ¸Û‚Ìİ’è‚ğ’è‹`‚µ‚Ü‚·B—á:
+!MESSAGE NMAKE ã®å®Ÿè¡Œæ™‚ã«æ§‹æˆã‚’æŒ‡å®šã§ãã¾ã™
+!MESSAGE ï½ºï¾ï¾ï¾„ï¾ ï¾—ï½²ï¾ä¸Šã§ï¾ï½¸ï¾›ã®è¨­å®šã‚’å®šç¾©ã—ã¾ã™ã€‚ä¾‹:
 !MESSAGE 
 !MESSAGE NMAKE /f "agg.mak" CFG="agg - Win32 Debug"
 !MESSAGE 
-!MESSAGE ‘I‘ğ‰Â”\‚ÈËŞÙÄŞ Ó°ÄŞ:
+!MESSAGE é¸æŠå¯èƒ½ãªï¾‹ï¾ï¾™ï¾„ï¾ ï¾“ï½°ï¾„ï¾:
 !MESSAGE 
-!MESSAGE "agg - Win32 Release" ("Win32 (x86) Dynamic-Link Library" —p)
-!MESSAGE "agg - Win32 Debug" ("Win32 (x86) Dynamic-Link Library" —p)
+!MESSAGE "agg - Win32 Release" ("Win32 (x86) Dynamic-Link Library" ç”¨)
+!MESSAGE "agg - Win32 Debug" ("Win32 (x86) Dynamic-Link Library" ç”¨)
 !MESSAGE 
 
 # Begin Project
@@ -38,12 +38,12 @@ RSC=rc.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "..\..\..\..\bin\win32\plugin"
+# PROP Output_Dir "..Â¥..Â¥..Â¥..Â¥binÂ¥win32Â¥plugin"
 # PROP Intermediate_Dir "Release"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "AGG_EXPORTS" /YX /FD /c
-# ADD CPP /nologo /MT /W3 /GX /Zi /O2 /I "../" /I "agg23/include" /I "agg23/svg" /I "$(EXPAT_HOME)\Source\lib" /I "../layerEx" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "AGG_EXPORTS" /D "XML_STATIC" /YX /FD /c
+# ADD CPP /nologo /MT /W3 /GX /Zi /O2 /I "../" /I "agg23/include" /I "agg23/svg" /I "$(EXPAT_HOME)Â¥SourceÂ¥lib" /I "../layerEx" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "AGG_EXPORTS" /D "XML_STATIC" /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x411 /d "NDEBUG"
@@ -53,7 +53,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /machine:I386
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libexpatMT.lib /nologo /dll /debug /machine:I386 /libpath:"$(EXPAT_HOME)\StaticLibs" /COMMENT:"(--has-option--)"
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libexpatMT.lib /nologo /dll /debug /machine:I386 /libpath:"$(EXPAT_HOME)Â¥StaticLibs" /COMMENT:"(--has-option--)"
 # SUBTRACT LINK32 /pdb:none
 
 !ELSEIF  "$(CFG)" == "agg - Win32 Debug"
@@ -65,12 +65,12 @@ LINK32=link.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 1
-# PROP Output_Dir "..\..\..\..\bin\win32\plugin"
+# PROP Output_Dir "..Â¥..Â¥..Â¥..Â¥binÂ¥win32Â¥plugin"
 # PROP Intermediate_Dir "Debug"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "AGG_EXPORTS" /YX /FD /GZ /c
-# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I "../" /I "agg23/include" /I "agg23/svg" /I "$(EXPAT_HOME)\Source\lib" /I "../layerEx" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "AGG_EXPORTS" /D "XML_STATIC" /YX /FD /GZ /c
+# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I "../" /I "agg23/include" /I "agg23/svg" /I "$(EXPAT_HOME)Â¥SourceÂ¥lib" /I "../layerEx" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "AGG_EXPORTS" /D "XML_STATIC" /YX /FD /GZ /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x411 /d "_DEBUG"
@@ -80,7 +80,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libexpatMT.lib /nologo /dll /debug /machine:I386 /pdbtype:sept /libpath:"$(EXPAT_HOME)\StaticLibs" /COMMENT:"(--has-option--)"
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libexpatMT.lib /nologo /dll /debug /machine:I386 /pdbtype:sept /libpath:"$(EXPAT_HOME)Â¥StaticLibs" /COMMENT:"(--has-option--)"
 # SUBTRACT LINK32 /pdb:none
 
 !ENDIF 
@@ -94,79 +94,79 @@ LINK32=link.exe
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=.\agg.def
+SOURCE=.Â¥agg.def
 # End Source File
 # Begin Source File
 
-SOURCE=.\agg23\src\agg_bezier_arc.cpp
+SOURCE=.Â¥agg23Â¥srcÂ¥agg_bezier_arc.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\agg23\src\agg_curves.cpp
+SOURCE=.Â¥agg23Â¥srcÂ¥agg_curves.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\agg23\src\agg_path_storage.cpp
+SOURCE=.Â¥agg23Â¥srcÂ¥agg_path_storage.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\agg23\src\agg_rasterizer_scanline_aa.cpp
+SOURCE=.Â¥agg23Â¥srcÂ¥agg_rasterizer_scanline_aa.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\agg23\svg\agg_svg_parser.cpp
+SOURCE=.Â¥agg23Â¥svgÂ¥agg_svg_parser.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\agg23\svg\agg_svg_path_renderer.cpp
+SOURCE=.Â¥agg23Â¥svgÂ¥agg_svg_path_renderer.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\agg23\svg\agg_svg_path_tokenizer.cpp
+SOURCE=.Â¥agg23Â¥svgÂ¥agg_svg_path_tokenizer.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\agg23\src\agg_trans_affine.cpp
+SOURCE=.Â¥agg23Â¥srcÂ¥agg_trans_affine.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\agg23\src\agg_vcgen_contour.cpp
+SOURCE=.Â¥agg23Â¥srcÂ¥agg_vcgen_contour.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\agg23\src\agg_vcgen_dash.cpp
+SOURCE=.Â¥agg23Â¥srcÂ¥agg_vcgen_dash.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\agg23\src\agg_vcgen_markers_term.cpp
+SOURCE=.Â¥agg23Â¥srcÂ¥agg_vcgen_markers_term.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\agg23\src\agg_vcgen_stroke.cpp
+SOURCE=.Â¥agg23Â¥srcÂ¥agg_vcgen_stroke.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\agg23\src\agg_vpgen_clip_polygon.cpp
+SOURCE=.Â¥agg23Â¥srcÂ¥agg_vpgen_clip_polygon.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\layerEx\LayerExBase.cpp
+SOURCE=..Â¥layerExÂ¥LayerExBase.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\Main.cpp
+SOURCE=.Â¥Main.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\Primitive.hpp
+SOURCE=.Â¥Primitive.hpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\PrimitiveSVG.cpp
+SOURCE=.Â¥PrimitiveSVG.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\tp_stub.cpp
+SOURCE=..Â¥tp_stub.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -174,7 +174,7 @@ SOURCE=..\tp_stub.cpp
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=..\tp_stub.h
+SOURCE=..Â¥tp_stub.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"

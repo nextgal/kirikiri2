@@ -26,24 +26,24 @@ namespace gui
 			IGUIElement* parent, s32 id, const core::rect<s32>& rectangle);
 
 		//! destructor
-		virtual ~CGUISpinBox();
+		virtual ‾CGUISpinBox();
 
 		//! Access the edit box used in the spin control
-		/** \param enable: If set to true, the override color, which can be set
+		/** ¥param enable: If set to true, the override color, which can be set
 		with IGUIEditBox::setOverrideColor is used, otherwise the
 		EGDC_BUTTON_TEXT color of the skin. */
 		virtual IGUIEditBox* getEditBox() const;
 
 		//! set the current value of the spinbox
-		/** \param val: value to be set in the spinbox */
+		/** ¥param val: value to be set in the spinbox */
 		virtual void setValue(f32 val);
 
 		//! Get the current value of the spinbox
 		virtual f32 getValue() const;
 
 		//! set the range of values which can be used in the spinbox
-		/** \param min: minimum value
-		\param max: maximum value */
+		/** ¥param min: minimum value
+		¥param max: maximum value */
 		virtual void setRange(f32 min, f32 max);
 
 		//! get the minimum value which can be used in the spinbox
@@ -53,7 +53,7 @@ namespace gui
 		virtual f32 getMax() const;
 
 		//! step size by which values are changed when pressing the spin buttons
-		/** \param step: stepsize used for value changes when pressing spin buttons */
+		/** ¥param step: stepsize used for value changes when pressing spin buttons */
 		virtual void setStepSize(f32 step=1.f);
 
 		//! returns the step size
@@ -69,7 +69,7 @@ namespace gui
 		virtual const wchar_t* getText() const;
 
 		//! Sets the number of decimal places to display.
-		/** \param places: The number of decimal places to display, use -1 to reset */
+		/** ¥param places: The number of decimal places to display, use -1 to reset */
 		virtual void setDecimalPlaces(s32 places);
 
 		//! Writes attributes of the element.

@@ -48,7 +48,7 @@ namespace boost
     //  A separate reporting function was requested during formal review.
     inline void report_exception( std::ostream & os, 
                                   const char * name, const char * info )
-      { os << "\n** uncaught exception: " << name << " " << info << std::endl; }
+      { os << "¥n** uncaught exception: " << name << " " << info << std::endl; }
   }
 
   //  catch_exceptions  ------------------------------------------------------//
@@ -71,7 +71,7 @@ namespace boost
 
     //  As a result of hard experience with strangely interleaved output
     //  under some compilers, there is a lot of use of endl in the code below
-    //  where a simple '\n' might appear to do.
+    //  where a simple '¥n' might appear to do.
 
     //  The rules for catch & arguments are a bit different from function 
     //  arguments (ISO 15.3 paragraphs 18 & 19). Apparently const isn't

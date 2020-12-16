@@ -8,9 +8,9 @@ class MyWindow extends Window
 
 		borderStyle = bsSingle;
 
-		caption = "ˆÃ†‰»ƒc[ƒ‹";
+		caption = "æš—å·åŒ–ãƒ„ãƒ¼ãƒ«";
 
-		// ‰º•~‚«(ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„)
+		// ä¸‹æ•·ã(ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤)
 		add(primlayer = new Layer(this, null));
 		primlayer.left = primlayer.top = 0;
 		primlayer.imageWidth = 260;
@@ -18,22 +18,22 @@ class MyWindow extends Window
 		primlayer.setSizeToImageSize();
 		setInnerSize(primlayer.width, primlayer.height);
 
-		primlayer.drawText(10, 4, "ƒGƒNƒXƒvƒ[ƒ‰“™‚©‚çˆÃ†‰»‚µ‚½‚¢",
+		primlayer.drawText(10, 4, "ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ç­‰ã‹ã‚‰æš—å·åŒ–ã—ãŸã„",
 			0x008000, 255, true, 255, 0x000000, 3, 2, 2);
-		primlayer.drawText(10, 16, "ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğ‚±‚±‚Éƒhƒƒbƒv‚µ‚Ä‚­‚¾‚³‚¢B",
+		primlayer.drawText(10, 16, "ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã“ã“ã«ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ãã ã•ã„ã€‚",
 			0x008000, 255, true, 255, 0x000000, 3, 2, 2);
-		primlayer.drawText(10, 31, "ƒtƒ@ƒCƒ‹‚Íã‘‚«‚³‚ê‚Ü‚·‚Ì‚ÅƒoƒbƒNƒAƒbƒv‚ğ",
+		primlayer.drawText(10, 31, "ãƒ•ã‚¡ã‚¤ãƒ«ã¯ä¸Šæ›¸ãã•ã‚Œã¾ã™ã®ã§ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’",
 			0xa00000, 255, true, 255, 0x000000, 3, 2, 2);
-		primlayer.drawText(10, 43, "‚Æ‚é‚±‚Æ‚ğ‚¨‚·‚·‚ß‚µ‚Ü‚·B",
+		primlayer.drawText(10, 43, "ã¨ã‚‹ã“ã¨ã‚’ãŠã™ã™ã‚ã—ã¾ã™ã€‚",
 			0xa00000, 255, true, 255, 0x000000, 3, 2, 2);
 
 		Debug.console.visible = true;
 
-		Debug.message("ƒGƒNƒXƒvƒ[ƒ‰“™‚©‚çˆÃ†‰»‚µ‚½‚¢ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğA"
-			"uˆÃ†‰»ƒc[ƒ‹vƒEƒBƒ“ƒhƒE‚Éƒhƒƒbƒv‚µ‚Ä‚­‚¾‚³‚¢B");
-		Debug.message(".txt .ks .tjs .ma .asd ‚ÌŠeƒtƒ@ƒCƒ‹‚ğˆÃ†‰»‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B");
-		Debug.message("’ˆÓ!!! ‚±‚ÌƒvƒƒOƒ‰ƒ€‚Í“¯‚¶ƒtƒ@ƒCƒ‹‚ğã‘‚«‚µ‚Ü‚·‚Ì‚ÅA"
-			"ˆÃ†‰»‚µ‚æ‚¤‚Æ‚·‚éƒtƒ@ƒCƒ‹‚ÌƒoƒbƒNƒAƒbƒv‚ÍŠe©‚Å‚¨Šè‚¢‚µ‚Ü‚·B");
+		Debug.message("ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ç­‰ã‹ã‚‰æš—å·åŒ–ã—ãŸã„ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã€"
+			"ã€Œæš—å·åŒ–ãƒ„ãƒ¼ãƒ«ã€ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ãã ã•ã„ã€‚");
+		Debug.message(".txt .ks .tjs .ma .asd ã®å„ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æš—å·åŒ–ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚");
+		Debug.message("æ³¨æ„!!! ã“ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã¯åŒã˜ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¸Šæ›¸ãã—ã¾ã™ã®ã§ã€"
+			"æš—å·åŒ–ã—ã‚ˆã†ã¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã¯å„è‡ªã§ãŠé¡˜ã„ã—ã¾ã™ã€‚");
 
 
 		visible = true;
@@ -50,23 +50,23 @@ class MyWindow extends Window
 
 	function encrypt_file(file)
 	{
-		// ƒtƒ@ƒCƒ‹‚ğˆÃ†‰»
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æš—å·åŒ–
 		try
 		{
 			var ext = Storages.extractStorageExt(file).toLowerCase();
 			if(ext != '.txt' && ext != '.ks' && ext != '.tjs' &&
 				ext != '.ma' && ext != '.asd')
 			{
-				throw new Exception(file + " ‚Í‘Î‰‚µ‚Ä‚¢‚È‚¢Šg’£q‚È‚Ì‚Å"
-					"ˆÃ†‰»‚µ‚Ü‚¹‚ñ");
+				throw new Exception(file + " ã¯å¯¾å¿œã—ã¦ã„ãªã„æ‹¡å¼µå­ãªã®ã§"
+					"æš—å·åŒ–ã—ã¾ã›ã‚“");
 			}
-			Debug.message(file + " ‚ğˆÃ†‰»’†");
+			Debug.message(file + " ã‚’æš—å·åŒ–ä¸­");
 			[].load(file).save(file, "c");
-			Debug.message(file + " ˆÃ†‰»I—¹");
+			Debug.message(file + " æš—å·åŒ–çµ‚äº†");
 		}
 		catch(e)
 		{
-			Debug.message("ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½(ƒtƒ@ƒCƒ‹ " + file + ") : " + e.message);
+			Debug.message("ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ(ãƒ•ã‚¡ã‚¤ãƒ« " + file + ") : " + e.message);
 		}
 	}
 

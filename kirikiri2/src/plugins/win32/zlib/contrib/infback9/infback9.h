@@ -28,8 +28,8 @@ ZEXTERN int ZEXPORT inflateBack9Init_ OF((z_stream FAR *strm,
                                          unsigned char FAR *window,
                                          const char *version,
                                          int stream_size));
-#define inflateBack9Init(strm, window) \
-        inflateBack9Init_((strm), (window), \
+#define inflateBack9Init(strm, window) ¥
+        inflateBack9Init_((strm), (window), ¥
         ZLIB_VERSION, sizeof(z_stream))
 
 #ifdef __cplusplus

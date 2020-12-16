@@ -322,7 +322,7 @@ struct is_mem_fun_pointer_impl<R (T::*)( T0 , T1 , T2 , T3 , T4 , T5 , T6 , T7 ,
 #else
 
 #undef BOOST_STATIC_CONSTANT
-#define BOOST_PP_ITERATION_PARAMS_1 \
+#define BOOST_PP_ITERATION_PARAMS_1 ¥
     (3, (0, 25, "boost/type_traits/detail/is_mem_fun_pointer_impl.hpp"))
 #include BOOST_PP_ITERATE()
 

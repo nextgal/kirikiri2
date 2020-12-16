@@ -2,7 +2,7 @@ $copyright = <<EOF;
 /*
 
 	TVP2 ( T Visual Presenter 2 )  A script authoring tool
-	Copyright (C) 2000-2009 W.Dee <dee\@kikyou.info> and contributors
+	Copyright (C) 2000-2009 W.Dee <dee¥@kikyou.info> and contributors
 
 	See details of license at "license.txt"
 */
@@ -31,10 +31,10 @@ $content = compress($content);
 
 $content_comp_len = length($content);
 
-$content =~ s/(.)/sprintf("0x%02x, ", ord $1)/seg;
-$content =~ s/(.{96})/$1\n/g;
-$content .= "\n";
-$content =~ s/(.*?), \n/\t$1,\n/sg;
+$content =‾ s/(.)/sprintf("0x%02x, ", ord $1)/seg;
+$content =‾ s/(.{96})/$1¥n/g;
+$content .= "¥n";
+$content =‾ s/(.*?), ¥n/¥t$1,¥n/sg;
 
 open FH, ">OptionsDesc.cpp";
 
@@ -56,8 +56,8 @@ $content
 
 EOF
 
-print FH "static const unsigned long compressed_size = $content_comp_len;\n";
-print FH "static const unsigned long decompressed_size = $content_org_len;\n";
+print FH "static const unsigned long compressed_size = $content_comp_len;¥n";
+print FH "static const unsigned long decompressed_size = $content_org_len;¥n";
 
 print FH <<EOF;
 

@@ -42,7 +42,7 @@ extern "C" void _export PASCAL UIGetVersion(DWORD *hi, DWORD *low)
 		GetModuleFileName(GetModuleHandle("krdevui.dll"), path, MAX_PATH);
 
 		GetFileVersionInfo(path,0,16384,(void*)VersionInfo);
-		VerQueryValue((void*)VersionInfo,"\\",(void**)(&FixedFileInfo),
+		VerQueryValue((void*)VersionInfo,"¥¥",(void**)(&FixedFileInfo),
 			&dum);
 
 	}

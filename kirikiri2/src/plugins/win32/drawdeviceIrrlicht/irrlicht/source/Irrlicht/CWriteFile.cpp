@@ -26,7 +26,7 @@ CWriteFile::CWriteFile(const c8* fileName, bool append)
 
 
 
-CWriteFile::~CWriteFile()
+CWriteFile::‾CWriteFile()
 {
 	if (File) {
 		File->Release();

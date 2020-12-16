@@ -24,7 +24,7 @@
 #   define BOOST_MPL_INTERNAL_USE_SEQUENCE_TAG
 #endif
 
-#if defined(BOOST_MPL_INTERNAL_USE_SEQUENCE_TAG) \
+#if defined(BOOST_MPL_INTERNAL_USE_SEQUENCE_TAG) ¥
  || defined(BOOST_MSVC) && BOOST_MSVC < 1300
 
 #   include "boost/mpl/sequence_tag.hpp"

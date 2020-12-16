@@ -37,7 +37,7 @@ namespace boost { namespace spirit {
     protected:
 
         parser_error_base() {}
-        virtual ~parser_error_base() throw() {}
+        virtual ‾parser_error_base() throw() {}
         parser_error_base(parser_error_base const&) {}
         parser_error_base& operator=(parser_error_base const&)
         { return *this; }
@@ -67,7 +67,7 @@ namespace boost { namespace spirit {
         : where(where_), descriptor(descriptor_) {}
 
         virtual
-        ~parser_error() throw() {}
+        ‾parser_error() throw() {}
 
         virtual const char*
         what() const throw()

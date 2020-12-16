@@ -24,5 +24,5 @@ perl wrapTJSns.pl tjsdate.tab.h
 echo copying ...
 copy tjsdate.tab.c ../tjsdate.tab.cpp
 copy tjsdate.tab.h ../tjsdate.tab.h
-perl create_word_map.pl > ..\tjsDateWordMap.cc
+perl create_word_map.pl > ..¥tjsDateWordMap.cc
 

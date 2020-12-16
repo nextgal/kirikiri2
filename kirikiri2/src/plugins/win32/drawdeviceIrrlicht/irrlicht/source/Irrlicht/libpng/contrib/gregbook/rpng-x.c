@@ -74,10 +74,10 @@
  * only happen with alpha (which could easily be avoided with
  * "ush acopy = (alpha);") */
 
-#define alpha_composite(composite, fg, alpha, bg) {               \
-    ush temp = ((ush)(fg)*(ush)(alpha) +                          \
-                (ush)(bg)*(ush)(255 - (ush)(alpha)) + (ush)128);  \
-    (composite) = (uch)((temp + (temp >> 8)) >> 8);               \
+#define alpha_composite(composite, fg, alpha, bg) {               ¥
+    ush temp = ((ush)(fg)*(ush)(alpha) +                          ¥
+                (ush)(bg)*(ush)(255 - (ush)(alpha)) + (ush)128);  ¥
+    (composite) = (uch)((temp + (temp >> 8)) >> 8);               ¥
 }
 
 
@@ -238,27 +238,27 @@ int main(int argc, char **argv)
     if (!filename) {
         ++error;
     } else if (!(infile = fopen(filename, "rb"))) {
-        fprintf(stderr, PROGNAME ":  can't open PNG file [%s]\n", filename);
+        fprintf(stderr, PROGNAME ":  can't open PNG file [%s]¥n", filename);
         ++error;
     } else {
         if ((rc = readpng_init(infile, &image_width, &image_height)) != 0) {
             switch (rc) {
                 case 1:
                     fprintf(stderr, PROGNAME
-                      ":  [%s] is not a PNG file: incorrect signature\n",
+                      ":  [%s] is not a PNG file: incorrect signature¥n",
                       filename);
                     break;
                 case 2:
                     fprintf(stderr, PROGNAME
-                      ":  [%s] has bad IHDR (libpng longjmp)\n",
+                      ":  [%s] has bad IHDR (libpng longjmp)¥n",
                       filename);
                     break;
                 case 4:
-                    fprintf(stderr, PROGNAME ":  insufficient memory\n");
+                    fprintf(stderr, PROGNAME ":  insufficient memory¥n");
                     break;
                 default:
                     fprintf(stderr, PROGNAME
-                      ":  unknown readpng_init() error\n");
+                      ":  unknown readpng_init() error¥n");
                     break;
             }
             ++error;
@@ -266,7 +266,7 @@ int main(int argc, char **argv)
             display = XOpenDisplay(displayname);
             if (!display) {
                 readpng_cleanup(TRUE);
-                fprintf(stderr, PROGNAME ":  can't open X display [%s]\n",
+                fprintf(stderr, PROGNAME ":  can't open X display [%s]¥n",
                   displayname? displayname : "default");
                 ++error;
             }
@@ -279,21 +279,21 @@ int main(int argc, char **argv)
     /* usage screen */
 
     if (error) {
-        fprintf(stderr, "\n%s %s:  %s\n", PROGNAME, VERSION, appname);
+        fprintf(stderr, "¥n%s %s:  %s¥n", PROGNAME, VERSION, appname);
         readpng_version_info();
-        fprintf(stderr, "\n"
-          "Usage:  %s [-display xdpy] [-gamma exp] [-bgcolor bg] file.png\n"
-          "    xdpy\tname of the target X display (e.g., ``hostname:0'')\n"
-          "    exp \ttransfer-function exponent (``gamma'') of the display\n"
-          "\t\t  system in floating-point format (e.g., ``%.1f''); equal\n"
-          "\t\t  to the product of the lookup-table exponent (varies)\n"
-          "\t\t  and the CRT exponent (usually 2.2); must be positive\n"
-          "    bg  \tdesired background color in 7-character hex RGB format\n"
-          "\t\t  (e.g., ``#ff7700'' for orange:  same as HTML colors);\n"
-          "\t\t  used with transparent images\n"
-          "\nPress Q, Esc or mouse button 1 (within image window, after image\n"
-          "is displayed) to quit.\n"
-          "\n", PROGNAME, default_display_exponent);
+        fprintf(stderr, "¥n"
+          "Usage:  %s [-display xdpy] [-gamma exp] [-bgcolor bg] file.png¥n"
+          "    xdpy¥tname of the target X display (e.g., ``hostname:0'')¥n"
+          "    exp ¥ttransfer-function exponent (``gamma'') of the display¥n"
+          "¥t¥t  system in floating-point format (e.g., ``%.1f''); equal¥n"
+          "¥t¥t  to the product of the lookup-table exponent (varies)¥n"
+          "¥t¥t  and the CRT exponent (usually 2.2); must be positive¥n"
+          "    bg  ¥tdesired background color in 7-character hex RGB format¥n"
+          "¥t¥t  (e.g., ``#ff7700'' for orange:  same as HTML colors);¥n"
+          "¥t¥t  used with transparent images¥n"
+          "¥nPress Q, Esc or mouse button 1 (within image window, after image¥n"
+          "is displayed) to quit.¥n"
+          "¥n", PROGNAME, default_display_exponent);
         exit(1);
     }
 
@@ -322,7 +322,7 @@ int main(int argc, char **argv)
     } else if (readpng_get_bgcolor(&bg_red, &bg_green, &bg_blue) > 1) {
         readpng_cleanup(TRUE);
         fprintf(stderr, PROGNAME
-          ":  libpng error while checking for background color\n");
+          ":  libpng error while checking for background color¥n");
         exit(2);
     }
 
@@ -336,10 +336,10 @@ int main(int argc, char **argv)
 
     /* decode the image, all at once */
 
-    Trace((stderr, "calling readpng_get_image()\n"))
+    Trace((stderr, "calling readpng_get_image()¥n"))
     image_data = readpng_get_image(display_exponent, &image_channels,
       &image_rowbytes);
-    Trace((stderr, "done with readpng_get_image()\n"))
+    Trace((stderr, "done with readpng_get_image()¥n"))
 
 
     /* done with PNG file, so clean up to minimize memory usage (but do NOT
@@ -349,25 +349,25 @@ int main(int argc, char **argv)
     fclose(infile);
 
     if (!image_data) {
-        fprintf(stderr, PROGNAME ":  unable to decode PNG image\n");
+        fprintf(stderr, PROGNAME ":  unable to decode PNG image¥n");
         exit(3);
     }
 
 
     /* display image (composite with background if requested) */
 
-    Trace((stderr, "calling rpng_x_display_image()\n"))
+    Trace((stderr, "calling rpng_x_display_image()¥n"))
     if (rpng_x_display_image()) {
         free(image_data);
         exit(4);
     }
-    Trace((stderr, "done with rpng_x_display_image()\n"))
+    Trace((stderr, "done with rpng_x_display_image()¥n"))
 
 
     /* wait for the user to tell us when to quit */
 
     printf(
-      "Done.  Press Q, Esc or mouse button 1 (within image window) to quit.\n");
+      "Done.  Press Q, Esc or mouse button 1 (within image window) to quit.¥n");
     fflush(stdout);
 
     do
@@ -418,7 +418,7 @@ static int rpng_x_create_window(void)
 /* GRR:  add 8-bit support */
     if (/* depth != 8 && */ depth != 16 && depth != 24 && depth != 32) {
         fprintf(stderr,
-          "screen depth %d not supported (only 16-, 24- or 32-bit TrueColor)\n",
+          "screen depth %d not supported (only 16-, 24- or 32-bit TrueColor)¥n",
           depth);
         return 2;
     }
@@ -430,7 +430,7 @@ static int rpng_x_create_window(void)
     if (depth != 16 && depth != 24 && depth != 32) {
         int visuals_matched = 0;
 
-        Trace((stderr, "default depth is %d:  checking other visuals\n",
+        Trace((stderr, "default depth is %d:  checking other visuals¥n",
           depth))
 
         /* 24-bit first */
@@ -441,10 +441,10 @@ static int rpng_x_create_window(void)
         if (visuals_matched == 0) {
 /* GRR:  add 15-, 16- and 32-bit TrueColor visuals (also DirectColor?) */
             fprintf(stderr, "default screen depth %d not supported, and no"
-              " 24-bit visuals found\n", depth);
+              " 24-bit visuals found¥n", depth);
             return 2;
         }
-        Trace((stderr, "XGetVisualInfo() returned %d 24-bit visuals\n",
+        Trace((stderr, "XGetVisualInfo() returned %d 24-bit visuals¥n",
           visuals_matched))
         visual = visual_list[0].visual;
         depth = visual_list[0].depth;
@@ -469,7 +469,7 @@ static int rpng_x_create_window(void)
     if (depth == 8 || need_colormap) {
         colormap = XCreateColormap(display, root, visual, AllocNone);
         if (!colormap) {
-            fprintf(stderr, "XCreateColormap() failed\n");
+            fprintf(stderr, "XCreateColormap() failed¥n");
             return 2;
         }
         have_colormap = TRUE;
@@ -491,7 +491,7 @@ static int rpng_x_create_window(void)
 #endif
     }
     if (depth >= 15 && (RShift < 0 || GShift < 0 || BShift < 0)) {
-        fprintf(stderr, "rpng internal logic error:  negative X shift(s)!\n");
+        fprintf(stderr, "rpng internal logic error:  negative X shift(s)!¥n");
         return 2;
     }
 
@@ -513,7 +513,7 @@ static int rpng_x_create_window(void)
       depth, InputOutput, visual, attrmask, &attr);
 
     if (window == None) {
-        fprintf(stderr, "XCreateWindow() failed\n");
+        fprintf(stderr, "XCreateWindow() failed¥n");
         return 2;
     } else
         have_window = TRUE;
@@ -607,7 +607,7 @@ static int rpng_x_create_window(void)
     }
 
     if (!xdata) {
-        fprintf(stderr, PROGNAME ":  unable to allocate image memory\n");
+        fprintf(stderr, PROGNAME ":  unable to allocate image memory¥n");
         return 4;
     }
 
@@ -615,7 +615,7 @@ static int rpng_x_create_window(void)
       (char *)xdata, image_width, image_height, pad, 0);
 
     if (!ximage) {
-        fprintf(stderr, PROGNAME ":  XCreateImage() failed\n");
+        fprintf(stderr, PROGNAME ":  XCreateImage() failed¥n");
         free(xdata);
         return 3;
     }
@@ -648,12 +648,12 @@ static int rpng_x_display_image(void)
 /*  int bpp = ximage->bits_per_pixel;  */
 
 
-    Trace((stderr, "beginning display loop (image_channels == %d)\n",
+    Trace((stderr, "beginning display loop (image_channels == %d)¥n",
       image_channels))
-    Trace((stderr, "   (width = %ld, rowbytes = %ld, ximage_rowbytes = %d)\n",
+    Trace((stderr, "   (width = %ld, rowbytes = %ld, ximage_rowbytes = %d)¥n",
       image_width, image_rowbytes, ximage_rowbytes))
-    Trace((stderr, "   (bpp = %d)\n", ximage->bits_per_pixel))
-    Trace((stderr, "   (byte_order = %s)\n", ximage->byte_order == MSBFirst?
+    Trace((stderr, "   (bpp = %d)¥n", ximage->bits_per_pixel))
+    Trace((stderr, "   (byte_order = %s)¥n", ximage->byte_order == MSBFirst?
       "MSBFirst" : (ximage->byte_order == LSBFirst? "LSBFirst" : "unknown")))
 
     if (depth == 24 || depth == 32) {
@@ -799,7 +799,7 @@ static int rpng_x_display_image(void)
 
     }
 
-    Trace((stderr, "calling final XPutImage()\n"))
+    Trace((stderr, "calling final XPutImage()¥n"))
     if (lastrow < image_height) {
         XPutImage(display, window, gc, ximage, 0, (int)lastrow, 0,
           (int)lastrow, image_width, image_height-lastrow);

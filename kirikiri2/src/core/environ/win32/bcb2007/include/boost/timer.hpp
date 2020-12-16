@@ -47,7 +47,7 @@ class timer
  public:
          timer() { _start_time = std::clock(); } // postcondition: elapsed()==0
 //         timer( const timer& src );      // post: elapsed()==src.elapsed()
-//        ~timer(){}
+//        ‾timer(){}
 //  timer& operator=( const timer& src );  // post: elapsed()==src.elapsed()
   void   restart() { _start_time = std::clock(); } // post: elapsed()==0
   double elapsed() const                  // return elapsed time in seconds

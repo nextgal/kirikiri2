@@ -129,7 +129,7 @@ void __fastcall TFontMakerForm::EnumFonts()
 	l.lfOutPrecision = OUT_DEFAULT_PRECIS;
 	l.lfQuality = DEFAULT_QUALITY;
 	l.lfPitchAndFamily = 0;
-	l.lfFaceName[0] = '\0';
+	l.lfFaceName[0] = '¥0';
 
 	::EnumFontFamiliesEx(Canvas->Handle, &l, (FONTENUMPROC)FontEnumProc,
 		reinterpret_cast<LPARAM>(this), 0);

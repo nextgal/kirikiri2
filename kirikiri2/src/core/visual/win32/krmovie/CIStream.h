@@ -18,7 +18,7 @@
 #define __CISTREM_H__
 
 #include <objidl.h>
-//#include <streams.h>	// –{—ˆ‚Í‚ ‚Á‚½•û‚ª‚¢‚¢‚¯‚ÇAƒ[ƒjƒ“ƒO‚ªo‚é‚Ì‚ÅƒRƒƒ“ƒgƒAƒEƒgBƒ\[ƒX‚ÌƒCƒ“ƒNƒ‹[ƒh‡‚Å‰ñ”ğH
+//#include <streams.h>	// æœ¬æ¥ã¯ã‚ã£ãŸæ–¹ãŒã„ã„ã‘ã©ã€ãƒ¯ãƒ¼ãƒ‹ãƒ³ã‚°ãŒå‡ºã‚‹ã®ã§ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã€‚ã‚½ãƒ¼ã‚¹ã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰é †ã§å›é¿ï¼Ÿ
 #include "asyncio.h"
 #include "asyncrdr.h"
 
@@ -36,7 +36,7 @@ public:
 		m_RefStream->AddRef();
     }
 
-	~CIStreamProxy()
+	â€¾CIStreamProxy()
 	{
 		m_RefStream->Release();
 	}

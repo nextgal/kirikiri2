@@ -85,7 +85,7 @@ public:
 		if(Source) Source->AddRef();
 	}
 
-	~tTVPEvent()
+	‾tTVPEvent()
 	{
 		if(Args) delete [] Args;
 		if(Target) Target->Release();
@@ -146,7 +146,7 @@ public:
 		Window = ref.Window;
 	}
 
-	~tTVPWinUpdateEvent()
+	‾tTVPWinUpdateEvent()
 	{
 	}
 

@@ -41,10 +41,10 @@
 #define PPM_MAXVAL 255
 #else
 /* The word-per-sample format always puts the LSB first. */
-#define PUTPPMSAMPLE(ptr,v)			\
-	{ register int val_ = v;		\
-	  *ptr++ = (char) (val_ & 0xFF);	\
-	  *ptr++ = (char) ((val_ >> 8) & 0xFF);	\
+#define PUTPPMSAMPLE(ptr,v)			¥
+	{ register int val_ = v;		¥
+	  *ptr++ = (char) (val_ & 0xFF);	¥
+	  *ptr++ = (char) ((val_ >> 8) & 0xFF);	¥
 	}
 #define BYTESPERSAMPLE 2
 #define PPM_MAXVAL ((1<<BITS_IN_JSAMPLE)-1)
@@ -181,13 +181,13 @@ start_output_ppm (j_decompress_ptr cinfo, djpeg_dest_ptr dinfo)
   switch (cinfo->out_color_space) {
   case JCS_GRAYSCALE:
     /* emit header for raw PGM format */
-    fprintf(dest->pub.output_file, "P5\n%ld %ld\n%d\n",
+    fprintf(dest->pub.output_file, "P5¥n%ld %ld¥n%d¥n",
 	    (long) cinfo->output_width, (long) cinfo->output_height,
 	    PPM_MAXVAL);
     break;
   case JCS_RGB:
     /* emit header for raw PPM format */
-    fprintf(dest->pub.output_file, "P6\n%ld %ld\n%d\n",
+    fprintf(dest->pub.output_file, "P6¥n%ld %ld¥n%d¥n",
 	    (long) cinfo->output_width, (long) cinfo->output_height,
 	    PPM_MAXVAL);
     break;

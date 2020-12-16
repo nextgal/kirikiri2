@@ -30,7 +30,7 @@ CGUIMeshViewer::CGUIMeshViewer(IGUIEnvironment* environment, IGUIElement* parent
 
 
 //! destructor
-CGUIMeshViewer::~CGUIMeshViewer()
+CGUIMeshViewer::‾CGUIMeshViewer()
 {
 	if (Mesh)
 		Mesh->drop();

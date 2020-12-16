@@ -1,6 +1,6 @@
 # ---------------------------------------------------------------------------
 !if !$d(BCB)
-BCB = $(MAKEDIR)\..
+BCB = $(MAKEDIR)¥..
 !endif
 
 # ---------------------------------------------------------------------------
@@ -13,11 +13,11 @@ BCB = $(MAKEDIR)\..
 
 VERSION = BCB.05.03
 # ---------------------------------------------------------------------------
-PROJECT = "D:\Program Files\Borland\CBuilder5\Projects\tvp2win32\environ\win32\plugin\extrans.dll"
-OBJFILES = intermediate\tp_stub.obj intermediate\Main.obj intermediate\wave.obj \
-    intermediate\mosaic.obj intermediate\turn.obj \
-    intermediate\turntrans_table.obj intermediate\rotatebase.obj \
-    intermediate\rotatetrans.obj intermediate\ripple.obj
+PROJECT = "D:¥Program Files¥Borland¥CBuilder5¥Projects¥tvp2win32¥environ¥win32¥plugin¥extrans.dll"
+OBJFILES = intermediate¥tp_stub.obj intermediate¥Main.obj intermediate¥wave.obj ¥
+    intermediate¥mosaic.obj intermediate¥turn.obj ¥
+    intermediate¥turntrans_table.obj intermediate¥rotatebase.obj ¥
+    intermediate¥rotatetrans.obj intermediate¥ripple.obj
 RESFILES = 
 MAINSOURCE = extrans.bpf
 RESDEPEN = $(RESFILES)
@@ -25,27 +25,27 @@ LIBFILES =
 IDLFILES = 
 IDLGENFILES = 
 LIBRARIES = 
-PACKAGES = Vcl50.bpi Vclx50.bpi flashbpk.bpi OLEDNDC5.bpi DragDropC4.bpi shlbpk.bpi \
-    bcbsmp50.bpi Qrpt50.bpi Vcldb50.bpi Vclbde50.bpi ibsmp50.bpi vcldbx50.bpi \
-    TeeUI50.bpi TeeDB50.bpi Tee50.bpi TeeQR50.bpi VCLIB50.bpi bcbie50.bpi \
-    vclie50.bpi Inetdb50.bpi Inet50.bpi NMFast50.bpi dclocx50.bpi \
+PACKAGES = Vcl50.bpi Vclx50.bpi flashbpk.bpi OLEDNDC5.bpi DragDropC4.bpi shlbpk.bpi ¥
+    bcbsmp50.bpi Qrpt50.bpi Vcldb50.bpi Vclbde50.bpi ibsmp50.bpi vcldbx50.bpi ¥
+    TeeUI50.bpi TeeDB50.bpi Tee50.bpi TeeQR50.bpi VCLIB50.bpi bcbie50.bpi ¥
+    vclie50.bpi Inetdb50.bpi Inet50.bpi NMFast50.bpi dclocx50.bpi ¥
     bcb2kaxserver50.bpi
 SPARELIBS = 
 DEFFILE = extrans.def
 # ---------------------------------------------------------------------------
-PATHCPP = .;..\..\..\base\win32\plugin_kit
+PATHCPP = .;..¥..¥..¥base¥win32¥plugin_kit
 PATHASM = .;
 PATHPAS = .;
 PATHRC = .;
-DEBUGLIBPATH = $(BCB)\lib\debug
-RELEASELIBPATH = $(BCB)\lib\release
+DEBUGLIBPATH = $(BCB)¥lib¥debug
+RELEASELIBPATH = $(BCB)¥lib¥release
 USERDEFINES = _DEBUG
 SYSDEFINES = NO_STRICT;_NO_VCL
-INCLUDEPATH = ..\..\..\..\..\Bin;..\..\..\base\win32\plugin_kit;$(BCB)\include;$(BCB)\include\vcl
-LIBPATH = ..\..\..\..\..\Bin;..\..\..\base\win32\plugin_kit;$(BCB)\lib\obj;$(BCB)\lib
+INCLUDEPATH = ..¥..¥..¥..¥..¥Bin;..¥..¥..¥base¥win32¥plugin_kit;$(BCB)¥include;$(BCB)¥include¥vcl
+LIBPATH = ..¥..¥..¥..¥..¥Bin;..¥..¥..¥base¥win32¥plugin_kit;$(BCB)¥lib¥obj;$(BCB)¥lib
 WARNINGS= -w-par
 # ---------------------------------------------------------------------------
-CFLAG1 = -WD -Od -H=$(BCB)\lib\vcl50.csm -Hc -Vx -Ve -ff -X- -r- -pr -a8 -6 -b- -k \
+CFLAG1 = -WD -Od -H=$(BCB)¥lib¥vcl50.csm -Hc -Vx -Ve -ff -X- -r- -pr -a8 -6 -b- -k ¥
     -y -v -vi- -tWD -tWM -c
 IDLCFLAGS = 
 PFLAGS = -N2intermediate -N0intermediate -$Y+ -$W -$O- -v -JPHNE -M
@@ -85,7 +85,7 @@ ProductVersion=1.0.0.0
 Comments=
 
 [Debugging]
-DebugSourceDirs=$(BCB)\source\vcl
+DebugSourceDirs=$(BCB)¥source¥vcl
 
 !endif
 
@@ -152,7 +152,7 @@ BRCC32 = brcc32
 !endif
 # ---------------------------------------------------------------------------
 $(PROJECT): $(IDLGENFILES) $(OBJFILES) $(RESDEPEN) $(DEFFILE)
-    $(BCB)\BIN\$(LINKER) @&&!
+    $(BCB)¥BIN¥$(LINKER) @&&!
     $(LFLAGS) -L$(LIBPATH) +
     $(ALLOBJ), +
     $(PROJECT),, +
@@ -162,28 +162,28 @@ $(PROJECT): $(IDLGENFILES) $(OBJFILES) $(RESDEPEN) $(DEFFILE)
 !
 # ---------------------------------------------------------------------------
 .pas.hpp:
-    $(BCB)\BIN\$(DCC32) $(PFLAGS) -U$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -O$(INCLUDEPATH) --BCB {$< }
+    $(BCB)¥BIN¥$(DCC32) $(PFLAGS) -U$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -O$(INCLUDEPATH) --BCB {$< }
 
 .pas.obj:
-    $(BCB)\BIN\$(DCC32) $(PFLAGS) -U$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -O$(INCLUDEPATH) --BCB {$< }
+    $(BCB)¥BIN¥$(DCC32) $(PFLAGS) -U$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -O$(INCLUDEPATH) --BCB {$< }
 
 .cpp.obj:
-    $(BCB)\BIN\$(BCC32) $(CFLAG1) $(WARNINGS) -I$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -n$(@D) {$< }
+    $(BCB)¥BIN¥$(BCC32) $(CFLAG1) $(WARNINGS) -I$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -n$(@D) {$< }
 
 .c.obj:
-    $(BCB)\BIN\$(BCC32) $(CFLAG1) $(WARNINGS) -I$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -n$(@D) {$< }
+    $(BCB)¥BIN¥$(BCC32) $(CFLAG1) $(WARNINGS) -I$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -n$(@D) {$< }
 
 .c.i:
-    $(BCB)\BIN\$(CPP32) $(CFLAG1) $(WARNINGS) -I$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -n. {$< }
+    $(BCB)¥BIN¥$(CPP32) $(CFLAG1) $(WARNINGS) -I$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -n. {$< }
 
 .cpp.i:
-    $(BCB)\BIN\$(CPP32) $(CFLAG1) $(WARNINGS) -I$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -n. {$< }
+    $(BCB)¥BIN¥$(CPP32) $(CFLAG1) $(WARNINGS) -I$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -n. {$< }
 
 .asm.obj:
-    $(BCB)\BIN\$(TASM32) $(AFLAGS) -i$(INCLUDEPATH:;= -i) $(AUSERDEFINES) -d$(SYSDEFINES:;= -d) $<, $@
+    $(BCB)¥BIN¥$(TASM32) $(AFLAGS) -i$(INCLUDEPATH:;= -i) $(AUSERDEFINES) -d$(SYSDEFINES:;= -d) $<, $@
 
 .rc.res:
-    $(BCB)\BIN\$(BRCC32) $(RFLAGS) -I$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -fo$@ $<
+    $(BCB)¥BIN¥$(BRCC32) $(RFLAGS) -I$(INCLUDEPATH) -D$(USERDEFINES);$(SYSDEFINES) -fo$@ $<
 # ---------------------------------------------------------------------------
 
 

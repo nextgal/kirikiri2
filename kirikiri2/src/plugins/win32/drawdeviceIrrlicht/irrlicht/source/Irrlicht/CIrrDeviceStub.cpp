@@ -45,7 +45,7 @@ CIrrDeviceStub::CIrrDeviceStub(const char* version, IEventReceiver* recv)
 }
 
 
-CIrrDeviceStub::~CIrrDeviceStub()
+CIrrDeviceStub::‾CIrrDeviceStub()
 {
 	FileSystem->drop();
 
@@ -121,7 +121,7 @@ scene::ISceneManager* CIrrDeviceStub::getSceneManager()
 }
 
 
-//! \return Returns a pointer to the ITimer object. With it the
+//! ¥return Returns a pointer to the ITimer object. With it the
 //! current Time can be received.
 ITimer* CIrrDeviceStub::getTimer()
 {
@@ -135,14 +135,14 @@ const char* CIrrDeviceStub::getVersion() const
 	return IRRLICHT_SDK_VERSION;
 }
 
-//! \return Returns a pointer to the mouse cursor control interface.
+//! ¥return Returns a pointer to the mouse cursor control interface.
 gui::ICursorControl* CIrrDeviceStub::getCursorControl()
 {
 	return CursorControl;
 }
 
 
-//! \return Returns a pointer to a list with all video modes supported
+//! ¥return Returns a pointer to a list with all video modes supported
 //! by the gfx adapter.
 video::IVideoModeList* CIrrDeviceStub::getVideoModeList()
 {
@@ -210,7 +210,7 @@ IEventReceiver* CIrrDeviceStub::getEventReceiver()
 }
 
 
-//! \return Returns a pointer to the logger.
+//! ¥return Returns a pointer to the logger.
 ILogger* CIrrDeviceStub::getLogger()
 {
 	return Logger;

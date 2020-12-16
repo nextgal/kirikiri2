@@ -49,12 +49,12 @@ struct auto_unit_test_registrar
 // **************             BOOST_AUTO_UNIT_TEST             ************** //
 // ************************************************************************** //
 
-#define BOOST_AUTO_UNIT_TEST( func_name )                           \
-static void func_name();                                            \
-static boost::unit_test_framework::auto_unit_test_registrar         \
-    BOOST_JOIN( test_registrar, __LINE__)                           \
-        ( BOOST_TEST_CASE( func_name ) );                           \
-static void func_name()                                             \
+#define BOOST_AUTO_UNIT_TEST( func_name )                           ¥
+static void func_name();                                            ¥
+static boost::unit_test_framework::auto_unit_test_registrar         ¥
+    BOOST_JOIN( test_registrar, __LINE__)                           ¥
+        ( BOOST_TEST_CASE( func_name ) );                           ¥
+static void func_name()                                             ¥
 /**/
 
 // ***************************************************************************

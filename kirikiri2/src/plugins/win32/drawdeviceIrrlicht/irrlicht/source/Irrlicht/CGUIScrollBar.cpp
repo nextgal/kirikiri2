@@ -46,7 +46,7 @@ CGUIScrollBar::CGUIScrollBar(bool horizontal, IGUIEnvironment* environment,
 
 
 //! destructor
-CGUIScrollBar::~CGUIScrollBar()
+CGUIScrollBar::‾CGUIScrollBar()
 {
 	if (UpButton)
 		UpButton->drop();

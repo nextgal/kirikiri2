@@ -29,10 +29,10 @@
 
 #if defined(BOOST_MPL_TYPEOF_BASED_VECTOR_IMPL)
 
-#   define MPL_AUX_VECTOR_TAIL(vector, i, T) \
-    BOOST_PP_CAT(vector,BOOST_PP_DEC(i))< \
-      BOOST_PP_ENUM_SHIFTED_PARAMS(i, T) \
-    > \
+#   define MPL_AUX_VECTOR_TAIL(vector, i, T) ¥
+    BOOST_PP_CAT(vector,BOOST_PP_DEC(i))< ¥
+      BOOST_PP_ENUM_SHIFTED_PARAMS(i, T) ¥
+    > ¥
     /**/
 
 #if i > 0
@@ -63,8 +63,8 @@ struct BOOST_PP_CAT(vector,i)
     typedef aux::vector_tag<i> tag;
     typedef BOOST_PP_CAT(vector,i) type;
 
-#   define AUX_VECTOR_ITEM(unused, i, unused2) \
-    typedef BOOST_PP_CAT(T,i) BOOST_PP_CAT(item,i); \
+#   define AUX_VECTOR_ITEM(unused, i, unused2) ¥
+    typedef BOOST_PP_CAT(T,i) BOOST_PP_CAT(item,i); ¥
     /**/
 
     BOOST_PP_REPEAT_1(i, AUX_VECTOR_ITEM, unused)
@@ -103,7 +103,7 @@ struct pop_front_traits< aux::vector_tag<i> >
 
 #   endif // i > 0
 
-#   if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) \
+#   if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) ¥
     && !defined(BOOST_NO_NON_TYPE_TEMPLATE_PARTIAL_SPECIALIZATION)
 
 template< typename V >

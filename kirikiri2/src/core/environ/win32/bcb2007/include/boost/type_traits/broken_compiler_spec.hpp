@@ -26,53 +26,53 @@ template< typename T > struct remove_reference_impl { typedef T type; };
 
 // same as BOOST_TT_AUX_TYPE_TRAIT_IMPL_SPEC1 macro, except that it
 // never gets #undef-ined
-#   define BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(trait,spec,result) \
-template<> struct trait##_impl<spec> \
-{ \
-    typedef result type; \
-}; \
+#   define BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(trait,spec,result) ¥
+template<> struct trait##_impl<spec> ¥
+{ ¥
+    typedef result type; ¥
+}; ¥
 /**/
 
-#   define BOOST_TT_AUX_REMOVE_CONST_VOLATILE_RANK1_SPEC(T)                         \
-    BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(remove_const,T const,T)                    \
-    BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(remove_const,T const volatile,T volatile)  \
-    BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(remove_volatile,T volatile,T)              \
-    BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(remove_volatile,T const volatile,T const)  \
+#   define BOOST_TT_AUX_REMOVE_CONST_VOLATILE_RANK1_SPEC(T)                         ¥
+    BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(remove_const,T const,T)                    ¥
+    BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(remove_const,T const volatile,T volatile)  ¥
+    BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(remove_volatile,T volatile,T)              ¥
+    BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(remove_volatile,T const volatile,T const)  ¥
     /**/
 
-#   define BOOST_TT_AUX_REMOVE_PTR_REF_RANK_1_SPEC(T)                               \
-    BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(remove_pointer,T*,T)                       \
-    BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(remove_reference,T&,T)                     \
+#   define BOOST_TT_AUX_REMOVE_PTR_REF_RANK_1_SPEC(T)                               ¥
+    BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(remove_pointer,T*,T)                       ¥
+    BOOST_TT_AUX_BROKEN_TYPE_TRAIT_SPEC1(remove_reference,T&,T)                     ¥
     /**/
 
-#   define BOOST_TT_AUX_REMOVE_PTR_REF_RANK_2_SPEC(T)                               \
-    BOOST_TT_AUX_REMOVE_PTR_REF_RANK_1_SPEC(T)                                      \
-    BOOST_TT_AUX_REMOVE_PTR_REF_RANK_1_SPEC(T const)                                \
-    BOOST_TT_AUX_REMOVE_PTR_REF_RANK_1_SPEC(T volatile)                             \
-    BOOST_TT_AUX_REMOVE_PTR_REF_RANK_1_SPEC(T const volatile)                       \
+#   define BOOST_TT_AUX_REMOVE_PTR_REF_RANK_2_SPEC(T)                               ¥
+    BOOST_TT_AUX_REMOVE_PTR_REF_RANK_1_SPEC(T)                                      ¥
+    BOOST_TT_AUX_REMOVE_PTR_REF_RANK_1_SPEC(T const)                                ¥
+    BOOST_TT_AUX_REMOVE_PTR_REF_RANK_1_SPEC(T volatile)                             ¥
+    BOOST_TT_AUX_REMOVE_PTR_REF_RANK_1_SPEC(T const volatile)                       ¥
     /**/
 
-#   define BOOST_TT_AUX_REMOVE_ALL_RANK_1_SPEC(T)                                   \
-    BOOST_TT_AUX_REMOVE_PTR_REF_RANK_2_SPEC(T)                                      \
-    BOOST_TT_AUX_REMOVE_CONST_VOLATILE_RANK1_SPEC(T)                                \
+#   define BOOST_TT_AUX_REMOVE_ALL_RANK_1_SPEC(T)                                   ¥
+    BOOST_TT_AUX_REMOVE_PTR_REF_RANK_2_SPEC(T)                                      ¥
+    BOOST_TT_AUX_REMOVE_CONST_VOLATILE_RANK1_SPEC(T)                                ¥
     /**/
 
-#   define BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T)                                   \
-    BOOST_TT_AUX_REMOVE_ALL_RANK_1_SPEC(T*)                                         \
-    BOOST_TT_AUX_REMOVE_ALL_RANK_1_SPEC(T const*)                                   \
-    BOOST_TT_AUX_REMOVE_ALL_RANK_1_SPEC(T volatile*)                                \
-    BOOST_TT_AUX_REMOVE_ALL_RANK_1_SPEC(T const volatile*)                          \
+#   define BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T)                                   ¥
+    BOOST_TT_AUX_REMOVE_ALL_RANK_1_SPEC(T*)                                         ¥
+    BOOST_TT_AUX_REMOVE_ALL_RANK_1_SPEC(T const*)                                   ¥
+    BOOST_TT_AUX_REMOVE_ALL_RANK_1_SPEC(T volatile*)                                ¥
+    BOOST_TT_AUX_REMOVE_ALL_RANK_1_SPEC(T const volatile*)                          ¥
     /**/
 
-#   define BOOST_TT_BROKEN_COMPILER_SPEC(T)                                         \
-    namespace boost { namespace detail {                                            \
-    BOOST_TT_AUX_REMOVE_ALL_RANK_1_SPEC(T)                                          \
-    BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T)                                          \
-    BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T*)                                         \
-    BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T const*)                                   \
-    BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T volatile*)                                \
-    BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T const volatile*)                          \
-    }}                                                                              \
+#   define BOOST_TT_BROKEN_COMPILER_SPEC(T)                                         ¥
+    namespace boost { namespace detail {                                            ¥
+    BOOST_TT_AUX_REMOVE_ALL_RANK_1_SPEC(T)                                          ¥
+    BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T)                                          ¥
+    BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T*)                                         ¥
+    BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T const*)                                   ¥
+    BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T volatile*)                                ¥
+    BOOST_TT_AUX_REMOVE_ALL_RANK_2_SPEC(T const volatile*)                          ¥
+    }}                                                                              ¥
     /**/
 
 #   include "boost/type_traits/detail/type_trait_undef.hpp"
@@ -97,8 +97,8 @@ BOOST_TT_BROKEN_COMPILER_SPEC(double)
 //BOOST_TT_BROKEN_COMPILER_SPEC(long double)
 
 // for backward compatibility
-#define BOOST_BROKEN_COMPILER_TYPE_TRAITS_SPECIALIZATION(T) \
-    BOOST_TT_BROKEN_COMPILER_SPEC(T) \
+#define BOOST_BROKEN_COMPILER_TYPE_TRAITS_SPECIALIZATION(T) ¥
+    BOOST_TT_BROKEN_COMPILER_SPEC(T) ¥
 /**/
 
 #endif // BOOST_TT_BROKEN_COMPILER_SPEC_HPP_INCLUDED

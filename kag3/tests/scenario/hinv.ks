@@ -25,6 +25,6 @@ function draw_2chars(text)
 ;
 ;
 @position vertical=true
-•½¬[yoko text="13"]”N[yoko text="12"]Œ[yoko text="31"]“ú
+å¹³æˆ[yoko text="13"]å¹´[yoko text="12"]æœˆ[yoko text="31"]æ—¥
 
 

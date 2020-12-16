@@ -1,38 +1,38 @@
-Title: �g���g��2/TJS2 �f�o�b�K
+Title: 吉里吉里2/TJS2 デバッガ
 Author: T.Imoto
 
 
-������͂ȂɁH
+●これはなに？
 
-�X�N���v�g�f�o�b�K�[�ł��B
+スクリプトデバッガーです。
 
 
-���g����
-krkrdebg.exe ���N�����܂��B
-�ݒ�A�v���W�F�N�g�̐ݒ��I�т܂��B
-���s�t�@�C���p�X�ɓY�t��krkr.eXe�̃t���p�X��
-������ -debug ��
-�v���W�F�N�g�t�H���_�� data �̃t���p�X�� ( ex. C:\krkr\debugger\data )
-��ƃt�H���_�Ɏ��s�f�B���N�g���� ( ex. C:\krkr\debugger )
-�X�N���v�g�g���q�ɃX�N���v�g�̊g���q���X�y�[�X��؂�� ( ex. .tjs ) ("."���K�v�ł�)
-�ȏ��ݒ肵�܂��B
-TJS �t�@�C�������ɗ񋓂���܂��B
-�t�@�C�� �� ���O��t���ĕۑ� �ŁA�v���W�F�N�g��ۑ����Ă����ƁA����ȍ~�y�ł��B
+●使い方
+krkrdebg.exe を起動します。
+設定、プロジェクトの設定を選びます。
+実行ファイルパスに添付のkrkr.eXeのフルパスを
+引数に -debug を
+プロジェクトフォルダに data のフルパスを ( ex. C:¥krkr¥debugger¥data )
+作業フォルダに実行ディレクトリを ( ex. C:¥krkr¥debugger )
+スクリプト拡張子にスクリプトの拡張子をスペース区切りで ( ex. .tjs ) ("."も必要です)
+以上を設定します。
+TJS ファイルが左に列挙されます。
+ファイル → 名前を付けて保存 で、プロジェクトを保存しておくと、次回以降楽です。
 
-�����f�B���N�g���� debugger.sdp ���������ꍇ�A���̐ݒ�t�@�C�����f�t�H���g�œǂݍ��݂܂�
-������ -p filename.sdp �Ƃ��ċN�������ꍇ�A���̐ݒ�t�@�C����ǂ݂܂��B
+同じディレクトリに debugger.sdp があった場合、その設定ファイルをデフォルトで読み込みます
+引数に -p filename.sdp として起動した場合、その設定ファイルを読みます。
 
-startup.tjs �Ƃ� Config.tjs �Ƃ��͂��߂̕��Ɏ��s�����t�@�C���̎��s��������s���_�u���N���b�N����ƃu���[�N�|�C���g���\���܂��B
-( �����Ȃ��s�ɂ��u���[�N�|�C���g�͓\��܂����~�܂�܂��� )
+startup.tjs とか Config.tjs とかはじめの方に実行されるファイルの実行文がある行をダブルクリックするとブレークポイントが貼られます。
+( 何もない行にもブレークポイントは貼れますが止まりません )
 
-��́A���s����ƃu���[�N�|�C���g�Ŏ~�܂�܂��B
-�g���[�X��X�e�b�v�Ŏ��s�p���ł��܂��B
+後は、実行するとブレークポイントで止まります。
+トレースやステップで実行継続できます。
 
-���s���Ƀu���[�N�|�C���g��ݒ肵�Ă��A�����ɂ͔��f����܂���B
-�u���[�N(�ꎞ��~)�Ŏ~�߂āA�ēx���s����Ɣ��f����܂��B
+実行中にブレークポイントを設定しても、即座には反映されません。
+ブレーク(一時停止)で止めて、再度実行すると反映されます。
 
-�ݒ�t�@�C���ɂ́A�e��p�X�͑��΃p�X�ŕۑ�����܂��B
+設定ファイルには、各種パスは相対パスで保存されます。
 
-�����C�Z���X 
+●ライセンス 
 
-���̃c�[���̃��C�Z���X�͋g���g���{�̂ɏ������Ă��������B 
+このツールのライセンスは吉里吉里本体に準拠してください。 

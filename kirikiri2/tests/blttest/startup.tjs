@@ -1,4 +1,4 @@
-// stretchCopy “™‚ÌƒeƒXƒg
+// stretchCopy ç­‰ã®ãƒ†ã‚¹ãƒˆ
 
 function intrandom(min = 0, max = 0) 
 {
@@ -8,10 +8,10 @@ function intrandom(min = 0, max = 0)
 
 class TestWindow extends Window
 {
-	var fore; // ƒvƒ‰ƒCƒ}ƒŠ
-	var src; // ƒŒƒCƒ„ ‚»‚Ì1
-	var src2; // ƒŒƒCƒ„‚»‚Ì2
-	var timer; // ƒ^ƒCƒ}
+	var fore; // ãƒ—ãƒ©ã‚¤ãƒãƒª
+	var src; // ãƒ¬ã‚¤ãƒ¤ ãã®1
+	var src2; // ãƒ¬ã‚¤ãƒ¤ãã®2
+	var timer; // ã‚¿ã‚¤ãƒ
 
 	function TestWindow()
 	{

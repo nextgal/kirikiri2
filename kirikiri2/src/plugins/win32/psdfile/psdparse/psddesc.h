@@ -9,10 +9,10 @@
 
 namespace psd {
   // --------------------------------------------------------------------------
-  // ’è”
+  // å®šæ•°
   // --------------------------------------------------------------------------
   
-  // ƒfƒBƒXƒNƒŠƒvƒ^ƒAƒCƒeƒ€ƒ^ƒCƒv
+  // ãƒ‡ã‚£ã‚¹ã‚¯ãƒªãƒ—ã‚¿ã‚¢ã‚¤ãƒ†ãƒ ã‚¿ã‚¤ãƒ—
   enum DescriptorType {
     TYPE_REFERENCE      = 'obj ',
     TYPE_DESCRIPTOR     = 'Objc',
@@ -63,13 +63,13 @@ namespace psd {
   }
 
   // --------------------------------------------------------------------------
-  // ƒAƒCƒeƒ€Šî’ê
+  // ã‚¢ã‚¤ãƒ†ãƒ åŸºåº•
   // --------------------------------------------------------------------------
 
-  // ƒfƒBƒXƒNƒŠƒvƒ^ƒAƒCƒeƒ€Šî’ê
+  // ãƒ‡ã‚£ã‚¹ã‚¯ãƒªãƒ—ã‚¿ã‚¢ã‚¤ãƒ†ãƒ åŸºåº•
   struct DescriptorItem {
     DescriptorItem(DescriptorType t) : type(t), isValid(true) {}
-    virtual ~DescriptorItem() {}
+    virtual â€¾DescriptorItem() {}
     virtual bool load(IteratorBase *data) = 0;
     virtual void dump(int indent) = 0;
     const char *typeName() {
@@ -98,10 +98,10 @@ namespace psd {
     DescriptorType     type;
   };
 
-  // ƒŠƒtƒ@ƒŒƒ“ƒXƒAƒCƒeƒ€Šî’ê
+  // ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã‚¢ã‚¤ãƒ†ãƒ åŸºåº•
   struct ReferenceItem {
     ReferenceItem(ReferenceType t) : type(t) {}
-    virtual ~ReferenceItem() {}
+    virtual â€¾ReferenceItem() {}
     virtual bool load(IteratorBase *data) = 0;
     virtual void dump(int indent) {};
 
@@ -109,7 +109,7 @@ namespace psd {
   };
 
   // --------------------------------------------------------------------------
-  // ƒfƒBƒXƒNƒŠƒvƒ^
+  // ãƒ‡ã‚£ã‚¹ã‚¯ãƒªãƒ—ã‚¿
   // --------------------------------------------------------------------------
 
   struct Descriptor;
@@ -125,19 +125,19 @@ namespace psd {
   struct DescriptorAlias;
   struct DescriptorRawData;
 
-  // ƒfƒBƒXƒNƒŠƒvƒ^(©g‚àƒfƒBƒXƒNƒŠƒvƒ^ƒAƒCƒeƒ€‚Æ‚È‚éƒP[ƒX‚ª‚ ‚é)
+  // ãƒ‡ã‚£ã‚¹ã‚¯ãƒªãƒ—ã‚¿(è‡ªèº«ã‚‚ãƒ‡ã‚£ã‚¹ã‚¯ãƒªãƒ—ã‚¿ã‚¢ã‚¤ãƒ†ãƒ ã¨ãªã‚‹ã‚±ãƒ¼ã‚¹ãŒã‚ã‚‹)
   struct Descriptor : DescriptorItem {
     typedef std::map<std::string, DescriptorItem*> ItemMap;
 
     Descriptor(DescriptorType type=TYPE_DESCRIPTOR) : DescriptorItem(type) {}
-    virtual ~Descriptor() {
+    virtual â€¾Descriptor() {
       for (ItemMap::iterator it = itemMap.begin(); it != itemMap.end(); it++)	{
         delete it->second;
       }
     }
     virtual bool load(IteratorBase *data);
     virtual void dump(int indent=0) {
-      dprint("Descriptor (size:%d, class:%s, name:%s)\n",
+      dprint("Descriptor (size:%d, class:%s, name:%s)Â¥n",
              itemCount(), classId.c_str(), name.c_str());
       int i = 0;
       for (ItemMap::iterator it = itemMap.begin(); it != itemMap.end(); it++, i++)	{
@@ -157,7 +157,7 @@ namespace psd {
       }
     }
 
-    // –ß‚è’lƒI[ƒo[ƒ[ƒh—p‚ÌƒNƒ‰ƒX
+    // æˆ»ã‚Šå€¤ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ç”¨ã®ã‚¯ãƒ©ã‚¹
     struct _finder {
       _finder(const ItemMap& itemMap, const std::string key)
       : itemMap(itemMap), key(key) { }
@@ -194,14 +194,14 @@ namespace psd {
 
   struct DescriptorReference : DescriptorItem {
     DescriptorReference() : DescriptorItem(TYPE_RAW_DATA) {}
-    virtual ~DescriptorReference() {
+    virtual â€¾DescriptorReference() {
       for (int i = 0; i < (int)items.size(); i++) {
         delete items[i];
       }
     }
     virtual bool load(IteratorBase *data);
     virtual void dump(int indent) {
-      dprint("%s (count:%d)\n", typeName(), items.size());
+      dprint("%s (count:%d)Â¥n", typeName(), items.size());
       for (int i = 0; i < (int)items.size(); i++) {
         items[i]->dump(indent+1);
       }
@@ -213,14 +213,14 @@ namespace psd {
 
   struct DescriptorList : DescriptorItem {
     DescriptorList() : DescriptorItem(TYPE_LIST) {}
-    virtual ~DescriptorList() {
+    virtual â€¾DescriptorList() {
       for (int i = 0; i < (int)items.size(); i++) {
         delete items[i];
       }
     }
     virtual bool load(IteratorBase *data);
     virtual void dump(int indent) {
-      dprint("%s (count:%d)\n", typeName(), items.size());
+      dprint("%s (count:%d)Â¥n", typeName(), items.size());
       for (int i = 0; i < (int)items.size(); i++) {
         indent_print(indent+1, "[%d] ", i);
         items[i]->dump(indent+2);
@@ -230,7 +230,7 @@ namespace psd {
       return (int)items.size();
     }
 
-    // –ß‚è’lƒI[ƒo[ƒ[ƒh—p‚ÌƒNƒ‰ƒX
+    // æˆ»ã‚Šå€¤ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ç”¨ã®ã‚¯ãƒ©ã‚¹
     struct _getter {
       _getter(const std::vector<DescriptorItem*>& items, int id)
       : items(items), id(id) { }
@@ -265,7 +265,7 @@ namespace psd {
     DescriptorDouble() : DescriptorItem(TYPE_DOUBLE) {}
     virtual bool load(IteratorBase *data);
     virtual void dump(int indent) {
-      dprint("%s (val:%f)\n", typeName(), val);
+      dprint("%s (val:%f)Â¥n", typeName(), val);
     }
 
     float64_t val;
@@ -287,7 +287,7 @@ namespace psd {
       case UNIT_PIXELS:      unitStr = "Pixels";                  break;
       default:               unitStr = "Unknown";                 break;
       }
-      indent_print(indent, "%s (unit:%s, val:%f)\n", typeName(), unitStr, val);
+      indent_print(indent, "%s (unit:%s, val:%f)Â¥n", typeName(), unitStr, val);
     }
 
     DescriptorUnit unit;
@@ -298,7 +298,7 @@ namespace psd {
     DescriptorString() : DescriptorItem(TYPE_STRING) {}
     virtual bool load(IteratorBase *data);
     virtual void dump(int indent) {
-      dprint("%s (val:%s)\n", typeName(), val.c_str());
+      dprint("%s (val:%s)Â¥n", typeName(), val.c_str());
     }
 
     std::wstring val;
@@ -308,7 +308,7 @@ namespace psd {
     DescriptorEnumerated() : DescriptorItem(TYPE_ENUMERATED) {}
     virtual bool load(IteratorBase *data);
     virtual void dump(int indent) {
-      dprint("%s (type:%s, enum:%s)\n",
+      dprint("%s (type:%s, enum:%s)Â¥n",
              typeName(), typeId.c_str(), enumId.c_str());
     }
 
@@ -320,7 +320,7 @@ namespace psd {
     DescriptorInteger() : DescriptorItem(TYPE_INTEGER) {}
     virtual bool load(IteratorBase *data);
     virtual void dump(int indent) {
-      dprint("%s (val:%d(0x%x))\n", typeName(), val, val);
+      dprint("%s (val:%d(0x%x))Â¥n", typeName(), val, val);
     }
 
     int32_t val;
@@ -330,7 +330,7 @@ namespace psd {
     DescriptorBoolean() : DescriptorItem(TYPE_BOOLEAN) {}
     virtual bool load(IteratorBase *data);
     virtual void dump(int indent) {
-      dprint("%s (val: %d)\n", typeName(), val);
+      dprint("%s (val: %d)Â¥n", typeName(), val);
     }
 
     bool val;
@@ -340,7 +340,7 @@ namespace psd {
     DescriptorClass(DescriptorType type) : DescriptorItem(type) {}
     virtual bool load(IteratorBase *data);
     virtual void dump(int indent) {
-      dprint("%s (name:%s, class:%s)\n",
+      dprint("%s (name:%s, class:%s)Â¥n",
              typeName(), name.c_str(), classId.c_str());
     }
 
@@ -352,24 +352,24 @@ namespace psd {
     DescriptorAlias() : DescriptorItem(TYPE_ALIAS) {}
     virtual bool load(IteratorBase *data);
     virtual void dump(int indent) {
-      dprint("%s (val:%s)\n", typeName(), alias.c_str());
+      dprint("%s (val:%s)Â¥n", typeName(), alias.c_str());
     }
 
-    // TODO string ‚Å‚¢‚¢‚©•s–¾(unicode‚Ì‰Â”\«‚àH)
+    // TODO string ã§ã„ã„ã‹ä¸æ˜(unicodeã®å¯èƒ½æ€§ã‚‚ï¼Ÿ)
     std::string alias;
   };
 
-  // Raw ‚Í’l‚Ì‰ğß‚ªƒf[ƒ^Ÿ‘æ‚ÅƒTƒCƒY‚ª‚í‚©‚ç‚È‚¢‚Ì‚Å¸”sˆµ‚¢‚É‚µ‚Ä‚¢‚é
+  // Raw ã¯å€¤ã®è§£é‡ˆãŒãƒ‡ãƒ¼ã‚¿æ¬¡ç¬¬ã§ã‚µã‚¤ã‚ºãŒã‚ã‹ã‚‰ãªã„ã®ã§å¤±æ•—æ‰±ã„ã«ã—ã¦ã„ã‚‹
   struct DescriptorRawData : DescriptorItem {
     DescriptorRawData(IteratorBase *data) : DescriptorItem(TYPE_RAW_DATA) {}
     virtual bool load(IteratorBase *data) { return false; }
     virtual void dump(int indent) {
-      dprint("%s\n", typeName());
+      dprint("%sÂ¥n", typeName());
     }
   };
 
   // --------------------------------------------------------------------------
-  // ƒŠƒtƒ@ƒŒƒ“ƒX
+  // ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹
   // --------------------------------------------------------------------------
 
   struct ReferenceProperty : ReferenceItem {

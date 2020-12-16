@@ -53,7 +53,7 @@ namespace scene
 
 
 	//! destructor
-	CTerrainSceneNode::~CTerrainSceneNode ( )
+	CTerrainSceneNode::‾CTerrainSceneNode ( )
 	{
 		delete [] TerrainData.LODDistanceThreshold;
 
@@ -384,7 +384,7 @@ namespace scene
 
 
 	//! Sets the scale of the scene node.
-	//! \param scale: New scale of the node
+	//! ¥param scale: New scale of the node
 	void CTerrainSceneNode::setScale(const core::vector3df& scale)
 	{
 		TerrainData.Scale = scale;
@@ -394,7 +394,7 @@ namespace scene
 
 	//! Sets the rotation of the node. This only modifies
 	//! the relative rotation of the node.
-	//! \param rotation: New rotation of the node in degrees.
+	//! ¥param rotation: New rotation of the node in degrees.
 	void CTerrainSceneNode::setRotation(const core::vector3df& rotation)
 	{
 		TerrainData.Rotation = rotation;
@@ -412,7 +412,7 @@ namespace scene
 	}
 
 	//! Sets the position of the node.
-	//! \param newpos: New postition of the scene node.
+	//! ¥param newpos: New postition of the scene node.
 	void CTerrainSceneNode::setPosition ( const core::vector3df& newpos )
 	{
 		TerrainData.Position = newpos;
@@ -646,8 +646,8 @@ namespace scene
 	}
 
 	//! Gets the meshbuffer data based on a specified Level of Detail.
-	//! \param mb: A reference to an SMeshBuffer object
-	//! \param LOD: The Level Of Detail you want the indices from.
+	//! ¥param mb: A reference to an SMeshBuffer object
+	//! ¥param LOD: The Level Of Detail you want the indices from.
 	void CTerrainSceneNode::getMeshBufferForLOD(SMeshBufferLightMap& mb, s32 LOD ) const
 	{
 		if (!Mesh.getMeshBufferCount())
@@ -711,13 +711,13 @@ namespace scene
 	}
 
 	//! Gets the indices for a specified patch at a specified Level of Detail.
-	//! \param mb: A reference to an array of u32 indices.
-	//! \param patchX: Patch x coordinate.
-	//! \param patchZ: Patch z coordinate.
-	//! \param LOD: The level of detail to get for that patch.  If -1, then get
+	//! ¥param mb: A reference to an array of u32 indices.
+	//! ¥param patchX: Patch x coordinate.
+	//! ¥param patchZ: Patch z coordinate.
+	//! ¥param LOD: The level of detail to get for that patch.  If -1, then get
 	//! the CurrentLOD.  If the CurrentLOD is set to -1, meaning it's not shown,
 	//! then it will retrieve the triangles at the highest LOD ( 0 ).
-	//! \return: Number if indices put into the buffer.
+	//! ¥return: Number if indices put into the buffer.
 	s32 CTerrainSceneNode::getIndicesForPatch(core::array<u32>& indices, s32 patchX, s32 patchZ, s32 LOD)
 	{
 		if ( patchX < 0 || patchX > TerrainData.PatchCount - 1 || patchZ < 0 || patchZ > TerrainData.PatchCount - 1 )
@@ -792,8 +792,8 @@ namespace scene
 	}
 
 	//! Populates an array with the CurrentLOD of each patch.
-	//! \param LODs: A reference to a core::array<s32> to hold the values
-	//! \return Returns the number of elements in the array
+	//! ¥param LODs: A reference to a core::array<s32> to hold the values
+	//! ¥return Returns the number of elements in the array
 	s32 CTerrainSceneNode::getCurrentLODOfPatches(core::array<s32>& LODs) const
 	{
 		s32 numLODs;
@@ -807,9 +807,9 @@ namespace scene
 
 
 	//! Manually sets the LOD of a patch
-	//! \param patchX: Patch x coordinate.
-	//! \param patchZ: Patch z coordinate.
-	//! \param LOD: The level of detail to set the patch to.
+	//! ¥param patchX: Patch x coordinate.
+	//! ¥param patchZ: Patch z coordinate.
+	//! ¥param LOD: The level of detail to set the patch to.
 	void CTerrainSceneNode::setLODOfPatch( s32 patchX, s32 patchZ, s32 LOD )
 	{
 		TerrainData.Patches[patchX * TerrainData.PatchCount + patchZ].CurrentLOD = LOD;
@@ -831,7 +831,7 @@ namespace scene
 	}
 
 	//! Creates a planar texture mapping on the terrain
-	//! \param resolution: resolution of the planar mapping. This is the value
+	//! ¥param resolution: resolution of the planar mapping. This is the value
 	//! specifying the relation between world space and texture coordinate space.
 	void CTerrainSceneNode::scaleTexture(f32 resolution, f32 resolution2)
 	{

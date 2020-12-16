@@ -15,8 +15,8 @@ typedef void (*function_ptr)();
 typedef int (alignment_dummy::*member_ptr);
 typedef int (alignment_dummy::*member_function_ptr)();
 
-# define BOOST_PYTHON_ALIGNER(T, n)                     \
-        typename mpl::if_c<                             \
+# define BOOST_PYTHON_ALIGNER(T, n)                     ¥
+        typename mpl::if_c<                             ¥
            sizeof(T) <= size, T, char>::type t##n
 
 // Storage for size bytes, aligned to all fundamental types no larger than size

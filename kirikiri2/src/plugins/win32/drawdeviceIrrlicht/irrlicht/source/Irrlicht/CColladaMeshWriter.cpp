@@ -32,7 +32,7 @@ CColladaMeshWriter::CColladaMeshWriter(video::IVideoDriver* driver,
 }
 
 
-CColladaMeshWriter::~CColladaMeshWriter()
+CColladaMeshWriter::‾CColladaMeshWriter()
 {
 	if (VideoDriver)
 		VideoDriver->drop();

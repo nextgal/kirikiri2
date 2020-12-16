@@ -10,23 +10,23 @@
 
 struct IStream;
 
-/** \mainpage irrXML 1.2 API documentation
+/** ¥mainpage irrXML 1.2 API documentation
  <div align="center"><img src="logobig.png" ></div>
 
- \section intro Introduction
+ ¥section intro Introduction
 
   Welcome to the irrXML API documentation.
   Here you'll find any information you'll need to develop applications with
-  irrXML. If you look for a tutorial on how to start, take a look at the \ref irrxmlexample,
+  irrXML. If you look for a tutorial on how to start, take a look at the ¥ref irrxmlexample,
   at the homepage of irrXML at <A HREF="http://xml.irrlicht3d.org" >xml.irrlicht3d.org</A>
-  or into the SDK in the directory \example.
+  or into the SDK in the directory ¥example.
 
   irrXML is intended to be a high speed and easy-to-use XML Parser for C++, and
   this documentation is an important part of it. If you have any questions or
   suggestions, just send a email to the author of the engine, Nikolaus Gebhardt
-  (niko (at) irrlicht3d.org). For more informations about this parser, see \ref history.
+  (niko (at) irrlicht3d.org). For more informations about this parser, see ¥ref history.
 
-  \section features Features
+  ¥section features Features
 
   irrXML provides forward-only, read-only
      access to a stream of non validated XML data. It was fully implemented by
@@ -52,11 +52,11 @@ struct IStream;
 
 	- The input xml file is not validated and assumed to be correct.
 
-    \section irrxmlexample Example
+    ¥section irrxmlexample Example
 
     The following code demonstrates the basic usage of irrXML. A simple xml
 	file like this is parsed:
-    \code
+    ¥code
 	<?xml version="1.0"?>
 	<config>
 		<!-- This is a config file for the mesh viewer -->
@@ -65,10 +65,10 @@ struct IStream;
 		Welcome to the Mesh Viewer of the &quot;Irrlicht Engine&quot;.
 		</messageText>
 	</config>
-	\endcode
+	¥endcode
 
 	The code for parsing this file would look like this:
-	\code
+	¥code
 	#include <irrXML.h>
 	using namespace irr; // irrXML is located in the namespace irr::io
 	using namespace io;
@@ -111,13 +111,13 @@ struct IStream;
 		// delete the xml parser after usage
 		delete xml;
 	}
-	\endcode
+	¥endcode
 
-	\section howto How to use
+	¥section howto How to use
 
 	Simply add the source files in the /src directory of irrXML to your project. Done.
 
-	\section license License
+	¥section license License
 
 	The irrXML license is based on the zlib license. Basicly, this means you can do with
 	irrXML whatever you want:
@@ -142,7 +142,7 @@ struct IStream;
 
 	3. This notice may not be removed or altered from any source distribution.
 
-	\section history History
+	¥section history History
 
 	As lots of references in this documentation and the source show, this xml
 	parser has originally been a part of the
@@ -217,12 +217,12 @@ namespace io
 	public:
 
 		//! Destructor
-		virtual ~IFileReadCallBack() {}
+		virtual ‾IFileReadCallBack() {}
 
 		//! Reads an amount of bytes from the file.
-		/** \param buffer: Pointer to buffer where to read bytes will be written to.
-		\param sizeToRead: Amount of bytes to read from the file.
-		\return Returns how much bytes were read. */
+		/** ¥param buffer: Pointer to buffer where to read bytes will be written to.
+		¥param sizeToRead: Amount of bytes to read from the file.
+		¥return Returns how much bytes were read. */
 		virtual int read(void* buffer, int sizeToRead) = 0;
 
 		//! Returns size of file in bytes
@@ -244,10 +244,10 @@ namespace io
 	createIrrXMLReader(), createIrrXMLReaderUTF16() and createIrrXMLReaderUTF32().
 	If using the parser from the Irrlicht Engine, please use IFileSystem::createXMLReader()
 	instead.
-	For a detailed intro how to use the parser, see \ref irrxmlexample and \ref features.
+	For a detailed intro how to use the parser, see ¥ref irrxmlexample and ¥ref features.
 
 	The typical usage of this parser looks like this:
-	\code
+	¥code
 	#include <irrXML.h>
 	using namespace irr; // irrXML is located in the namespace irr::io
 	using namespace io;
@@ -269,8 +269,8 @@ namespace io
 		// delete the xml parser after usage
 		delete xml;
 	}
-	\endcode
-	See \ref irrxmlexample for a more detailed example.
+	¥endcode
+	See ¥ref irrxmlexample for a more detailed example.
 	*/
 	template<class char_type, class super_class>
 	class IIrrXMLReader : public super_class
@@ -278,10 +278,10 @@ namespace io
 	public:
 
 		//! Destructor
-		virtual ~IIrrXMLReader() {}
+		virtual ‾IIrrXMLReader() {}
 
 		//! Reads forward to the next xml node.
-		/** \return Returns false, if there was no further node. */
+		/** ¥return Returns false, if there was no further node. */
 		virtual bool read() = 0;
 
 		//! Returns the type of the current XML node.
@@ -290,58 +290,58 @@ namespace io
 		//! Returns attribute count of the current XML node.
 		/** This is usually
 		non null if the current node is EXN_ELEMENT, and the element has attributes.
-		\return Returns amount of attributes of this xml node. */
+		¥return Returns amount of attributes of this xml node. */
 		virtual unsigned int getAttributeCount() const = 0;
 
 		//! Returns name of an attribute.
-		/** \param idx: Zero based index, should be something between 0 and getAttributeCount()-1.
-		\return Name of the attribute, 0 if an attribute with this index does not exist. */
+		/** ¥param idx: Zero based index, should be something between 0 and getAttributeCount()-1.
+		¥return Name of the attribute, 0 if an attribute with this index does not exist. */
 		virtual const char_type* getAttributeName(int idx) const = 0;
 
 		//! Returns the value of an attribute.
-		/** \param idx: Zero based index, should be something between 0 and getAttributeCount()-1.
-		\return Value of the attribute, 0 if an attribute with this index does not exist. */
+		/** ¥param idx: Zero based index, should be something between 0 and getAttributeCount()-1.
+		¥return Value of the attribute, 0 if an attribute with this index does not exist. */
 		virtual const char_type* getAttributeValue(int idx) const = 0;
 
 		//! Returns the value of an attribute.
-		/** \param name: Name of the attribute.
-		\return Value of the attribute, 0 if an attribute with this name does not exist. */
+		/** ¥param name: Name of the attribute.
+		¥return Value of the attribute, 0 if an attribute with this name does not exist. */
 		virtual const char_type* getAttributeValue(const char_type* name) const = 0;
 
 		//! Returns the value of an attribute in a safe way.
 		/** Like getAttributeValue(), but does not
 		return 0 if the attribute does not exist. An empty string ("") is returned then.
-		\param name: Name of the attribute.
-		\return Value of the attribute, and "" if an attribute with this name does not exist */
+		¥param name: Name of the attribute.
+		¥return Value of the attribute, and "" if an attribute with this name does not exist */
 		virtual const char_type* getAttributeValueSafe(const char_type* name) const = 0;
 
 		//! Returns the value of an attribute as integer.
-		/** \param name Name of the attribute.
-		\return Value of the attribute as integer, and 0 if an attribute with this name does not exist or
+		/** ¥param name Name of the attribute.
+		¥return Value of the attribute as integer, and 0 if an attribute with this name does not exist or
 		the value could not be interpreted as integer. */
 		virtual int getAttributeValueAsInt(const char_type* name) const = 0;
 
 		//! Returns the value of an attribute as integer.
-		/** \param idx: Zero based index, should be something between 0 and getAttributeCount()-1.
-		\return Value of the attribute as integer, and 0 if an attribute with this index does not exist or
+		/** ¥param idx: Zero based index, should be something between 0 and getAttributeCount()-1.
+		¥return Value of the attribute as integer, and 0 if an attribute with this index does not exist or
 		the value could not be interpreted as integer. */
 		virtual int getAttributeValueAsInt(int idx) const = 0;
 
 		//! Returns the value of an attribute as float.
-		/** \param name: Name of the attribute.
-		\return Value of the attribute as float, and 0 if an attribute with this name does not exist or
+		/** ¥param name: Name of the attribute.
+		¥return Value of the attribute as float, and 0 if an attribute with this name does not exist or
 		the value could not be interpreted as float. */
 		virtual float getAttributeValueAsFloat(const char_type* name) const = 0;
 
 		//! Returns the value of an attribute as float.
-		/** \param idx: Zero based index, should be something between 0 and getAttributeCount()-1.
-		\return Value of the attribute as float, and 0 if an attribute with this index does not exist or
+		/** ¥param idx: Zero based index, should be something between 0 and getAttributeCount()-1.
+		¥return Value of the attribute as float, and 0 if an attribute with this index does not exist or
 		the value could not be interpreted as float. */
 		virtual float getAttributeValueAsFloat(int idx) const = 0;
 
 		//! Returns the name of the current node.
 		/** Only non null, if the node type is EXN_ELEMENT.
-		\return Name of the current node or 0 if the node has no name. */
+		¥return Name of the current node or 0 if the node has no name. */
 		virtual const char_type* getNodeName() const = 0;
 
 		//! Returns data of the current node.
@@ -408,8 +408,8 @@ namespace io
 	The file to read can be in any format, it will be converted to UTF-8 if it is not in this format.
 	If you are using the Irrlicht Engine, it is better not to use this function but
 	IFileSystem::createXMLReaderUTF8() instead.
-	\param filename: Name of file to be opened.
-	\return Returns a pointer to the created xml parser. This pointer should be
+	¥param filename: Name of file to be opened.
+	¥return Returns a pointer to the created xml parser. This pointer should be
 	deleted using 'delete' after no longer needed. Returns 0 if an error occured
 	and the file could not be opened. */
 	IRRLICHT_API IrrXMLReader* IRRCALLCONV createIrrXMLReader(const char* filename);
@@ -419,9 +419,9 @@ namespace io
 	be in any format, it will be converted to UTF-8 if it is not in this format.
 	If you are using the Irrlicht Engine, it is better not to use this function but
 	IFileSystem::createXMLReaderUTF8() instead.
-	\param file: Pointer to opened file, must have been opened in binary mode, e.g.
+	¥param file: Pointer to opened file, must have been opened in binary mode, e.g.
 	using fopen("foo.bar", "wb"); The file will not be closed after it has been read.
-	\return Returns a pointer to the created xml parser. This pointer should be
+	¥return Returns a pointer to the created xml parser. This pointer should be
 	deleted using 'delete' after no longer needed. Returns 0 if an error occured
 	and the file could not be opened. */
 	IRRLICHT_API IrrXMLReader* IRRCALLCONV createIrrXMLReader(IStream* file);
@@ -431,10 +431,10 @@ namespace io
 	be in any format, it will be converted to UTF-8 if it is not in this format.
 	If you are using the Irrlicht Engine, it is better not to use this function but
 	IFileSystem::createXMLReaderUTF8() instead.
-	\param callback: Callback for file read abstraction. Implement your own
+	¥param callback: Callback for file read abstraction. Implement your own
 	callback to make the xml parser read in other things than just files. See
 	IFileReadCallBack for more information about this.
-	\return Returns a pointer to the created xml parser. This pointer should be
+	¥return Returns a pointer to the created xml parser. This pointer should be
 	deleted using 'delete' after no longer needed. Returns 0 if an error occured
 	and the file could not be opened. */
 	IRRLICHT_API IrrXMLReader* IRRCALLCONV createIrrXMLReader(IFileReadCallBack* callback);
@@ -445,8 +445,8 @@ namespace io
 	be in any format, it will be converted to UTF-16 if it is not in this format.
 	If you are using the Irrlicht Engine, it is better not to use this function but
 	IFileSystem::createXMLReader() instead.
-	\param filename: Name of file to be opened.
-	\return Returns a pointer to the created xml parser. This pointer should be
+	¥param filename: Name of file to be opened.
+	¥return Returns a pointer to the created xml parser. This pointer should be
 	deleted using 'delete' after no longer needed. Returns 0 if an error occured
 	and the file could not be opened. */
 	IRRLICHT_API IrrXMLReaderUTF16* IRRCALLCONV createIrrXMLReaderUTF16(const char* filename);
@@ -456,9 +456,9 @@ namespace io
 	be in any format, it will be converted to UTF-16 if it is not in this format.
 	If you are using the Irrlicht Engine, it is better not to use this function but
 	IFileSystem::createXMLReader() instead.
-	\param file: Pointer to opened file, must have been opened in binary mode, e.g.
+	¥param file: Pointer to opened file, must have been opened in binary mode, e.g.
 	using fopen("foo.bar", "wb"); The file will not be closed after it has been read.
-	\return Returns a pointer to the created xml parser. This pointer should be
+	¥return Returns a pointer to the created xml parser. This pointer should be
 	deleted using 'delete' after no longer needed. Returns 0 if an error occured
 	and the file could not be opened. */
 	IRRLICHT_API IrrXMLReaderUTF16* IRRCALLCONV createIrrXMLReaderUTF16(IStream* file);
@@ -468,10 +468,10 @@ namespace io
 	be in any format, it will be converted to UTF-16 if it is not in this format.
 	If you are using the Irrlicht Engine, it is better not to use this function but
 	IFileSystem::createXMLReader() instead.
-	\param callback: Callback for file read abstraction. Implement your own
+	¥param callback: Callback for file read abstraction. Implement your own
 	callback to make the xml parser read in other things than just files. See
 	IFileReadCallBack for more information about this.
-	\return Returns a pointer to the created xml parser. This pointer should be
+	¥return Returns a pointer to the created xml parser. This pointer should be
 	deleted using 'delete' after no longer needed. Returns 0 if an error occured
 	and the file could not be opened. */
 	IRRLICHT_API IrrXMLReaderUTF16* IRRCALLCONV createIrrXMLReaderUTF16(IFileReadCallBack* callback);
@@ -482,8 +482,8 @@ namespace io
 	be in any format, it will be converted to UTF-32 if it is not in this format.
 	If you are using the Irrlicht Engine, it is better not to use this function but
 	IFileSystem::createXMLReader() instead.
-	\param filename: Name of file to be opened.
-	\return Returns a pointer to the created xml parser. This pointer should be
+	¥param filename: Name of file to be opened.
+	¥return Returns a pointer to the created xml parser. This pointer should be
 	deleted using 'delete' after no longer needed. Returns 0 if an error occured
 	and the file could not be opened. */
 	IRRLICHT_API IrrXMLReaderUTF32* IRRCALLCONV createIrrXMLReaderUTF32(const char* filename);
@@ -493,9 +493,9 @@ namespace io
 	be in any format, it will be converted to UTF-32 if it is not in this format.
 	if you are using the Irrlicht Engine, it is better not to use this function but
 	IFileSystem::createXMLReader() instead.
-	\param file: Pointer to opened file, must have been opened in binary mode, e.g.
+	¥param file: Pointer to opened file, must have been opened in binary mode, e.g.
 	using fopen("foo.bar", "wb"); The file will not be closed after it has been read.
-	\return Returns a pointer to the created xml parser. This pointer should be
+	¥return Returns a pointer to the created xml parser. This pointer should be
 	deleted using 'delete' after no longer needed. Returns 0 if an error occured
 	and the file could not be opened. */
 	IRRLICHT_API IrrXMLReaderUTF32* IRRCALLCONV createIrrXMLReaderUTF32(IStream* file);
@@ -506,34 +506,34 @@ namespace io
 	be in any format, it will be converted to UTF-32 if it is not in this format.
 	If you are using the Irrlicht Engine, it is better not to use this function but
 	IFileSystem::createXMLReader() instead.
-	\param callback: Callback for file read abstraction. Implement your own
+	¥param callback: Callback for file read abstraction. Implement your own
 	callback to make the xml parser read in other things than just files. See
 	IFileReadCallBack for more information about this.
-	\return Returns a pointer to the created xml parser. This pointer should be
+	¥return Returns a pointer to the created xml parser. This pointer should be
 	deleted using 'delete' after no longer needed. Returns 0 if an error occured
 	and the file could not be opened. */
 	IRRLICHT_API IrrXMLReaderUTF32* IRRCALLCONV createIrrXMLReaderUTF32(IFileReadCallBack* callback);
 
 
-	/*! \file irrxml.h
-	\brief Header file of the irrXML, the Irrlicht XML parser.
+	/*! ¥file irrxml.h
+	¥brief Header file of the irrXML, the Irrlicht XML parser.
 
 	This file includes everything needed for using irrXML,
 	the XML parser of the Irrlicht Engine. To use irrXML,
 	you only need to include this file in your project:
 
-	\code
+	¥code
 	#include <irrXML.h>
-	\endcode
+	¥endcode
 
 	It is also common to use the two namespaces in which irrXML is included,
 	directly after #including irrXML.h:
 
-	\code
+	¥code
 	#include <irrXML.h>
 	using namespace irr;
 	using namespace io;
-	\endcode
+	¥endcode
 	*/
 
 } // end namespace io

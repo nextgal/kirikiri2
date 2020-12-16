@@ -8,21 +8,21 @@ var HEIGHT=600;
 
 class MyWindow extends Window
 {
-    //  ƒƒjƒ…
+    //  ãƒ¡ãƒ‹ãƒ¥
     var filemenu;
     var exitmenu;
     
-    // ƒx[ƒXƒŒƒCƒ„
+    // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
     var base;
-    // ƒ^ƒCƒ‹ƒŒƒCƒ„
+    // ã‚¿ã‚¤ãƒ«ãƒ¬ã‚¤ãƒ¤
     var tile;
-    // –¼‘O
+    // åå‰
     var name;
 
-    // ƒŒƒCƒ„
+    // ãƒ¬ã‚¤ãƒ¤
     var layers = [];
     
-    // •\¦ƒŒƒCƒ„
+    // è¡¨ç¤ºãƒ¬ã‚¤ãƒ¤
     property layer {
         getter() {
             return layers[layers.count-1];
@@ -49,7 +49,7 @@ class MyWindow extends Window
     function init() {
         layer.loadImages(name);
         layer.setSizeToImageSize();
-        layer.drawText(0,0,"‚Ä‚·‚ÆƒeƒLƒXƒg",0);
+        layer.drawText(0,0,"ã¦ã™ã¨ãƒ†ã‚­ã‚¹ãƒˆ",0);
         layer.setPos((WIDTH - layer.width) / 2, (HEIGHT - layer.height) / 2);
     }
 
@@ -61,12 +61,12 @@ class MyWindow extends Window
 
         super.Window();
 
-        caption = "ƒŒƒCƒ„Šg’£";
+        caption = "ãƒ¬ã‚¤ãƒ¤æ‹¡å¼µ";
         
-        menu.add(filemenu = new MenuItem(this, "ƒtƒ@ƒCƒ‹(&F)"));
-        filemenu.add(exitmenu = new MenuItem(this, "I—¹(&X)"));
+        menu.add(filemenu = new MenuItem(this, "ãƒ•ã‚¡ã‚¤ãƒ«(&F)"));
+        filemenu.add(exitmenu = new MenuItem(this, "çµ‚äº†(&X)"));
 
-        // ƒx[ƒXƒŒƒCƒ„
+        // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
         base = new Layer(this,null);
 
         base.visible=true;
@@ -74,14 +74,14 @@ class MyWindow extends Window
         //base.fillRect(0,0,WIDTH,HEIGHT,0xffffff);
         setInnerSize(base.width, base.height);
 
-        // ƒ^ƒCƒ‹
+        // ã‚¿ã‚¤ãƒ«
         tile = new Layer(this, base);
         tile.loadImages(tileName);
 
         this.name = name;
         addLayer();
 
-        // ƒ^ƒCƒ‹ˆÚ“®
+        // ã‚¿ã‚¤ãƒ«ç§»å‹•
         currentTime = System.getTickCount();
         shiftTimer = new Timer(shift, '');
         shiftTimer.capacity = 1;
@@ -116,11 +116,11 @@ class MyWindow extends Window
 
 }
 
-// ‘‹
+// çª“
 var win = new MyWindow("tile.png", "test.png");
 win.visible=true;
 
-// IE‘‹
+// IEçª“
 var ie = new ActiveX("Shell.Explorer.2");
 ie.setSize(650, 650);
 ie.Navigate2("krkr:control.html");

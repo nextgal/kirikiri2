@@ -718,7 +718,7 @@ tTJSDispatch::tTJSDispatch()
 #endif
 }
 //---------------------------------------------------------------------------
-tTJSDispatch::~tTJSDispatch()
+tTJSDispatch::‾tTJSDispatch()
 {
 	if(!BeforeDestructionCalled)
 	{

@@ -78,7 +78,7 @@ void CD3D9ShaderMaterialRenderer::init(s32& outMaterialTypeNr, const c8* vertexS
 
 
 //! Destructor
-CD3D9ShaderMaterialRenderer::~CD3D9ShaderMaterialRenderer()
+CD3D9ShaderMaterialRenderer::‾CD3D9ShaderMaterialRenderer()
 {
 	if (CallBack)
 		CallBack->drop();

@@ -393,13 +393,13 @@ jpeg_set_colorspace (j_compress_ptr cinfo, J_COLOR_SPACE colorspace)
   jpeg_component_info * compptr;
   int ci;
 
-#define SET_COMP(index,id,hsamp,vsamp,quant,dctbl,actbl)  \
-  (compptr = &cinfo->comp_info[index], \
-   compptr->component_id = (id), \
-   compptr->h_samp_factor = (hsamp), \
-   compptr->v_samp_factor = (vsamp), \
-   compptr->quant_tbl_no = (quant), \
-   compptr->dc_tbl_no = (dctbl), \
+#define SET_COMP(index,id,hsamp,vsamp,quant,dctbl,actbl)  ¥
+  (compptr = &cinfo->comp_info[index], ¥
+   compptr->component_id = (id), ¥
+   compptr->h_samp_factor = (hsamp), ¥
+   compptr->v_samp_factor = (vsamp), ¥
+   compptr->quant_tbl_no = (quant), ¥
+   compptr->dc_tbl_no = (dctbl), ¥
    compptr->ac_tbl_no = (actbl) )
 
   /* Safety check to ensure start_compress not called yet. */

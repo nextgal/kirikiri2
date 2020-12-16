@@ -1,9 +1,9 @@
-// capture ƒeƒXƒg
+// capture ãƒ†ã‚¹ãƒˆ
 
 
 Debug.console.visible = true;
 
-class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
+class MainWindow extends Window // ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹
 {
 	var layer;
 	var buttonlayer;
@@ -12,7 +12,7 @@ class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
 
 	function MainWindow()
 	{
-		// MainWindow ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		// MainWindow ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		super.Window();
 
 		borderStyle = bsSingle;
@@ -20,17 +20,17 @@ class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
 
 		caption = System.title = "capture test";
 
-		// ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„‚ğì¬
+		// ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤ã‚’ä½œæˆ
 		add(layer = new Layer(this, null));
 		layer.setSize(innerWidth, innerHeight);
 
-		// ‰Ÿ‚µ‚½‚­‚È‚é‚æ‚¤‚ÈƒŒƒCƒ„‚ğì¬
+		// æŠ¼ã—ãŸããªã‚‹ã‚ˆã†ãªãƒ¬ã‚¤ãƒ¤ã‚’ä½œæˆ
 		add(buttonlayer = new Layer(this, layer));
 		with(buttonlayer)
 		{
 			.setSize(100, 100);
 			.fillRect(0, 0, .width, .height, 0xff0000);
-			.setPos(320 - .width\2, 240 - .height\2);
+			.setPos(320 - .widthÂ¥2, 240 - .heightÂ¥2);
 			.type = ltCoverRect;
 			.hitType = htMask;
 			.hitThreshold = 0;
@@ -38,7 +38,7 @@ class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
 			.visible = true;
 		}
 
-		// ƒ^ƒCƒ}[‚ğì¬
+		// ã‚¿ã‚¤ãƒãƒ¼ã‚’ä½œæˆ
 		add(timer = new Timer(this));
 		with(timer)
 		{
@@ -46,7 +46,7 @@ class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
 			.enabled = true;
 		}
 
-		// •\¦ó‘Ô‚É
+		// è¡¨ç¤ºçŠ¶æ…‹ã«
 		visible = true;
 	}
 
@@ -60,7 +60,7 @@ class MainWindow extends Window // ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX
 
 	function action(ev)
 	{
-		// ƒCƒxƒ“ƒgW–ñƒnƒ“ƒhƒ‰
+		// ã‚¤ãƒ™ãƒ³ãƒˆé›†ç´„ãƒãƒ³ãƒ‰ãƒ©
 		var type = ev.type;
 		var target = ev.target;
 		if(type == 'onKeyDown')

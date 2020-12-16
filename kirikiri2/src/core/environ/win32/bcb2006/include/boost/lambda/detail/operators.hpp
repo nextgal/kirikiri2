@@ -1,6 +1,6 @@
 // Boost Lambda Library - operators.hpp --------------------------------------
 
-// Copyright (C) 1999, 2000 Jaakko J�rvi (jaakko.jarvi@cs.utu.fi)
+// Copyright (C) 1999, 2000 Jaakko J舐vi (jaakko.jarvi@cs.utu.fi)
 //
 // Permission to copy, use, sell and distribute this software is granted
 // provided this copyright notice appears in all copies. 
@@ -27,22 +27,22 @@ namespace lambda {
 #error "Multiple defines of BOOST_LAMBDA_BE1"
 #endif
 
-#define BOOST_LAMBDA_BE1(OPER_NAME, ACTION, CONSTA, CONSTB, CONVERSION)      \
-template<class Arg, class B>                                                 \
-inline const                                                                 \
-lambda_functor<                                                              \
-  lambda_functor_base<                                                       \
-    ACTION,                                                                  \
-    tuple<lambda_functor<Arg>, typename CONVERSION <CONSTB B>::type>         \
-  >                                                                          \
->                                                                            \
-OPER_NAME (const lambda_functor<Arg>& a, CONSTB B& b) {                      \
-  return                                                                     \
-    lambda_functor_base<                                                     \
-      ACTION,                                                                \
-      tuple<lambda_functor<Arg>, typename CONVERSION <CONSTB B>::type>       \
-    >                                                                        \
-   (tuple<lambda_functor<Arg>, typename CONVERSION <CONSTB B>::type>(a, b)); \
+#define BOOST_LAMBDA_BE1(OPER_NAME, ACTION, CONSTA, CONSTB, CONVERSION)      ¥
+template<class Arg, class B>                                                 ¥
+inline const                                                                 ¥
+lambda_functor<                                                              ¥
+  lambda_functor_base<                                                       ¥
+    ACTION,                                                                  ¥
+    tuple<lambda_functor<Arg>, typename CONVERSION <CONSTB B>::type>         ¥
+  >                                                                          ¥
+>                                                                            ¥
+OPER_NAME (const lambda_functor<Arg>& a, CONSTB B& b) {                      ¥
+  return                                                                     ¥
+    lambda_functor_base<                                                     ¥
+      ACTION,                                                                ¥
+      tuple<lambda_functor<Arg>, typename CONVERSION <CONSTB B>::type>       ¥
+    >                                                                        ¥
+   (tuple<lambda_functor<Arg>, typename CONVERSION <CONSTB B>::type>(a, b)); ¥
 }
 
 
@@ -50,22 +50,22 @@ OPER_NAME (const lambda_functor<Arg>& a, CONSTB B& b) {                      \
 #error "Multiple defines of BOOST_LAMBDA_BE2"
 #endif
 
-#define BOOST_LAMBDA_BE2(OPER_NAME, ACTION, CONSTA, CONSTB, CONVERSION)      \
-template<class A, class Arg>                                                 \
-inline const                                                                 \
-lambda_functor<                                                              \
-  lambda_functor_base<                                                       \
-    ACTION,                                                                  \
-    tuple<typename CONVERSION <CONSTA A>::type, lambda_functor<Arg> >        \
-  >                                                                          \
->                                                                            \
-OPER_NAME (CONSTA A& a, const lambda_functor<Arg>& b) {                      \
-  return                                                                     \
-    lambda_functor_base<                                                     \
-      ACTION,                                                                \
-      tuple<typename CONVERSION <CONSTA A>::type, lambda_functor<Arg> >      \
-    >                                                                        \
-  (tuple<typename CONVERSION <CONSTA A>::type, lambda_functor<Arg> >(a, b)); \
+#define BOOST_LAMBDA_BE2(OPER_NAME, ACTION, CONSTA, CONSTB, CONVERSION)      ¥
+template<class A, class Arg>                                                 ¥
+inline const                                                                 ¥
+lambda_functor<                                                              ¥
+  lambda_functor_base<                                                       ¥
+    ACTION,                                                                  ¥
+    tuple<typename CONVERSION <CONSTA A>::type, lambda_functor<Arg> >        ¥
+  >                                                                          ¥
+>                                                                            ¥
+OPER_NAME (CONSTA A& a, const lambda_functor<Arg>& b) {                      ¥
+  return                                                                     ¥
+    lambda_functor_base<                                                     ¥
+      ACTION,                                                                ¥
+      tuple<typename CONVERSION <CONSTA A>::type, lambda_functor<Arg> >      ¥
+    >                                                                        ¥
+  (tuple<typename CONVERSION <CONSTA A>::type, lambda_functor<Arg> >(a, b)); ¥
 }
 
 
@@ -73,31 +73,31 @@ OPER_NAME (CONSTA A& a, const lambda_functor<Arg>& b) {                      \
 #error "Multiple defines of BOOST_LAMBDA_BE3"
 #endif
 
-#define BOOST_LAMBDA_BE3(OPER_NAME, ACTION, CONSTA, CONSTB, CONVERSION)    \
-template<class ArgA, class ArgB>                                           \
-inline const                                                               \
-lambda_functor<                                                            \
-  lambda_functor_base<                                                     \
-    ACTION,                                                                \
-    tuple<lambda_functor<ArgA>, lambda_functor<ArgB> >                     \
-  >                                                                        \
->                                                                          \
-OPER_NAME (const lambda_functor<ArgA>& a, const lambda_functor<ArgB>& b) { \
-  return                                                                   \
-    lambda_functor_base<                                                   \
-      ACTION,                                                              \
-      tuple<lambda_functor<ArgA>, lambda_functor<ArgB> >                   \
-    >                                                                      \
-  (tuple<lambda_functor<ArgA>, lambda_functor<ArgB> >(a, b));              \
+#define BOOST_LAMBDA_BE3(OPER_NAME, ACTION, CONSTA, CONSTB, CONVERSION)    ¥
+template<class ArgA, class ArgB>                                           ¥
+inline const                                                               ¥
+lambda_functor<                                                            ¥
+  lambda_functor_base<                                                     ¥
+    ACTION,                                                                ¥
+    tuple<lambda_functor<ArgA>, lambda_functor<ArgB> >                     ¥
+  >                                                                        ¥
+>                                                                          ¥
+OPER_NAME (const lambda_functor<ArgA>& a, const lambda_functor<ArgB>& b) { ¥
+  return                                                                   ¥
+    lambda_functor_base<                                                   ¥
+      ACTION,                                                              ¥
+      tuple<lambda_functor<ArgA>, lambda_functor<ArgB> >                   ¥
+    >                                                                      ¥
+  (tuple<lambda_functor<ArgA>, lambda_functor<ArgB> >(a, b));              ¥
 }
 
 #if defined BOOST_LAMBDA_BE
 #error "Multiple defines of BOOST_LAMBDA_BE"
 #endif
 
-#define BOOST_LAMBDA_BE(OPER_NAME, ACTION, CONSTA, CONSTB, CONST_CONVERSION) \
-BOOST_LAMBDA_BE1(OPER_NAME, ACTION, CONSTA, CONSTB, CONST_CONVERSION)        \
-BOOST_LAMBDA_BE2(OPER_NAME, ACTION, CONSTA, CONSTB, CONST_CONVERSION)        \
+#define BOOST_LAMBDA_BE(OPER_NAME, ACTION, CONSTA, CONSTB, CONST_CONVERSION) ¥
+BOOST_LAMBDA_BE1(OPER_NAME, ACTION, CONSTA, CONSTB, CONST_CONVERSION)        ¥
+BOOST_LAMBDA_BE2(OPER_NAME, ACTION, CONSTA, CONSTB, CONST_CONVERSION)        ¥
 BOOST_LAMBDA_BE3(OPER_NAME, ACTION, CONSTA, CONSTB, CONST_CONVERSION)
 
 
@@ -253,17 +253,17 @@ operator>>(const lambda_functor<Arg>& a, Ret(&b)(ManipArg))
 #error "Multiple defines of  BOOST_LAMBDA_PTR_ARITHMETIC_E1"
 #endif
 
-#define BOOST_LAMBDA_PTR_ARITHMETIC_E1(OPER_NAME, ACTION, CONST)            \
-template<class Arg, int N, class B>                                         \
-inline const                                                                \
-lambda_functor<                                                             \
-  lambda_functor_base<ACTION, tuple<lambda_functor<Arg>, CONST B(&)[N]> >   \
->                                                                           \
-OPER_NAME (const lambda_functor<Arg>& a, CONST B(&b)[N])                    \
-{                                                                           \
-  return lambda_functor<                                                    \
-    lambda_functor_base<ACTION, tuple<lambda_functor<Arg>, CONST B(&)[N]> > \
-  >(tuple<lambda_functor<Arg>, CONST B(&)[N]>(a, b));                       \
+#define BOOST_LAMBDA_PTR_ARITHMETIC_E1(OPER_NAME, ACTION, CONST)            ¥
+template<class Arg, int N, class B>                                         ¥
+inline const                                                                ¥
+lambda_functor<                                                             ¥
+  lambda_functor_base<ACTION, tuple<lambda_functor<Arg>, CONST B(&)[N]> >   ¥
+>                                                                           ¥
+OPER_NAME (const lambda_functor<Arg>& a, CONST B(&b)[N])                    ¥
+{                                                                           ¥
+  return lambda_functor<                                                    ¥
+    lambda_functor_base<ACTION, tuple<lambda_functor<Arg>, CONST B(&)[N]> > ¥
+  >(tuple<lambda_functor<Arg>, CONST B(&)[N]>(a, b));                       ¥
 }
 
 
@@ -271,17 +271,17 @@ OPER_NAME (const lambda_functor<Arg>& a, CONST B(&b)[N])                    \
 #error "Multiple defines of  BOOST_LAMBDA_PTR_ARITHMETIC_E2"
 #endif
 
-#define BOOST_LAMBDA_PTR_ARITHMETIC_E2(OPER_NAME, ACTION, CONST)             \
-template<int N, class A, class Arg>                                          \
-inline const                                                                 \
-lambda_functor<                                                              \
-  lambda_functor_base<ACTION, tuple<CONST A(&)[N], lambda_functor<Arg> > >   \
->                                                                            \
-OPER_NAME (CONST A(&a)[N], const lambda_functor<Arg>& b)                     \
-{                                                                            \
-  return                                                                     \
-    lambda_functor_base<ACTION, tuple<CONST A(&)[N], lambda_functor<Arg> > > \
-    (tuple<CONST A(&)[N], lambda_functor<Arg> >(a, b));                      \
+#define BOOST_LAMBDA_PTR_ARITHMETIC_E2(OPER_NAME, ACTION, CONST)             ¥
+template<int N, class A, class Arg>                                          ¥
+inline const                                                                 ¥
+lambda_functor<                                                              ¥
+  lambda_functor_base<ACTION, tuple<CONST A(&)[N], lambda_functor<Arg> > >   ¥
+>                                                                            ¥
+OPER_NAME (CONST A(&a)[N], const lambda_functor<Arg>& b)                     ¥
+{                                                                            ¥
+  return                                                                     ¥
+    lambda_functor_base<ACTION, tuple<CONST A(&)[N], lambda_functor<Arg> > > ¥
+    (tuple<CONST A(&)[N], lambda_functor<Arg> >(a, b));                      ¥
 }
 
 
@@ -316,21 +316,21 @@ BOOST_LAMBDA_PTR_ARITHMETIC_E2(operator-, arithmetic_action<minus_action>, const
 #error "Multiple defines of BOOST_LAMBDA_UE"
 #endif
 
-#define BOOST_LAMBDA_UE(OPER_NAME, ACTION)                                 \
-template<class Arg>                                                        \
-inline const                                                               \
-lambda_functor<lambda_functor_base<ACTION, tuple<lambda_functor<Arg> > > > \
-OPER_NAME (const lambda_functor<Arg>& a)                                   \
-{                                                                          \
-  return                                                                   \
-    lambda_functor_base<ACTION, tuple<lambda_functor<Arg> > >              \
-    ( tuple<lambda_functor<Arg> >(a) );                                    \
+#define BOOST_LAMBDA_UE(OPER_NAME, ACTION)                                 ¥
+template<class Arg>                                                        ¥
+inline const                                                               ¥
+lambda_functor<lambda_functor_base<ACTION, tuple<lambda_functor<Arg> > > > ¥
+OPER_NAME (const lambda_functor<Arg>& a)                                   ¥
+{                                                                          ¥
+  return                                                                   ¥
+    lambda_functor_base<ACTION, tuple<lambda_functor<Arg> > >              ¥
+    ( tuple<lambda_functor<Arg> >(a) );                                    ¥
 }
 
 
 BOOST_LAMBDA_UE(operator+, unary_arithmetic_action<plus_action>)
 BOOST_LAMBDA_UE(operator-, unary_arithmetic_action<minus_action>)
-BOOST_LAMBDA_UE(operator~, bitwise_action<not_action>)
+BOOST_LAMBDA_UE(operator‾, bitwise_action<not_action>)
 BOOST_LAMBDA_UE(operator!, logical_action<not_action>)
 BOOST_LAMBDA_UE(operator++, pre_increment_decrement_action<increment_action>)
 BOOST_LAMBDA_UE(operator--, pre_increment_decrement_action<decrement_action>)
@@ -341,15 +341,15 @@ BOOST_LAMBDA_UE(operator&, other_action<addressof_action>)
 #error "Multiple defines of BOOST_LAMBDA_POSTFIX_UE"
 #endif
 
-#define BOOST_LAMBDA_POSTFIX_UE(OPER_NAME, ACTION)                         \
-template<class Arg>                                                        \
-inline const                                                               \
-lambda_functor<lambda_functor_base<ACTION, tuple<lambda_functor<Arg> > > > \
-OPER_NAME (const lambda_functor<Arg>& a, int)                              \
-{                                                                          \
-  return                                                                   \
-    lambda_functor_base<ACTION, tuple<lambda_functor<Arg> > >              \
-    ( tuple<lambda_functor<Arg> >(a) );                                    \
+#define BOOST_LAMBDA_POSTFIX_UE(OPER_NAME, ACTION)                         ¥
+template<class Arg>                                                        ¥
+inline const                                                               ¥
+lambda_functor<lambda_functor_base<ACTION, tuple<lambda_functor<Arg> > > > ¥
+OPER_NAME (const lambda_functor<Arg>& a, int)                              ¥
+{                                                                          ¥
+  return                                                                   ¥
+    lambda_functor_base<ACTION, tuple<lambda_functor<Arg> > >              ¥
+    ( tuple<lambda_functor<Arg> >(a) );                                    ¥
 }
 
 

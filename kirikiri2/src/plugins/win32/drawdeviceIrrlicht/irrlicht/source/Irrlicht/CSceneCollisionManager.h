@@ -23,7 +23,7 @@ namespace scene
 		CSceneCollisionManager(ISceneManager* smanager, video::IVideoDriver* driver);
 
 		//! destructor
-		virtual ~CSceneCollisionManager();
+		virtual ‾CSceneCollisionManager();
 
 		//! Returns the scene node, which is currently visible under the overgiven 
 		//! screencoordinates, viewed from the currently active camera. 

@@ -26,7 +26,7 @@ CGUISpriteBank::CGUISpriteBank(IGUIEnvironment* env) :
 }
 
 
-CGUISpriteBank::~CGUISpriteBank()
+CGUISpriteBank::‾CGUISpriteBank()
 {
 	// drop textures
 	for (u32 i=0; i<Textures.size(); ++i)

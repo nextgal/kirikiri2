@@ -131,23 +131,23 @@ EXTERN_C const IID IID_IRendererBufferVideo;
 #ifdef COBJMACROS
 
 
-#define IRendererBufferVideo_QueryInterface(This,riid,ppvObject)	\
+#define IRendererBufferVideo_QueryInterface(This,riid,ppvObject)	¥
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
 
-#define IRendererBufferVideo_AddRef(This)	\
+#define IRendererBufferVideo_AddRef(This)	¥
     (This)->lpVtbl -> AddRef(This)
 
-#define IRendererBufferVideo_Release(This)	\
+#define IRendererBufferVideo_Release(This)	¥
     (This)->lpVtbl -> Release(This)
 
 
-#define IRendererBufferVideo_get_AvgTimePerFrame(This,pAvgTimePerFrame)	\
+#define IRendererBufferVideo_get_AvgTimePerFrame(This,pAvgTimePerFrame)	¥
     (This)->lpVtbl -> get_AvgTimePerFrame(This,pAvgTimePerFrame)
 
-#define IRendererBufferVideo_get_VideoWidth(This,pVideoWidth)	\
+#define IRendererBufferVideo_get_VideoWidth(This,pVideoWidth)	¥
     (This)->lpVtbl -> get_VideoWidth(This,pVideoWidth)
 
-#define IRendererBufferVideo_get_VideoHeight(This,pVideoHeight)	\
+#define IRendererBufferVideo_get_VideoHeight(This,pVideoHeight)	¥
     (This)->lpVtbl -> get_VideoHeight(This,pVideoHeight)
 
 #endif /* COBJMACROS */

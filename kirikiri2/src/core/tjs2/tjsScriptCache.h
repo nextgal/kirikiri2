@@ -63,7 +63,7 @@ private:
 
 public:
 	tTJSScriptCache(tTJS *owner);
-	virtual ~tTJSScriptCache();
+	virtual ‾tTJSScriptCache();
 
 
 public:

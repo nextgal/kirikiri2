@@ -3,14 +3,14 @@ object WaveWriterForm: TWaveWriterForm
   Top = 96
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'o—Í’† ...'
+  Caption = 'å‡ºåŠ›ä¸­ ...'
   ClientHeight = 82
   ClientWidth = 418
   Color = clBtnFace
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
@@ -41,7 +41,7 @@ object WaveWriterForm: TWaveWriterForm
     Width = 75
     Height = 25
     Cancel = True
-    Caption = 'ƒLƒƒƒ“ƒZƒ‹'
+    Caption = 'ã‚­ãƒ£ãƒ³ã‚»ãƒ«'
     Enabled = False
     TabOrder = 1
     OnClick = CancelButtonClick

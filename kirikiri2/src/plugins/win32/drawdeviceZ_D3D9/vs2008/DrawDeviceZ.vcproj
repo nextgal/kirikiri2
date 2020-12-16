@@ -17,8 +17,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\..\..\..\bin\win32\plugin"
-			IntermediateDirectory="obj\Release"
+			OutputDirectory="..¥..¥..¥..¥..¥bin¥win32¥plugin"
+			IntermediateDirectory="obj¥Release"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -40,14 +40,14 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..;..\..\00_simplebinder;..\fakeFiles;..\drawdeviceZ"
+				AdditionalIncludeDirectories="..¥..;..¥..¥00_simplebinder;..¥fakeFiles;..¥drawdeviceZ"
 				PreprocessorDefinitions="NDEBUG"
 				StringPooling="true"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				ProgramDataBaseFileName="$(OutDir)\DrawDeviceZ.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥DrawDeviceZ.pdb"
 				DebugInformationFormat="0"
 			/>
 			<Tool
@@ -56,7 +56,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG"
-				AdditionalIncludeDirectories="..\..;..\..\00_simplebinder;..\fakeFiles;..\drawdeviceZ"
+				AdditionalIncludeDirectories="..¥..;..¥..¥00_simplebinder;..¥fakeFiles;..¥drawdeviceZ"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -64,7 +64,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="d3d9.lib dxguid.lib"
-				OutputFile="$(OutDir)\DrawDeviceZ.dll"
+				OutputFile="$(OutDir)¥DrawDeviceZ.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
 				GenerateManifest="false"
@@ -72,7 +72,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary="..\..\..\..\..\bin\win32\plugin\DrawDeviceZ.lib"
+				ImportLibrary="..¥..¥..¥..¥..¥bin¥win32¥plugin¥DrawDeviceZ.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -102,8 +102,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\bin"
-			IntermediateDirectory="obj\Debug"
+			OutputDirectory="..¥bin"
+			IntermediateDirectory="obj¥Debug"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -125,14 +125,14 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..;..\..\00_simplebinder;..\fakeFiles;..\drawdeviceZ"
+				AdditionalIncludeDirectories="..¥..;..¥..¥00_simplebinder;..¥fakeFiles;..¥drawdeviceZ"
 				PreprocessorDefinitions="_DEBUG"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				ProgramDataBaseFileName="$(OutDir)\DrawDeviceZ-d.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥DrawDeviceZ-d.pdb"
 				DebugInformationFormat="4"
 			/>
 			<Tool
@@ -141,7 +141,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG"
-				AdditionalIncludeDirectories="..\..;..\..\00_simplebinder;..\fakeFiles;..\drawdeviceZ"
+				AdditionalIncludeDirectories="..¥..;..¥..¥00_simplebinder;..¥fakeFiles;..¥drawdeviceZ"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -149,14 +149,14 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="d3d9.lib dxguid.lib"
-				OutputFile="$(OutDir)\DrawDeviceZ-d.dll"
+				OutputFile="$(OutDir)¥DrawDeviceZ-d.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
 				GenerateManifest="false"
 				GenerateDebugInformation="true"
-				ProgramDataBaseFileName="$(OutDir)\DrawDeviceZ-d.pdb"
+				ProgramDataBaseFileName="$(OutDir)¥DrawDeviceZ-d.pdb"
 				SubSystem="2"
-				ImportLibrary="..\bin\DrawDeviceZ-d.lib"
+				ImportLibrary="..¥bin¥DrawDeviceZ-d.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -193,16 +193,16 @@
 			Filter=""
 			>
 			<File
-				RelativePath="..\..\00_simplebinder\v2link.cpp"
+				RelativePath="..¥..¥00_simplebinder¥v2link.cpp"
 				>
 			</File>
 		</Filter>
 		<File
-			RelativePath="..\Main.cpp"
+			RelativePath="..¥Main.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\errmsgs.cpp"
+			RelativePath="..¥errmsgs.cpp"
 			>
 		</File>
 		<Filter
@@ -210,12 +210,12 @@
 			Filter=""
 			>
 			<File
-				RelativePath="..\fakeFiles\DrawDevice.cpp"
+				RelativePath="..¥fakeFiles¥DrawDevice.cpp"
 				>
 			</File>
 		</Filter>
 		<File
-			RelativePath="..\..\tp_stub.cpp"
+			RelativePath="..¥..¥tp_stub.cpp"
 			>
 		</File>
 	</Files>

@@ -1,14 +1,14 @@
 #include "OgreInfo.h"
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  */
 OgreInfo::OgreInfo()
 {
-	// Ogre ƒ‹[ƒgƒNƒ‰ƒX
+	// Ogre ãƒ«ãƒ¼ãƒˆã‚¯ãƒ©ã‚¹
 	root = new Ogre::Root();
 	
-	// ƒRƒ“ƒtƒBƒO‰Šú‰»
+	// ã‚³ãƒ³ãƒ•ã‚£ã‚°åˆæœŸåŒ–
 	ConfigFile cf;
 	cf.load("resources.cfg");
 	// Go through all sections & settings in the file
@@ -29,16 +29,16 @@ OgreInfo::OgreInfo()
 }
 
 /**
- * ƒfƒXƒgƒ‰ƒNƒ^
+ * ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  */
-OgreInfo::~OgreInfo()
+OgreInfo::â€¾OgreInfo()
 {
 	stop();
 	delete root;
 }
 
 /**
- * Ogre Config ŒÄ‚Ño‚µ
+ * Ogre Config å‘¼ã³å‡ºã—
  */
 bool
 OgreInfo::config()
@@ -51,7 +51,7 @@ OgreInfo::config()
 }
 
 /**
- * Ogre ŒÄ‚Ño‚µˆ—ŠJn
+ * Ogre å‘¼ã³å‡ºã—å‡¦ç†é–‹å§‹
  */
 void
 OgreInfo::start()
@@ -61,7 +61,7 @@ OgreInfo::start()
 }
 
 /**
- * Ogre ŒÄ‚Ño‚µˆ—’â~
+ * Ogre å‘¼ã³å‡ºã—å‡¦ç†åœæ­¢
  */
 void
 OgreInfo::stop()
@@ -70,8 +70,8 @@ OgreInfo::stop()
 }
 
 /**
- * Continuous ƒR[ƒ‹ƒoƒbƒN
- * ‹g—¢‹g—¢‚ª‰É‚È‚Æ‚«‚Éí‚ÉŒÄ‚Î‚ê‚é
+ * Continuous ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
+ * å‰é‡Œå‰é‡ŒãŒæš‡ãªã¨ãã«å¸¸ã«å‘¼ã°ã‚Œã‚‹
  */
 void TJS_INTF_METHOD
 OgreInfo::OnContinuousCallback(tjs_uint64 tick)

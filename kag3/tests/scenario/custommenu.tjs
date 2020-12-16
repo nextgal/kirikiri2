@@ -1,10 +1,10 @@
-kag.menu.insert(kag.optionsMenu = new KAGMenuItem(this, "Œø‰Ê(&G)", 0, void, false), 2);
+kag.menu.insert(kag.optionsMenu = new KAGMenuItem(this, "åŠ¹æœ(&G)", 0, void, false), 2);
 kag.optionsMenu.stopRecur = true;
 
 kag.optionsMenu.add(
 	kag.doTransMenuItem = new KAGMenuItem(
 		kag,
-		"‰æ–ÊØ‚è‘Ö‚¦‚ğs‚¤(&T)",
+		"ç”»é¢åˆ‡ã‚Šæ›¿ãˆã‚’è¡Œã†(&T)",
 		0,
 		function(sender) { sf.dotrans = sender.checked = !sf.dotrans; },
 		false));
@@ -15,7 +15,7 @@ kag.doTransMenuItem.checked = sf.dotrans;
 kag.optionsMenu.add(
 	kag.playSEMenuItem = new KAGMenuItem(
 		kag,
-		"Œø‰Ê‰¹‚ğÄ¶‚·‚é(&T)",
+		"åŠ¹æœéŸ³ã‚’å†ç”Ÿã™ã‚‹(&T)",
 		0,
 		function(sender) { sf.playse = sender.checked = !sf.playse; },
 		false));
@@ -24,7 +24,7 @@ if(sf.playse === void) sf.playse = true;
 kag.playSEMenuItem.checked = sf.playse;
 
 kag.systemMenu.insert(kag.hideMessageMenu = new KAGMenuItem(
-	this, "ƒƒbƒZ[ƒW‚ğ‰B‚·(&H)", 0,
+	this, "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’éš ã™(&H)", 0,
 		function(sender) {
 			if(kag.inStable)
 				kag.switchMessageLayerHiddenByUser();

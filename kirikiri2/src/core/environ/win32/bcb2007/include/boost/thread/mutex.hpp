@@ -41,7 +41,7 @@ public:
     typedef detail::thread::scoped_lock<mutex> scoped_lock;
 
     mutex();
-    ~mutex();
+    ‾mutex();
 
 private:
 #if defined(BOOST_HAS_WINTHREADS)
@@ -80,7 +80,7 @@ public:
     typedef detail::thread::scoped_try_lock<try_mutex> scoped_try_lock;
 
     try_mutex();
-    ~try_mutex();
+    ‾try_mutex();
 
 private:
 #if defined(BOOST_HAS_WINTHREADS)
@@ -121,7 +121,7 @@ public:
     typedef detail::thread::scoped_timed_lock<timed_mutex> scoped_timed_lock;
 
     timed_mutex();
-    ~timed_mutex();
+    ‾timed_mutex();
 
 private:
 #if defined(BOOST_HAS_WINTHREADS)

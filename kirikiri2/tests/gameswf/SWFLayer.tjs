@@ -2,10 +2,10 @@ Plugins.link("gameswf.dll");
 
 class SWFLayer extends Layer
 {
-    var swf;    // •\¦‘ÎÛSWF
+    var swf;    // è¡¨ç¤ºå¯¾è±¡SWF
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     function SWFLayer(win, parent) {
         super.Layer(win, parent);
@@ -13,7 +13,7 @@ class SWFLayer extends Layer
     }
 
     /**
-     * ƒtƒ@ƒCƒiƒ‰ƒCƒU
+     * ãƒ•ã‚¡ã‚¤ãƒŠãƒ©ã‚¤ã‚¶
      */
     function finalize() {
         _stop();
@@ -21,9 +21,9 @@ class SWFLayer extends Layer
         super.finalize();
     }
 
-    var tick;    //< Ä¶•\¦—p tick
-    var first;   //< ‰‰ñ•`‰æƒtƒ‰ƒO
-    var updated; //< •`‰æXVƒtƒ‰ƒO
+    var tick;    //< å†ç”Ÿè¡¨ç¤ºç”¨ tick
+    var first;   //< åˆå›æç”»ãƒ•ãƒ©ã‚°
+    var updated; //< æç”»æ›´æ–°ãƒ•ãƒ©ã‚°
     
     function _start() {
         first = true;
@@ -35,7 +35,7 @@ class SWFLayer extends Layer
     }
     
     /**
-     * SWF ‚Ì“Ç‚İ‚İ
+     * SWF ã®èª­ã¿è¾¼ã¿
      */
     function load(name) {
         swf.load(name);
@@ -43,7 +43,7 @@ class SWFLayer extends Layer
     }
 
     /**
-     * Ä•`‰æ—pƒCƒ“ƒ^[ƒoƒ‹ˆ—
+     * å†æç”»ç”¨ã‚¤ãƒ³ã‚¿ãƒ¼ãƒãƒ«å‡¦ç†
      */
     function onTimer(now) {
         if (first) {
@@ -57,12 +57,12 @@ class SWFLayer extends Layer
             }
         }
         tick = now;
-        // •`‰æI—¹”»’è‚ª•K—v
+        // æç”»çµ‚äº†åˆ¤å®šãŒå¿…è¦
         // XXX_stop();
     }
 
     /**
-     * •`‰æ‘Oˆ—
+     * æç”»å‰å‡¦ç†
      */
     function onPaint() {
         super.onPaint(...);
@@ -74,13 +74,13 @@ class SWFLayer extends Layer
     }
 
     
-    // ƒ}ƒEƒX”½‰
+    // ãƒã‚¦ã‚¹åå¿œ
     function onMouseMove() {
         //
-        // ‚à‚µ swf ‚ªƒ[ƒhŠ®—¹‚µ‚Ä‚¢‚½‚çc
+        // ã‚‚ã— swf ãŒãƒ­ãƒ¼ãƒ‰å®Œäº†ã—ã¦ã„ãŸã‚‰â€¦
     }
 
-    // ------------------------------------------- §Œäƒƒ\ƒbƒhŒQ
+    // ------------------------------------------- åˆ¶å¾¡ãƒ¡ã‚½ãƒƒãƒ‰ç¾¤
     
     function play() {
         swf.play();

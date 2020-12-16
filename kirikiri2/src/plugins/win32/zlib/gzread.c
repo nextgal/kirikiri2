@@ -64,8 +64,8 @@ local int gz_avail(state)
 }
 
 /* Get next byte from input, or -1 if end or error. */
-#define NEXT() ((strm->avail_in == 0 && gz_avail(state) == -1) ? -1 : \
-                (strm->avail_in == 0 ? -1 : \
+#define NEXT() ((strm->avail_in == 0 && gz_avail(state) == -1) ? -1 : ¥
+                (strm->avail_in == 0 ? -1 : ¥
                  (strm->avail_in--, *(strm->next_in)++)))
 
 /* Get a four-byte little-endian integer and return 0 on success and the value
@@ -581,7 +581,7 @@ char * ZEXPORT gzgets(file, buf, len)
 
         /* look for end-of-line in current output buffer */
         n = state->have > left ? left : state->have;
-        eol = memchr(state->next, '\n', n);
+        eol = memchr(state->next, '¥n', n);
         if (eol != NULL)
             n = (unsigned)(eol - state->next) + 1;
 

@@ -27,7 +27,7 @@ public:
 	{
 	}
 
-	~TLG6BitStream()
+	‾TLG6BitStream()
 	{
 		Flush();
 	}

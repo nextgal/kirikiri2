@@ -4,7 +4,7 @@
 
 
 /*----------------------------------------------------------------------
- * ƒEƒBƒ“ƒhƒEƒŠƒTƒCƒYƒnƒ“ƒhƒ‹
+ * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒªã‚µã‚¤ã‚ºãƒãƒ³ãƒ‰ãƒ«
  ----------------------------------------------------------------------*/
 class KWindowResizeHandle extends KWidget
 {
@@ -13,40 +13,40 @@ class KWindowResizeHandle extends KWidget
   var label;
 
   /*------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * ‚±‚ÌƒEƒBƒWƒFƒbƒg‚ğƒhƒ‰ƒbƒO‚·‚é‚ÆAƒEƒBƒ“ƒhƒE‚ğ
-   * ƒŠƒTƒCƒY‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B
+   * ã“ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ãƒ‰ãƒ©ãƒƒã‚°ã™ã‚‹ã¨ã€ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’
+   * ãƒªã‚µã‚¤ã‚ºã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚
    *
-   * ƒfƒtƒHƒ‹ƒg‚Å alignHorizontal ‚ª ALIGN_RIGHT‚É‚È‚Á‚Ä‚¢‚éB
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ alignHorizontal ãŒ ALIGN_RIGHTã«ãªã£ã¦ã„ã‚‹ã€‚
    * 
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param w •
-   * @param h ‚‚³
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param w å¹…
+   * @param h é«˜ã•
+   * @param name åå‰
    ------------------------------*/
   function KWindowResizeHandle(win, w, h, name = "") {
     super.KWidget(win, name);
 
-    // ƒpƒ‰ƒ[ƒ^İ’è
+    // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
     hitThreshold = 0;
     cursor = crSizeNWSE;
     dragging = false;
     
-    // ƒ‰ƒxƒ‹ì¬
+    // ãƒ©ãƒ™ãƒ«ä½œæˆ
     label = new KImageLabel(win, "k_resize_handle");
     label.margin = false;
     label.parent = this;
 
-    // ƒAƒ‰ƒCƒƒ“ƒgİ’è
+    // ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆè¨­å®š
     alignHorizontal = ALIGN_RIGHT;
 
-    // ƒTƒCƒYİ’è
+    // ã‚µã‚¤ã‚ºè¨­å®š
     setFixedSize(w, h);
   }
 
   /*------------------------------
-   * ƒ}ƒEƒX‰Ÿ‰º‚Åƒhƒ‰ƒbƒOŠJn
+   * ãƒã‚¦ã‚¹æŠ¼ä¸‹ã§ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
    ------------------------------*/
   function onMouseDown {
     dragging = true;
@@ -57,7 +57,7 @@ class KWindowResizeHandle extends KWidget
   }
 
   /*------------------------------
-   * ƒ}ƒEƒXˆÚ“®‚Åƒhƒ‰ƒbƒOAƒŠƒTƒCƒY
+   * ãƒã‚¦ã‚¹ç§»å‹•ã§ãƒ‰ãƒ©ãƒƒã‚°ã€ãƒªã‚µã‚¤ã‚º
    ------------------------------*/
   function onMouseMove {
     if (dragging)
@@ -66,17 +66,17 @@ class KWindowResizeHandle extends KWidget
   }
 
   /*------------------------------
-   * ƒ}ƒEƒX—£°‚Åƒhƒ‰ƒbƒOI—¹
+   * ãƒã‚¦ã‚¹é›¢åºŠã§ãƒ‰ãƒ©ãƒƒã‚°çµ‚äº†
    ------------------------------*/
   function onMouseUp {
     dragging = false;
   }
 
   /*------------------------------
-   * ƒTƒCƒY•ÏX‚ÉÄ•`‰æ
+   * ã‚µã‚¤ã‚ºå¤‰æ›´æ™‚ã«å†æç”»
    ------------------------------*/
   function onSizeModified {
-    // ƒ‰ƒxƒ‹‚ğ‰E‰º‚É•\¦
+    // ãƒ©ãƒ™ãƒ«ã‚’å³ä¸‹ã«è¡¨ç¤º
     label.setPos(width - label.width,
                  height - label.height);
   }

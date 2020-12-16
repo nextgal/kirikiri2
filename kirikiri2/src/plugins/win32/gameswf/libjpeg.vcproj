@@ -18,7 +18,7 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)ﾂ･$(ProjectName)"
 			ConfigurationType="4"
 			CharacterSet="1"
 			>
@@ -81,7 +81,7 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
+			IntermediateDirectory="$(ConfigurationName)ﾂ･$(ProjectName)"
 			ConfigurationType="4"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
@@ -144,207 +144,207 @@
 	</References>
 	<Files>
 		<Filter
-			Name="ソース ファイル"
+			Name="繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\libjpeg\jcapimin.c"
+				RelativePath=".ﾂ･libjpegﾂ･jcapimin.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jcapistd.c"
+				RelativePath=".ﾂ･libjpegﾂ･jcapistd.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jccoefct.c"
+				RelativePath=".ﾂ･libjpegﾂ･jccoefct.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jccolor.c"
+				RelativePath=".ﾂ･libjpegﾂ･jccolor.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jcdctmgr.c"
+				RelativePath=".ﾂ･libjpegﾂ･jcdctmgr.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jchuff.c"
+				RelativePath=".ﾂ･libjpegﾂ･jchuff.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jcinit.c"
+				RelativePath=".ﾂ･libjpegﾂ･jcinit.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jcmainct.c"
+				RelativePath=".ﾂ･libjpegﾂ･jcmainct.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jcmarker.c"
+				RelativePath=".ﾂ･libjpegﾂ･jcmarker.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jcmaster.c"
+				RelativePath=".ﾂ･libjpegﾂ･jcmaster.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jcomapi.c"
+				RelativePath=".ﾂ･libjpegﾂ･jcomapi.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jcparam.c"
+				RelativePath=".ﾂ･libjpegﾂ･jcparam.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jcphuff.c"
+				RelativePath=".ﾂ･libjpegﾂ･jcphuff.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jcprepct.c"
+				RelativePath=".ﾂ･libjpegﾂ･jcprepct.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jcsample.c"
+				RelativePath=".ﾂ･libjpegﾂ･jcsample.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jctrans.c"
+				RelativePath=".ﾂ･libjpegﾂ･jctrans.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdapimin.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdapimin.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdapistd.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdapistd.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdatadst.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdatadst.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdatasrc.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdatasrc.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdcoefct.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdcoefct.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdcolor.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdcolor.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jddctmgr.c"
+				RelativePath=".ﾂ･libjpegﾂ･jddctmgr.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdhuff.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdhuff.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdinput.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdinput.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdmainct.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdmainct.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdmarker.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdmarker.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdmaster.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdmaster.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdmerge.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdmerge.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdphuff.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdphuff.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdpostct.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdpostct.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdsample.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdsample.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jdtrans.c"
+				RelativePath=".ﾂ･libjpegﾂ･jdtrans.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jerror.c"
+				RelativePath=".ﾂ･libjpegﾂ･jerror.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jfdctflt.c"
+				RelativePath=".ﾂ･libjpegﾂ･jfdctflt.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jfdctfst.c"
+				RelativePath=".ﾂ･libjpegﾂ･jfdctfst.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jfdctint.c"
+				RelativePath=".ﾂ･libjpegﾂ･jfdctint.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jidctflt.c"
+				RelativePath=".ﾂ･libjpegﾂ･jidctflt.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jidctfst.c"
+				RelativePath=".ﾂ･libjpegﾂ･jidctfst.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jidctint.c"
+				RelativePath=".ﾂ･libjpegﾂ･jidctint.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jidctred.c"
+				RelativePath=".ﾂ･libjpegﾂ･jidctred.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jmemansi.c"
+				RelativePath=".ﾂ･libjpegﾂ･jmemansi.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jmemmgr.c"
+				RelativePath=".ﾂ･libjpegﾂ･jmemmgr.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jpegtran.c"
+				RelativePath=".ﾂ･libjpegﾂ･jpegtran.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jquant1.c"
+				RelativePath=".ﾂ･libjpegﾂ･jquant1.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jquant2.c"
+				RelativePath=".ﾂ･libjpegﾂ･jquant2.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libjpeg\jutils.c"
+				RelativePath=".ﾂ･libjpegﾂ･jutils.c"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="ヘッダー ファイル"
+			Name="繝倥ャ繝繝ｼ 繝輔ぃ繧､繝ｫ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 		</Filter>
 		<Filter
-			Name="リソース ファイル"
+			Name="繝ｪ繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>

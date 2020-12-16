@@ -33,7 +33,7 @@
 
 # ifndef BOOST_STRICT_CONFIG
 
-#  define BOOST_WORKAROUND(symbol, test)                \
+#  define BOOST_WORKAROUND(symbol, test)                ¥
         ((symbol != 0) && (1 % (( (symbol test) ) + 1)))
 //                              ^ ^           ^ ^
 // The extra level of parenthesis nesting above, along with the

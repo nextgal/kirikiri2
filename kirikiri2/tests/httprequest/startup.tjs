@@ -47,7 +47,7 @@ class MyWindow extends Window
 		super.Window();
 		setInnerSize(WIDTH, HEIGHT);
 
-		// ベースレイヤ
+		// 繝吶�ｼ繧ｹ繝ｬ繧､繝､
 		base = new Layer(this, null);
 		base.visible=true;
 		base.setSize(WIDTH,HEIGHT);

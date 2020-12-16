@@ -342,14 +342,14 @@ main(argc, argv)
 			argv++;
 		  }
 		else
-		  {	fprintf(stderr, "Unrecognized switch: %s\n", argv[1]);
+		  {	fprintf(stderr, "Unrecognized switch: %s¥n", argv[1]);
 			exit(1);
 		  }
 	  }
 	switch ( argc )
 	   {
 	default:
-		printf("Usage: ansi2knr input_file [output_file]\n");
+		printf("Usage: ansi2knr input_file [output_file]¥n");
 		exit(0);
 	case 2:
 		out = stdout;
@@ -357,16 +357,16 @@ main(argc, argv)
 	case 3:
 		out = fopen(argv[2], "w");
 		if ( out == NULL )
-		   {	fprintf(stderr, "Cannot open output file %s\n", argv[2]);
+		   {	fprintf(stderr, "Cannot open output file %s¥n", argv[2]);
 			exit(1);
 		   }
 	   }
 	in = fopen(argv[1], "r");
 	if ( in == NULL )
-	   {	fprintf(stderr, "Cannot open input file %s\n", argv[1]);
+	   {	fprintf(stderr, "Cannot open input file %s¥n", argv[1]);
 		exit(1);
 	   }
-	fprintf(out, "#line 1 \"%s\"\n", argv[1]);
+	fprintf(out, "#line 1 ¥"%s¥"¥n", argv[1]);
 	buf = malloc(bufsize);
 	line = buf;
 	while ( fgets(line, (unsigned)(buf + bufsize - line), in) != NULL )
@@ -454,7 +454,7 @@ writeblanks(start, end)
     char *end;
 {	char *p;
 	for ( p = start; p < end; p++ )
-	  if ( *p != '\r' && *p != '\n' )
+	  if ( *p != '¥r' && *p != '¥n' )
 	    *p = ' ';
 	return 0;
 }
@@ -547,7 +547,7 @@ top:	p = endfn;
 	breaks = (char **)malloc(sizeof(char *) * num_breaks * 2);
 	if ( breaks == 0 )
 	   {	/* Couldn't allocate break table, give up */
-		fprintf(stderr, "Unable to allocate break table!\n");
+		fprintf(stderr, "Unable to allocate break table!¥n");
 		fputs(buf, out);
 		return -1;
 	   }
@@ -664,7 +664,7 @@ found:		if ( *p == '.' && p[-1] == '.' && p[-2] == '.' )
 	if ( header )
 	  {	fputs(");", out);
 		for ( p = breaks[0]; *p; p++ )
-		  if ( *p == '\r' || *p == '\n' )
+		  if ( *p == '¥r' || *p == '¥n' )
 		    putc(*p, out);
 	  }
 	else

@@ -4,14 +4,14 @@ object LabelDetailForm: TLabelDetailForm
   ActiveControl = EditLabelAttribFrame.LabelNameEdit
   BorderStyle = bsDialog
   BorderWidth = 8
-  Caption = 'ƒ‰ƒxƒ‹‚Ì•ÒW'
+  Caption = 'ãƒ©ãƒ™ãƒ«ã®ç·¨é›†'
   ClientHeight = 66
   ClientWidth = 380
   Color = clBtnFace
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
-  Font.Name = '‚l‚r ‚oƒSƒVƒbƒN'
+  Font.Name = 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯'
   Font.Style = []
   OldCreateOrder = False
   OnClose = FormClose
@@ -38,7 +38,7 @@ object LabelDetailForm: TLabelDetailForm
     Width = 75
     Height = 25
     Cancel = True
-    Caption = 'ƒLƒƒƒ“ƒZƒ‹'
+    Caption = 'ã‚­ãƒ£ãƒ³ã‚»ãƒ«'
     TabOrder = 2
     OnClick = CancelButtonClick
   end

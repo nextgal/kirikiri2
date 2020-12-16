@@ -4,14 +4,14 @@
 
 
 //------------------------------
-// ’è”
+// å®šæ•°
 global.SCROLL_BAR_MIN_WIDTH = 50;
 global.SCROLL_LAYOUT_MIN_WIDTH = 100;
 global.SCROLL_HANDLE_MIN_SIZE = 10;
 
 
 /*----------------------------------------------------------------------
- * ‚’¼ƒXƒNƒ[ƒ‹ƒo[
+ * å‚ç›´ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼
  ----------------------------------------------------------------------*/
 class KVerticalScrollBar extends KWidget
 {
@@ -25,36 +25,36 @@ class KVerticalScrollBar extends KWidget
   var dragging = false;
   var mouseDownY, mouseDownTargetPos;
   var _targetPos;
-  var clickBlankToPageScroll = false; // ‹ó—Ìˆæ‚ğƒNƒŠƒbƒN‚µ‚½‚çAƒy[ƒW’PˆÊ‚Åƒo[‚ğˆÚ“®‚·‚é‚©‚Ç‚¤‚©
+  var clickBlankToPageScroll = false; // ç©ºé ˜åŸŸã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚‰ã€ãƒšãƒ¼ã‚¸å˜ä½ã§ãƒãƒ¼ã‚’ç§»å‹•ã™ã‚‹ã‹ã©ã†ã‹
 
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   function KVerticalScrollBar(win) {
     super.KWidget(win);
 
-    // ƒŒƒCƒ„ƒpƒ‰ƒ[ƒ^İ’è
+    // ãƒ¬ã‚¤ãƒ¤ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
     hasImage = false;
     hitThreshold = 0;
 
-    // ƒx[ƒXƒŒƒCƒ„ì¬
+    // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤ä½œæˆ
     baseLayer = new global.KWidget(window);
     baseLayer.parent = this;
     baseLayer.hitThreshold = 256;
 
-    // ƒ{ƒ^ƒ“ì¬
+    // ãƒœã‚¿ãƒ³ä½œæˆ
     initButton();
 
-    // –¼‘Oİ’è
+    // åå‰è¨­å®š
     name = "_vertical";
   }
 
-  // ƒ{ƒ^ƒ“ì¬
+  // ãƒœã‚¿ãƒ³ä½œæˆ
   function initButton {
-    // ãƒ{ƒ^ƒ“
+    // ä¸Šãƒœã‚¿ãƒ³
     upButton = new KImageButton(window, "k_scroll_up", "up");
     upButton.space = 2;
     upButton.focusable = false;
     upButton.parent = this;
-    // ‰ºƒ{ƒ^ƒ“
+    // ä¸‹ãƒœã‚¿ãƒ³
     downButton = new KImageButton(window, "k_scroll_down", "down");
     downButton.space = 2;
     downButton.focusable = false;
@@ -67,7 +67,7 @@ class KVerticalScrollBar extends KWidget
     }
   }
 
-  // ƒ^[ƒQƒbƒgˆÊ’uXV
+  // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆä½ç½®æ›´æ–°
   property targetPos {
     getter {
       return _targetPos;
@@ -82,19 +82,19 @@ class KVerticalScrollBar extends KWidget
     }
   }
 
-  // ƒ^[ƒQƒbƒgƒTƒCƒYXV
+  // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚µã‚¤ã‚ºæ›´æ–°
   function setTargetSize(realSize, windowSize, targetPos) {
-    // ƒTƒCƒY‹L˜^
+    // ã‚µã‚¤ã‚ºè¨˜éŒ²
     targetRealSize = realSize;
     targetWindowSize = windowSize;
     _targetPos = targetPos;
-    // •\¦—Ìˆæ‚ÆÀ—Ìˆæ‚ª“¯ƒTƒCƒY‚È‚ç disable
+    // è¡¨ç¤ºé ˜åŸŸã¨å®Ÿé ˜åŸŸãŒåŒã‚µã‚¤ã‚ºãªã‚‰ disable
     enabled = (targetRealSize != targetWindowSize);
-    // Ä•`‰æ
+    // å†æç”»
     drawBar();
   }
 
-  // ƒXƒNƒ[ƒ‹ƒo[‚ğ•`‰æ‚·‚é
+  // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‚’æç”»ã™ã‚‹
   function drawBar {
     var barSize = (barRange.end - barRange.begin);
     var rect;
@@ -110,30 +110,30 @@ class KVerticalScrollBar extends KWidget
     fillBar(handleBegin, handleEnd - handleBegin);
   }
 
-  // ãƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚ç10ƒhƒbƒgã‚Ö
+  // ä¸Šãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã‚‰10ãƒ‰ãƒƒãƒˆä¸Šã¸
   function onPressTop {
     targetPos = Math.max(targetPos - 10, 0);
   }
 
-  // ‰ºƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚ç10ƒhƒbƒg‰º‚Ö
+  // ä¸‹ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã‚‰10ãƒ‰ãƒƒãƒˆä¸‹ã¸
   function onPressBottom {
     targetPos = Math.min(targetPos + 10,
                          targetRealSize - targetWindowSize);
   }
 
-  // ãƒuƒ‰ƒ“ƒN‚ª‰Ÿ‚³‚ê‚½‚çƒXƒNƒ[ƒ‹—Ìˆæ‚Ì9Š„ã‚Ö
+  // ä¸Šãƒ–ãƒ©ãƒ³ã‚¯ãŒæŠ¼ã•ã‚ŒãŸã‚‰ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«é ˜åŸŸã®9å‰²ä¸Šã¸
   function onPressUpper {
     targetPos = Math.max(targetPos - int((barRange.end - barRange.begin) * 0.9),
                          0);
   }
  
-  // ‰ºƒuƒ‰ƒ“ƒN‚ª‰Ÿ‚³‚ê‚½‚çƒXƒNƒ[ƒ‹—Ìˆæ‚Ì9Š„‰º‚Ö
+  // ä¸‹ãƒ–ãƒ©ãƒ³ã‚¯ãŒæŠ¼ã•ã‚ŒãŸã‚‰ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«é ˜åŸŸã®9å‰²ä¸‹ã¸
   function onPressLower {
     targetPos = Math.min(targetPos + int((barRange.end - barRange.begin) * 0.9),
                          targetRealSize - targetWindowSize);
   }
 
-  // ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½–‚ğŒŸ’m
+  // ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸäº‹ã‚’æ¤œçŸ¥
   function onChildValueModified(child) {
     switch (child.name) {
     case "up": 
@@ -145,9 +145,9 @@ class KVerticalScrollBar extends KWidget
     }
   }
 
-  // ƒ}ƒEƒXˆ—B
-  // ‹ó—Ìˆæ‚ª‰Ÿ‚³‚ê‚½‚ç‚»‚¿‚ç‚Öƒo[‚ğˆÚ“®B
-  // ƒo[‚ğƒhƒ‰ƒbƒO‚µ‚½‚çA’¼ÚƒXƒNƒ[ƒ‹
+  // ãƒã‚¦ã‚¹å‡¦ç†ã€‚
+  // ç©ºé ˜åŸŸãŒæŠ¼ã•ã‚ŒãŸã‚‰ãã¡ã‚‰ã¸ãƒãƒ¼ã‚’ç§»å‹•ã€‚
+  // ãƒãƒ¼ã‚’ãƒ‰ãƒ©ãƒƒã‚°ã—ãŸã‚‰ã€ç›´æ¥ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
   function onMouseDown (x, y) {
     if(clickBlankToPageScroll) {
       if (y < handleBegin) {
@@ -185,27 +185,27 @@ class KVerticalScrollBar extends KWidget
     dragging = false;
   }
 
-  // w’è‚Ì”ÍˆÍ‚ğ–³’n‚Åfill
+  // æŒ‡å®šã®ç¯„å›²ã‚’ç„¡åœ°ã§fill
   function fill(pos, size, color) {
     baseLayer.fillRect(2, pos, width - 4, size, color);
   }
 
-  // w’è‚Ì”ÍˆÍ‚Éƒo[‚ğ•`‚­
+  // æŒ‡å®šã®ç¯„å›²ã«ãƒãƒ¼ã‚’æã
   function fillBar(pos, size) {
     baseLayer.drawRaisedFrame(2, pos, width - 4, size);
   }
 
-  // enable‚Íƒo[‚ğƒtƒ‹•`‰æ
+  // enableæ™‚ã¯ãƒãƒ¼ã‚’ãƒ•ãƒ«æç”»
   function onNodeEnabled {
     baseLayer.opacity = 255;
   }
 
-  // disable‚Íƒo[‚ğ”¼“§–¾•`‰æ
+  // disableæ™‚ã¯ãƒãƒ¼ã‚’åŠé€æ˜æç”»
   function onNodeDisabled {
     baseLayer.opacity = 64;
   }
 
-  // ƒTƒCƒYXV‚É‚ÍƒXƒNƒ[ƒ‹ƒo[‚ğXV
+  // ã‚µã‚¤ã‚ºæ›´æ–°æ™‚ã«ã¯ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‚’æ›´æ–°
   function onSizeModified {
     baseLayer.setFixedSize(width, height);
     baseLayer.drawSunkenFrame(0, 0, width, height);
@@ -213,7 +213,7 @@ class KVerticalScrollBar extends KWidget
     drawBar();
   }
 
-  // ƒ{ƒ^ƒ“‚ğÄ”z’u
+  // ãƒœã‚¿ãƒ³ã‚’å†é…ç½®
   function locateButton {
     upButton.setPos(1, 1);
     downButton.setPos(1, height - downButton.height - 2);
@@ -224,25 +224,25 @@ class KVerticalScrollBar extends KWidget
 
 
 /*----------------------------------------------------------------------
- * …•½ƒXƒNƒ[ƒ‹ƒo[(‚’¼ƒo[‚©‚ç‚Ì·•ª)
+ * æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼(å‚ç›´ãƒãƒ¼ã‹ã‚‰ã®å·®åˆ†)
  ----------------------------------------------------------------------*/
 class KHorizontalScrollBar extends KVerticalScrollBar
 {
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   function KHorizontalScrollBar {
     super.KVerticalScrollBar(...);
-    // –¼‘O‚ğw’è
+    // åå‰ã‚’æŒ‡å®š
     name = "_horizontal";
   }
 
-  // ƒ{ƒ^ƒ“‰Šú‰»
+  // ãƒœã‚¿ãƒ³åˆæœŸåŒ–
   function initButton {
-    // ¶ƒ{ƒ^ƒ“
+    // å·¦ãƒœã‚¿ãƒ³
     upButton = new KImageButton(window, "k_scroll_left", "up");
     upButton.space = 2;
     upButton.focusable = false;
     upButton.parent = this;
-    // ‰Eƒ{ƒ^ƒ“
+    // å³ãƒœã‚¿ãƒ³
     downButton = new KImageButton(window, "k_scroll_right", "down");
     downButton.space = 2;
     downButton.focusable = false;
@@ -254,7 +254,7 @@ class KHorizontalScrollBar extends KVerticalScrollBar
       return upButton.height + 2;
     }
   }
-  // ƒ}ƒEƒX‚ÌX/Y‚ğ‚·‚è‘Ö‚¦‚Äˆ—
+  // ãƒã‚¦ã‚¹ã®X/Yã‚’ã™ã‚Šæ›¿ãˆã¦å‡¦ç†
   function onMouseDown(x, y) {
     super.onMouseDown(y, x);
   }
@@ -267,17 +267,17 @@ class KHorizontalScrollBar extends KVerticalScrollBar
     super.onMouseUp(y, x);
   }
 
-  // –³’n‚ÅƒtƒBƒ‹
+  // ç„¡åœ°ã§ãƒ•ã‚£ãƒ«
   function fill(pos, size, color) {
     baseLayer.fillRect(pos, 2, size, height - 4, color);
   }
 
-  // ƒo[‚ğ•`‰æ
+  // ãƒãƒ¼ã‚’æç”»
   function fillBar(pos, size) {
     baseLayer.drawRaisedFrame(pos, 2, size, height - 4);
   }
 
-  // ƒ{ƒ^ƒ“‚ğÄ”z’u
+  // ãƒœã‚¿ãƒ³ã‚’å†é…ç½®
   function locateButton {
     upButton.setPos(1, 1);
     downButton.setPos(width - downButton.width - 2, 0);
@@ -287,7 +287,7 @@ class KHorizontalScrollBar extends KVerticalScrollBar
 
 
 /*----------------------------------------------------------------------
- * ƒXƒNƒ[ƒ‹ƒtƒŒ[ƒ€(ÀÛ‚Échild‚ğŠi”[‚·‚é˜g)
+ * ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ (å®Ÿéš›ã«childã‚’æ ¼ç´ã™ã‚‹æ )
  ----------------------------------------------------------------------*/
 class KScrollFrame extends KWidget
 {
@@ -296,7 +296,7 @@ class KScrollFrame extends KWidget
     hasImage = false;
   }
 
-  // ƒAƒ‰ƒCƒƒ“ƒg‚É]‚Á‚ÄAƒXƒNƒ[ƒ‹”ÍˆÍ‚Éû‚Ü‚é‚æ‚¤‚Échild‚ÌÀ•W‚ğİ’è‚·‚é
+  // ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆã«å¾“ã£ã¦ã€ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ç¯„å›²ã«åã¾ã‚‹ã‚ˆã†ã«childã®åº§æ¨™ã‚’è¨­å®šã™ã‚‹
   function setChildPos(l, t) {
     if (children.count == 0)
       return;
@@ -333,7 +333,7 @@ class KScrollFrame extends KWidget
                          int(Math.min(child.height, height)));
   }
   
-  // ƒTƒCƒYXVAƒAƒ‰ƒCƒƒ“ƒg‚É]‚Á‚ÄAchild‚ğÄ”z’u
+  // ã‚µã‚¤ã‚ºæ›´æ–°ã€ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆã«å¾“ã£ã¦ã€childã‚’å†é…ç½®
   function onSizeModified(newWidth, newHeight, oldWidth, oldHeight) {
     if (children.count == 0)
       return;
@@ -387,22 +387,22 @@ class KScrollFrame extends KWidget
     setChildPos(l, t);
   }
 
-  // child‚Ìƒ}[ƒWƒ“‚ªXV‚³‚ê‚½‚çparent‚É’Ê’m
+  // childã®ãƒãƒ¼ã‚¸ãƒ³ãŒæ›´æ–°ã•ã‚ŒãŸã‚‰parentã«é€šçŸ¥
   function onChildMarginModified {
     parent.onChildMarginModified(...);
   }
 
-  // child‚ÌƒAƒ‰ƒCƒƒ“ƒg‚ªXV‚³‚ê‚½‚çparent‚É’Ê’m
+  // childã®ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆãŒæ›´æ–°ã•ã‚ŒãŸã‚‰parentã«é€šçŸ¥
   function onChildAlignModified {
     parent.onChildAlignModified(...);
   }
 
-  // child‚ÌminmaxƒTƒCƒY‚ªXV‚³‚ê‚½‚çparent‚É’Ê’m
+  // childã®minmaxã‚µã‚¤ã‚ºãŒæ›´æ–°ã•ã‚ŒãŸã‚‰parentã«é€šçŸ¥
   function onChildMinMaxSizeModified {
     parent.onChildMinMaxSizeModified(...);
   }
 
-  // child‚Ì‹éŒ`ƒmƒeƒBƒtƒ@ƒC‚ğparent‚É’Ê’m
+  // childã®çŸ©å½¢ãƒãƒ†ã‚£ãƒ•ã‚¡ã‚¤ã‚’parentã«é€šçŸ¥
   function onChildNoticeRect {
     parent.onChildNoticeRect(...);
   }
@@ -410,24 +410,24 @@ class KScrollFrame extends KWidget
  
 
 /*----------------------------------------------------------------------
- * ƒXƒNƒ[ƒ‹ƒŒƒCƒAƒEƒg
+ * ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
  *
- * ƒXƒNƒ[ƒ‹ƒo[‚Ì‚Â‚¢‚½ƒŒƒCƒAƒEƒg
+ * ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®ã¤ã„ãŸãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
  ----------------------------------------------------------------------*/
 class KScrollLayout extends KWidget
 {
-  // ‰¡•ûŒüƒXƒNƒ[ƒ‹ƒo[
+  // æ¨ªæ–¹å‘ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼
   var horizontalBar;
-  // c•ûŒüƒXƒNƒ[ƒ‹ƒo[
+  // ç¸¦æ–¹å‘ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼
   var verticalBar;
-  // ƒXƒNƒ[ƒ‹ƒtƒŒ[ƒ€
+  // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒ•ãƒ¬ãƒ¼ãƒ 
   var frame;
-  // ƒŠƒTƒCƒYƒnƒ“ƒhƒ‹
+  // ãƒªã‚µã‚¤ã‚ºãƒãƒ³ãƒ‰ãƒ«
   var _resizeHandle;
   var _resize;
   // child
   var child;
-  // ƒŒƒCƒAƒEƒg
+  // ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
   var frameMinW, frameMinH, frameMaxW, frameMaxH;
   var boxMinW, boxMinH, boxMaxW, boxMaxH;
   var horizontalBarMinW, horizontalBarMinH, horizontalBarMaxW, horizontalBarMaxH;
@@ -435,48 +435,48 @@ class KScrollLayout extends KWidget
   var minW, minH, maxW, maxH;
   var marginalWidth, marginalHeight;
   var _hideHorizontalBar, _hideVerticalBar;
-  // ƒTƒCƒYXVƒtƒ‰ƒO
+  // ã‚µã‚¤ã‚ºæ›´æ–°ãƒ•ãƒ©ã‚°
   var sizeModified;
-  // ƒJ[ƒ\ƒ‹‚É‚æ‚éƒXƒNƒ[ƒ‹
+  // ã‚«ãƒ¼ã‚½ãƒ«ã«ã‚ˆã‚‹ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
   var _cursorToScroll = false;
   var lastCursorX, lastCursorY;
 
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    *
-   * ƒEƒBƒWƒFƒbƒg‚ğAƒXƒNƒ[ƒ‹ƒo[‚Ì’†‚É”z’u‚µ‚Ü‚·B
+   * ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ã€ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®ä¸­ã«é…ç½®ã—ã¾ã™ã€‚
    *
-   * @param win ƒEƒBƒ“ƒhƒE
-   * @param horizontal ‰¡•ûŒüƒXƒNƒ[ƒ‹ƒo[‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©
-   * @param vertical c•ûŒüƒXƒNƒ[ƒ‹ƒo[‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©
-   * @param name –¼‘O
+   * @param win ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param horizontal æ¨ªæ–¹å‘ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹
+   * @param vertical ç¸¦æ–¹å‘ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹
+   * @param name åå‰
    ------------------------------*/
   function KScrollLayout(win, horizontal = true, vertical = true, name = "") {
     super.KWidget(win, name);
 
-    // ƒpƒ‰ƒ[ƒ^İ’è
+    // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
     hasImage = false;
     neutralColor = WIN_BG;
     marginalWidth = marginalHeight = SCROLL_LAYOUT_MIN_WIDTH;
 
-    // …•½ƒo[
+    // æ°´å¹³ãƒãƒ¼
     horizontalBar = new KHorizontalScrollBar(win);
     horizontalBar.parent = this;
     horizontalBar.visible = horizontal;
     _hideHorizontalBar = false;
 
-    // ‚’¼ƒo[
+    // å‚ç›´ãƒãƒ¼
     verticalBar = new KVerticalScrollBar(win);
     verticalBar.parent = this;
     verticalBar.visible = vertical;
     _hideVerticalBar = false;
 
-    // qƒEƒBƒWƒFƒbƒg‚ğŠi”[‚·‚éƒtƒŒ[ƒ€
+    // å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’æ ¼ç´ã™ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ 
     frame = new KScrollFrame(win);
     frame.parent = this;
 
-    // ƒŠƒTƒCƒYƒnƒ“ƒhƒ‹
+    // ãƒªã‚µã‚¤ã‚ºãƒãƒ³ãƒ‰ãƒ«
     _resizeHandle = new KWindowResizeHandle(win, 
                                             verticalBar.buttonWidth,
                                             horizontalBar.buttonWidth);
@@ -485,14 +485,14 @@ class KScrollLayout extends KWidget
   }
 
   /**------------------------------
-   * Å’áŒÀ‚ÌƒTƒCƒY‚ğİ’è‚·‚é
+   * æœ€ä½é™ã®ã‚µã‚¤ã‚ºã‚’è¨­å®šã™ã‚‹
    *
-   * ƒŠƒXƒg€–Ú‚ª­‚È‚­‚Ä‚àÅ’áŒÀL‚°‚ç‚ê‚é
-   * uÅ’áÅ‘åƒTƒCƒYv‚ğŒˆ’è‚·‚éB
-   * ƒfƒtƒHƒ‹ƒg’l‚Í100x100
+   * ãƒªã‚¹ãƒˆé …ç›®ãŒå°‘ãªãã¦ã‚‚æœ€ä½é™åºƒã’ã‚‰ã‚Œã‚‹
+   * ã€Œæœ€ä½æœ€å¤§ã‚µã‚¤ã‚ºã€ã‚’æ±ºå®šã™ã‚‹ã€‚
+   * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã¯100x100
    *
-   * @param w •
-   * @param h ‚‚³
+   * @param w å¹…
+   * @param h é«˜ã•
    ------------------------------*/
   function setMarginalSize(w, h) {
     marginalWidth = w;
@@ -501,12 +501,12 @@ class KScrollLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ”z’u‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’é…ç½®ã™ã‚‹
    * 
-   * qƒEƒBƒWƒFƒbƒg‚ğƒXƒNƒ[ƒ‹ƒo[‚Ì’†‚É”z’u‚µ‚Ü‚·B
-   * KScrollLayout‚É‚Íˆê“x‚É1‚Â‚ÌƒEƒBƒWƒFƒbƒg‚µ‚© add ‚Å‚«‚Ü‚¹‚ñB
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®ä¸­ã«é…ç½®ã—ã¾ã™ã€‚
+   * KScrollLayoutã«ã¯ä¸€åº¦ã«1ã¤ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã—ã‹ add ã§ãã¾ã›ã‚“ã€‚
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function add(child) {
     this.child = child;
@@ -515,12 +515,12 @@ class KScrollLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğŠJ•ú‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’é–‹æ”¾ã™ã‚‹
    *
-   * qƒEƒBƒWƒFƒbƒg‚ğƒXƒNƒ[ƒ‹ƒo[‚©‚çŠJ•ú‚µ‚Ü‚·
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‹ã‚‰é–‹æ”¾ã—ã¾ã™
    * 
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(child, doInvalidate = true) {
     this.child = void;
@@ -531,46 +531,46 @@ class KScrollLayout extends KWidget
   }
 
   /**------------------------------
-   * …•½ƒXƒNƒ[ƒ‹‚ğ—LŒø‚É‚·‚é‚©‚Ç‚¤‚©
+   * æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚’æœ‰åŠ¹ã«ã™ã‚‹ã‹ã©ã†ã‹
    *
-   * @param v —LŒø/–³Œø
-   * @return —LŒø/–³Œø
+   * @param v æœ‰åŠ¹/ç„¡åŠ¹
+   * @return æœ‰åŠ¹/ç„¡åŠ¹
    ------------------------------*/
   property horizontal {
     getter {
       return horizontalBar.visible;
     }
     setter(v) {
-      // ƒpƒ‰ƒ[ƒ^XV
+      // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ›´æ–°
       horizontalBar.visible = v;
-      // ÄƒŒƒCƒAƒEƒg
+      // å†ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
       invalidateLayout();
     }
   }
 
   /**------------------------------
-   * ‚’¼ƒXƒNƒ[ƒ‹‚ğ—LŒø‚É‚·‚é‚©‚Ç‚¤‚©
+   * å‚ç›´ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚’æœ‰åŠ¹ã«ã™ã‚‹ã‹ã©ã†ã‹
    *
-   * @param v —LŒø/–³Œø
-   * @return —LŒø/–³Œø
+   * @param v æœ‰åŠ¹/ç„¡åŠ¹
+   * @return æœ‰åŠ¹/ç„¡åŠ¹
    ------------------------------*/
   property vertical {
     getter {
       return verticalBar.visible;
     }
     setter(v) {
-      // ƒpƒ‰ƒ[ƒ^XV
+      // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ›´æ–°
       verticalBar.visible = v;
-      // ÄƒŒƒCƒAƒEƒg
+      // å†ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
       invalidateLayout();
     }
   }
 
   /**------------------------------
-   * …•½ƒXƒNƒ[ƒ‹ƒo[‚ğ‰æ–Ê‚É•\¦‚·‚é‚©‚Ç‚¤‚©
+   * æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‚’ç”»é¢ã«è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹
    *
-   * @param v •\¦/”ñ•\¦
-   * @return •\¦/”ñ•\¦
+   * @param v è¡¨ç¤º/éè¡¨ç¤º
+   * @return è¡¨ç¤º/éè¡¨ç¤º
    ------------------------------*/
   property hideHorizontalBar {
     getter {
@@ -583,10 +583,10 @@ class KScrollLayout extends KWidget
   }
 
   /**------------------------------
-   * ‚’¼ƒXƒNƒ[ƒ‹ƒo[‚ğ‰æ–Ê‚É•\¦‚·‚é‚©‚Ç‚¤‚©
+   * å‚ç›´ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‚’ç”»é¢ã«è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹
    *
-   * @param v •\¦/”ñ•\¦
-   * @return •\¦/”ñ•\¦
+   * @param v è¡¨ç¤º/éè¡¨ç¤º
+   * @return è¡¨ç¤º/éè¡¨ç¤º
    ------------------------------*/
   property hideVerticalBar {
     getter {
@@ -599,25 +599,25 @@ class KScrollLayout extends KWidget
   }
 
   /**------------------------------
-   * ƒŠƒTƒCƒYƒnƒ“ƒhƒ‹‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©
+   * ãƒªã‚µã‚¤ã‚ºãƒãƒ³ãƒ‰ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹
    *
-   * @param v •\¦/”ñ•\¦
-   * @return •\¦/”ñ•\¦
+   * @param v è¡¨ç¤º/éè¡¨ç¤º
+   * @return è¡¨ç¤º/éè¡¨ç¤º
    ------------------------------*/
   property resize {
     getter {
       return _resize;
     }
     setter(v) {
-      // ƒpƒ‰ƒ[ƒ^XV
+      // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ›´æ–°
       _resize = v;
-      // ÄƒŒƒCƒAƒEƒg
+      // å†ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
       invalidateLayout();
     }
   }
 
   /**------------------------------
-   * child‚Ì•\¦•
+   * childã®è¡¨ç¤ºå¹…
    ------------------------------*/
   property childViewWidth {
     getter {
@@ -625,7 +625,7 @@ class KScrollLayout extends KWidget
     }
   }
   /**------------------------------
-   * child‚Ì•\¦‚‚³
+   * childã®è¡¨ç¤ºé«˜ã•
    ------------------------------*/
   property childViewHeight {
     getter {
@@ -633,7 +633,7 @@ class KScrollLayout extends KWidget
     }
   }
   /**------------------------------
-   * child‚Ì•\¦XÀ•W
+   * childã®è¡¨ç¤ºXåº§æ¨™
    ------------------------------*/
   property childViewLeft {
     getter {
@@ -645,7 +645,7 @@ class KScrollLayout extends KWidget
     }
   }
   /**------------------------------
-   * child‚Ì•\¦YÀ•W
+   * childã®è¡¨ç¤ºYåº§æ¨™
    ------------------------------*/
   property childViewTop {
     getter {
@@ -657,7 +657,7 @@ class KScrollLayout extends KWidget
     }
   }
   /**------------------------------
-   * child‚ÌÀ•
+   * childã®å®Ÿå¹…
    ------------------------------*/
   property childWidth {
     getter {
@@ -665,7 +665,7 @@ class KScrollLayout extends KWidget
     }
   }
   /**------------------------------
-   * child‚ÌÀ‚‚³
+   * childã®å®Ÿé«˜ã•
    ------------------------------*/
   property childHeight {
     getter {
@@ -673,7 +673,7 @@ class KScrollLayout extends KWidget
     }
   }
   /**------------------------------
-   * child‚ÌˆÊ’u‚ğİ’è‚·‚é
+   * childã®ä½ç½®ã‚’è¨­å®šã™ã‚‹
    ------------------------------*/
   function setChildViewPos(l, t) {
     horizontalBar.targetPos = l;
@@ -681,19 +681,19 @@ class KScrollLayout extends KWidget
     frame.setChildPos(-horizontalBar.targetPos, -verticalBar.targetPos);
   }
 
-  // child‚Ìƒ}[ƒWƒ“‚ªXV‚³‚ê‚½
+  // childã®ãƒãƒ¼ã‚¸ãƒ³ãŒæ›´æ–°ã•ã‚ŒãŸ
   function onChildMarginModified {
-      // ÄƒŒƒCƒAƒEƒg
+      // å†ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
     invalidateLayout();
   }
 
-  // child‚ÌƒAƒ‰ƒCƒƒ“ƒg‚ªXV‚³‚ê‚½
+  // childã®ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆãŒæ›´æ–°ã•ã‚ŒãŸ
   function onChildAlignModified {
-      // ÄƒŒƒCƒAƒEƒg
+      // å†ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
     invalidateLayout();
   }
 
-  // child‚Ìminmax‚ªXV‚³‚ê‚½
+  // childã®minmaxãŒæ›´æ–°ã•ã‚ŒãŸ
   function onChildMinMaxSizeModified(child) {
     if (child == this.child) {
       invalidateLayout();
@@ -701,13 +701,13 @@ class KScrollLayout extends KWidget
   }
 
   /*------------------------------
-   * ÄƒŒƒCƒAƒEƒg
+   * å†ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
    ------------------------------*/
   function invalidateLayout {
     if (! child)
       return;
 
-    // ƒ{ƒbƒNƒX(ƒtƒŒ[ƒ€Ši”[—Ìˆæ)‚ÌƒŒƒ“ƒW‚ğŒvZ
+    // ãƒœãƒƒã‚¯ã‚¹(ãƒ•ãƒ¬ãƒ¼ãƒ æ ¼ç´é ˜åŸŸ)ã®ãƒ¬ãƒ³ã‚¸ã‚’è¨ˆç®—
     if (horizontal) {
       boxMinW = marginalWidth;
       boxMaxW = int(Math.max(SCROLL_LAYOUT_MIN_WIDTH, child.maxWidth + child.marginHorizontal));
@@ -730,42 +730,42 @@ class KScrollLayout extends KWidget
         boxMinH = marginalHeight;
     }
 
-    // ƒtƒŒ[ƒ€‚ÌƒŒƒ“ƒW‚ğŒvZ
+    // ãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ¬ãƒ³ã‚¸ã‚’è¨ˆç®—
     frameMinW = boxMinW - child.marginHorizontal;
     frameMinH = boxMinH - child.marginVertical;
     frameMaxW = boxMaxW - child.marginHorizontal;
     frameMaxH = boxMaxH - child.marginVertical;
 
-    // …•½ƒo[‚ÌƒŒƒ“ƒW‚ğŒvZ
+    // æ°´å¹³ãƒãƒ¼ã®ãƒ¬ãƒ³ã‚¸ã‚’è¨ˆç®—
     horizontalBarMinW = boxMinW;
     horizontalBarMinH = horizontalBar.buttonWidth;
     horizontalBarMaxW = boxMaxW;
     horizontalBarMaxH = horizontalBar.buttonWidth;
 
-    // ‚’¼ƒo[‚ÌƒŒƒ“ƒW‚ğŒvZ
+    // å‚ç›´ãƒãƒ¼ã®ãƒ¬ãƒ³ã‚¸ã‚’è¨ˆç®—
     verticalBarMinW = verticalBar.buttonWidth;
     verticalBarMinH = boxMinH;
     verticalBarMaxW = verticalBar.buttonWidth;
     verticalBarMaxH = boxMaxH;
 
-    // ‘S‘Ì‚ÌƒŒƒ“ƒW‚ğŒvZ
+    // å…¨ä½“ã®ãƒ¬ãƒ³ã‚¸ã‚’è¨ˆç®—
     minW = boxMinW + (vertical ? verticalBar.buttonWidth : 0);
     minH = boxMinH + (horizontal ? horizontalBar.buttonWidth : 0);
     maxW = boxMaxW + (vertical ? verticalBar.buttonWidth : 0);
     maxH = boxMaxH + (horizontal ? horizontalBar.buttonWidth : 0);
 
-    // ƒtƒŒ[ƒ€‚ÌƒŒƒ“ƒW‚ğİ’è
+    // ãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ¬ãƒ³ã‚¸ã‚’è¨­å®š
     frame.setMinMaxSize(frameMinW, 
                         frameMinH,
                         frameMaxW,
                         frameMaxH);
-    // …•½ƒo[‚ÌƒŒƒ“ƒW‚ğİ’è
+    // æ°´å¹³ãƒãƒ¼ã®ãƒ¬ãƒ³ã‚¸ã‚’è¨­å®š
     if (horizontal)
       horizontalBar.setMinMaxSize(horizontalBarMinW,
                                   horizontalBarMinH,
                                   horizontalBarMaxW,
                                   horizontalBarMaxH);
-    // ‚’¼ƒo[‚ÌƒŒƒ“ƒW‚ğİ’è
+    // å‚ç›´ãƒãƒ¼ã®ãƒ¬ãƒ³ã‚¸ã‚’è¨­å®š
     if (vertical)
       verticalBar.setMinMaxSize(verticalBarMinW,
                                 verticalBarMinH,
@@ -784,8 +784,8 @@ class KScrollLayout extends KWidget
       minW -= verticalBar.width;
     }
 
-    // ƒXƒNƒ[ƒ‹ƒŒƒCƒAƒEƒg‘S‘Ì‚ÌƒŒƒ“ƒW‚ğİ’è
-    // ‚»‚ÌÛAƒTƒCƒY‚Ì•ÏX‚ª‚©‚©‚ç‚È‚©‚Á‚½‚çA‹­§“I‚ÉÄ•`‰æ
+    // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆå…¨ä½“ã®ãƒ¬ãƒ³ã‚¸ã‚’è¨­å®š
+    // ãã®éš›ã€ã‚µã‚¤ã‚ºã®å¤‰æ›´ãŒã‹ã‹ã‚‰ãªã‹ã£ãŸã‚‰ã€å¼·åˆ¶çš„ã«å†æç”»
     sizeModified = false;
     setMinMaxSize(minW, minH, maxW, maxH);
     if (! sizeModified)
@@ -793,18 +793,18 @@ class KScrollLayout extends KWidget
   }    
 
   /*------------------------------
-   * ƒTƒCƒYXVB
+   * ã‚µã‚¤ã‚ºæ›´æ–°ã€‚
    *
-   * ƒXƒNƒ[ƒ‹ƒo[‚ğÄ•`‰æ‚·‚éB
+   * ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‚’å†æç”»ã™ã‚‹ã€‚
    ------------------------------*/
   function onSizeModified {
     sizeModified = true;
 
-    // ƒ{ƒbƒNƒXƒTƒCƒYŒvZ
+    // ãƒœãƒƒã‚¯ã‚¹ã‚µã‚¤ã‚ºè¨ˆç®—
     var boxW, boxH;
     boxW = width - ((vertical && ! hideVerticalBar) ? verticalBar.width : 0);
     boxH = height - ((horizontal && ! hideHorizontalBar) ? horizontalBar.height : 0);
-    // ƒtƒŒ[ƒ€Ä”z’u
+    // ãƒ•ãƒ¬ãƒ¼ãƒ å†é…ç½®
     var frameW, frameH;
     frameW = boxW - child.marginHorizontal;
     frameH = boxH - child.marginVertical;
@@ -815,7 +815,7 @@ class KScrollLayout extends KWidget
       frame.setSize(frameW, frameH);
     frame.setPos(child.marginLeft, child.marginTop);
 
-    // …•½ƒo[Ä”z’u
+    // æ°´å¹³ãƒãƒ¼å†é…ç½®
     if (horizontal) {
       horizontalBar.setSize(boxW, horizontalBar.buttonWidth);
       horizontalBar.setPos(0, boxH);
@@ -823,7 +823,7 @@ class KScrollLayout extends KWidget
                                   int(Math.min(child.width, frame.width)),
                                   - child.left);
     }
-    // ‚’¼ƒo[Ä”z’u
+    // å‚ç›´ãƒãƒ¼å†é…ç½®
     if (vertical) {
       verticalBar.setSize(verticalBar.buttonWidth, boxH);
       verticalBar.setTargetSize(child.height, 
@@ -832,9 +832,9 @@ class KScrollLayout extends KWidget
       verticalBar.setPos(boxW, 0);
     }
 
-    // …•½E‚’¼ƒo[‚Ì‘o•û‚ğ•\¦‚µA
-    // resize•\¦w’è‚ª‚ ‚é‚Ì‚İA
-    // ƒŠƒTƒCƒYƒnƒ“ƒhƒ‹‚ğ‰E‰º‚É•\¦‚·‚é
+    // æ°´å¹³ãƒ»å‚ç›´ãƒãƒ¼ã®åŒæ–¹ã‚’è¡¨ç¤ºã—ã€
+    // resizeè¡¨ç¤ºæŒ‡å®šãŒã‚ã‚‹æ™‚ã®ã¿ã€
+    // ãƒªã‚µã‚¤ã‚ºãƒãƒ³ãƒ‰ãƒ«ã‚’å³ä¸‹ã«è¡¨ç¤ºã™ã‚‹
     if (horizontal 
         && vertical
         && _resize) {
@@ -848,21 +848,21 @@ class KScrollLayout extends KWidget
   }
 
   /*------------------------------
-   * ƒXƒNƒ[ƒ‹ƒo[‚Ì’lXV‚ğŒŸoA
-   * qƒEƒBƒWƒFƒbƒg‚ğƒXƒNƒ[ƒ‹‚³‚¹‚é
+   * ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®å€¤æ›´æ–°ã‚’æ¤œå‡ºã€
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã•ã›ã‚‹
    ------------------------------*/
   function onChildValueModified(child, value) {
     switch (child.name) {
-    // ‚»‚Ì‘¼‚Ì’Ê’m‚Í‚»‚Ì‚Ü‚ÜãˆÊƒEƒBƒWƒFƒbƒg‚Ö“]‘—‚·‚é
+    // ãã®ä»–ã®é€šçŸ¥ã¯ãã®ã¾ã¾ä¸Šä½ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã¸è»¢é€ã™ã‚‹
     default:
       super.onChildValueModified(...);
       break;
-    // …•½ƒo[”½‰f
+    // æ°´å¹³ãƒãƒ¼åæ˜ 
     case "_horizontal":
       frame.setChildPos(- value, this.child.top); 
       onChildViewModified(childViewLeft, childViewTop, childViewWidth, childViewHeight, childWidth, childHeight);
       break;
-    // ‚’¼ƒo[”½‰f
+    // å‚ç›´ãƒãƒ¼åæ˜ 
     case "_vertical": 
       frame.setChildPos(this.child.left, - value); 
       onChildViewModified(childViewLeft, childViewTop, childViewWidth, childViewHeight, childWidth, childHeight);
@@ -921,7 +921,7 @@ class KScrollLayout extends KWidget
           for(var i=0; i<p.children.count; i++)
             func(p.children[i], ht, func);
         };
-        chgHitThreshold(frame, 256, chgHitThreshold); // frame ˆÈ‰º‚ÌƒŒƒCƒ„[‚ğ‘S‚ÄƒJ[ƒ\ƒ‹ƒCƒxƒ“ƒg“§‰ß‚É‚µ‚Ä‚µ‚Ü‚¤
+        chgHitThreshold(frame, 256, chgHitThreshold); // frame ä»¥ä¸‹ã®ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å…¨ã¦ã‚«ãƒ¼ã‚½ãƒ«ã‚¤ãƒ™ãƒ³ãƒˆé€éã«ã—ã¦ã—ã¾ã†
       }
       _cursorToScroll = +v;
     }

@@ -16,7 +16,7 @@ namespace boost {
 namespace posix_time {
 
   //! Time duration to string hh::mm::ss.fffffff. Example: 10:09:03.0123456
-  /*!\ingroup time_format
+  /*!¥ingroup time_format
    */
   inline std::string to_simple_string(time_duration td) {
     std::ostringstream ss;
@@ -47,7 +47,7 @@ namespace posix_time {
   }
 
   //! Time duration in iso format hhmmss,fffffff Example: 10:09:03,0123456
-  /*!\ingroup time_format
+  /*!¥ingroup time_format
    */
   inline std::string to_iso_string(time_duration td) {
     std::ostringstream ss;
@@ -78,7 +78,7 @@ namespace posix_time {
   }
 
   //! Time to simple format CCYY-mmm-dd hh:mm:ss.fffffff
-  /*!\ingroup time_format
+  /*!¥ingroup time_format
    */
   inline std::string to_simple_string(ptime t) {
     std::string ts = gregorian::to_simple_string(t.date()) + " ";
@@ -86,7 +86,7 @@ namespace posix_time {
   }
 
   //! Convert to string of form [YYYY-mmm-DD HH:MM::SS.ffffff/YYYY-mmm-DD HH:MM::SS.fffffff]
-  /*!\ingroup time_format
+  /*!¥ingroup time_format
    */
   inline std::string to_simple_string(time_period tp) {
     std::string d1(to_simple_string(tp.begin()));
@@ -95,7 +95,7 @@ namespace posix_time {
   }
 
   //! Convert iso short form YYYYMMDDTHHMMSS where T is the date-time separator
-  /*!\ingroup time_format
+  /*!¥ingroup time_format
    */
   inline std::string to_iso_string(ptime t) {
     std::string ts = gregorian::to_iso_string(t.date()) + "T";
@@ -103,7 +103,7 @@ namespace posix_time {
   }
 
   //! Convert to form YYYY-MM-DDTHH:MM:SS where T is the date-time separator
-  /*!\ingroup time_format
+  /*!¥ingroup time_format
    */
   inline std::string to_iso_extended_string(ptime t) {
     std::string ts = gregorian::to_iso_extended_string(t.date()) + "T";

@@ -22,7 +22,7 @@ class IShaderConstantSetCallBack : public virtual IReferenceCounted
 public:
 
 	//! Destructor.
-	virtual ~IShaderConstantSetCallBack() {}
+	virtual ‾IShaderConstantSetCallBack() {}
 
 	//! Called by the engine when the vertex and/or pixel shader constants for an material renderer should be set.
 	/**
@@ -32,7 +32,7 @@ public:
 	when creating a shader. The OnSetConstants method will now be called every time
 	before geometry is being drawn using your shader material. A sample implementation
 	would look like this:
-	\code
+	¥code
 	virtual void OnSetConstants(video::IMaterialRendererServices* services, s32 userData)
 	{
 		video::IVideoDriver* driver = services->getVideoDriver();
@@ -51,9 +51,9 @@ public:
 		// for high level shading languages, this would be another solution:
 		//services->setVertexShaderConstant("myColor", reinterpret_cast<f32*>(&col), 4);
 	}
-	\endcode
-	\param services: Pointer to an interface providing methods to set the constants for the shader.
-	\param userData: Userdata int which can be specified when creating the shader.
+	¥endcode
+	¥param services: Pointer to an interface providing methods to set the constants for the shader.
+	¥param userData: Userdata int which can be specified when creating the shader.
 	*/
 	virtual void OnSetConstants(IMaterialRendererServices* services, s32 userData) = 0;
 };

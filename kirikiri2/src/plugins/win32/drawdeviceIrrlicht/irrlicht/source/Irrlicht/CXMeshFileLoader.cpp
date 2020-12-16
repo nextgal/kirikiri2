@@ -43,7 +43,7 @@ bool CXMeshFileLoader::isALoadableFileExtension(const c8* filename) const
 
 
 //! creates/loads an animated mesh from the file.
-//! \return Pointer to the created mesh. Returns 0 if loading failed.
+//! ¥return Pointer to the created mesh. Returns 0 if loading failed.
 //! If you no longer need the mesh, you should call IAnimatedMesh::drop().
 //! See IReferenceCounted::drop() for more information.
 IAnimatedMesh* CXMeshFileLoader::createMesh(io::IReadFile* f)
@@ -1963,7 +1963,7 @@ void CXMeshFileLoader::readUntilEndOfLine()
 
 	while(P < End)
 	{
-		if (P[0] == '\n' || P[0] == '\r')
+		if (P[0] == '¥n' || P[0] == '¥r')
 		{
 			++P;
 			return;
@@ -2118,7 +2118,7 @@ bool CXMeshFileLoader::readRGBA(video::SColor& color)
 core::stringc CXMeshFileLoader::stripPathFromString(core::stringc string, bool returnPath)
 {
 	s32 slashIndex=string.findLast('/'); // forward slash
-	s32 backSlash=string.findLast('\\'); // back slash
+	s32 backSlash=string.findLast('¥¥'); // back slash
 
 	if (backSlash>slashIndex) slashIndex=backSlash;
 

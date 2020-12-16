@@ -32,7 +32,7 @@ class tTJSNI_RandomGenerator : public tTJSNativeInstance
 {
 public:
 	tTJSNI_RandomGenerator();
-    ~tTJSNI_RandomGenerator();
+    ‾tTJSNI_RandomGenerator();
 private:
 	tTJSMersenneTwister *Generator;
 

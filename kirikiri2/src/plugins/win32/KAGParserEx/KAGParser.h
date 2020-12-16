@@ -42,7 +42,7 @@ public:
 	tTVPCharHolder() : Buffer(NULL), BufferSize(0)
 	{
 	}
-	~tTVPCharHolder()
+	‾tTVPCharHolder()
 	{
 		Clear();
 	}
@@ -131,7 +131,7 @@ private:
 public:
 	tTVPScenarioCacheItem(const ttstr & name, bool istring);
 protected:
-	~tTVPScenarioCacheItem();
+	‾tTVPScenarioCacheItem();
 public:
 	void AddRef();
 	void Release();
@@ -183,7 +183,7 @@ private:
 		ArgValue();
 		ArgValue(const ArgValue &orig);
 		ArgValue(tTJSVariant &arrayVar);
-		~ArgValue();
+		‾ArgValue();
 		ArgValue& operator=(const ArgValue& right);
 		
 		void clear();

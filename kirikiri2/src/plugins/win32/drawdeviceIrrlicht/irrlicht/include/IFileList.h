@@ -18,29 +18,29 @@ class IFileList : public virtual IReferenceCounted
 public:
 
 	//! Destructor
-	virtual ~IFileList() {}
+	virtual ‾IFileList() {}
 
 	//! Get the number of files in the filelist.
-	/** \return Amount of files and directories in the file list. */
+	/** ¥return Amount of files and directories in the file list. */
 	virtual u32 getFileCount() const = 0;
 
 	//! Gets the name of a file in the list, based on an index.
 	/** The path is not included in this name. Use getFullFileName for this.
-	\param index is the zero based index of the file which name should
+	¥param index is the zero based index of the file which name should
 	be returned. The index has to be smaller than the amount getFileCount() returns.
-	\return File name of the file. Returns 0, if an error occured. */
+	¥return File name of the file. Returns 0, if an error occured. */
 	virtual const c8* getFileName(u32 index) const = 0;
 
 	//! Gets the full name of a file in the list, path included, based on an index.
-	/** \param index is the zero based index of the file which name should
+	/** ¥param index is the zero based index of the file which name should
 	be returned. The index has to be smaller than the amount getFileCount() returns.
-	\return File name of the file. Returns 0, if an error occured. */
+	¥return File name of the file. Returns 0, if an error occured. */
 	virtual const c8* getFullFileName(u32 index) = 0;
 
 	//! Returns of the file is a directory
-	/** \param index is the zero based index of the file which name should
+	/** ¥param index is the zero based index of the file which name should
 	be returned. The index has to be smaller than the amount getFileCount() returns.
-	\return True, if the file is a directory, and false, if it is not.
+	¥return True, if the file is a directory, and false, if it is not.
 	If an error occurs, the result is undefined. */
 	virtual bool isDirectory(u32 index) const = 0;
 };

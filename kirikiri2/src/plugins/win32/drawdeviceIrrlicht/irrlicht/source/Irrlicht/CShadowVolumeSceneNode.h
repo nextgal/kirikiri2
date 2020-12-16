@@ -22,7 +22,7 @@ namespace scene
 			s32 id,  bool zfailmethod=true, f32 infinity=10000.0f);
 
 		//! destructor
-		virtual ~CShadowVolumeSceneNode();
+		virtual ‾CShadowVolumeSceneNode();
 
 		//! sets the mesh from which the shadow volume should be generated.
 		virtual void setMeshToRenderFrom(const IMesh* mesh);

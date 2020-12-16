@@ -141,11 +141,11 @@ BOOST_LIB_DEBUG_OPT:  nothing for release builds,
 //
 // now include the lib:
 //
-#if defined(BOOST_LIB_NAME) \
-      && defined(BOOST_LIB_TOOLSET) \
-      && defined(BOOST_LIB_THREAD_OPT) \
-      && defined(BOOST_LIB_RT_OPT) \
-      && defined(BOOST_LIB_LINK_OPT) \
+#if defined(BOOST_LIB_NAME) ¥
+      && defined(BOOST_LIB_TOOLSET) ¥
+      && defined(BOOST_LIB_THREAD_OPT) ¥
+      && defined(BOOST_LIB_RT_OPT) ¥
+      && defined(BOOST_LIB_LINK_OPT) ¥
       && defined(BOOST_LIB_DEBUG_OPT)
 
 #  pragma comment(lib, BOOST_LIB_NAME "_" BOOST_LIB_TOOLSET "_" BOOST_LIB_THREAD_OPT BOOST_LIB_RT_OPT BOOST_LIB_LINK_OPT BOOST_LIB_DEBUG_OPT ".lib")

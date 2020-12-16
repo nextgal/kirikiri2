@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="D:\kirikiri2\trunk\kirikiri2\src\plugins\win32\ncbind;D:\kirikiri2\trunk\kirikiri2\src\plugins\win32"
+				AdditionalIncludeDirectories="D:ﾂ･kirikiri2ﾂ･trunkﾂ･kirikiri2ﾂ･srcﾂ･pluginsﾂ･win32ﾂ･ncbind;D:ﾂ･kirikiri2ﾂ･trunkﾂ･kirikiri2ﾂ･srcﾂ･pluginsﾂ･win32"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;QRCODE_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -115,7 +115,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="D:\kirikiri2\trunk\kirikiri2\src\plugins\win32\ncbind;D:\kirikiri2\trunk\kirikiri2\src\plugins\win32"
+				AdditionalIncludeDirectories="D:ﾂ･kirikiri2ﾂ･trunkﾂ･kirikiri2ﾂ･srcﾂ･pluginsﾂ･win32ﾂ･ncbind;D:ﾂ･kirikiri2ﾂ･trunkﾂ･kirikiri2ﾂ･srcﾂ･pluginsﾂ･win32"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;QRCODE_EXPORTS"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
@@ -168,59 +168,59 @@
 	</References>
 	<Files>
 		<Filter
-			Name="ソース ファイル"
+			Name="繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\main.cpp"
+				RelativePath=".ﾂ･main.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\ncbind\ncbind.cpp"
+				RelativePath="..ﾂ･ncbindﾂ･ncbind.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\ncbind\ncbind.def"
+				RelativePath="..ﾂ･ncbindﾂ･ncbind.def"
 				>
 			</File>
 			<File
-				RelativePath=".\QR_Encode.cpp"
+				RelativePath=".ﾂ･QR_Encode.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\tp_stub.cpp"
+				RelativePath="..ﾂ･tp_stub.cpp"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="ヘッダー ファイル"
+			Name="繝倥ャ繝繝ｼ 繝輔ぃ繧､繝ｫ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\ncbind\ncb_foreach.h"
+				RelativePath="..ﾂ･ncbindﾂ･ncb_foreach.h"
 				>
 			</File>
 			<File
-				RelativePath="..\ncbind\ncb_invoke.hpp"
+				RelativePath="..ﾂ･ncbindﾂ･ncb_invoke.hpp"
 				>
 			</File>
 			<File
-				RelativePath="..\ncbind\ncbind.hpp"
+				RelativePath="..ﾂ･ncbindﾂ･ncbind.hpp"
 				>
 			</File>
 			<File
-				RelativePath=".\QR_Encode.h"
+				RelativePath=".ﾂ･QR_Encode.h"
 				>
 			</File>
 			<File
-				RelativePath="..\tp_stub.h"
+				RelativePath="..ﾂ･tp_stub.h"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="リソース ファイル"
+			Name="繝ｪ繧ｽ繝ｼ繧ｹ 繝輔ぃ繧､繝ｫ"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>

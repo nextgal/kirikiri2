@@ -7,26 +7,26 @@ function test()
 	return 100;
 }
 
-// JS Às
+// JS å®Ÿè¡Œ
 Scripts.execJS("var a=10;");
 Scripts.execJS("function b(){return 10;}");
 Scripts.execJS("var c = krkr.test();");
 
-// JSQÆ
+// JSå‚ç…§
 Debug.message("a  :" + jsglobal.a);
 Debug.message("b():" + jsglobal.b());
 Debug.message("c  :" + jsglobal.c);
 
-// ƒfƒoƒbƒK—LŒø‰»
-// d8.exe ‚È‚Ç‚ÅÚ‘±‰Â”\‚Å‚·
+// ãƒ‡ãƒãƒƒã‚¬æœ‰åŠ¹åŒ–
+// d8.exe ãªã©ã§æ¥ç¶šå¯èƒ½ã§ã™
 Scripts.enableDebugJS();
 
-// ƒfƒoƒbƒK‹ì“®—pˆ—‚ğƒGƒ“ƒgƒŠ
+// ãƒ‡ãƒãƒƒã‚¬é§†å‹•ç”¨å‡¦ç†ã‚’ã‚¨ãƒ³ãƒˆãƒª
 var debugTimer = new Timer(Scripts.processDebugJS, "");
 debugTimer.capacity = 1;
 debugTimer.interval = 10;
 debugTimer.enabled = true;
 
-// Javascript‚É§Œä‚ğˆÚ‚·
+// Javascriptã«åˆ¶å¾¡ã‚’ç§»ã™
 Scripts.execStorageJS("startup.js");
 

@@ -30,7 +30,7 @@ svn list -R | while read n; do
 			CHARSET=`nkf --guess $n`
 			if [ "x$CHARSET" != "xASCII" ]; then
 				MIMETYPE="$MIMETYPE; charset=$CHARSET"
-				echo "svn propset \"svn:mime-type\" \"$MIMETYPE\" \"$n\""
+				echo "svn propset ¥"svn:mime-type¥" ¥"$MIMETYPE¥" ¥"$n¥""
 			fi
 		fi
 	fi

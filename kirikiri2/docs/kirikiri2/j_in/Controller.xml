@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="Shift_JIS" ?>
 <doc>
-<title>�R���g���[��</title>
+<title>コントローラ</title>
 
 <para>
-<ptitle>�R���g���[���ɂ���</ptitle>
-�@�R���g���[���́A���s���� Shift + F1 ���������Ƃɂ��\�����邱�Ƃ��ł��܂��B<r/>
-�@�R���g���[���ł́A�e�f�o�b�O�x���E�B���h�E���J������A�C�x���g�����̒�~�� TJS �R���e�L�X�g�̃_���v�A���b�Z�[�W�}�b�v�t�@�C���̍쐬�A�V�X�e���̋����I�������邱�Ƃ��ł��܂��B<r/>
+<ptitle>コントローラについて</ptitle>
+　コントローラは、実行中に Shift + F1 を押すことにより表示することができます。<r/>
+　コントローラでは、各デバッグ支援ウィンドウを開いたり、イベント発生の停止や TJS コンテキストのダンプ、メッセージマップファイルの作成、システムの強制終了をすることができます。<r/>
 </para>
 
 <para>
-<ptitle>��ʂ̐���</ptitle>
+<ptitle>画面の説明</ptitle>
 <img src="Controller.png"/><r/><r/>
 <dl>
-<dt><img src="ScriptEditorIcon.png"/> �X�N���v�g�G�f�B�^</dt>
+<dt><img src="ScriptEditorIcon.png"/> スクリプトエディタ</dt>
 <dd>
-�@<link href="ScriptEditor"/> ���J���܂��B
+　<link href="ScriptEditor"/> を開きます。
 </dd>
 
-<dt><img src="ExprWatchIcon.png"/> �Ď���</dt>
+<dt><img src="ExprWatchIcon.png"/> 監視式</dt>
 <dd>
-�@<link href="ExprWatch"/> ���J���܂��B
+　<link href="ExprWatch"/> を開きます。
 </dd>
 
-<dt><img src="ConsoleIcon.png"/> �R���\�[��</dt>
+<dt><img src="ConsoleIcon.png"/> コンソール</dt>
 <dd>
-�@<link href="Console"/> ���J���܂��B
+　<link href="Console"/> を開きます。
 </dd>
 
-<dt><img src="EventIcon.png"/> �C�x���g����</dt>
+<dt><img src="EventIcon.png"/> イベント発生</dt>
 <dd>
-�@�C�x���g�̔����𐧌䂵�܂��B�������܂ꂽ��Ԃł̓V�X�e���ɃC�x���g���������A�������܂�ĂȂ���Ԃł̓C�x���g�͔������܂���B�g���g���͊�{�I�ɃC�x���g�쓮�^�̃v���O���~���O���f���ł��̂ŁA�C�x���g���������Ȃ���Ԃł̓v���O��������~���邱�ƂɂȂ�܂��B��O���ǂ��ɂ��ߑ�����Ȃ������ꍇ�A�����I�ɃC�x���g�͔������Ȃ��Ȃ�܂��B<r/>
-�@���̃{�^���� <at href="f_System_eventDisabled.html">System.eventDisabled</at> �v���p�e�B�ƘA�����Ă��܂��B
+　イベントの発生を制御します。押し込まれた状態ではシステムにイベントが発生し、押し込まれてない状態ではイベントは発生しません。吉里吉里は基本的にイベント駆動型のプログラミングモデルですので、イベントが発生しない状態ではプログラムが停止することになります。例外がどこにも捕捉されなかった場合、自動的にイベントは発生しなくなります。<r/>
+　このボタンは <at href="f_System_eventDisabled.html">System.eventDisabled</at> プロパティと連動しています。
 </dd>
 
-<dt>TJS �R���e�L�X�g�̃_���v (�R���e�L�X�g���j���[��)</dt>
+<dt>TJS コンテキストのダンプ (コンテキストメニュー内)</dt>
 <dd>
-�@TJS2 �X�N���v�g�G���W�����ێ����Ă���e�R���e�L�X�g�̃_���v ( ��ɋt�A�Z���u�� ) ���t�@�C���ɏo�͂���܂��B<at href="f_Scripts_dump.html">Scripts.dump</at> ���\�b�h�Ɠ��l�̓�������܂��B
+　TJS2 スクリプトエンジンが保持している各コンテキストのダンプ ( 主に逆アセンブル ) がファイルに出力されます。<at href="f_Scripts_dump.html">Scripts.dump</at> メソッドと同様の動作をします。
 </dd>
 
-<dt>���b�Z�[�W�}�b�v�t�@�C���̍쐬 (�R���e�L�X�g���j���[��)</dt>
+<dt>メッセージマップファイルの作成 (コンテキストメニュー内)</dt>
 <dd>
-�@�g���g���ɓ�������Ă���e���b�Z�[�W�̃��X�g�ƁA����ɑΉ����郁�b�Z�[�W�̌��݂̐ݒ���o�͂��܂��B���̃t�@�C���͋g���g���{�̂Ɠ����ꏊ�ɒu�����ƂŁA�g���g���̋N�����Ɏ����I�ɓǂݍ��܂��ă��b�Z�[�W�̍Đݒ���s������̂ł��B�f�t�H���g�̖��O�� msgmap.tjs �ɂȂ�܂��B
+　吉里吉里に内蔵されている各メッセージのリストと、それに対応するメッセージの現在の設定を出力します。このファイルは吉里吉里本体と同じ場所に置くことで、吉里吉里の起動時に自動的に読み込ませてメッセージの再設定を行えるものです。デフォルトの名前は msgmap.tjs になります。
 </dd>
 
-<dt>�X�N���v�g�G���W���̍ċN�� (�R���e�L�X�g���j���[��)</dt>
+<dt>スクリプトエンジンの再起動 (コンテキストメニュー内)</dt>
 <dd>
-�@TJS2�X�N���v�g�G���W�����ċN�����܂��B����ɂ��TJS2������������܂����A����ɂ��V�X�e���S�̂������Ԃ��ċN������킯�ł͂���܂���B�ꍇ�ɂ���Ă͍ċN���̍ۂɃG���[���������܂��B
+　TJS2スクリプトエンジンを再起動します。これによりTJS2が初期化されますが、これによりシステム全体や内部状態が再起動するわけではありません。場合によっては再起動の際にエラーが発生します。
 </dd>
 
-<dt><img src="ExitIcon.png"/> �v���O�����̋����I��</dt>
+<dt><img src="ExitIcon.png"/> プログラムの強制終了</dt>
 <dd>
-�@�v���O�����������I�ɏI�����܂��B
+　プログラムを強制的に終了します。
 </dd>
 </dl>
 <r/>

@@ -151,13 +151,13 @@ static void TVPConvertIntegerPCMTo16bits(tjs_int16 *output, const void *input,
 	tjs_int validbits, tjs_int channels, tjs_int count, bool downmix)
 {
 	// convert integer PCMs to 16bit integer PCM
-#define PROCESS_BY_CHANNELS \
-	switch(channels) \
-	{ \
-	case 2: PROCESS(2); break; \
-	case 4: PROCESS(4); break; \
-	case 8: PROCESS(8); break; \
-	default: PROCESS(channels); break; \
+#define PROCESS_BY_CHANNELS ¥
+	switch(channels) ¥
+	{ ¥
+	case 2: PROCESS(2); break; ¥
+	case 4: PROCESS(4); break; ¥
+	case 8: PROCESS(8); break; ¥
+	default: PROCESS(channels); break; ¥
 	}
 
 
@@ -179,15 +179,15 @@ static void TVPConvertIntegerPCMTo16bits(tjs_int16 *output, const void *input,
 		}
 		else
 		{
-		#define PROCESS(channels) \
-			while(count--) \
-			{ \
-				tjs_int v = 0; \
-				tjs_int n = channels; \
-				while(n--) \
-					v += (tjs_int16)( ((tjs_int)*(p++)-0x80) * 0x100); \
-				v = v / channels; \
-				*(output++) = (tjs_int16)v; \
+		#define PROCESS(channels) ¥
+			while(count--) ¥
+			{ ¥
+				tjs_int v = 0; ¥
+				tjs_int n = channels; ¥
+				while(n--) ¥
+					v += (tjs_int16)( ((tjs_int)*(p++)-0x80) * 0x100); ¥
+				v = v / channels; ¥
+				*(output++) = (tjs_int16)v; ¥
 			}
 		PROCESS_BY_CHANNELS
 		#undef PROCESS
@@ -195,7 +195,7 @@ static void TVPConvertIntegerPCMTo16bits(tjs_int16 *output, const void *input,
 	}
 	else if(bytespersample == 2)
 	{
-		tjs_uint16 mask =  ~( (1 << (16 - validbits)) - 1);
+		tjs_uint16 mask =  ‾( (1 << (16 - validbits)) - 1);
 		const tjs_int16 *p = (const tjs_int16 *)input;
 		if(!downmix || channels == 1)
 		{
@@ -204,15 +204,15 @@ static void TVPConvertIntegerPCMTo16bits(tjs_int16 *output, const void *input,
 		}
 		else
 		{
-		#define PROCESS(channels) \
-			while(count--) \
-			{ \
-				tjs_int v = 0; \
-				tjs_int n = channels; \
-				while(n--) \
-					v += (tjs_int16)(*(p++) & mask); \
-				v = v / channels; \
-				*(output++) = (tjs_int16)v; \
+		#define PROCESS(channels) ¥
+			while(count--) ¥
+			{ ¥
+				tjs_int v = 0; ¥
+				tjs_int n = channels; ¥
+				while(n--) ¥
+					v += (tjs_int16)(*(p++) & mask); ¥
+				v = v / channels; ¥
+				*(output++) = (tjs_int16)v; ¥
 			}
 		PROCESS_BY_CHANNELS
 		#undef PROCESS
@@ -220,7 +220,7 @@ static void TVPConvertIntegerPCMTo16bits(tjs_int16 *output, const void *input,
 	}
 	else if(bytespersample == 3)
 	{
-		tjs_uint32 mask = ~( (1 << (24 - validbits)) - 1);
+		tjs_uint32 mask = ‾( (1 << (24 - validbits)) - 1);
 		const tjs_uint8 *p = (const tjs_uint8 *)input;
 
 		if(!downmix || channels == 1)
@@ -238,22 +238,22 @@ static void TVPConvertIntegerPCMTo16bits(tjs_int16 *output, const void *input,
 		}
 		else
 		{
-		#define PROCESS(channels) \
-			while(count--) \
-			{ \
-				tjs_int v = 0; \
-				tjs_int n = channels; \
-				while(n--) \
-				{ \
-					tjs_int32 t = GET_24BIT(p); \
-					p += 3; \
-					t |= -(t&0x800000); \
-					t &= mask; \
-					t >>= 8; \
-					v += t; \
-				} \
-				v = v / channels; \
-				*(output++) = (tjs_int16)v; \
+		#define PROCESS(channels) ¥
+			while(count--) ¥
+			{ ¥
+				tjs_int v = 0; ¥
+				tjs_int n = channels; ¥
+				while(n--) ¥
+				{ ¥
+					tjs_int32 t = GET_24BIT(p); ¥
+					p += 3; ¥
+					t |= -(t&0x800000); ¥
+					t &= mask; ¥
+					t >>= 8; ¥
+					v += t; ¥
+				} ¥
+				v = v / channels; ¥
+				*(output++) = (tjs_int16)v; ¥
 			}
 		PROCESS_BY_CHANNELS
 		#undef PROCESS
@@ -261,7 +261,7 @@ static void TVPConvertIntegerPCMTo16bits(tjs_int16 *output, const void *input,
 	}
 	else if(bytespersample == 4)
 	{
-		tjs_int32 mask = ~( (1 << (32 - validbits)) - 1);
+		tjs_int32 mask = ‾( (1 << (32 - validbits)) - 1);
 		const tjs_int32 *p = (const tjs_int32 *)input;
 		if(!downmix || channels == 1)
 		{
@@ -271,15 +271,15 @@ static void TVPConvertIntegerPCMTo16bits(tjs_int16 *output, const void *input,
 		}
 		else
 		{
-		#define PROCESS(channels) \
-			while(count--) \
-			{ \
-				tjs_int v = 0; \
-				tjs_int n = channels; \
-				while(n--) \
-					v += (tjs_int16)((*(p++) & mask) >> 16); \
-				v = v / channels; \
-				*(output++) = (tjs_int16)v; \
+		#define PROCESS(channels) ¥
+			while(count--) ¥
+			{ ¥
+				tjs_int v = 0; ¥
+				tjs_int n = channels; ¥
+				while(n--) ¥
+					v += (tjs_int16)((*(p++) & mask) >> 16); ¥
+				v = v / channels; ¥
+				*(output++) = (tjs_int16)v; ¥
 			}
 		PROCESS_BY_CHANNELS
 		#undef PROCESS
@@ -368,14 +368,14 @@ static void TVPConvertIntegerPCMToFloat(float *output, const void *input,
 		else
 		{
 			// generic
-			tjs_uint16 mask =  ~( (1 << (16 - validbits)) - 1);
+			tjs_uint16 mask =  ‾( (1 << (16 - validbits)) - 1);
 
 			while(total--) *(output++) = (float)((*(p++) & mask) * (1.0 / 32768));
 		}
 	}
 	else if(bytespersample == 3)
 	{
-		tjs_uint32 mask = ~( (1 << (24 - validbits)) - 1);
+		tjs_uint32 mask = ‾( (1 << (24 - validbits)) - 1);
 		const tjs_uint8 *p = (const tjs_uint8 *)input;
 
 		tjs_int total = channels * count;
@@ -390,7 +390,7 @@ static void TVPConvertIntegerPCMToFloat(float *output, const void *input,
 	}
 	else if(bytespersample == 4)
 	{
-		tjs_int32 mask = ~( (1 << (32 - validbits)) - 1);
+		tjs_int32 mask = ‾( (1 << (32 - validbits)) - 1);
 		const tjs_int32 *p = (const tjs_int32 *)input;
 		tjs_int total = channels * count;
 		while(total--)
@@ -438,7 +438,7 @@ class tTVPWD_RIFFWave : public tTVPWaveDecoder
 public:
 	tTVPWD_RIFFWave(tTJSBinaryStream *stream, tjs_uint64 datastart,
 		const tTVPWaveFormat & format);
-	~tTVPWD_RIFFWave();
+	‾tTVPWD_RIFFWave();
 	void GetFormat(tTVPWaveFormat & format);
 	bool Render(void *buf, tjs_uint bufsamplelen, tjs_uint& rendered);
 	bool SetPosition(tjs_uint64 samplepos);
@@ -455,7 +455,7 @@ tTVPWD_RIFFWave::tTVPWD_RIFFWave(tTJSBinaryStream *stream, tjs_uint64 datastart,
 	Stream->SetPosition(DataStart);
 }
 //---------------------------------------------------------------------------
-tTVPWD_RIFFWave::~tTVPWD_RIFFWave()
+tTVPWD_RIFFWave::‾tTVPWD_RIFFWave()
 {
 	delete Stream;
 }
@@ -750,7 +750,7 @@ struct tTVPWaveDecoderManager
 		TVPRegisterWaveDecoderCreator(&RIFFWaveDecoderCreator);
 	}
 
-	~tTVPWaveDecoderManager()
+	‾tTVPWaveDecoderManager()
 	{
 		TVPWaveDecoderManagerAvail = false;
 	}
@@ -1618,7 +1618,7 @@ tTJSNI_WaveFlags::tTJSNI_WaveFlags()
 	Buffer = NULL;
 }
 //---------------------------------------------------------------------------
-tTJSNI_WaveFlags::~tTJSNI_WaveFlags()
+tTJSNI_WaveFlags::‾tTJSNI_WaveFlags()
 {
 }
 //---------------------------------------------------------------------------
@@ -1702,29 +1702,29 @@ TJS_BEGIN_NATIVE_PROP_DECL(count)
 }
 TJS_END_NATIVE_PROP_DECL(count)
 //----------------------------------------------------------------------
-#define TVP_DEFINE_FLAG_PROP(N) \
-	TJS_BEGIN_NATIVE_PROP_DECL(N)                                                                    \
-	{                                                                                                \
-		TJS_BEGIN_NATIVE_PROP_GETTER                                                                 \
-		{                                                                                            \
-			TJS_GET_NATIVE_INSTANCE(/*var. name*/_this, /*var. type*/tTJSNI_WaveFlags);              \
-			tTVPWaveLoopManager * manager =                                                          \
-				_this->GetBuffer()->GetWaveLoopManager(); /* note that the manager can be null */    \
-			if(manager) *result = manager->GetFlag(N); else *result = (tjs_int)0;                    \
-			return TJS_S_OK;                                                                         \
-		}                                                                                            \
-		TJS_END_NATIVE_PROP_GETTER                                                                   \
-                                                                                                     \
-		TJS_BEGIN_NATIVE_PROP_SETTER                                                                 \
-		{                                                                                            \
-			TJS_GET_NATIVE_INSTANCE(/*var. name*/_this, /*var. type*/tTJSNI_WaveFlags);              \
-			tTVPWaveLoopManager * manager =                                                          \
-				_this->GetBuffer()->GetWaveLoopManager(); /* note that the manager can be null */    \
-			if(manager) manager->SetFlag(N, (tjs_int)*param);                                        \
-			return TJS_S_OK;                                                                         \
-		}                                                                                            \
-		TJS_END_NATIVE_PROP_SETTER                                                                   \
-	}                                                                                                \
+#define TVP_DEFINE_FLAG_PROP(N) ¥
+	TJS_BEGIN_NATIVE_PROP_DECL(N)                                                                    ¥
+	{                                                                                                ¥
+		TJS_BEGIN_NATIVE_PROP_GETTER                                                                 ¥
+		{                                                                                            ¥
+			TJS_GET_NATIVE_INSTANCE(/*var. name*/_this, /*var. type*/tTJSNI_WaveFlags);              ¥
+			tTVPWaveLoopManager * manager =                                                          ¥
+				_this->GetBuffer()->GetWaveLoopManager(); /* note that the manager can be null */    ¥
+			if(manager) *result = manager->GetFlag(N); else *result = (tjs_int)0;                    ¥
+			return TJS_S_OK;                                                                         ¥
+		}                                                                                            ¥
+		TJS_END_NATIVE_PROP_GETTER                                                                   ¥
+                                                                                                     ¥
+		TJS_BEGIN_NATIVE_PROP_SETTER                                                                 ¥
+		{                                                                                            ¥
+			TJS_GET_NATIVE_INSTANCE(/*var. name*/_this, /*var. type*/tTJSNI_WaveFlags);              ¥
+			tTVPWaveLoopManager * manager =                                                          ¥
+				_this->GetBuffer()->GetWaveLoopManager(); /* note that the manager can be null */    ¥
+			if(manager) manager->SetFlag(N, (tjs_int)*param);                                        ¥
+			return TJS_S_OK;                                                                         ¥
+		}                                                                                            ¥
+		TJS_END_NATIVE_PROP_SETTER                                                                   ¥
+	}                                                                                                ¥
 	TJS_END_NATIVE_PROP_DECL(N)                                                                      
 
 TVP_DEFINE_FLAG_PROP(0)
@@ -1754,7 +1754,7 @@ iTJSDispatch2 * TVPCreateWaveFlagsObject(iTJSDispatch2 * buffer)
 	{
 		iTJSDispatch2 * Obj;
 		tHolder() { Obj = new tTJSNC_WaveFlags(); }
-		~tHolder() { Obj->Release(); }
+		‾tHolder() { Obj->Release(); }
 	} static waveflagsclass;
 
 	iTJSDispatch2 *out;

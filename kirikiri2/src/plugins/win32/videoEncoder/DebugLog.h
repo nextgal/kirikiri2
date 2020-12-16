@@ -14,7 +14,7 @@
 #define __DEBUG_LOG_H__
 
 
-//! ƒfƒoƒbƒOƒƒO‚ÌƒŒƒxƒ‹
+//! ãƒ‡ãƒãƒƒã‚°ãƒ­ã‚°ã®ãƒ¬ãƒ™ãƒ«
 enum DebugLogLevel {
 	DebugLogLevelHighest,
 	DebugLogLevelHigher,
@@ -25,7 +25,7 @@ enum DebugLogLevel {
 };
 
 #if defined(_DEBUG) || defined(DEBUG)
-// Debug‚Ì‚Æ‚«
+// Debugã®ã¨ã
 #define Trace(x)				DebugLog(0,DebugLogLevelLowest,x)
 #define Trace0(x)				DebugLog(0,DebugLogLevelLowest,x)
 #define Trace1(x, a)			DebugLog(0,DebugLogLevelLowest,x, a)
@@ -33,7 +33,7 @@ enum DebugLogLevel {
 #define Trace3(x, a, b, c)		DebugLog(0,DebugLogLevelLowest,x, a, b, c)
 #define Trace4(x, a, b, c, d)	DebugLog(0,DebugLogLevelLowest,x, a, b, c, d)
 #else
-// Release‚Ì‚Æ‚«
+// Releaseã®ã¨ã
 #define Trace(x)
 #define Trace0(x)
 #define Trace1(x, a)

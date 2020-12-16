@@ -240,7 +240,7 @@ COpenGLDriver::COpenGLDriver(const core::dimension2d<s32>& screenSize,
 
 
 //! destructor
-COpenGLDriver::~COpenGLDriver()
+COpenGLDriver::‾COpenGLDriver()
 {
 	deleteMaterialRenders();
 
@@ -1150,7 +1150,7 @@ video::ITexture* COpenGLDriver::createDeviceDependentTexture(IImage* surface, co
 
 //! Sets a material. All 3d drawing functions draw geometry now
 //! using this material.
-//! \param material: Material to be used from now on.
+//! ¥param material: Material to be used from now on.
 void COpenGLDriver::setMaterial(const SMaterial& material)
 {
 	Material = material;
@@ -1608,7 +1608,7 @@ void COpenGLDriver::setRenderStates2DMode(bool alpha, bool texture, bool alphaCh
 }
 
 
-//! \return Returns the name of the video driver. Example: In case of the Direct3D8
+//! ¥return Returns the name of the video driver. Example: In case of the Direct3D8
 //! driver, it would return "Direct3D8.1".
 const wchar_t* COpenGLDriver::getName() const
 {
@@ -1726,7 +1726,7 @@ u32 COpenGLDriver::getMaximalDynamicLightAmount() const
 
 //! Sets the dynamic ambient light color. The default color is
 //! (0,0,0,0) which means it is dark.
-//! \param color: New color of the ambient light.
+//! ¥param color: New color of the ambient light.
 void COpenGLDriver::setAmbientLight(const SColorf& color)
 {
 	GLfloat data[4] = {color.r, color.g, color.b, color.a};
@@ -1781,8 +1781,8 @@ void COpenGLDriver::drawStencilShadowVolume(const core::vector3df* triangles, s3
 
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glVertexPointer(3,GL_FLOAT,sizeof(core::vector3df),&triangles[0]);
-	glStencilMask(~0);
-	glStencilFunc(GL_ALWAYS, 0, ~0);
+	glStencilMask(‾0);
+	glStencilFunc(GL_ALWAYS, 0, ‾0);
 
 	// The first parts are not correctly working, yet.
 #if 0
@@ -1804,16 +1804,16 @@ void COpenGLDriver::drawStencilShadowVolume(const core::vector3df* triangles, s3
 				glStencilOp(GL_KEEP, GL_KEEP, GL_DECR_WRAP_EXT);
 			else
 				glStencilOp(GL_KEEP, GL_KEEP, GL_DECR);
-			glStencilMask(~0);
-			glStencilFunc(GL_ALWAYS, 0, ~0);
+			glStencilMask(‾0);
+			glStencilFunc(GL_ALWAYS, 0, ‾0);
 
 			extGlActiveStencilFace(GL_FRONT);
 			if (FeatureAvailable[IRR_EXT_stencil_wrap])
 				glStencilOp(GL_KEEP, GL_KEEP, GL_INCR_WRAP_EXT);
 			else
 				glStencilOp(GL_KEEP, GL_KEEP, GL_INCR);
-			glStencilMask(~0);
-			glStencilFunc(GL_ALWAYS, 0, ~0);
+			glStencilMask(‾0);
+			glStencilFunc(GL_ALWAYS, 0, ‾0);
 
 			glDrawArrays(GL_TRIANGLES,0,count);
 		}
@@ -1826,16 +1826,16 @@ void COpenGLDriver::drawStencilShadowVolume(const core::vector3df* triangles, s3
 				glStencilOp(GL_KEEP, GL_INCR_WRAP_EXT, GL_KEEP);
 			else
 				glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
-			glStencilMask(~0);
-			glStencilFunc(GL_ALWAYS, 0, ~0);
+			glStencilMask(‾0);
+			glStencilFunc(GL_ALWAYS, 0, ‾0);
 
 			extGlActiveStencilFace(GL_FRONT);
 			if (FeatureAvailable[IRR_EXT_stencil_wrap])
 				glStencilOp(GL_KEEP, GL_DECR_WRAP_EXT, GL_KEEP);
 			else
 				glStencilOp(GL_KEEP, GL_DECR, GL_KEEP);
-			glStencilMask(~0);
-			glStencilFunc(GL_ALWAYS, 0, ~0);
+			glStencilMask(‾0);
+			glStencilFunc(GL_ALWAYS, 0, ‾0);
 
 			glDrawArrays(GL_TRIANGLES,0,count);
 		}
@@ -1851,8 +1851,8 @@ void COpenGLDriver::drawStencilShadowVolume(const core::vector3df* triangles, s3
 
 			extGlStencilOpSeparate(GL_BACK, GL_KEEP, GL_KEEP, GL_DECR);
 			extGlStencilOpSeparate(GL_FRONT, GL_KEEP, GL_KEEP, GL_INCR);
-			extGlStencilFuncSeparate(GL_FRONT_AND_BACK, GL_ALWAYS, 0, ~0);
-			glStencilMask(~0);
+			extGlStencilFuncSeparate(GL_FRONT_AND_BACK, GL_ALWAYS, 0, ‾0);
+			glStencilMask(‾0);
 
 			glDrawArrays(GL_TRIANGLES,0,count);
 		}
@@ -1862,7 +1862,7 @@ void COpenGLDriver::drawStencilShadowVolume(const core::vector3df* triangles, s3
 
 			extGlStencilOpSeparate(GL_BACK, GL_KEEP, GL_INCR, GL_KEEP);
 			extGlStencilOpSeparate(GL_FRONT, GL_KEEP, GL_DECR, GL_KEEP);
-			extGlStencilFuncSeparate(GL_FRONT_AND_BACK, GL_ALWAYS, 0, ~0);
+			extGlStencilFuncSeparate(GL_FRONT_AND_BACK, GL_ALWAYS, 0, ‾0);
 
 			glDrawArrays(GL_TRIANGLES,0,count);
 		}
@@ -1925,7 +1925,7 @@ void COpenGLDriver::drawStencilShadow(bool clearStencilBuffer, video::SColor lef
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	glEnable( GL_STENCIL_TEST );
-	glStencilFunc(GL_NOTEQUAL, 0, ~0);
+	glStencilFunc(GL_NOTEQUAL, 0, ‾0);
 	glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
 
 	// draw a shadow rectangle covering the entire screen using stencil buffer
@@ -2292,9 +2292,9 @@ IImage* COpenGLDriver::createScreenShot()
 
 //! Set/unset a clipping plane.
 //! There are at least 6 clipping planes available for the user to set at will.
-//! \param index: The plane index. Must be between 0 and MaxUserClipPlanes.
-//! \param plane: The plane itself.
-//! \param enable: If true, enable the clipping plane else disable it.
+//! ¥param index: The plane index. Must be between 0 and MaxUserClipPlanes.
+//! ¥param plane: The plane itself.
+//! ¥param enable: If true, enable the clipping plane else disable it.
 bool COpenGLDriver::setClipPlane(u32 index, const core::plane3df& plane, bool enable)
 {
 	if (index >= MaxUserClipPlanes)
@@ -2320,8 +2320,8 @@ void COpenGLDriver::uploadClipPlane(u32 index)
 
 //! Enable/disable a clipping plane.
 //! There are at least 6 clipping planes available for the user to set at will.
-//! \param index: The plane index. Must be between 0 and MaxUserClipPlanes.
-//! \param enable: If true, enable the clipping plane else disable it.
+//! ¥param index: The plane index. Must be between 0 and MaxUserClipPlanes.
+//! ¥param enable: If true, enable the clipping plane else disable it.
 void COpenGLDriver::enableClipPlane(u32 index, bool enable)
 {
 	if (index >= MaxUserClipPlanes)

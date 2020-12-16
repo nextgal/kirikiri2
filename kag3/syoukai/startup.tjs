@@ -3,9 +3,9 @@
 		function
 		{
 			throw new Exception(
-				"�V�X�e����������܂���\n"
-				"���̏Љ�p�X�N���v�g�́A�t�H���_/�t�@�C���\����\n"
-				"KAG�̔z�z���Ɠ����łȂ��Ɛ���ɓ��삵�܂���B");
+				"システムが見つかりません¥n"
+				"この紹介用スクリプトは、フォルダ/ファイル構成が¥n"
+				"KAGの配布時と同じでないと正常に動作しません。");
 		};
 
 	if(Storages.isExistentStorage("../kag3/scenario/snow.ks"))

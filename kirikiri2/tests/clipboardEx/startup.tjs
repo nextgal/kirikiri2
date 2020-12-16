@@ -1,10 +1,10 @@
-// ƒvƒ‰ƒOƒCƒ“‚ğƒŠƒ“ƒN
+// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’ãƒªãƒ³ã‚¯
 Plugins.link("clipboardEx.dll");
 
 //----------------------------------------------------------------------
-// ƒLƒƒƒ“ƒoƒX
+// ã‚­ãƒ£ãƒ³ãƒã‚¹
 //
-// ƒ}ƒEƒX¶ƒhƒ‰ƒbƒO‚Å•A‰Eƒhƒ‰ƒbƒO‚Å”’‚Ì‹éŒ`‚ğ•`‰æ
+// ãƒã‚¦ã‚¹å·¦ãƒ‰ãƒ©ãƒƒã‚°ã§é»’ã€å³ãƒ‰ãƒ©ãƒƒã‚°ã§ç™½ã®çŸ©å½¢ã‚’æç”»
 //----------------------------------------------------------------------
 class CanvasLayer extends Layer
 {
@@ -42,7 +42,7 @@ class CanvasLayer extends Layer
 }
 
 //----------------------------------------------------------------------
-// ƒeƒXƒgƒAƒvƒŠ
+// ãƒ†ã‚¹ãƒˆã‚¢ãƒ—ãƒª
 //----------------------------------------------------------------------
 class AppWindow extends Window
 {
@@ -53,53 +53,53 @@ class AppWindow extends Window
   var canvas;
 
   //------------------------------
-  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+  // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
   //------------------------------
   function AppWindow {
     super.Window();
 
-    // ƒEƒBƒ“ƒhƒE‰Šú‰»
-    System.title = caption = "ƒNƒŠƒbƒvƒ{[ƒhƒeƒXƒg";
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦åˆæœŸåŒ–
+    System.title = caption = "ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ãƒ†ã‚¹ãƒˆ";
     borderStyle = bsSingle;
     showScrollBars = false;
 
-    // ƒŒƒCƒ„ì¬
+    // ãƒ¬ã‚¤ãƒ¤ä½œæˆ
     canvas = new CanvasLayer(this, null);
     setInnerSize(canvas.width, canvas.height);
     add(canvas);
 
-    // ƒƒjƒ…[¶¬
-    editMenuItem = new MenuItem(this, "•ÒW");
+    // ãƒ¡ãƒ‹ãƒ¥ãƒ¼ç”Ÿæˆ
+    editMenuItem = new MenuItem(this, "ç·¨é›†");
     menu.add(editMenuItem);
-    copyMenuItem = new MenuItem(this, "ƒRƒs[");
+    copyMenuItem = new MenuItem(this, "ã‚³ãƒ”ãƒ¼");
     copyMenuItem.onClick = this.onCopy;
     copyMenuItem.shortcut = "Ctrl+C";
     editMenuItem.add(copyMenuItem);
-    pasteMenuItem = new MenuItem(this, "ƒy[ƒXƒg");
+    pasteMenuItem = new MenuItem(this, "ãƒšãƒ¼ã‚¹ãƒˆ");
     pasteMenuItem.onClick = this.onPaste;
     pasteMenuItem.shortcut = "Ctrl+V";
     editMenuItem.add(pasteMenuItem);
     editMenuItem.add(new MenuItem(this, "-"));
-    toggleClipboardWatchMenuItem = new MenuItem(this, "ƒNƒŠƒbƒvƒ{[ƒhŠÄ‹");
+    toggleClipboardWatchMenuItem = new MenuItem(this, "ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ç›£è¦–");
     toggleClipboardWatchMenuItem.onClick = this.onToggleClipboardWatch;
     editMenuItem.add(toggleClipboardWatchMenuItem);
 
-    // Å‰‚Éˆê‰ñ‚Æ‚è‚ ‚¦‚¸ƒy[ƒXƒg‚µ‚Ä‚¨‚­
+    // æœ€åˆã«ä¸€å›ã¨ã‚Šã‚ãˆãšãƒšãƒ¼ã‚¹ãƒˆã—ã¦ãŠã
     onPaste();
 
-    // ƒEƒBƒ“ƒhƒE‚Ì•\¦ŠJn
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®è¡¨ç¤ºé–‹å§‹
     visible = true;
   }
 
   //------------------------------
-  // ƒLƒƒƒ“ƒoƒX‚Ì“à—e‚ğƒNƒŠƒbƒvƒ{[ƒh‚ÖƒRƒs[
+  // ã‚­ãƒ£ãƒ³ãƒã‚¹ã®å†…å®¹ã‚’ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã¸ã‚³ãƒ”ãƒ¼
   //------------------------------
   function onCopy {
     Clipboard.setAsBitmap(canvas);
   }
 
   //------------------------------
-  // ƒLƒƒƒ“ƒoƒX‚Ì“à—e‚ğƒNƒŠƒbƒvƒ{[ƒh‚©‚çƒy[ƒXƒg
+  // ã‚­ãƒ£ãƒ³ãƒã‚¹ã®å†…å®¹ã‚’ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã‹ã‚‰ãƒšãƒ¼ã‚¹ãƒˆ
   //------------------------------
   function onPaste {
     if (Clipboard.getAsBitmap(canvas)) {
@@ -108,27 +108,27 @@ class AppWindow extends Window
   }
 
   //------------------------------
-  // ƒNƒŠƒbƒvƒ{[ƒh‚ÌXV‚ğŒŸ’m
+  // ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã®æ›´æ–°ã‚’æ¤œçŸ¥
   //------------------------------
   function onDrawClipboard {
-    // ©“®“I‚Éƒy[ƒXƒg
+    // è‡ªå‹•çš„ã«ãƒšãƒ¼ã‚¹ãƒˆ
     onPaste();
   }
 
   //------------------------------
-  // ƒNƒŠƒbƒvƒ{[ƒhŒŸ’m‚ÌƒgƒOƒ‹
+  // ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰æ¤œçŸ¥ã®ãƒˆã‚°ãƒ«
   //------------------------------
   function onToggleClipboardWatch {
-    // ƒgƒOƒ‹”½“]
+    // ãƒˆã‚°ãƒ«åè»¢
     toggleClipboardWatchMenuItem.checked = ! toggleClipboardWatchMenuItem.checked;
-    // ƒNƒŠƒbƒvƒ{[ƒhŠÄ‹ó‘ÔØ‚è‘Ö‚¦
+    // ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ç›£è¦–çŠ¶æ…‹åˆ‡ã‚Šæ›¿ãˆ
     clipboardWatchEnabled = toggleClipboardWatchMenuItem.checked;
-    // ŠÄ‹‚ğŠJn‚µ‚½‚ç‚Æ‚è‚ ‚¦‚¸ƒy[ƒXƒg‚µ‚Ä‚¨‚­
+    // ç›£è¦–ã‚’é–‹å§‹ã—ãŸã‚‰ã¨ã‚Šã‚ãˆãšãƒšãƒ¼ã‚¹ãƒˆã—ã¦ãŠã
     if (clipboardWatchEnabled)
       onPaste();
   }
 }
 
 
-// ƒeƒXƒgƒAƒvƒŠ‹N“®    
+// ãƒ†ã‚¹ãƒˆã‚¢ãƒ—ãƒªèµ·å‹•    
 var app = new AppWindow();

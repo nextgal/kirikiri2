@@ -11,7 +11,7 @@
 //---------------------------------------------------------------------------
 class TMainForm : public TForm
 {
-__published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ç®¡ç†ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TMemo *NoticeMemo;
 	TListView *ListView;
 	TButton *CheckButton;
@@ -28,18 +28,18 @@ __published:	// IDE ŠÇ—‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall CheckButtonClick(TObject *Sender);
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall CopyResultButtonClick(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
-	bool Checking; // –¼‚ğƒ`ƒFƒbƒN’†‚©‚Ç‚¤‚©
-	bool Aborting; // •Â‚¶‚éƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚©
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
+	bool Checking; // ç½²åã‚’ãƒã‚§ãƒƒã‚¯ä¸­ã‹ã©ã†ã‹
+	bool Aborting; // é–‰ã˜ã‚‹ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã‹
 	AnsiString BaseDir;
 	AnsiString PublicKey;
 	TListItem *CurrentCheckingItem;
 	AnsiString AllFileList;
 	int AllFileCount;
 	DWORD LastDisplayedTick;
-public:		// ƒ†[ƒU[éŒ¾
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	__fastcall TMainForm(TComponent* Owner);
-private:	// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	void __fastcall MakeFileList(AnsiString path, int baselen);
 	bool __fastcall SigProgressNotify(int percent);
 };

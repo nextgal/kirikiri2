@@ -42,10 +42,10 @@ struct list1
 
 #else
 
-#   define MPL_AUX_LIST_TAIL(list, i, T) \
-    BOOST_PP_CAT(list,BOOST_PP_DEC(i))< \
-      BOOST_PP_ENUM_SHIFTED_PARAMS(i, T) \
-    > \
+#   define MPL_AUX_LIST_TAIL(list, i, T) ¥
+    BOOST_PP_CAT(list,BOOST_PP_DEC(i))< ¥
+      BOOST_PP_ENUM_SHIFTED_PARAMS(i, T) ¥
+    > ¥
     /**/
     
 template<

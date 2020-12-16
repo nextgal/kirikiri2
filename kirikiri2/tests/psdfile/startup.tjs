@@ -21,15 +21,15 @@ class MyWindow extends Window
 	
 	function MyWindow() {
 		super.Window();
-		menu.add(filemenu = new MenuItem(this, "ƒtƒ@ƒCƒ‹(&F)"));
-		filemenu.add(openmenu  = new MenuItem(this, "ŠJ‚­1(&O)"));
-		filemenu.add(openmenu2  = new MenuItem(this, "ŠJ‚­2(&O)"));
-		filemenu.add(clearmenu = new MenuItem(this, "Á‹(&E)"));
-		filemenu.add(exitmenu  = new MenuItem(this, "I—¹(&X)"));
+		menu.add(filemenu = new MenuItem(this, "ãƒ•ã‚¡ã‚¤ãƒ«(&F)"));
+		filemenu.add(openmenu  = new MenuItem(this, "é–‹ã1(&O)"));
+		filemenu.add(openmenu2  = new MenuItem(this, "é–‹ã2(&O)"));
+		filemenu.add(clearmenu = new MenuItem(this, "æ¶ˆå»(&E)"));
+		filemenu.add(exitmenu  = new MenuItem(this, "çµ‚äº†(&X)"));
 
 		setInnerSize(WIDTH, HEIGHT);
 
-		// ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„
+		// ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤
 		base = new Layer(this, null);
 		base.setSize(WIDTH, HEIGHT);
 		base.fillRect(0,0,WIDTH,HEIGHT,0xff000000);
@@ -64,9 +64,9 @@ class MyWindow extends Window
 			dm(@"${i}: id:${info.layer_id} name:${info.name}");
 			if (info.layer_type == PSD.layer_type_normal) {
 				var layer = new Layer(this, base);
-				// ƒŒƒCƒ„‚ğƒpƒXŒo—R‚Å“Ç‚İ‚Ş
+				// ãƒ¬ã‚¤ãƒ¤ã‚’ãƒ‘ã‚¹çµŒç”±ã§èª­ã¿è¾¼ã‚€
 				if (mode) {
-					// ƒtƒ@ƒCƒ‹‚Æ‚µ‚Äƒ[ƒh
+					// ãƒ•ã‚¡ã‚¤ãƒ«ã¨ã—ã¦ãƒ­ãƒ¼ãƒ‰
 					try {
 						layer.loadImages(@"psd://${basename}/id/${info.layer_id}.bmp");
 						layer.left = info.left;
@@ -79,25 +79,25 @@ class MyWindow extends Window
 						dm(e.message);
 					}
 				} else {
-					// ƒ‰ƒCƒuƒ‰ƒŠ‚©‚ç’¼Úæ“¾
+					// ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‹ã‚‰ç›´æ¥å–å¾—
 					psd.getLayerData(layer, i);
 				}
 				layers.add(layer);
 			}
 		}
-		dm(@"${filename}:“Ç‚İ‚İ ${System.getTickCount() - start}ms");
+		dm(@"${filename}:èª­ã¿è¾¼ã¿ ${System.getTickCount() - start}ms");
 	}
 	
 	function openDialog() {
 		var fileDialog =%[
-		filter : [ "PSDƒtƒ@ƒCƒ‹(*.psd)|*.psd" ],
-		title  :   "PSDƒtƒ@ƒCƒ‹‚Ì“Ç‚İ",
+		filter : [ "PSDãƒ•ã‚¡ã‚¤ãƒ«(*.psd)|*.psd" ],
+		title  :   "PSDãƒ•ã‚¡ã‚¤ãƒ«ã®èª­è¾¼ã¿",
 			];
-		if (!Storages.selectFile(fileDialog)) return; // ƒLƒƒƒ“ƒZƒ‹‚Å”²‚¯‚é
+		if (!Storages.selectFile(fileDialog)) return; // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã§æŠœã‘ã‚‹
 		return fileDialog.name;
 	}
 
-	// Às•”
+	// å®Ÿè¡Œéƒ¨
 	function action(ev)	{
 		if(ev.type == "onClick") {
 			switch (ev.target) {

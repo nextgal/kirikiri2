@@ -26,14 +26,14 @@ public:
 	CFileList();
 
 	//! Returns the amount of files in the filelist.
-	//! \return
+	//! ¥return
 	//! Returns the amount of files and directories in the file list.
 	virtual u32 getFileCount() const;
 
 	//! Gets the name of a file in the list, based on an index.
-	//! \param index is the zero based index of the file which name should
+	//! ¥param index is the zero based index of the file which name should
 	//!   be returned. The index has to be smaller than the amount getFileCount() returns.
-	//! \return
+	//! ¥return
 	//! Returns the file name of the file. Returns 0, if an error occured.
 	virtual const c8* getFileName(u32 index) const;
 
@@ -41,9 +41,9 @@ public:
 	virtual const c8* getFullFileName(u32 index);
 
 	//! Returns of the file is a directory
-	//! \param index is the zero based index of the file which name should
+	//! ¥param index is the zero based index of the file which name should
 	//!  be returned. The index has to be smaller than the amount getFileCount() returns.
-	//! \return
+	//! ¥return
 	//! Returns true, if the file is a directory, and false, if it is not.
 	//!  If an error occurs, the result is undefined.
 	virtual bool isDirectory(u32 index) const;

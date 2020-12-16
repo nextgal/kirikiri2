@@ -1,4 +1,4 @@
-rem krkr.exe を高解像度対応済みマニフェストをついた状態にするバッチファイル
+rem krkr.exe 繧帝ｫ倩ｧ｣蜒丞ｺｦ蟇ｾ蠢懈ｸ医∩繝槭ル繝輔ぉ繧ｹ繝医ｒ縺､縺�縺溽憾諷九↓縺吶ｋ繝舌ャ繝√ヵ繧｡繧､繝ｫ
 copy krkr.exe tvpwin32.exe
 mt.exe -manifest highdpi.manifest -outputresource:tvpwin32.exe;#1
-copy /b tvpwin32.exe+"..\..\src\core\environ\win32\optionarea.bin" krkr.exe /y
+copy /b tvpwin32.exe+"..ﾂ･..ﾂ･srcﾂ･coreﾂ･environﾂ･win32ﾂ･optionarea.bin" krkr.exe /y

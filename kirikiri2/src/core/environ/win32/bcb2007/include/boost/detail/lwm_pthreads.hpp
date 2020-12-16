@@ -47,7 +47,7 @@ public:
 #endif
     }
 
-    ~lightweight_mutex()
+    ‾lightweight_mutex()
     {
         pthread_mutex_destroy(&m_);
     }
@@ -71,7 +71,7 @@ public:
             pthread_mutex_lock(&m_);
         }
 
-        ~scoped_lock()
+        ‾scoped_lock()
         {
             pthread_mutex_unlock(&m_);
         }

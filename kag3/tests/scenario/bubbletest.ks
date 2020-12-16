@@ -1,7 +1,7 @@
 @call storage="bubble.ks"
 @image layer=base page=fore storage=_24_3
-*start1|–A‚Í”ñ•\¦
-–A‚ğ‚Ó‚ç‚¹‚Ü‚·[l]
+*start1|æ³¡ã¯éè¡¨ç¤º
+æ³¡ã‚’ãµã‚‰ã›ã¾ã™[l]
 @backlay
 @bubbleinit forevisible=false backvisible=true
 @trans method=crossfade time=2000
@@ -9,8 +9,8 @@
 ;
 ;@jump target=*test
 ;
-*start2|–A‚Í•\¦’†
-”wŒi‚ğ“ü‚ê‘Ö‚¦‚Ü‚·[l]
+*start2|æ³¡ã¯è¡¨ç¤ºä¸­
+èƒŒæ™¯ã‚’å…¥ã‚Œæ›¿ãˆã¾ã™[l]
 @backlay
 @image layer=base page=back storage=_24
 @trans method=crossfade time=2000
@@ -21,7 +21,7 @@
 @trans children=false method=crossfade time=2000
 @wt
 @l
-–A‚ğ‚â‚Ü‚¹‚Ü‚·[l]
+æ³¡ã‚’ã‚„ã¾ã›ã¾ã™[l]
 @backlay
 @bubbleopt backvisible=false
 @trans method=crossfade time=2000

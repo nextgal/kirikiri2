@@ -22,141 +22,141 @@
 //---------------------------------------------------------------------------
 // Japanese localized messages
 TVP_MSG_DECL(TVPScriptExceptionRaised,
-	TJS_W("�X�N���v�g�ŗ�O���������܂���"));
+	TJS_W("スクリプトで例外が発生しました"));
 
 TVP_MSG_DECL(TVPHardwareExceptionRaised,
-	TJS_W("�n�[�h�E�F�A��O���������܂���"));
+	TJS_W("ハードウェア例外が発生しました"));
 
 TVP_MSG_DECL(TVPMainCDPName,
-	TJS_W("�X�N���v�g�G�f�B�^ (���C��)"));
+	TJS_W("スクリプトエディタ (メイン)"));
 
 TVP_MSG_DECL(TVPExceptionCDPName,
-	TJS_W("�X�N���v�g�G�f�B�^ (��O�ʒm)"));
+	TJS_W("スクリプトエディタ (例外通知)"));
 
 TVP_MSG_DECL(TVPCannnotLocateUIDLLForFolderSelection,
-	TJS_W("�t�H���_/�A�[�J�C�u�̑I����ʂ�\�����悤�Ƃ��܂����� ")
-		TJS_W("krdevui.dll ��������Ȃ��̂ŕ\���ł��܂���.\n")
-		TJS_W("���s����t�H���_/�A�[�J�C�u�̓R�}���h���C���̈����Ƃ��Ďw�肵�Ă�������"));
+	TJS_W("フォルダ/アーカイブの選択画面を表示しようとしましたが ")
+		TJS_W("krdevui.dll が見つからないので表示できません.¥n")
+		TJS_W("実行するフォルダ/アーカイブはコマンドラインの引数として指定してください"));
 
 TVP_MSG_DECL(TVPInvalidUIDLL,
-	TJS_W("krdevui.dll ���ُ킩�A�o�[�W��������v���܂���"));
+	TJS_W("krdevui.dll が異常か、バージョンが一致しません"));
 
 TVP_MSG_DECL(TVPInvalidBPP,
-	TJS_W("�����ȐF�[�x�ł�"));
+	TJS_W("無効な色深度です"));
 
 TVP_MSG_DECL(TVPCannotLoadPlugin,
-	TJS_W("�v���O�C�� %1 ��ǂݍ��߂܂���"));
+	TJS_W("プラグイン %1 を読み込めません"));
 
 TVP_MSG_DECL(TVPNotValidPlugin,
-	TJS_W("%1 �͗L���ȃv���O�C���ł͂���܂���"));
+	TJS_W("%1 は有効なプラグインではありません"));
 
 TVP_MSG_DECL(TVPPluginUninitFailed,
-	TJS_W("�v���O�C���̉���Ɏ��s���܂���"));
+	TJS_W("プラグインの解放に失敗しました"));
 
 TVP_MSG_DECL(TVPCannnotLinkPluginWhilePluginLinking,
-	TJS_W("�v���O�C���̐ڑ����ɑ��̃v���O�C����ڑ����邱�Ƃ͂ł��܂܂���"));
+	TJS_W("プラグインの接続中に他のプラグインを接続することはできまません"));
 
 TVP_MSG_DECL(TVPNotSusiePlugin,
-	TJS_W("�ُ�� Susie �v���O�C���ł�"));
+	TJS_W("異常な Susie プラグインです"));
 
 TVP_MSG_DECL(TVPSusiePluginError,
-	TJS_W("Susie �v���O�C���ŃG���[���������܂���/�G���[�R�[�h %1"));
+	TJS_W("Susie プラグインでエラーが発生しました/エラーコード %1"));
 
 TVP_MSG_DECL(TVPCannotReleasePlugin,
-	TJS_W("�w�肳�ꂽ�v���O�C���͎g�p���̂��߉���ł��܂���"));
+	TJS_W("指定されたプラグインは使用中のため解放できません"));
 
 TVP_MSG_DECL(TVPNotLoadedPlugin,
-	TJS_W("%1 �͓ǂݍ��܂�Ă��܂���"));
+	TJS_W("%1 は読み込まれていません"));
 
 TVP_MSG_DECL(TVPCannotAllocateBitmapBits,
-	TJS_W("�r�b�g�}�b�v�p���������m�ۂł��܂���/%1(size=%2)"));
+	TJS_W("ビットマップ用メモリを確保できません/%1(size=%2)"));
 
 TVP_MSG_DECL(TVPScanLineRangeOver,
-	TJS_W("�X�L�������C�� %1 �͔͈�(0�`%2)�𒴂��Ă��܂�"));
+	TJS_W("スキャンライン %1 は範囲(0〜%2)を超えています"));
 
 TVP_MSG_DECL(TVPPluginError,
-	TJS_W("�v���O�C���ŃG���[���������܂���/%1"));
+	TJS_W("プラグインでエラーが発生しました/%1"));
 
 TVP_MSG_DECL(TVPInvalidCDDADrive,
-	TJS_W("�w�肳�ꂽ�h���C�u�ł� CD-DA ���Đ��ł��܂���"));
+	TJS_W("指定されたドライブでは CD-DA を再生できません"));
 
 TVP_MSG_DECL(TVPCDDADriveNotFound,
-	TJS_W("CD-DA ���Đ��ł���h���C�u��������܂���"));
+	TJS_W("CD-DA を再生できるドライブが見つかりません"));
 
 TVP_MSG_DECL(TVPMCIError,
-	TJS_W("MCI �ŃG���[���������܂��� : %1"));
+	TJS_W("MCI でエラーが発生しました : %1"));
 
 TVP_MSG_DECL(TVPInvalidSMF,
-	TJS_W("�L���� SMF �t�@�C���ł͂���܂��� : %1"));
+	TJS_W("有効な SMF ファイルではありません : %1"));
 
 TVP_MSG_DECL(TVPMalformedMIDIMessage,
-	TJS_W("�w�肳�ꂽ���b�Z�[�W�� MIDI ���b�Z�[�W�Ƃ��ėL���Ȍ`���ł͂���܂���"));
+	TJS_W("指定されたメッセージは MIDI メッセージとして有効な形式ではありません"));
 
 TVP_MSG_DECL(TVPCannotInitDirectSound,
-	TJS_W("DirectSound ���������ł��܂��� : %1"));
+	TJS_W("DirectSound を初期化できません : %1"));
 
 TVP_MSG_DECL(TVPCannotCreateDSSecondaryBuffer,
-	TJS_W("DirectSound �Z�J���_���o�b�t�@���쐬�ł��܂��� : %1/%2"));
+	TJS_W("DirectSound セカンダリバッファを作成できません : %1/%2"));
 
 TVP_MSG_DECL(TVPInvalidLoopInformation,
-	TJS_W("���[�v��� %1 �ُ͈�ł�"));
+	TJS_W("ループ情報 %1 は異常です"));
 
 TVP_MSG_DECL(TVPNotChildMenuItem,
-	TJS_W("�w�肳�ꂽ���j���[���ڂ͂��̃��j���[���ڂ̎q�ł͂���܂���"));
+	TJS_W("指定されたメニュー項目はこのメニュー項目の子ではありません"));
 
 TVP_MSG_DECL(TVPCannotInitDirectDraw,
-	TJS_W("DirectDraw ���������ł��܂��� : %1"));
+	TJS_W("DirectDraw を初期化できません : %1"));
 
 TVP_MSG_DECL(TVPCannotFindDisplayMode,
-	TJS_W("�K�������ʃ��[�h��������܂��� : %1"));
+	TJS_W("適合する画面モードが見つかりません : %1"));
 
 TVP_MSG_DECL(TVPCannotSwitchToFullScreen,
-	TJS_W("�t���X�N���[���ɐ؂�ւ����܂��� : %1"));
+	TJS_W("フルスクリーンに切り替えられません : %1"));
 
 TVP_MSG_DECL(TVPInvalidPropertyInFullScreen,
-	TJS_W("�t���X�N���[�����ł͑���ł��Ȃ��v���p�e�B��ݒ肵�悤�Ƃ��܂���"));
+	TJS_W("フルスクリーン中では操作できないプロパティを設定しようとしました"));
 
 TVP_MSG_DECL(TVPInvalidMethodInFullScreen,
-	TJS_W("�t���X�N���[�����ł͑���ł��Ȃ����\�b�h���Ăяo�����Ƃ��܂���"));
+	TJS_W("フルスクリーン中では操作できないメソッドを呼び出そうとしました"));
 
 TVP_MSG_DECL(TVPCannotLoadCursor,
-	TJS_W("�}�E�X�J�[�\�� %1 �̓ǂݍ��݂Ɏ��s���܂���"));
+	TJS_W("マウスカーソル %1 の読み込みに失敗しました"));
 
 TVP_MSG_DECL(TVPCannotLoadKrMovieDLL,
-	TJS_W("�r�f�I/Shockwave Flash ���Đ����邽�߂ɂ� krmovie.dll / krflash.dll ")
-		TJS_W("���K�v�ł��� �ǂݍ��ނ��Ƃ��ł��܂���"));
+	TJS_W("ビデオ/Shockwave Flash を再生するためには krmovie.dll / krflash.dll ")
+		TJS_W("が必要ですが 読み込むことができません"));
 
 TVP_MSG_DECL(TVPInvalidKrMovieDLL,
-	TJS_W("krmovie.dll/krflash.dll ���ُ킩 �Ή��ł��Ȃ��o�[�W�����ł�"));
+	TJS_W("krmovie.dll/krflash.dll が異常か 対応できないバージョンです"));
 
 TVP_MSG_DECL(TVPErrorInKrMovieDLL,
-	TJS_W("krmovie.dll/krflash.dll ���ŃG���[���������܂���/%1"));
+	TJS_W("krmovie.dll/krflash.dll 内でエラーが発生しました/%1"));
 
 TVP_MSG_DECL(TVPWindowAlreadyMissing,
-	TJS_W("�E�B���h�E�͂��łɑ��݂��Ă��܂���"));
+	TJS_W("ウィンドウはすでに存在していません"));
 
 TVP_MSG_DECL(TVPPrerenderedFontMappingFailed,
-	TJS_W("�����_�����O�ς݃t�H���g�̃}�b�s���O�Ɏ��s���܂��� : %1"));
+	TJS_W("レンダリング済みフォントのマッピングに失敗しました : %1"));
 
 TVP_MSG_DECL_CONST(TVPConfigFailOriginalFileCannotBeRewritten,
-	TJS_W("%1 �ɏ������݂ł��܂���B�\�t�g�E�F�A�����s���̂܂܂ɂȂ��Ă��Ȃ����A���邢��")
-		TJS_W("�������݌��������邩�ǂ������m�F���Ă�������"));
+	TJS_W("%1 に書き込みできません。ソフトウェアが実行中のままになっていないか、あるいは")
+		TJS_W("書き込み権限があるかどうかを確認してください"));
 
 TVP_MSG_DECL(TVPConfigFailTempExeNotErased,
-	TJS_W("%1 �̏I�����m�F�ł��Ȃ����߁A������폜�ł��܂���ł���(���̃t�@�C���͍폜���Č��\�ł�)"));
+	TJS_W("%1 の終了を確認できないため、これを削除できませんでした(このファイルは削除して結構です)"));
 
 TVP_MSG_DECL_CONST(TVPExecutionFail,
-	TJS_W("%1 �����s�ł��܂���"));
+	TJS_W("%1 を実行できません"));
 
 TVP_MSG_DECL(TVPPluginUnboundFunctionError,
-	TJS_W("�v���O�C������֐� %1 ��v������܂������A���̊֐��͖{�̓��ɑ��݂��܂���B�v���O�C����")
-			TJS_W("�{�̂̃o�[�W�������������Ή����Ă��邩�m�F���Ă�������"));
+	TJS_W("プラグインから関数 %1 を要求されましたが、その関数は本体内に存在しません。プラグインと")
+			TJS_W("本体のバージョンが正しく対応しているか確認してください"));
 
 TVP_MSG_DECL(TVPExceptionHadBeenOccured,
-	TJS_W(" = (��O����)"));
+	TJS_W(" = (例外発生)"));
 
 TVP_MSG_DECL(TVPConsoleResult,
-	TJS_W("�R���\�[�� : "));
+	TJS_W("コンソール : "));
 
 
 //---------------------------------------------------------------------------

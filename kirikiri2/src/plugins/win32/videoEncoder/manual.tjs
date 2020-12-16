@@ -1,56 +1,56 @@
 /**
- * @description ‹[—ƒR[ƒh‚É‚æ‚éƒ}ƒjƒ…ƒAƒ‹
+ * @description æ“¬ä¼¼ã‚³ãƒ¼ãƒ‰ã«ã‚ˆã‚‹ãƒãƒ‹ãƒ¥ã‚¢ãƒ«
  */
 class videoEncoder {
 
 	/**
-	 * “®‰æˆ³kƒNƒIƒŠƒeƒB
-	 * @description 0-100 ƒfƒtƒHƒ‹ƒg 50
+	 * å‹•ç”»åœ§ç¸®ã‚¯ã‚ªãƒªãƒ†ã‚£
+	 * @description 0-100 ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ 50
 	 */
 	property videoQuality;
 
 	/**
-	 * Å‘åƒL[ƒtƒŒ[ƒ€ŠÔŠu(•b)
-	 * @description ƒfƒtƒHƒ‹ƒg 5
+	 * æœ€å¤§ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ é–“éš”(ç§’)
+	 * @description ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ 5
 	 */
 	property secondPerKey;
 
 	/**
-	 * ƒtƒŒ[ƒ€ƒXƒP[ƒ‹
-	 *  @descriptionvideoTimeScale / videoTimeRate ‚ª1ƒtƒŒ[ƒ€‚ÌŠÔ
-	 * ƒfƒtƒHƒ‹ƒg 1
+	 * ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¹ã‚±ãƒ¼ãƒ«
+	 *  @descriptionvideoTimeScale / videoTimeRate ãŒ1ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ™‚é–“
+	 * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ 1
 	 */
 	property videoTimeScale;
 	/**
-	 * ƒtƒŒ[ƒ€ƒŒ[ƒg
-	 * @description videoTimeScale / videoTimeRate ‚ª1ƒtƒŒ[ƒ€‚ÌŠÔ
-	 * ƒfƒtƒHƒ‹ƒg 30
+	 * ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¬ãƒ¼ãƒˆ
+	 * @description videoTimeScale / videoTimeRate ãŒ1ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ™‚é–“
+	 * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ 30
 	 */
 	property videoTimeRate;
 	/**
-	 * ‰æ‘œ•
-	 * @description ƒfƒtƒHƒ‹ƒg 640
+	 * ç”»åƒå¹…
+	 * @description ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ 640
 	 */
 	property videoWidth;
 	/**
-	 * ‰æ‘œ‚‚³
-	 * @description ƒfƒtƒHƒ‹ƒg 480
+	 * ç”»åƒé«˜ã•
+	 * @description ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ 480
 	 */
 	property videoHeight;
 
-	// @description ƒI[ƒvƒ“Œã‚ÌƒvƒƒpƒeƒB‚Ì•ÏX‚Íó‚¯•t‚¯‚È‚¢
+	// @description ã‚ªãƒ¼ãƒ—ãƒ³å¾Œã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å¤‰æ›´ã¯å—ã‘ä»˜ã‘ãªã„
 
 	function open( filename );
 	function close();
 	function encodeVideoSample( layer );
 };
 /*
-// g—p—á
+// ä½¿ç”¨ä¾‹
 Plugins.link("videoEncoder.dll");
 encoder = new videoEncoder;
-encoder.open("c:\test.wmv");
+encoder.open("c:Â¥test.wmv");
 for( var i = 0; i < 120; i++ ) {
-	kag.fore.layers[0].XXXX; // ƒŒƒCƒ„‚É‰½‚©‚·‚é
+	kag.fore.layers[0].XXXX; // ãƒ¬ã‚¤ãƒ¤ã«ä½•ã‹ã™ã‚‹
 	encoder.encodeVideoSample( kag.fore.layers[0] );
 }
 encoder.close();

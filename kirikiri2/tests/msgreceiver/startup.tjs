@@ -5,23 +5,23 @@ var HEIGHT=480;
 
 class MyWindow extends Window
 {
-    //  ƒƒjƒ…
+    //  ãƒ¡ãƒ‹ãƒ¥
     var filemenu;
     var exitmenu;
     
-    // ƒx[ƒXƒŒƒCƒ„
+    // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
     var base;
 
     function MyWindow() {
 
         super.Window();
 
-        caption = "MSGóMƒeƒXƒg";
+        caption = "MSGå—ä¿¡ãƒ†ã‚¹ãƒˆ";
         
-        menu.add(filemenu = new MenuItem(this, "ƒtƒ@ƒCƒ‹(&F)"));
-        filemenu.add(exitmenu = new MenuItem(this, "I—¹(&X)"));
+        menu.add(filemenu = new MenuItem(this, "ãƒ•ã‚¡ã‚¤ãƒ«(&F)"));
+        filemenu.add(exitmenu = new MenuItem(this, "çµ‚äº†(&X)"));
 
-        // ƒx[ƒXƒŒƒCƒ„
+        // ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¤ãƒ¤
         base = new Layer(this,null);
         base.visible=true;
         base.setSize(WIDTH,HEIGHT);
@@ -48,6 +48,6 @@ class MyWindow extends Window
 	}
 }
 
-// ‘‹
+// çª“
 var win = new MyWindow();
 win.visible=true;

@@ -4,7 +4,7 @@
 
 
 /**----------------------------------------------------------------------
- * ƒtƒŒ[ƒ€ƒŒƒCƒAƒEƒg
+ * ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
  ----------------------------------------------------------------------*/
 class KFrameLayout extends KWidget
 {
@@ -15,12 +15,12 @@ class KFrameLayout extends KWidget
   var redrawn;
 
   /**------------------------------
-   * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+   * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
    * 
-   * @param window ƒEƒBƒ“ƒhƒE
-   * @param type ƒtƒŒ[ƒ€ƒ^ƒCƒvBFRAME_FLATTEN, FRAME_SUNKEN, FRAME_RAISED‚Ì‚¢‚¸‚ê‚©‚ğw’è‚·‚é
-   * @param label ƒ‰ƒxƒ‹
-   * @param name –¼‘O
+   * @param window ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
+   * @param type ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¿ã‚¤ãƒ—ã€‚FRAME_FLATTEN, FRAME_SUNKEN, FRAME_RAISEDã®ã„ãšã‚Œã‹ã‚’æŒ‡å®šã™ã‚‹
+   * @param label ãƒ©ãƒ™ãƒ«
+   * @param name åå‰
    ------------------------------*/
   function KFrameLayout(window, type, label = "", name = "") {
     super.KWidget(window, name);
@@ -32,10 +32,10 @@ class KFrameLayout extends KWidget
   }
 
   /**------------------------------
-   * ƒtƒŒ[ƒ€ƒ^ƒCƒv
+   * ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¿ã‚¤ãƒ—
    *
-   * @param v ƒtƒŒ[ƒ€ƒ^ƒCƒv
-   * @return ƒtƒŒ[ƒ€ƒ^ƒCƒv
+   * @param v ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¿ã‚¤ãƒ—
+   * @return ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¿ã‚¤ãƒ—
    ------------------------------*/ 
   property type {
     getter {
@@ -51,10 +51,10 @@ class KFrameLayout extends KWidget
   }
 
   /**------------------------------
-   * ƒ‰ƒxƒ‹
+   * ãƒ©ãƒ™ãƒ«
    * 
-   * @param v ƒ‰ƒxƒ‹
-   * @return ƒ‰ƒxƒ‹
+   * @param v ãƒ©ãƒ™ãƒ«
+   * @return ãƒ©ãƒ™ãƒ«
    ------------------------------*/
   property label {
     getter {
@@ -70,9 +70,9 @@ class KFrameLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğ”z’u‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’é…ç½®ã™ã‚‹
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
    ------------------------------*/
   function add(child) {
     this.child = child;
@@ -81,10 +81,10 @@ class KFrameLayout extends KWidget
   }
 
   /**------------------------------
-   * qƒEƒBƒWƒFƒbƒg‚ğíœ‚·‚é
+   * å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚’å‰Šé™¤ã™ã‚‹
    *
-   * @param child qƒEƒBƒWƒFƒbƒg
-   * @param doInvalidate invalidate‚·‚é‚©‚Ç‚¤‚©
+   * @param child å­ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆ
+   * @param doInvalidate invalidateã™ã‚‹ã‹ã©ã†ã‹
    ------------------------------*/
   function remove(child, doInvalidate = true) {
     this.child = void;
@@ -95,7 +95,7 @@ class KFrameLayout extends KWidget
   }
 
   /*------------------------------
-   * ŠeíƒtƒbƒNŠÖ”
+   * å„ç¨®ãƒ•ãƒƒã‚¯é–¢æ•°
    ------------------------------*/
   function onChildMinMaxSizeModified {
     invalidateLayout();
@@ -137,7 +137,7 @@ class KFrameLayout extends KWidget
   }
 
   /*------------------------------
-   * ƒŒƒCƒAƒEƒg‚â‚è’¼‚µ
+   * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚„ã‚Šç›´ã—
    ------------------------------*/
   function invalidateLayout {
     var minW, minH, maxW, maxH;
@@ -175,7 +175,7 @@ class KFrameLayout extends KWidget
   }
 
   /*------------------------------
-   * ƒŠƒhƒ[
+   * ãƒªãƒ‰ãƒ­ãƒ¼
    ------------------------------*/
   function redraw {
     redrawn = true;

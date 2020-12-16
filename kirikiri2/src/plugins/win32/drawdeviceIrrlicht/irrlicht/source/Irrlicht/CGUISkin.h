@@ -27,7 +27,7 @@ namespace gui
 		CGUISkin(EGUI_SKIN_TYPE type, video::IVideoDriver* driver);
 
 		//! destructor
-		virtual ~CGUISkin();
+		virtual ‾CGUISkin();
 
 		//! returns default color
 		virtual video::SColor getColor(EGUI_DEFAULT_COLOR color) const;
@@ -60,8 +60,8 @@ namespace gui
 		//! Sets a default icon
 		/** Sets the sprite index used for drawing icons like arrows, 
 		close buttons and ticks in checkboxes 
-		\param icon: Enum specifying which icon to change
-		\param index: The sprite index used to draw this icon */
+		¥param icon: Enum specifying which icon to change
+		¥param index: The sprite index used to draw this icon */
 		virtual void setIcon(EGUI_DEFAULT_ICON icon, u32 index);
 
 		//! Returns a default text.
@@ -78,9 +78,9 @@ namespace gui
 		/**	Used for drawing for example buttons in normal state. 
 		It uses the colors EGDC_3D_DARK_SHADOW, EGDC_3D_HIGH_LIGHT, EGDC_3D_SHADOW and
 		EGDC_3D_FACE for this. See EGUI_DEFAULT_COLOR for details. 
-		\param rect: Defining area where to draw.
-		\param clip: Clip area.
-		\param element: Pointer to the element which wishes to draw this. This parameter
+		¥param rect: Defining area where to draw.
+		¥param clip: Clip area.
+		¥param element: Pointer to the element which wishes to draw this. This parameter
 		is usually not used by ISkin, but can be used for example by more complex 
 		implementations to find out how to draw the part exactly. */
 		virtual void draw3DButtonPaneStandard(IGUIElement* element, 
@@ -91,9 +91,9 @@ namespace gui
 		/**	Used for drawing for example buttons in pressed state. 
 		It uses the colors EGDC_3D_DARK_SHADOW, EGDC_3D_HIGH_LIGHT, EGDC_3D_SHADOW and
 		EGDC_3D_FACE for this. See EGUI_DEFAULT_COLOR for details. 
-		\param rect: Defining area where to draw.
-		\param clip: Clip area.
-		\param element: Pointer to the element which wishes to draw this. This parameter
+		¥param rect: Defining area where to draw.
+		¥param clip: Clip area.
+		¥param element: Pointer to the element which wishes to draw this. This parameter
 		is usually not used by ISkin, but can be used for example by more complex 
 		implementations to find out how to draw the part exactly. */
 		virtual void draw3DButtonPanePressed(IGUIElement* element, 
@@ -102,14 +102,14 @@ namespace gui
 
 		//! draws a sunken 3d pane
 		/** Used for drawing the background of edit, combo or check boxes.
-		\param element: Pointer to the element which wishes to draw this. This parameter
+		¥param element: Pointer to the element which wishes to draw this. This parameter
 		is usually not used by ISkin, but can be used for example by more complex 
 		implementations to find out how to draw the part exactly. 
-		\param bgcolor: Background color.
-		\param flat: Specifies if the sunken pane should be flat or displayed as sunken 
+		¥param bgcolor: Background color.
+		¥param flat: Specifies if the sunken pane should be flat or displayed as sunken 
 		 deep into the ground.
-		\param rect: Defining area where to draw.
-		\param clip: Clip area.	*/
+		¥param rect: Defining area where to draw.
+		¥param clip: Clip area.	*/
 		virtual void draw3DSunkenPane(IGUIElement* element,
 				video::SColor bgcolor, bool flat,
 				bool fillBackGround,
@@ -118,14 +118,14 @@ namespace gui
 
 		//! draws a window background
 		/** Used for drawing the background of dialogs and windows.
-		\param element: Pointer to the element which wishes to draw this. This parameter
+		¥param element: Pointer to the element which wishes to draw this. This parameter
 		is usually not used by ISkin, but can be used for example by more complex 
 		implementations to find out how to draw the part exactly. 
-		\param titleBarColor: Title color.
-		\param drawTitleBar: True to enable title drawing.
-		\param rect: Defining area where to draw.
-		\param clip: Clip area.
-		\return Returns rect where to draw title bar text. */
+		¥param titleBarColor: Title color.
+		¥param drawTitleBar: True to enable title drawing.
+		¥param rect: Defining area where to draw.
+		¥param clip: Clip area.
+		¥return Returns rect where to draw title bar text. */
 		virtual core::rect<s32> draw3DWindowBackground(IGUIElement* element,
 				bool drawTitleBar, video::SColor titleBarColor,
 				const core::rect<s32>& rect,
@@ -135,61 +135,61 @@ namespace gui
 		/**	Used for drawing for menus and context menus. 
 		It uses the colors EGDC_3D_DARK_SHADOW, EGDC_3D_HIGH_LIGHT, EGDC_3D_SHADOW and
 		EGDC_3D_FACE for this. See EGUI_DEFAULT_COLOR for details. 
-		\param element: Pointer to the element which wishes to draw this. This parameter
+		¥param element: Pointer to the element which wishes to draw this. This parameter
 		is usually not used by ISkin, but can be used for example by more complex 
 		implementations to find out how to draw the part exactly. 
-		\param rect: Defining area where to draw.
-		\param clip: Clip area.	*/
+		¥param rect: Defining area where to draw.
+		¥param clip: Clip area.	*/
 		virtual void draw3DMenuPane(IGUIElement* element,
 				const core::rect<s32>& rect,
 				const core::rect<s32>* clip=0);
 
 		//! draws a standard 3d tool bar
 		/**	Used for drawing for toolbars and menus.
-		\param element: Pointer to the element which wishes to draw this. This parameter
+		¥param element: Pointer to the element which wishes to draw this. This parameter
 		is usually not used by ISkin, but can be used for example by more complex 
 		implementations to find out how to draw the part exactly. 
-		\param rect: Defining area where to draw.
-		\param clip: Clip area.	*/
+		¥param rect: Defining area where to draw.
+		¥param clip: Clip area.	*/
 		virtual void draw3DToolBar(IGUIElement* element,
 				const core::rect<s32>& rect,
 				const core::rect<s32>* clip=0);
 
 		//! draws a tab button
 		/**	Used for drawing for tab buttons on top of tabs.
-		\param element: Pointer to the element which wishes to draw this. This parameter
+		¥param element: Pointer to the element which wishes to draw this. This parameter
 		is usually not used by ISkin, but can be used for example by more complex 
 		implementations to find out how to draw the part exactly. 
-		\param active: Specifies if the tab is currently active.
-		\param rect: Defining area where to draw.
-		\param clip: Clip area.	*/
+		¥param active: Specifies if the tab is currently active.
+		¥param rect: Defining area where to draw.
+		¥param clip: Clip area.	*/
 		virtual void draw3DTabButton(IGUIElement* element, bool active,
 						const core::rect<s32>& rect,
 						const core::rect<s32>* clip=0);
 
 		//! draws a tab control body
-		/**	\param element: Pointer to the element which wishes to draw this. This parameter
+		/**	¥param element: Pointer to the element which wishes to draw this. This parameter
 		is usually not used by ISkin, but can be used for example by more complex 
 		implementations to find out how to draw the part exactly. 
-		\param border: Specifies if the border should be drawn.
-		\param background: Specifies if the background should be drawn.
-		\param rect: Defining area where to draw.
-		\param clip: Clip area.	*/
+		¥param border: Specifies if the border should be drawn.
+		¥param background: Specifies if the background should be drawn.
+		¥param rect: Defining area where to draw.
+		¥param clip: Clip area.	*/
 		virtual void draw3DTabBody(IGUIElement* element, bool border,
 						bool background,
 						const core::rect<s32>& rect,
 						const core::rect<s32>* clip=0);
 
 		//! draws an icon, usually from the skin's sprite bank
-		/**	\param element: Pointer to the element which wishes to draw this icon. 
+		/**	¥param element: Pointer to the element which wishes to draw this icon. 
 		This parameter is usually not used by IGUISkin, but can be used for example 
 		by more complex implementations to find out how to draw the part exactly. 
-		\param icon: Specifies the icon to be drawn.
-		\param position: The position to draw the icon
-		\param starttime: The time at the start of the animation
-		\param currenttime: The present time, used to calculate the frame number
-		\param loop: Whether the animation should loop or not
-		\param clip: Clip area.	*/
+		¥param icon: Specifies the icon to be drawn.
+		¥param position: The position to draw the icon
+		¥param starttime: The time at the start of the animation
+		¥param currenttime: The present time, used to calculate the frame number
+		¥param loop: Whether the animation should loop or not
+		¥param clip: Clip area.	*/
 		virtual void drawIcon(IGUIElement* element, EGUI_DEFAULT_ICON icon,
 				const core::position2di position,
 				u32 starttime=0, u32 currenttime=0, 
@@ -197,13 +197,13 @@ namespace gui
 
 
 		//! draws a 2d rectangle.
-		/** \param element: Pointer to the element which wishes to draw this icon. 
+		/** ¥param element: Pointer to the element which wishes to draw this icon. 
 		This parameter is usually not used by IGUISkin, but can be used for example 
 		by more complex implementations to find out how to draw the part exactly. 
-		\param color: Color of the rectangle to draw. The alpha component specifies how 
+		¥param color: Color of the rectangle to draw. The alpha component specifies how 
 		transparent the rectangle will be.
-		\param pos: Position of the rectangle.
-		\param clip: Pointer to rectangle against which the rectangle will be clipped.
+		¥param pos: Position of the rectangle.
+		¥param clip: Pointer to rectangle against which the rectangle will be clipped.
 		If the pointer is null, no clipping will be performed. */
 		virtual void draw2DRectangle(IGUIElement* element, const video::SColor &color, 
 				const core::rect<s32>& pos, const core::rect<s32>* clip = 0);

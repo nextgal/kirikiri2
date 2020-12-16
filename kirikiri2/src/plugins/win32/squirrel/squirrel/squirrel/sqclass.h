@@ -35,7 +35,7 @@ public:
 		new (newclass) SQClass(ss, base);
 		return newclass;
 	}
-	~SQClass();
+	‾SQClass();
 	bool NewSlot(SQSharedState *ss, const SQObjectPtr &key,const SQObjectPtr &val,bool bstatic);
 	bool Exist(const SQObjectPtr &key) {
 		return _members->Exist(key);
@@ -78,7 +78,7 @@ public:
 	SQInteger _udsize;
 };
 
-#define calcinstancesize(_theclass_) \
+#define calcinstancesize(_theclass_) ¥
 	(_theclass_->_udsize + sizeof(SQInstance) + (sizeof(SQObjectPtr)*(_theclass_->_defaultvalues.size()>0?_theclass_->_defaultvalues.size()-1:0)))
 
 struct SQInstance : public SQDelegable 
@@ -107,7 +107,7 @@ public:
 		}
 		return newinst;
 	}
-	~SQInstance();
+	‾SQInstance();
 	bool Exist(const SQObjectPtr &key)  {
 		if(_class->_members->Exist(key)) {
 			return true;
@@ -141,7 +141,7 @@ public:
 		_uiRef--;
 		if(_uiRef > 0) return;
 		SQInteger size = _memsize;
-		this->~SQInstance();
+		this->‾SQInstance();
 		SQ_FREE(this, size);
 	}
 	void Finalize();

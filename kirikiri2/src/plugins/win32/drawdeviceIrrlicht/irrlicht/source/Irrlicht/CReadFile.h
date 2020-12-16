@@ -26,7 +26,7 @@ namespace io
 		CReadFile(const wchar_t* fileName);
 		CReadFile(const c8* fileName);
 
-		virtual ~CReadFile();
+		virtual ‾CReadFile();
 
 		//! returns how much was read
 		virtual s32 read(void* buffer, u32 sizeToRead);

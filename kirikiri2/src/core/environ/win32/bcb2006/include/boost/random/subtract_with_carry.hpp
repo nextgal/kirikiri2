@@ -291,7 +291,7 @@ public:
     using std::fmod;
     using std::pow;
 #endif
-    unsigned long mask = ~((~0u) << (w%32));   // now lowest (w%32) bits set
+    unsigned long mask = ‾((‾0u) << (w%32));   // now lowest (w%32) bits set
     RealType two32 = pow(RealType(2), 32);
     unsigned int j;
     for(j = 0; j < long_lag && first != last; ++j, ++first) {

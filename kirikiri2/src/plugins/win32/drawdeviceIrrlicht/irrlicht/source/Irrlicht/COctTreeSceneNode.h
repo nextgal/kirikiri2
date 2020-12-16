@@ -23,7 +23,7 @@ namespace scene
 			s32 minimalPolysPerNode=128);
 
 		//! destructor
-		virtual ~COctTreeSceneNode();
+		virtual ‾COctTreeSceneNode();
 
 		virtual void OnRegisterSceneNode();
 

@@ -38,7 +38,7 @@ int stream_size;
     state = (struct inflate_state FAR *)ZALLOC(strm, 1,
                                                sizeof(struct inflate_state));
     if (state == Z_NULL) return Z_MEM_ERROR;
-    Tracev((stderr, "inflate: allocated\n"));
+    Tracev((stderr, "inflate: allocated¥n"));
     strm->state = (voidpf)state;
     state->window = window;
     return Z_OK;
@@ -90,101 +90,101 @@ void makefixed9(void)
     printf("    static const code lenfix[%u] = {", size);
     low = 0;
     for (;;) {
-        if ((low % 6) == 0) printf("\n        ");
+        if ((low % 6) == 0) printf("¥n        ");
         printf("{%u,%u,%d}", lenfix[low].op, lenfix[low].bits,
                lenfix[low].val);
         if (++low == size) break;
         putchar(',');
     }
-    puts("\n    };");
+    puts("¥n    };");
     size = 1U << 5;
-    printf("\n    static const code distfix[%u] = {", size);
+    printf("¥n    static const code distfix[%u] = {", size);
     low = 0;
     for (;;) {
-        if ((low % 5) == 0) printf("\n        ");
+        if ((low % 5) == 0) printf("¥n        ");
         printf("{%u,%u,%d}", distfix[low].op, distfix[low].bits,
                distfix[low].val);
         if (++low == size) break;
         putchar(',');
     }
-    puts("\n    };");
+    puts("¥n    };");
 }
 #endif /* MAKEFIXED */
 
 /* Macros for inflateBack(): */
 
 /* Clear the input bit accumulator */
-#define INITBITS() \
-    do { \
-        hold = 0; \
-        bits = 0; \
+#define INITBITS() ¥
+    do { ¥
+        hold = 0; ¥
+        bits = 0; ¥
     } while (0)
 
 /* Assure that some input is available.  If input is requested, but denied,
    then return a Z_BUF_ERROR from inflateBack(). */
-#define PULL() \
-    do { \
-        if (have == 0) { \
-            have = in(in_desc, &next); \
-            if (have == 0) { \
-                next = Z_NULL; \
-                ret = Z_BUF_ERROR; \
-                goto inf_leave; \
-            } \
-        } \
+#define PULL() ¥
+    do { ¥
+        if (have == 0) { ¥
+            have = in(in_desc, &next); ¥
+            if (have == 0) { ¥
+                next = Z_NULL; ¥
+                ret = Z_BUF_ERROR; ¥
+                goto inf_leave; ¥
+            } ¥
+        } ¥
     } while (0)
 
 /* Get a byte of input into the bit accumulator, or return from inflateBack()
    with an error if there is no input available. */
-#define PULLBYTE() \
-    do { \
-        PULL(); \
-        have--; \
-        hold += (unsigned long)(*next++) << bits; \
-        bits += 8; \
+#define PULLBYTE() ¥
+    do { ¥
+        PULL(); ¥
+        have--; ¥
+        hold += (unsigned long)(*next++) << bits; ¥
+        bits += 8; ¥
     } while (0)
 
 /* Assure that there are at least n bits in the bit accumulator.  If there is
    not enough available input to do that, then return from inflateBack() with
    an error. */
-#define NEEDBITS(n) \
-    do { \
-        while (bits < (unsigned)(n)) \
-            PULLBYTE(); \
+#define NEEDBITS(n) ¥
+    do { ¥
+        while (bits < (unsigned)(n)) ¥
+            PULLBYTE(); ¥
     } while (0)
 
 /* Return the low n bits of the bit accumulator (n <= 16) */
-#define BITS(n) \
+#define BITS(n) ¥
     ((unsigned)hold & ((1U << (n)) - 1))
 
 /* Remove n bits from the bit accumulator */
-#define DROPBITS(n) \
-    do { \
-        hold >>= (n); \
-        bits -= (unsigned)(n); \
+#define DROPBITS(n) ¥
+    do { ¥
+        hold >>= (n); ¥
+        bits -= (unsigned)(n); ¥
     } while (0)
 
 /* Remove zero to seven bits as needed to go to a byte boundary */
-#define BYTEBITS() \
-    do { \
-        hold >>= bits & 7; \
-        bits -= bits & 7; \
+#define BYTEBITS() ¥
+    do { ¥
+        hold >>= bits & 7; ¥
+        bits -= bits & 7; ¥
     } while (0)
 
 /* Assure that some output space is available, by writing out the window
    if it's full.  If the write fails, return from inflateBack() with a
    Z_BUF_ERROR. */
-#define ROOM() \
-    do { \
-        if (left == 0) { \
-            put = window; \
-            left = WSIZE; \
-            wrap = 1; \
-            if (out(out_desc, put, (unsigned)left)) { \
-                ret = Z_BUF_ERROR; \
-                goto inf_leave; \
-            } \
-        } \
+#define ROOM() ¥
+    do { ¥
+        if (left == 0) { ¥
+            put = window; ¥
+            left = WSIZE; ¥
+            wrap = 1; ¥
+            if (out(out_desc, put, (unsigned)left)) { ¥
+                ret = Z_BUF_ERROR; ¥
+                goto inf_leave; ¥
+            } ¥
+        } ¥
     } while (0)
 
 /*
@@ -286,7 +286,7 @@ void FAR *out_desc;
             DROPBITS(1);
             switch (BITS(2)) {
             case 0:                             /* stored block */
-                Tracev((stderr, "inflate:     stored block%s\n",
+                Tracev((stderr, "inflate:     stored block%s¥n",
                         lastblock ? " (last)" : ""));
                 mode = STORED;
                 break;
@@ -295,12 +295,12 @@ void FAR *out_desc;
                 lenbits = 9;
                 distcode = distfix;
                 distbits = 5;
-                Tracev((stderr, "inflate:     fixed codes block%s\n",
+                Tracev((stderr, "inflate:     fixed codes block%s¥n",
                         lastblock ? " (last)" : ""));
                 mode = LEN;                     /* decode codes */
                 break;
             case 2:                             /* dynamic block */
-                Tracev((stderr, "inflate:     dynamic codes block%s\n",
+                Tracev((stderr, "inflate:     dynamic codes block%s¥n",
                         lastblock ? " (last)" : ""));
                 mode = TABLE;
                 break;
@@ -321,7 +321,7 @@ void FAR *out_desc;
                 break;
             }
             length = (unsigned)hold & 0xffff;
-            Tracev((stderr, "inflate:       stored length %lu\n",
+            Tracev((stderr, "inflate:       stored length %lu¥n",
                     length));
             INITBITS();
 
@@ -339,7 +339,7 @@ void FAR *out_desc;
                 put += copy;
                 length -= copy;
             }
-            Tracev((stderr, "inflate:       stored end\n"));
+            Tracev((stderr, "inflate:       stored end¥n"));
             mode = TYPE;
             break;
 
@@ -357,7 +357,7 @@ void FAR *out_desc;
                 mode = BAD;
                 break;
             }
-            Tracev((stderr, "inflate:       table sizes ok\n"));
+            Tracev((stderr, "inflate:       table sizes ok¥n"));
 
             /* get code length code lengths (not a typo) */
             state->have = 0;
@@ -378,7 +378,7 @@ void FAR *out_desc;
                 mode = BAD;
                 break;
             }
-            Tracev((stderr, "inflate:       code lengths ok\n"));
+            Tracev((stderr, "inflate:       code lengths ok¥n"));
 
             /* get length and distance code code lengths */
             state->have = 0;
@@ -463,7 +463,7 @@ void FAR *out_desc;
                 mode = BAD;
                 break;
             }
-            Tracev((stderr, "inflate:       codes ok\n"));
+            Tracev((stderr, "inflate:       codes ok¥n"));
             mode = LEN;
 
         case LEN:
@@ -489,8 +489,8 @@ void FAR *out_desc;
             /* process literal */
             if (here.op == 0) {
                 Tracevv((stderr, here.val >= 0x20 && here.val < 0x7f ?
-                        "inflate:         literal '%c'\n" :
-                        "inflate:         literal 0x%02x\n", here.val));
+                        "inflate:         literal '%c'¥n" :
+                        "inflate:         literal 0x%02x¥n", here.val));
                 ROOM();
                 *put++ = (unsigned char)(length);
                 left--;
@@ -500,7 +500,7 @@ void FAR *out_desc;
 
             /* process end of block */
             if (here.op & 32) {
-                Tracevv((stderr, "inflate:         end of block\n"));
+                Tracevv((stderr, "inflate:         end of block¥n"));
                 mode = TYPE;
                 break;
             }
@@ -519,7 +519,7 @@ void FAR *out_desc;
                 length += BITS(extra);
                 DROPBITS(extra);
             }
-            Tracevv((stderr, "inflate:         length %lu\n", length));
+            Tracevv((stderr, "inflate:         length %lu¥n", length));
 
             /* get distance code */
             for (;;) {
@@ -557,7 +557,7 @@ void FAR *out_desc;
                 mode = BAD;
                 break;
             }
-            Tracevv((stderr, "inflate:         distance %lu\n", offset));
+            Tracevv((stderr, "inflate:         distance %lu¥n", offset));
 
             /* copy match from window to output */
             do {
@@ -612,6 +612,6 @@ z_stream FAR *strm;
         return Z_STREAM_ERROR;
     ZFREE(strm, strm->state);
     strm->state = Z_NULL;
-    Tracev((stderr, "inflate: end\n"));
+    Tracev((stderr, "inflate: end¥n"));
     return Z_OK;
 }

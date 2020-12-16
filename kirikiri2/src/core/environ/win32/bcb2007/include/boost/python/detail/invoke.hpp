@@ -63,7 +63,7 @@ struct invoke_tag
     >
 {};
 
-#  define BOOST_PP_ITERATION_PARAMS_1                                            \
+#  define BOOST_PP_ITERATION_PARAMS_1                                            ¥
         (3, (0, BOOST_PYTHON_MAX_ARITY, <boost/python/detail/invoke.hpp>))
 #  include BOOST_PP_ITERATE()
 

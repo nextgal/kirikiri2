@@ -15,13 +15,13 @@
 #define NEXT() {Next();_currentcolumn++;}
 #define INIT_TEMP_STRING() { _longstr.resize(0);}
 #define APPEND_CHAR(c) { _longstr.push_back(c);}
-#define TERMINATE_BUFFER() {_longstr.push_back(_SC('\0'));}
+#define TERMINATE_BUFFER() {_longstr.push_back(_SC('¥0'));}
 #define ADD_KEYWORD(key,id) _keywords->NewSlot( SQString::Create(ss, _SC(#key)) ,SQInteger(id))
 
 #define iskanji1(c) (((((c) ^ 0x20) - 0xa1) & 0xff) < 0x3c)
 
 SQLexer::SQLexer(){}
-SQLexer::~SQLexer()
+SQLexer::‾SQLexer()
 {
 	_keywords->Release();
 }
@@ -117,8 +117,8 @@ void SQLexer::LexBlockComment()
 	while(!done) {
 		switch(CUR_CHAR) {
 			case _SC('*'): { NEXT(); if(CUR_CHAR == _SC('/')) { done = true; NEXT(); }}; continue;
-			case _SC('\n'): _currentline++; NEXT(); continue;
-			case SQUIRREL_EOB: Error(_SC("missing \"*/\" in comment"));
+			case _SC('¥n'): _currentline++; NEXT(); continue;
+			case SQUIRREL_EOB: Error(_SC("missing ¥"*/¥" in comment"));
 			default: NEXT();
 		}
 	}
@@ -138,11 +138,11 @@ SQInteger SQLexer::Lex()
 		iskanji = false;
 #endif
 		switch(CUR_CHAR){
-		case _SC('\t'): case _SC('\r'): case _SC(' '): NEXT(); continue;
-		case _SC('\n'):
+		case _SC('¥t'): case _SC('¥r'): case _SC(' '): NEXT(); continue;
+		case _SC('¥n'):
 			_currentline++;
 			_prevtoken=_curtoken;
-			_curtoken=_SC('\n');
+			_curtoken=_SC('¥n');
 			NEXT();
 			_currentcolumn=1;
 			continue;
@@ -154,7 +154,7 @@ SQInteger SQLexer::Lex()
 				LexBlockComment();
 				continue;	
 			case _SC('/'):
-				do { NEXT(); } while (CUR_CHAR != _SC('\n') && (!IS_EOB()));
+				do { NEXT(); } while (CUR_CHAR != _SC('¥n') && (!IS_EOB()));
 				continue;
 			case _SC('='):
 				NEXT();
@@ -206,7 +206,7 @@ SQInteger SQLexer::Lex()
 			Error(_SC("error parsing the string"));
 					   }
 		case _SC('"'):
-		case _SC('\''): {
+		case _SC('¥''): {
 			SQInteger stype;
 			if((stype=ReadString(CUR_CHAR,false))!=-1){
 				RETURN_TOKEN(stype);
@@ -214,7 +214,7 @@ SQInteger SQLexer::Lex()
 			Error(_SC("error parsing the string"));
 			}
 		case _SC('{'): case _SC('}'): case _SC('('): case _SC(')'): case _SC('['): case _SC(']'):
-		case _SC(';'): case _SC(','): case _SC('?'): case _SC('^'): case _SC('~'):
+		case _SC(';'): case _SC(','): case _SC('?'): case _SC('^'): case _SC('‾'):
 			{SQInteger ret = CUR_CHAR;
 			NEXT(); RETURN_TOKEN(ret); }
 		case _SC('.'):
@@ -302,14 +302,14 @@ SQInteger SQLexer::ReadString(SQInteger ndelim,bool verbatim)
 			case SQUIRREL_EOB:
 				Error(_SC("unfinished string"));
 				return -1;
-			case _SC('\n'): 
+			case _SC('¥n'): 
 				if(!verbatim) Error(_SC("newline in a constant")); 
 				APPEND_CHAR(CUR_CHAR); NEXT(); 
 				_currentline++;
 				break;
-			case _SC('\\'):
+			case _SC('¥¥'):
 				if(verbatim) {
-					APPEND_CHAR('\\'); NEXT(); 
+					APPEND_CHAR('¥¥'); NEXT(); 
 				}
 				else {
 					NEXT();
@@ -329,17 +329,17 @@ SQInteger SQLexer::ReadString(SQInteger ndelim,bool verbatim)
 						APPEND_CHAR((SQChar)scstrtoul(temp,&sTemp,16));
 					}
 				    break;
-					case _SC('t'): APPEND_CHAR(_SC('\t')); NEXT(); break;
-					case _SC('a'): APPEND_CHAR(_SC('\a')); NEXT(); break;
-					case _SC('b'): APPEND_CHAR(_SC('\b')); NEXT(); break;
-					case _SC('n'): APPEND_CHAR(_SC('\n')); NEXT(); break;
-					case _SC('r'): APPEND_CHAR(_SC('\r')); NEXT(); break;
-					case _SC('v'): APPEND_CHAR(_SC('\v')); NEXT(); break;
-					case _SC('f'): APPEND_CHAR(_SC('\f')); NEXT(); break;
-					case _SC('0'): APPEND_CHAR(_SC('\0')); NEXT(); break;
-					case _SC('\\'): APPEND_CHAR(_SC('\\')); NEXT(); break;
+					case _SC('t'): APPEND_CHAR(_SC('¥t')); NEXT(); break;
+					case _SC('a'): APPEND_CHAR(_SC('¥a')); NEXT(); break;
+					case _SC('b'): APPEND_CHAR(_SC('¥b')); NEXT(); break;
+					case _SC('n'): APPEND_CHAR(_SC('¥n')); NEXT(); break;
+					case _SC('r'): APPEND_CHAR(_SC('¥r')); NEXT(); break;
+					case _SC('v'): APPEND_CHAR(_SC('¥v')); NEXT(); break;
+					case _SC('f'): APPEND_CHAR(_SC('¥f')); NEXT(); break;
+					case _SC('0'): APPEND_CHAR(_SC('¥0')); NEXT(); break;
+					case _SC('¥¥'): APPEND_CHAR(_SC('¥¥')); NEXT(); break;
 					case _SC('"'): APPEND_CHAR(_SC('"')); NEXT(); break;
-					case _SC('\''): APPEND_CHAR(_SC('\'')); NEXT(); break;
+					case _SC('¥''): APPEND_CHAR(_SC('¥'')); NEXT(); break;
 					default:
 						Error(_SC("unrecognised escaper char"));
 					break;
@@ -368,7 +368,7 @@ SQInteger SQLexer::ReadString(SQInteger ndelim,bool verbatim)
 	}
 	TERMINATE_BUFFER();
 	SQInteger len = _longstr.size()-1;
-	if(ndelim == _SC('\'')) {
+	if(ndelim == _SC('¥'')) {
 		if(len == 0) Error(_SC("empty constant"));
 		if(len > 1) Error(_SC("constant too long"));
 		_nvalue = _longstr[0];

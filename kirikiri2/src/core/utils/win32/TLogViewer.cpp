@@ -87,7 +87,7 @@ __fastcall TLogViewer::TLogViewer(TWinControl *owner) : TCustomControl(Owner)
 	FDoubleClickSelecting = false;
 }
 //---------------------------------------------------------------------------
-__fastcall TLogViewer::~TLogViewer()
+__fastcall TLogViewer::‾TLogViewer()
 {
 	if(CharWidthMap) delete [] CharWidthMap;
 	if(ScrollTimer) delete ScrollTimer;
@@ -128,7 +128,7 @@ void __fastcall TLogViewer::Paint()
 
 			for(tjs_int i = 0; i < data_len; i++)
 			{
-				if(data_start[i] == TJS_W('\t'))
+				if(data_start[i] == TJS_W('¥t'))
 				{
 					// includes tab
 					const tjs_char *data_start_org = data_start;
@@ -138,7 +138,7 @@ void __fastcall TLogViewer::Paint()
 						data_start_org, sizeof(tjs_char)*data_len);
 					for(; i < data_len; i++)
 					{
-						if(data_start[i] == TJS_W('\t'))
+						if(data_start[i] == TJS_W('¥t'))
 							const_cast<tjs_char*>(data_start)[i] = TJS_W(' ');
 					}
 					break;
@@ -240,7 +240,7 @@ int __fastcall TLogViewer::GetTextWidth(const tjs_char *txt, int len)
 				char narrow[10 + 1];
 				TJS_wctomb(narrow, 0);
 				tjs_char wc = *txt;
-				if(wc == TJS_W('\t')) wc = TJS_W(' ');
+				if(wc == TJS_W('¥t')) wc = TJS_W(' ');
 				int narrowlen = TJS_wctomb(narrow, wc);
 				if(narrowlen == -1)
 				{
@@ -256,7 +256,7 @@ int __fastcall TLogViewer::GetTextWidth(const tjs_char *txt, int len)
 			else
 			{
 				tjs_char wc = *txt;
-				if(wc == TJS_W('\t')) wc = TJS_W(' ');
+				if(wc == TJS_W('¥t')) wc = TJS_W(' ');
 				SIZE s;
 				procGetTextExtentPoint32W(Canvas->Handle, &wc, 1, &s);
 				CharWidthMap[*txt] = s.cx;
@@ -288,14 +288,14 @@ void __fastcall TLogViewer::InternalLayout(int start)
 		int w = 0;
 		while(*p)
 		{
-			if(*p == '\n' || *p == '\r')
+			if(*p == '¥n' || *p == '¥r')
 			{
 				FDisplayLineData.push_back(
 					TDisplayLineData(p_start - org_p, p - p_start));
-				if(*p == '\r')
+				if(*p == '¥r')
 				{
 					p++;
-					if(*p == '\n') p++;
+					if(*p == '¥n') p++;
 				}
 				else
 				{
@@ -357,7 +357,7 @@ void __fastcall TLogViewer::Append(const ttstr & str, bool appendcr)
 	int strlen = str.GetLen();
 	if(appendcr) strlen++;
 	FData += str;
-	if(appendcr) FData += TJS_W('\n');
+	if(appendcr) FData += TJS_W('¥n');
 	FDataLength += strlen;
 	InternalLayout(last);
 	SetScrollRange();
@@ -495,7 +495,7 @@ void __fastcall TLogViewer::DataPosToLogicalLine(int pos, int &start, int &len)
 	p--;
 	while(p >= 0)
 	{
-		if(data[p] == '\n') break;
+		if(data[p] == '¥n') break;
 		p--;
 	}
 	p++;
@@ -506,10 +506,10 @@ void __fastcall TLogViewer::DataPosToLogicalLine(int pos, int &start, int &len)
 	p = pos;
 	while(p < FDataLength)
 	{
-		if(data[p] == '\n') break;
+		if(data[p] == '¥n') break;
 		p++;
 	}
-	if(p < FDataLength && data[p] == '\n') p++;
+	if(p < FDataLength && data[p] == '¥n') p++;
 
 	len = p - start;
 }

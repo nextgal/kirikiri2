@@ -77,7 +77,7 @@ SQInstructionDesc g_InstrDesc[]={
 void DumpLiteral(SQObjectPtr &o)
 {
 	switch(type(o)){
-		case OT_STRING:	scprintf(_SC("\"%s\""),_stringval(o));break;
+		case OT_STRING:	scprintf(_SC("¥"%s¥""),_stringval(o));break;
 		case OT_FLOAT: scprintf(_SC("{%f}"),_float(o));break;
 		case OT_INTEGER: scprintf(_SC("{%d}"),_integer(o));break;
 		case OT_BOOL: scprintf(_SC("%s"),_integer(o)?_SC("true"):_SC("false"));break;
@@ -114,11 +114,11 @@ void SQFuncState::Dump(SQFunctionProto *func)
 {
 	SQUnsignedInteger n=0,i;
 	SQInteger si;
-	scprintf(_SC("SQInstruction sizeof %d\n"),sizeof(SQInstruction));
-	scprintf(_SC("SQObject sizeof %d\n"),sizeof(SQObject));
-	scprintf(_SC("--------------------------------------------------------------------\n"));
-	scprintf(_SC("*****FUNCTION [%s]\n"),type(func->_name)==OT_STRING?_stringval(func->_name):_SC("unknown"));
-	scprintf(_SC("-----LITERALS\n"));
+	scprintf(_SC("SQInstruction sizeof %d¥n"),sizeof(SQInstruction));
+	scprintf(_SC("SQObject sizeof %d¥n"),sizeof(SQObject));
+	scprintf(_SC("--------------------------------------------------------------------¥n"));
+	scprintf(_SC("*****FUNCTION [%s]¥n"),type(func->_name)==OT_STRING?_stringval(func->_name):_SC("unknown"));
+	scprintf(_SC("-----LITERALS¥n"));
 	SQObjectPtr refidx,key,val;
 	SQInteger idx;
 	SQObjectPtrVec templiterals;
@@ -130,32 +130,32 @@ void SQFuncState::Dump(SQFunctionProto *func)
 	for(i=0;i<templiterals.size();i++){
 		scprintf(_SC("[%d] "),n);
 		DumpLiteral(templiterals[i]);
-		scprintf(_SC("\n"));
+		scprintf(_SC("¥n"));
 		n++;
 	}
-	scprintf(_SC("-----PARAMS\n"));
+	scprintf(_SC("-----PARAMS¥n"));
 	if(_varparams)
-		scprintf(_SC("<<VARPARAMS>>\n"));
+		scprintf(_SC("<<VARPARAMS>>¥n"));
 	n=0;
 	for(i=0;i<_parameters.size();i++){
 		scprintf(_SC("[%d] "),n);
 		DumpLiteral(_parameters[i]);
-		scprintf(_SC("\n"));
+		scprintf(_SC("¥n"));
 		n++;
 	}
-	scprintf(_SC("-----LOCALS\n"));
+	scprintf(_SC("-----LOCALS¥n"));
 	for(si=0;si<func->_nlocalvarinfos;si++){
 		SQLocalVarInfo lvi=func->_localvarinfos[si];
-		scprintf(_SC("[%d] %s \t%d %d\n"),lvi._pos,_stringval(lvi._name),lvi._start_op,lvi._end_op);
+		scprintf(_SC("[%d] %s ¥t%d %d¥n"),lvi._pos,_stringval(lvi._name),lvi._start_op,lvi._end_op);
 		n++;
 	}
-	scprintf(_SC("-----LINE INFO\n"));
+	scprintf(_SC("-----LINE INFO¥n"));
 	for(i=0;i<_lineinfos.size();i++){
 		SQLineInfo li=_lineinfos[i];
-		scprintf(_SC("op [%d] line [%d] \n"),li._op,li._line);
+		scprintf(_SC("op [%d] line [%d] ¥n"),li._op,li._line);
 		n++;
 	}
-	scprintf(_SC("-----dump\n"));
+	scprintf(_SC("-----dump¥n"));
 	n=0;
 	for(i=0;i<_instructions.size();i++){
 		SQInstruction &inst=_instructions[i];
@@ -174,7 +174,7 @@ void SQFuncState::Dump(SQFunctionProto *func)
 				DumpLiteral(key);
 			}
 			if(inst.op != _OP_DLOAD) {
-				scprintf(_SC(" %d %d \n"),inst._arg2,inst._arg3);
+				scprintf(_SC(" %d %d ¥n"),inst._arg2,inst._arg3);
 			}
 			else {
 				scprintf(_SC(" %d "),inst._arg2);
@@ -188,23 +188,23 @@ void SQFuncState::Dump(SQFunctionProto *func)
 						refo = refidx;	
 				}
 				DumpLiteral(key);
-				scprintf(_SC("\n"));
+				scprintf(_SC("¥n"));
 			}
 			}
 		}
 		else if(inst.op==_OP_LOADFLOAT) {
-			scprintf(_SC("[%03d] %15s %d %f %d %d\n"),n,g_InstrDesc[inst.op].name,inst._arg0,*((SQFloat*)&inst._arg1),inst._arg2,inst._arg3);
+			scprintf(_SC("[%03d] %15s %d %f %d %d¥n"),n,g_InstrDesc[inst.op].name,inst._arg0,*((SQFloat*)&inst._arg1),inst._arg2,inst._arg3);
 		}
 		else if(inst.op==_OP_ARITH){
-			scprintf(_SC("[%03d] %15s %d %d %d %c\n"),n,g_InstrDesc[inst.op].name,inst._arg0,inst._arg1,inst._arg2,inst._arg3);
+			scprintf(_SC("[%03d] %15s %d %d %d %c¥n"),n,g_InstrDesc[inst.op].name,inst._arg0,inst._arg1,inst._arg2,inst._arg3);
 		}
 		else 
-			scprintf(_SC("[%03d] %15s %d %d %d %d\n"),n,g_InstrDesc[inst.op].name,inst._arg0,inst._arg1,inst._arg2,inst._arg3);
+			scprintf(_SC("[%03d] %15s %d %d %d %d¥n"),n,g_InstrDesc[inst.op].name,inst._arg0,inst._arg1,inst._arg2,inst._arg3);
 		n++;
 	}
-	scprintf(_SC("-----\n"));
-	scprintf(_SC("stack size[%d]\n"),func->_stacksize);
-	scprintf(_SC("--------------------------------------------------------------------\n\n"));
+	scprintf(_SC("-----¥n"));
+	scprintf(_SC("stack size[%d]¥n"),func->_stacksize);
+	scprintf(_SC("--------------------------------------------------------------------¥n¥n"));
 }
 #endif
 
@@ -558,7 +558,7 @@ void SQFuncState::PopChildState()
 	_childstates.pop_back();
 }
 
-SQFuncState::~SQFuncState()
+SQFuncState::‾SQFuncState()
 {
 	while(_childstates.size() > 0)
 	{

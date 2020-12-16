@@ -102,7 +102,7 @@ tTVPSusiePlugin::tTVPSusiePlugin(HINSTANCE inst, const char *api)
 	}
 };
 //---------------------------------------------------------------------------
-tTVPSusiePlugin::~tTVPSusiePlugin()
+tTVPSusiePlugin::‾tTVPSusiePlugin()
 {
 }
 //---------------------------------------------------------------------------
@@ -118,7 +118,7 @@ class tTVPSusiePicturePlugin : public tTVPSusiePlugin
 	tTVPBMPAlphaType AlphaType;
 public:
 	tTVPSusiePicturePlugin(HINSTANCE inst, tTVPBMPAlphaType alphatype);
-	~tTVPSusiePicturePlugin();
+	‾tTVPSusiePicturePlugin();
 
 	tTVPBMPAlphaType GetAlphaType() const { return AlphaType; }
 
@@ -138,7 +138,7 @@ tTVPSusiePicturePlugin::tTVPSusiePicturePlugin(HINSTANCE inst,
 	AlphaType = alphatype;
 }
 //---------------------------------------------------------------------------
-tTVPSusiePicturePlugin::~tTVPSusiePicturePlugin()
+tTVPSusiePicturePlugin::‾tTVPSusiePicturePlugin()
 {
 }
 //---------------------------------------------------------------------------

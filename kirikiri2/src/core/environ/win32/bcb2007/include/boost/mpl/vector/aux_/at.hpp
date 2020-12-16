@@ -43,7 +43,7 @@ struct at_traits< aux::vector_tag >
 
 #else
 
-#if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) \
+#if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) ¥
  && !defined(BOOST_NO_NON_TYPE_TEMPLATE_PARTIAL_SPECIALIZATION)
 
 template< long S >

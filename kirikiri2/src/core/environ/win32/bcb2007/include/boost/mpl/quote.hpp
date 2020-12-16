@@ -27,7 +27,7 @@
 
 #include "boost/mpl/aux_/config/use_preprocessed.hpp"
 
-#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) \
+#if !defined(BOOST_MPL_NO_PREPROCESSED_HEADERS) ¥
  && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER quote.hpp
@@ -87,7 +87,7 @@ template<> struct quote_impl<false>
 
 #endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-#define BOOST_PP_ITERATION_PARAMS_1 \
+#define BOOST_PP_ITERATION_PARAMS_1 ¥
     (3,(1, BOOST_MPL_METAFUNCTION_MAX_ARITY, "boost/mpl/quote.hpp"))
 #include BOOST_PP_ITERATE()
 
